@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_common" inherit_id="web.assets_common" name="Extend Input Types of Fields">
+        <xpath expr="//link[last()]" position="after">
+            <script type="text/javascript" src="/web_field_input_type/static/src/js/basic_fields.js"></script>
+        </xpath>
+    </template>
+
+</odoo>
