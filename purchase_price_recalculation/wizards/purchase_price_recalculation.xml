@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="purchase_price_recalculation_form_view">
+        <field name="name">purchase.price.recalculation.form (in purchase_price_recalculation)</field>
+        <field name="model">purchase.price.recalculation</field>
+        <field name="arch" type="xml">
+            <form string="Update Pricing">
+
+                <label colspan="5" string="This will reprice the purchase order and any draft invoices.
+                        It will not work if the order is already invoiced or goods already received. Only pricing
+                        can be changed, products and quantities cannot. Repricing from quote
+                        will use the last product template matched."/>
+                <field name="partner_id" invisible="1"/>
+                <field name="name" invisible="1"/>
+                <group>
+                    <group/>
+                    <group>
+                        <field name="total"/>
+                        <field name="tax_incl"/>
+                        <field name="precision"/>
+                    </group>
+                </group>
+                <field name="line_ids" nolabel="1" colspan="5" mode="tree" width="800">
+                    <tree string="Order Lines" editable="bottom" create="false">
+                        <field name="name" force_save="1" invisible="1"/>
+                        <field name="effective_tax_rate" invisible="1"/>
+                        <field name="product_id" force_save="1" />
+                        <field name="qty" force_save="1"/>
+                        <field name="price_unit" context="{'precision': parent.precision}"/>
+                        <field name="price_subtotal" context="{'precision': parent.precision}"/>
+                        <field name="price_total" context="{'precision': parent.precision}"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_write" string="Write Changes" type="object" class="btn-primary"/>
+                    <button class="btn-default" special="cancel" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+            id="purchase_price_recalculation_act_window"
+            name="Update Pricing"
+            view_mode="form"
+            view_type="form"
+            res_model="purchase.price.recalculation"
+            src_model="purchase.order"
+            target="new"/>
+
+</odoo>
