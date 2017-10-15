@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="mrp_bom_line_form_view">
+        <field name="name">mrp.bom.line.form (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="replace">
+            <field name="product_id" invisible="1"/>
+            <field name="product_tmpl_id"/>
+            <field name="variant_id"/>
+            <field name="match_attributes"/>
+            <field name="required_value_ids" widget="many2many_tags"
+                   domain="[('product_ids.product_tmpl_id', '=', product_tmpl_id)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_bom_line_search_view">
+        <field name="name">mrp.bom.line.search (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.view_mrp_bom_line_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="replace">
+                <field name="product_tmpl_id"/>
+            </xpath>
+            <xpath expr="(//filter)[2]" position="attributes">
+                <attribute name="context">{'group_by': 'product_tmpl_id'}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_bom_component_tree_view">
+        <field name="name">mrp.bom.line.tree (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_component_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="replace">
+                <field name="product_id" invisible="1"/>
+                <field name="product_tmpl_id"/>
+                <field name="variant_id"/>
+            </xpath>
+            <xpath expr="//field[@name='attribute_value_ids']" position="before">
+                <field name="match_attributes"/>
+                <field name="required_value_ids" widget="many2many_tags"
+                       domain="[('product_ids.product_tmpl_id', '=', product_tmpl_id)]"/>
+            </xpath>
+        </field>
+
+    </record>
+
+    <record model="ir.ui.view" id="mrp_bom_line_tree_view">
+        <field name="name">mrp.bom.line.tree (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_line_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="replace">
+                <field name="product_id" invisible="1"/>
+                <field name="product_tmpl_id"/>
+                <field name="variant_id"/>
+            </xpath>
+        </field>
+
+    </record>
+
+</odoo>

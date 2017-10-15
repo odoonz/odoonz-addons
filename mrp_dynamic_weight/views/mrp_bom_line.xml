@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+<data>
+
+    <record model="ir.ui.view" id="mrp_bom_line_form_view">
+        <field name="name">mrp.bom.line.form (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="TODO othermodule.form_view"/>
+        <field name="arch" type="xml">
+            <!-- TODO -->
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_bom_line_search_view">
+        <field name="name">mrp.bom.line.search (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="TODO othermodule.search_view"/>
+        <field name="arch" type="xml">
+            <!-- TODO -->
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_bom_line_tree_view">
+        <field name="name">mrp.bom.line.tree (in mrp_dynamic_lines)</field>
+        <field name="model">mrp.bom.line</field>
+        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
+        <field name="arch" type="xml">
+            <!-- TODO -->
+        </field>
+    </record>
+
+
+</data>
+</odoo>
