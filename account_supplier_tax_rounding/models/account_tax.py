@@ -9,7 +9,8 @@ class AccountTax(models.Model):
     _inherit = 'account.tax'
 
     @api.multi
-    def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
+    def compute_all(self, price_unit, currency=None, quantity=1.0,
+                    product=None, partner=None):
         if partner.tax_calc_method == 'round_per_line' and self.filtered(
                 lambda t: t.type_tax_use == 'purchase'):
             return super(

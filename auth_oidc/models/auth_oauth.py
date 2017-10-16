@@ -2,15 +2,14 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from future import standard_library
-standard_library.install_aliases()
-from builtins import str
-from odoo import models, fields, api
+
 from cryptography.x509 import load_pem_x509_certificate
 from cryptography.hazmat.backends import default_backend
 import jwt
 import urllib.request, urllib.error, urllib.parse
 import json
+
+from odoo import models, fields, api
 
 PEMSTART = "-----BEGIN CERTIFICATE-----\n"
 PEMEND = "\n-----END CERTIFICATE-----\n"

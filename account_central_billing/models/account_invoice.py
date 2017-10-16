@@ -2,14 +2,14 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
 class AccountInvoice(models.Model):
     """inherits account.account_invoice and adds the order_partner_id field
-    as well as overriding ORM functions to ensure the parent partner and order partner
-    are written and created correctly"""
+    as well as overriding ORM functions to ensure the parent partner and order
+    partner are written and created correctly"""
     _inherit = 'account.invoice'
 
     order_partner_id = fields.Many2one(

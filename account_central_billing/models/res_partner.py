@@ -2,7 +2,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
@@ -35,7 +35,7 @@ class ResPartner(models.Model):
 
     @api.constrains('store_ref', 'invoicing_partner_id')
     def _check_store_code(self):
-        """This function checks that the store code is unique within 
+        """This function checks that the store code is unique within
         the account hierarchy it belongs"""
         if not self.invoicing_partner_id:
             return True
@@ -67,8 +67,8 @@ class ResPartner(models.Model):
             f = 'billing_partner_id'
 
         invoice_company = (
-                self.env['res.company'].browse(vals['company_id'])
-                if 'company_id' in vals else invoice.company_id)
+            self.env['res.company'].browse(vals['company_id'])
+            if 'company_id' in vals else invoice.company_id)
         company_partner = invoice_company.partner_id
         p = self
         while p[f]:

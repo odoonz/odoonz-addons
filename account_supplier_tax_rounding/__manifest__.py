@@ -8,9 +8,8 @@
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
-    'depends': ['account','base'],
+    'depends': ['account', 'base'],
     "summary": "This module allows for the tax setting to be be set per "
                "supplier.  It assumes global rounding set on the company.",
     "data": ['views/res_partner.xml'],
 }
-
