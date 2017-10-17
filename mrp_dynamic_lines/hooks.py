@@ -2,8 +2,6 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, SUPERUSER_ID
-
 
 def post_init_hook(cr, pool):
     cr.execute('UPDATE mrp_bom_line '

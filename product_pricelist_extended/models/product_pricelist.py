@@ -2,6 +2,9 @@
 # Copyright 2014 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+# pylint: skip-file
+# we copy from odoo so easier to keep in line for modifications
+
 from itertools import chain
 
 from odoo import models, fields, api, tools, _

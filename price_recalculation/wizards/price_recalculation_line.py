@@ -17,12 +17,12 @@ class PriceRecalculationLine(models.AbstractModel):
         'Qty', digits=dp.get_precision('Product Unit of Measure'),
         readonly=True)
     price_subtotal = fields.Float(
-            'Total ex Tax', digits=dp.get_precision('Account'))
+        'Total ex Tax', digits=dp.get_precision('Account'))
     price_unit = fields.Float(
-            'Unit Price', required=True,
-            digits=dp.get_precision('Product Price'))
+        'Unit Price', required=True,
+        digits=dp.get_precision('Product Price'))
     price_total = fields.Float(
-            'Total inc Tax', digits=dp.get_precision('Account'))
+        'Total inc Tax', digits=dp.get_precision('Account'))
     effective_tax_rate = fields.Float('Effective Tax Rate', readonly=True)
 
     @api.onchange('price_total')

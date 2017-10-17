@@ -5,7 +5,8 @@
 {
     'name': 'Purchase Price Recalculation',
     'description': """
-        Allows to update the pricing of confirmed purchase orders prior to reception""",
+        Allows to update the pricing of confirmed purchase orders 
+        prior to reception""",
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',

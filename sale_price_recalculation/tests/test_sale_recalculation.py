@@ -1,3 +1,8 @@
+
+from random import randint
+from odoo.addons.sale.tests import TestSale
+from odoo.exceptions import ValidationError
+
 import logging
 _logger = logging.Logger(__name__)
 
@@ -7,9 +12,6 @@ try:
 except ImportError as err:
     _logger.debug(err)
 
-from odoo.exceptions import ValidationError
-from random import randint
-from odoo.addons.sale.tests import TestSale
 
 PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
                   allow_nan=False, allow_infinity=False)
@@ -72,10 +74,8 @@ class TestSaleRecalc(TestSale):
         self.assertEqual(s.price_unit, l.price_unit)
         self.assertEqual(s.price_subtotal, l.price_subtotal)
         self.assertEqual(s.price_total, l.price_total)
-        self.assertEqual((s.price_total - s.price_subtotal)
-                         / s.price_subtotal,
-                         (l.price_total - l.price_subtotal)
-                         / l.price_subtotal)
+        self.assertEqual((s.price_total - s.price_subtotal) / s.price_subtotal,
+                         (l.price_total - l.price_subtotal) / l.price_subtotal)
 
         # We test that when we change the total ex tax that
         # the sum of the lines is equal to the total
@@ -193,3 +193,4 @@ class TestSaleRecalc(TestSale):
         :param subtotal: an excl_tax amount
         :return:
         """
+        pass

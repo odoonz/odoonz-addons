@@ -8,7 +8,7 @@
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
-    'depends': ['account','base'],
+    'depends': ['account', 'base'],
     "summary": "This module allows to invoice all sales or purchases for one"
                "company to a different company",
     "data": ['views/res_partner.xml'],

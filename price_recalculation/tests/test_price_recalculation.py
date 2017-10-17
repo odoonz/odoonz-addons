@@ -1,14 +1,15 @@
 
 import logging
+from odoo.addons.sale.tests import TestSale
+
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import given, settings
+    from hypothesis import given
     from hypothesis import strategies as st
 except ImportError as err:
     _logger.debug(err)
 
-from odoo.addons.sale.tests import TestSale
 
 PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
                   allow_nan=False, allow_infinity=False)
@@ -49,7 +50,7 @@ class TestSaleRecalc(TestSale):
 
         return so, recalc
 
-    #Put tests here
+    # Put tests here
     @given(st.streaming(st.floats(**QTY_ARGS)),
            st.streaming(st.floats(**PRICE_ARGS)),
            st.streaming(st.floats(**DISCOUNT_ARGS)),
@@ -61,7 +62,7 @@ class TestSaleRecalc(TestSale):
         """
         so, recalc = self.create_so_and_recalc(qty, price, discount)
         start = len(self.products) + 1
-        #We check the fields are set as expected
+        # We check the fields are set as expected
         self.assertEqual(recalc.name, so.id)
         self.assertEqual(recalc.partner_id, so.partner_id)
         self.assertEqual(len(so.order_line), len(recalc.line_ids))
@@ -73,16 +74,17 @@ class TestSaleRecalc(TestSale):
             self.assertEqual(s.price_subtotal, l.price_subtotal)
             self.assertEqual(s.price_total, l.price_total)
             self.assertEqual((s.price_total - s.price_subtotal)
-                                   / s.price_subtotal,
+                             / s.price_subtotal,
                              (l.price_total - l.price_subtotal)
-                                   / l.price_subtotal)
+                             / l.price_subtotal)
 
         # We test that when we change the total ex tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = False
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertEqual(sum([l.price_subtotal for l in recalc.line_ids]), recalc.total)
+        self.assertEqual(sum([l.price_subtotal for l in recalc.line_ids]),
+                         recalc.total)
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_subtotal / recalc.total
@@ -92,13 +94,13 @@ class TestSaleRecalc(TestSale):
                 s.price_subtotal / l.price_subtotal,
                 approx_change, delta=0.1)
 
-
         # We test that when we change the total incl tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = True
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertAlmostEqual(sum([l.price_total for l in recalc.line_ids]), recalc.total, delta=0.02)
+        self.assertAlmostEqual(sum([l.price_total for l in recalc.line_ids]),
+                               recalc.total, delta=0.02)
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_total / recalc.total
@@ -118,7 +120,7 @@ class TestSaleRecalc(TestSale):
         self.assertEqual(l.price_subtotal, l.price_unit * l.price_qty)
 
         # Test the changing a subtotal works correctly
-        #need to allow discounts
+        # need to allow discounts
         l = recalc.line_ids[0]
         l.price_subtotal = price[start] * 100
         start += 1
@@ -127,10 +129,10 @@ class TestSaleRecalc(TestSale):
         self.assertAlmostEqual(l.price_subtotal, subtotal, delta=1)
         self.assertEqual(l.price_subtotal, l.price_unit * l.price_qty)
 
-        #Need to test copying from quote
+        # Need to test copying from quote
 
-        #We update the list price of products to random values
-        #and test the unit prices have updated
+        # We update the list price of products to random values
+        # and test the unit prices have updated
         for i, p in enumerate(self.products.values(), start=start):
             p.list_price = price[i]
         recalc.pricelist_id = self.env.ref('product.list0')
@@ -139,9 +141,6 @@ class TestSaleRecalc(TestSale):
             self.assertEqual(l.price_unit, l.product_id.list_price)
 
         # When we write the order
-
-
-
 
     def test_06_action_priced(self):
         """

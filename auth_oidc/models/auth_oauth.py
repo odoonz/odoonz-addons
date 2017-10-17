@@ -2,6 +2,12 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import urllib.request
+import urllib.error
+import urllib.parse
+import json
+from odoo import models, fields, api
+
 import logging
 _logger = logging.Logger(__name__)
 try:
@@ -10,11 +16,6 @@ try:
     import jwt
 except ImportError as err:
     _logger.debug(err)
-
-import urllib.request, urllib.error, urllib.parse
-import json
-
-from odoo import models, fields, api
 
 PEMSTART = "-----BEGIN CERTIFICATE-----\n"
 PEMEND = "\n-----END CERTIFICATE-----\n"

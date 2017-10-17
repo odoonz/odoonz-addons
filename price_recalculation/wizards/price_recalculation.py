@@ -20,10 +20,10 @@ class PriceRecalculation(models.AbstractModel):
                          digits=dp.get_precision('Account'))
     tax_incl = fields.Boolean('Tax Incl')
     name = fields.Many2one('sale.order', 'Sale Order')
-    precision = fields.Integer('Unit Price Precision',
-                               default=lambda s: s.env['decimal.precision'].precision_get('Account'),
-                               help="The number of decimal places to "
-                                    "use for the unit price")
+    precision = fields.Integer(
+        'Unit Price Precision',
+        default=lambda s: s.env['decimal.precision'].precision_get('Account'),
+        help="The number of decimal places to use for the unit price")
     date_order = fields.Date('Reprice as at', required=True)
 
     @staticmethod
@@ -70,7 +70,9 @@ class PriceRecalculation(models.AbstractModel):
             price = float_round(price, self.precision)
             line.price_unit = price
             line.price_subtotal = line.price_unit * line.qty
-            line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
+            line.price_total = (
+                line.price_subtotal * (1 + line.effective_tax_rate)
+            )
             running_total -= line[fld]
             if not running_lines_total:
                 break
@@ -83,7 +85,9 @@ class PriceRecalculation(models.AbstractModel):
             if price > 0.0:
                 line.price_unit = float_round(price, self.precision)
                 line.price_subtotal = line.price_unit * line.qty
-                line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
+                line.price_total = (
+                    line.price_subtotal * (1 + line.effective_tax_rate)
+                )
 
     @api.multi
     def _prepare_other_vals(self):
