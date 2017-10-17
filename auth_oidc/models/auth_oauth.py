@@ -2,10 +2,15 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
+_logger = logging.Logger(__name__)
+try:
+    from cryptography.x509 import load_pem_x509_certificate
+    from cryptography.hazmat.backends import default_backend
+    import jwt
+except ImportError as err:
+    _logger.debug(err)
 
-from cryptography.x509 import load_pem_x509_certificate
-from cryptography.hazmat.backends import default_backend
-import jwt
 import urllib.request, urllib.error, urllib.parse
 import json
 

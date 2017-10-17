@@ -1,15 +1,22 @@
-from odoo import models, fields
+import logging
+_logger = logging.Logger(__name__)
 
-from hypothesis import given, settings
-from hypothesis import strategies as st
+try:
+    from hypothesis import given, settings
+    from hypothesis import strategies as st
+except ImportError as err:
+    _logger.debug(err)
+
+from odoo.exceptions import ValidationError
 from random import randint
-
-from odoo.tests.common import SavepointCase
 from odoo.addons.sale.tests import TestSale
 
-PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0, allow_nan=False, allow_infinity=False)
-DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0, allow_nan=False, allow_infinity=False)
-QTY_ARGS = dict(min_value=0.01, max_value=100000.0, allow_nan=False, allow_infinity=False)
+PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
+                  allow_nan=False, allow_infinity=False)
+DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0,
+                     allow_nan=False, allow_infinity=False)
+QTY_ARGS = dict(min_value=0.01, max_value=100000.0,
+                allow_nan=False, allow_infinity=False)
 
 
 class TestSaleRecalc(TestSale):
@@ -32,8 +39,8 @@ class TestSaleRecalc(TestSale):
                 'product_uom_qty': qty[i],
                 'product_uom': p.uom_id.id,
                 'price_unit': price[i],
-                'discount': discount[i]})
-                           for (i, (_, p)) in enumerate(self.products.iteritems())],
+                'discount': discount[i]
+            }) for (i, (_, p)) in enumerate(self.products.items())],
             'pricelist_id': self.env.ref('product.list0').id,
         })
 
@@ -54,7 +61,7 @@ class TestSaleRecalc(TestSale):
         """
         so, recalc = self.create_so_and_recalc(qty, price, discount)
         start = len(self.products) + 1
-        #We check the fields are set as expected
+        # We check the fields are set as expected
         self.assertEqual(recalc.name, so.id)
         self.assertEqual(recalc.partner_id, so.partner_id)
         self.assertEqual(len(so.order_line), len(recalc.line_ids))
@@ -86,7 +93,6 @@ class TestSaleRecalc(TestSale):
                 s.price_subtotal / l.price_subtotal,
                 approx_change, delta=0.1)
 
-
         # We test that when we change the total incl tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = True
@@ -113,7 +119,7 @@ class TestSaleRecalc(TestSale):
         self.assertEqual(l.price_subtotal, l.price_unit * l.price_qty)
 
         # Test the changing a subtotal works correctly
-        #need to allow discounts
+        # need to allow discounts
         l = recalc.line_ids[0]
         l.price_subtotal = price[start] * 100
         start += 1
@@ -121,10 +127,10 @@ class TestSaleRecalc(TestSale):
         l._onchange_subtotal()
         self.assertAlmostEqual(l.price_subtotal, subtotal, delta=1)
         self.assertEqual(l.price_subtotal, l.price_unit * l.price_qty)
-        #Need to test copying from quote
+        # Need to test copying from quote
 
-        #We update the list price of products to random values
-        #and test the unit prices have updated
+        # We update the list price of products to random values
+        # and test the unit prices have updated
         for i, p in enumerate(self.products.values(), start=start):
             p.list_price = price[i]
         recalc.pricelist_id = self.env.ref('product.list0')
@@ -142,9 +148,10 @@ class TestSaleRecalc(TestSale):
             subtotals.append(l.price_subtotal)
         self.assertEqual(so.amount_untaxed, sum(subtotals))
 
-        # This could be moved to seperate test or maybe we use single transaction case
-        context = {"active_model": 'sale.order', "active_ids": [order.id],
-                   "active_id": order.id}
+        # This could be moved to seperate test or maybe we use single
+        # transaction case
+        context = {"active_model": 'sale.order', "active_ids": [so.id],
+                   "active_id": so.id}
         so.with_context(context).action_confirm()
         # Now I create invoice.
 
@@ -156,7 +163,7 @@ class TestSaleRecalc(TestSale):
         payment.with_context(context).create_invoices()
         recalc.action_write()
         # Now I validate pay invoice wihth Test User(invoicing and payment).
-        for invoice in order.invoice_ids:
+        for invoice in so.invoice_ids:
             invoice.with_context(context).invoice_validate()
         with self.assertRaises(ValidationError):
             recalc.action_write()

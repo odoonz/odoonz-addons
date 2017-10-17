@@ -1,14 +1,21 @@
-from odoo import models, fields
 
-from hypothesis import given, settings
-from hypothesis import strategies as st
+import logging
+_logger = logging.Logger(__name__)
 
-from odoo.tests.common import TransactionCase
+try:
+    from hypothesis import given, settings
+    from hypothesis import strategies as st
+except ImportError as err:
+    _logger.debug(err)
+
 from odoo.addons.sale.tests import TestSale
 
-PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0, allow_nan=False, allow_infinity=False)
-DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0, allow_nan=False, allow_infinity=False)
-QTY_ARGS = dict(min_value=0.01, max_value=100000.0, allow_nan=False, allow_infinity=False)
+PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
+                  allow_nan=False, allow_infinity=False)
+DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0,
+                     allow_nan=False, allow_infinity=False)
+QTY_ARGS = dict(min_value=0.01, max_value=100000.0,
+                allow_nan=False, allow_infinity=False)
 
 
 class TestSaleRecalc(TestSale):
@@ -22,8 +29,6 @@ class TestSaleRecalc(TestSale):
     # Put Helper Methods here
     def create_so_and_recalc(self, qty, price, discount):
         """Helper method to generate SO and Recalc"""
-        #First we create an SO
-        start=0
         so = self.env['sale.order'].create({
             'partner_id': self.partner.id,
             'partner_invoice_id': self.partner.id,
@@ -34,11 +39,11 @@ class TestSaleRecalc(TestSale):
                 'product_uom_qty': qty[i],
                 'product_uom': p.uom_id.id,
                 'price_unit': price[i],
-                'discount': discount[i]})
-                           for (i, (_, p)) in enumerate(self.products.iteritems())],
+                'discount': discount[i]
+            }) for (i, (_, p)) in enumerate(self.products.items())],
             'pricelist_id': self.env.ref('product.list0').id,
         })
-        #Then we launch the wizard with the sales context
+        # Then we launch the wizard with the sales context
         recalc = self.env['sale.pricelist.recalculation'].with_context(
             active_id=so.id, active_model='sale.order').create()
 
@@ -121,10 +126,6 @@ class TestSaleRecalc(TestSale):
         l._onchange_subtotal()
         self.assertAlmostEqual(l.price_subtotal, subtotal, delta=1)
         self.assertEqual(l.price_subtotal, l.price_unit * l.price_qty)
-
-
-
-
 
         #Need to test copying from quote
 
