@@ -6,7 +6,7 @@
     'name': 'Mrp Dynamic Lines',
     'description': """
         Allows to dynamically switch a bom's products based on the product selected""",
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.1',
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
