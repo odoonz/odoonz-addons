@@ -16,6 +16,7 @@ addon | version | summary
 [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 10.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.
 [auth_oidc](auth_oidc/) | 11.0.1.0.0 | OpenID Connect Authentication
 [base_partner_fax](base_partner_fax/) | 11.0.1.0.0 | Base Partner Fax
+[invoice_sale_pricelist](invoice_sale_pricelist/) | 11.0.1.0.0 | Invoice Sale Pricelist
 [mrp_dynamic_lines](mrp_dynamic_lines/) | 11.0.1.0.1 | Mrp Dynamic Lines
 [mrp_dynamic_weight](mrp_dynamic_weight/) | 10.0.1.0.0 | Mrp Dynamic Weight
 [price_recalculation](price_recalculation/) | 10.0.1.0.0 | Base module for x_price_recalculation modules.
