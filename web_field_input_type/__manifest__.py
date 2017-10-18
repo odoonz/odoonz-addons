@@ -12,10 +12,7 @@
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
-    'depends': [
-    ],
-    'data': ['views/assets.xml'
-    ],
-    'demo': [
-    ],
+    'depends': [],
+    'data': ['views/assets.xml'],
+    'demo': [],
 }

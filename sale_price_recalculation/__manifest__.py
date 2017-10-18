@@ -5,7 +5,7 @@
 {
     'name': 'Sale Price Recalculation',
     'description': """
-        Allows to update the pricing on confirmed sales orders prior to 
+        Allows to update the pricing on confirmed sales orders prior to
         invoice""",
     'version': '10.0.1.0.0',
     'license': 'AGPL-3',

@@ -7,7 +7,7 @@ import logging
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import given, settings
+    from hypothesis import given
     from hypothesis import strategies as st
 except ImportError as err:
     _logger.debug(err)
