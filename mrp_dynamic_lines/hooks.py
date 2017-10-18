@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-def pre_init_hook(cr, pool):
+def pre_init_hook(cr):
     cr.execute('ALTER TABLE IF EXISTS mrp_bom_line '
                'ADD COLUMN IF NOT EXISTS variant_id INT')
     cr.execute('ALTER TABLE IF EXISTS mrp_bom_line '
