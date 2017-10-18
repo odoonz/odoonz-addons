@@ -5,11 +5,11 @@
 {
     'name': 'Invoice Sale Pricelist',
     'description': """
-        Use the sale pricelist if available or else the partners pricelist for 
+        Use the sale pricelist if available or else the partners pricelist for
         setting default price""",
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.1',
     'license': 'AGPL-3',
     'author': 'Open For Small Business Ltd',
     'website': 'https://o4sb.com',
-    'depends': ['product','account'],
+    'depends': ['product', 'account'],
 }

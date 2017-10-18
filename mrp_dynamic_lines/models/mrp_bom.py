@@ -19,7 +19,8 @@ class MrpBom(models.Model):
         lines_done = []
         for bom_line, line_fields in orig_lines_done:
             for xform in bom_line.xform_ids.filtered(
-                    lambda bl: bl.application_point == 'explode').sorted('sequence'):
+                    lambda bl: bl.application_point == 'explode').sorted(
+                    'sequence'):
                 func = getattr(self, '_explode_%s' % xform.technical_name)
                 if func:
                     bom_line, line_fields = func(bom_line, line_fields)

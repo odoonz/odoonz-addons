@@ -4,7 +4,6 @@
 
 import logging
 from odoo import models, _
-from odoo.tools import float_round
 
 _logger = logging.Logger(__name__)
 
@@ -17,7 +16,8 @@ class MrpProduction(models.Model):
         lines_done = []
         for bom_line, line_fields in exploded_lines:
             for xform in bom_line.xform_ids.filtered(
-                    lambda bl: bl.application_point == 'move').sorted('sequence'):
+                    lambda bl: bl.application_point == 'move').sorted(
+                    'sequence'):
                 func = getattr(self, '_generate_raw_move_%s' %
                                xform.technical_name)
                 if func:

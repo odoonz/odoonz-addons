@@ -73,10 +73,9 @@ class TestSaleRecalc(TestSale):
             self.assertEqual(s.price_unit, l.price_unit)
             self.assertEqual(s.price_subtotal, l.price_subtotal)
             self.assertEqual(s.price_total, l.price_total)
-            self.assertEqual((s.price_total - s.price_subtotal)
-                             / s.price_subtotal,
-                             (l.price_total - l.price_subtotal)
-                             / l.price_subtotal)
+            self.assertEqual(
+                (s.price_total - s.price_subtotal) / s.price_subtotal,
+                (l.price_total - l.price_subtotal) / l.price_subtotal)
 
         # We test that when we change the total ex tax that
         # the sum of the lines is equal to the total
