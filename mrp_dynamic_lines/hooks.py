@@ -3,7 +3,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-def post_init_hook(cr, pool):
+def pre_init_hook(cr, pool):
+    cr.execute('ALTER TABLE IF EXISTS mrp_bom_line '
+               'ADD COLUMN IF NOT EXISTS variant_id INT')
+    cr.execute('ALTER TABLE IF EXISTS mrp_bom_line '
+               'ADD COLUMN IF NOT EXISTS product_tmpl_id INT')
     cr.execute('UPDATE mrp_bom_line '
                'SET variant_id=product_id,'
                'product_tmpl_id=p.product_tmpl_id '

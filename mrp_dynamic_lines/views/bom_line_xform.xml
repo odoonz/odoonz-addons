@@ -3,13 +3,7 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
 <odoo>
-<data noupdate="1">
 
-    <!-- TODO
-    <record model="mrp.bom.line" id="mrp_bom_line_demo_1">
-       <field name="name">...</field>
-    </record>
-    -->
+<!--TODO-->
 
-</data>
 </odoo>

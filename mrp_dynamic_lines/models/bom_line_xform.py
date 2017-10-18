@@ -6,44 +6,23 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
-class MrpBomLine(models.Model):
+class BomLineXform(models.Model):
+    """Bom Line Dynamic Transformations"""
+    _name = 'bom.line.xform'
+    _description = __doc__
 
-    _inherit = 'mrp.bom.line'
+    name = fields.Char()
+    technical_name = fields.Char(
+        help="Will correspond to a function e.g. match_attributes"
+    )
+    active = fields.Boolean(default=True)
+    color = fields.Integer(string='Color Index')
+    description = fields.Text()
+    sequence = fields.Integer(default=5)
+    application_point = fields.Selection([('explode', 'BoM Explosion'),
+                                          ('move', 'Raw Move Generation')])
 
-    product_tmpl_id = fields.Many2one(
-        comodel_name='product.template',
-        string='Product',
-        required=True,
-    )
-    product_id = fields.Many2one(
-        string='Product Variant',
-        compute='_compute_product_id',
-        store=True,
-        required=False,
-    )
-    variant_id = fields.Many2one(
-        comodel_name='product.product',
-        string='Default Variant',
-        help='Default variant to use if a match cannot be found',
-        required=True,
-    )
-    required_value_ids = fields.Many2many(
-        comodel_name='product.attribute.value',
-        string='Required Values',
-        help='Require the raw material to have these attribute values',
-    )
-    match_attributes = fields.Boolean(
-        string='Match Attributes',
-        help='Automatically select the raw material based on common'
-             'shared attributes',
-    )
-    # Note: Just changing a useless help message here
-    attribute_value_ids = fields.Many2many(
-        help='Only apply this line if the manufactured product contains'
-             'these attribute values.',
-    )
-
-    xform_ids = fields.Many2many('bom.line.xform', string='Transformations')
+    bom_line_ids = fields.Many2many('mrp.bom.line')
 
     @api.multi
     @api.onchange('product_tmpl_id', 'variant_id')
