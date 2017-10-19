@@ -22,6 +22,7 @@ to be enabled.
     ]},
     'depends': ['auth_oauth'],
     'data': [
+        'security/ir.model.access.csv',
         'views/auth_oidc_view.xml',
     ],
 }
