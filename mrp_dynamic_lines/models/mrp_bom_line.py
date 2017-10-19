@@ -2,6 +2,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -18,7 +19,6 @@ class MrpBomLine(models.Model):
     product_id = fields.Many2one(
         string='Product Variant',
         compute='_compute_product_id',
-        store=True,
         required=False,
     )
     variant_id = fields.Many2one(
@@ -29,6 +29,7 @@ class MrpBomLine(models.Model):
     )
     required_value_ids = fields.Many2many(
         comodel_name='product.attribute.value',
+        relation='bom_line_req_attr_val_rel',
         string='Required Values',
         help='Require the raw material to have these attribute values',
     )
@@ -46,8 +47,6 @@ class MrpBomLine(models.Model):
     xform_ids = fields.Many2many('bom.line.xform', string='Transformations')
 
     @api.multi
-    @api.onchange('product_tmpl_id', 'variant_id')
-    @api.depends('product_tmpl_id', 'variant_id')
     def _compute_product_id(self):
         Product = self.env['product.product']
         for bom_line in self:
@@ -65,7 +64,8 @@ class MrpBomLine(models.Model):
                         )
                 # and share values with the parent product
                 common_attrs = self.env['product.attribute']
-                if bom_line.match_attributes:
+                if (self.env.ref('mrp_dynamic_lines.match_attributes') in
+                        bom_line.xform_ids):
                     parent_attrs = parent_product.attribute_value_ids.mapped(
                         'attribute_id')
                     bom_attrs = bom_tmpl.attribute_line_ids.mapped(
@@ -89,12 +89,13 @@ class MrpBomLine(models.Model):
                 elif return_default or not products:
                     bom_line.product_id = bom_line.variant_id
                 else:
-                    names = ['  - %s' % p['name'] for p in products.name_get()]
+                    names = ['  - %s' % p[1] for p in products.name_get()]
                     raise ValidationError(
                         _('The BoM Line %s in BoM %s is matching too many '
                           'products.  Expected < 1 and received:\n%s') %
                         (self.product_tmpl_id.name,
                          self.bom_id.name, '\n'.join(names)))
+
             else:
                 bom_line.product_id = bom_line.variant_id
 
