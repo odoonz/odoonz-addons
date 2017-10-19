@@ -67,8 +67,8 @@ class TestAttributeGroups(TransactionCase):
         # The number of variants should be the product of attribute value_ids
         self.product_ipod.create_variant_ids()
         self.product_ipad.create_variant_ids()
-        ipod_factor = (len(self.product_ipod.product_variant_ids) //
-                       len(self.attr_group_1.value_ids))
+        # ipod_factor = (len(self.product_ipod.product_variant_ids) //
+        #                len(self.attr_group_1.value_ids))
         ipad_factor = (len(self.product_ipad.product_variant_ids) //
                        len(self.attr_group_1.value_ids))
         initial_length = len(self.attr_group_1.value_ids)
