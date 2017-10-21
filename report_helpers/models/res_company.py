@@ -12,8 +12,6 @@ class ResCompany(models.Model):
     @api.multi
     def _compute_company_address(self):
         for record in self:
-            if not record.partner_id:
-                continue
             addresses = record.partner_id.address_get(['delivery', 'invoice'])
             record.physical_address_id = addresses['delivery']
             record.postal_address_id = addresses['invoice']
