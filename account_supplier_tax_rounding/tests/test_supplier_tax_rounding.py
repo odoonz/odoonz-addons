@@ -14,9 +14,9 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
         self.company = self.env.ref('base.main_company')
         self.company.tax_calculation_rounding_method = 'round_globally'
         self.invoice_account = self.env['account.account'].search([
-                ('user_type_id', '=',
-                 self.env.ref('account.data_account_type_receivable').id)],
-                limit=1).id
+            ('user_type_id', '=',
+             self.env.ref('account.data_account_type_receivable').id)],
+            limit=1).id
         self.invoice_line_account = self.env['account.account'].search([
             ('user_type_id', '=',
              self.env.ref('account.data_account_type_expenses').id)],
@@ -29,11 +29,11 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
         currency.round when rounding
         """
         tax = self.env['account.tax'].create({
-                'name': 'Tax 10.0',
-                'amount': 10.0,
-                'amount_type': 'fixed',
-                'type_tax_use': 'purchase',
-            })
+            'name': 'Tax 10.0',
+            'amount': 10.0,
+            'amount_type': 'fixed',
+            'type_tax_use': 'purchase',
+        })
         self.env.ref('base.res_partner_2').tax_calc_method = 'round_per_line'
         with mock.patch('odoo.addons.account.models.account.round',
                         autospec=True) as mock_round:
@@ -62,11 +62,11 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
         Test that round is never called when round_globally is set
         """
         tax = self.env['account.tax'].create({
-                'name': 'Tax 10.0',
-                'amount': 10.0,
-                'amount_type': 'fixed',
-                'type_tax_use': 'purchase',
-            })
+            'name': 'Tax 10.0',
+            'amount': 10.0,
+            'amount_type': 'fixed',
+            'type_tax_use': 'purchase',
+        })
 
         self.env.ref('base.res_partner_2').tax_calc_method = 'round_globally'
         with mock.patch('odoo.addons.account.models.account.round',
