@@ -53,9 +53,10 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
                 'account_id': self.invoice_line_account,
                 'invoice_line_tax_ids': [(6, 0, [tax.id])],
             })
-            # Note this is the expected product line rounding call, but shows
-            # round not called after
-            mock_round.assert_called_with(100.0, 2)
+            # Note rounding of tax isn't actually called in round per line
+            # tax, but round can be elsewhere, however its precision should be
+            # 2 regardless - this test could be better
+            mock_round.assert_called_with(mock.ANY, 2)
 
     def test_supplier_invoice_round_globally(self):
         """
