@@ -53,22 +53,19 @@ class ResPartner(models.Model):
         invoice_type = vals.get('type',
                                 invoice.type if invoice else
                                 self._context.get('type', 'out_invoice'))
-        if not invoice_type:
-            if 'journal_id' in vals:
-                jtype = self.env['account.journal'].browse(
-                    vals['journal_id']).type
-            else:
-                jtype = invoice.journal_id.type
-            invoice_type = 'in_' if jtype == 'purchase' else 'out_'
-
         if invoice_type.startswith('out_'):
             f = 'invoicing_partner_id'
         elif invoice_type.startswith('in_'):
             f = 'billing_partner_id'
 
-        invoice_company = (
-            self.env['res.company'].browse(vals['company_id'])
-            if 'company_id' in vals else invoice.company_id)
+        if 'company_id' in vals:
+            invoice_company = self.env['res.company'].browse(
+                vals['company_id'])
+        elif invoice:
+            invoice_company = invoice.company_id
+        else:
+            invoice_company = self.env['res.company']._company_default_get(
+                'account.invoice')
         company_partner = invoice_company.partner_id
         p = self
         while p[f]:
