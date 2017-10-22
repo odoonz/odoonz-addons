@@ -45,12 +45,9 @@ class ProductAttributeLine(models.Model):
         :param vals:
         :return:
         """
-        if 'attr_group_ids' in vals:
-            if vals.get('attr_group_ids'):
-                attr_groups = self.env['product.attribute.group'].browse(
-                    vals['attr_group_ids'][0][2])
-                vals['value_ids'] = [
-                    [6, False, attr_groups.mapped('value_ids').ids]]
-            else:
-                vals['value_ids'] = []
+        if vals.get('attr_group_ids'):
+            attr_groups = self.env['product.attribute.group'].browse(
+                vals['attr_group_ids'][0][2])
+            vals['value_ids'] = [
+                [6, False, attr_groups.mapped('value_ids').ids]]
         return super(ProductAttributeLine, self).write(vals)

@@ -84,6 +84,38 @@ class TestAttributeGroups(TransactionCase):
             len(self.product_ipad.product_variant_ids) ==
             len(self.attr_group_1.value_ids) * ipad_factor)
 
+    def test_creation(self):
+        # Test values belonging to group are added on create
+        tmpl = self.env['product.template'].create({
+            'name': 'We have attr group',
+            'attribute_line_ids': [(0, 0, {
+                'attribute_id': self.attr_group_1.attribute_id.id,
+                'attr_group_ids': [(6, 0, [self.attr_group_1.id])]
+            })]
+        })
+        self.assertEqual(len(tmpl.product_variant_ids),
+                         len(self.attr_group_1.value_ids))
+        # Test manually added values (no attr groups) are created.
+        tmpl2 = self.env['product.template'].create({
+            'name': 'We have only values',
+            'attribute_line_ids': [(0, 0, {
+                'attribute_id': self.attr_group_1.attribute_id.id,
+                'value_ids': [(6, 0, self.attr_group_1.value_ids.ids)]
+            })]
+        })
+        self.assertEqual(len(tmpl2.product_variant_ids),
+                         len(self.attr_group_1.value_ids))
+        # Test added values then removed group (no attr groups) are created.
+        tmpl3 = self.env['product.template'].create({
+            'name': 'We have only values',
+            'attribute_line_ids': [(0, 0, {
+                'attribute_id': self.attr_group_1.attribute_id.id,
+                'attr_group_ids': [],
+                'value_ids': [(6, 0, self.attr_group_1.value_ids.ids)]
+            })]
+        })
+        self.assertEqual(len(tmpl3.product_variant_ids), 1)
+
     def test_copy(self):
         res = self.attr_group_1.copy()
         self.assertFalse(res.name == self.attr_group_1.name)
