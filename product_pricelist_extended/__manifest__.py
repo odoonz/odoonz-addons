@@ -4,7 +4,7 @@
 
 {
     'name': 'Pricelist Extensions',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Sales & Purchases',
     'author': 'O4SB - Graeme Gellatly',
@@ -15,6 +15,7 @@
              'views/product_price_category_view.xml',
              'security/ir.model.access.csv',
              ],
+    'demo': ['demo/product.price.category.csv'],
     'installable': True,
     'active': False,
 }

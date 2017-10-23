@@ -5,7 +5,7 @@
 from odoo import models, fields, api, _
 
 
-class Productpricelistitem(models.Model):
+class ProductPricelistItem(models.Model):
     """product pricelist item - little changes to enable m2m product_ids"""
     _inherit = 'product.pricelist.item'
     _order = "applied_on, min_quantity desc, categ_id desc, name, id"
@@ -31,15 +31,13 @@ class Productpricelistitem(models.Model):
         oldname='price_categ'
     )
 
-    name = fields.Char(store=True)
-
     code_inclusion = fields.Char('Code includes')
     code_exclusion = fields.Char('Code excludes')
 
     @api.one
     @api.depends('price_categ_id', 'product_tmpl_ids', 'product_ids')
     def _get_pricelist_item_name_price(self):
-        super(Productpricelistitem, self)._get_pricelist_item_name_price()
+        super(ProductPricelistItem, self)._get_pricelist_item_name_price()
         if self.price_categ_id:
             self.name = _("Price Category: %s") % self.price_categ_id.name
         elif self.product_tmpl_ids:

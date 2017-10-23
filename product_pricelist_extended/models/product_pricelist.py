@@ -38,8 +38,7 @@ class ProductPricelist(models.Model):
             uom_id = self._context['uom']
         if uom_id:
             # rebrowse with uom if given
-            product_ids = [item[0].id for item in products_qty_partner]
-            products = self.env['product.product'].with_context(uom=uom_id).browse(product_ids)
+            products = [item[0].with_context(uom=uom_id) for item in products_qty_partner]
             products_qty_partner = [(products[index], data_struct[1], data_struct[2]) for index, data_struct in enumerate(products_qty_partner)]
         else:
             products = [item[0] for item in products_qty_partner]
@@ -62,14 +61,14 @@ class ProductPricelist(models.Model):
                 categ = categ.parent_id
         categ_ids = list(categ_ids.keys())
         price_categ_ids = list(set(price_categ_ids))
+        # End Changes
 
         is_product_template = products[0]._name == "product.template"
         if is_product_template:
             prod_tmpl_ids = [tmpl.id for tmpl in products]
             # all variants of all products
             prod_ids = [p.id for p in
-                        list(chain.from_iterable(
-                            [t.product_variant_ids for t in products]))]
+                        list(chain.from_iterable([t.product_variant_ids for t in products]))]
         else:
             prod_ids = [product.id for product in products]
             prod_tmpl_ids = [product.product_tmpl_id.id for product in products]
@@ -104,6 +103,7 @@ class ProductPricelist(models.Model):
         seen = set()
         item_ids = [x[0] for x in self._cr.fetchall()
                     if (x not in seen or seen.add(x))]
+        # End Changes
         items = self.env['product.pricelist.item'].browse(item_ids)
         results = {}
         for product, qty, partner in products_qty_partner:

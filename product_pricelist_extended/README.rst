@@ -45,9 +45,6 @@ To use this module, you need to:
 Known issues / Roadmap
 ======================
 
-* Presently has no automated test.
-* Potentially remove the many2many capability of price categories.
-* Past versions heavily optimized the price function, caching much of the heavy lifting.  This has been removed, but may be added back if needed.
 * There was a report in past versions, print page in browser is nearly as good now.
 * Due to the lack of extensibility of this part of Odoo we overwrite the original function.  This may break other extensions that inherit it.
 

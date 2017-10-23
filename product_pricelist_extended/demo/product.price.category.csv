@@ -1,0 +1,3 @@
+id,name,description,product_tmpl_ids:id,product_ids:id
+price_categ1,Apple Demo,We put Apple Products in this category,"product.product_product_4_product_template","product.product_product_6,product.product_product_7,product.product_product_4"
+price_categ2,Components,PC Componenets go here,,"product.product_product_5,product.product_delivery_01,product.product_product_25,product.product_product_3"
