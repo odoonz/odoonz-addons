@@ -18,6 +18,7 @@ class TestProductPricelistItem(TestProductPricelist):
         super(TestProductPricelistItem, self).setUp()
         self.price_categ1 = self.env.ref(
             'product_pricelist_extended.price_categ1')
+        self.uom_dozen = self.env.ref('product.product_uom_dozen')
         self.extended_pricelist = self.ProductPricelist.create({
             'name': 'Extended Pricelist',
             'item_ids': [(0, 0, {
@@ -38,7 +39,8 @@ class TestProductPricelistItem(TestProductPricelist):
                 'price_categ_id': self.price_categ1.id,
                 'compute_price': 'formula',
                 'base': 'list_price',
-                'price_discount': 20
+                'price_discount': 20,
+                'price_round': 1.0
             }), (0, 0, {
                 'name': '30% Discount on some PC Components',
                 'applied_on': '0_product_variant',
@@ -46,9 +48,9 @@ class TestProductPricelistItem(TestProductPricelist):
                                         self.laptop_S3450.id])],
                 'code_inclusion': self.custom_computer_kit.default_code[:3],
                 'code_exclusion': self.laptop_S3450.default_code[1:4],
-                'compute_price': 'formula',
+                'compute_price': 'percentage',
                 'base': 'list_price',
-                'price_discount': 30
+                'percent_price': 30
             })]
         })
 
@@ -69,9 +71,12 @@ class TestProductPricelistItem(TestProductPricelist):
         # I check sale price of ipad mini
         ipad_mini = self.ipad_mini.with_context(context)
         msg = "Wrong sale price: ipad_mini should be %s instead of %s" % (
-            ipad_mini.price, (ipad_mini.lst_price-(ipad_mini.lst_price*0.20)))
+            ipad_mini.price,
+            float(int((ipad_mini.lst_price-(ipad_mini.lst_price*0.20))))
+        )
         self.assertEqual(float_compare(
-            ipad_mini.price, (ipad_mini.lst_price-(ipad_mini.lst_price*0.20)),
+            ipad_mini.price,
+            float(int((ipad_mini.lst_price-(ipad_mini.lst_price*0.20)))),
             precision_digits=2), 0, msg)
 
         # I check sale price of custom computer kit
@@ -104,3 +109,25 @@ class TestProductPricelistItem(TestProductPricelist):
                 self.assertIn('contains', item.name)
             if item.code_exclusion:
                 self.assertIn('excludes', item.name)
+
+    def test_special_cases_of_compute_price_rule(self):
+        cpr = self.extended_pricelist._compute_price_rule
+        self.assertFalse(cpr([]),
+                         "When I'm called with no products I should return "
+                         "an empty dict")
+
+        self.assertListEqual(
+            list(cpr([(self.custom_computer_kit.product_tmpl_id,
+                       1.0, False)]).values()),
+            list(cpr([(self.custom_computer_kit, 1.0, False)]).values()),
+            "A template with one product should be the same as its product"
+        )
+
+        context = {}
+        context.update({'uom': self.uom_dozen.id})
+        # I check sale price of 1 dozen Laptop.
+        laptop = self.laptop_E5023
+        self.assertAlmostEqual(
+            self.extended_pricelist.with_context(context)._compute_price_rule(
+                [(self.laptop_E5023, 1.0, False)])[laptop.id][0],
+            (laptop.lst_price-(laptop.lst_price*0.10))*12, 2)
