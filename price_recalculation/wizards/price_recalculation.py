@@ -110,7 +110,7 @@ class PriceRecalculation(models.AbstractModel):
                   'already been invoiced.'))
 
     @api.multi
-    def _set_context(self):
+    def _set_context(self):  # pragma: no cover
         """Allow to set a custom context by model - hook method"""
         return {}
 

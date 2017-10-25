@@ -1,6 +1,7 @@
 
 import logging
 from odoo.addons.sale.tests import TestSale
+from . import hypothesis_params as hp
 
 _logger = logging.Logger(__name__)
 
@@ -11,44 +12,29 @@ except ImportError as err:
     _logger.debug(err)
 
 
-PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
-                  allow_nan=False, allow_infinity=False)
-DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0,
-                     allow_nan=False, allow_infinity=False)
-QTY_ARGS = dict(min_value=0.01, max_value=100000.0,
-                allow_nan=False, allow_infinity=False)
-
-
-class TestSaleRecalc(TestSale):
-    def __init__(self, methodName='runTest'):
-        super(TestSaleRecalc, self).__init__(methodName)
+class TestPriceCalculation(TestSale):
 
     def setUp(self):
         """Initial Setup"""
-        super(TestSaleRecalc, self).setUp()
-
-    # Put Helper Methods here
-    def create_so_and_recalc(self, qty, price, discount):
-        """Helper method to generate SO and Recalc"""
-        so = self.env['sale.order'].create({
+        super(TestPriceCalculation, self).setUp()
+        self.so = self.env['sale.order'].create({
             'partner_id': self.partner.id,
             'partner_invoice_id': self.partner.id,
             'partner_shipping_id': self.partner.id,
             'order_line': [(0, 0, {
-                'name': p.name,
-                'product_id': p.id,
-                'product_uom_qty': qty[i],
-                'product_uom': p.uom_id.id,
-                'price_unit': price[i],
-                'discount': discount[i]
-            }) for (i, (_, p)) in enumerate(self.products.items())],
+                'name': p.name, 'product_id': p.id, 'product_uom_qty': 2,
+                'product_uom': p.uom_id.id, 'price_unit': p.list_price})
+                           for p in self.products.values()],
             'pricelist_id': self.env.ref('product.list0').id,
         })
-        # Then we launch the wizard with the sales context
-        recalc = self.env['sale.pricelist.recalculation'].with_context(
-            active_id=so.id, active_model='sale.order').create()
 
-        return so, recalc
+    def test_defaults(self):
+        spr = self.env['price.recalculation'].with_context(
+            active_ids=[self.so.id], active_model='sale.order').create()
+        self.assertEqual(spr.name, self.so)
+        self.assertEqual(spr.partner_id, self.so.partner_id)
+        self.assertEqual(spr.date_order, self.so.date_order)
+
 
     # Put tests here
     @given(st.streaming(st.floats(**QTY_ARGS)),
