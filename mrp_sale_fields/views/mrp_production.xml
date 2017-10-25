@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Open For Small Business Ltd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="name">mrp.production.form (in mrp_sale_fields)</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="sale_id"/>
+                <field name="partner_id"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="attributes">
+                <attribute name="attrs">{'invisible': [('sale_id', '!=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_production_tree_view" model="ir.ui.view">
+        <field name="name">mrp.production.tree (in mrp_sale_fields)</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="sale_id"/>
+            </xpath>
+            <xpath expr="//field[@name='date_planned_start']" position="after">
+                <field name="partner_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_production_search_view">
+        <field name="name">mrp.production.search (in mrp_sale_fields)</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="inside">
+                <filter string="Sale Order" domain="[]" context="{'group_by':'sale_id'}"/>
+                <filter string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+            </xpath>
+            <xpath expr="//filter[@name='norouting']" position="before" >
+                <field name="sale_id" />
+                <field name="partner_id" operator="child_of" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
