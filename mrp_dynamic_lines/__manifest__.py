@@ -16,7 +16,7 @@
         attributes of the parent BoM
         Scale Weight - scales a bom line measured in kg to the quantity
         being produced""",
-    'version': '11.0.2.0.2',
+    'version': '11.0.2.1.2',
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
