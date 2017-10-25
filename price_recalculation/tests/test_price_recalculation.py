@@ -23,8 +23,9 @@ class TestPriceCalculation(TestSale):
             'partner_shipping_id': self.partner.id,
             'order_line': [(0, 0, {
                 'name': p.name, 'product_id': p.id, 'product_uom_qty': 2,
-                'product_uom': p.uom_id.id, 'price_unit': p.list_price})
-                    for p in self.products.values()],
+                'product_uom': p.uom_id.id,
+                'price_unit': p.list_price
+            }) for p in self.products.values()],
             'pricelist_id': self.env.ref('product.list0').id,
         })
 
@@ -34,7 +35,6 @@ class TestPriceCalculation(TestSale):
         self.assertEqual(spr.name, self.so)
         self.assertEqual(spr.partner_id, self.so.partner_id)
         self.assertEqual(spr.date_order, self.so.date_order)
-
 
     # Put tests here
     @given(st.streaming(st.floats(**hp.QTY_ARGS)),
