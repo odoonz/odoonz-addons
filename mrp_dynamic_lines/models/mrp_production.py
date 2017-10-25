@@ -38,6 +38,7 @@ class MrpProduction(models.Model):
         self.ensure_one()
         for xform in bom_line.xform_ids.filtered(
                 lambda bl: bl.application_point == 'move').sorted('sequence'):
+            bom_line_id = bom_line.id
             func = getattr(self, '_generate_raw_move_%s' %
                            xform.technical_name)
             if func:
@@ -49,9 +50,11 @@ class MrpProduction(models.Model):
             if not bom_line:
                 # Its deleted so nothing more to xform
                 move = self.move_raw_ids.filtered(
-                    lambda x: x.bom_line_id.id == bom_line.id and
-                              x.state not in ('done', 'cancel'))
+                    lambda x: (x.bom_line_id.id == bom_line_id and
+                               x.state not in ('done', 'cancel'))
+                )
                 if move:
+                    move._action_cancel()
                     move.unlink()
                 break
         bom_line and super(MrpProduction, self)._update_raw_move(
