@@ -24,7 +24,7 @@ class TestPriceCalculation(TestSale):
             'order_line': [(0, 0, {
                 'name': p.name, 'product_id': p.id, 'product_uom_qty': 2,
                 'product_uom': p.uom_id.id, 'price_unit': p.list_price})
-                           for p in self.products.values()],
+                    for p in self.products.values()],
             'pricelist_id': self.env.ref('product.list0').id,
         })
 
@@ -37,10 +37,10 @@ class TestPriceCalculation(TestSale):
 
 
     # Put tests here
-    @given(st.streaming(st.floats(**QTY_ARGS)),
-           st.streaming(st.floats(**PRICE_ARGS)),
-           st.streaming(st.floats(**DISCOUNT_ARGS)),
-           st.floats(**PRICE_ARGS))
+    @given(st.streaming(st.floats(**hp.QTY_ARGS)),
+           st.streaming(st.floats(**hp.PRICE_ARGS)),
+           st.streaming(st.floats(**hp.DISCOUNT_ARGS)),
+           st.floats(**hp.PRICE_ARGS))
     def test_recalc(self, qty, price, discount, total):
         """
         When we create record check that it
@@ -145,13 +145,13 @@ class TestPriceCalculation(TestSale):
         do we get an error
         """
 
-    @given(st.floats(**PRICE_ARGS), st.floats(**DISCOUNT_ARGS))
+    @given(st.floats(**hp.PRICE_ARGS), st.floats(**hp.DISCOUNT_ARGS))
     def test_09_onchange_price_line(self, price, discount):
         """
         When we change price and/or discount is total updated correctly
         """
 
-    @given(st.floats(**PRICE_ARGS))
+    @given(st.floats(**hp.PRICE_ARGS))
     def test_10_onchange_total(self, total):
         """
         When we change total, is discount removed
@@ -161,7 +161,7 @@ class TestPriceCalculation(TestSale):
         :return:
         """
 
-    @given(st.floats(**PRICE_ARGS))
+    @given(st.floats(**hp.PRICE_ARGS))
     def test_11_onchange_subtotal(self, subtotal):
         """
         When we change total, is discount removed
