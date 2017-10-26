@@ -49,8 +49,8 @@ class TestPriceRecalculationLine(TransactionCase):
                                    "Changing totals should not affect qty")
             self.assertAlmostEqual(
                 line.price_subtotal * (1 + tax_rate), line.total, 2)
-            self.assertAlmostEqual(line.qty * line.price_unit,
-                                   line.price_subtotal, 2)
+            expected = line.qty * line.price_unit
+            self.assertAlmostEqual(expected, line.price_subtotal, delta=0.01)
 
             line.price_subtotal = float_round(subtotal, 2)
             line._onchange_subtotal()
