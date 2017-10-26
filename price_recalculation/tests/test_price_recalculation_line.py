@@ -59,4 +59,4 @@ class TestPriceRecalculationLine(TransactionCase):
             self.assertAlmostEqual(
                 line.price_subtotal * (1 + tax_rate), line.total, 2)
             self.assertAlmostEqual(line.qty * line.price_unit,
-                                   line.price_subtotal, 2)
+                                   line.price_subtotal, delta=0.01)
