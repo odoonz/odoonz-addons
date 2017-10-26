@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="sale_order_form_view">
+        <field name="name">sale.order.form (in mrp_sale_fields)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_invoice']" position="before">
+                <button type="object" name="action_view_production" class="oe_stat_button" icon="fa-cogs"
+                        attrs="{'invisible': [('production_count', '=', 0)]}" groups="base.group_user">
+                    <field name="production_count" widget="statinfo" string="Production"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
