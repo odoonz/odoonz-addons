@@ -11,7 +11,8 @@ class SaleOrder(models.Model):
 
     production_count = fields.Integer(
         string='Production Orders',
-        compute='_compute_production_ids')
+        compute='_compute_production_ids',
+    )
 
     @api.multi
     def _compute_production_ids(self):
