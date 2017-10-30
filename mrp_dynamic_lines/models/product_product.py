@@ -14,12 +14,12 @@ class ProductProduct(models.Model):
         for product in self:
             product.used_in_bom_count = self.env['mrp.bom'].search_count(
                 [('bom_line_ids.product_tmpl_id', '=',
-                  product.product_tmpl_id)])
+                  product.product_tmpl_id.id)])
 
     @api.multi
     def action_used_in_bom(self):
         self.ensure_one()
         action = self.env.ref('mrp.mrp_bom_form_action').read()[0]
         action['domain'] = [('bom_line_ids.product_tmpl_id', '=',
-                             self.product_tmpl_id)]
+                             self.product_tmpl_idid)]
         return action
