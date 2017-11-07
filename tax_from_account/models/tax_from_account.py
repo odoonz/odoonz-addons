@@ -10,7 +10,7 @@ def _get_default_taxes(line, partner=None, inv_type='out_invoice'):
     fpos = (line.order_id.fiscal_position_id or
             line.order_id.partner_id.property_account_position_id)
     account = InvoiceLine.get_invoice_line_account(
-            inv_type, line.product_id, fpos, line.company_id)
+        inv_type, line.product_id, fpos, line.company_id)
     if inv_type in ('out_invoice', 'out_refund'):
         taxes = (
             line.product_id.taxes_id.filtered(
