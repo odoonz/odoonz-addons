@@ -5,7 +5,7 @@
 {
     'name': 'Tax From Account',
     'description': """
-        Sets the taxes on sales, purchases and invoices from account rather 
+        Sets the taxes on sales, purchases and invoices from account rather
         than product.  If product has taxes set, these are used instead.""",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
