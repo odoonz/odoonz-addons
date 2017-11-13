@@ -20,6 +20,7 @@ class MrpBomLine(models.Model):
         string='Product Variant',
         compute='_compute_product_id',
         required=False,
+        store=1,
     )
     variant_id = fields.Many2one(
         comodel_name='product.product',
