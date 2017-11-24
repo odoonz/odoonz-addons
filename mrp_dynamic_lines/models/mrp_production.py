@@ -59,3 +59,12 @@ class MrpProduction(models.Model):
                 break
         bom_line and super(MrpProduction, self)._update_raw_move(
             bom_line, line_data)
+
+    @api.multi
+    def button_plan(self):
+        if len(self) == 1 and 'product_id' in self._context:
+            super(MrpProduction, self).button_plan()
+        else:
+            for order in self:
+                super(MrpProduction, order).with_context(
+                    product_id=order.product_id.id).button_plan()
