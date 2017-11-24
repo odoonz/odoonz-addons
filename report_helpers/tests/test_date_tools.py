@@ -18,5 +18,5 @@ class TestDateTools(TransactionCase):
     def test_adjust_datetime(self):
         dt_string = Datetime.now()
         adj_string = Datetime.adjust_datetime(dt_string, weeks=1, days=3)
-        adj_string = Datetime.adjust_datetime(adj_string, weeks=-1, dayss=-3)
+        adj_string = Datetime.adjust_datetime(adj_string, weeks=-1, days=-3)
         self.assertEqual(adj_string, dt_string)
