@@ -2,7 +2,7 @@
 # Copyright 2017 Open For Small Business Ltd
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models, _
+from odoo import models
 
 
 class AccountReport(models.AbstractModel):
@@ -16,14 +16,15 @@ class AccountReport(models.AbstractModel):
         method defined in account_move_line"""
         ctx = super(AccountReport, self).set_context(options)
         if options.get('operating_unit'):
-            ou_ids = [ou.get('id') for ou in options['operating_unit'] if ou.get('selected')]
+            ou_ids = [ou.get('id') for ou in options['operating_unit']
+                      if ou.get('selected')]
             ctx['operating_unit_ids'] = ou_ids
         return ctx
 
     def _build_options(self, previous_options=None):
         options = super(AccountReport, self)._build_options(
             previous_options=previous_options)
-        if options['operating_unit'] == False:
+        if not options['operating_unit']:
             options['operating_unit'] = [{
                 'id': ou.id,
                 'name': ou.name,
@@ -32,8 +33,3 @@ class AccountReport(models.AbstractModel):
                     else False)
             } for ou in self.env.user.operating_unit_ids]
         return options
-
-# class ReportAccountGeneralLedger(models.AbstractModel):
-#     _inherit = "account.general.ledger"
-#
-#     filter_operating_unit = True
