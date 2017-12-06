@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Open For Small Business Ltd
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+    <data>
+        <template id="search_template_operating_unit">
+            <a type="button" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="fa fa-filter"/>
+                Operating Units:
+                <t t-set="operating_unit_value" t-value="'All'"/>
+                <t t-foreach="options['operating_unit']" t-as="ou">
+                    <t t-if="ou.get('selected') == True">
+                        <t t-set="operating_unit_value" t-value="''"/>
+                        <t t-esc="ou.get('name')"/>
+                    </t>
+                </t>
+                <t t-esc="operating_unit_value"/>
+                <span class="caret"/>
+            </a>
+            <ul class="dropdown-menu o_filters_menu" role="menu">
+                <t t-foreach="options['operating_unit']" t-as="ou">
+                    <li t-att-title="ou.get('name')" data-filter="operating_unit" t-att-data-id="ou.get('id')"
+                        class="js_account_report_choice_filter">
+                        <a>
+                            <t t-esc="ou.get('name')"/>
+                        </a>
+                    </li>
+                </t>
+            </ul>
+        </template>
+
+        <template id="search_template" inherit_id="account_reports.search_template">
+            <xpath expr="//div[hasclass('o_account_reports_filter_multi_company')]" position="after">
+                <div class="btn-group o_dropdown o_account_reports_filter_operating_unit"
+                     t-if="options.get('operating_unit') != None">
+                    <t t-call="account_reports_operating_unit.search_template_operating_unit"/>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
