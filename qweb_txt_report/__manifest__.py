@@ -12,5 +12,5 @@
     'website': 'https://o4sb.com',
     'depends': ['web'],
     'data': ['views/assets.xml'],
-    'demo': ['demo/report.xml', 'demo/res_users_report.xml',]
+    'demo': ['demo/report.xml', 'demo/res_users_report.xml']
 }

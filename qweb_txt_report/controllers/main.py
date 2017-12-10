@@ -35,7 +35,7 @@ class ReportController(report.ReportController):
                         report.print_report_name,
                         {'object': record, 'time': time})
                 elif (report.print_report_name and
-                            'object' not in report.print_report_name):
+                        'object' not in report.print_report_name):
                     attachment_name = safe_eval(
                         report.print_report_name, {'time': time})
 
