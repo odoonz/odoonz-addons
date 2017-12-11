@@ -15,7 +15,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="attribute_id" widget="selection"/>
+                        <field name="attribute_id" options="{'no_create_edit': True}"/>
                         <field name="value_ids" widget="many2many_tags"/>
                     </group>
                 </sheet>
@@ -41,7 +41,7 @@
         <field name="arch" type="xml">
             <tree editable="bottom">
                 <field name="name"/>
-                <field name="attribute_id" widget="selection"/>
+                <field name="attribute_id" options="{'no_create_edit': True}"/>
                 <field name="value_ids"
                        context="{'show_attribute': False, 'default_attribute_id': attribute_id}"
                        widget="many2many_tags" domain="[('attribute_id', '=', attribute_id)]"/>
