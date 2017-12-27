@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 from .helper_methods import DEFAULT_REFERENCE_SEPARATOR
 from .helper_methods import render_default_code, sanitize_reference_mask
@@ -52,23 +53,27 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        result = super(ProductTemplate, self).write(vals)
-        for tmpl in self:
-            if tmpl.attribute_line_ids and not tmpl.reference_mask:
+        if 'reference_mask' in vals and not vals['reference_mask']:
+            if len(self) > 1 and any([(t.attribute_line_ids for t in self)]):
+                raise ValidationError(
+                    'Cannot write default reference mask to '
+                    'multiple variant templates at once.')
+            elif self.attribute_line_ids:
                 attribute_names = []
-                for line in tmpl.attribute_line_ids:
+                for line in self.attribute_line_ids:
                     attribute_names.append("[{}]".format(
                         line.attribute_id.name))
                 default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
                     attribute_names)
-                tmpl.reference_mask = default_mask
-            if tmpl.reference_mask:
+                vals['reference_mask'] = default_mask
+        result = super(ProductTemplate, self).write(vals)
+        if vals.get('reference_mask'):
+            for tmpl in self:
                 product_obj = self.env['product.product']
                 cond = [('product_tmpl_id', '=', tmpl.id),
                         ('manual_code', '=', False)]
                 products = product_obj.with_context(
                     active_test=False).search(cond)
                 for product in products:
-                    if tmpl.reference_mask:
-                        render_default_code(product, tmpl.reference_mask)
+                    render_default_code(product, vals['reference_mask'])
         return result
