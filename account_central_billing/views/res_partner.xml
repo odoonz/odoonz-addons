@@ -38,17 +38,22 @@
                             <field name="country_id"/>
                             <field name="mobile"/>
                             <field name="state_id"/>
-                            <field name="image"/>
+                            <field name="image_small"/>
                             <field name="lang"/>
+                            <!-- fields in form x2many view to diminish requests -->
+                            <field name="comment"/>
+                            <field name="customer"/>
+                            <field name="display_name"/>
+                            <field name="supplier"/>
                             <templates>
                                 <t t-name="kanban-box">
                                     <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
                                     <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
                                         <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
                                         <div class="o_kanban_image">
-                                            <img t-if="record.image.raw_value"
-                                                 t-att-src="'data:image/png;base64,'+record.image.raw_value"/>
-                                            <t t-if="!record.image.raw_value">
+                                            <img t-if="record.image_small.raw_value"
+                                                 t-att-src="'data:image/png;base64,'+record.image_small.raw_value"/>
+                                            <t t-if="!record.image_small.raw_value">
                                                 <img t-if="record.type.raw_value === 'delivery'"
                                                      t-att-src='_s + "/base/static/src/img/truck.png"'/>
                                                 <img t-if="record.type.raw_value === 'invoice'"
@@ -108,7 +113,8 @@
                                         <label for="street" string="Address"/>
                                         <div>
                                             <div class="o_address_format" name="div_address">
-                                                <field name="street" widget="google_places" placeholder="Street..."
+                                                <!-- removed widget here fr gplaces-->
+                                                <field name="street" placeholder="Street..."
                                                        class="o_address_street"/>
                                                 <field name="street2" placeholder="Street 2..."
                                                        class="o_address_street"/>
