@@ -15,7 +15,7 @@ Allow users to login using Microsoft Graph.
 Provider name: AzureAD
 Client ID: Client ID provided when registering Application
 Body: Login with Microsoft
-Authentication URL: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+Auth URL: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 Scope: User.Read User.ReadBasic.All
 Validation URL: https://graph.microsoft.com/v1.0/me
 
