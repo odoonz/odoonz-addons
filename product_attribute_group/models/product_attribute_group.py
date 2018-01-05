@@ -9,6 +9,7 @@ class ProductAttributeGroup(models.Model):
 
     _name = 'product.attribute.group'
     _description = 'Product Attribute Group'
+    _order = 'attribute_id, name asc'
 
     name = fields.Char(required=True)
     attribute_id = fields.Many2one(
