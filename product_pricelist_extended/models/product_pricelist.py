@@ -59,7 +59,7 @@ class ProductPricelist(models.Model):
             while categ:
                 categ_ids[categ.id] = True
                 categ = categ.parent_id
-        categ_ids = list(categ_ids.keys())
+        categ_ids = list(categ_ids)
         price_categ_ids = list(set(price_categ_ids))
         # End Changes
 
