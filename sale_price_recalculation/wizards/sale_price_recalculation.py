@@ -133,7 +133,9 @@ class SalePriceRecalculation(models.TransientModel):
         vals.update(self._prepare_other_vals())
         order.write(vals)
         for line in self.line_ids:
-            order_line = line.name
+            order_line = line.name.with_context(
+                ignore_protected_fields=['price_unit', 'discount',
+                                         'price_subtotal'])
             if ((order_line.price_unit != line.price_unit) or
                     (line.name.discount != line.discount)):
                 msgs.append(
