@@ -12,11 +12,19 @@
             <xpath expr="//page[@name='advanced_settings']/group" position="inside">
                 <group string="Lock Policy">
                     <group>
-                        <field name="enforce_lock" />
+                        <field name="enforce_lock"/>
                     </group>
-                <div name="lock_policy" attrs="{'invisible': [('enforce_lock', '=', False)]}" colspan="4">
-                    Lock transactions <field name="months" class="oe_inline" widget="integer" /> month(s) &amp; <field name="days" class ="oe_inline" widget="integer"/><label string=" "/><field name="day_type" class="oe_inline" attrs="{'required': [('enforce_lock', '=', True)]}" /> from <field name="cutoff_type" class="oe_inline" attrs="{'required': [('enforce_lock', '=', True)]}"/>
-                </div>
+                    <div name="lock_policy" attrs="{'invisible': [('enforce_lock', '=', False)]}" colspan="4">
+                        Lock transactions
+                        <field name="months" class="oe_inline" widget="integer"/>
+                        month(s) &amp;
+                        <field name="days" class="oe_inline" widget="integer"/>
+                        <label string=" "/>
+                        <field name="day_type" class="oe_inline" attrs="{'required': [('enforce_lock', '=', True)]}"/>
+                        from
+                        <field name="cutoff_type" class="oe_inline"
+                               attrs="{'required': [('enforce_lock', '=', True)]}"/>
+                    </div>
                 </group>
             </xpath>
         </field>
