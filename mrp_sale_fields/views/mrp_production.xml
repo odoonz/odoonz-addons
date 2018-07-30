@@ -42,9 +42,9 @@
                 <filter string="Sale Order" domain="[]" context="{'group_by':'sale_id'}"/>
                 <filter string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
             </xpath>
-            <xpath expr="//filter[@name='norouting']" position="before" >
-                <field name="sale_id" />
-                <field name="partner_id" operator="child_of" />
+            <xpath expr="//filter[@name='norouting']" position="before">
+                <field name="sale_id"/>
+                <field name="partner_id" operator="child_of"/>
             </xpath>
         </field>
     </record>
