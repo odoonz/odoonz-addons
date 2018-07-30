@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2107 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -20,7 +19,7 @@ except ImportError as err:
 class TestPriceRecalculationLine(TransactionCase):
 
     def setUp(self):
-        super(TestPriceRecalculationLine, self).setUp()
+        super().setUp()
         self.datacard = self.env.ref('product.product_delivery_02')
 
     @given(st.floats(**hp.QTY_ARGS),

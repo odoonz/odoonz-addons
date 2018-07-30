@@ -16,7 +16,7 @@ class TestPriceCalculation(TestSale):
 
     def setUp(self):
         """Initial Setup"""
-        super(TestPriceCalculation, self).setUp()
+        super().setUp()
         self.so = self.env['sale.order'].create({
             'partner_id': self.partner.id,
             'partner_invoice_id': self.partner.id,
