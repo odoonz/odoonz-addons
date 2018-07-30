@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -12,20 +11,21 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class ResPartner(models.Model):
 
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
     enforce_cutoff = fields.Boolean(default=False)
     days = fields.Integer()
-    day_type = fields.Selection([
-        ('weekday', 'working days'),
-        ('day', 'days')])
+    day_type = fields.Selection([("weekday", "working days"), ("day", "days")])
     cutoff_type = fields.Selection(
-        [('date', 'transaction date'),
-         ('eom', 'end of month following transaction')])
+        [
+            ("date", "transaction date"),
+            ("eom", "end of month following transaction"),
+        ]
+    )
 
     @api.multi
     def _get_new_invoice_date(self, today):
-        if self.cutoff_type == 'eom':
+        if self.cutoff_type == "eom":
             return fields.Date.to_string(today + relativedelta(day=1))
         else:
             return fields.Date.to_string(today)
@@ -37,21 +37,28 @@ class ResPartner(models.Model):
             if not partner.enforce_cutoff:
                 continue
             today = datetime.strptime(
-                fields.Date.context_today(partner), DEFAULT_SERVER_DATE_FORMAT)
+                fields.Date.context_today(partner), DEFAULT_SERVER_DATE_FORMAT
+            )
             transaction_date = datetime.strptime(
-                date_invoice, DEFAULT_SERVER_DATE_FORMAT)
+                date_invoice, DEFAULT_SERVER_DATE_FORMAT
+            )
             if transaction_date >= today:
                 continue
-            if partner.cutoff_type == 'eom':
+            if partner.cutoff_type == "eom":
                 if transaction_date.month >= today.month:
                     continue
+                # Set to last day of month so we know if inside cutoff window
                 transaction_date += relativedelta(day=31)
             if partner.days:
-                weekdays = list(range(
-                    5 if partner.day_type == 'weekday' else 7))
+                weekdays = list(
+                    range(5 if partner.day_type == "weekday" else 7)
+                )
                 transaction_date = rrule(
-                    DAILY, interval=partner.days, byweekday=weekdays,
-                    dtstart=transaction_date)[1]
+                    DAILY,
+                    interval=partner.days,
+                    byweekday=weekdays,
+                    dtstart=transaction_date,
+                )[1]
             if transaction_date < today:
                 return partner._get_new_invoice_date(today)
         return date_invoice

@@ -11,8 +11,14 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='acc_sale']" position="inside">
                 <field name="enforce_cutoff" groups="account.group_account_manager"/>
-                <div colspan="2" name="lock_policy" attrs="{'invisible': [('enforce_cutoff', '=', False)]}" groups="account.group_account_manager">
-                    Redate invoices <field name="days" class ="oe_inline" widget="integer"/><label string=" "/><field name="day_type" class="oe_inline" attrs="{'required': [('enforce_cutoff', '=', True)]}" /> after <field name="cutoff_type" class="oe_inline" attrs="{'required': [('enforce_cutoff', '=', True)]}"/>.
+                <div colspan="2" name="lock_policy" attrs="{'invisible': [('enforce_cutoff', '=', False)]}"
+                     groups="account.group_account_manager">
+                    Redate invoices
+                    <field name="days" class="oe_inline" widget="integer"/>
+                    <label string=" "/>
+                    <field name="day_type" class="oe_inline" attrs="{'required': [('enforce_cutoff', '=', True)]}"/>
+                    after<field name="cutoff_type" class="oe_inline"
+                                attrs="{'required': [('enforce_cutoff', '=', True)]}"/>.
                 </div>
 
             </xpath>
