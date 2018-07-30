@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -10,7 +9,7 @@ from odoo.addons.account.tests.test_account_supplier_invoice import \
 class TestSupplierTaxRounding(TestAccountSupplierInvoice):
 
     def setUp(self):
-        super(TestSupplierTaxRounding, self).setUp()
+        super().setUp()
         self.company = self.env.ref('base.main_company')
         self.company.tax_calculation_rounding_method = 'round_globally'
         self.invoice_account = self.env['account.account'].search([
