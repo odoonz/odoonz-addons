@@ -1,7 +1,8 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 from .helper_methods import DEFAULT_REFERENCE_SEPARATOR
 from .helper_methods import render_default_code, sanitize_reference_mask
@@ -47,27 +48,30 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def write(self, vals):
-        # First the case of trying to write reference mask to multiple
-        # records is not supported.
-        # TODO Relook closely at this logic, is confusing.
-        vals2 = dict(vals)
         if "reference_mask" in vals and not vals["reference_mask"]:
-            if len(self) > 1:
-                vals2.pop("reference_mask")
-        result = super().write(vals2)
-        if "attribute_line_ids" in vals or (
-            "reference_mask" in vals and "reference_mask" not in vals2
-        ):
+            if len(self) > 1 and any([(t.attribute_line_ids for t in self)]):
+                raise ValidationError(
+                    _(
+                        "Cannot write default reference mask to multiple variant templates at once."
+                    )
+                )
+            elif self.attribute_line_ids:
+                attribute_names = []
+                for line in self.attribute_line_ids:
+                    attribute_names.append(
+                        "[{}]".format(line.attribute_id.name)
+                    )
+                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
+                    attribute_names
+                )
+                vals["reference_mask"] = default_mask
+        result = super().write(vals)
+        if "attribute_line_ids" in vals and "reference_mask" not in vals:
+            # To trigger default code creation
             for tmpl in self:
-                mask = tmpl.reference_mask
-                if not mask and tmpl.attribute_line_ids:
-                    attribute_names = []
-                    for line in self.attribute_line_ids:
-                        attribute_names.append(
-                            "[{}]".format(line.attribute_id.name)
-                        )
-                    mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
-
+                tmpl.write({"reference_mask": tmpl.reference_mask})
+        if vals.get("reference_mask"):
+            for tmpl in self:
                 product_obj = self.env["product.product"]
                 cond = [
                     ("product_tmpl_id", "=", tmpl.id),
@@ -77,6 +81,5 @@ class ProductTemplate(models.Model):
                     cond
                 )
                 for product in products:
-                    render_default_code(product, mask)
-                tmpl.write({"reference_mask": mask})
+                    render_default_code(product, vals["reference_mask"])
         return result
