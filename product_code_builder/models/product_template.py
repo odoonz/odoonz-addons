@@ -52,7 +52,8 @@ class ProductTemplate(models.Model):
             if len(self) > 1 and any([(t.attribute_line_ids for t in self)]):
                 raise ValidationError(
                     _(
-                        "Cannot write default reference mask to multiple variant templates at once."
+                        "Cannot write default reference mask to multiple "
+                        "variant templates at once."
                     )
                 )
             elif self.attribute_line_ids:
