@@ -33,6 +33,8 @@ class ProductPricelistItem(models.Model):
     code_inclusion = fields.Char('Code includes')
     code_exclusion = fields.Char('Code excludes')
 
+    # Inherits upstream usage of deprecated api.one
+    # pylint: disable=W8104
     @api.one
     @api.depends('price_categ_id', 'product_tmpl_ids', 'product_ids')
     def _get_pricelist_item_name_price(self):
