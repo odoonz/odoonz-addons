@@ -3,9 +3,7 @@
 
 {
     'name': 'Invoice Sale Pricelist',
-    'description': """
-        Use the sale pricelist if available or else the partners pricelist for
-        setting default price""",
+    'summary': "Lookup prices using sale pricelist on invoices",
     'version': '11.0.1.0.1',
     'license': 'AGPL-3',
     'author': 'Open For Small Business Ltd',
