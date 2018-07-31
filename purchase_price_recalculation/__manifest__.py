@@ -3,9 +3,8 @@
 
 {
     'name': 'Purchase Price Recalculation',
-    'description': """
-        Allows to update the pricing of confirmed purchase orders
-        prior to reception""",
+    'summary': "Allows to update the pricing of confirmed purchase orders "
+               "prior to reception",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'author': ' Open for Small Business Ltd',
