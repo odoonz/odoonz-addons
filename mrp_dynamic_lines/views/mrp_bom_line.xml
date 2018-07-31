@@ -7,6 +7,7 @@
     <record model="ir.ui.view" id="mrp_bom_line_form_view">
         <field name="name">mrp.bom.line.form (in mrp_dynamic_lines)</field>
         <field name="model">mrp.bom.line</field>
+        <field name="priority">99</field>
         <field name="inherit_id" ref="mrp.mrp_bom_line_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="replace">
@@ -23,6 +24,7 @@
     <record model="ir.ui.view" id="mrp_bom_line_search_view">
         <field name="name">mrp.bom.line.search (in mrp_dynamic_lines)</field>
         <field name="model">mrp.bom.line</field>
+        <field name="priority">99</field>
         <field name="inherit_id" ref="mrp.view_mrp_bom_line_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="replace">
@@ -37,6 +39,7 @@
     <record model="ir.ui.view" id="mrp_bom_component_tree_view">
         <field name="name">mrp.bom.line.tree (in mrp_dynamic_lines)</field>
         <field name="model">mrp.bom.line</field>
+        <field name="priority">99</field>
         <field name="inherit_id" ref="mrp.mrp_bom_component_tree_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="replace">
