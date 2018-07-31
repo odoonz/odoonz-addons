@@ -3,8 +3,7 @@
 
 {
     'name': 'Sale Purchase Count',
-    'description': """
-        View MTO purchases from sales order""",
+    'summary': "View MTO purchases from sales order",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'author': ' Open for Small Business Ltd',
