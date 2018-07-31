@@ -5,7 +5,7 @@
     "name": "Base Pricelist Recalculation",
     "version": "11.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Graeme Gellatly",
+    "author": " Open for Small Business Ltd",
     "website": "https://o4sb.com",
     "category": "Hidden",
     "summary": """

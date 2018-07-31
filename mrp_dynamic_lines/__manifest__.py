@@ -17,7 +17,7 @@
         being produced""",
     "version": "11.0.2.1.3",
     "license": "AGPL-3",
-    "author": "Graeme Gellatly",
+    "author": " Open for Small Business Ltd",
     "website": "https://o4sb.com",
     "depends": ["mrp"],
     "data": [
