@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -49,7 +48,7 @@ class ProductTemplate(models.Model):
             vals['reference_mask'] = default_mask
         elif vals.get('reference_mask'):
             sanitize_reference_mask(product, vals['reference_mask'])
-        return super(ProductTemplate, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
@@ -66,7 +65,7 @@ class ProductTemplate(models.Model):
                 default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
                     attribute_names)
                 vals['reference_mask'] = default_mask
-        result = super(ProductTemplate, self).write(vals)
+        result = super().write(vals)
         if vals.get('reference_mask'):
             for tmpl in self:
                 product_obj = self.env['product.product']

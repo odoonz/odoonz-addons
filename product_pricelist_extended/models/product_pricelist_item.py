@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014- Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -37,7 +36,7 @@ class ProductPricelistItem(models.Model):
     @api.one
     @api.depends('price_categ_id', 'product_tmpl_ids', 'product_ids')
     def _get_pricelist_item_name_price(self):
-        super(ProductPricelistItem, self)._get_pricelist_item_name_price()
+        super()._get_pricelist_item_name_price()
         if self.price_categ_id:
             self.name = _("Price Category: %s") % self.price_categ_id.name
         elif self.product_tmpl_ids:

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -15,7 +14,7 @@ class ProductProduct(models.Model):
 
     @api.model
     def create(self, values):
-        product = super(ProductProduct, self).create(values)
+        product = super().create(values)
         if product.reference_mask:
             render_default_code(product, product.reference_mask)
         return product

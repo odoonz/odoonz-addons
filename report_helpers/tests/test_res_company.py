@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -8,7 +7,7 @@ from odoo.tests.common import TransactionCase
 class TestResCompany(TransactionCase):
 
     def setUp(self):
-        super(TestResCompany, self).setUp()
+        super().setUp()
         self.company = self.env.ref('base.main_company')
 
     def test_report_addresses(self):

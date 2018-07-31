@@ -49,5 +49,5 @@ class ReportController(report.ReportController):
                 'Content-Disposition',
                 'attachment; filename="'+attachment_name)
             return response
-        return super(ReportController, self).report_routes(
+        return super().report_routes(
             reportname, docids=docids, converter=converter, **data)

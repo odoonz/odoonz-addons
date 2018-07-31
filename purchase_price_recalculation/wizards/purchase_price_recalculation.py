@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -46,7 +45,7 @@ class PurchasePriceRecalculation(models.TransientModel):
 
     @api.multi
     def _set_context(self):
-        ctx = super(PurchasePriceRecalculation, self)._set_context()
+        ctx = super()._set_context()
         ctx.update({'warehouse_id': self.name.warehouse_id.id})
         return ctx
 
@@ -56,7 +55,7 @@ class PurchasePriceRecalculation(models.TransientModel):
         Check write constraints for orders that can't be updated
         Note: Caller ensures one record
         """
-        super(PurchasePriceRecalculation, self)._check_write_constraints()
+        super()._check_write_constraints()
         if self.name.picking_ids.filtered(lambda p: p.state == 'done'):
             raise ValidationError(
                 _('You cannot change pricing on an order that has '

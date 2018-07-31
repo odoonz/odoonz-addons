@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Open For Small Business Ltd
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
@@ -26,7 +25,7 @@ class IrActionsReport(models.Model):
         """Get the first record of ir.actions.report having the ``report_name``
         as value for the field report_name.
         """
-        res = super(IrActionsReport, self)._get_report_from_name(report_name)
+        res = super()._get_report_from_name(report_name)
         if res:
             return res
         report_obj = self.env['ir.actions.report']

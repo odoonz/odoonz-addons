@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -16,7 +15,7 @@ class ProductTemplate(models.Model):
 
     @api.multi
     def create_variant_ids(self):
-        res = super(ProductTemplate, self).create_variant_ids()
+        res = super().create_variant_ids()
         exclusion_obj = self.env['product.attribute.exclude']
         product_obj = self.env['product.product']
         for template in self:

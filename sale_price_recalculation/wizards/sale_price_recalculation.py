@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -25,7 +24,7 @@ class SalePriceRecalculation(models.TransientModel):
             return
         for line in self.line_ids:
             line.discount = 0.0
-        return super(SalePriceRecalculation,
+        return super(
                      self)._onchange_balance_to_total()
 
     @api.onchange('pricelist_id')
@@ -34,7 +33,7 @@ class SalePriceRecalculation(models.TransientModel):
 
     @api.multi
     def _set_context(self):
-        ctx = super(SalePriceRecalculation, self)._set_context()
+        ctx = super()._set_context()
         ctx.update({'warehouse_id': self.name.warehouse_id.id})
         return ctx
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -23,12 +22,12 @@ class SalePriceRecalculationLine(models.TransientModel):
     @api.onchange('price_total')
     def _onchange_total(self):
         self.discount = 0.0
-        return super(SalePriceRecalculationLine, self)._onchange_total()
+        return super()._onchange_total()
 
     @api.onchange('price_subtotal')
     def _onchange_subtotal(self):
         self.discount = 0.0
-        return super(SalePriceRecalculationLine, self)._onchange_subtotal()
+        return super()._onchange_subtotal()
 
     @api.onchange('price_unit', 'discount')
     def _onchange_price(self):

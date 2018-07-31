@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #    Copyright 2017
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -52,7 +51,7 @@ class TestTemplateCreateandWrite(TransactionCase):
         self.assertFalse(template.reference_mask is False)
 
     def setUp(self):
-        super(TestTemplateCreateandWrite, self).setUp()
+        super().setUp()
         attr_obj = self.env['product.attribute']
         attr_value_obj = self.env['product.attribute.value']
         self.attribute1 = attr_obj.create({'name': 'Size (VDC)'})
@@ -118,7 +117,7 @@ class TestCodeOnTemplate(TransactionCase):
             product_codes)
 
     def setUp(self):
-        super(TestCodeOnTemplate, self).setUp()
+        super().setUp()
         attr_obj = self.env['product.attribute']
         attr_value_obj = self.env['product.attribute.value']
 

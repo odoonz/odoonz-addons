@@ -1,4 +1,3 @@
-# coding: utf-8
 # © 2015 Benoît GUILLOT <benoit.guillot@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -13,7 +12,7 @@ class ProductAttribute(models.Model):
 
     @api.multi
     def write(self, vals):
-        result = super(ProductAttribute, self).write(vals)
+        result = super().write(vals)
         if 'code' in vals:
             attribute_line_obj = self.env['product.attribute.line']
             product_obj = self.env['product.product']

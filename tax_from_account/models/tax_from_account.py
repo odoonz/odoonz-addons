@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Open For Small Business Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -54,7 +53,7 @@ class AccountInvoiceLine(models.Model):
 
     @api.onchange('account_id')
     def _onchange_account_id(self):
-        super(AccountInvoiceLine, self)._onchange_account_id()
+        super()._onchange_account_id()
         if not self.product_id and self.account_id:
             company_id = self.company_id or self.env.user.company_id
             self.invoice_line_tax_ids = self.invoice_line_tax_ids.filtered(

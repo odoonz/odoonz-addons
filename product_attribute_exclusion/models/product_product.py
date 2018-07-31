@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -26,7 +25,7 @@ class ProductProduct(models.Model):
                      vals['attribute_value_ids'][0][2])
                 ])
             except IndexError:
-                return super(ProductProduct, self).create(vals)
+                return super().create(vals)
             attr_vals = self.env['product.attribute.value'].browse(
                 vals['attribute_value_ids'][0][2])
             exclusion_values = exclusion_obj.search(search_args)
@@ -34,4 +33,4 @@ class ProductProduct(models.Model):
             for excl_val in exclusion_values:
                 if excl_val.attribute_value_ids <= attr_vals:
                     return self.env['product.product']
-        return super(ProductProduct, self).create(vals)
+        return super().create(vals)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -99,7 +98,7 @@ class TestProductCombinationExclude(TransactionCase):
         self.assertFalse(len(self.matrix1.exclusion_line_ids))
 
     def setUp(self):
-        super(TestProductCombinationExclude, self).setUp()
+        super().setUp()
 
         #  This matrix says we cannot have Green and Black T-Shirts
         #  in medium size

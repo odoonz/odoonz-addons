@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -23,12 +22,12 @@ class ProductAttributeValue(models.Model):
     def create(self, values):
         if 'code' not in values:
             values['code'] = values.get('name', '')[0:2]
-        value = super(ProductAttributeValue, self).create(values)
+        value = super().create(values)
         return value
 
     @api.multi
     def write(self, vals):
-        result = super(ProductAttributeValue, self).write(vals)
+        result = super().write(vals)
         if 'code' in vals:
             attribute_line_obj = self.env['product.attribute.line']
             product_obj = self.env['product.product']

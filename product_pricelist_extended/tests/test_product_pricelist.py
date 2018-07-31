@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -15,7 +14,7 @@ class TestProductPricelistItem(TestProductPricelist):
     """
 
     def setUp(self):
-        super(TestProductPricelistItem, self).setUp()
+        super().setUp()
         self.price_categ1 = self.env.ref(
             'product_pricelist_extended.price_categ1')
         self.uom_dozen = self.env.ref('product.product_uom_dozen')

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -14,7 +13,7 @@ class SaleOrderLine(models.Model):
         and removes those fields so they can be written
         :return:
         """
-        protected_fields = super(SaleOrderLine, self)._get_protected_fields()
+        protected_fields = super()._get_protected_fields()
         if isinstance(self._context.get('ignore_protected_fields'), list):
             protected_fields = list(
                 set(protected_fields) -

@@ -23,11 +23,11 @@ QTY_ARGS = dict(min_value=0.01, max_value=100000.0,
 
 class TestSaleRecalc(TestSale):
     def __init__(self, methodName='runTest'):
-        super(TestSaleRecalc, self).__init__(methodName)
+        super().__init__(methodName)
 
     def setUp(self):
         """Initial Setup"""
-        super(TestSaleRecalc, self).setUp()
+        super().setUp()
 
     def create_so_and_recalc(self, qty, price, discount):
         """Helper method to generate SO and Recalc"""
