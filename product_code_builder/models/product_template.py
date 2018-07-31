@@ -55,7 +55,9 @@ class ProductTemplate(models.Model):
             if len(self) > 1:
                 vals2.pop("reference_mask")
         result = super().write(vals2)
-        if "attribute_line_ids" in vals or "reference_mask" in vals:
+        if "attribute_line_ids" in vals or (
+            "reference_mask" in vals and "reference_mask" not in vals2
+        ):
             for tmpl in self:
                 mask = tmpl.reference_mask
                 if not mask and tmpl.attribute_line_ids:
@@ -64,10 +66,8 @@ class ProductTemplate(models.Model):
                         attribute_names.append(
                             "[{}]".format(line.attribute_id.name)
                         )
-                    default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
-                        attribute_names
-                    )
-                    mask = default_mask
+                    mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
+
                 product_obj = self.env["product.product"]
                 cond = [
                     ("product_tmpl_id", "=", tmpl.id),
@@ -78,4 +78,5 @@ class ProductTemplate(models.Model):
                 )
                 for product in products:
                     render_default_code(product, mask)
+                tmpl.write({"reference_mask": mask})
         return result
