@@ -2,17 +2,21 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
-Report Helpers
-==============
+=================
+MRP Dynamic Lines
+=================
 
-Collection of functions that may be useful in reports.
-Current helpers:
+Provides a base to perform dynamic transformations to an exploded
+Bill of Materials, either during explode or raw move generation.
 
-* Company physical and postal address for report headers
-* adjustdate - pass a date(time) string with relativedelta style
-  args and get an adjusted date(time) back.
+2 Sample transformations are included:
 
+* Match Attributes - which seeks to match the bom line with the
+  attributes of the parent BoM
+* Scale Weight - scales a bom line measured in kg to the quantity
+  being producedCollection of functions that may be useful in reports.
+
+NOTE: Currently untested in Alpha
 
 Installation
 ============
@@ -32,8 +36,8 @@ None
 Known issues / Roadmap
 ======================
 
-* Probably deprecate adjust_datetime in V12 for new datetime types and
-  format_date of odoo.tools
+* Alpha
+* No tests
 
 Bug Tracker
 ===========
