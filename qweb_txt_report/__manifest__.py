@@ -3,8 +3,7 @@
 
 {
     'name': 'Qweb Txt Report',
-    'description': """
-        Allows to print text reports using qweb templates""",
+    'summary': "Allows to print text reports using qweb templates",
     'version': '11.0.1.0.0',
     'license': 'LGPL-3',
     'author': 'Open For Small Business Ltd',

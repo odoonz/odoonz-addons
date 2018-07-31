@@ -8,14 +8,12 @@ var framework = require('web.framework');
 ActionManager.include({
     ir_actions_report: function (action, options){
         var self = this;
-        action = _.clone(action);
         if (action.report_type === 'qweb-text') {
             framework.blockUI();
             var report_txt_url = 'report/text/' + action.report_name;
             if(action.context.active_ids){
                 report_txt_url += '/' + action.context.active_ids.join(',');
-            }
-            else{
+            } else {
                 report_txt_url += '?options=' + encodeURIComponent(JSON.stringify(action.data));
                 report_txt_url += '&context=' + encodeURIComponent(JSON.stringify(action.context));
             }
@@ -33,7 +31,7 @@ ActionManager.include({
                 },
             });
             framework.unblockUI();
-            return
+            return;
         }
         return self._super(action, options);
     }
