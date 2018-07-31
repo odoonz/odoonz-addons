@@ -3,8 +3,7 @@
 
 {
     'name': 'Mrp Sale Fields',
-    'description': """
-        Adds fields from sale order when linked""",
+    'summary': "Adds fields from sale order when linked",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'author': 'Open For Small Business Ltd',
