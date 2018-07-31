@@ -2,13 +2,14 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===========================
-Account Journal Lock Policy
-===========================
+=============================
+Account Supplier Tax Rounding
+=============================
 
-Allows to specify a lock date policy at the journal level.  The policy can be based
-either on the transaction date or the end of month and can be any number of months,
-days, or weekdays in the future.
+Ordinarily in an ex tax environment rounding is performed
+on the ex tax total.  However some suppliers may round early
+at the line level.  This module allows you to configure this
+easing the entry of vendor invoices and 1c rouding errors.
 
 Installation
 ============
@@ -18,22 +19,19 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-There are no special configuration instructions for this module.
+#. For each supplier, select the appropriate Purchase Tax rounding option.
+#. Suppliers default to the company method, so only those that differ need consideration.
 
 Usage
 =====
 
-Go to Accounting -> Settings -> Journals
-Under Advanced Settings check enforce lock and complete policy.
-
-Note the policy is exclusive, so if you specified 3 days after end of month, then transactions
-on the 3rd for the prior month would not be allowed.
+Once a partner is configured, there are no usage instructions for regular users,
+invoices are automatically calculated using the tax configuration.
 
 Known issues / Roadmap
 ======================
 
-* Currently no tests.
-* Using negatives has not been tested and no validation around that.
+* Only works if company policy is set to round globally
 
 Bug Tracker
 ===========

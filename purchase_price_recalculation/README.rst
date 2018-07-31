@@ -54,7 +54,7 @@ Credits
 Contributors
 ------------
 
-* Graeme Gellatly <g@o4sb.com>
+* Graeme Gellatly <graeme@o4sb.com>
 
 Maintainer
 ----------

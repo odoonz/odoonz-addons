@@ -10,7 +10,7 @@
         "Serv. Tecnol. Avanzados - Pedro M. Baeza",
         "Shine IT(http://www.openerp.cn)",
         "Tony Gu <tony@openerp.cn>",
-        "Graeme Gellatly <g@o4sb.com>",
+        "Graeme Gellatly <graeme@o4sb.com>",
         ],
     "license": "AGPL-3",
     "category": "Product",

@@ -86,7 +86,7 @@ This module was initially a direct port of the module with the same name from th
 * Serv. Tecnol. Avanzados - Pedro M. Baeza
 * Shine IT(http://www.openerp.cn)
 * Tony Gu <tony@openerp.cn>
-* Graeme Gellatly <g@o4sb.com>
+* Graeme Gellatly <graeme@o4sb.com>
 
 The module was then renamed to product_code_builder to replace that module and some functionality ported as well as
 fields renmaed to match.
