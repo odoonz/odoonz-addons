@@ -1,8 +1,7 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo import models, fields, api
 
 from .helper_methods import DEFAULT_REFERENCE_SEPARATOR
 from .helper_methods import render_default_code, sanitize_reference_mask
