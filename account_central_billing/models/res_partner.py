@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
@@ -42,7 +42,7 @@ class ResPartner(models.Model):
                 lambda r: bool(r.store_ref)
             ).mapped("store_ref")
             if len(store_refs) != len(set(store_refs)):
-                raise ValidationError("Cannot have duplicate store codes")
+                raise ValidationError(_("Cannot have duplicate store codes"))
 
     @api.multi
     def get_billing_partner(self, vals, invoice=None):

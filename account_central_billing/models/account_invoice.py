@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
@@ -38,7 +38,7 @@ class AccountInvoice(models.Model):
                 record.partner_id.id,
                 record.partner_id.commercial_partner_id.id,
             ]:
-                raise ValidationError("Cannot self bill")
+                raise ValidationError(_("Cannot self bill"))
 
     @api.model
     def create(self, vals):
