@@ -41,7 +41,9 @@ class MrpProduction(models.Model):
             lambda bl: bl.application_point == "move"
         ).sorted("sequence"):
             bom_line_id = bom_line.id
-            func = getattr(self, "_generate_raw_move_%s" % xform.technical_name)
+            func = getattr(
+                self, "_generate_raw_move_%s" % xform.technical_name
+            )
             if func:
                 bom_line, line_fields = func(bom_line, line_data)
             else:

@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Mrp Dynamic Lines',
-    'summary': 'Dynamic BoM Transformations - ALPHA',
-    'description': """
+    "name": "Mrp Dynamic Lines",
+    "summary": "Dynamic BoM Transformations - ALPHA",
+    "description": """
         NOTE: This module is very Alpha right now after total refactor
 
         Provides a base to perform dynamic transformations to an exploded
@@ -15,17 +15,17 @@
         attributes of the parent BoM
         Scale Weight - scales a bom line measured in kg to the quantity
         being produced""",
-    'version': '11.0.2.1.3',
-    'license': 'AGPL-3',
-    'author': 'Graeme Gellatly',
-    'website': 'https://o4sb.com',
-    'depends': ['mrp'],
-    'data': [
-        'data/bom_line_xform.xml',
-        'security/ir.model.access.csv',
-        'views/mrp_bom.xml',
-        'views/mrp_bom_line.xml',
+    "version": "11.0.2.1.3",
+    "license": "AGPL-3",
+    "author": "Graeme Gellatly",
+    "website": "https://o4sb.com",
+    "depends": ["mrp"],
+    "data": [
+        "data/bom_line_xform.xml",
+        "security/ir.model.access.csv",
+        "views/mrp_bom.xml",
+        "views/mrp_bom_line.xml",
     ],
-    'pre_init_hook': 'pre_init_hook',
-    'uninstall_hook': 'uninstall_hook',
+    "pre_init_hook": "pre_init_hook",
+    "uninstall_hook": "uninstall_hook",
 }

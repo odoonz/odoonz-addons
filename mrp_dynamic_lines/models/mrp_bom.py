@@ -61,7 +61,9 @@ class MrpBom(models.Model):
             * line_fields["product"].weight
             or 1.0
         )
-        qty = parent_weight * line_fields["original_qty"] * bom_line.product_qty
+        qty = (
+            parent_weight * line_fields["original_qty"] * bom_line.product_qty
+        )
         rounding = bom_line.product_uom_id.rounding
         line_fields.update(
             qty=float_round(

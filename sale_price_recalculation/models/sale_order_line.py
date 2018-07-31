@@ -5,7 +5,7 @@ from odoo import models
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
     def _get_protected_fields(self):
         """
@@ -14,9 +14,9 @@ class SaleOrderLine(models.Model):
         :return:
         """
         protected_fields = super()._get_protected_fields()
-        if isinstance(self._context.get('ignore_protected_fields'), list):
+        if isinstance(self._context.get("ignore_protected_fields"), list):
             protected_fields = list(
-                set(protected_fields) -
-                set(self._context['ignore_protected_fields'])
+                set(protected_fields)
+                - set(self._context["ignore_protected_fields"])
             )
         return protected_fields

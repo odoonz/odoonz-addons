@@ -4,6 +4,7 @@ from odoo.addons.sale.tests import TestSale
 from odoo.exceptions import ValidationError
 
 import logging
+
 _logger = logging.Logger(__name__)
 
 try:
@@ -13,16 +14,20 @@ except ImportError as err:
     _logger.debug(err)
 
 
-PRICE_ARGS = dict(min_value=0.00, max_value=10000000.0,
-                  allow_nan=False, allow_infinity=False)
-DISCOUNT_ARGS = dict(min_value=-100.00, max_value=1000.0,
-                     allow_nan=False, allow_infinity=False)
-QTY_ARGS = dict(min_value=0.01, max_value=100000.0,
-                allow_nan=False, allow_infinity=False)
+PRICE_ARGS = dict(
+    min_value=0.00, max_value=10000000.0, allow_nan=False, allow_infinity=False
+)
+DISCOUNT_ARGS = dict(
+    min_value=-100.00, max_value=1000.0, allow_nan=False, allow_infinity=False
+)
+QTY_ARGS = dict(
+    min_value=0.01, max_value=100000.0, allow_nan=False, allow_infinity=False
+)
 
 
 class TestSaleRecalc(TestSale):
-    def __init__(self, methodName='runTest'):
+
+    def __init__(self, methodName="runTest"):
         super().__init__(methodName)
 
     def setUp(self):
@@ -31,31 +36,45 @@ class TestSaleRecalc(TestSale):
 
     def create_so_and_recalc(self, qty, price, discount):
         """Helper method to generate SO and Recalc"""
-        so = self.env['sale.order'].create({
-            'partner_id': self.partner.id,
-            'partner_invoice_id': self.partner.id,
-            'partner_shipping_id': self.partner.id,
-            'order_line': [(0, 0, {
-                'name': p.name,
-                'product_id': p.id,
-                'product_uom_qty': qty[i],
-                'product_uom': p.uom_id.id,
-                'price_unit': price[i],
-                'discount': discount[i]
-            }) for (i, (_, p)) in enumerate(self.products.items())],
-            'pricelist_id': self.env.ref('product.list0').id,
-        })
+        so = self.env["sale.order"].create(
+            {
+                "partner_id": self.partner.id,
+                "partner_invoice_id": self.partner.id,
+                "partner_shipping_id": self.partner.id,
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": p.name,
+                            "product_id": p.id,
+                            "product_uom_qty": qty[i],
+                            "product_uom": p.uom_id.id,
+                            "price_unit": price[i],
+                            "discount": discount[i],
+                        },
+                    )
+                    for (i, (_, p)) in enumerate(self.products.items())
+                ],
+                "pricelist_id": self.env.ref("product.list0").id,
+            }
+        )
 
-        recalc = self.env['sale.price.recalculation'].with_context(
-            active_id=so.id, active_model='sale.order').create()
+        recalc = (
+            self.env["sale.price.recalculation"]
+            .with_context(active_id=so.id, active_model="sale.order")
+            .create()
+        )
 
         return so, recalc
 
     # Put tests here
-    @given(st.streaming(st.floats(**QTY_ARGS)),
-           st.streaming(st.floats(**PRICE_ARGS)),
-           st.streaming(st.floats(**DISCOUNT_ARGS)),
-           st.floats(**PRICE_ARGS))
+    @given(
+        st.streaming(st.floats(**QTY_ARGS)),
+        st.streaming(st.floats(**PRICE_ARGS)),
+        st.streaming(st.floats(**DISCOUNT_ARGS)),
+        st.floats(**PRICE_ARGS),
+    )
     def test_recalc(self, qty, price, discount, total):
         """
         When we create record check that it
@@ -74,40 +93,46 @@ class TestSaleRecalc(TestSale):
         self.assertEqual(s.price_unit, l.price_unit)
         self.assertEqual(s.price_subtotal, l.price_subtotal)
         self.assertEqual(s.price_total, l.price_total)
-        self.assertEqual((s.price_total - s.price_subtotal) / s.price_subtotal,
-                         (l.price_total - l.price_subtotal) / l.price_subtotal)
+        self.assertEqual(
+            (s.price_total - s.price_subtotal) / s.price_subtotal,
+            (l.price_total - l.price_subtotal) / l.price_subtotal,
+        )
 
         # We test that when we change the total ex tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = False
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertEqual(sum([l.price_subtotal for l in recalc.line_ids]),
-                         recalc.total)
+        self.assertEqual(
+            sum([l.price_subtotal for l in recalc.line_ids]), recalc.total
+        )
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_subtotal / recalc.total
         for l in recalc.line_ids:
             s = l.name
             self.assertAlmostEqual(
-                s.price_subtotal / l.price_subtotal,
-                approx_change, delta=0.1)
+                s.price_subtotal / l.price_subtotal, approx_change, delta=0.1
+            )
 
         # We test that when we change the total incl tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = True
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertAlmostEqual(sum([l.price_total for l in recalc.line_ids]),
-                               recalc.total, delta=0.02)
+        self.assertAlmostEqual(
+            sum([l.price_total for l in recalc.line_ids]),
+            recalc.total,
+            delta=0.02,
+        )
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_total / recalc.total
         for l in recalc.line_ids:
             s = l.name
             self.assertAlmostEqual(
-                s.price_total / l.price_total,
-                approx_change, delta=0.1)
+                s.price_total / l.price_total, approx_change, delta=0.1
+            )
 
         # Test the changing a subtotal works correctly
         l = recalc.line_ids[:-1]
@@ -133,7 +158,7 @@ class TestSaleRecalc(TestSale):
         # and test the unit prices have updated
         for i, p in enumerate(self.products.values(), start=start):
             p.list_price = price[i]
-        recalc.pricelist_id = self.env.ref('product.list0')
+        recalc.pricelist_id = self.env.ref("product.list0")
         recalc._onchange_pricelist_id()
 
         subtotals = []
@@ -141,25 +166,36 @@ class TestSaleRecalc(TestSale):
         idx = randint(0, len(recalc.line_ids))
         for l in recalc.line_ids:
             if l == recalc.line_ids[idx]:
-                self.assertEqual(l.price_unit, l.product_id.list_price,
-                                 "The price lines weren't updated")
-                self.assertEqual(l.price_unit, l.name.price_unit,
-                                 "The sales order lines do not match")
+                self.assertEqual(
+                    l.price_unit,
+                    l.product_id.list_price,
+                    "The price lines weren't updated",
+                )
+                self.assertEqual(
+                    l.price_unit,
+                    l.name.price_unit,
+                    "The sales order lines do not match",
+                )
             subtotals.append(l.price_subtotal)
         self.assertEqual(so.amount_untaxed, sum(subtotals))
 
         # This could be moved to seperate test or maybe we use single
         # transaction case
-        context = {"active_model": 'sale.order', "active_ids": [so.id],
-                   "active_id": so.id}
+        context = {
+            "active_model": "sale.order",
+            "active_ids": [so.id],
+            "active_id": so.id,
+        }
         so.with_context(context).action_confirm()
         # Now I create invoice.
 
-        payment = self.env['sale.advance.payment.inv'].create({
-            'advance_payment_method': 'fixed',
-            'amount': 5,
-            'product_id': self.env.ref('sale.advance_product_0').id,
-        })
+        payment = self.env["sale.advance.payment.inv"].create(
+            {
+                "advance_payment_method": "fixed",
+                "amount": 5,
+                "product_id": self.env.ref("sale.advance_product_0").id,
+            }
+        )
         payment.with_context(context).create_invoices()
         recalc.action_write()
         # Now I validate pay invoice wihth Test User(invoicing and payment).

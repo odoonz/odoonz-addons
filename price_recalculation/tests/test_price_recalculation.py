@@ -17,30 +17,46 @@ class TestPriceCalculation(TestSale):
     def setUp(self):
         """Initial Setup"""
         super().setUp()
-        self.so = self.env['sale.order'].create({
-            'partner_id': self.partner.id,
-            'partner_invoice_id': self.partner.id,
-            'partner_shipping_id': self.partner.id,
-            'order_line': [(0, 0, {
-                'name': p.name, 'product_id': p.id, 'product_uom_qty': 2,
-                'product_uom': p.uom_id.id,
-                'price_unit': p.list_price
-            }) for p in self.products.values()],
-            'pricelist_id': self.env.ref('product.list0').id,
-        })
+        self.so = self.env["sale.order"].create(
+            {
+                "partner_id": self.partner.id,
+                "partner_invoice_id": self.partner.id,
+                "partner_shipping_id": self.partner.id,
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": p.name,
+                            "product_id": p.id,
+                            "product_uom_qty": 2,
+                            "product_uom": p.uom_id.id,
+                            "price_unit": p.list_price,
+                        },
+                    )
+                    for p in self.products.values()
+                ],
+                "pricelist_id": self.env.ref("product.list0").id,
+            }
+        )
 
     def test_defaults(self):
-        spr = self.env['price.recalculation'].with_context(
-            active_ids=[self.so.id], active_model='sale.order').create()
+        spr = (
+            self.env["price.recalculation"]
+            .with_context(active_ids=[self.so.id], active_model="sale.order")
+            .create()
+        )
         self.assertEqual(spr.name, self.so)
         self.assertEqual(spr.partner_id, self.so.partner_id)
         self.assertEqual(spr.date_order, self.so.date_order)
 
     # Put tests here
-    @given(st.streaming(st.floats(**hp.QTY_ARGS)),
-           st.streaming(st.floats(**hp.PRICE_ARGS)),
-           st.streaming(st.floats(**hp.DISCOUNT_ARGS)),
-           st.floats(**hp.PRICE_ARGS))
+    @given(
+        st.streaming(st.floats(**hp.QTY_ARGS)),
+        st.streaming(st.floats(**hp.PRICE_ARGS)),
+        st.streaming(st.floats(**hp.DISCOUNT_ARGS)),
+        st.floats(**hp.PRICE_ARGS),
+    )
     def test_recalc(self, qty, price, discount, total):
         """
         When we create record check that it
@@ -61,39 +77,44 @@ class TestPriceCalculation(TestSale):
             self.assertEqual(s.price_total, l.price_total)
             self.assertEqual(
                 (s.price_total - s.price_subtotal) / s.price_subtotal,
-                (l.price_total - l.price_subtotal) / l.price_subtotal)
+                (l.price_total - l.price_subtotal) / l.price_subtotal,
+            )
 
         # We test that when we change the total ex tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = False
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertEqual(sum([l.price_subtotal for l in recalc.line_ids]),
-                         recalc.total)
+        self.assertEqual(
+            sum([l.price_subtotal for l in recalc.line_ids]), recalc.total
+        )
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_subtotal / recalc.total
         for l in recalc.line_ids:
             s = l.name
             self.assertAlmostEqual(
-                s.price_subtotal / l.price_subtotal,
-                approx_change, delta=0.1)
+                s.price_subtotal / l.price_subtotal, approx_change, delta=0.1
+            )
 
         # We test that when we change the total incl tax that
         # the sum of the lines is equal to the total
         recalc.tax_incl = True
         recalc.total = total
         recalc._onchange_balance_to_total()
-        self.assertAlmostEqual(sum([l.price_total for l in recalc.line_ids]),
-                               recalc.total, delta=0.02)
+        self.assertAlmostEqual(
+            sum([l.price_total for l in recalc.line_ids]),
+            recalc.total,
+            delta=0.02,
+        )
 
         # We test that the pricing is roughly weighted in proportion
         approx_change = so.price_total / recalc.total
         for l in recalc.line_ids:
             s = l.name
             self.assertAlmostEqual(
-                s.price_total / l.price_total,
-                approx_change, delta=0.1)
+                s.price_total / l.price_total, approx_change, delta=0.1
+            )
 
         # Test the changing a subtotal works correctly
         l = recalc.line_ids[:-1]
@@ -120,7 +141,7 @@ class TestPriceCalculation(TestSale):
         # and test the unit prices have updated
         for i, p in enumerate(self.products.values(), start=start):
             p.list_price = price[i]
-        recalc.pricelist_id = self.env.ref('product.list0')
+        recalc.pricelist_id = self.env.ref("product.list0")
         recalc._onchange_pricelist_id()
         for l in recalc.line_ids:
             self.assertEqual(l.price_unit, l.product_id.list_price)

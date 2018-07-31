@@ -2,13 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Supplier Tax Rounding',
-    'version': '11.0.1.0.0',
-    'license': 'AGPL-3',
-    'author': 'Graeme Gellatly',
-    'website': 'https://o4sb.com',
-    'depends': ['account', 'base'],
+    "name": "Supplier Tax Rounding",
+    "version": "11.0.1.0.0",
+    "license": "AGPL-3",
+    "author": "Graeme Gellatly",
+    "website": "https://o4sb.com",
+    "depends": ["account", "base"],
     "summary": "This module allows for the tax setting to be be set per "
-               "supplier.  It assumes global rounding set on the company.",
-    "data": ['views/res_partner.xml'],
+    "supplier.  It assumes global rounding set on the company.",
+    "data": ["views/res_partner.xml"],
 }

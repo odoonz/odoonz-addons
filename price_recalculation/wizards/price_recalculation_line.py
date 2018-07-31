@@ -13,7 +13,9 @@ class PriceRecalculationLine(models.AbstractModel):
 
     product_id = fields.Many2one("product.product", "Product", readonly=1)
     qty = fields.Float(
-        "Qty", digits=dp.get_precision("Product Unit of Measure"), readonly=True
+        "Qty",
+        digits=dp.get_precision("Product Unit of Measure"),
+        readonly=True,
     )
     price_subtotal = fields.Float(
         "Total ex Tax", digits=dp.get_precision("Account")

@@ -26,10 +26,7 @@ class AccountInvoice(models.Model):
         for checking the lock date
         :return: A res.partner recordset
         """
-        return (
-            super()._get_invoice_partner()
-            + self.order_partner_id
-        )
+        return super()._get_invoice_partner() + self.order_partner_id
 
     @api.constrains("partner_id", "order_partner_id")
     def check_company(self):
