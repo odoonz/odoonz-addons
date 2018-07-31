@@ -7,12 +7,6 @@
     'license': 'AGPL-3',
     'author': ' Open for Small Business Ltd',
     'website': 'https://o4sb.com',
-    'description': """
-Allow users to login using Microsoft Graph.
-===========================================
-
-
-
-""",
+    'summary': "Allow users to login using Microsoft Graph.",
     'depends': ['auth_oauth'],
 }
