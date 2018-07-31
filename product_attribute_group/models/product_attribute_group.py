@@ -28,7 +28,11 @@ class ProductAttributeGroup(models.Model):
     )
 
     _sql_constraints = [
-        ("uniq_name", "unique(name)", "The attribute group name must be unique")
+        (
+            "uniq_name",
+            "unique(name)",
+            "The attribute group name must be unique",
+        )
     ]
 
     @api.multi
