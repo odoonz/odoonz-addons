@@ -74,20 +74,33 @@ class TestResPartner(common.TransactionCase):
                 "cutoff_type": "eom",
             }
         )
+        # In middle of previous month, depends on rule.
         tdate1 = fields.Date.to_string(
             self.today + relativedelta(months=-1, day=14)
         )
+        # In future, keeps date
         tdate2 = fields.Date.to_string(
-            self.today + relativedelta(days=self.days)
+            self.today + relativedelta(months=1, days=self.days)
         )
-
+        # 2 months old, 1st of current month
+        tdate3 = fields.Date.to_string(
+            self.today + relativedelta(months=-2)
+        )
+        # In current month keeps same date
+        tdate4 = fields.Date.to_string(
+            self.today + relativedelta(day=1)
+        )
+        first_of_month = fields.Date.to_string(self.today + relativedelta(day=1))
         # Depending on what day today is the behaviour in test will differ
         if self.today.day >= self.days:
-            expected = fields.Date.to_string(self.today + relativedelta(day=1))
+            expected = first_of_month
         else:
             expected = tdate1
         self.assertEqual(self.partner._get_lock_date(tdate1), expected)
         self.assertEqual(self.partner._get_lock_date(tdate2), tdate2)
+        self.assertEqual(self.partner._get_lock_date(tdate3), first_of_month)
+        self.assertEqual(self.partner._get_lock_date(tdate4), tdate4)
+
 
     def test_commercial_fields(self):
         comm_fields = self.env["res.partner"]._commercial_fields()
