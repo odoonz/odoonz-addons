@@ -49,10 +49,10 @@ class AccountJournal(models.Model):
             weekdays = list(range(5 if self.day_type == "weekday" else 7))
             transaction_date = rrule(
                 DAILY,
-                interval=self.days,
+                count=self.days,
                 byweekday=weekdays,
                 dtstart=transaction_date,
-            )[1]
+            )[-1]
         if transaction_date <= today:
             return True
         return False
