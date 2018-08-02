@@ -13,7 +13,7 @@ class TestResPartner(common.TransactionCase):
 
     def setUp(self):
         super().setUp()
-        self.journal = journal = self.env["account.journal"].search(
+        self.journal = self.env["account.journal"].search(
             [("type", "=", "bank")], limit=1
         )
         self.today = datetime.strptime(
