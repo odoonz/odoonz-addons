@@ -7,7 +7,7 @@ from odoo.tests import common
 from odoo.exceptions import ValidationError
 
 partner_model = (
-    "odoo.addons.account_central_billing.models." "res_partner.ResPartner"
+    "odoo.addons.account_central_billing.models.res_partner.ResPartner"
 )
 
 
