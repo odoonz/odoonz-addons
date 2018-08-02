@@ -32,8 +32,7 @@ class ResPartner(models.Model):
 
     @api.multi
     def _get_lock_date(self, date_invoice):
-        for p in self:
-            partner = p.commercial_partner_id
+        for partner in self:
             if not partner.enforce_cutoff:
                 continue
             today = datetime.strptime(
@@ -55,10 +54,20 @@ class ResPartner(models.Model):
                 )
                 transaction_date = rrule(
                     DAILY,
-                    interval=partner.days,
+                    count=partner.days,
                     byweekday=weekdays,
                     dtstart=transaction_date,
-                )[1]
+                )[-1]
             if transaction_date < today:
                 return partner._get_new_invoice_date(today)
         return date_invoice
+
+    @api.model
+    def _commercial_fields(self):
+        """ Returns the list of fields that are managed by the commercial entity
+        to which a partner belongs. These fields are meant to be hidden on
+        partners that aren't `commercial entities` themselves, and will be
+        delegated to the parent `commercial entity`. The list is meant to be
+        extended by inheriting classes. """
+        return super()._commercial_fields() + [
+            'enforce_cutoff', 'days', 'day_type', 'cutoff_type']
