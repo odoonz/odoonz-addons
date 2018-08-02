@@ -41,7 +41,6 @@ class TestResPartner(common.TransactionCase):
             self.today - relativedelta(days=self.days + 1)
         )
         tdate2 = fields.Date.to_string(self.today - relativedelta(days=4))
-        today = fields.Date.to_string(self.today)
 
         self.assertEqual(self.partner._get_lock_date(tdate1), tdate1)
         self.assertEqual(self.partner._get_lock_date(tdate2), tdate2)
