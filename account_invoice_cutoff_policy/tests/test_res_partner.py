@@ -8,10 +8,6 @@ from odoo import fields
 from odoo.tests import common
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
-from odoo.exceptions import ValidationError
-
-module = "account_central_billing"
-
 
 class TestResPartner(common.TransactionCase):
 

@@ -4,8 +4,6 @@
 import mock
 from odoo.tests import common
 
-from odoo.exceptions import ValidationError
-
 partner_model = (
     "odoo.addons.account_invoice_cutoff_policy.models.res_partner.ResPartner"
 )
