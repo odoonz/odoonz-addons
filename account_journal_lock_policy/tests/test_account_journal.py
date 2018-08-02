@@ -24,6 +24,7 @@ class TestResPartner(common.TransactionCase):
     def test_is_locked_normal(self):
         self.journal.write({"enforce_lock": False})
         self.assertFalse(self.journal._is_locked("2018-12-1972"))
+        self.assertFalse(self.journal._is_locked(False))
 
     def test_is_locked_weekdays(self):
         # Journal Transactions can be no older than 1mo 7 weekdays
@@ -45,6 +46,7 @@ class TestResPartner(common.TransactionCase):
 
         self.assertFalse(self.journal._is_locked(tdate1))
         self.assertFalse(self.journal._is_locked(tdate2))
+        self.assertFalse(self.journal._is_locked(False))
 
     def test_is_locked_days(self):
         self.journal.write(
@@ -64,8 +66,8 @@ class TestResPartner(common.TransactionCase):
         )
 
         self.assertFalse(self.journal._is_locked(tdate1))
-
         self.assertTrue(self.journal._is_locked(tdate2))
+        self.assertFalse(self.journal._is_locked(False))
 
     def test_is_locked_eom(self):
         # Note test with zero days here or else tests will fail
@@ -86,7 +88,10 @@ class TestResPartner(common.TransactionCase):
             self.today + relativedelta(months=1, days=self.days)
         )
         tdate3 = fields.Date.to_string(self.today + relativedelta(months=-2))
+        tdate4 = fields.Date.to_string(self.today + relativedelta(months=2))
 
         self.assertFalse(self.journal._is_locked(tdate1))
         self.assertFalse(self.journal._is_locked(tdate2))
         self.assertTrue(self.journal._is_locked(tdate3))
+        self.assertFalse(self.journal._is_locked(tdate4))
+        self.assertFalse(self.journal._is_locked(False))
