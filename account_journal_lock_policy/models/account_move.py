@@ -12,8 +12,8 @@ class AccountMove(models.Model):
     def _check_lock_date(self):
         res = super()._check_lock_date()
         for move in self:
-            lock_date = move.journal_id._check_lock_date(move)
-            if lock_date:
+            locked = move.journal_id._is_locked(move.date)
+            if locked:
                 raise UserError(
                     _(
                         "The transaction date is too old for the "

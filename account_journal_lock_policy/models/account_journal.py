@@ -26,18 +26,23 @@ class AccountJournal(models.Model):
     )
 
     @api.multi
-    def _check_lock_date(self, move):
+    def _is_locked(self, transaction_date):
         self.ensure_one()
         if not self.enforce_lock:
             return False
         today = datetime.strptime(
-            fields.Date.context_today(move), DEFAULT_SERVER_DATE_FORMAT
+            fields.Date.context_today(self), DEFAULT_SERVER_DATE_FORMAT
         )
-        transaction_date = datetime.strptime(
-            move.date, DEFAULT_SERVER_DATE_FORMAT
-        )
+        if transaction_date:
+            transaction_date = datetime.strptime(
+                transaction_date, DEFAULT_SERVER_DATE_FORMAT
+            )
+        else:
+            transaction_date = today
+
         if transaction_date >= today:
             return False
+
         if self.cutoff_type == "eom":
             if transaction_date.month < today.month:
                 transaction_date += relativedelta(day=31)
@@ -53,6 +58,7 @@ class AccountJournal(models.Model):
                 byweekday=weekdays,
                 dtstart=transaction_date,
             )[-1]
-        if transaction_date <= today:
+
+        if transaction_date < today:
             return True
         return False
