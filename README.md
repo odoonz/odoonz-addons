@@ -1,6 +1,6 @@
 # odoonz-addons
-[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=11.0)](https://travis-ci.org/odoonz/odoonz-addons)
-[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons)
+[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=11.0)](https://travis-ci.org/odoonz/odoonz-addons?branch=11.0)
+[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0)
 
 NOTE 15/10/2017 This repo is under fairly active development for the next month and should be considered unstable
 
