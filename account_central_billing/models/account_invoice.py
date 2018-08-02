@@ -45,11 +45,11 @@ class AccountInvoice(models.Model):
             Partner = self.env["res.partner"]
             order_partner = Partner.browse(vals["partner_id"])
             partner = order_partner.commercial_partner_id
-            inv_p_id = partner.get_billing_partner(vals)
-            if inv_p_id != partner.id:
+            invoice_partner = partner.get_billing_partner(vals)
+            if invoice_partner != partner:
                 vals.update(
                     {
-                        "partner_id": inv_p_id,
+                        "partner_id": invoice_partner.id,
                         "order_partner_id": partner.id,
                         "order_invoice_id": order_partner.id,
                     }
@@ -63,11 +63,11 @@ class AccountInvoice(models.Model):
         if vals.get("partner_id", False):
             Partner = self.env["res.partner"]
             partner = Partner.browse(vals["partner_id"]).commercial_partner_id
-            inv_p_id = partner.get_billing_partner(vals, self[0])
-            if inv_p_id != partner.id:
+            invoice_partner = partner.get_billing_partner(vals, self[0])
+            if invoice_partner != partner:
                 vals.update(
                     {
-                        "partner_id": inv_p_id,
+                        "partner_id": invoice_partner.id,
                         "order_partner_id": partner.id,
                         "order_invoice_id": vals["partner_id"],
                     }

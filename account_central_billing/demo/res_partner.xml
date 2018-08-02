@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <record id="taupo_company" model="res.company">
+        <field name="name">Taupo Office</field>
+        <field name="report_header">My Company Tagline</field>
+        <field name="currency_id" ref="base.NZD"/>
+    </record>
+
+    <!--
+     Resource: res.partner
+     -->
+
+    <record id="res_partner_hq" model="res.partner">
+        <field name="name">Kwik-e-Mart Head Office</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_13'), ref('base.res_partner_category_12')])]" name="category_id"/>
+        <field name="supplier">1</field>
+        <field name="customer">1</field>
+        <field name="is_company">1</field>
+        <field name="city">Taihape</field>
+        <field name="zip">106</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">3110 Hautapu Street</field>
+        <field name="email">hq@kwikemart.example.com</field>
+        <field name="phone">+64 6 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="invoicing_partner_id" eval="ref('base.main_partner')"/>
+    </record>
+
+    <record id="res_partner_branch_a" model="res.partner">
+        <field name="name">Kwik-e-Mart Gore</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="is_company">1</field>
+        <field name="city">Gore</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">69 Main Road</field>
+        <field name="email">gorean@kwikemart.example.com</field>
+        <field name="phone">+64 3 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">A</field>
+        <field name="invoicing_partner_id" eval="ref('account_central_billing.res_partner_hq')"/>
+    </record>
+
+    <record id="res_partner_branch_b" model="res.partner">
+        <field name="name">Kwik-e-Mart Huntly</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="is_company">1</field>
+        <field name="city">Gore</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">3 Main Road</field>
+        <field name="email">huntly@kwikemart.example.com</field>
+        <field name="phone">+64 7 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">B</field>
+        <field name="invoicing_partner_id" eval="ref('account_central_billing.res_partner_hq')"/>
+    </record>
+
+    <record id="res_partner_branch_c" model="res.partner">
+        <field name="name">Kwik-e-Mart Ranui</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="is_company">1</field>
+        <field name="city">Ranui</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">176 Pooks Road</field>
+        <field name="email">ranui@kwikemart.example.com</field>
+        <field name="phone">+64 9 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">C</field>
+        <field name="invoicing_partner_id" eval="ref('account_central_billing.res_partner_hq')"/>
+    </record>
+
+    <record id="res_partner_hq_1" model="res.partner">
+        <field name="name">Manu</field>
+        <field name="parent_id" eval="ref('res_partner_hq')"/>
+        <field name="function">General Manager</field>
+        <field name="email">manu@kwikemart.example.com</field>
+    </record>
+
+    <record id="res_partner_a_1" model="res.partner">
+        <field name="name">Big Ted</field>
+        <field name="parent_id" eval="ref('res_partner_branch_a')"/>
+        <field name="function">Service Manager</field>
+        <field name="email">bigted@kwikemart.example.com</field>
+    </record>
+
+    <record id="res_partner_a_2" model="res.partner">
+        <field name="name">Little Ted</field>
+        <field name="parent_id" eval="ref('res_partner_branch_a')"/>
+        <field name="function">Service Assistant</field>
+        <field name="email">littleted@kwikemart.example.com</field>
+    </record>
+
+    <record id="res_partner_b_1" model="res.partner">
+        <field name="name">Jemmima</field>
+        <field name="parent_id" eval="ref('res_partner_branch_b')"/>
+        <field name="function">Service Manager</field>
+        <field name="email">jemmima@kwikemart.example.com</field>
+    </record>
+
+    <record id="res_partner_c_1" model="res.partner">
+        <field name="name">Humpty</field>
+        <field name="parent_id" eval="ref('res_partner_branch_a')"/>
+        <field name="function">Service Assistant</field>
+        <field name="email">humpty@kwikemart.example.com</field>
+    </record>
+
+    <!--for supply-->
+    <record id="res_supplier_hq" model="res.partner">
+        <field name="name">Steel Is Us Head Office</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_13'), ref('base.res_partner_category_12')])]" name="category_id"/>
+        <field name="supplier">1</field>
+        <field name="customer" eval="0" />
+        <field name="is_company">1</field>
+        <field name="city">Mangaweka</field>
+        <field name="zip">106</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">311 Main Street</field>
+        <field name="email">hq@steelisus.example.com</field>
+        <field name="phone">+64 6 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="billing_partner_id" eval="ref('base.main_partner')"/>
+    </record>
+
+    <record id="res_supplier_branch_a" model="res.partner">
+        <field name="name">Steel Is Us Oamaru</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="supplier">1</field>
+        <field name="customer" eval="0" />
+        <field name="is_company">1</field>
+        <field name="city">Oamaru</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">96 King Road</field>
+        <field name="email">oamaru@steelisus.example.com</field>
+        <field name="phone">+64 3 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">A</field>
+        <field name="billing_partner_id" eval="ref('account_central_billing.res_supplier_hq')"/>
+    </record>
+
+    <record id="res_supplier_branch_b" model="res.partner">
+        <field name="name">Steel Is Us Waiuku</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="supplier">1</field>
+        <field name="customer" eval="0" />
+        <field name="is_company">1</field>
+        <field name="city">Waiuku</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">33 Main Road</field>
+        <field name="email">waiuku@steelisus.example.com</field>
+        <field name="phone">+64 9 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">B</field>
+        <field name="billing_partner_id" eval="ref('account_central_billing.res_supplier_hq')"/>
+    </record>
+
+    <record id="res_supplier_branch_c" model="res.partner">
+        <field name="name">Steel Is Us Oratia</field>
+        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
+               name="category_id"/>
+        <field name="supplier">1</field>
+        <field name="customer" eval="0" />
+        <field name="is_company">1</field>
+        <field name="city">Oratia</field>
+        <field name="zip">1300</field>
+        <field name="country_id" ref="base.nz"/>
+        <field name="street">176 West Coast Road</field>
+        <field name="email">oratia@steelisus.example.com</field>
+        <field name="phone">+64 9 1234567</field>
+        <field name="website">http://www.example.com</field>
+        <field name="store_ref">C</field>
+        <field name="billing_partner_id" eval="ref('account_central_billing.res_supplier_hq')"/>
+    </record>
+
+    <record id="res_supplier_hq_1" model="res.partner">
+        <field name="name">Alice</field>
+        <field name="parent_id" eval="ref('res_supplier_hq')"/>
+        <field name="function">General Manager</field>
+        <field name="email">alicethegoon@steelisus.example.com</field>
+    </record>
+
+    <record id="res_supplier_a_1" model="res.partner">
+        <field name="name">Bluto</field>
+        <field name="parent_id" eval="ref('res_supplier_branch_a')"/>
+        <field name="function">Service Manager</field>
+        <field name="email">bluto@steelisus.example.com</field>
+    </record>
+
+    <record id="res_supplier_a_2" model="res.partner">
+        <field name="name">Olive Oyl</field>
+        <field name="parent_id" eval="ref('res_supplier_branch_a')"/>
+        <field name="function">Service Assistant</field>
+        <field name="email">oliveoyl@steelisus.example.com</field>
+    </record>
+
+    <record id="res_supplier_b_1" model="res.partner">
+        <field name="name">Popeye</field>
+        <field name="parent_id" eval="ref('res_supplier_branch_b')"/>
+        <field name="function">Service Manager</field>
+        <field name="email">popeye@steelisus.example.com</field>
+    </record>
+
+    <record id="res_supplier_c_1" model="res.partner">
+        <field name="name">Swee'Pea</field>
+        <field name="parent_id" eval="ref('res_supplier_branch_a')"/>
+        <field name="function">Service Assistant</field>
+        <field name="email">sweetpea@steelisus.example.com</field>
+    </record>
+
+</odoo>
+
