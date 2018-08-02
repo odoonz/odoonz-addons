@@ -35,9 +35,7 @@ class ResPartner(models.Model):
     def _check_store_code(self):
         """This function checks that the store code is unique within
         the account hierarchy it belongs"""
-        if not self.invoicing_partner_id:
-            return True
-        for partner in self:
+        for partner in self.filtered(lambda r: bool(r.invoicing_partner_id)):
             store_refs = partner.invoicing_partner_id.store_ids.filtered(
                 lambda r: bool(r.store_ref)
             ).mapped("store_ref")
