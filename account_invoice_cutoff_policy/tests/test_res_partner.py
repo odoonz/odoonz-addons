@@ -20,9 +20,6 @@ class TestResPartner(common.TransactionCase):
         self.days = 7
 
     def test_get_lock_date_normal(self):
-        """
-        Test invoicing_partner_id is returned when vals supplied
-        """
         self.partner.write({"enforce_cutoff": False})
         self.assertEqual(
             self.partner._get_lock_date("2018-12-1972"), "2018-12-1972"
