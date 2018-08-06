@@ -71,6 +71,6 @@ class MrpProduction(models.Model):
             super().button_plan()
         else:
             for order in self:
-                super().with_context(
+                super(MrpProduction, order).with_context(
                     product_id=order.product_id.id
                 ).button_plan()

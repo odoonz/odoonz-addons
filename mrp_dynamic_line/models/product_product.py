@@ -26,6 +26,6 @@ class ProductProduct(models.Model):
         self.ensure_one()
         action = self.env.ref("mrp.mrp_bom_form_action").read()[0]
         action["domain"] = [
-            ("bom_line_ids.product_tmpl_id", "=", self.product_tmpl_idid)
+            ("bom_line_ids.product_tmpl_id", "=", self.product_tmpl_id.id)
         ]
         return action

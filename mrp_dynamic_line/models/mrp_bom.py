@@ -35,14 +35,12 @@ class MrpBom(models.Model):
             bom_line and lines_done.append((bom_line, line_fields))
         return boms_done, lines_done
 
-    @staticmethod
-    def _explode_match_attributes(bom_line, line_fields):
+    def _explode_match_attributes(self, bom_line, line_fields):
         bom_line = bom_line.with_context(product_id=line_fields["product"].id)
         line_fields.update({"product": bom_line.product_id})
         return bom_line, line_fields
 
-    @staticmethod
-    def _explode_scale_weight_kg(bom_line, line_fields):
+    def _explode_scale_weight_kg(self, bom_line, line_fields):
         if bom_line.product_uom_id != bom_line.env.ref(
             "product.product_uom_kgm"
         ):
@@ -54,11 +52,15 @@ class MrpBom(models.Model):
             )
             return bom_line, line_fields
         bom = bom_line.bom_id
+        parent_product = self.env["product.product"].browse(
+            bom_line._context["product_id"]
+        )
         parent_weight = (
             bom.product_uom_id._compute_quantity(
-                bom.product_qty, line_fields["product"].uom_id
+                bom.product_qty,
+                parent_product.uom_id,
             )
-            * line_fields["product"].weight
+            * parent_product.weight
             or 1.0
         )
         qty = (

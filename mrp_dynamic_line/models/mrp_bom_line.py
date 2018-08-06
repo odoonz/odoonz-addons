@@ -28,11 +28,6 @@ class MrpBomLine(models.Model):
         string="Required Values",
         help="Require the raw material to have these attribute values",
     )
-    match_attributes = fields.Boolean(
-        string="Match Attributes",
-        help="Automatically select the raw material based on common"
-        "shared attributes",
-    )
     # Note: Just changing a useless help message here
     attribute_value_ids = fields.Many2many(
         help="Only apply this line if the manufactured product contains"
@@ -61,7 +56,7 @@ class MrpBomLine(models.Model):
                 # and share values with the parent product
                 common_attrs = self.env["product.attribute"]
                 if (
-                    self.env.ref("mrp_dynamic_lines.match_attributes")
+                    self.env.ref("mrp_dynamic_line.match_attributes")
                     in bom_line.xform_ids
                 ):
                     parent_attrs = parent_product.attribute_value_ids.mapped(

@@ -17,6 +17,6 @@ def pre_init_hook(cr):
     return True
 
 
-def uninstall_hook(cr, pool):
+def uninstall_hook(cr, pool): # pragma: no cover
     cr.execute("UPDATE mrp_bom_line SET product_id=variant_id;")
     return True
