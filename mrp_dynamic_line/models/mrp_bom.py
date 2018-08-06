@@ -21,10 +21,10 @@ class MrpBom(models.Model):
             for xform in bom_line.xform_ids.filtered(
                 lambda bl: bl.application_point == "explode"
             ).sorted("sequence"):
-                func = getattr(self, "_explode_%s" % xform.technical_name)
-                if func:
+                try:
+                    func = getattr(self, "_explode_%s" % xform.technical_name)
                     bom_line, line_fields = func(bom_line, line_fields)
-                else:
+                except AttributeError:
                     _logger.error(
                         _("No function found with name _explode_%s")
                         % xform.technical_name
@@ -41,7 +41,7 @@ class MrpBom(models.Model):
         return bom_line, line_fields
 
     def _explode_scale_weight_kg(self, bom_line, line_fields):
-        if bom_line.product_uom_id != bom_line.env.ref(
+        if bom_line.product_uom_id != self.env.ref(
             "product.product_uom_kgm"
         ):
             _logger.error(
@@ -57,8 +57,7 @@ class MrpBom(models.Model):
         )
         parent_weight = (
             bom.product_uom_id._compute_quantity(
-                bom.product_qty,
-                parent_product.uom_id,
+                bom.product_qty, parent_product.uom_id
             )
             * parent_product.weight
             or 1.0

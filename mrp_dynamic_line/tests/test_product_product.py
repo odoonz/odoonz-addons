@@ -5,7 +5,7 @@
 from odoo.tests import common
 
 
-class TestMRPProduction(common.TransactionCase):
+class TestProduct(common.TransactionCase):
 
     def test_bom_count(self):
         self.assertEquals(

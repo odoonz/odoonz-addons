@@ -17,14 +17,14 @@ class MrpProduction(models.Model):
             for xform in bom_line.xform_ids.filtered(
                 lambda bl: bl.application_point == "move"
             ).sorted("sequence"):
-                func = getattr(
-                    self, "_generate_raw_move_%s" % xform.technical_name
-                )
-                if func:
+                try:
+                    func = getattr(
+                        self, "_generate_raw_move_%s" % xform.technical_name
+                    )
                     bom_line, line_fields = func(bom_line, line_fields)
-                else:
+                except AttributeError:
                     _logger.error(
-                        _("No function found with name _explode_%s")
+                        _("No function found with name _generate_raw_move_%s")
                         % xform.technical_name
                     )
                 if not bom_line:
@@ -41,14 +41,14 @@ class MrpProduction(models.Model):
             lambda bl: bl.application_point == "move"
         ).sorted("sequence"):
             bom_line_id = bom_line.id
-            func = getattr(
-                self, "_generate_raw_move_%s" % xform.technical_name
-            )
-            if func:
+            try:
+                func = getattr(
+                    self, "_generate_raw_move_%s" % xform.technical_name
+                )
                 bom_line, line_fields = func(bom_line, line_data)
-            else:
+            except AttributeError:
                 _logger.error(
-                    _("No function found with name _explode_%s")
+                    _("No function found with name _generate_raw_move_%s")
                     % xform.technical_name
                 )
             if not bom_line:
@@ -63,7 +63,7 @@ class MrpProduction(models.Model):
                     move._action_cancel()
                     move.unlink()
                 break
-        bom_line and super()._update_raw_move(bom_line, line_data)
+        return bom_line and super()._update_raw_move(bom_line, line_data)
 
     @api.multi
     def button_plan(self):
