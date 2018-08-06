@@ -45,7 +45,7 @@ class MrpProduction(models.Model):
                 func = getattr(
                     self, "_generate_raw_move_%s" % xform.technical_name
                 )
-                bom_line, line_fields = func(bom_line, line_data)
+                bom_line, line_data = func(bom_line, line_data)
             except AttributeError:
                 _logger.error(
                     _("No function found with name _generate_raw_move_%s")
