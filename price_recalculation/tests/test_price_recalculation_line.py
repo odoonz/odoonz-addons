@@ -22,14 +22,13 @@ class TestPriceRecalculationLine(TransactionCase):
         super().setUp()
         self.datacard = self.env.ref("product.product_delivery_02")
 
-    @given(
-        st.floats(**hp.QTY_ARGS),
-        st.floats(**hp.PRICE_ARGS),
-        st.floats(**hp.TAX_ARGS),
-        st.floats(**hp.PRICE_ARGS),
-        st.floats(**hp.PRICE_ARGS),
-    )
-    def test_onchange_total(self, qty, price, tax_rate, subtotal, total):
+    @given(st.data())
+    def test_onchange_total(self, data):
+        qty = data.draw(st.floats(**hp.QTY_ARGS))
+        price = data.draw(st.floats(**hp.PRICE_ARGS))
+        tax_rate = data.draw(st.floats(**hp.TAX_ARGS))
+        subtotal = data.draw(st.floats(**hp.PRICE_ARGS))
+        total = data.draw(st.floats(**hp.PRICE_ARGS))
         assume(
             (subtotal > 0.10 or subtotal == 0.0)
             and (total > 0.10 or total == 0.0)
