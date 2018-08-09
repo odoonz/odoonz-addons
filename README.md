@@ -16,7 +16,7 @@ addon | version | summary
 [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 11.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.
 [auth_oauth_microsoft_graph](auth_oauth_microsoft_graph/) | 11.0.1.0.0 | Allow users to login using Microsoft Graph.
 [invoice_sale_pricelist](invoice_sale_pricelist/) | 11.0.1.0.1 | Lookup prices using sale pricelist on invoices
-[mrp_dynamic_lines](mrp_dynamic_lines/) | 11.0.2.1.3 | Dynamic BoM Transformations - ALPHA
+[mrp_dynamic_line](mrp_dynamic_line/) | 11.0.2.1.3 | Dynamic BoM Transformations - ALPHA
 [mrp_sale_fields](mrp_sale_fields/) | 11.0.1.0.0 | Adds fields from sale order when linked
 [price_recalculation](price_recalculation/) | 11.0.1.0.0 | Base module for x_price_recalculation modules.
 [product_attribute_group](product_attribute_group/) | 11.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template

@@ -119,12 +119,12 @@ class PriceRecalculation(models.AbstractModel):
         return {}
 
     @api.multi
-    def update_pricelist_lines(self, pricelist=False):
-        if not pricelist:
+    def update_pricelist_lines(self, pricelist_id=False):
+        if not pricelist_id:
             return
         self.ensure_one()
         products = self.line_ids.mapped("product_id")
-        prices = pricelist.with_context(
+        prices = pricelist_id.with_context(
             **self._set_context()
         ).get_products_price(
             products,

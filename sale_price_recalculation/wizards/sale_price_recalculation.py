@@ -29,6 +29,8 @@ class SalePriceRecalculation(models.TransientModel):
 
     @api.onchange("pricelist_id")
     def onchange_pricelist_id(self):
+        for line in self.line_ids:
+            line.discount = 0.0
         return self.update_pricelist_lines(self.pricelist_id)
 
     @api.multi

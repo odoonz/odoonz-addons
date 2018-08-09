@@ -1,19 +1,15 @@
 
 import logging
-from odoo import fields
 from odoo.addons.sale.tests.test_sale_common import TestSale
 import mock
 
 
 _logger = logging.Logger(__name__)
 
-try:
-    from hypothesis import given
-    from hypothesis import strategies as st
-except ImportError as err:
-    _logger.debug(err)
-
-wizard = "odoo.addons.price_recalculation.wizards.price_recalculation.PriceRecalculation"
+wizard = (
+    "odoo.addons.price_recalculation.wizards."
+    "price_recalculation.PriceRecalculation"
+)
 
 
 class TestPriceCalculation(TestSale):
@@ -49,7 +45,9 @@ class TestPriceCalculation(TestSale):
             get_lines.return_value = []
             flds = (
                 self.env["price.recalculation"]
-                .with_context(active_ids=[self.so.id], active_model="sale.order")
+                .with_context(
+                    active_ids=[self.so.id], active_model="sale.order"
+                )
                 .default_get(["name", "partner_id", "line_ids", "date_order"])
             )
         self.assertEqual(flds["name"], self.so.id)
