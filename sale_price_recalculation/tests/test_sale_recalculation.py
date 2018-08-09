@@ -59,6 +59,8 @@ class TestSaleRecalc(TestSale):
             ["name", "partner_id", "date_order", "line_ids"]
         )
 
+        self.pricelist = self.env.ref("product.list0").copy()
+
     def test_default_get(self):
         """
         When we create record check that it
@@ -213,7 +215,7 @@ class TestSaleRecalc(TestSale):
             }
             price_get.return_value = prices
             with self.env.do_in_onchange():
-                recalc.pricelist_id = self.env.ref("product.list0")
+                recalc.pricelist_id = self.pricelist
                 recalc.onchange_pricelist_id()
             subtotal = 0.0
             for line in recalc.line_ids:
@@ -225,3 +227,18 @@ class TestSaleRecalc(TestSale):
             recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)
         self.assertFalse(fc(so.amount_untaxed, subtotal, 2))
+        self.assertEqual(so.pricelist_id, recalc.pricelist_id)
+
+    def test_onchange_quote_id(self):
+        recalc = self.spr.create(self.vals)
+        quote = self.so.copy()
+        quote.pricelist_id = self.pricelist
+        quote.order_line[0].price_unit = 1.66
+
+        with self.env.do_in_onchange():
+            recalc.copy_quote_id = quote
+            recalc.onchange_quote_id()
+        self.assertFalse(fc(recalc.line_ids[0].price_unit, 1.66, 2))
+        recalc.action_write()
+        self.assertEqual(self.so.pricelist_id, quote.pricelist_id)
+        self.assertFalse(fc(self.so.order_line[0].price_unit, 1.66, 2))
