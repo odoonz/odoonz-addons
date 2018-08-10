@@ -17,7 +17,7 @@ class IrActionsReport(models.Model):
         """
         res = self.render_qweb_html(docids, data=data)[0]
         if 'encoding' in self._context:
-            res.decode('utf-8').encode(*self._context['encoding'])
+            res.decode('utf8').encode(*self._context['encoding'])
         return res, 'txt'
 
     @api.model

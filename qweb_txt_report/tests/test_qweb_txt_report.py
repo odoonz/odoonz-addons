@@ -8,7 +8,9 @@ from odoo.tests import common
 class TestTxtReport(common.TransactionCase):
 
     def test_report(self):
-        report_object = self.env["ir.actions.report"]
+        report_object = self.env["ir.actions.report"].with_context(
+            encoding="ascii"
+        )
         report_name = "qweb_txt_report.report_res_users_csv"
         report = report_object._get_report_from_name(report_name)
         docs = self.env["res.users"].search([("id", "=", 1)])
