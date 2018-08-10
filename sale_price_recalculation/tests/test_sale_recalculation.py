@@ -223,7 +223,6 @@ class TestSaleRecalc(TestSale):
                     fc(prices[line.product_id.id], line.price_unit, 2)
                 )
                 subtotal += line.price_subtotal
-            # import wdb; wdb.set_trace()
             recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)
         self.assertFalse(fc(so.amount_untaxed, subtotal, 2))

@@ -39,10 +39,6 @@ class PurchasePriceRecalculation(models.TransientModel):
             'effective_tax_rate': get_effective_tax_rate(ol)
         }) for ol in purchase.order_line]
 
-    @api.onchange('pricelist_id')
-    def onchange_pricelist_id(self):
-        return self.update_pricelist_lines(self.pricelist_id)
-
     @api.multi
     def _set_context(self):
         ctx = super()._set_context()
