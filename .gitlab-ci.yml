@@ -1,6 +1,0 @@
-image: ubuntu:xenial
-stages:
-  - test
-
-job_lint:
-  stage: test
