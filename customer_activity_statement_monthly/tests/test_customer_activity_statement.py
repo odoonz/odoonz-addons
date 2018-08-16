@@ -20,7 +20,10 @@ class TestCustomerActivityStatement(TransactionCase):
         ].with_context(aging_type="months")
         self.today = datetime.today().date()
         partner_id = self.env.ref("base.res_partner_1").id
-        self.wiz = self.env["customer.activity.statement.wizard"].with_context(model='res.partner', active_id=partner_id, active_ids=[partner_id])
+        self.wiz = self.env["customer.activity.statement.wizard"].with_context(
+            model="res.partner", active_id=partner_id, active_ids=[partner_id]
+        )
+
     def test_prepare_activity_statement(self):
 
         stmt = self.wiz.create({})
