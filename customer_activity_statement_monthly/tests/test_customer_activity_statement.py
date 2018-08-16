@@ -18,12 +18,12 @@ class TestCustomerActivityStatement(TransactionCase):
         self.month_report = self.env[
             "report.customer_activity_statement.statement"
         ].with_context(aging_type="months")
-        self.wiz = self.env["customer.activity.statement.wizard"]
         self.today = datetime.today().date()
-
+        partner_id = self.env.ref("base.res_partner_1").id
+        self.wiz = self.env["customer.activity.statement.wizard"].with_context(model='res.partner', active_id=partner_id, active_ids=[partner_id])
     def test_prepare_activity_statement(self):
 
-        stmt = self.wiz.new()
+        stmt = self.wiz.create({})
         self.assertEquals(stmt.aging_type, "months")
         data = stmt._prepare_activity_statement()
         self.assertEquals(data["aging_type"], "months")

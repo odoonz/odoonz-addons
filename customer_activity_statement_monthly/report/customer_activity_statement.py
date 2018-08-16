@@ -25,7 +25,7 @@ class CustomerActivityStatement(models.AbstractModel):
                 d = d.replace(day=1) - timedelta(days=1)
             return res
         else:
-            return super()._get_bucket_dates()
+            return super()._get_bucket_dates(date_end)
 
     @api.multi
     def get_report_values(self, docids, data):
