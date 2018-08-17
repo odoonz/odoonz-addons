@@ -40,7 +40,7 @@ class CustomerActivityStatement(models.AbstractModel):
         ).get_report_values(docids, data)
         res["aging_type"] = aging_type
 
-        partner_ids = res["doc_ids"] # To keep order
+        partner_ids = res["doc_ids"]  # To keep order
         if data["filter_non_due_partners"] and len(res["doc_ids"]) > 1:
             partner_ids = [k for k, v in res["Lines"].items() if v]
         if data["filter_negative_balances"]:
