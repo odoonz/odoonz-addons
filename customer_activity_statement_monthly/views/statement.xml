@@ -4,14 +4,14 @@
 <odoo>
     <template id="customer_activity_statement_monthly.statement_document" inherit_id="customer_activity_statement.statement_document">
         <xpath expr="//table[2]/thead/tr" position="replace">
-            <tr>
-                <th class="text-center" style="border-right: 1px solid black;">Current Due</th>
-                <th class="text-center" style="border-right: 1px solid black;"><span t-esc="'1 Month' if aging_type == 'months' else '1-30 Days Due'" /></th>
-                <th class="text-center" style="border-right: 1px solid black;"><span t-esc="'2 Months' if aging_type == 'months' else '31-60 Days Due'" /></th>
-                <th class="text-center" style="border-right: 1px solid black;"><span t-esc="'3 Months' if aging_type == 'months' else '61-90 Days Due'" /></th>
-                <th class="text-center" style="border-right: 1px solid black;"><span t-esc="'4 Months' if aging_type == 'months' else '91-120 Days Due'" /></th>
-                <th class="text-center" style="border-right: 1px solid black;"><span t-esc="'Older' if aging_type == 'months' else '121+ Days Due'" /></th>
-                <th class="text-right" style="border-right: 1px solid black;">Balance Due</th>
+            <tr >
+                <th class="amount">Current Due</th>
+                <th class="amount"><span t-esc="'1 Month' if aging_type == 'months' else '1-30 Days Due'" /></th>
+                <th class="amount"><span t-esc="'2 Months' if aging_type == 'months' else '31-60 Days Due'" /></th>
+                <th class="amount"><span t-esc="'3 Months' if aging_type == 'months' else '61-90 Days Due'" /></th>
+                <th class="amount"><span t-esc="'4 Months' if aging_type == 'months' else '91-120 Days Due'" /></th>
+                <th class="amount"><span t-esc="'Older' if aging_type == 'months' else '121+ Days Due'" /></th>
+                <th class="amount">Balance Due</th>
             </tr>
         </xpath>
 
