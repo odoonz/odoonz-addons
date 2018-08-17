@@ -31,7 +31,12 @@ class CustomerActivityStatementWizard(models.TransientModel):
         required=True,
     )
 
+    filter_negative_balances = fields.Boolean(
+        "Exclude Negative Balances", default=True
+    )
+
     def _prepare_activity_statement(self):
         result = super()._prepare_activity_statement()
         result["aging_type"] = self.aging_type
+        result["filter_negative_balances"] = self.filter_negative_balances
         return result

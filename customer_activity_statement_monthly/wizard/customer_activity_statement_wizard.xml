@@ -9,9 +9,12 @@
         <field name="model">customer.activity.statement.wizard</field>
         <field name="inherit_id" ref="customer_activity_statement.customer_activity_statement_wizard_view" />
         <field name="arch" type="xml">
-                    <field name="show_aging_buckets" position="after">
-                    <field name="aging_type" attrs="{'invisible': [('show_aging_buckets', '!=', True)]}" />
-                    </field>
+            <field name="filter_partners_non_due" position="after" >
+                <field name="filter_negative_balances" />
+            </field>
+            <field name="show_aging_buckets" position="after">
+                <field name="aging_type" attrs="{'invisible': [('show_aging_buckets', '!=', True)]}" />
+            </field>
 
         </field>
     </record>
