@@ -20,6 +20,7 @@ class TestCustomerActivityStatement(TransactionCase):
         ].with_context(aging_type="months")
         self.today = datetime.today().date()
         partner_id = self.env.ref("base.res_partner_1").id
+        self.partner_ids = [partner_id, self.env.ref("base.res_partner_2").id]
         self.wiz = self.env["customer.activity.statement.wizard"].with_context(
             model="res.partner", active_id=partner_id, active_ids=[partner_id]
         )
@@ -45,3 +46,10 @@ class TestCustomerActivityStatement(TransactionCase):
         self.assertIn(31, deltas)
         self.assertTrue(len(set(deltas)) > 1)
         self.assertNotEquals(month_dates, day_dates)
+
+    def test_get_report_values(self):
+        report = self.env["report.customer_activity_statement.statement"]
+        # This test and code could be improved by separating out the filters
+        # into separate functions, but at least we check the function runs
+        data = report.get_report_values(self.partner_ids, None)
+        self.assertEquals(data["aging_type"], "months")
