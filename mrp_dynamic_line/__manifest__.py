@@ -14,8 +14,8 @@
         "security/ir.model.access.csv",
         "views/mrp_bom.xml",
         "views/mrp_bom_line.xml",
-        "demo/mrp_dynamic_line.xml"
     ],
+    "demo": ["demo/mrp_dynamic_line.xml"],
     "pre_init_hook": "pre_init_hook",
     "uninstall_hook": "uninstall_hook",
 }
