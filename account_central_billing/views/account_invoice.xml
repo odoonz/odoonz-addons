@@ -6,13 +6,13 @@
         <field name="name">account.invoice.supplier.form (in account_central_billing)</field>
         <field type="xml" name="arch">
             <xpath expr="//page[@name='other_info']" position="after">
-                <page name="central_billing" string="Central Billing" attrs="{'invisible': [('order_partner_id', '=', False)]}">
+                <page name="central_billing" string="Central Billing" >
                     <group name="central_billing_group">
                         <group name="central_billing_group_right">
-                            <field name="order_partner_id" readonly="1"/>
+                            <field name="order_partner_id" />
                         </group>
                         <group name="central_billing_group_left">
-                            <field name="order_invoice_id" readonly="1"/>
+                            <field name="order_invoice_id" />
                         </group>
                     </group>
                 </page>
@@ -28,13 +28,13 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='other_info']" position="after" >
                 <page name="central_billing" string="Central Billing"
-                      attrs="{'invisible': [('order_partner_id', '=', False)]}">
+                      >
                     <group name="central_billing_group">
                         <group name="central_billing_group_right">
-                            <field name="order_partner_id" readonly="1"/>
+                            <field name="order_partner_id" />
                         </group>
                         <group name="central_billing_group_left">
-                            <field name="order_invoice_id" readonly="1"/>
+                            <field name="order_invoice_id" />
                         </group>
                     </group>
                 </page>
