@@ -16,14 +16,13 @@ class TestResPartner(common.TransactionCase):
         self.journal = self.env["account.journal"].search(
             [("type", "=", "bank")], limit=1
         )
-        self.today = datetime.strptime(
-            fields.Date.context_today(self.journal), DEFAULT_SERVER_DATE_FORMAT
-        )
+        self.today = fields.Date.context_today(self.journal)
         self.days = 7
 
     def test_is_locked_normal(self):
         self.journal.write({"enforce_lock": False})
-        self.assertFalse(self.journal._is_locked("2018-12-1972"))
+        test_date = datetime.strptime("2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
+        self.assertFalse(self.journal._is_locked(test_date))
         self.assertFalse(self.journal._is_locked(False))
 
     def test_is_locked_weekdays(self):
@@ -37,12 +36,8 @@ class TestResPartner(common.TransactionCase):
                 "cutoff_type": "date",
             }
         )
-        tdate1 = fields.Date.to_string(
-            self.today + relativedelta(days=self.days + 1)
-        )
-        tdate2 = fields.Date.to_string(
-            self.today - relativedelta(months=1, days=7)
-        )
+        tdate1 = self.today + relativedelta(days=self.days + 1)
+        tdate2 = self.today - relativedelta(months=1, days=7)
 
         self.assertFalse(self.journal._is_locked(tdate1))
         self.assertFalse(self.journal._is_locked(tdate2))
@@ -58,12 +53,8 @@ class TestResPartner(common.TransactionCase):
                 "cutoff_type": "date",
             }
         )
-        tdate1 = fields.Date.to_string(
-            self.today + relativedelta(days=self.days + 1)
-        )
-        tdate2 = fields.Date.to_string(
-            self.today - relativedelta(months=1, days=7)
-        )
+        tdate1 = self.today + relativedelta(days=self.days + 1)
+        tdate2 = self.today - relativedelta(months=1, days=7)
 
         self.assertFalse(self.journal._is_locked(tdate1))
         self.assertTrue(self.journal._is_locked(tdate2))
@@ -81,14 +72,10 @@ class TestResPartner(common.TransactionCase):
                 "cutoff_type": "eom",
             }
         )
-        tdate1 = fields.Date.to_string(
-            self.today + relativedelta(months=-1, day=1)
-        )
-        tdate2 = fields.Date.to_string(
-            self.today + relativedelta(months=1, days=self.days)
-        )
-        tdate3 = fields.Date.to_string(self.today + relativedelta(months=-2))
-        tdate4 = fields.Date.to_string(self.today + relativedelta(months=2))
+        tdate1 = self.today + relativedelta(months=-1, day=1)
+        tdate2 = self.today + relativedelta(months=1, days=self.days)
+        tdate3 = self.today + relativedelta(months=-2)
+        tdate4 = self.today + relativedelta(months=2)
 
         self.assertFalse(self.journal._is_locked(tdate1))
         self.assertFalse(self.journal._is_locked(tdate2))

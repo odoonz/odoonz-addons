@@ -19,9 +19,10 @@
                         <field name="months" class="oe_inline" widget="integer"/>
                         month(s) &amp;
                         <field name="days" class="oe_inline" widget="integer"/>
-                        <label string=" "/>
+                        <label string=" " for="day_type"/>
                         <field name="day_type" class="oe_inline" attrs="{'required': [('enforce_lock', '=', True)]}"/>
-                        from
+                        <label string=" " for="day_type"/>
+                        <label string="from" for="cutoff_type"/>
                         <field name="cutoff_type" class="oe_inline"
                                attrs="{'required': [('enforce_lock', '=', True)]}"/>
                     </div>

@@ -30,14 +30,8 @@ class AccountJournal(models.Model):
         self.ensure_one()
         if not self.enforce_lock:
             return False
-        today = datetime.strptime(
-            fields.Date.context_today(self), DEFAULT_SERVER_DATE_FORMAT
-        )
-        if transaction_date:
-            transaction_date = datetime.strptime(
-                transaction_date, DEFAULT_SERVER_DATE_FORMAT
-            )
-        else:
+        today = fields.Date.context_today(self)
+        if not transaction_date:
             transaction_date = today
 
         if transaction_date >= today:
@@ -57,7 +51,7 @@ class AccountJournal(models.Model):
                 count=self.days,
                 byweekday=weekdays,
                 dtstart=transaction_date,
-            )[-1]
+            )[-1].date()
 
         if transaction_date < today:
             return True
