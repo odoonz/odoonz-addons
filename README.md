@@ -1,6 +1,6 @@
 # odoonz-addons
-[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=11.0)](https://travis-ci.org/odoonz/odoonz-addons?branch=11.0)
-[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0)
+[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=12.0)](https://travis-ci.org/odoonz/odoonz-addons?branch=11.0)
+[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/12.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0)
 
 [//]: # (addons)
 
@@ -8,8 +8,8 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[account_central_billing](account_central_billing/) | 11.0.1.1.0 | This module allows to invoice all sales or purchases for onecompany to a different company
-[account_invoice_cutoff_policy](account_invoice_cutoff_policy/) | 11.0.1.0.2 | Specify customer specific invocing cutoff policies
+[account_central_billing](account_central_billing/) | 12.0.1.1.0 | This module allows to invoice all sales or purchases for onecompany to a different company
+[account_invoice_cutoff_policy](account_invoice_cutoff_policy/) | 12.0.1.1.0 | Specify customer specific invocing cutoff policies
 [account_journal_lock_policy](account_journal_lock_policy/) | 11.0.1.1.0 | Specify journal specific lock policies
 [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 11.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.
 [auth_oauth_microsoft_graph](auth_oauth_microsoft_graph/) | 11.0.1.0.0 | Allow users to login using Microsoft Graph.

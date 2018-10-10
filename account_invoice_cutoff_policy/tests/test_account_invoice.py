@@ -3,10 +3,14 @@
 
 import mock
 from odoo.tests import common
+from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
+from datetime import datetime
 
 partner_model = (
     "odoo.addons.account_invoice_cutoff_policy.models.res_partner.ResPartner"
 )
+
+spt = datetime.strptime
 
 
 class TestAccountInvoice(common.TransactionCase):
@@ -20,8 +24,8 @@ class TestAccountInvoice(common.TransactionCase):
         invoice.type = "out_invoice"
         invoice.partner_id = self.partner
 
-        orig_date = "2008-08-03"
-        new_date = "2012-12-24"
+        orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
+        new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.date_invoice = orig_date
         with mock.patch(
             "%s._get_lock_date" % partner_model, autospec=True
@@ -35,8 +39,8 @@ class TestAccountInvoice(common.TransactionCase):
         invoice.type = "in_invoice"
         invoice.partner_id = self.partner
 
-        orig_date = "2008-08-03"
-        new_date = "2012-12-24"
+        orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
+        new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.date_invoice = orig_date
         with mock.patch(
             "%s._get_lock_date" % partner_model, autospec=True
@@ -49,8 +53,8 @@ class TestAccountInvoice(common.TransactionCase):
         invoice = self.env["account.invoice"].new()
         invoice.type = "out_refund"
         invoice.partner_id = self.partner
-        orig_date = "2008-08-03"
-        new_date = "2012-12-24"
+        orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
+        new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.date_invoice = orig_date
         with mock.patch(
             "%s._get_lock_date" % partner_model, autospec=True
