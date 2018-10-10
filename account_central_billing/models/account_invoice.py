@@ -37,24 +37,25 @@ class AccountInvoice(models.Model):
             ]:
                 raise ValidationError(_("Cannot self bill"))
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Function overrides create to ensure that parent account is
         always used"""
-        if vals.get("partner_id"):
-            Partner = self.env["res.partner"]
-            order_partner = Partner.browse(vals["partner_id"])
-            partner = order_partner.commercial_partner_id
-            invoice_partner = partner.get_billing_partner(vals)
-            if invoice_partner != partner:
-                vals.update(
-                    {
-                        "partner_id": invoice_partner.id,
-                        "order_partner_id": partner.id,
-                        "order_invoice_id": order_partner.id,
-                    }
-                )
-        return super().create(vals)
+        Partner = self.env["res.partner"]
+        for vals in vals_list:
+            if vals.get("partner_id"):
+                order_partner = Partner.browse(vals["partner_id"])
+                partner = order_partner.commercial_partner_id
+                invoice_partner = partner.get_billing_partner(vals)
+                if invoice_partner != partner:
+                    vals.update(
+                        {
+                            "partner_id": invoice_partner.id,
+                            "order_partner_id": partner.id,
+                            "order_invoice_id": order_partner.id,
+                        }
+                    )
+        return super().create(vals_list)
 
     @api.multi
     def write(self, vals):

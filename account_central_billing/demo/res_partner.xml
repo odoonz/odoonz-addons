@@ -2,6 +2,7 @@
 <odoo noupdate="0">
 
     <record id="taupo_company" model="res.company">
+        <!-- <field name="account_check_printing_layout">None</field> -->
         <field name="name">Taupo Office</field>
         <field name="report_header">My Company Tagline</field>
         <field name="currency_id" ref="base.NZD"/>
@@ -13,7 +14,6 @@
 
     <record id="res_partner_hq" model="res.partner">
         <field name="name">Kwik-e-Mart Head Office</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_13'), ref('base.res_partner_category_12')])]" name="category_id"/>
         <field name="supplier">1</field>
         <field name="customer">1</field>
         <field name="is_company">1</field>
@@ -29,8 +29,6 @@
 
     <record id="res_partner_branch_a" model="res.partner">
         <field name="name">Kwik-e-Mart Gore</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="is_company">1</field>
         <field name="city">Gore</field>
         <field name="zip">1300</field>
@@ -45,8 +43,6 @@
 
     <record id="res_partner_branch_b" model="res.partner">
         <field name="name">Kwik-e-Mart Huntly</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="is_company">1</field>
         <field name="city">Gore</field>
         <field name="zip">1300</field>
@@ -61,8 +57,6 @@
 
     <record id="res_partner_branch_c" model="res.partner">
         <field name="name">Kwik-e-Mart Ranui</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="is_company">1</field>
         <field name="city">Ranui</field>
         <field name="zip">1300</field>
@@ -113,7 +107,6 @@
     <!--for supply-->
     <record id="res_supplier_hq" model="res.partner">
         <field name="name">Steel Is Us Head Office</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_13'), ref('base.res_partner_category_12')])]" name="category_id"/>
         <field name="supplier">1</field>
         <field name="customer" eval="0" />
         <field name="is_company">1</field>
@@ -129,8 +122,6 @@
 
     <record id="res_supplier_branch_a" model="res.partner">
         <field name="name">Steel Is Us Oamaru</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="supplier">1</field>
         <field name="customer" eval="0" />
         <field name="is_company">1</field>
@@ -147,8 +138,6 @@
 
     <record id="res_supplier_branch_b" model="res.partner">
         <field name="name">Steel Is Us Waiuku</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="supplier">1</field>
         <field name="customer" eval="0" />
         <field name="is_company">1</field>
@@ -165,8 +154,6 @@
 
     <record id="res_supplier_branch_c" model="res.partner">
         <field name="name">Steel Is Us Oratia</field>
-        <field eval="[(6, 0, [ref('base.res_partner_category_7'), ref('base.res_partner_category_9')])]"
-               name="category_id"/>
         <field name="supplier">1</field>
         <field name="customer" eval="0" />
         <field name="is_company">1</field>
@@ -217,4 +204,3 @@
     </record>
 
 </odoo>
-
