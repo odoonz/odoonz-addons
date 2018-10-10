@@ -6,7 +6,7 @@
     "name": "Fix Variant Performance",
     "description": """
         Fixes various performance issues in Odoo variant management""",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
