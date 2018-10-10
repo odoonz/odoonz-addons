@@ -13,7 +13,7 @@ addon | version | summary
 [account_journal_lock_policy](account_journal_lock_policy/) | 12.0.1.1.0 | Specify journal specific lock policies
 [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 12.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.
 [auth_oauth_microsoft_graph](auth_oauth_microsoft_graph/) | 11.0.1.0.0 | Allow users to login using Microsoft Graph.
-[invoice_sale_pricelist](invoice_sale_pricelist/) | 11.0.1.1.0 | Lookup prices using sale pricelist on invoices
+[invoice_sale_pricelist](invoice_sale_pricelist/) | 12.0.1.1.0 | Lookup prices using sale pricelist on invoices
 [mrp_dynamic_line](mrp_dynamic_line/) | 11.0.3.0.0 | Dynamic BoM Transformations
 [mrp_sale_fields](mrp_sale_fields/) | 11.0.1.0.0 | Adds fields from sale order when linked
 [price_recalculation](price_recalculation/) | 11.0.1.0.0 | Base module for x_price_recalculation modules.
