@@ -24,7 +24,7 @@ addon | version | summary
 [qweb_txt_report](qweb_txt_report/) | 11.0.1.0.1 | Allows to print text reports using qweb templates
 [report_helpers](report_helpers/) | 11.0.1.1.0 | Helper methods and functional fields for easier report generation
 [sale_partcode_substitution](sale_partcode_substitution/) | 11.0.1.0.1 | Allows all products of a sale order to be updated by substituting part of their partcode
-[sale_price_recalculation](sale_price_recalculation/) | 11.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice
+[sale_price_recalculation](sale_price_recalculation/) | 12.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice
 [sale_purchase_count](sale_purchase_count/) | 11.0.1.1.0 | View MTO purchases from sales order
 [stock_prodlot_qty](stock_prodlot_qty/) | 11.0.1.0.0 | Shows available qty in prodlot name
 [stock_warehouse_address](stock_warehouse_address/) | 11.0.1.0.0 | Adds a postal address to warehouse

@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <form string="Update Pricing">
 
-                <label colspan="5" string="This will update the sales order and any draft invoices.
+                <label colspan="5" for="partner_id" string="This will update the sales order and any draft invoices.
                         It will not work if any part of the order is already invoiced. Updating from quote
                         will use the last product template matched."/>
                 <field name="partner_id" invisible="1"/>

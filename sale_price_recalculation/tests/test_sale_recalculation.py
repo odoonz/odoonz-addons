@@ -15,7 +15,7 @@ class TestSaleRecalc(TestSale):
 
     def setUp(self):
         super().setUp()
-        today = (fields.Date.context_today(self.partner),)
+        today = fields.Date.to_string(fields.Date.context_today(self.partner))
         context_no_mail = {
             "tracking_disable": True,
             "mail_notrack": True,
