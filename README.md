@@ -26,9 +26,9 @@ addon | version | summary
 [sale_partcode_substitution](sale_partcode_substitution/) | 12.0.1.1.1 | Allows all products of a sale order to be updated by substituting part of their partcode
 [sale_price_recalculation](sale_price_recalculation/) | 12.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice
 [sale_purchase_count](sale_purchase_count/) | 12.0.1.1.0 | View MTO purchases from sales order
-[stock_prodlot_qty](stock_prodlot_qty/) | 11.0.1.0.0 | Shows available qty in prodlot name
+[stock_prodlot_qty](stock_prodlot_qty/) | 12.0.1.0.0 | Shows available qty in prodlot name
 [stock_warehouse_address](stock_warehouse_address/) | 11.0.1.0.0 | Adds a postal address to warehouse
-[tax_from_account](tax_from_account/) | 11.0.1.0.0 | Sets the taxes on sales, purchases and invoices from account rather than product. If product has taxes set, these are used instead.
+[tax_from_account](tax_from_account/) | 12.0.1.0.0 | Sets the taxes on sales, purchases and invoices from account rather than product. If product has taxes set, these are used instead.
 [user_signature_logo](user_signature_logo/) | 11.0.1.0.0 | Logo for user signature
 
 [//]: # (end addons)
