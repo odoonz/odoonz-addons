@@ -8,7 +8,7 @@ from odoo.tests import common
 class TestSaleOrder(common.TransactionCase):
 
     def test_prodlot_qty(self):
-        lot = self.env.ref("stock.lot_icecream_0")
+        lot = self.env.ref("stock.lot_product_cable_management")
         avail_qty = "(%.0f)" % lot.product_qty
         self.assertNotIn(avail_qty, lot.name_get()[0])
         self.assertIn(

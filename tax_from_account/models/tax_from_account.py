@@ -18,11 +18,17 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
         "taxes_id" if inv_type.startswith("out_") else "supplier_taxes_id"
     )
 
+    company_tax_field = (
+        "account_sale_tax_id" if inv_type.startswith("out_") else "account_purchase_tax_id"
+    )
+
     # Don't try to collapse the filtering, needs independent evaluation of
     # each possibility.
     taxes = line.product_id[tax_field].filtered(
         lambda t: t.company_id == line.company_id
-    ) or account.tax_ids.filtered(lambda t: t.company_id == line.company_id)
+    ) or account.tax_ids.filtered(
+        lambda t: t.company_id == line.company_id
+        ) or line.company_id[company_tax_field]
 
     return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
 
