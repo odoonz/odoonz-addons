@@ -12,7 +12,8 @@ for use in documents.
 Installation
 ============
 
-There are no special installation instructions for this module.
+There are no special installation instructions for this module. It is
+probably pointless for enterprise as sign module does similar but better.
 
 Configuration
 =============

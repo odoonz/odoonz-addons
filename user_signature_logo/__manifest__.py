@@ -4,7 +4,7 @@
 {
     'name': 'User Signature Logo',
     'summary': "Logo for user signature",
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'author': ' Open for Small Business Ltd',
     'website': 'https://o4sb.com',
