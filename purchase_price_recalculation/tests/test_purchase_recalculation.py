@@ -26,6 +26,7 @@ class TestPurchaseOrder(TransactionCase):
         (self.product_id_1 | self.product_id_2).write(
             {"purchase_method": "purchase"}
         )
+        po_date = fields.Datetime.to_string(fields.Datetime.now(self.product_id_1))
         po_vals = {
             "partner_id": self.partner_id.id,
             "order_line": [
@@ -38,7 +39,7 @@ class TestPurchaseOrder(TransactionCase):
                         "product_qty": 5.0,
                         "product_uom": self.product_id_1.uom_po_id.id,
                         "price_unit": 500.0,
-                        "date_planned": fields.Datetime.now(self.product_id_1),
+                        "date_planned": po_date,
                     },
                 ),
                 (
@@ -50,7 +51,7 @@ class TestPurchaseOrder(TransactionCase):
                         "product_qty": 5.0,
                         "product_uom": self.product_id_2.uom_po_id.id,
                         "price_unit": 250.0,
-                        "date_planned": fields.Datetime.now(self.product_id_1),
+                        "date_planned": po_date,
                     },
                 ),
             ],

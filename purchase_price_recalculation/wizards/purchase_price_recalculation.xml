@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <form string="Update Pricing">
 
-                <label colspan="5" string="This will reprice the purchase order and any draft invoices.
+                <label colspan="5" for="partner_id" string="This will reprice the purchase order and any draft invoices.
                         It will not work if the order is already invoiced or goods already received. Only pricing
                         can be changed, products and quantities cannot. Repricing from quote
                         will use the last product template matched."/>
