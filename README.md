@@ -16,7 +16,7 @@ addon | version | summary
 [invoice_sale_pricelist](invoice_sale_pricelist/) | 12.0.1.1.0 | Lookup prices using sale pricelist on invoices
 [mrp_dynamic_line](mrp_dynamic_line/) | 11.0.3.0.0 | Dynamic BoM Transformations
 [mrp_sale_fields](mrp_sale_fields/) | 12.0.1.1.0 | Adds fields from sale order when linked
-[price_recalculation](price_recalculation/) | 11.0.1.0.0 | Base module for x_price_recalculation modules.
+[price_recalculation](price_recalculation/) | 12.0.1.0.0 | Base module for x_price_recalculation modules.
 [product_attribute_group](product_attribute_group/) | 11.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template
 [product_code_builder](product_code_builder/) | 11.0.1.0.0 | Product Variant Default Code
 [product_pricelist_extended](product_pricelist_extended/) | 11.0.1.0.0 | This module implements many2many products in pricelists.
