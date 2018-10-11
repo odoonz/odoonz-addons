@@ -39,10 +39,10 @@
         <field name="inherit_id" ref="mrp.view_mrp_production_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//group" position="inside">
-                <filter string="Sale Order" domain="[]" context="{'group_by':'sale_id'}"/>
-                <filter string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                <filter string="Sale Order" name="sale" domain="[]" context="{'group_by':'sale_id'}"/>
+                <filter string="Customer" name="customer" domain="[]" context="{'group_by':'partner_id'}"/>
             </xpath>
-            <xpath expr="//filter[@name='norouting']" position="before">
+            <xpath expr="//filter[@name='todo']" position="after">
                 <field name="sale_id"/>
                 <field name="partner_id" operator="child_of"/>
             </xpath>

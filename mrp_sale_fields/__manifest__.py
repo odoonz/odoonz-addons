@@ -4,11 +4,11 @@
 {
     'name': 'Mrp Sale Fields',
     'summary': "Adds fields from sale order when linked",
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.1.0',
     'license': 'AGPL-3',
     'author': 'Open For Small Business Ltd',
     'website': 'https://o4sb.com',
-    'depends': ['mrp', 'sale_stock'],
+    'depends': ['mrp', 'sale_stock', 'sale'],
     'data': [
         'views/mrp_production.xml',
         'views/sale_order.xml',
