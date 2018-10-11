@@ -12,8 +12,8 @@
         <field name="list_price">1750.0</field>
         <field name="type">consu</field>
         <field name="default_code">CARGRN</field>
-        <field name="uom_id" ref="product.product_uom_unit"/>
-        <field name="uom_po_id" ref="product.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
     </record>
 
     <record id="product_product_2" model="product.product">
@@ -23,8 +23,8 @@
         <field name="list_price">1550.0</field>
         <field name="type">consu</field>
         <field name="default_code">CARBLU</field>
-        <field name="uom_id" ref="product.product_uom_unit"/>
-        <field name="uom_po_id" ref="product.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
     </record>
 
 

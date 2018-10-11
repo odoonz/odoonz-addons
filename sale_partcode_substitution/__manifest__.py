@@ -3,7 +3,7 @@
 
 {
     "name": "Sale Partcode Replacement",
-    "version": "11.0.1.0.1",
+    "version": "12.0.1.1.1",
     "license": "AGPL-3",
     "category": "Sales & Purchases",
     "summary": "Allows all products of a sale order to be updated by "
