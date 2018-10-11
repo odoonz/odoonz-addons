@@ -21,7 +21,6 @@ addon | version | summary
 [product_code_builder](product_code_builder/) | 11.0.1.0.0 | Product Variant Default Code
 [product_pricelist_extended](product_pricelist_extended/) | 11.0.1.0.0 | This module implements many2many products in pricelists.
 [purchase_price_recalculation](purchase_price_recalculation/) | 12.0.1.1.0 | Allows to update the pricing of confirmed purchase orders prior to reception
-[qweb_txt_report](qweb_txt_report/) | 11.0.1.0.1 | Allows to print text reports using qweb templates
 [report_helpers](report_helpers/) | 11.0.1.1.0 | Helper methods and functional fields for easier report generation
 [sale_partcode_substitution](sale_partcode_substitution/) | 12.0.1.1.1 | Allows all products of a sale order to be updated by substituting part of their partcode
 [sale_price_recalculation](sale_price_recalculation/) | 12.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice
