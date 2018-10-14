@@ -6,7 +6,7 @@ from odoo import api, fields, models
 
 class ProductAttributeLine(models.Model):
 
-    _inherit = "product.attribute.line"
+    _inherit = "product.template.attribute.line"
 
     attr_group_ids = fields.Many2many(
         comodel_name="product.attribute.group",
@@ -24,19 +24,20 @@ class ProductAttributeLine(models.Model):
         """
         self.value_ids = self.attr_group_ids.mapped("value_ids")
 
-    @api.model
-    def create(self, vals):
-        if "attr_group_ids" in vals:
-            if vals.get("attr_group_ids"):
-                attr_groups = self.env["product.attribute.group"].browse(
-                    vals["attr_group_ids"][0][2]
-                )
-                vals["value_ids"] = [
-                    [6, False, attr_groups.mapped("value_ids").ids]
-                ]
-            else:
-                vals["value_ids"] = []
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if "attr_group_ids" in vals:
+                if vals.get("attr_group_ids"):
+                    attr_groups = self.env["product.attribute.group"].browse(
+                        vals["attr_group_ids"][0][2]
+                    )
+                    vals["value_ids"] = [
+                        [6, False, attr_groups.mapped("value_ids").ids]
+                    ]
+                else:
+                    vals["value_ids"] = vals.get("value_ids", [])
+        return super().create(vals_list)
 
     @api.multi
     def write(self, vals):

@@ -8,7 +8,7 @@
         <field name="name">product.attribute.group.form (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="Product Attribute Group">
                 <header>
                     <button type="object" name="update_products" string="Update Templates"/>
                 </header>
@@ -27,7 +27,7 @@
         <field name="name">product.attribute.group.search (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
-            <search>
+            <search string="Product Attribute Groups">
                 <field name="name"/>
                 <field name="attribute_id"/>
                 <field name="value_ids"/>
@@ -39,7 +39,7 @@
         <field name="name">product.attribute.group.tree (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <tree string="Product Attribute Groups" editable="bottom">
                 <field name="name"/>
                 <field name="attribute_id" options="{'no_create_edit': True}"/>
                 <field name="value_ids"
@@ -53,9 +53,18 @@
     <record model="ir.actions.act_window" id="product_attribute_group_act_window">
         <field name="name">Product Attribute Groups</field>
         <field name="res_model">product.attribute.group</field>
-        <field name="view_mode">tree, form</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="product_attribute_group_search_view"/>
         <field name="domain">[]</field>
         <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_empty_folder">
+            No content
+          </p><p>
+            Click to create your first product attribute group.
+          </p>
+        </field>
     </record>
 
     <record model="ir.ui.menu" id="product_attribute_group_menu">

@@ -30,7 +30,7 @@ class TestAttributeGroups(TransactionCase):
         ]
         self.assertFalse(len(self.ipod_memory_line.value_ids))
         self.product_ipod.create_variant_ids()
-        self.assertTrue(len(self.product_ipod.product_variant_ids) == 1)
+        self.assertFalse(len(self.product_ipod.product_variant_ids))
 
     def test_adding_values_to_attr_group(self):
         """
@@ -147,7 +147,7 @@ class TestAttributeGroups(TransactionCase):
                             "attribute_id": self.attr_group_1.attribute_id.id,
                             "attr_group_ids": [],
                             "value_ids": [
-                                (6, 0, self.attr_group_1.value_ids.ids)
+                                (6, 0, self.attr_group_1.value_ids.ids[:1])
                             ],
                         },
                     )
@@ -190,8 +190,8 @@ class TestAttributeGroups(TransactionCase):
         )
 
         self.ipad_memory_line = self.browse_ref(
-            "product.product_attribute_line_1"
+            "product.product_template_attribute_line_1"
         )
         self.ipod_memory_line = self.browse_ref(
-            "product.product_attribute_line_4"
+            "product.product_template_attribute_line_4"
         )

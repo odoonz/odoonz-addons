@@ -22,7 +22,7 @@ class ProductAttributeGroup(models.Model):
         string="Product Attribute Values",
     )
     attribute_line_ids = fields.Many2many(
-        comodel_name="product.attribute.line",
+        comodel_name="product.template.attribute.line",
         string="Product Attributes",
         copy=False,
     )
