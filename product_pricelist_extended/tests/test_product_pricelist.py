@@ -17,7 +17,7 @@ class TestProductPricelistItem(TestProductPricelist):
         super().setUp()
         self.price_categ1 = self.env.ref(
             'product_pricelist_extended.price_categ1')
-        self.uom_dozen = self.env.ref('product.product_uom_dozen')
+        self.uom_dozen = self.env.ref('uom.product_uom_dozen')
         self.extended_pricelist = self.ProductPricelist.create({
             'name': 'Extended Pricelist',
             'item_ids': [(0, 0, {

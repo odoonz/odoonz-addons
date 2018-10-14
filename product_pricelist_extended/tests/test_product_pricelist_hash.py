@@ -10,8 +10,7 @@ from odoo.addons.product.models.product_pricelist import Pricelist as upstream
 # other hashes may be valid but not tested, more of an early warning system
 # for changed behaviour
 
-VALID_HASHES = ['46ddbd59a409b187c245d529cd2c9194',
-                '324a87146d69279c42829113b730aad9']
+VALID_HASHES = ['9858823ca62ce6cf90f3017b053b1b35']
 
 
 class TestProductPricelistHash(TransactionCase):

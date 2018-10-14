@@ -28,7 +28,7 @@
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="price_categ_id"
                        attrs="{'invisible':[('applied_on', '!=', '2_product_category')],'required':[('applied_on', '=', '2_product_category'), ('categ_id', '=', False)]}"/>
-                <label string="You must complete one and only one of the above categories" colspan="3"
+                <label string="You must complete one and only one of the above categories" colspan="3" for="price_categ_id"
                         attrs="{'invisible':[('applied_on', '!=', '2_product_category')]}" />
             </xpath>
             <xpath expr="//field[@name='categ_id']" position="attributes">

@@ -19,7 +19,7 @@ addon | version | summary
 [price_recalculation](price_recalculation/) | 12.0.1.0.0 | Base module for x_price_recalculation modules.
 [product_attribute_group](product_attribute_group/) | 12.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template
 [product_code_builder](product_code_builder/) | 11.0.1.0.0 | Product Variant Default Code
-[product_pricelist_extended](product_pricelist_extended/) | 11.0.1.0.0 | This module implements many2many products in pricelists.
+[product_pricelist_extended](product_pricelist_extended/) | 12.0.1.0.0 | This module implements many2many products in pricelists.
 [purchase_price_recalculation](purchase_price_recalculation/) | 12.0.1.1.0 | Allows to update the pricing of confirmed purchase orders prior to reception
 [report_helpers](report_helpers/) | 12.0.0.0.0 | Helper methods and functional fields for easier report generation
 [sale_partcode_substitution](sale_partcode_substitution/) | 12.0.1.1.1 | Allows all products of a sale order to be updated by substituting part of their partcode

@@ -83,7 +83,7 @@ class ProductPricelist(models.Model):
             'LEFT JOIN pricelist_item_product_rel AS pipr '
             'ON item.id = pipr.pricelist_item_id '
             'LEFT JOIN pricelist_item_tmpl_rel pitr '
-            'ON item.id=pitr.pricelist_item_id ' 
+            'ON item.id=pitr.pricelist_item_id '
             'WHERE (item.product_tmpl_id IS NULL OR item.product_tmpl_id = any(%s)) '
             'AND (pitr.tmpl_id IS NULL OR pitr.tmpl_id = any(%s)) '
             'AND (item.product_id IS NULL OR item.product_id = any(%s)) '
@@ -93,7 +93,7 @@ class ProductPricelist(models.Model):
             'AND (item.pricelist_id = %s) '
             'AND (item.date_start IS NULL OR item.date_start<=%s) '
             'AND (item.date_end IS NULL OR item.date_end>=%s) '
-            'ORDER BY item.applied_on, item.min_quantity desc, categ.parent_left desc',
+            'ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc',
             (prod_tmpl_ids, prod_tmpl_ids, prod_ids, prod_ids,
              categ_ids, price_categ_ids, self.id, date, date))
 
@@ -118,7 +118,7 @@ class ProductPricelist(models.Model):
             qty_in_product_uom = qty
             if qty_uom_id != product.uom_id.id:
                 try:
-                    qty_in_product_uom = self.env['product.uom'].browse([self._context['uom']])._compute_quantity(qty, product.uom_id)
+                    qty_in_product_uom = self.env['uom.uom'].browse([self._context['uom']])._compute_quantity(qty, product.uom_id)
                 except UserError:
                     # Ignored - incompatible UoM in context, use default product UoM
                     pass
@@ -127,7 +127,7 @@ class ProductPricelist(models.Model):
             # TDE SURPRISE: product can actually be a template
             price = product.price_compute('list_price')[product.id]
 
-            price_uom = self.env['product.uom'].browse([qty_uom_id])
+            price_uom = self.env['uom.uom'].browse([qty_uom_id])
             for rule in items:
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
@@ -184,7 +184,7 @@ class ProductPricelist(models.Model):
 
                 if rule.base == 'pricelist' and rule.base_pricelist_id:
                     price_tmp = rule.base_pricelist_id._compute_price_rule([(product, qty, partner)])[product.id][0]  # TDE: 0 = price, 1 = rule
-                    price = rule.base_pricelist_id.currency_id.compute(price_tmp, self.currency_id, round=False)
+                    price = rule.base_pricelist_id.currency_id._convert(price_tmp, self.currency_id, self.env.user.company_id, date, round=False)
                 else:
                     # if base option is public price take sale price else cost price of product
                     # price_compute returns the price in the context UoM, i.e. qty_uom_id
@@ -219,7 +219,7 @@ class ProductPricelist(models.Model):
                 break
             # Final price conversion into pricelist currency
             if suitable_rule and suitable_rule.compute_price != 'fixed' and suitable_rule.base != 'pricelist':
-                price = product.currency_id.compute(price, self.currency_id, round=False)
+                price = product.currency_id._convert(price, self.currency_id, self.env.user.company_id, date, round=False)
 
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
 
