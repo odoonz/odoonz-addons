@@ -18,18 +18,18 @@ class ProductAttributeValue(models.Model):
         string='Code', default=onchange_name)
     comment = fields.Text('Comment')
 
-    @api.model
-    def create(self, values):
-        if 'code' not in values:
-            values['code'] = values.get('name', '')[0:2]
-        value = super().create(values)
-        return value
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if 'code' not in vals:
+                vals['code'] = vals.get('name', '')[0:2]
+        return super().create(vals_list)
 
     @api.multi
     def write(self, vals):
         result = super().write(vals)
         if 'code' in vals:
-            attribute_line_obj = self.env['product.attribute.line']
+            attribute_line_obj = self.env['product.template.attribute.line']
             product_obj = self.env['product.product']
             for attr_value in self:
                 cond = [('attribute_id', '=', attr_value.attribute_id.id)]

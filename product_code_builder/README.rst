@@ -32,7 +32,7 @@ generated according to the attribute line settings on the product template.
 The mask will then be used as an instruction to generate default code of each
 product variant of the product template with the corresponding Attribute Code
 (of the attribute value) inserted. Besides the default value, 'Variant
-reference mask' can be configure to your liking, make sure puting Attribut Name
+reference mask' can be configure to your liking, make sure puting Attribute Name
 inside '[]' mark.
 
 Example:

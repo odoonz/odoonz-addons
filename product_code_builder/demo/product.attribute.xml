@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product.product_attribute_1" model="product.attribute">
+        <field name="code">M</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="product.product_attribute_2" model="product.attribute">
+        <field name="code">C</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="product.product_attribute_3" model="product.attribute">
+        <field name="code">W</field>
+        <field name="sequence">10</field>
+    </record>
+
+</odoo>

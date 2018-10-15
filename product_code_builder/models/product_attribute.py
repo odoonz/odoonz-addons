@@ -14,7 +14,7 @@ class ProductAttribute(models.Model):
     def write(self, vals):
         result = super().write(vals)
         if 'code' in vals:
-            attribute_line_obj = self.env['product.attribute.line']
+            attribute_line_obj = self.env['product.template.attribute.line']
             product_obj = self.env['product.product']
             for attribute in self:
                 cond = [('attribute_id', '=', attribute.id)]
