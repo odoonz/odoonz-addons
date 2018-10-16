@@ -2,7 +2,7 @@
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<odoo noupdate="0">
+<odoo noupdate="1">
 
     <!-- Attribute Setup -->
     <record id="appliance_product_attribute" model="product.attribute">
@@ -47,8 +47,8 @@
         <field name="list_price">1750.0</field>
         <field name="type">consu</field>
         <field name="weight">100.0</field>
-        <field name="uom_id" ref="product.product_uom_unit"/>
-        <field name="uom_po_id" ref="product.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
         <field name="attribute_value_ids" eval="[(6,0,[ref('mrp_dynamic_line.product_attribute_value_1')])]"/>
     </record>
     <record id="manu_productb" model="product.product">
@@ -86,8 +86,8 @@
         <field name="list_price">1000.0</field>
         <field name="type">consu</field>
         <field name="weight">80.0</field>
-        <field name="uom_id" ref="product.product_uom_unit"/>
-        <field name="uom_po_id" ref="product.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
         <field name="attribute_value_ids" eval="[(6,0,[ref('mrp_dynamic_line.product_attribute_value_1')])]"/>
     </record>
     <record id="raw1_productb" model="product.product">
@@ -121,8 +121,8 @@
         <field name="list_price">10.0</field>
         <field name="type">consu</field>
         <field name="weight">1.0</field>
-        <field name="uom_id" ref="product.product_uom_kgm"/>
-        <field name="uom_po_id" ref="product.product_uom_kgm"/>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
         <field name="attribute_value_ids"
                eval="[(6,0,[ref('mrp_dynamic_line.product_attribute_value_1'), ref('mrp_dynamic_line.product_attribute_value_5')])]"/>
     </record>
@@ -168,14 +168,14 @@
         <field name="list_price">2.0</field>
         <field name="type">consu</field>
         <field name="weight">1.0</field>
-        <field name="uom_id" ref="product.product_uom_unit"/>
-        <field name="uom_po_id" ref="product.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
     </record>
 
     <!--Bill of Materials Setup-->
     <record id="mrp_bom_manufacture" model="mrp.bom">
         <field name="product_tmpl_id" ref="manu_product_product_template"/>
-        <field name="product_uom_id" ref="product.product_uom_unit"/>
+        <field name="product_uom_id" ref="uom.product_uom_unit"/>
         <field name="sequence">1</field>
     </record>
 
@@ -184,7 +184,7 @@
         <field name="variant_id" ref="raw1_productb"/>
         <field name="product_qty">1</field>
         <field name="xform_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.match_attributes')])]" />
-        <field name="product_uom_id" ref="product.product_uom_unit"/>
+        <field name="product_uom_id" ref="uom.product_uom_unit"/>
         <field name="sequence">5</field>
         <field name="bom_id" ref="mrp_bom_manufacture"/>
     </record>
@@ -195,7 +195,7 @@
         <field name="required_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_5')])]" />
         <field name="xform_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.match_attributes'), ref('mrp_dynamic_line.scale_weight')])]" />
         <field name="product_qty">0.25</field>
-        <field name="product_uom_id" ref="product.product_uom_kgm"/>
+        <field name="product_uom_id" ref="uom.product_uom_kgm"/>
         <field name="sequence">5</field>
         <field name="bom_id" ref="mrp_bom_manufacture"/>
     </record>
@@ -205,7 +205,7 @@
         <field name="variant_id" ref="raw3_product"/>
         <field name="attribute_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_3')])]" />
         <field name="product_qty">1</field>
-        <field name="product_uom_id" ref="product.product_uom_unit"/>
+        <field name="product_uom_id" ref="uom.product_uom_unit"/>
         <field name="sequence">5</field>
         <field name="bom_id" ref="mrp_bom_manufacture"/>
     </record>

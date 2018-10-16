@@ -42,7 +42,7 @@ class MrpBom(models.Model):
 
     def _explode_scale_weight_kg(self, bom_line, line_fields):
         if bom_line.product_uom_id != self.env.ref(
-            "product.product_uom_kgm"
+            "uom.product_uom_kgm"
         ):
             _logger.error(
                 _(

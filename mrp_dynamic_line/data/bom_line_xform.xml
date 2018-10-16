@@ -2,7 +2,7 @@
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<odoo noupdate="1">
+<odoo noupdate="0">
 
     <record model="bom.line.xform" id="match_attributes">
         <field name="name">Match Attributes</field>
