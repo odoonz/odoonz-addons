@@ -11,7 +11,7 @@ class MrpBomLine(models.Model):
     _inherit = "mrp.bom.line"
 
     product_tmpl_id = fields.Many2one(
-        comodel_name="product.template", string="Product", required=True
+        comodel_name="product.template", string="Product", required=True, related=False
     )
     product_id = fields.Many2one(
         string="Product Variant", compute="_compute_product_id", required=False

@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "author": " Open for Small Business Ltd",
     "website": "https://o4sb.com",
-    "depends": ["mrp", "product"],
+    "depends": ["mrp", "product", "sale"],
     "demo": ["demo/mrp_dynamic_line.xml"],
     "data": [
         "data/bom_line_xform.xml",

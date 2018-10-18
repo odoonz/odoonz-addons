@@ -18,7 +18,7 @@ class TestMRPProduction(common.TransactionCase):
             {
                 "product_id": self.env.ref("mrp_dynamic_line.manu_product").id,
                 "product_qty": 1.0,
-                "product_uom_id": self.env.ref("product.product_uom_unit").id,
+                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
                 "bom_id": self.env.ref(
                     "mrp_dynamic_line.mrp_bom_manufacture"
                 ).id,
@@ -57,7 +57,7 @@ class TestMRPProduction(common.TransactionCase):
                     "mrp_dynamic_line.manu_productc"
                 ).id,
                 "product_qty": 2.0,
-                "product_uom_id": self.env.ref("product.product_uom_unit").id,
+                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
                 "bom_id": self.env.ref(
                     "mrp_dynamic_line.mrp_bom_manufacture"
                 ).id,
@@ -121,7 +121,7 @@ class TestMRPProduction(common.TransactionCase):
                     "mrp_dynamic_line.manu_productc"
                 ).id,
                 "product_qty": 2.0,
-                "product_uom_id": self.env.ref("product.product_uom_unit").id,
+                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
                 "bom_id": self.env.ref(
                     "mrp_dynamic_line.mrp_bom_manufacture"
                 ).id,
@@ -144,7 +144,7 @@ class TestMRPProduction(common.TransactionCase):
                     "mrp_dynamic_line.manu_productc"
                 ).id,
                 "product_qty": 2.0,
-                "product_uom_id": self.env.ref("product.product_uom_unit").id,
+                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
                 "bom_id": self.env.ref(
                     "mrp_dynamic_line.mrp_bom_manufacture"
                 ).id,
