@@ -7,7 +7,8 @@ Microsoft Graph Oauth Authentication
 ====================================
 
 Allows users to login using Microsoft Graph in Azure AD environments.
-This module is experimental and somewhat untested.
+It is fairly naive, and just tests if the oauth provider is graph.microsoft.com
+and if so modifies the oauth request.
 
 
 Installation
@@ -21,20 +22,33 @@ Configuration
 If using B2B authentication you will need to populate users
 authentication usernames and complete an oauth provider.
 
-Provider name: AzureAD
-Client ID: Client ID provided when registering Application
-Body: Login with Microsoft
-Auth URL: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-Scope: User.Read User.ReadBasic.All
-Validation URL: https://graph.microsoft.com/v1.0/me
+- Provider name: AzureAD
+- Client ID: <Client ID provided when registering Application>
+- Body: Login with Microsoft
+- Auth URL: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+- Scope: User.Read User.ReadBasic.All
+- Validation URL: https://graph.microsoft.com/v1.0/me
+- Data URL: <Empty>
+
+The configuration in Azure APP:
+
+- Enable multi-tenanted in Azure App - setting - properties
+- Required permissions - Windows Azure Active Directory - Grant permissions - Sign in and read user profile, Sign in and read user profile , Access the directory as the signed-in user
+- Required permissions - Microsoft Graph - Grant permissions - Access the directory as the signed-in user, Sign users in , View users' email address
+- Edit manifest - "oauth2AllowImplicitFlow": true,
+
+If you like to enable user to signup, just turn on the B2C login in odoo - setting - Users - Customer Account
 
 Usage
 =====
 
-User select Login with Microsoft at login screen to authenticate.
+User selects Login with Microsoft at login screen to authenticate.
 
 Known issues / Roadmap
 ======================
+
+Ideally this module shouldn't be required and will be deprecated
+as soon as Odoo supports AZUREAD logins.
 
 Bug Tracker
 ===========
