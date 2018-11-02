@@ -19,7 +19,8 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
     )
 
     company_tax_field = (
-        "account_sale_tax_id" if inv_type.startswith("out_") else "account_purchase_tax_id"
+        "account_sale_tax_id" if inv_type.startswith("out_")
+        else "account_purchase_tax_id"
     )
 
     # Don't try to collapse the filtering, needs independent evaluation of

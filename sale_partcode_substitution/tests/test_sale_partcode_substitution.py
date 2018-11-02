@@ -6,6 +6,7 @@ from odoo import fields
 from odoo.tools import float_compare as fc
 from odoo.exceptions import ValidationError
 
+
 @tagged('post_install', '-at_install')
 class TestSaleSubst(TestSale):
 
@@ -23,26 +24,26 @@ class TestSaleSubst(TestSale):
             "sale_partcode_substitution.product_product_2"
         )
         vals = {
-                    "partner_id": self.partner.id,
-                    "partner_invoice_id": self.partner.id,
-                    "partner_shipping_id": self.partner.id,
-                    "date_order": today,
-                    "order_line": [
-                        (
-                            0,
-                            0,
-                            {
-                                "name": p.name,
-                                "product_id": p.id,
-                                "product_uom_qty": randint(1, 10),
-                                "product_uom": p.uom_id.id,
-                                "price_unit": randint(1, 100) / 2.1,
-                                "discount": random() * 100.0,
-                            },
-                        )
-                    ],
-                    "pricelist_id": self.env.ref("product.list0").id,
-                }
+            "partner_id": self.partner.id,
+            "partner_invoice_id": self.partner.id,
+            "partner_shipping_id": self.partner.id,
+            "date_order": today,
+            "order_line": [
+                (
+                    0,
+                    0,
+                    {
+                        "name": p.name,
+                        "product_id": p.id,
+                        "product_uom_qty": randint(1, 10),
+                        "product_uom": p.uom_id.id,
+                        "price_unit": randint(1, 100) / 2.1,
+                        "discount": random() * 100.0,
+                    },
+                )
+            ],
+            "pricelist_id": self.env.ref("product.list0").id,
+        }
         SaleOrder = self.env["sale.order"].with_context(context_no_mail)
         self.so = SaleOrder.create(vals)
         self.scr = (

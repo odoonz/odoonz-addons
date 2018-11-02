@@ -21,7 +21,8 @@ class TestResPartner(common.TransactionCase):
 
     def test_is_locked_normal(self):
         self.journal.write({"enforce_lock": False})
-        test_date = datetime.strptime("2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
+        test_date = datetime.strptime(
+            "2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
         self.assertFalse(self.journal._is_locked(test_date))
         self.assertFalse(self.journal._is_locked(False))
 

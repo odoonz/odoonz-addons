@@ -15,7 +15,9 @@ class TestResPartner(common.TransactionCase):
         super().setUp()
         self.partner = self.env.ref("base.res_partner_1")
         self.today = fields.Date.context_today(self.partner)
-        self.long_ago = datetime.strptime("2030-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
+        self.long_ago = datetime.strptime(
+            "2030-12-19",
+            DEFAULT_SERVER_DATE_FORMAT).date()
         self.days = 7
 
     def test_get_lock_date_normal(self):

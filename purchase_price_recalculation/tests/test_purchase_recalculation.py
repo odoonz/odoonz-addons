@@ -26,7 +26,9 @@ class TestPurchaseOrder(TransactionCase):
         (self.product_id_1 | self.product_id_2).write(
             {"purchase_method": "purchase"}
         )
-        po_date = fields.Datetime.to_string(fields.Datetime.now(self.product_id_1))
+        po_date = fields.Datetime.to_string(
+            fields.Datetime.now(self.product_id_1)
+        )
         po_vals = {
             "partner_id": self.partner_id.id,
             "order_line": [

@@ -1,12 +1,10 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
 from dateutil.rrule import rrule, DAILY
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class ResPartner(models.Model):
