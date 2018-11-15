@@ -93,7 +93,7 @@ class ProductPricelist(models.Model):
             'AND (item.pricelist_id = %s) '
             'AND (item.date_start IS NULL OR item.date_start<=%s) '
             'AND (item.date_end IS NULL OR item.date_end>=%s) '
-            'ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc',
+            'ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc ',
             (prod_tmpl_ids, prod_tmpl_ids, prod_ids, prod_ids,
              categ_ids, price_categ_ids, self.id, date, date))
 
