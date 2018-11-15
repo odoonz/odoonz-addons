@@ -76,23 +76,23 @@ class AccountInvoice(models.Model):
         return super().write(vals)
 
     @api.model
-    def search(self, args, **kwargs):
+    def _search(self, args, **kwargs):
         """override search so we find subsidiary invoices when looking at
         that partner.
-        @note: this could break quite easily if used with multiple
-        custom filters"""
-        search_args = args[:]
-        for arg in search_args:
-            if arg[0] == "partner_id" and arg[1] in [
+       """
+        iter_args = list(args)
+        args = []
+        for arg in iter_args:
+            if arg[0] == "partner_id" and arg[1] in (
                 "=",
                 "like",
                 "ilike",
                 "child_of",
-            ]:
-                args.remove(arg)
+            ):
                 args.extend(["|", arg, ("order_partner_id", arg[1], arg[2])])
-                break
-        return super().search(args, **kwargs)
+            else:
+                args.append(arg)
+        return super()._search(args, **kwargs)
 
     def _get_refund_common_fields(self):
         return super()._get_refund_common_fields() + [
