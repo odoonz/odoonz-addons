@@ -7,7 +7,7 @@
                "report generation",
     'version': '12.0.0.0.0',
     'license': 'AGPL-3',
-    'author': ' Open for Small Business Ltd',
+    'author': 'Open For Small Business Ltd',
     'website': 'https://o4sb.com',
     'depends': ['base', 'account'],
 }

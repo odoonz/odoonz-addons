@@ -6,7 +6,7 @@
     'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Sales & Purchases',
-    'author': 'O4SB -  Open for Small Business Ltd',
+    'author': 'Open For Small Business Ltd',
     'website': 'https://o4sb.com',
     'depends': ['product', 'sale'],
     "summary": "This module implements many2many products in pricelists.",
