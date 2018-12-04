@@ -26,7 +26,7 @@ class MrpBomLine(models.Model):
         required=True,
     )
     required_value_ids = fields.Many2many(
-        comodel_name="product.attribute.value",
+        comodel_name="product.template.attribute.value",
         relation="bom_line_req_attr_val_rel",
         string="Required Values",
         help="Require the raw material to have these attribute values",
