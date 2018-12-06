@@ -85,9 +85,9 @@ class MrpBomLine(models.Model):
                 # and there can be only one result
                 products = Product.search(search_domain)
                 if len(products) == 1:
-                    bom_line.product_id = products[0]
+                    product = products[0]
                 elif return_default or not products:
-                    bom_line.product_id = bom_line.variant_id
+                    product = bom_line.variant_id
                 else:
                     names = ["  - %s" % p[1] for p in products.name_get()]
                     raise ValidationError(
@@ -103,7 +103,10 @@ class MrpBomLine(models.Model):
                     )
 
             else:
-                bom_line.product_id = bom_line.variant_id
+                product = bom_line.variant_id
+            bom_line.product_id = self.env[
+                "xform.substitution.map"
+            ]._get_substitute(product)
 
     @api.onchange("product_tmpl_id")
     def onchange_product_tmpl_id(self):

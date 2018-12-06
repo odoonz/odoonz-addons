@@ -21,12 +21,13 @@ class MrpProduction(models.Model):
                     func = getattr(
                         self, "_generate_raw_move_%s" % xform.technical_name
                     )
-                    bom_line, line_fields = func(bom_line, line_fields)
                 except AttributeError:
                     _logger.error(
                         _("No function found with name _generate_raw_move_%s")
                         % xform.technical_name
                     )
+                else:
+                    bom_line, line_fields = func(bom_line, line_fields)
                 if not bom_line:
                     # Its deleted so nothing more to xform
                     break
@@ -45,12 +46,13 @@ class MrpProduction(models.Model):
                 func = getattr(
                     self, "_generate_raw_move_%s" % xform.technical_name
                 )
-                bom_line, line_data = func(bom_line, line_data)
             except AttributeError:
                 _logger.error(
                     _("No function found with name _generate_raw_move_%s")
                     % xform.technical_name
                 )
+            else:
+                bom_line, line_data = func(bom_line, line_data)
             if not bom_line:
                 # Its deleted so nothing more to xform
                 move = self.move_raw_ids.filtered(
@@ -60,9 +62,10 @@ class MrpProduction(models.Model):
                     )
                 )
                 if move:
-                    move._action_cancel()
-                    move.unlink()
-                break
+                    old_qty = move[0].product_uom_qty
+                    # move._action_cancel()
+                    move[0].write({'product_uom_qty': 0.0})
+                    return move[0], old_qty, 0
         return bom_line and super()._update_raw_move(bom_line, line_data)
 
     @api.multi
