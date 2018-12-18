@@ -63,8 +63,7 @@ class MrpProduction(models.Model):
                 )
                 if move:
                     old_qty = move[0].product_uom_qty
-                    # move._action_cancel()
-                    move[0].write({'product_uom_qty': 0.0})
+                    move[0].write({"product_uom_qty": 0.0})
                     return move[0], old_qty, 0
         return bom_line and super()._update_raw_move(bom_line, line_data)
 
@@ -74,6 +73,6 @@ class MrpProduction(models.Model):
             super().button_plan()
         else:
             for order in self:
-                super(MrpProduction, order).with_context(
+                super().with_context(
                     product_id=order.product_id.id
                 ).button_plan()
