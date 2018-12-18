@@ -13,6 +13,7 @@ class ProductTemplate(models.Model):
 
     reference_mask = fields.Char(
         string="Partcode Template",
+        copy=False,
         help="A template for building internal references of a "
         "variant generated from this template.\n"
         "Example:\n"
