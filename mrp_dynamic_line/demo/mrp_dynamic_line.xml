@@ -196,7 +196,7 @@
     <record id="mrp_bom_manufacture_line_2" model="mrp.bom.line">
         <field name="product_tmpl_id" ref="raw2_product_product_template"/>
         <field name="variant_id" ref="raw2_productb"/>
-        <!--<field name="required_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_5')])]" />-->
+        <field name="required_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_5')])]" />
         <field name="xform_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.match_attributes'), ref('mrp_dynamic_line.scale_weight')])]" />
         <field name="product_qty">0.25</field>
         <field name="product_uom_id" ref="uom.product_uom_kgm"/>
@@ -207,7 +207,7 @@
     <record id="mrp_bom_manufacture_line_3" model="mrp.bom.line">
         <field name="product_tmpl_id" ref="raw3_product_product_template"/>
         <field name="variant_id" ref="raw3_product"/>
-        <!--<field name="attribute_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_3')])]" />-->
+        <field name="attribute_value_ids" eval="[(6 ,0,[ref('mrp_dynamic_line.product_attribute_value_3')])]" />
         <field name="product_qty">1</field>
         <field name="product_uom_id" ref="uom.product_uom_unit"/>
         <field name="sequence">5</field>
