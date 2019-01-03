@@ -25,6 +25,11 @@ class StockQuantityHistory(models.TransientModel):
                 orderby="id",
             )
         ]
-        if product_ids:
-            action["domain"] = "[('id', 'in', %s)]" % product_ids
+        products = (
+            self.env["product.product"].browse(product_ids)
+            .with_context(**context)
+            .filtered(lambda s: s.type == "product" and s.qty_available)
+        )
+        if products:
+            action["domain"] = "[('id', 'in', %s)]" % products.ids
         return action
