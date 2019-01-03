@@ -16,13 +16,15 @@ class StockQuantityHistory(models.TransientModel):
         context = dict(company_owned=True, owner_id=False)
         if self.compute_at_date:
             context.update(to_date=self.date)
-        products = (
-            self.env["stock.move"]
-            .search([("date", "<=", self.date)])
-            .mapped("product_id")
-            .with_context(**context)
-            .filtered(lambda s: s.type == "product" and s.qty_available)
-        )
-        if products:
-            action["domain"] = "['id', 'in', %s]" % products.ids
+        product_ids = [
+            item["product_id"][0]
+            for item in self.env["stock.move"].read_group(
+                [("date", "<=", self.date), ("state", "=", "done")],
+                ["product_id"],
+                ["product_id"],
+                orderby="id",
+            )
+        ]
+        if product_ids:
+            action["domain"] = "[('id', 'in', %s)]" % product_ids
         return action
