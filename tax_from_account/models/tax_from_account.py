@@ -22,15 +22,13 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
         "account_sale_tax_id" if inv_type.startswith("out_")
         else "account_purchase_tax_id"
     )
-
     # Don't try to collapse the filtering, needs independent evaluation of
     # each possibility.
     taxes = line.product_id[tax_field].filtered(
-        lambda t: t.company_id == line.company_id
+        lambda t: t.company_id == line.order_id.company_id
     ) or account.tax_ids.filtered(
-        lambda t: t.company_id == line.company_id
-        ) or line.company_id[company_tax_field]
-
+        lambda t: t.company_id == line.order_id.company_id
+        ) or line.order_id.company_id[company_tax_field]
     return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
 
 
@@ -47,6 +45,12 @@ class SaleOrderLine(models.Model):
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
+
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        result = super().onchange_product_id()
+        self._compute_tax_id()
+        return result
 
     @api.multi
     def _compute_tax_id(self):
