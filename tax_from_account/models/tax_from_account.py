@@ -20,16 +20,17 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
     )
 
     company_tax_field = (
-        "account_sale_tax_id" if inv_type.startswith("out_")
+        "account_sale_tax_id"
+        if inv_type.startswith("out_")
         else "account_purchase_tax_id"
     )
     # Don't try to collapse the filtering, needs independent evaluation of
     # each possibility.
-    taxes = line.product_id[tax_field].filtered(
-        lambda t: t.company_id == company
-    ) or account.tax_ids.filtered(
-        lambda t: t.company_id == company
-        ) or company[company_tax_field]
+    taxes = (
+        line.product_id[tax_field].filtered(lambda t: t.company_id == company)
+        or account.tax_ids.filtered(lambda t: t.company_id == company)
+        or company[company_tax_field]
+    )
     return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
 
 
@@ -47,7 +48,7 @@ class SaleOrderLine(models.Model):
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
 
-    @api.onchange('product_id')
+    @api.onchange("product_id")
     def onchange_product_id(self):
         result = super().onchange_product_id()
         self._compute_tax_id()
@@ -74,3 +75,27 @@ class AccountInvoiceLine(models.Model):
             self.invoice_line_tax_ids = self.invoice_line_tax_ids.filtered(
                 lambda r: r.company_id == company_id
             )
+
+
+class StockRule(models.Model):
+    _inherit = "stock.rule"
+
+    def _prepare_purchase_order_line(
+        self, product_id, product_qty, product_uom, values, po, partner
+    ):
+        res = super()._prepare_purchase_order_line(
+            product_id, product_qty, product_uom, values, po, partner
+        )
+        pol = self.env["purchase.order.line"].new({"order_id": po.id})
+        res.update(
+            taxes_id=[
+                (
+                    6,
+                    0,
+                    _get_default_taxes(
+                        pol, partner, inv_type="in_invoice"
+                    ).ids,
+                )
+            ]
+        )
+        return res
