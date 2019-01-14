@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class SaleOrder(models.Model):
@@ -12,23 +12,23 @@ class SaleOrder(models.Model):
         string="Production Orders", compute="_compute_production_ids"
     )
 
-    @api.multi
     def _compute_production_ids(self):
-        production_data = self.env["mrp.production"].read_group(
-            domain=[("sale_id", "in", self.ids)],
-            fields=["sale_id"],
-            groupby=["sale_id"],
+        self._cr.execute(
+            """SELECT sol.order_id, COUNT(sm.created_production_id) 
+        FROM stock_move sm 
+        LEFT JOIN sale_order_line sol ON sm.sale_line_id = sol.id
+        WHERE sm.sale_line_id IS NOT NULL 
+          AND sm.created_production_id IS NOT NULL 
+          AND sol.order_id IN %s 
+        GROUP BY sol.order_id""",
+            (tuple(self.ids),),
         )
-        mapped_data = dict(
-            [
-                (data["sale_id"][0], data["sale_id_count"])
-                for data in production_data
-            ]
-        )
-        for order in self:
-            order.production_count = mapped_data.get(order.id, 0)
+        production_data = self._cr.fetchall()
+        if production_data:
+            mapped_data = dict(production_data)
+            for order in self.browse(mapped_data.keys()):
+                order.production_count = mapped_data.get(order.id, 0)
 
-    @api.multi
     def action_view_production(self):
         """
         This function returns an action that display existing production orders

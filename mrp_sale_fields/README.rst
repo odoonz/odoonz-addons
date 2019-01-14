@@ -31,6 +31,9 @@ None
 Known issues / Roadmap
 ======================
 
+Due to changes in version 12, this module has been entirely and quickly
+rewritten so should be considered beta
+
 Bug Tracker
 ===========
 
