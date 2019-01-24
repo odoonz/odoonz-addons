@@ -21,7 +21,7 @@ class SaleOrder(models.Model):
             )
 
     @api.multi
-    def action_view_purchase(self):
+    def action_view_purchase_orders(self):
         """
         This function returns an action that display existing purchase orders
         of given sales order ids. It can either be a in a list or in a form

@@ -10,7 +10,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_view_invoice']" position="before">
-                <button type="object" name="action_view_purchase" class="oe_stat_button" icon="fa-shopping-basket"
+                <button type="object" name="action_view_purchase_orders" class="oe_stat_button" icon="fa-shopping-basket"
                         attrs="{'invisible': [('purchase_count', '=', 0)]}" groups="base.group_user">
                     <field name="purchase_count" widget="statinfo" string="Purchases"/>
                 </button>

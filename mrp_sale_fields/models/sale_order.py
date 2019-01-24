@@ -17,9 +17,11 @@ class SaleOrder(models.Model):
             """SELECT sol.order_id, COUNT(sm.created_production_id) 
         FROM stock_move sm 
         LEFT JOIN sale_order_line sol ON sm.sale_line_id = sol.id
+        LEFT JOIN mrp_production mrp ON mrp.id = sm.created_production_id
         WHERE sm.sale_line_id IS NOT NULL 
           AND sm.created_production_id IS NOT NULL 
           AND sol.order_id IN %s 
+          AND mrp.state != 'cancel'
         GROUP BY sol.order_id""",
             (tuple(self.ids),),
         )
