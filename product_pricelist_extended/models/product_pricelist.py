@@ -128,6 +128,7 @@ class ProductPricelist(models.Model):
             price = product.price_compute('list_price')[product.id]
 
             price_uom = self.env['uom.uom'].browse([qty_uom_id])
+            # TODO: There is a bug in here with multiple price categories.
             for rule in items:
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
