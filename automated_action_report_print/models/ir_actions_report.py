@@ -30,7 +30,8 @@ class IrActionsReport(models.Model):
         behaviour = behaviour or self.behaviour()
         document, doc_format = self.with_context(
             must_skip_send_to_printer=True,
-            behaviour=behaviour).render_qweb_pdf(
+            commit_assetsbundle=True,
+            ).render_qweb_pdf(
                 record_ids, data=data)
         printer = behaviour.pop('printer')
         if not printer:
