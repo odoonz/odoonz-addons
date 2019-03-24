@@ -55,16 +55,16 @@
                                                  t-att-src="'data:image/png;base64,'+record.image_small.raw_value"/>
                                             <t t-if="!record.image_small.raw_value">
                                                 <img t-if="record.type.raw_value === 'delivery'"
-                                                     t-att-src='_s + "/base/static/src/img/truck.png"'/>
+                                                     t-att-src='_s + "/base/static/img/truck.png"'/>
                                                 <img t-if="record.type.raw_value === 'invoice'"
-                                                     t-att-src='_s + "/base/static/src/img/money.png"'/>
+                                                     t-att-src='_s + "/base/static/img/money.png"'/>
                                                 <img t-if="record.type.raw_value === 'other'"
                                                      t-att-src="_s + &quot;/sale_dropship_address/static/src/img/site.png&quot;"/>
                                                 <t t-if="record.type.raw_value === 'contact'">
                                                     <img t-if="record.is_company.raw_value === true"
-                                                         t-att-src='_s + "/base/static/src/img/company_image.png"'/>
+                                                         t-att-src='_s + "/base/static/img/company_image.png"'/>
                                                     <img t-if="record.is_company.raw_value === false"
-                                                         t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                                         t-att-src='_s + "/base/static/img/avatar.png"'/>
                                                 </t>
                                             </t>
                                         </div>
