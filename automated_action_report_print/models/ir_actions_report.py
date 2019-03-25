@@ -26,7 +26,6 @@ class IrActionsReport(models.Model):
         store=True,
     )
 
-    @job
     @api.multi
     def print_document_auto(self, record_ids, behaviour=None, data=None):
         behaviour = behaviour or self.behaviour()

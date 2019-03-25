@@ -4,7 +4,7 @@
     'version': '12.0.1.0.0',
     'author': 'O4SB',
     'website': 'https://o4sb.com',
-    'depends': ['base_report_to_printer', 'queue_job', 'base_automation', 'ril_reports'],
+    'depends': ['base_report_to_printer', 'base_automation'],
     "summary": 'This module allows to select printer based on properties of '
                'record being printed',
     'data': [
