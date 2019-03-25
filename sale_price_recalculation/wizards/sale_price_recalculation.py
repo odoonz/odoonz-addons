@@ -121,7 +121,7 @@ class SalePriceRecalculation(models.TransientModel):
                     "effective_tax_rate": get_effective_tax_rate(ol),
                 },
             )
-            for ol in order.order_line if ol.line_type == 'product'
+            for ol in order.order_line if not ol.display_type
         ]
 
     @api.multi
