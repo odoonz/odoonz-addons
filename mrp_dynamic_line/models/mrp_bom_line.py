@@ -96,8 +96,8 @@ class MrpBomLine(models.Model):
                             "products.  Expected < 1 and received:\n%s"
                         )
                         % (
-                            self.product_tmpl_id.name,
-                            self.bom_id.name,
+                            bom_line.product_tmpl_id.name,
+                            bom_line.bom_id.name,
                             "\n".join(names),
                         )
                     )
