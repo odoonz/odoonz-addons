@@ -17,3 +17,11 @@ class ResUsers(models.Model):
                 headers={"Authorization": "Bearer {}".format(access_token)},
             ).json()
         return super()._auth_oauth_rpc(endpoint, access_token)
+
+    @api.model
+    def _generate_signup_values(self, provider, validation, params):
+        values = super()._generate_signup_values(provider, validation, params)
+        values['email'] = validation.get('userPrincipalName', values['email'])
+        values['login'] = values['email']
+        values['name'] = validation.get('displayName', values['email'])
+        return values
