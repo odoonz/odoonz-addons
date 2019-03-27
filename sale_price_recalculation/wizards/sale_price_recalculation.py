@@ -39,8 +39,7 @@ class SalePriceRecalculation(models.TransientModel):
         ctx.update({"warehouse_id": self.name.warehouse_id.id})
         return ctx
 
-    @staticmethod
-    def _get_quoted_prices(quote):
+    def _get_quoted_prices(self, quote):
         """
         Refactored method out of onchange_quote_id as useful
         elsewhere
@@ -160,36 +159,7 @@ class SalePriceRecalculation(models.TransientModel):
             )
         vals.update(self._prepare_other_vals())
         order.write(vals)
-        for line in self.line_ids:
-            order_line = line.name.with_context(
-                ignore_protected_fields=[
-                    "price_unit",
-                    "discount",
-                    "price_subtotal",
-                ]
-            )
-            if (order_line.price_unit != line.price_unit) or (
-                line.name.discount != line.discount
-            ):
-                msgs.append(
-                    _(
-                        u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
-                    ).format(
-                        order_line.name,
-                        order_line.price_subtotal / line.qty,
-                        line.price_subtotal / line.qty,
-                    )
-                )
-                order_line.write(
-                    {"discount": line.discount, "price_unit": line.price_unit}
-                )
-                order_line.invoice_lines.write(
-                    {
-                        "discount": line.discount,
-                        "price_subtotal": line.price_subtotal,
-                        "price_unit": line.price_unit,
-                    }
-                )
+        msgs.extend(self._reprice_lines(self.line_ids))
         if len(msgs) > 1:
             msgs.append(u"</ul><br/>")
         else:
@@ -200,3 +170,48 @@ class SalePriceRecalculation(models.TransientModel):
             body = "".join(msgs)
             order.message_post(body=body)
         return {}
+
+    def _reprice_lines(self, lines):
+        msgs = []
+        for line in lines:
+            order_line = line.name.with_context(
+                ignore_protected_fields=[
+                    "price_unit",
+                    "discount",
+                    "price_subtotal",
+                ]
+            )
+            if (order_line.price_unit != line.price_unit) or (
+                line.name.discount != line.discount
+            ):
+                try:
+                    msgs.append(
+                        _(
+                            u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
+                        ).format(
+                            order_line.name,
+                            order_line.price_subtotal / line.qty,
+                            line.price_subtotal / line.qty,
+                        )
+                    )
+                except ZeroDivisionError:
+                    msgs.append(
+                        _(
+                            u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
+                        ).format(
+                            order_line.name,
+                            order_line.price_unit,
+                            line.price_unit,
+                        )
+                    )
+                order_line.write(
+                    {"discount": line.discount, "price_unit": line.price_unit}
+                )
+                order_line.invoice_lines.write(
+                    {
+                        "discount": line.discount,
+                        "price_subtotal": line.price_subtotal,
+                        "price_unit": line.price_unit,
+                    }
+                )
+        return msgs
