@@ -72,8 +72,7 @@ class PurchasePriceRecalculation(models.TransientModel):
         order.write(vals)
         for line in self.line_ids:
             order_line = line.name
-            if ((order_line.price_unit != line.price_unit) or
-                    (line.name.discount != line.discount)):
+            if order_line.price_unit != line.price_unit:
                 msgs.append(
                     _(u'<li>{0}: was ${1:.2f} ea - '
                       u'now ${2:.2f} ea</li>').format(
