@@ -65,6 +65,7 @@ class MrpProduction(models.Model):
                     old_qty = move[0].product_uom_qty
                     move[0].write({"product_uom_qty": 0.0})
                     return move[0], old_qty, 0
+                return self.env['stock.move'], 0, 0
         return bom_line and super()._update_raw_move(bom_line, line_data)
 
     @api.multi
