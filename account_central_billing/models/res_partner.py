@@ -59,7 +59,7 @@ class ResPartner(models.Model):
             field = "billing_partner_id"
 
         if "company_id" in vals:
-            invoice_company = self.env["res.company"].browse(
+            invoice_company = self.env["res.company"].sudo().browse(
                 vals["company_id"]
             )
         elif invoice:
