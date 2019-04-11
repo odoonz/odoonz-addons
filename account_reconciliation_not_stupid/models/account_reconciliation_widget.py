@@ -19,7 +19,7 @@ class AccountReconciliationWidget(models.AbstractModel):
             for term in str_domain:
                 # If its an operator string this still passes
                 # as strings subscriptable
-                if term[0] == 'date_maturity':
+                if term[0] == "date_maturity":
                     term[2] = move_date
         except ValueError:
             pass
@@ -28,8 +28,9 @@ class AccountReconciliationWidget(models.AbstractModel):
     def _domain_move_lines_for_reconciliation(
         self, st_line, aml_accounts, partner_id, excluded_ids=None, search_str=False
     ):
-        domain = expression.AND(
+        account_type_filter = expression.OR(
             [
+                [("account_id.name", "=", "Liquidity Transfer")],
                 [
                     (
                         "account_id.internal_type",
@@ -37,6 +38,11 @@ class AccountReconciliationWidget(models.AbstractModel):
                         ("receivable", "payable", "liquidity"),
                     )
                 ],
+            ]
+        )
+        domain = expression.AND(
+            [
+                account_type_filter,
                 super()._domain_move_lines_for_reconciliation(
                     st_line,
                     aml_accounts,
