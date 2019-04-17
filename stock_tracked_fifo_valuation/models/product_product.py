@@ -9,7 +9,7 @@ class ProductProduct(models.Model):
 
     _inherit = "product.product"
 
-    def _get_fifo_candidates_in_move(self):
+    def _get_fifo_candidates_in_move_with_company(self, move_company_id=False):
         """ Find IN moves that can be used to value OUT moves. Prioritze actual
         lot records over general records for tracked products.
         """
@@ -18,7 +18,7 @@ class ProductProduct(models.Model):
         domain = [
             ("product_id", "=", self.id),
             ("remaining_qty", ">", 0.0),
-        ] + self.env["stock.move"]._get_in_base_domain()
+        ] + self.env["stock.move"]._get_in_base_domain(company_id=move_company_id)
         if self.env.context.get("lots"):
             domain_lots = domain[:]
             self._cr.execute(
