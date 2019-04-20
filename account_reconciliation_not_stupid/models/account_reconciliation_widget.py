@@ -15,7 +15,7 @@ class AccountReconciliationWidget(models.AbstractModel):
         str_domain = super()._domain_move_lines(search_str)
         try:
             fmt = self.env["res.lang"]._lang_get(self.env.user.lang).date_format
-            move_date = fields.Date.to_string(datetime.strptime(str_domain, fmt).date())
+            move_date = fields.Date.to_string(datetime.strptime(search_str, fmt).date())
             for term in str_domain:
                 # If its an operator string this still passes
                 # as strings subscriptable
@@ -23,6 +23,7 @@ class AccountReconciliationWidget(models.AbstractModel):
                     term[2] = move_date
         except ValueError:
             pass
+        return str_domain
 
     @api.model
     def _domain_move_lines_for_reconciliation(
