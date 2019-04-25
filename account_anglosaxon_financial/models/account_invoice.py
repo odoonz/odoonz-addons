@@ -11,6 +11,18 @@ class AccountInvoice(models.Model):
     anglo_saxon_financial = fields.Boolean("Financial Only")
     anglo_saxon_accounting = fields.Boolean("company_id.anglo_saxon_accounting")
 
+    @api.onchange('purchase_id')
+    def change_vendor_bill_purchase_id_anglo_saxon(self):
+        """
+        When we add a purchase order to a manually created invoice
+        we know we want anglosaxon, unless we are recharging on
+        behalf of another company
+        """
+        if not self.purchase_id:
+            return {}
+        if self.purchase_id.company_id == self.company_id:
+            self.anglo_saxon_financial = False
+
     def toggle_financial(self):
         for record in self.filtered(lambda s: s.state == "draft"):
             record.anglo_saxon_financial = not record.anglo_saxon_financial

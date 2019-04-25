@@ -10,13 +10,13 @@
         <field name="inherit_id" ref="account.invoice_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='button_box']" position="inside">
-                <field name="anglo_saxon_accounting" invisible="1" />
+                <field name="anglo_saxon_accounting" invisible="1"/>
                 <button name="toggle_financial" icon="fa-adjust"
                         type="object" class="oe_stat_button"
                         states="draft" attrs="{'invisible': [('anglo_saxon_accounting', '=', False)]}">
                     <field name="anglo_saxon_financial" widget="boolean_button"
-                        help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
-                        options='{"terminology": {"string_true": "Financial", "string_false": "Stock", "hover_false": "Financial", "hover_true": "Stock"}}'/>
+                           help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
+                           options='{"terminology": {"string_true": "Financial", "string_false": "Stock", "hover_false": "Financial", "hover_true": "Stock"}}'/>
                 </button>
             </xpath>
         </field>
@@ -33,13 +33,32 @@
                             type="object" class="oe_stat_button"
                             states="draft" attrs="{'invisible': [('anglo_saxon_accounting', '=', False)]}">
                         <field name="anglo_saxon_financial" widget="boolean_button"
-                            help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
-                            options='{"terminology": {"string_true": "Financial", "string_false": "Stock", "hover_false": "Financial", "hover_true": "Stock"}}'/>
+                               help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
+                               options='{"terminology": {"string_true": "Financial", "string_false": "Stock", "hover_false": "Financial", "hover_true": "Stock"}}'/>
                     </button>
                 </div>
-                <field name="anglo_saxon_accounting" invisible="1" />
+                <field name="anglo_saxon_accounting" invisible="1"/>
             </xpath>
         </field>
     </record>
 
+    <!--    We override the manual actions a user would use because in nearly all cases, an invoice not created automatically from a sale-->
+    <!--    or purchase will be financial only. The exception is vendor bills, and this is handled in an onchange the first time a purchase_id-->
+    <!--    is added-->
+
+    <record id="account.action_invoice_in_refund" model="ir.actions.act_window">
+        <field name="context">{'default_type': 'in_refund', 'type': 'in_refund', 'journal_type': 'purchase', 'default_anglo_saxon_financial': True}</field>
+    </record>
+
+    <record id="account.action_invoice_out_refund" model="ir.actions.act_window">
+        <field name="context">{'default_type': 'out_refund', 'type': 'out_refund', 'journal_type': 'sale','default_anglo_saxon_financial': True}</field>
+    </record>
+
+    <record id="account.action_invoice_tree1" model="ir.actions.act_window">
+        <field name="context">{'type':'out_invoice', 'journal_type': 'sale', 'default_anglo_saxon_financial': True}</field>
+    </record>
+
+    <record id="account.action_vendor_bill_template" model="ir.actions.act_window">
+        <field name="context">{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase','default_anglo_saxon_financial': True}</field>
+    </record>
 </odoo>
