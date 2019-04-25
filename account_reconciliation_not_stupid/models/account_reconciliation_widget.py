@@ -3,12 +3,33 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, models, fields
+from odoo.exceptions import AccessError
 from odoo.osv import expression
 from datetime import datetime
 
 
 class AccountReconciliationWidget(models.AbstractModel):
     _inherit = "account.reconciliation.widget"
+
+    @api.model
+    def _get_bank_statement_line_partners(self, st_lines):
+        """
+        This is another bug fix for another dumb error. It could be done
+        better, but lets hope its temporary
+        :param st_lines:
+        :return:
+        """
+        res = super()._get_bank_statement_line_partners(st_lines)
+        new_res = {}
+        Partner = self.env['res.partner']
+        for k, v in res.items():
+            try:
+                Partner.browse(v).name
+            except AccessError:
+                continue
+            else:
+                new_res[k] = v
+        return new_res
 
     @api.model
     def _domain_move_lines(self, search_str):
