@@ -16,15 +16,16 @@ class AccountInvoice(models.Model):
             record.anglo_saxon_financial = not record.anglo_saxon_financial
             if record.type in ("in_invoice", "in_refund"):
                 for line in record.invoice_line_ids:
-                    line.account_id = (
-                        line.get_invoice_line_account(
-                            record.type,
-                            line.product_id,
-                            record.fiscal_position_id,
-                            record.company_id,
+                    if line.product_id:
+                        line.account_id = (
+                            line.get_invoice_line_account(
+                                record.type,
+                                line.product_id,
+                                record.fiscal_position_id,
+                                record.company_id,
+                            )
+                            or line.account_id
                         )
-                        or line.account_id
-                    )
 
     @api.model
     def _anglo_saxon_purchase_move_lines(self, i_line, res):
