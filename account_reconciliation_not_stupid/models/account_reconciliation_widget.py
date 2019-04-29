@@ -22,13 +22,16 @@ class AccountReconciliationWidget(models.AbstractModel):
         res = super()._get_bank_statement_line_partners(st_lines)
         new_res = {}
         Partner = self.env['res.partner']
+        company = st_lines[-1:].company_id
         for k, v in res.items():
             try:
-                Partner.browse(v).name
+                partner = Partner.browse(v)
+                partner.name
             except AccessError:
                 continue
             else:
-                new_res[k] = v
+                if not partner.company_id or partner.company_id == company:
+                    new_res[k] = v
         return new_res
 
     @api.model
