@@ -12,6 +12,14 @@ class SaleCodeReplacement(models.TransientModel):
     from_code = fields.Char('From', default='???', required=True)
     to_code = fields.Char('To', default='???', required=True)
 
+    def _finalize_vals(self, vals, line, product):
+        """
+        For overriding
+        :return: vals dict
+        """
+        return vals
+
+
     @api.multi
     def change_products_partcode(self):
         self.ensure_one()
@@ -41,5 +49,6 @@ class SaleCodeReplacement(models.TransientModel):
                             'product_id': new_part.id
                             })
                         )
+                        vals = self._finalize_vals(vals, line, new_part)
                         line.write(vals)
         return {}
