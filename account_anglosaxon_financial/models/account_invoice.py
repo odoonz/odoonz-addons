@@ -43,36 +43,7 @@ class AccountInvoice(models.Model):
     def _anglo_saxon_purchase_move_lines(self, i_line, res):
         if i_line.invoice_id.anglo_saxon_financial:
             return []
-        # Note this is a temporary fix for a bug
-        # Oh boy this is scary, creating a function with side effects.
-        # To fix a function with side effects, not knowing whats calling
-        # Lets just handle the case we know we need to and hope
-        # that any discounts don't create negative entries or if it does
-        # works by magic
-        fpos = i_line.invoice_id.fiscal_position_id
-        reference_account_id = i_line.product_id.product_tmpl_id.get_product_accounts(
-            fiscal_pos=fpos
-        )["stock_input"].id
-        res_before_side_effects = [
-            l
-            for l in res
-            if l.get("invl_id", 0) == i_line.id
-            and reference_account_id == l["account_id"]
-        ]
-        if res_before_side_effects:
-            orig_res_price = res_before_side_effects[0]["price"]
-        diff_res = super()._anglo_saxon_purchase_move_lines(i_line, res)
-        if len(diff_res) == 1 and res_before_side_effects:
-            for line in res:
-                if (
-                    line.get("invl_id", 0) == i_line.id
-                    and reference_account_id == line["account_id"]
-                ):
-                    i_round = i_line.invoice_id.currency_id.round
-                    price_val_diff = i_round(orig_res_price - diff_res[0]["price"])
-                    line["price_unit"] = abs(price_val_diff / line["quantity"])
-                    line["price"] = price_val_diff
-        return diff_res
+        return super()._anglo_saxon_purchase_move_lines(i_line, res)
 
     @api.model
     def _anglo_saxon_sale_move_lines(self, i_line):
