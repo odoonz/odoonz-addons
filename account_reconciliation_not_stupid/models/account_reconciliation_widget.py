@@ -12,6 +12,13 @@ class AccountReconciliationWidget(models.AbstractModel):
     _inherit = "account.reconciliation.widget"
 
     @api.model
+    def _get_statement_line(self, st_line):
+        """ Returns the data required by the bank statement reconciliation widget to display a statement line """
+        data = super()._get_statement_line(st_line)
+        data["name"] = " ".join([st_line.name, st_line.ref])
+        return data
+
+    @api.model
     def _get_bank_statement_line_partners(self, st_lines):
         """
         This is another bug fix for another dumb error. It could be done
