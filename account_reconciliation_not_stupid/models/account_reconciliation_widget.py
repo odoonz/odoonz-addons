@@ -15,7 +15,7 @@ class AccountReconciliationWidget(models.AbstractModel):
     def _get_statement_line(self, st_line):
         """ Returns the data required by the bank statement reconciliation widget to display a statement line """
         data = super()._get_statement_line(st_line)
-        data["name"] = " ".join([st_line.name, st_line.ref])
+        data["name"] = " ".join([st_line.name or "", st_line.ref or ""])
         return data
 
     @api.model
@@ -28,7 +28,7 @@ class AccountReconciliationWidget(models.AbstractModel):
         """
         res = super()._get_bank_statement_line_partners(st_lines)
         new_res = {}
-        Partner = self.env['res.partner']
+        Partner = self.env["res.partner"]
         company = st_lines[-1:].company_id
         for k, v in res.items():
             try:
