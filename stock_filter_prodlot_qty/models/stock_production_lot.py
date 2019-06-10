@@ -58,6 +58,8 @@ class StockProductionLot(models.Model):
 
 
 class MrpProductProduce(models.TransientModel):
-    _inherit = 'mrp.product.produce'
+    _inherit = "mrp.product.produce"
 
-    location_id = fields.Many2one('stock.location', related='production_id.location_src_id')
+    location_id = fields.Many2one(
+        "stock.location", related="production_id.location_src_id"
+    )

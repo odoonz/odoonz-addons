@@ -6,7 +6,6 @@ from odoo.tests import common
 
 
 class TestSaleOrder(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.sale = self.env.ref("sale.sale_order_1")

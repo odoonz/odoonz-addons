@@ -7,21 +7,21 @@ import re
 from string import Template
 from collections import defaultdict
 
-DEFAULT_REFERENCE_SEPARATOR = ''
-PLACE_HOLDER_4_MISSING_VALUE = '/'
+DEFAULT_REFERENCE_SEPARATOR = ""
+PLACE_HOLDER_4_MISSING_VALUE = "/"
 
 
 class ReferenceMask(Template):
-    pattern = r'''\[(?:
+    pattern = r"""\[(?:
                     (?P<escaped>\[) |
                     (?P<named>[^\]]+?)\] |
                     (?P<braced>[^\]]+?)\] |
                     (?P<invalid>)
-                    )'''
+                    )"""
 
 
 def extract_token(s):
-    pattern = re.compile(r'\[([^\]]+?)\]')
+    pattern = re.compile(r"\[([^\]]+?)\]")
     return set(pattern.findall(s))
 
 
@@ -31,8 +31,9 @@ def sanitize_reference_mask(product, mask):
     for line in product.attribute_line_ids:
         attribute_names.add(line.attribute_id.name)
     if not tokens.issubset(attribute_names):
-        raise MissingError(_('Found unrecognized attribute name in '
-                             '"Partcode Template"'))
+        raise MissingError(
+            _("Found unrecognized attribute name in " '"Partcode Template"')
+        )
 
 
 def get_rendered_default_code(product, mask):

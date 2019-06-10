@@ -5,9 +5,8 @@
 from odoo.tests import common, tagged
 
 
-@tagged('post_install', '-at_install')
+@tagged("post_install", "-at_install")
 class TestMRPProduction(common.TransactionCase):
-
     def setUp(self):
         super(TestMRPProduction, self).setUp()
 
@@ -19,9 +18,7 @@ class TestMRPProduction(common.TransactionCase):
                 "product_id": self.env.ref("mrp_dynamic_line.manu_product").id,
                 "product_qty": 1.0,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
-                "bom_id": self.env.ref(
-                    "mrp_dynamic_line.mrp_bom_manufacture"
-                ).id,
+                "bom_id": self.env.ref("mrp_dynamic_line.mrp_bom_manufacture").id,
             }
         )
         # Check our order has correct products and quantities on lines
@@ -53,14 +50,10 @@ class TestMRPProduction(common.TransactionCase):
     def test_explode_integration2(self):
         production = self.env["mrp.production"].create(
             {
-                "product_id": self.env.ref(
-                    "mrp_dynamic_line.manu_productc"
-                ).id,
+                "product_id": self.env.ref("mrp_dynamic_line.manu_productc").id,
                 "product_qty": 2.0,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
-                "bom_id": self.env.ref(
-                    "mrp_dynamic_line.mrp_bom_manufacture"
-                ).id,
+                "bom_id": self.env.ref("mrp_dynamic_line.mrp_bom_manufacture").id,
             }
         )
         # Check our order has correct products and quantities on lines
@@ -105,26 +98,18 @@ class TestMRPProduction(common.TransactionCase):
         bom_line = self.env.ref("mrp_dynamic_line.mrp_bom_manufacture_line_1")
         bom_line.xform_ids |= self.env.ref("mrp_dynamic_line.scale_weight")
         bom_line.xform_ids |= self.env["bom.line.xform"].create(
-            {'name': 'Dummy',
-             'technical_name': 'dummy',
-             'application_point': 'explode'}
+            {"name": "Dummy", "technical_name": "dummy", "application_point": "explode"}
         )
         bom_line.xform_ids |= self.env["bom.line.xform"].create(
-            {'name': 'Dummy2',
-             'technical_name': 'dummy2',
-             'application_point': 'move'}
+            {"name": "Dummy2", "technical_name": "dummy2", "application_point": "move"}
         )
 
         prod = self.env["mrp.production"].create(
             {
-                "product_id": self.env.ref(
-                    "mrp_dynamic_line.manu_productc"
-                ).id,
+                "product_id": self.env.ref("mrp_dynamic_line.manu_productc").id,
                 "product_qty": 2.0,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
-                "bom_id": self.env.ref(
-                    "mrp_dynamic_line.mrp_bom_manufacture"
-                ).id,
+                "bom_id": self.env.ref("mrp_dynamic_line.mrp_bom_manufacture").id,
             }
         )
         self.assertTrue(bool(prod))
@@ -134,29 +119,22 @@ class TestMRPProduction(common.TransactionCase):
         bom_line = self.env.ref("mrp_dynamic_line.mrp_bom_manufacture_line_1")
         # Adding here to test the error code of _update_raw_move
         bom_line.xform_ids |= self.env["bom.line.xform"].create(
-            {'name': 'Dummy2',
-             'technical_name': 'dummy2',
-             'application_point': 'move'}
+            {"name": "Dummy2", "technical_name": "dummy2", "application_point": "move"}
         )
         prod = self.env["mrp.production"].create(
             {
-                "product_id": self.env.ref(
-                    "mrp_dynamic_line.manu_productc"
-                ).id,
+                "product_id": self.env.ref("mrp_dynamic_line.manu_productc").id,
                 "product_qty": 2.0,
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
-                "bom_id": self.env.ref(
-                    "mrp_dynamic_line.mrp_bom_manufacture"
-                ).id,
+                "bom_id": self.env.ref("mrp_dynamic_line.mrp_bom_manufacture").id,
             }
         )
         moves = prod.move_raw_ids
         self.assertAlmostEquals(moves[1].product_uom_qty, 40.0)
 
-        qty_chg = self.env["change.production.qty"].create({
-            "mo_id": prod.id,
-            "product_qty": 1.0,
-        })
+        qty_chg = self.env["change.production.qty"].create(
+            {"mo_id": prod.id, "product_qty": 1.0}
+        )
         qty_chg.change_prod_qty()
         moves = prod.move_raw_ids
         self.assertAlmostEquals(moves[1].product_uom_qty, 20.0)

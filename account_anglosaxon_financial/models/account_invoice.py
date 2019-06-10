@@ -11,7 +11,7 @@ class AccountInvoice(models.Model):
     anglo_saxon_financial = fields.Boolean("Financial Only")
     anglo_saxon_accounting = fields.Boolean("company_id.anglo_saxon_accounting")
 
-    @api.onchange('purchase_id')
+    @api.onchange("purchase_id")
     def change_vendor_bill_purchase_id_anglo_saxon(self):
         """
         When we add a purchase order to a manually created invoice

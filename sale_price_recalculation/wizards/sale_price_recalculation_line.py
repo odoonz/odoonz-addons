@@ -7,6 +7,7 @@ from odoo.addons import decimal_precision as dp
 
 class SalePriceRecalculationLine(models.TransientModel):
     """Sale Price Recalculation Line"""
+
     _inherit = "price.recalculation.line"
     _name = "sale.price.recalculation.line"
     _description = __doc__
@@ -15,9 +16,7 @@ class SalePriceRecalculationLine(models.TransientModel):
     price_recalculation_id = fields.Many2one(
         comodel_name="sale.price.recalculation", string="Price Recalculation"
     )
-    discount = fields.Float(
-        "Discount (%)", digits=dp.get_precision("Discount")
-    )
+    discount = fields.Float("Discount (%)", digits=dp.get_precision("Discount"))
 
     @api.onchange("price_total")
     def _onchange_total(self):

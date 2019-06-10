@@ -6,13 +6,10 @@ from odoo.tests import common
 
 from odoo.exceptions import ValidationError
 
-partner_model = (
-    "odoo.addons.account_central_billing.models.res_partner.ResPartner"
-)
+partner_model = "odoo.addons.account_central_billing.models.res_partner.ResPartner"
 
 
 class TestAccountInvoice(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.company = self.env.ref("base.main_company")
@@ -23,9 +20,7 @@ class TestAccountInvoice(common.TransactionCase):
                     (
                         "user_type_id",
                         "=",
-                        self.env.ref(
-                            "account.data_account_type_receivable"
-                        ).id,
+                        self.env.ref("account.data_account_type_receivable").id,
                     )
                 ],
                 limit=1,
@@ -66,9 +61,7 @@ class TestAccountInvoice(common.TransactionCase):
             )
         self.assertEqual(invoice.partner_id.id, part3.id)
         self.assertEqual(invoice.order_partner_id.id, part2.id)
-        self.assertEqual(
-            invoice.order_invoice_id.id, part2.commercial_partner_id.id
-        )
+        self.assertEqual(invoice.order_invoice_id.id, part2.commercial_partner_id.id)
 
     def test_invoice_write(self):
         part2 = self.env.ref("base.res_partner_2")
@@ -88,9 +81,7 @@ class TestAccountInvoice(common.TransactionCase):
             invoice.write({"partner_id": part2.id})
         self.assertEqual(invoice.partner_id.id, part3.id)
         self.assertEqual(invoice.order_partner_id.id, part2.id)
-        self.assertEqual(
-            invoice.order_invoice_id.id, part2.commercial_partner_id.id
-        )
+        self.assertEqual(invoice.order_invoice_id.id, part2.commercial_partner_id.id)
 
     def test_search(self):
         pass

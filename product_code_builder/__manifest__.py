@@ -11,17 +11,16 @@
         "Shine IT(http://www.openerp.cn)",
         "Tony Gu <tony@openerp.cn>",
         "Graeme Gellatly <graeme@o4sb.com>",
-        ],
+    ],
     "license": "AGPL-3",
     "category": "Product",
     "website": "http://www.odoo-community.org",
-    "depends": ['product',
-                ],
-    "data": ['views/product_attribute_value_view.xml',
-             'views/product_view.xml',
-             'views/product_attribute_view.xml'
-             ],
-    "demo": ['demo/product.attribute.xml',
-             'demo/product.attribute.value.csv'],
-    "installable": True
+    "depends": ["product"],
+    "data": [
+        "views/product_attribute_value_view.xml",
+        "views/product_view.xml",
+        "views/product_attribute_view.xml",
+    ],
+    "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],
+    "installable": True,
 }

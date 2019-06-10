@@ -6,7 +6,6 @@ from odoo.tests import common
 
 
 class TestSaleOrder(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.sale = self.env.ref("sale.sale_order_1")
@@ -17,10 +16,7 @@ class TestSaleOrder(common.TransactionCase):
         self.assertEqual(self.sale.purchase_count, 0)
         self.purch1.write({"origin": self.sale.name})
         self.purch2.write(
-            {
-                "origin": "%s-%s"
-                % (self.purch2.origin or "test", self.sale.name)
-            }
+            {"origin": "%s-%s" % (self.purch2.origin or "test", self.sale.name)}
         )
         self.sale.invalidate_cache()
         self.assertEqual(self.sale.purchase_count, 2)
@@ -30,10 +26,7 @@ class TestSaleOrder(common.TransactionCase):
         action = self.sale.action_view_purchase()
         self.assertEquals(self.sale.id, action.get("res_id", 0))
         self.purch2.write(
-            {
-                "origin": "%s-%s"
-                          % (self.purch2.origin or "test", self.sale.name)
-            }
+            {"origin": "%s-%s" % (self.purch2.origin or "test", self.sale.name)}
         )
         action = self.sale.action_view_purchase()
         self.assertIn("domain", action)

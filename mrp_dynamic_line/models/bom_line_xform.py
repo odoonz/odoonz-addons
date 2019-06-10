@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class BomLineXform(models.Model):
     """Bom Line Dynamic Transformations"""
+
     _name = "bom.line.xform"
     _description = __doc__
 

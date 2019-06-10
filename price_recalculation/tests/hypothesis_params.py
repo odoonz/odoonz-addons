@@ -3,10 +3,7 @@
 
 
 PRICE_ARGS = dict(
-    min_value=0.10,
-    max_value=10000000.0,
-    allow_nan=False,
-    allow_infinity=False,
+    min_value=0.10, max_value=10000000.0, allow_nan=False, allow_infinity=False
 )
 DISCOUNT_ARGS = dict(
     min_value=0.01, max_value=1000.0, allow_nan=False, allow_infinity=False
@@ -14,6 +11,4 @@ DISCOUNT_ARGS = dict(
 QTY_ARGS = dict(
     min_value=1.0, max_value=100000.0, allow_nan=False, allow_infinity=False
 )
-TAX_ARGS = dict(
-    min_value=0.01, max_value=1.0, allow_nan=False, allow_infinity=False
-)
+TAX_ARGS = dict(min_value=0.01, max_value=1.0, allow_nan=False, allow_infinity=False)

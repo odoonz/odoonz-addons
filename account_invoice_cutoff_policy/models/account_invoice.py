@@ -24,7 +24,5 @@ class AccountInvoice(models.Model):
         """
         date_invoice = self.date_invoice
         if date_invoice and self.type.startswith("out_"):
-            self.date_invoice = self._get_invoice_partner()._get_lock_date(
-                date_invoice
-            )
+            self.date_invoice = self._get_invoice_partner()._get_lock_date(date_invoice)
         return super()._onchange_payment_term_date_invoice()

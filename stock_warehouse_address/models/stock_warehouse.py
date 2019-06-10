@@ -6,12 +6,9 @@ from odoo import fields, models
 
 class StockWarehouse(models.Model):
 
-    _inherit = 'stock.warehouse'
+    _inherit = "stock.warehouse"
 
     postal_address_id = fields.Many2one(
-        comodel_name='res.partner',
-        string='Postal Address',
+        comodel_name="res.partner", string="Postal Address"
     )
-    partner_id = fields.Many2one(
-        string='Physical Address',
-    )
+    partner_id = fields.Many2one(string="Physical Address")

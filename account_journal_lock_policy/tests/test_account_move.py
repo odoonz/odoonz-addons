@@ -8,13 +8,11 @@ from odoo.exceptions import UserError
 
 
 module = (
-    "odoo.addons.account_journal_lock_policy.models."
-    "account_journal.AccountJournal"
+    "odoo.addons.account_journal_lock_policy.models." "account_journal.AccountJournal"
 )
 
 
 class TestAccountMove(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
 
@@ -25,9 +23,7 @@ class TestAccountMove(common.TransactionCase):
                 journal = self.env["account.journal"].search(
                     [("type", "=", "bank")], limit=1
                 )
-                company_id = (
-                    self.env["res.users"].browse(self.env.uid).company_id.id
-                )
+                company_id = self.env["res.users"].browse(self.env.uid).company_id.id
 
                 move = self.env["account.move"].create(
                     {

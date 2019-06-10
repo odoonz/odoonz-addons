@@ -8,7 +8,6 @@ from odoo.tools import float_compare as fc
 
 
 class TestSale(TransactionCase):
-
     @mute_logger("odoo.addons.base.ir.ir_model", "odoo.osv.orm")
     def setUp(self):
         super(TestSale, self).setUp()
@@ -59,9 +58,7 @@ class TestSale(TransactionCase):
         account_obj = self.env["account.account"].with_context(context_no_mail)
         sale_obj = self.env["sale.order"].with_context(context_no_mail)
 
-        user_type_id = IrModelData.xmlid_to_res_id(
-            "account.data_account_type_revenue"
-        )
+        user_type_id = IrModelData.xmlid_to_res_id("account.data_account_type_revenue")
         account_rev_id = account_obj.create(
             {
                 "code": "X2020",
@@ -73,12 +70,8 @@ class TestSale(TransactionCase):
 
         partner = self.env.ref("base.res_partner_2")
 
-        product_template_id = self.env.ref(
-            "sale.advance_product_0"
-        ).product_tmpl_id
-        product_template_id.write(
-            {"property_account_income_id": account_rev_id}
-        )
+        product_template_id = self.env.ref("sale.advance_product_0").product_tmpl_id
+        product_template_id.write({"property_account_income_id": account_rev_id})
         p = self.usb_adapter
         order = sale_obj.create(
             {

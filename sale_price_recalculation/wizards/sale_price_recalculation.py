@@ -6,6 +6,7 @@ from odoo import api, fields, models, _
 
 class SalePriceRecalculation(models.TransientModel):
     """Sale Price Recalculation"""
+
     _inherit = ["price.recalculation"]
     _name = "sale.price.recalculation"
     _description = __doc__
@@ -47,10 +48,7 @@ class SalePriceRecalculation(models.TransientModel):
         :return: dictionary of template prices on  quote
         """
         return {
-            ql.product_id.product_tmpl_id.id: (
-                ql.price_unit,
-                ql.product_id.list_price,
-            )
+            ql.product_id.product_tmpl_id.id: (ql.price_unit, ql.product_id.list_price)
             for ql in quote.order_line
         }
 
@@ -81,18 +79,13 @@ class SalePriceRecalculation(models.TransientModel):
             )
             if line.price_unit != orig_price:
                 line.price_subtotal = line.price_unit * line.qty
-                line.price_total = line.price_subtotal * (
-                    1 + line.effective_tax_rate
-                )
+                line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
     @staticmethod
     def _get_lines(order):
-
         def get_effective_tax_rate(line):
             if line.price_subtotal:
-                return (
-                    line.price_total - line.price_subtotal
-                ) / line.price_subtotal
+                return (line.price_total - line.price_subtotal) / line.price_subtotal
             else:
                 taxes = line.tax_id.compute_all(
                     1,
@@ -101,9 +94,9 @@ class SalePriceRecalculation(models.TransientModel):
                     product=line.product_id,
                     partner=line.order_id.partner_shipping_id,
                 )
-                return (
-                    taxes["total_included"] - taxes["total_excluded"]
-                ) / taxes["total_excluded"]
+                return (taxes["total_included"] - taxes["total_excluded"]) / taxes[
+                    "total_excluded"
+                ]
 
         return [
             (
@@ -120,7 +113,8 @@ class SalePriceRecalculation(models.TransientModel):
                     "effective_tax_rate": get_effective_tax_rate(ol),
                 },
             )
-            for ol in order.order_line if not ol.display_type
+            for ol in order.order_line
+            if not ol.display_type
         ]
 
     @api.multi
@@ -144,18 +138,14 @@ class SalePriceRecalculation(models.TransientModel):
             )
         if pricelist_id != order.pricelist_id.id:
             header_msgs.append(
-                _(
-                    u"<p>Pricelist changed from <b>{0}</b> to "
-                    u"<b>{1}</b></p>"
-                ).format(order.pricelist_id.name, self.pricelist_id.name)
+                _(u"<p>Pricelist changed from <b>{0}</b> to " u"<b>{1}</b></p>").format(
+                    order.pricelist_id.name, self.pricelist_id.name
+                )
             )
             vals["pricelist_id"] = pricelist_id
         if order.invoice_ids:
             msgs.append(
-                _(
-                    u"<p><emph>The draft invoice has also "
-                    u"been updated.</emph></p>"
-                )
+                _(u"<p><emph>The draft invoice has also " u"been updated.</emph></p>")
             )
         vals.update(self._prepare_other_vals())
         order.write(vals)
@@ -175,11 +165,7 @@ class SalePriceRecalculation(models.TransientModel):
         msgs = []
         for line in lines:
             order_line = line.name.with_context(
-                ignore_protected_fields=[
-                    "price_unit",
-                    "discount",
-                    "price_subtotal",
-                ]
+                ignore_protected_fields=["price_unit", "discount", "price_subtotal"]
             )
             if (order_line.price_unit != line.price_unit) or (
                 line.name.discount != line.discount
@@ -199,9 +185,7 @@ class SalePriceRecalculation(models.TransientModel):
                         _(
                             u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
                         ).format(
-                            order_line.name,
-                            order_line.price_unit,
-                            line.price_unit,
+                            order_line.name, order_line.price_unit, line.price_unit
                         )
                     )
                 order_line.write(

@@ -26,7 +26,8 @@ class StockQuantityHistory(models.TransientModel):
             )
         ]
         products = (
-            self.env["product.product"].browse(product_ids)
+            self.env["product.product"]
+            .browse(product_ids)
             .with_context(**context)
             .filtered(lambda s: s.type == "product" and s.qty_available)
         )

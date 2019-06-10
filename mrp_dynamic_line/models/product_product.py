@@ -12,13 +12,7 @@ class ProductProduct(models.Model):
     def _compute_used_in_bom_count(self):
         for product in self:
             product.used_in_bom_count = self.env["mrp.bom"].search_count(
-                [
-                    (
-                        "bom_line_ids.product_tmpl_id",
-                        "=",
-                        product.product_tmpl_id.id,
-                    )
-                ]
+                [("bom_line_ids.product_tmpl_id", "=", product.product_tmpl_id.id)]
             )
 
     @api.multi

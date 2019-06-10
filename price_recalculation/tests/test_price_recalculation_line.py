@@ -17,7 +17,6 @@ except ImportError as err:
 
 
 class TestPriceRecalculationLine(TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.datacard = self.env.ref("product.product_delivery_02")
@@ -29,10 +28,7 @@ class TestPriceRecalculationLine(TransactionCase):
         tax_rate = data.draw(st.floats(**hp.TAX_ARGS))
         subtotal = data.draw(st.floats(**hp.PRICE_ARGS))
         total = data.draw(st.floats(**hp.PRICE_ARGS))
-        assume(
-            (subtotal > 0.10 or subtotal == 0.0)
-            and (total > 0.10 or total == 0.0)
-        )
+        assume((subtotal > 0.10 or subtotal == 0.0) and (total > 0.10 or total == 0.0))
         # assumed because of limitations in test rounding more than anything
         assume(float_round(tax_rate, 2) != -1.0)
         # impossible value which will give div / 0

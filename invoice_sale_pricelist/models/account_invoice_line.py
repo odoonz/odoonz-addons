@@ -27,9 +27,7 @@ class AccountInvoiceLine(models.Model):
             pricelist = self.sale_line_ids.mapped("order_id.pricelist_id")
 
             if len(pricelist) != 1:
-                pricelist = (
-                    self.invoice_id.partner_id.property_product_pricelist
-                )
+                pricelist = self.invoice_id.partner_id.property_product_pricelist
             product_ctx.update({"pricelist": pricelist.id})
 
         taxes = self.product_id.taxes_id or self.account_id.tax_ids

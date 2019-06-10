@@ -6,30 +6,29 @@ from odoo import models, fields
 
 class ProductPriceCategory(models.Model):
     """Product Price Category"""
-    _name = 'product.price.category'
+
+    _name = "product.price.category"
     _description = __doc__
 
-    name = fields.Char(string='Category Name', required=True)
-    description = fields.Text('Description', required=True)
+    name = fields.Char(string="Category Name", required=True)
+    description = fields.Text("Description", required=True)
     product_tmpl_ids = fields.Many2many(
-        comodel_name='product.template', string='Products')
-    product_ids = fields.Many2many(
-        comodel_name='product.product', string='Variants')
+        comodel_name="product.template", string="Products"
+    )
+    product_ids = fields.Many2many(comodel_name="product.product", string="Variants")
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
     tmpl_price_categ_ids = fields.Many2many(
-        comodel_name='product.price.category',
-        string='Product Price Categories',
+        comodel_name="product.price.category", string="Product Price Categories"
     )
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     price_categ_ids = fields.Many2many(
-        comodel_name='product.price.category',
-        string='Variant Price Categories',
+        comodel_name="product.price.category", string="Variant Price Categories"
     )

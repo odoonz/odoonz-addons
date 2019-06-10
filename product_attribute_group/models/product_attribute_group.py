@@ -18,8 +18,7 @@ class ProductAttributeGroup(models.Model):
         required=True,
     )
     value_ids = fields.Many2many(
-        comodel_name="product.attribute.value",
-        string="Product Attribute Values",
+        comodel_name="product.attribute.value", string="Product Attribute Values"
     )
     attribute_line_ids = fields.Many2many(
         comodel_name="product.template.attribute.line",
@@ -28,11 +27,7 @@ class ProductAttributeGroup(models.Model):
     )
 
     _sql_constraints = [
-        (
-            "uniq_name",
-            "unique(name)",
-            "The attribute group name must be unique",
-        )
+        ("uniq_name", "unique(name)", "The attribute group name must be unique")
     ]
 
     @api.multi

@@ -15,10 +15,9 @@ class ProductProduct(models.Model):
         """
         self.ensure_one()
         candidates = self.env["stock.move"]
-        domain = [
-            ("product_id", "=", self.id),
-            ("remaining_qty", ">", 0.0),
-        ] + self.env["stock.move"]._get_in_base_domain(company_id=move_company_id)
+        domain = [("product_id", "=", self.id), ("remaining_qty", ">", 0.0)] + self.env[
+            "stock.move"
+        ]._get_in_base_domain(company_id=move_company_id)
         if self.env.context.get("lots"):
             domain_lots = domain[:]
             self._cr.execute(

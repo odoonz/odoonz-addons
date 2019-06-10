@@ -17,10 +17,7 @@ class AccountJournal(models.Model):
     day_type = fields.Selection([("weekday", "working days"), ("day", "days")])
     months = fields.Integer()
     cutoff_type = fields.Selection(
-        [
-            ("date", "transaction date"),
-            ("eom", "end of month following transaction"),
-        ]
+        [("date", "transaction date"), ("eom", "end of month following transaction")]
     )
 
     @api.multi
@@ -45,10 +42,7 @@ class AccountJournal(models.Model):
         if self.days:
             weekdays = list(range(5 if self.day_type == "weekday" else 7))
             transaction_date = rrule(
-                DAILY,
-                count=self.days,
-                byweekday=weekdays,
-                dtstart=transaction_date,
+                DAILY, count=self.days, byweekday=weekdays, dtstart=transaction_date
             )[-1].date()
 
         if transaction_date < today:
