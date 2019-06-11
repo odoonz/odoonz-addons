@@ -75,12 +75,12 @@ class TestResPartnerInvoicing(common.TransactionCase):
         self.assertEqual(
             self.hq.get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.store_b.get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.contact_a.get_billing_partner(vals),
@@ -120,12 +120,12 @@ class TestResPartnerInvoicing(common.TransactionCase):
         self.assertEqual(
             self.hq.get_billing_partner(vals, invoice=invoice),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.store_b.get_billing_partner(vals, invoice=invoice),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.contact_a.get_billing_partner(vals, invoice=invoice),
@@ -156,12 +156,12 @@ class TestResPartnerInvoicing(common.TransactionCase):
         self.assertEqual(
             self.supplier_hq.get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.branch_b.get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.supp_contact_a.get_billing_partner(vals),
@@ -201,12 +201,12 @@ class TestResPartnerInvoicing(common.TransactionCase):
         self.assertEqual(
             self.supplier_hq.get_billing_partner(vals, invoice=invoice),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.branch_b.get_billing_partner(vals, invoice=invoice),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
             self.supp_contact_a.get_billing_partner(vals, invoice=invoice),

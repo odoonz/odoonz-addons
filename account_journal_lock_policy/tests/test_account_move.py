@@ -8,7 +8,7 @@ from odoo.exceptions import UserError
 
 
 module = (
-    "odoo.addons.account_journal_lock_policy.models." "account_journal.AccountJournal"
+    "odoo.addons.account_journal_lock_policy.models.account_journal.AccountJournal"
 )
 
 

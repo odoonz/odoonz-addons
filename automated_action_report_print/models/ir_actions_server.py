@@ -69,7 +69,7 @@ class IrActionsServer(models.Model):
 
             if not isinstance(safe_eval(record.print_options), dict):
                 raise ValidationError(
-                    "Print options must be an evaluable " "dictionary"
+                    "Print options must be an evaluable dictionary"
                 )
 
     @api.onchange("state")

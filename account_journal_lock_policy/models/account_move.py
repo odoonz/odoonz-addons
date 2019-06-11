@@ -15,7 +15,7 @@ class AccountMove(models.Model):
             locked = move.journal_id._is_locked(move.date)
             if locked:
                 raise UserError(
-                    _("The transaction date is too old for the " "%s lock policy.")
+                    _("The transaction date is too old for the %s lock policy.")
                     % move.journal_id.name
                 )
         return res

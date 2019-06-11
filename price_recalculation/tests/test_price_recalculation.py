@@ -6,7 +6,7 @@ import mock
 _logger = logging.Logger(__name__)
 
 wizard = (
-    "odoo.addons.price_recalculation.wizards." "price_recalculation.PriceRecalculation"
+    "odoo.addons.price_recalculation.wizards.price_recalculation.PriceRecalculation"
 )
 
 

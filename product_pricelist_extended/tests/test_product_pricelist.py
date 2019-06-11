@@ -162,7 +162,7 @@ class TestProductPricelistItem(TestProductPricelist):
     def test_special_cases_of_compute_price_rule(self):
         cpr = self.extended_pricelist._compute_price_rule
         self.assertFalse(
-            cpr([]), "When I'm called with no products I should return " "an empty dict"
+            cpr([]), "When I'm called with no products I should return an empty dict"
         )
 
         self.assertListEqual(

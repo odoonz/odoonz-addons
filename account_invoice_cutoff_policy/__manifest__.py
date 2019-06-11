@@ -3,7 +3,7 @@
 
 {
     "name": "Customer Invoicing Cutoff Policy",
-    "summary": "Specify customer specific invocing cutoff policies",
+    "summary": "Specify customer specific invoicing cutoff policies",
     "version": "12.0.1.1.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",

@@ -32,7 +32,7 @@ def sanitize_reference_mask(product, mask):
         attribute_names.add(line.attribute_id.name)
     if not tokens.issubset(attribute_names):
         raise MissingError(
-            _("Found unrecognized attribute name in " '"Partcode Template"')
+            _("Found unrecognized attribute name in Partcode Template")
         )
 
 

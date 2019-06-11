@@ -15,7 +15,7 @@ class ResPartner(models.Model):
     )
     store_ref = fields.Char(
         string="Store Code",
-        help="If the customer requires specific store " "references on documentation",
+        help="If the customer requires specific store references on documentation",
         copy=False,
     )
     billing_partner_id = fields.Many2one(
