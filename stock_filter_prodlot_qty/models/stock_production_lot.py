@@ -9,8 +9,9 @@ class StockProductionLot(models.Model):
 
     _inherit = "stock.production.lot"
 
-    @api.one
+    @api.multi
     def _product_qty(self):
+        self.ensure_one()
         if self.env.context.get("location_id"):
             self.product_qty = self.product_id.with_context(
                 location=self.env.context.get("location_id"), lot_id=self.id

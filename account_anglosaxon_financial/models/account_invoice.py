@@ -63,7 +63,7 @@ class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
     @api.v8
-    def get_invoice_line_account(self, type, product, fpos, company):
+    def get_invoice_line_account(self, inv_type, product, fpos, company):
         """
         We override stock_account function to return the expense account
         for inwards invoices and refunds.
@@ -82,7 +82,7 @@ class AccountInvoiceLine(models.Model):
                     self.invoice_id.anglo_saxon_financial
                     or self.env.context.get("anglo_saxon_financial")
                 )
-                and type in ("in_invoice", "in_refund")
+                and inv_type in ("in_invoice", "in_refund")
                 and product
                 and product.type == "product"
             ):
@@ -91,4 +91,4 @@ class AccountInvoiceLine(models.Model):
                 ]
         except AttributeError:
             pass
-        return super().get_invoice_line_account(type, product, fpos, company)
+        return super().get_invoice_line_account(inv_type, product, fpos, company)
