@@ -1,4 +1,3 @@
 queue
 account-financial-reporting
-cups
 report-print-send
