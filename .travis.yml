@@ -11,6 +11,8 @@ addons:
     packages:
       - expect-dev  # provides unbuffer utility
       - python-lxml # because pip installation is slow
+      - cups
+      - libcups2-dev
 
 env:
   global:
@@ -24,6 +26,7 @@ env:
 install:
   - git clone https://github.com/odoonz/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - pip install jwt cryptography hypothesis
+  - pip install pycups==1.9.73
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
 
