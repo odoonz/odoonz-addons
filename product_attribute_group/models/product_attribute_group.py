@@ -18,7 +18,7 @@ class ProductAttributeGroup(models.Model):
         required=True,
     )
     value_ids = fields.Many2many(
-        comodel_name="product.attribute.value", string="Product Attribute Values"
+        comodel_name="product.attribute.value", string="Product Attribute Values", store=True
     )
     attribute_line_ids = fields.Many2many(
         comodel_name="product.template.attribute.line",
