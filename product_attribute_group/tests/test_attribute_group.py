@@ -140,7 +140,7 @@ class TestAttributeGroups(TransactionCase):
                         0,
                         {
                             "attribute_id": self.attr_group_1.attribute_id.id,
-                            "attr_group_ids": [],
+                            "attr_group_ids": [(6, 0, [self.attr_group_1.id])],
                             "value_ids": [(6, 0, self.attr_group_1.value_ids.ids[:1])],
                         },
                     )
