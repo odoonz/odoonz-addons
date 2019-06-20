@@ -37,7 +37,7 @@ class StockProductionLot(models.Model):
                 access_rights_uid=access_rights_uid,
             )
         results = self.env["stock.production.lot"]
-        while len(results) < limit:
+        while len(results) < (limit or 1):
             result = super()._search(
                 args,
                 offset=offset,
@@ -52,7 +52,7 @@ class StockProductionLot(models.Model):
                     location=self.env.context.get("location_id")
                 ).product_qty:
                     results |= r
-            if len(result) < limit:
+            if not limit or len(result) < limit:
                 break
         return results.ids
 
