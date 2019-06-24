@@ -46,7 +46,6 @@ class StockProductionLot(models.Model):
                 count=count,
                 access_rights_uid=access_rights_uid,
             )
-            offset += limit
             for r in self.browse(result):
                 if r.with_context(
                     location=self.env.context.get("location_id")
@@ -54,6 +53,7 @@ class StockProductionLot(models.Model):
                     results |= r
             if not limit or len(result) < limit:
                 break
+            offset += limit
         return results.ids
 
 
