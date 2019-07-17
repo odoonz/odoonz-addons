@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_price_change_wizard_form_view">
+        <field name="name">product.price.change.wizard.form (in product_list_price_change)</field>
+        <field name="model">product.price.change.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Price Change Wizard">
+                <h1><field name="price_change_id" readonly="1" force_save="1"/></h1>
+                <group>
+                    <group>
+                        <field name="percent_change" />
+                    </group>
+                    <group>
+                        <field name="overwrite_existing" />
+                    </group>
+                </group>
+                <group string="Products">
+                    <field colspan="5" name="product_tmpl_ids" nolabel="1">
+                        <tree>
+                            <field name="name" />
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="update_price_change_record"
+                            string="Add to Price Change"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_price_change_wizard_act_window">
+        <field name="name">Product Price Change Wizard</field>
+        <field name="res_model">product.price.change.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo noupdate="1">
+
+    <!-- TODO
+    <record model="product.price.rise" id="product_price_rise_demo_1">
+       <field name="name">...</field>
+    </record>
+    -->
+
+</odoo>
