@@ -46,7 +46,7 @@
         </field>
     </record>
 
-    <menuitem action="product_price_category_action" id="product_price_categ" name="Price Categories" parent="sale.menu_product_pricelist_main" sequence="30" />
+    <menuitem action="product_price_category_action" id="product_price_categ" name="Price Categories" parent="sale.product_menu_catalog" sequence="5" />
 
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">product.template.form</field>
