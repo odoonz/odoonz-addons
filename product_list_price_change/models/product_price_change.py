@@ -85,7 +85,7 @@ class ProductPriceChange(models.Model):
                 for delay in record.impl_delay_ids:
                     if break_outer:
                         break
-                    for tag_id in delay.tag_ids.ids:
+                    for tag_id in delay.included_categories.ids:
                         if tag_id in tag_ids:
                             partner_effective_date = delay.effective_date
                             break_outer = True
@@ -104,8 +104,7 @@ class ProductPriceChange(models.Model):
         to_upd = self.search([("effective_date", "<=", today)])
         for change in to_upd:
             latest_impl = max(change.impl_delay_ids.mapped("effective_date") + [today])
-            if change.state == "future":
+            if change.state == "future" and latest_impl <= today:
                 change._update_future_pricing()
                 change.state = "live"
-            if latest_impl <= today:
                 change.active = False

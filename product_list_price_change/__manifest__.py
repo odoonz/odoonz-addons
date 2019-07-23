@@ -16,6 +16,7 @@
         "security/ir.model.access.csv",
         # "views/product_price_change_line.xml",
         "views/product_price_rise.xml",
+        "data/ir_cron_data.xml",
     ],
     # 'demo': [
     #     'demo/product_price_change_implementation_delay.xml',

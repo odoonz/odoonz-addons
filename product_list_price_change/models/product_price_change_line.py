@@ -52,4 +52,5 @@ class ProductPriceChangeLine(models.Model):
     @api.onchange('list_price')
     def _change_list_price(self):
         for record in self:
-            record.percent_change = ((record.list_price / record.product_tmpl_id.list_price) - 1) * 100.0
+            if record.product_tmpl_id and record.product_tmpl_id.list_price:
+                record.percent_change = ((record.list_price / record.product_tmpl_id.list_price) - 1) * 100.0

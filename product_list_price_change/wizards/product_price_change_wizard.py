@@ -45,4 +45,4 @@ class ProductPriceChangeWizard(models.TransientModel):
                 )
             new_lines = self.env["product.price.change.line"].create(lines_to_create)
             new_lines._change_percent()
-        return {"type": "ir.actions.act_window.close"}
+        return {"type": "ir.actions.act_window_close"}
