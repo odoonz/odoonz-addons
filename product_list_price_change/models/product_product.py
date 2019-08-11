@@ -37,22 +37,25 @@ class ProductProduct(models.Model):
         to_uom = None
         if "uom" in self._context:
             to_uom = self.env["uom.uom"].browse([self._context["uom"]])
-        effective_date = self._context.get(
-            "date", fields.Date.context_today(self)
-        )
+        effective_date = self._context.get("date")
+        if not effective_date:
+            effective_date = fields.Date.context_today(self)
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
-        fld = (
-            "partner_effective_date"
-            if self._context.get("partner_id")
-            else "effective_date"
-        )
+        if self._context.get("partner_id"):
+            commercial_partner_id = self.env['res.partner'].browse(
+                self._context.get("partner_id")).commercial_partner_id.id
+            fld = "partner_effective_date"
+        else:
+            fld = "effective_date"
+            commercial_partner_id = False
+
         for product in self:
             price_extra = 0.0
             for value in product.product_template_attribute_value_ids:
                 found = False
                 for change in value.price_change_line_ids:
-                    if change.price_change_id[fld] <= effective_date:
+                    if change.with_context(partner_id=commercial_partner_id).price_change_id[fld] <= effective_date:
                         price_extra += change.price_extra
                         found = True
                         break
@@ -67,22 +70,24 @@ class ProductProduct(models.Model):
         to_uom = None
         if "uom" in self._context:
             to_uom = self.env["uom.uom"].browse([self._context["uom"]])
-        effective_date = self._context.get(
-            "date", fields.Date.context_today(self)
-        )
+        effective_date = self._context.get("date")
+        if not effective_date:
+            effective_date = fields.Date.context_today(self)
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
-        fld = (
-            "partner_effective_date"
-            if self._context.get("partner_id")
-            else "effective_date"
-        )
+        if self._context.get("partner_id"):
+            commercial_partner_id = self.env['res.partner'].browse(self._context.get("partner_id")).commercial_partner_id.id
+            fld = "partner_effective_date"
+        else:
+            fld = "effective_date"
+            commercial_partner_id = False
+
         # only price changes before effective date, after today
         # first any customer specifc requirements
         for product in self:
             list_price = product.list_price
             for change in product.price_change_line_ids:
-                if change.price_change_id[fld] <= effective_date:
+                if change.with_context(partner_id=commercial_partner_id).price_change_id[fld] <= effective_date:
                     list_price = change.list_price
                     break
             if to_uom:

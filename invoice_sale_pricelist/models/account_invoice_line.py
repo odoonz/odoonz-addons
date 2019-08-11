@@ -1,7 +1,7 @@
 # Copyright 2017 Open For Small Business Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models
+from odoo import models, api
 
 
 class AccountInvoiceLine(models.Model):
@@ -20,6 +20,7 @@ class AccountInvoiceLine(models.Model):
             quantity=self.quantity,
             date=self.invoice_id.date_invoice,
             uom=self.uom_id.id,
+            partner_id=self.invoice_id.partner_id.commercial_partner_id.id,
         )
         product_ctx.update(dict(self.env.context))
 
@@ -27,19 +28,40 @@ class AccountInvoiceLine(models.Model):
             pricelist = self.sale_line_ids.mapped("order_id.pricelist_id")
 
             if len(pricelist) != 1:
-                pricelist = (
-                    self.invoice_id.partner_id.property_product_pricelist
-                )
+                pricelist = self.invoice_id.partner_id.property_product_pricelist
             product_ctx.update({"pricelist": pricelist.id})
-
-        taxes = self.product_id.taxes_id or self.account_id.tax_ids
 
         # Keep only taxes of the company
         company_id = self.company_id or self.env.user.company_id
-        taxes = taxes.filtered(lambda r: r.company_id == company_id)
+        taxes = (
+            self.product_id.taxes_id.filtered(lambda r: r.company_id == company_id)
+            or self.account_id.tax_ids
+        )
 
-        product = self.product_id.with_context(**product_ctx)
+        product = (
+            self.env["product.product"]
+            .with_context(**product_ctx)
+            .browse(self.product_id.id)
+        )
 
         return self.env["account.tax"]._fix_tax_included_price(
             product.price, taxes, self.invoice_line_tax_ids
         )
+
+    @api.onchange("product_id")
+    def _onchange_product_id(self):
+        return super(
+            AccountInvoiceLine,
+            self.with_context(
+                date=self.invoice_id.date_invoice,
+                partner_id=self.invoice_id.partner_id.commercial_partner_id.id,
+            ),
+        )._onchange_product_id()
+
+    @api.onchange("account_id")
+    def _onchange_account_id(self):
+        super()._onchange_account_id()
+        self.price_unit = self.with_context(
+            partner_id=self.invoice_id.partner_id.commercial_partner_id.id,
+            date=self.invoice_id.date_invoice,
+        )._get_sale_price_unit()

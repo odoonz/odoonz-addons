@@ -123,7 +123,7 @@ class PriceRecalculation(models.AbstractModel):
         if not pricelist_id:
             return
         self.ensure_one()
-        products = self.line_ids.mapped("product_id")
+        products = self.line_ids.mapped("product_id").with_context(**self._set_context())
         prices = pricelist_id.with_context(
             **self._set_context()
         ).get_products_price(
