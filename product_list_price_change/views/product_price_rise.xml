@@ -14,7 +14,7 @@
                     <button type="object" string="Confirm" states="draft" name="action_confirm" class="btn-primary"/>
                     <button type="action" string="Add Products" states="draft" name="%(product_list_price_change.product_price_change_wizard_act_window)d" />
                     <button type="object" string="Cancel" states="draft,future" name="action_cancel"/>
-                  https://outlook.office.com/mail/sentitems/id/AAQkADY5MWJhNzU1LWIzMDctNDE5YS04NjY5LWIzZWQ2YTY0NmUxYQAQAOJexT9%2BtmdJkgvUzIR8wJg%3D  <field name="state" widget="statusbar" readonly="1"/>
+                    <field name="state" widget="statusbar" readonly="1"/>
                 </header>
                 <sheet>
                     <h1><field name="name" placeholder="Name"/></h1>
@@ -23,26 +23,24 @@
                             <field name="effective_date" placeholder="Effective Date" />
                         </group>
                     </group>
-                    <field name="active" invisible="1"/>
+
                     <notebook>
                         <page name="product" string="Product Price Changes">
-                            <field colspan="5" name="product_line_ids" nolabel="1">
+                            <field colspan="5" name="product_line_ids" nolabel="1" >
                                 <tree editable="bottom" >
                                     <field name="product_tmpl_id" />
                                     <field name="percent_change" />
                                     <field name="list_price" />
                                     <field name="state" invisible="1" />
-                                    <field name="active" invisible="1" />
                                 </tree>
                             </field>
                         </page>
                         <page name="variant" string="Extra Value Price Changes">
-                            <field colspan="5" name="variant_line_ids" nolabel="1">
+                            <field colspan="5" name="variant_line_ids" nolabel="1" >
                                 <tree editable="bottom" >
                                     <field name="product_tmpl_attribute_value_id" />
                                     <field name="price_extra" />
                                     <field name="state" invisible="1" />
-                                    <field name="active" invisible="1" />
                                 </tree>
                             </field>
                         </page>
@@ -106,13 +104,12 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page name="price_change" string="Price History" attrs="{'invisible': [('price_change_line_ids', '=', [])]}">
-                    <field name="price_change_line_ids" colspan="5" nolabel="1" context="{'active_test': False}">
-                        <tree name="price_change_tree" decoration-muted="not active">
+                <page name="price_change" string="Price History" >
+                    <field name="price_change_line_ids" colspan="5" nolabel="1" >
+                        <tree name="price_change_tree" decoration-muted="state == 'live'" >
                             <field name="effective_date" />
                             <field name="list_price" />
                             <field name="state" />
-                            <field name="active" invisible="1" />
                         </tree>
                     </field>
                 </page>

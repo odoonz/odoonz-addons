@@ -14,6 +14,7 @@ class ProductTemplate(models.Model):
         comodel_name="product.price.change.line",
         readonly=True,
         inverse_name="product_tmpl_id",
+        domain=[('state', 'in', ('live', 'future'))],
     )
 
 
@@ -25,12 +26,17 @@ class ProductTemplateAttributeValue(models.Model):
         comodel_name="product.variant.price.change.line",
         readonly=True,
         inverse_name="product_tmpl_attribute_value_id",
+        domain=[('state', 'in', ('live', 'future'))],
     )
 
 
 class ProductProduct(models.Model):
 
     _inherit = "product.product"
+
+    @staticmethod
+    def _get_price_changes_ordered(change_lines, fld):
+        return change_lines.filtered(lambda s: s.state in ('live', 'future')).sorted(key=lambda r: r.price_change_id[fld], reverse=True)
 
     @api.depends("product_template_attribute_value_ids.price_extra")
     def _compute_product_price_extra(self):
@@ -54,8 +60,8 @@ class ProductProduct(models.Model):
             price_extra = 0.0
             for value in product.product_template_attribute_value_ids:
                 found = False
-                for change in value.price_change_line_ids:
-                    if change.with_context(partner_id=commercial_partner_id).price_change_id[fld] <= effective_date:
+                for change in self._get_price_changes_ordered(value.with_context(partner_id=commercial_partner_id).price_change_line_ids, fld):
+                    if change.price_change_id[fld] <= effective_date:
                         price_extra += change.price_extra
                         found = True
                         break
@@ -86,8 +92,8 @@ class ProductProduct(models.Model):
         # first any customer specifc requirements
         for product in self:
             list_price = product.list_price
-            for change in product.price_change_line_ids:
-                if change.with_context(partner_id=commercial_partner_id).price_change_id[fld] <= effective_date:
+            for change in self._get_price_changes_ordered(product.with_context(partner_id=commercial_partner_id).price_change_line_ids, fld):
+                if change.price_change_id[fld] <= effective_date:
                     list_price = change.list_price
                     break
             if to_uom:

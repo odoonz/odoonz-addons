@@ -10,6 +10,7 @@ class ProductPriceChange(models.Model):
 
     _name = "product.price.change"
     _description = "Product Price Change"
+    _order = 'effective_date desc, id'
 
     name = fields.Char(required=True)
     effective_date = fields.Date(
@@ -47,26 +48,22 @@ class ProductPriceChange(models.Model):
         states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
     )
 
-    active = fields.Boolean(default=True)
 
     def action_confirm(self):
         for record in self.filtered(lambda s: s.state == "draft"):
             record.state = "future"
-            record.active = True
 
     def action_cancel(self):
         for record in self:
             if record.state == "live":
                 raise UserError("Cannot cancel a previously implemented pricing change")
             record.state = "cancel"
-            record.active = False
 
     def action_draft(self):
         for record in self:
             if record.state == "live":
                 raise UserError("Cannot cancel a previously implemented pricing change")
             record.state = "draft"
-            record.active = False
 
     def _get_partner_effective_date(self):
         partner_id = self._context.get("partner_id")
@@ -94,17 +91,17 @@ class ProductPriceChange(models.Model):
 
     def _update_future_pricing(self):
         for line in self.product_line_ids:
-            line.product_tmpl_id.list_price = line.list_price
+            if line.list_price != line.product_tmpl_id.list_price:
+                line.product_tmpl_id.list_price = line.list_price
         for line in self.variant_line_ids:
-            line.product_tmpl_attribute_value_id.price_extra = line.price_extra
+            if line.product_tmpl_attribute_value_id.price_extra != line.price_extra:
+                line.product_tmpl_attribute_value_id.price_extra = line.price_extra
 
     @api.model
-    def _perform_list_price_update(self):
+    def perform_list_price_update(self):
         today = fields.Date.context_today(self)
         to_upd = self.search([("effective_date", "<=", today)])
         for change in to_upd:
-            latest_impl = max(change.impl_delay_ids.mapped("effective_date") + [today])
-            if change.state == "future" and latest_impl <= today:
+            if change.state == "future" and change.effective_date <= today:
                 change._update_future_pricing()
                 change.state = "live"
-                change.active = False

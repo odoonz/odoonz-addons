@@ -11,6 +11,7 @@ class ProductPriceChangeLine(models.Model):
     _name = "product.price.change.line"
     _description = "Product Price Change Line"
     _rec_name = "product_tmpl_id"
+    _order = "effective_date desc, id"
 
     product_tmpl_id = fields.Many2one(
         string="Product",
@@ -31,7 +32,7 @@ class ProductPriceChangeLine(models.Model):
         help="Price at which the product is sold to customers.",
         states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
     )
-    active = fields.Boolean(related="price_change_id.active", store=True)
+
     state = fields.Selection(related="price_change_id.state", store=True)
     effective_date = fields.Date(related="price_change_id.effective_date", store=True)
 

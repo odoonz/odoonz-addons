@@ -11,6 +11,7 @@ class ProductVariantPriceChangeLine(models.Model):
     _name = "product.variant.price.change.line"
     _description = "Product Variant Price Change Line"
     _rec_name = "product_tmpl_attribute_value_id"
+    _order = "effective_date desc, id"
 
     product_tmpl_attribute_value_id = fields.Many2one(
         comodel_name="product.template.attribute.value",
@@ -30,6 +31,5 @@ class ProductVariantPriceChangeLine(models.Model):
         help="Extra Price for attribute.",
         states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
     )
-    active = fields.Boolean(related="price_change_id.active")
-    state = fields.Selection(related="price_change_id.state")
-    effective_date = fields.Date(related="price_change_id.effective_date")
+    state = fields.Selection(related="price_change_id.state", store=True)
+    effective_date = fields.Date(related="price_change_id.effective_date", store=True)
