@@ -20,6 +20,13 @@ class SalePriceRecalculation(models.TransientModel):
     def _prepare_quote_related_vals(self):
         return {}
 
+    @api.onchange("date_order")
+    def _onchange_date_order(self):
+        if self.pricelist_id:
+            self.onchange_pricelist_id()
+        elif self.copy_quote_id:
+            self.onchange_quote_id()
+
     @api.onchange("total", "tax_incl")
     def _onchange_balance_to_total(self):
         if not self.total:
