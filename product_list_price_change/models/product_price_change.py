@@ -66,13 +66,17 @@ class ProductPriceChange(models.Model):
     def action_cancel(self):
         for record in self:
             if record.state == "live":
-                raise UserError(_('Cannot cancel a previously implemented pricing change'))
+                raise UserError(
+                    _("Cannot cancel a previously implemented pricing change")
+                )
             record.state = "cancel"
 
     def action_draft(self):
         for record in self:
             if record.state == "live":
-                raise UserError(_('Cannot cancel a previously implemented pricing change'))
+                raise UserError(
+                    _("Cannot cancel a previously implemented pricing change")
+                )
             record.state = "draft"
 
     def _compute_partner_effective_date(self):
