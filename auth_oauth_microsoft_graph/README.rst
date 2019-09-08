@@ -36,13 +36,15 @@ The configuration in Azure APP:
 - Required permissions - Windows Azure Active Directory - Grant permissions - Sign in and read user profile, Sign in and read user profile , Access the directory as the signed-in user
 - Required permissions - Microsoft Graph - Grant permissions - Access the directory as the signed-in user, Sign users in , View users' email address
 - Edit manifest - "oauth2AllowImplicitFlow": true,
+- Redirect URL: https://<yourodoopublicdomain>/auth_oauth/signin
 
 If you like to enable user to signup, just turn on the B2C login in odoo - setting - Users - Customer Account
 
 Usage
 =====
 
-User selects Login with Microsoft at login screen to authenticate.
+- Prior to first login, user must exist in Odoo if signup not enabled. You must also "Send an invitation" to reset password which user must complete.
+- User selects Login with Microsoft at login screen to authenticate.
 
 Known issues / Roadmap
 ======================
@@ -65,6 +67,7 @@ Contributors
 ------------
 
 * Graeme Gellatly <graeme@o4sb.com>
+* Chris Mann <https://github.com/chrisandrewmann>
 
 Maintainer
 ----------
