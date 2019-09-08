@@ -12,10 +12,10 @@ class MrpProduction(models.Model):
     def _compute_sale_order(self):
         self._cr.execute(
             """SELECT sm.created_production_id, sol.order_id
-        FROM stock_move sm 
+        FROM stock_move sm
         LEFT JOIN sale_order_line sol ON sm.sale_line_id = sol.id
-        WHERE sm.sale_line_id IS NOT NULL 
-          AND sm.created_production_id IS NOT NULL 
+        WHERE sm.sale_line_id IS NOT NULL
+          AND sm.created_production_id IS NOT NULL
           AND sm.created_production_id IN %s """,
             (tuple(self.ids),),
         )

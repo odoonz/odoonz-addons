@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -31,7 +30,8 @@ class ProductPriceChangeWizard(models.TransientModel):
                     records_to_remove.unlink()
                 else:
                     raise ValidationError(
-                        "The selected products already exist in the price change list:\n -"
+                        "The selected products already exist "
+                        "in the price change list:\n -"
                         + "\n - ".join(records_to_remove.mapped("name"))
                     )
             lines_to_create = []

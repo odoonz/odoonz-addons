@@ -1,7 +1,4 @@
-from time import sleep
-
 from odoo import models, fields, api, _
-from odoo.addons.queue_job.job import job
 from odoo import exceptions
 
 

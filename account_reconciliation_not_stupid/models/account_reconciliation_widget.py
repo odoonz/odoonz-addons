@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -13,7 +12,10 @@ class AccountReconciliationWidget(models.AbstractModel):
 
     @api.model
     def _get_statement_line(self, st_line):
-        """ Returns the data required by the bank statement reconciliation widget to display a statement line """
+        """
+        Returns the data required by the bank statement reconciliation
+        widget to display a statement line
+        """
         data = super()._get_statement_line(st_line)
         data["name"] = " ".join([st_line.name or "", st_line.ref or ""])
         return data
