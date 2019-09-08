@@ -1,4 +1,3 @@
-
 import logging
 from odoo.addons.sale.tests.test_sale_common import TestSale
 import mock
@@ -7,13 +6,11 @@ import mock
 _logger = logging.Logger(__name__)
 
 wizard = (
-    "odoo.addons.price_recalculation.wizards."
-    "price_recalculation.PriceRecalculation"
+    "odoo.addons.price_recalculation.wizards." "price_recalculation.PriceRecalculation"
 )
 
 
 class TestPriceCalculation(TestSale):
-
     def setUp(self):
         """Initial Setup"""
         super().setUp()
@@ -45,9 +42,7 @@ class TestPriceCalculation(TestSale):
             get_lines.return_value = []
             flds = (
                 self.env["price.recalculation"]
-                .with_context(
-                    active_ids=[self.so.id], active_model="sale.order"
-                )
+                .with_context(active_ids=[self.so.id], active_model="sale.order")
                 .default_get(["name", "partner_id", "line_ids", "date_order"])
             )
         self.assertEqual(flds["name"], self.so.id)

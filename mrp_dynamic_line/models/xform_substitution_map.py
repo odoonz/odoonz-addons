@@ -16,9 +16,7 @@ class XformSubstitutionMap(models.Model):
         comodel_name="product.product", string="Source Products", required=True
     )
     dest_product_id = fields.Many2one(
-        comodel_name="product.product",
-        string="Destination Product",
-        required=True,
+        comodel_name="product.product", string="Destination Product", required=True
     )
 
     @api.model

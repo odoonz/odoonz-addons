@@ -15,10 +15,7 @@ class ResPartner(models.Model):
     days = fields.Integer()
     day_type = fields.Selection([("weekday", "working days"), ("day", "days")])
     cutoff_type = fields.Selection(
-        [
-            ("date", "transaction date"),
-            ("eom", "end of month following transaction"),
-        ]
+        [("date", "transaction date"), ("eom", "end of month following transaction")]
     )
 
     @api.multi
@@ -43,9 +40,7 @@ class ResPartner(models.Model):
                 # Set to last day of month so we know if inside cutoff window
                 transaction_date += relativedelta(day=31)
             if partner.days:
-                weekdays = list(
-                    range(5 if partner.day_type == "weekday" else 7)
-                )
+                weekdays = list(range(5 if partner.day_type == "weekday" else 7))
                 transaction_date = rrule(
                     DAILY,
                     count=partner.days,
@@ -64,4 +59,8 @@ class ResPartner(models.Model):
         delegated to the parent `commercial entity`. The list is meant to be
         extended by inheriting classes. """
         return super()._commercial_fields() + [
-            'enforce_cutoff', 'days', 'day_type', 'cutoff_type']
+            "enforce_cutoff",
+            "days",
+            "day_type",
+            "cutoff_type",
+        ]

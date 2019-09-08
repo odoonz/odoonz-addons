@@ -1,4 +1,3 @@
-
 from random import randint, random
 from odoo.addons.sale.tests.test_sale_common import TestSale
 from odoo import fields
@@ -12,7 +11,6 @@ _logger = logging.Logger(__name__)
 
 
 class TestSaleRecalc(TestSale):
-
     def setUp(self):
         super().setUp()
         today = fields.Date.to_string(fields.Date.context_today(self.partner))
@@ -51,9 +49,7 @@ class TestSaleRecalc(TestSale):
             )
         )
         self.spr = self.env["sale.price.recalculation"].with_context(
-            active_id=self.so.id,
-            active_ids=[self.so.id],
-            active_model="sale.order",
+            active_id=self.so.id, active_ids=[self.so.id], active_model="sale.order"
         )
         self.vals = self.spr.default_get(
             ["name", "partner_id", "date_order", "line_ids"]
@@ -66,9 +62,7 @@ class TestSaleRecalc(TestSale):
         When we create record check that it
         is correctly defaulted
         """
-        vals = self.spr.default_get(
-            ["name", "partner_id", "date_order", "line_ids"]
-        )
+        vals = self.spr.default_get(["name", "partner_id", "date_order", "line_ids"])
         recalc = self.spr.create(vals)
         so = self.so
         self.assertEqual(recalc.name, so)
@@ -97,9 +91,7 @@ class TestSaleRecalc(TestSale):
         recalc._onchange_balance_to_total()
 
         self.assertAlmostEqual(
-            sum(recalc.line_ids.mapped("price_subtotal")),
-            recalc.total,
-            delta=1,
+            sum(recalc.line_ids.mapped("price_subtotal")), recalc.total, delta=1
         )
         # We test that the pricing is roughly weighted in proportion
         approx_change = self.so.amount_untaxed / recalc.total
@@ -145,15 +137,9 @@ class TestSaleRecalc(TestSale):
             line.price_total = check_total
             line._onchange_total()
             self.assertAlmostEqual(line.price_total, check_total, delta=1)
-            self.assertFalse(
-                fc(line.price_subtotal, line.price_unit * line.qty, 2)
-            )
-            self.assertEqual(
-                line.qty, 5.0, "Changing totals should not affect qty"
-            )
-            self.assertFalse(
-                fc(line.price_subtotal * (1 + 0.2), line.total, 2)
-            )
+            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))
+            self.assertEqual(line.qty, 5.0, "Changing totals should not affect qty")
+            self.assertFalse(fc(line.price_subtotal * (1 + 0.2), line.total, 2))
             self.assertEqual(line.discount, 0.0)
 
     def test_change_line_subtotal(self):
@@ -177,9 +163,7 @@ class TestSaleRecalc(TestSale):
             self.assertAlmostEqual(
                 line.price_subtotal, line.price_unit * line.qty, delta=0.01
             )
-            self.assertEqual(
-                line.qty, 5.0, "Changing totals should not affect qty"
-            )
+            self.assertEqual(line.qty, 5.0, "Changing totals should not affect qty")
             self.assertAlmostEqual(
                 line.price_subtotal * (1 + 0.2), line.total, delta=0.01
             )
@@ -202,16 +186,13 @@ class TestSaleRecalc(TestSale):
             check_total = 7.21
             line.price_unit = check_total
             line._onchange_price()
-            self.assertFalse(
-                fc(line.price_subtotal, line.price_unit * line.qty, 2)
-            )
+            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))
 
     def test_onchange_pricelist_id(self):
         recalc = self.spr.create(self.vals)
         with mock.patch("%s.get_products_price" % pricelist) as price_get:
             prices = {
-                p.id: round(random() * randint(1, 9), 2)
-                for p in self.products.values()
+                p.id: round(random() * randint(1, 9), 2) for p in self.products.values()
             }
             price_get.return_value = prices
             with self.env.do_in_onchange():
@@ -219,9 +200,7 @@ class TestSaleRecalc(TestSale):
                 recalc.onchange_pricelist_id()
             subtotal = 0.0
             for line in recalc.line_ids:
-                self.assertFalse(
-                    fc(prices[line.product_id.id], line.price_unit, 2)
-                )
+                self.assertFalse(fc(prices[line.product_id.id], line.price_unit, 2))
                 subtotal += line.price_subtotal
             recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)

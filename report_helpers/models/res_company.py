@@ -6,23 +6,19 @@ from odoo import api, fields, models
 
 class ResCompany(models.Model):
 
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
     @api.multi
     def _compute_company_address(self):
         for record in self:
-            addresses = record.partner_id.address_get(['delivery', 'invoice'])
-            record.physical_address_id = addresses['delivery']
-            record.postal_address_id = addresses['invoice']
+            addresses = record.partner_id.address_get(["delivery", "invoice"])
+            record.physical_address_id = addresses["delivery"]
+            record.postal_address_id = addresses["invoice"]
 
     physical_address_id = fields.Many2one(
-        comodel_name='res.partner',
-        compute='_compute_company_address',
-        multi='address',
+        comodel_name="res.partner", compute="_compute_company_address", multi="address"
     )
 
     postal_address_id = fields.Many2one(
-        comodel_name='res.partner',
-        compute='_compute_company_address',
-        multi='address',
+        comodel_name="res.partner", compute="_compute_company_address", multi="address"
     )

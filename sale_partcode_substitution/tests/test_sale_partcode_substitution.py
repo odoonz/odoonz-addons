@@ -1,4 +1,3 @@
-
 from random import randint, random
 from odoo.addons.sale.tests.test_sale_common import TestSale
 from odoo.tests import tagged
@@ -7,9 +6,8 @@ from odoo.tools import float_compare as fc
 from odoo.exceptions import ValidationError
 
 
-@tagged('post_install', '-at_install')
+@tagged("post_install", "-at_install")
 class TestSaleSubst(TestSale):
-
     def setUp(self):
         super().setUp()
         today = fields.Date.to_string(fields.Date.context_today(self.partner))
@@ -20,9 +18,7 @@ class TestSaleSubst(TestSale):
             "no_reset_password": True,
         }
         p = self.env.ref("sale_partcode_substitution.product_product_1")
-        self.blue_car = self.env.ref(
-            "sale_partcode_substitution.product_product_2"
-        )
+        self.blue_car = self.env.ref("sale_partcode_substitution.product_product_2")
         vals = {
             "partner_id": self.partner.id,
             "partner_invoice_id": self.partner.id,
@@ -49,17 +45,13 @@ class TestSaleSubst(TestSale):
         self.scr = (
             self.env["sale.code.replacement"]
             .with_context(
-                active_id=self.so.id,
-                active_ids=[self.so.id],
-                active_model="sale.order",
+                active_id=self.so.id, active_ids=[self.so.id], active_model="sale.order"
             )
             .create({})
         )
 
     def test_change_partcodes(self):
-        self.assertNotEqual(
-            self.blue_car.id, self.so.order_line[0].product_id.id
-        )
+        self.assertNotEqual(self.blue_car.id, self.so.order_line[0].product_id.id)
         self.scr.from_code = "GRN"
         self.scr.to_code = "BLU"
         self.scr.change_products_partcode()

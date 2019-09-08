@@ -51,7 +51,5 @@ class ProductAttributeLine(models.Model):
             attr_groups = self.env["product.attribute.group"].browse(
                 vals["attr_group_ids"][0][2]
             )
-            vals["value_ids"] = [
-                [6, False, attr_groups.mapped("value_ids").ids]
-            ]
+            vals["value_ids"] = [[6, False, attr_groups.mapped("value_ids").ids]]
         return super().write(vals)

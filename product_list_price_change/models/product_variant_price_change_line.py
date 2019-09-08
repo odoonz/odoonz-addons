@@ -16,20 +16,32 @@ class ProductVariantPriceChangeLine(models.Model):
     product_tmpl_attribute_value_id = fields.Many2one(
         comodel_name="product.template.attribute.value",
         required=True,
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
     price_change_id = fields.Many2one(
         string="Price Change",
         comodel_name="product.price.change",
         required=True,
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
     price_extra = fields.Float(
         "Price Extra",
         required=True,
         digits=dp.get_precision("Product Price"),
         help="Extra Price for attribute.",
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
     state = fields.Selection(related="price_change_id.state", store=True)
     effective_date = fields.Date(related="price_change_id.effective_date", store=True)

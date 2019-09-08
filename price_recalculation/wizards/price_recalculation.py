@@ -9,6 +9,7 @@ from odoo.tools import float_round
 
 class PriceRecalculation(models.AbstractModel):
     """Recalculate Price"""
+
     _name = "price.recalculation"
     _description = __doc__
 
@@ -70,9 +71,7 @@ class PriceRecalculation(models.AbstractModel):
             price = float_round(price, self.precision)
             line.price_unit = price
             line.price_subtotal = line.price_unit * line.qty
-            line.price_total = line.price_subtotal * (
-                1 + line.effective_tax_rate
-            )
+            line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
             running_total -= line[fld]
             if not running_lines_total:
                 break
@@ -85,9 +84,7 @@ class PriceRecalculation(models.AbstractModel):
             if price > 0.0:
                 line.price_unit = float_round(price, self.precision)
                 line.price_subtotal = line.price_unit * line.qty
-                line.price_total = line.price_subtotal * (
-                    1 + line.effective_tax_rate
-                )
+                line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
     @api.multi
     def _prepare_other_vals(self):
@@ -103,9 +100,7 @@ class PriceRecalculation(models.AbstractModel):
         Check write constraints for orders that can't be updated
         Note: Caller ensures one record
         """
-        if self.name.invoice_ids.filtered(
-            lambda i: i.state not in ("draft", "cancel")
-        ):
+        if self.name.invoice_ids.filtered(lambda i: i.state not in ("draft", "cancel")):
             raise ValidationError(
                 _(
                     "You cannot change pricing on an order that has "
@@ -123,10 +118,10 @@ class PriceRecalculation(models.AbstractModel):
         if not pricelist_id:
             return
         self.ensure_one()
-        products = self.line_ids.mapped("product_id").with_context(**self._set_context())
-        prices = pricelist_id.with_context(
+        products = self.line_ids.mapped("product_id").with_context(
             **self._set_context()
-        ).get_products_price(
+        )
+        prices = pricelist_id.with_context(**self._set_context()).get_products_price(
             products,
             self.line_ids.mapped("qty"),
             [self.partner_id.id] * len(self.line_ids),
@@ -135,6 +130,4 @@ class PriceRecalculation(models.AbstractModel):
         for line in self.line_ids:
             line.price_unit = prices[line.product_id.id]
             line.price_subtotal = line.price_unit * line.qty
-            line.price_total = line.price_subtotal * (
-                1 + line.effective_tax_rate
-            )
+            line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)

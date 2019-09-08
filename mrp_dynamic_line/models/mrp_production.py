@@ -18,9 +18,7 @@ class MrpProduction(models.Model):
                 lambda bl: bl.application_point == "move"
             ).sorted("sequence"):
                 try:
-                    func = getattr(
-                        self, "_generate_raw_move_%s" % xform.technical_name
-                    )
+                    func = getattr(self, "_generate_raw_move_%s" % xform.technical_name)
                 except AttributeError:
                     _logger.error(
                         _("No function found with name _generate_raw_move_%s")
@@ -43,9 +41,7 @@ class MrpProduction(models.Model):
         ).sorted("sequence"):
             bom_line_id = bom_line.id
             try:
-                func = getattr(
-                    self, "_generate_raw_move_%s" % xform.technical_name
-                )
+                func = getattr(self, "_generate_raw_move_%s" % xform.technical_name)
             except AttributeError:
                 _logger.error(
                     _("No function found with name _generate_raw_move_%s")
@@ -65,7 +61,7 @@ class MrpProduction(models.Model):
                     old_qty = move[0].product_uom_qty
                     move[0].write({"product_uom_qty": 0.0})
                     return move[0], old_qty, 0
-                return self.env['stock.move'], 0, 0
+                return self.env["stock.move"], 0, 0
         return bom_line and super()._update_raw_move(bom_line, line_data)
 
     @api.multi
@@ -74,6 +70,4 @@ class MrpProduction(models.Model):
             super().button_plan()
         else:
             for order in self:
-                super().with_context(
-                    product_id=order.product_id.id
-                ).button_plan()
+                super().with_context(product_id=order.product_id.id).button_plan()

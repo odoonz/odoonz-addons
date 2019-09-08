@@ -6,7 +6,6 @@ from odoo.tests import common
 
 
 class TestProduct(common.TransactionCase):
-
     def test_bom_count(self):
         self.assertEquals(
             self.env.ref("mrp_dynamic_line.manu_product").used_in_bom_count, 0

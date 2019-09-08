@@ -9,7 +9,7 @@ class AccountInvoiceRefund(models.TransientModel):
 
     _inherit = "account.invoice.refund"
 
-    @api.onchange('filter_refund')
+    @api.onchange("filter_refund")
     def compute_anglo_saxon_state(self):
         if self.env.context.get("active_ids"):
             inv = self.env["account.invoice"].browse(self.env.context["active_ids"])
@@ -36,8 +36,8 @@ class AccountInvoiceRefund(models.TransientModel):
             and isinstance(res, dict)
             and res.get("domain")
         ):
-            for left, op, right in res['domain']:
-                if left == 'id' and op == 'in':
+            for left, op, right in res["domain"]:
+                if left == "id" and op == "in":
                     for inv in self.env["account.invoice"].browse(right):
                         if inv and not inv.anglo_saxon_financial:
                             inv.toggle_financial()

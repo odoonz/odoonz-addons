@@ -14,7 +14,6 @@ spt = datetime.strptime
 
 
 class TestAccountInvoice(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.partner = self.env.ref("base.res_partner_1")

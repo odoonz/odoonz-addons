@@ -10,21 +10,18 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class TestResPartner(common.TransactionCase):
-
     def setUp(self):
         super().setUp()
         self.partner = self.env.ref("base.res_partner_1")
         self.today = fields.Date.context_today(self.partner)
         self.long_ago = datetime.strptime(
-            "2030-12-19",
-            DEFAULT_SERVER_DATE_FORMAT).date()
+            "2030-12-19", DEFAULT_SERVER_DATE_FORMAT
+        ).date()
         self.days = 7
 
     def test_get_lock_date_normal(self):
         self.partner.write({"enforce_cutoff": False})
-        self.assertEqual(
-            self.partner._get_lock_date(self.long_ago), self.long_ago
-        )
+        self.assertEqual(self.partner._get_lock_date(self.long_ago), self.long_ago)
 
     def test_get_lock_date_weekdays(self):
         self.partner.write(

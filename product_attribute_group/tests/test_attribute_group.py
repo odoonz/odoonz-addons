@@ -5,7 +5,6 @@ from odoo.tests.common import TransactionCase
 
 
 class TestAttributeGroups(TransactionCase):
-
     def test_replace_values_with_attr_group(self):
         # First changing them
         attr_groups = self.ipod_memory_line.attr_group_ids | self.attr_group_2
@@ -25,9 +24,7 @@ class TestAttributeGroups(TransactionCase):
             == (self.attr_group_2.value_ids + self.attr_group_1.value_ids)
         )
         # Then removing them
-        self.ipod_memory_line.attr_group_ids = self.env[
-            "product.attribute.group"
-        ]
+        self.ipod_memory_line.attr_group_ids = self.env["product.attribute.group"]
         self.assertFalse(len(self.ipod_memory_line.value_ids))
         self.product_ipod.create_variant_ids()
         self.assertFalse(len(self.product_ipod.product_variant_ids))
@@ -124,9 +121,7 @@ class TestAttributeGroups(TransactionCase):
                         0,
                         {
                             "attribute_id": self.attr_group_1.attribute_id.id,
-                            "value_ids": [
-                                (6, 0, self.attr_group_1.value_ids.ids)
-                            ],
+                            "value_ids": [(6, 0, self.attr_group_1.value_ids.ids)],
                         },
                     )
                 ],
@@ -146,9 +141,7 @@ class TestAttributeGroups(TransactionCase):
                         {
                             "attribute_id": self.attr_group_1.attribute_id.id,
                             "attr_group_ids": [],
-                            "value_ids": [
-                                (6, 0, self.attr_group_1.value_ids.ids[:1])
-                            ],
+                            "value_ids": [(6, 0, self.attr_group_1.value_ids.ids[:1])],
                         },
                     )
                 ],

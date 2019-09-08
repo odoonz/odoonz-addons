@@ -12,7 +12,7 @@
     "website": "https://o4sb.com",
     "depends": ["product"],
     "data": [
-        'wizards/product_price_change_wizard.xml',
+        "wizards/product_price_change_wizard.xml",
         "security/ir.model.access.csv",
         # "views/product_price_change_line.xml",
         "views/product_price_rise.xml",

@@ -9,6 +9,7 @@ class AccountInvoice(models.Model):
     """inherits account.account_invoice and adds the order_partner_id field
     as well as overriding ORM functions to ensure the parent partner and order
     partner are written and created correctly"""
+
     _inherit = "account.invoice"
 
     order_partner_id = fields.Many2one(
@@ -83,12 +84,7 @@ class AccountInvoice(models.Model):
         iter_args = list(args)
         args = []
         for arg in iter_args:
-            if arg[0] == "partner_id" and arg[1] in (
-                "=",
-                "like",
-                "ilike",
-                "child_of",
-            ):
+            if arg[0] == "partner_id" and arg[1] in ("=", "like", "ilike", "child_of"):
                 args.extend(["|", arg, ("order_partner_id", arg[1], arg[2])])
             else:
                 args.append(arg)

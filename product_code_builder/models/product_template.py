@@ -60,12 +60,8 @@ class ProductTemplate(models.Model):
             elif self.attribute_line_ids:
                 attribute_names = []
                 for line in self.attribute_line_ids:
-                    attribute_names.append(
-                        "[{}]".format(line.attribute_id.name)
-                    )
-                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(
-                    attribute_names
-                )
+                    attribute_names.append("[{}]".format(line.attribute_id.name))
+                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
                 vals["reference_mask"] = default_mask
         result = super().write(vals)
         if "attribute_line_ids" in vals and "reference_mask" not in vals:
@@ -75,13 +71,8 @@ class ProductTemplate(models.Model):
         if vals.get("reference_mask"):
             for tmpl in self:
                 product_obj = self.env["product.product"]
-                cond = [
-                    ("product_tmpl_id", "=", tmpl.id),
-                    ("manual_code", "=", False),
-                ]
-                products = product_obj.with_context(active_test=False).search(
-                    cond
-                )
+                cond = [("product_tmpl_id", "=", tmpl.id), ("manual_code", "=", False)]
+                products = product_obj.with_context(active_test=False).search(cond)
                 for product in products:
                     render_default_code(product, vals["reference_mask"])
         return result

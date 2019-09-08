@@ -15,9 +15,7 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
         inv_type, line.product_id, fpos, company
     )
 
-    tax_field = (
-        "taxes_id" if inv_type.startswith("out_") else "supplier_taxes_id"
-    )
+    tax_field = "taxes_id" if inv_type.startswith("out_") else "supplier_taxes_id"
 
     company_tax_field = (
         "account_sale_tax_id"
@@ -40,9 +38,7 @@ class SaleOrderLine(models.Model):
     @api.multi
     def _compute_tax_id(self):
         for line in self:
-            line.tax_id = _get_default_taxes(
-                line, line.order_id.partner_shipping_id
-            )
+            line.tax_id = _get_default_taxes(line, line.order_id.partner_shipping_id)
 
 
 class PurchaseOrderLine(models.Model):
@@ -89,13 +85,7 @@ class StockRule(models.Model):
         pol = self.env["purchase.order.line"].new({"order_id": po.id})
         res.update(
             taxes_id=[
-                (
-                    6,
-                    0,
-                    _get_default_taxes(
-                        pol, partner, inv_type="in_invoice"
-                    ).ids,
-                )
+                (6, 0, _get_default_taxes(pol, partner, inv_type="in_invoice").ids)
             ]
         )
         return res

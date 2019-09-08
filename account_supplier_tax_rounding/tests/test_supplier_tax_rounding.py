@@ -3,12 +3,11 @@
 
 import mock
 from odoo.addons.account.tests.test_account_supplier_invoice import (
-    TestAccountSupplierInvoice
+    TestAccountSupplierInvoice,
 )
 
 
 class TestSupplierTaxRounding(TestAccountSupplierInvoice):
-
     def setUp(self):
         super().setUp()
         self.company = self.env.ref("base.main_company")
@@ -20,9 +19,7 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
                     (
                         "user_type_id",
                         "=",
-                        self.env.ref(
-                            "account.data_account_type_receivable"
-                        ).id,
+                        self.env.ref("account.data_account_type_receivable").id,
                     )
                 ],
                 limit=1,

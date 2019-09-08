@@ -14,7 +14,7 @@ class ProductTemplate(models.Model):
         comodel_name="product.price.change.line",
         readonly=True,
         inverse_name="product_tmpl_id",
-        domain=[('state', 'in', ('live', 'future'))],
+        domain=[("state", "in", ("live", "future"))],
     )
 
 
@@ -26,7 +26,7 @@ class ProductTemplateAttributeValue(models.Model):
         comodel_name="product.variant.price.change.line",
         readonly=True,
         inverse_name="product_tmpl_attribute_value_id",
-        domain=[('state', 'in', ('live', 'future'))],
+        domain=[("state", "in", ("live", "future"))],
     )
 
 
@@ -36,7 +36,9 @@ class ProductProduct(models.Model):
 
     @staticmethod
     def _get_price_changes_ordered(change_lines, fld):
-        return change_lines.filtered(lambda s: s.state in ('live', 'future')).sorted(key=lambda r: r.price_change_id[fld], reverse=True)
+        return change_lines.filtered(lambda s: s.state in ("live", "future")).sorted(
+            key=lambda r: r.price_change_id[fld], reverse=True
+        )
 
     @api.depends("product_template_attribute_value_ids.price_extra")
     def _compute_product_price_extra(self):
@@ -49,8 +51,11 @@ class ProductProduct(models.Model):
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
         if self._context.get("partner_id"):
-            commercial_partner_id = self.env['res.partner'].browse(
-                self._context.get("partner_id")).commercial_partner_id.id
+            commercial_partner_id = (
+                self.env["res.partner"]
+                .browse(self._context.get("partner_id"))
+                .commercial_partner_id.id
+            )
             fld = "partner_effective_date"
         else:
             fld = "effective_date"
@@ -60,7 +65,12 @@ class ProductProduct(models.Model):
             price_extra = 0.0
             for value in product.product_template_attribute_value_ids:
                 found = False
-                for change in self._get_price_changes_ordered(value.with_context(partner_id=commercial_partner_id).price_change_line_ids, fld):
+                for change in self._get_price_changes_ordered(
+                    value.with_context(
+                        partner_id=commercial_partner_id
+                    ).price_change_line_ids,
+                    fld,
+                ):
                     if change.price_change_id[fld] <= effective_date:
                         price_extra += change.price_extra
                         found = True
@@ -82,7 +92,11 @@ class ProductProduct(models.Model):
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
         if self._context.get("partner_id"):
-            commercial_partner_id = self.env['res.partner'].browse(self._context.get("partner_id")).commercial_partner_id.id
+            commercial_partner_id = (
+                self.env["res.partner"]
+                .browse(self._context.get("partner_id"))
+                .commercial_partner_id.id
+            )
             fld = "partner_effective_date"
         else:
             fld = "effective_date"
@@ -92,7 +106,12 @@ class ProductProduct(models.Model):
         # first any customer specifc requirements
         for product in self:
             list_price = product.list_price
-            for change in self._get_price_changes_ordered(product.with_context(partner_id=commercial_partner_id).price_change_line_ids, fld):
+            for change in self._get_price_changes_ordered(
+                product.with_context(
+                    partner_id=commercial_partner_id
+                ).price_change_line_ids,
+                fld,
+            ):
                 if change.price_change_id[fld] <= effective_date:
                     list_price = change.list_price
                     break
@@ -102,6 +121,8 @@ class ProductProduct(models.Model):
 
     @api.multi
     def price_compute(self, price_type, uom=False, currency=False, company=False):
-        if price_type == 'list_price':
-            price_type = 'lst_price'
-        return super().price_compute(price_type, uom=uom, currency=currency, company=company)
+        if price_type == "list_price":
+            price_type = "lst_price"
+        return super().price_compute(
+            price_type, uom=uom, currency=currency, company=company
+        )

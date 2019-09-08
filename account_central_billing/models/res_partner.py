@@ -7,6 +7,7 @@ from odoo.exceptions import ValidationError
 
 class ResPartner(models.Model):
     """inherit base.res_partner and add columns to allow central invoicing"""
+
     _inherit = "res.partner"
 
     invoicing_partner_id = fields.Many2one(
@@ -14,14 +15,11 @@ class ResPartner(models.Model):
     )
     store_ref = fields.Char(
         string="Store Code",
-        help="If the customer requires specific store "
-        "references on documentation",
+        help="If the customer requires specific store " "references on documentation",
         copy=False,
     )
     billing_partner_id = fields.Many2one(
-        comodel_name="res.partner",
-        string="Billing Supplier",
-        oldname="hq_partner_id",
+        comodel_name="res.partner", string="Billing Supplier", oldname="hq_partner_id"
     )
 
     store_ids = fields.One2many(
@@ -49,9 +47,7 @@ class ResPartner(models.Model):
 
         invoice_type = vals.get(
             "type",
-            invoice.type
-            if invoice
-            else self._context.get("type", "out_invoice"),
+            invoice.type if invoice else self._context.get("type", "out_invoice"),
         )
         if invoice_type.startswith("out_"):
             field = "invoicing_partner_id"
@@ -59,9 +55,7 @@ class ResPartner(models.Model):
             field = "billing_partner_id"
 
         if "company_id" in vals:
-            invoice_company = self.env["res.company"].sudo().browse(
-                vals["company_id"]
-            )
+            invoice_company = self.env["res.company"].sudo().browse(vals["company_id"])
         elif invoice:
             invoice_company = invoice.company_id
         else:
@@ -84,4 +78,6 @@ class ResPartner(models.Model):
         delegated to the parent `commercial entity`. The list is meant to be
         extended by inheriting classes. """
         return super()._commercial_fields() + [
-            'invoicing_partner_id', 'billing_partner_id']
+            "invoicing_partner_id",
+            "billing_partner_id",
+        ]

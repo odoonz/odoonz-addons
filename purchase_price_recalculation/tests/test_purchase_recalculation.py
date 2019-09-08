@@ -8,7 +8,6 @@ from random import randint
 
 
 class TestPurchaseOrder(TransactionCase):
-
     def setUp(self):
         super(TestPurchaseOrder, self).setUp()
         context_no_mail = {
@@ -23,12 +22,8 @@ class TestPurchaseOrder(TransactionCase):
         self.product_id_1 = self.env.ref("product.product_product_8")
         self.product_id_2 = self.env.ref("product.product_product_11")
 
-        (self.product_id_1 | self.product_id_2).write(
-            {"purchase_method": "purchase"}
-        )
-        po_date = fields.Datetime.to_string(
-            fields.Datetime.now(self.product_id_1)
-        )
+        (self.product_id_1 | self.product_id_2).write({"purchase_method": "purchase"})
+        po_date = fields.Datetime.to_string(fields.Datetime.now(self.product_id_1))
         po_vals = {
             "partner_id": self.partner_id.id,
             "order_line": [
@@ -59,15 +54,11 @@ class TestPurchaseOrder(TransactionCase):
             ],
         }
 
-        self.po = self.PurchaseOrder.with_context(context_no_mail).create(
-            po_vals
-        )
+        self.po = self.PurchaseOrder.with_context(context_no_mail).create(po_vals)
         self.po.button_confirm()
 
         self.ppr = self.env["purchase.price.recalculation"].with_context(
-            active_id=self.po.id,
-            active_ids=[self.po.id],
-            active_model="purchase.order",
+            active_id=self.po.id, active_ids=[self.po.id], active_model="purchase.order"
         )
         self.vals = self.ppr.default_get(
             ["name", "partner_id", "date_order", "line_ids"]
@@ -78,9 +69,7 @@ class TestPurchaseOrder(TransactionCase):
         When we create record check that it
         is correctly defaulted
         """
-        vals = self.ppr.default_get(
-            ["name", "partner_id", "date_order", "line_ids"]
-        )
+        vals = self.ppr.default_get(["name", "partner_id", "date_order", "line_ids"])
         recalc = self.ppr.create(vals)
         po = self.po
         self.assertEqual(recalc.name, po)
@@ -101,9 +90,7 @@ class TestPurchaseOrder(TransactionCase):
         recalc._onchange_balance_to_total()
 
         self.assertAlmostEqual(
-            sum(recalc.line_ids.mapped("price_subtotal")),
-            recalc.total,
-            delta=1,
+            sum(recalc.line_ids.mapped("price_subtotal")), recalc.total, delta=1
         )
         # We test that the pricing is roughly weighted in proportion
         approx_change = self.po.amount_untaxed / recalc.total
@@ -133,6 +120,4 @@ class TestPurchaseOrder(TransactionCase):
             check_total = 7.21
             line.price_unit = check_total
             line._onchange_price()
-            self.assertFalse(
-                fc(line.price_subtotal, line.price_unit * line.qty, 2)
-            )
+            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))

@@ -10,7 +10,7 @@ class ProductPriceChange(models.Model):
 
     _name = "product.price.change"
     _description = "Product Price Change"
-    _order = 'effective_date desc, id'
+    _order = "effective_date desc, id"
 
     name = fields.Char(required=True)
     effective_date = fields.Date(
@@ -33,21 +33,32 @@ class ProductPriceChange(models.Model):
         string="Products",
         comodel_name="product.price.change.line",
         inverse_name="price_change_id",
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
     variant_line_ids = fields.One2many(
         string="Variants",
         comodel_name="product.variant.price.change.line",
         inverse_name="price_change_id",
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
     impl_delay_ids = fields.One2many(
         string="Implementation Delays",
         comodel_name="product.price.change.implementation_delay",
         inverse_name="price_change_id",
-        states={'cancel': [('readonly', True)], 'future': [('readonly', True)], 'live': [('readonly', True)]},
+        states={
+            "cancel": [("readonly", True)],
+            "future": [("readonly", True)],
+            "live": [("readonly", True)],
+        },
     )
-
 
     def action_confirm(self):
         for record in self.filtered(lambda s: s.state == "draft"):
