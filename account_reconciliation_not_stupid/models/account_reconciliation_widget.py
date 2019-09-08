@@ -35,6 +35,8 @@ class AccountReconciliationWidget(models.AbstractModel):
         for k, v in res.items():
             try:
                 partner = Partner.browse(v)
+                # Statement triggers access check
+                # pylint: disable=W0104
                 partner.name
             except AccessError:
                 continue

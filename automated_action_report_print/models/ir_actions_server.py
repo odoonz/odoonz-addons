@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.tools.safe_eval import safe_eval
 from odoo.exceptions import ValidationError
 
@@ -69,7 +69,7 @@ class IrActionsServer(models.Model):
 
             if not isinstance(safe_eval(record.print_options), dict):
                 raise ValidationError(
-                    "Print options must be an evaluable " "dictionary"
+                    _("Print options must be an evaluable dictionary")
                 )
 
     @api.onchange("state")

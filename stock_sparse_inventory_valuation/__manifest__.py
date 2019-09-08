@@ -3,7 +3,7 @@
 
 {
     "name": "Stock Sparse Inventory Valuation",
-    "description": """
+    "summary": """
         Speeds up inventory valuation action for the common cases""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",

@@ -1,7 +1,7 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 
@@ -15,7 +15,7 @@ class ProductPriceChange(models.Model):
     effective_date = fields.Date(
         required=True, readonly=True, states={"draft": [("readonly", False)]}
     )
-    partner_effective_date = fields.Date(compute="_get_partner_effective_date")
+    partner_effective_date = fields.Date(compute="_compute_partner_effective_date")
     description = fields.Html()
     state = fields.Selection(
         [
@@ -66,16 +66,16 @@ class ProductPriceChange(models.Model):
     def action_cancel(self):
         for record in self:
             if record.state == "live":
-                raise UserError("Cannot cancel a previously implemented pricing change")
+                raise UserError(_('Cannot cancel a previously implemented pricing change'))
             record.state = "cancel"
 
     def action_draft(self):
         for record in self:
             if record.state == "live":
-                raise UserError("Cannot cancel a previously implemented pricing change")
+                raise UserError(_('Cannot cancel a previously implemented pricing change'))
             record.state = "draft"
 
-    def _get_partner_effective_date(self):
+    def _compute_partner_effective_date(self):
         partner_id = self._context.get("partner_id")
         if partner_id:
             tag_ids = (

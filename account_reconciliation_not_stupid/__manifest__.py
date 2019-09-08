@@ -3,7 +3,7 @@
 
 {
     "name": "Account Reconciliation Not Stupid",
-    "description": """
+    "summary": """
         A not stupid proposal for reconcilable move lines""",
     "version": "12.0.1.1.0",
     "license": "AGPL-3",

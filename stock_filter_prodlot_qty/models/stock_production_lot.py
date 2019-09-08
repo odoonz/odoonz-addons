@@ -8,6 +8,8 @@ class StockProductionLot(models.Model):
 
     _inherit = "stock.production.lot"
 
+    # Inherits upstream usage of deprecated api.one
+    # pylint: disable=W8104
     @api.one
     def _product_qty(self):
         if self.env.context.get("location_id"):

@@ -3,7 +3,7 @@
 
 {
     "name": "Stock Filter Prodlot Qty",
-    "description": """
+    "summary": """
         Filters production lots by availability in location""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",

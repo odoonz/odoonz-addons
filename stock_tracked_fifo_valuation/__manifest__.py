@@ -3,7 +3,7 @@
 
 {
     "name": "Stock Tracked Fifo Valuation",
-    "description": """
+    "summary": """
         Selects in moves of same lot for cost tracking (more like actual cost)""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
