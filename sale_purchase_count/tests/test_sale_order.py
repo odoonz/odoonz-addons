@@ -19,14 +19,16 @@ class TestSaleOrder(common.TransactionCase):
             {"origin": "%s-%s" % (self.purch2.origin or "test", self.sale.name)}
         )
         self.sale.invalidate_cache()
-        self.assertEqual(self.sale.purchase_count, 2)
+        self.assertEqual(self.sale.purchase_count, 2, "Purchase count incorrect")
 
     def test_view_purchase(self):
         self.purch1.write({"origin": self.sale.name})
-        action = self.sale.action_view_purchase()
-        self.assertEquals(self.sale.id, action.get("res_id", 0))
+        action = self.sale.action_view_purchase_orders()
+        self.assertEquals(
+            self.purch1.id, action.get("res_id", 0), "Purchase ID missing fro action"
+        )
         self.purch2.write(
             {"origin": "%s-%s" % (self.purch2.origin or "test", self.sale.name)}
         )
-        action = self.sale.action_view_purchase()
-        self.assertIn("domain", action)
+        action = self.sale.action_view_purchase_orders()
+        self.assertIn("domain", action, "Domain missing for multiple purchases")
