@@ -3,7 +3,7 @@
 
 {
     "name": "Product List Price Change",
-    "description": """
+    "summary": """
         Supports temporal list price changes for products""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
@@ -24,3 +24,5 @@
     #     'demo/product_price_rise.xml',
     # ],
 }
+
+# TODO: Make sure when doing test to test uom's
