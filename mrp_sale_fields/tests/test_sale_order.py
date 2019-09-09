@@ -13,7 +13,7 @@ class TestSaleOrder(common.TransactionCase):
 
     def test_compute_production_ids(self):
         self.assertEqual(self.sale.production_count, 0)
-        self.prod.sale_id = self.sale
+        self.prod.move_dest_ids.write({'sale_line_id': self.sale.order_line[0].id})
         self.sale.invalidate_cache()
         self.assertEqual(self.sale.production_count, 1)
 
