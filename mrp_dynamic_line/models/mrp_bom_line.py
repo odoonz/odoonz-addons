@@ -14,8 +14,10 @@ class MrpBomLine(models.Model):
         comodel_name="product.template", string="Product", required=True, related=False
     )
     product_id = fields.Many2one(
-        string="Product Variant", compute="_compute_product_id", required=False,
-        inverse= "_inverse_product_id"
+        string="Product Variant",
+        compute="_compute_product_id",
+        required=False,
+        inverse="_inverse_product_id",
     )
     variant_id = fields.Many2one(
         comodel_name="product.product",

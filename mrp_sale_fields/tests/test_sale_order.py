@@ -61,7 +61,7 @@ class TestSaleOrder(common.TransactionCase):
             f.product_uom_id = self.uom_dozen
             with f.bom_line_ids.new() as line:
                 line.product_id = product_b
-                if hasattr(line, 'product_tmpl_id'):
+                if hasattr(line, "product_tmpl_id"):
                     line.product_tmpl_id = product_b.product_tmpl_id
                     line.variant_id = product_b
                 line.product_qty = 3
