@@ -83,7 +83,10 @@ class ProductProduct(models.Model):
     @api.depends("list_price", "price_extra")
     def _compute_product_lst_price(self):
         to_uom = None
-        if not self._context.get("uom_already_computed", False) and "uom" in self._context:
+        if (
+            not self._context.get("uom_already_computed", False)
+            and "uom" in self._context
+        ):
             to_uom = self.env["uom.uom"].browse([self._context["uom"]])
         effective_date = self._context.get("date")
         if not effective_date:
@@ -122,6 +125,7 @@ class ProductProduct(models.Model):
     def price_compute(self, price_type, uom=False, currency=False, company=False):
         if price_type == "list_price":
             price_type = "lst_price"
-        return super(ProductProduct, self.with_context(uom_already_computed=price_type=='lst_price')).price_compute(
-            price_type, uom=uom, currency=currency, company=company
-        )
+        return super(
+            ProductProduct,
+            self.with_context(uom_already_computed=price_type == "lst_price"),
+        ).price_compute(price_type, uom=uom, currency=currency, company=company)
