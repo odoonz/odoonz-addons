@@ -14,7 +14,8 @@ class MrpBomLine(models.Model):
         comodel_name="product.template", string="Product", required=True, related=False
     )
     product_id = fields.Many2one(
-        string="Product Variant", compute="_compute_product_id", required=False
+        string="Product Variant", compute="_compute_product_id", required=False,
+        inverse= "_inverse_product_id"
     )
     variant_id = fields.Many2one(
         comodel_name="product.product",
@@ -35,6 +36,12 @@ class MrpBomLine(models.Model):
     )
 
     xform_ids = fields.Many2many("bom.line.xform", string="Transformations")
+
+    def _inverse_product_id(self):
+        for bom_line in self:
+            if not bom_line.product_tmpl_id:
+                bom_line.product_tmpl_id = bom_line.product_id.product_tmpl_id
+                bom_line.variant_id = bom_line.product_id
 
     @api.multi
     def _compute_product_id(self):
