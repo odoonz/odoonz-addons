@@ -22,7 +22,7 @@ class ProductAttributeLine(models.Model):
         readonly in the UI it won't write so we handle properly in write
         :return:
         """
-        self.value_ids = self.attr_group_ids.mapped("value_ids")
+        self.value_ids = self.attr_group_ids.mapped("value_ids") or False
 
     @api.model_create_multi
     def create(self, vals_list):
