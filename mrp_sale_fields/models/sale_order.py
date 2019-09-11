@@ -14,7 +14,7 @@ class SaleOrder(models.Model):
 
     def _compute_production_ids(self):
         self._cr.execute(
-            """SELECT COUNT(mrp.sale_id)
+            """SELECT mrp.sale_id, COUNT(mrp.sale_id)
         FROM mrp_production mrp
         WHERE mrp.sale_id IN %s
           AND mrp.state != 'cancel'
