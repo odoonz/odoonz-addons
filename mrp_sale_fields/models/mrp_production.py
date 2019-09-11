@@ -9,7 +9,11 @@ class MrpProduction(models.Model):
     _inherit = "mrp.production"
 
     sale_id = fields.Many2one(
-        related="production_id.sale_id", string="Sale order", readonly=True, store=True
+        comodel_name="sale.order",
+        string="Sale order",
+        readonly=True,
+        store=True,
+        related="procurement_group_id.sale_id",
     )
 
     partner_id = fields.Many2one(
