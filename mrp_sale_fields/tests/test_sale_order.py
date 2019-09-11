@@ -21,6 +21,6 @@ class TestSaleOrder(common.TransactionCase):
         domain = self.sale.action_view_production().get("domain", [])
         self.assertIn(("sale_id", "=", self.sale.id), domain)
 
-    #TODO Add test here to do full flow
+    # TODO Add test here to do full flow
     def test_sale_mrp_flow(self):
         pass

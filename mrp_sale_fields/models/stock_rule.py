@@ -24,7 +24,7 @@ class StockRule(models.Model):
         res.update(
             {
                 "procurement_group_id": values.get(
-                    "group_id", env["procurement.group"]
+                    "group_id", self.env["procurement.group"]
                 ).id
             }
         )
