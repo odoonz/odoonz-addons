@@ -36,7 +36,7 @@ class AccountInvoice(models.Model):
                 record.partner_id.id,
                 record.partner_id.commercial_partner_id.id,
             ]:
-                raise ValidationError(_("Cannot self bill"))
+                raise ValidationError(_("Cannot self bill. %d") % record.id)
 
     @api.model_create_multi
     def create(self, vals_list):
