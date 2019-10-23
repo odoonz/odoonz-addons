@@ -10,6 +10,10 @@ Adds a postal address to warehouses.  The use case is in a multi warehouse
 environment where you want the warehouse rather than company's address to
 appear on docs.
 
+Also adds an optional address to picking types. The use case for this
+was purchase orders that sometimes go to a different gate but have same
+default location.
+
 Installation
 ============
 
