@@ -2,8 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from builtins import range
-from dateutil.rrule import rrule, DAILY
+
 from dateutil.relativedelta import relativedelta
+from dateutil.rrule import DAILY, rrule
 
 from odoo import api, fields, models
 
@@ -33,7 +34,10 @@ class AccountJournal(models.Model):
             return False
 
         if self.cutoff_type == "eom":
-            if transaction_date.month < today.month:
+            if (
+                transaction_date.month < today.month
+                or transaction_date.year < today.year
+            ):
                 transaction_date += relativedelta(day=31)
             else:
                 return False
