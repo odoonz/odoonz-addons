@@ -1,8 +1,8 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from dateutil.rrule import rrule, DAILY
 from dateutil.relativedelta import relativedelta
+from dateutil.rrule import DAILY, rrule
 
 from odoo import api, fields, models
 
@@ -35,7 +35,10 @@ class ResPartner(models.Model):
             if transaction_date >= today:
                 continue
             if partner.cutoff_type == "eom":
-                if transaction_date.month >= today.month:
+                if (
+                    transaction_date.year >= today.year
+                    and transaction_date.month >= today.month
+                ):
                     continue
                 # Set to last day of month so we know if inside cutoff window
                 transaction_date += relativedelta(day=31)
