@@ -3,7 +3,7 @@
 
 {
     "name": "Account Anglosaxon Financial",
-    "description": """
+    "summary": """
         Allows purely financial invoices and credits in anglosaxon environments""",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",

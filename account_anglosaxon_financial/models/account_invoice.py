@@ -63,7 +63,7 @@ class AccountInvoiceLine(models.Model):
 
     @api.v8
     # Inherits upstream arguments (type)
-    # pylint: disable=W8622
+    # pylint: disable=W0622
     def get_invoice_line_account(self, type, product, fpos, company):
         """
         We override stock_account function to return the expense account
