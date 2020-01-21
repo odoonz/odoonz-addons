@@ -7,7 +7,7 @@
 
 from itertools import chain
 
-from odoo import models, fields, api, tools, _
+from odoo import _, api, fields, models, tools
 from odoo.exceptions import UserError, ValidationError
 
 # noinspection PyUnresolvedReferences
@@ -32,8 +32,11 @@ class ProductPricelist(models.Model):
         """
         self.ensure_one()
         if not date:
+            # deliberately disagrees with upstream use of UTC
             date = self._context.get("date") or fields.Date.context_today(self)
-        date = fields.Date.to_date(date)  # handwritten query below does not work with non-dates (e.g. datetimes)
+        date = fields.Date.to_date(
+            date
+        )  # handwritten query below does not work with non-dates (e.g. datetimes)
         if not uom_id and self._context.get("uom"):
             uom_id = self._context["uom"]
         if uom_id:
@@ -230,7 +233,7 @@ class ProductPricelist(models.Model):
 
                 if rule.base == "pricelist" and rule.base_pricelist_id:
                     price_tmp = rule.base_pricelist_id._compute_price_rule(
-                        [(product, qty, partner)]
+                        [(product, qty, partner)], date, uom_id
                     )[product.id][
                         0
                     ]  # TDE: 0 = price, 1 = rule
