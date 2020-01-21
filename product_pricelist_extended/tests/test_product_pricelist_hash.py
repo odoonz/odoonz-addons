@@ -1,9 +1,11 @@
 # Copyright Graeme Gellatly 2017
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import inspect
 import hashlib
+import inspect
+
 from odoo.tests.common import TransactionCase
+
 from odoo.addons.product.models.product_pricelist import Pricelist as upstream
 
 # mostly compatible, only bug fixes different, except last entry which is base
@@ -14,6 +16,7 @@ VALID_HASHES = [
     "f0a99e6236c00d75899bcb635151c670",
     "9858823ca62ce6cf90f3017b053b1b35",
     "fe4430e66430efab9d79b37e18cb9b0c",
+    "ace558a8e69fd3ea18d911f0ad933d33",
 ]
 
 
