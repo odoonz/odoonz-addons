@@ -23,11 +23,6 @@ class TestAttributeGroups(TransactionCase):
             self.product_ipod.attribute_line_ids[0].value_ids
             == (self.attr_group_2.value_ids + self.attr_group_1.value_ids)
         )
-        # Then removing them
-        self.ipod_memory_line.attr_group_ids = self.env["product.attribute.group"]
-        self.assertFalse(len(self.ipod_memory_line.value_ids))
-        self.product_ipod.create_variant_ids()
-        self.assertFalse(len(self.product_ipod.product_variant_ids))
 
     def test_adding_values_to_attr_group(self):
         """
@@ -160,10 +155,6 @@ class TestAttributeGroups(TransactionCase):
         attr_recordset = self.attr_group_1 | self.attr_group_2
         with self.assertRaises(ValueError):
             attr_recordset.button_copy()
-
-    def test_onchange_group(self):
-        self.ipod_memory_line.onchange_attr_group()
-        self.assertFalse(len(self.ipod_memory_line.value_ids))
 
     def setUp(self):
         super().setUp()
