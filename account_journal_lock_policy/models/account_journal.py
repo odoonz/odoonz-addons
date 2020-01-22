@@ -34,12 +34,8 @@ class AccountJournal(models.Model):
             return False
 
         if self.cutoff_type == "eom":
-            if (
-                transaction_date.month < today.month
-                or transaction_date.year < today.year
-            ):
-                transaction_date += relativedelta(day=31)
-            else:
+            transaction_date += relativedelta(day=31)
+            if transaction_date >= today:
                 return False
         if self.months:
             transaction_date += relativedelta(months=self.months)
