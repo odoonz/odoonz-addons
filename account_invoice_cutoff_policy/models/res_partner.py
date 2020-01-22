@@ -35,13 +35,11 @@ class ResPartner(models.Model):
             if transaction_date >= today:
                 continue
             if partner.cutoff_type == "eom":
-                if (
-                    transaction_date.year >= today.year
-                    and transaction_date.month >= today.month
-                ):
+                eom = transaction_date + relativedelta(day=31)
+                if eom >= today:
                     continue
                 # Set to last day of month so we know if inside cutoff window
-                transaction_date += relativedelta(day=31)
+                transaction_date = eom
             if partner.days:
                 weekdays = list(range(5 if partner.day_type == "weekday" else 7))
                 transaction_date = rrule(
