@@ -85,7 +85,7 @@ class ReportAccountReportAgedpartnerbalance(models.AbstractModel):
             WHERE (l.account_id = account_account.id)
                 AND (l.move_id = am.id)
                 AND (am.state IN %s)
-                AND (account_account.internal_type IN ('receivable'))
+                AND (account_account.internal_type IN %s)
                 AND (
                         l.reconciled IS FALSE
                         OR apr_credit.max_date > %s
