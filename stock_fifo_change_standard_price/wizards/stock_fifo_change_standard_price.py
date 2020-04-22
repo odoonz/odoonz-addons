@@ -117,7 +117,7 @@ class StockFifoChangeStandardPrice(models.TransientModel):
                         account_id = p.property_account_creditor_price_difference.id
                         if not account_id:
                             account_id = (
-                                p.property_account_creditor_price_difference_categ.id
+                                p.categ_id.property_account_creditor_price_difference_categ.id
                             )
 
                         allowed_invoice_types = (
