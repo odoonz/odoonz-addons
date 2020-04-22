@@ -70,7 +70,7 @@ class StockInventoryLine(models.Model):
             and self.prod_lot_id
         ):
             candidates = self.product_id.with_context(
-                lots={self.prod_lot_id: qty}
+                lots={self.prod_lot_id.id: qty}
             )._get_fifo_candidates_in_move_with_company(
                 move_company_id=self.inventory_id.company_id.id
             )
