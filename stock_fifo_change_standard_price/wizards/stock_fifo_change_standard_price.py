@@ -134,11 +134,11 @@ class StockFifoChangeStandardPrice(models.TransientModel):
                         ):
                             account_id = accounts[move.product_id.product_tmpl_id.id][
                                 "stock_input"
-                            ]
+                            ].id
                     else:
                         account_id = accounts[move.product_id.product_tmpl_id.id][
                             "expense"
-                        ]
+                        ].id
 
                     if hasattr(move, "operating_unit_id"):
                         move = move.with_context(
