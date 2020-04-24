@@ -53,6 +53,10 @@ class StockChangeStandardPrice(models.TransientModel):
             context["active_id"] = product.product_tmpl_id.id
             context["active_ids"] = [context["active_id"]]
             context["active_model"] = "product.template"
+        if hasattr(self.env.user, "default_operating_unit_id"):
+            ou = self.env.user.operating_unit_default_get(self._uid).id
+            context["default_operating_unit"] = ou
+            context["operating_unit_id"] = ou
         if self.accounting_date:
             context["force_period_date"] = self.accounting_date
         super(StockChangeStandardPrice, self.with_context(**context)).change_price()
