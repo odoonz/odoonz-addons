@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class SaleOrder(models.Model):
@@ -12,7 +12,6 @@ class SaleOrder(models.Model):
         string="Purchase Orders", compute="_compute_purchase_ids"
     )
 
-    @api.multi
     def _compute_purchase_ids(self):
         Purchase = self.env["purchase.order"]
         for order in self:
@@ -20,7 +19,6 @@ class SaleOrder(models.Model):
                 [("origin", "ilike", order.name)]
             )
 
-    @api.multi
     def action_view_purchase_orders(self):
         """
         This function returns an action that display existing purchase orders
