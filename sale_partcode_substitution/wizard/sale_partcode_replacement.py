@@ -1,7 +1,7 @@
 # Copyright 2014- Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -19,7 +19,6 @@ class SaleCodeReplacement(models.TransientModel):
         """
         return vals
 
-    @api.multi
     def change_products_partcode(self):
         self.ensure_one()
         sale = self.env["sale.order"].browse(self._context["active_id"])
@@ -53,5 +52,5 @@ class SaleCodeReplacement(models.TransientModel):
                         )
                         vals = self._finalize_vals(vals, line, new_part)
                         line.write(vals)
-        sale._amount_all()  # TODO: Why is this needed now?
+        # sale._amount_all()  # TODO: Why is this needed now?
         return {}

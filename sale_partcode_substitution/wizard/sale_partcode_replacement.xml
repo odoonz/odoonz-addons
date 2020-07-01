@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        
-        <record model="ir.ui.view" id="view_sale_code_replacement">
-            <field name="name">view.sale.code.replacement</field>
-            <field name="model">sale.code.replacement</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <form string="Partcode Change" >
+
+    <record model="ir.ui.view" id="view_sale_code_replacement">
+        <field name="name">view.sale.code.replacement</field>
+        <field name="model">sale.code.replacement</field>
+        <field name="arch" type="xml">
+            <form string="Partcode Change" >
+                <group>
                     <group>
-                        <group>
-                            <field name="from_code" />
-                        </group>
-                        <group>
-                            <field name="to_code" />
-                        </group>
+                        <field name="from_code" />
                     </group>
-                    <footer>
-                        <button name="change_products_partcode" string="Substitute" type="object" class="oe_highlight"/>
-                        <button name="cancel" string="Discard" type="special" />
-                    </footer>
-                </form>
-            </field>
-        </record>
-        
-        <act_window id="sale_code_replacement_act_window" name="Substitute Partcodes" view_mode="form"
-            view_type="form" res_model="sale.code.replacement" src_model="sale.order"
-            target="new" />
+                    <group>
+                        <field name="to_code" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="change_products_partcode" string="Substitute" type="object" class="oe_highlight"/>
+                    <button name="cancel" string="Discard" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="sale_code_replacement_act_window" name="Substitute Partcodes" view_mode="form"
+        res_model="sale.code.replacement" binding_model="sale.order"
+        target="new" />
 
 </odoo>
