@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 
 
 class SalePriceRecalculation(models.TransientModel):
@@ -16,7 +16,6 @@ class SalePriceRecalculation(models.TransientModel):
         "sale.price.recalculation.line", "price_recalculation_id", "Lines"
     )
 
-    @api.multi
     def _prepare_quote_related_vals(self):
         return {}
 
@@ -41,7 +40,6 @@ class SalePriceRecalculation(models.TransientModel):
             line.discount = 0.0
         return self.update_pricelist_lines(self.pricelist_id)
 
-    @api.multi
     def _set_context(self):
         ctx = super()._set_context()
         ctx.update(
@@ -130,7 +128,6 @@ class SalePriceRecalculation(models.TransientModel):
             if not ol.display_type
         ]
 
-    @api.multi
     def action_write(self):
         self.ensure_one()
         self._check_write_constraints()
@@ -167,7 +164,7 @@ class SalePriceRecalculation(models.TransientModel):
             msgs.append(u"</ul><br/>")
         else:
             msgs = []
-        order.invoice_ids.compute_taxes()
+        order.invoice_ids._compute_amount()
         msgs = header_msgs + msgs
         if msgs:
             body = "".join(msgs)
@@ -204,7 +201,8 @@ class SalePriceRecalculation(models.TransientModel):
                 order_line.write(
                     {"discount": line.discount, "price_unit": line.price_unit}
                 )
-                order_line.invoice_lines.write(
+
+                order_line.invoice_lines.with_context(check_move_validity=False).write(
                     {
                         "discount": line.discount,
                         "price_subtotal": line.price_subtotal,
