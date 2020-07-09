@@ -10,14 +10,12 @@
             <data>
                 <button name="toggle_active" position="before">
                     <button class="oe_stat_button o_res_partner_tip_opp"
-                            attrs="{'invisible': [('customer', '=', False)]}"
                             name="open_payment_matching_screen"
                             string="Customer Reconcile" type="object"
                             icon="fa-university"
                             groups="account.group_account_invoice"
                             context="{'mode': 'customers'}"/>
                     <button class="oe_stat_button o_res_partner_tip_opp"
-                            attrs="{'invisible': [('supplier', '=', False)]}"
                             name="open_payment_matching_screen"
                             string="Supplier Reconcile" type="object"
                             icon="fa-university"
