@@ -1,7 +1,8 @@
-from odoo import models
+from odoo import fields, models
 
 
 class ResPartner(models.Model):
+    _name = "res.partner"
     _inherit = "res.partner"
 
     def open_payment_matching_screen(self):
@@ -16,3 +17,10 @@ class ResPartner(models.Model):
             "tag": "manual_reconciliation_view",
             "context": action_context,
         }
+
+    customer = fields.Boolean(
+        string="Is a Customer", help="Check this box if this contact is a customer."
+    )
+    supplier = fields.Boolean(
+        string="Is a Vendor", help="Check this box if this contact is a vendor."
+    )

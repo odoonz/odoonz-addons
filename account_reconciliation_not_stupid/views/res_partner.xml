@@ -7,23 +7,28 @@
         <field name="priority">5</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <data>
-                <button name="toggle_active" position="before">
-                    <button class="oe_stat_button o_res_partner_tip_opp"
-                            name="open_payment_matching_screen"
-                            string="Customer Reconcile" type="object"
-                            icon="fa-university"
-                            groups="account.group_account_invoice"
-                            context="{'mode': 'customers'}"/>
-                    <button class="oe_stat_button o_res_partner_tip_opp"
-                            name="open_payment_matching_screen"
-                            string="Supplier Reconcile" type="object"
-                            icon="fa-university"
-                            groups="account.group_account_invoice"
-                            context="{'mode': 'suppliers'}"/>
-
-                </button>
-            </data>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button o_res_partner_tip_opp"
+                        name="open_payment_matching_screen"
+                        string="Customer Reconcile" type="object"
+                        icon="fa-university"
+                        groups="account.group_account_invoice"
+                        attrs="{'invisible': [('customer', '=', False)]}"
+                        context="{'mode': 'customers'}"/>
+                <button class="oe_stat_button o_res_partner_tip_opp"
+                        name="open_payment_matching_screen"
+                        string="Supplier Reconcile" type="object"
+                        icon="fa-university"
+                        groups="account.group_account_invoice"
+                        attrs="{'invisible': [('supplier', '=', False)]}"
+                        context="{'mode': 'suppliers'}"/>
+            </xpath>
+            <xpath expr="//group[@name='sale']" position="inside">
+                <field name="customer"/>
+            </xpath>
+            <xpath expr="//group[@name='purchase']" position="inside">
+                <field name="supplier"/>
+            </xpath>
         </field>
     </record>
 </odoo>
