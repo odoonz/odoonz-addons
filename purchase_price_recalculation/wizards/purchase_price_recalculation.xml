@@ -37,7 +37,7 @@
                 </field>
                 <footer>
                     <button name="action_write" string="Write Changes" type="object" class="btn-primary"/>
-                    <button class="btn-default" special="cancel" string="Close"/>
+                    <button special="cancel" string="Close"/>
                 </footer>
             </form>
         </field>
