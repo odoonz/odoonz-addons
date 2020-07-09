@@ -21,7 +21,6 @@ except ImportError as err:
     _logger.debug(err)
 
 pricelist = "odoo.addons.product.models.product_pricelist.Pricelist"
-_logger = logging.Logger(__name__)
 
 
 class TestSaleRecalc(TestSale):
