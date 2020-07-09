@@ -47,9 +47,8 @@
             id="purchase_price_recalculation_act_window"
             name="Update Pricing"
             view_mode="form"
-            view_type="form"
             res_model="purchase.price.recalculation"
-            src_model="purchase.order"
+            binding_model="purchase.order"
             target="new"/>
 
 </odoo>
