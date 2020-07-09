@@ -52,5 +52,7 @@ class SaleCodeReplacement(models.TransientModel):
                         )
                         vals = self._finalize_vals(vals, line, new_part)
                         line.write(vals)
-        # sale._amount_all()  # TODO: Why is this needed now?
+        # TODO: Why is this needed now:
+        #  need to be proven no bug related in production
+        sale._amount_all()
         return {}
