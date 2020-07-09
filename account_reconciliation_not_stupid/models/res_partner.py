@@ -1,10 +1,9 @@
-from odoo import models, api
+from odoo import models
 
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    @api.multi
     def open_payment_matching_screen(self):
         # Open reconciliation view for customers/suppliers
         action_context = {
