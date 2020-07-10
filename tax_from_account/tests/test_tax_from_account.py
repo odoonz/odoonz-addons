@@ -1,7 +1,7 @@
 # Copyright 2020 Rujia Liu
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import Form, TransactionCase
 
 from ..models import tax_from_account
 
@@ -44,6 +44,7 @@ class TestTaxFromAccount(TransactionCase):
                 "amount_type": "percent",
             }
         )
+
         self.test_tax_purch1 = self.env["account.tax"].create(
             {
                 "name": "Test 20%",
@@ -96,6 +97,18 @@ class TestTaxFromAccount(TransactionCase):
                 "route_ids": self.env["stock.location.route"].search(
                     [("name", "in", ("Buy", "Replenish on Order (MTO)"))]
                 ),
+            }
+        )
+        self.test_company = self.env["res.company"].create(
+            {"name": "Test Company", "account_sale_tax_id": self.test_tax_sale2.id}
+        )
+        self.test_tax_sale_comp2 = self.env["account.tax"].create(
+            {
+                "name": "Test 30%",
+                "type_tax_use": "sale",
+                "amount": 30.0,
+                "amount_type": "percent",
+                "company_id": self.test_company.id,
             }
         )
 
@@ -188,3 +201,69 @@ class TestTaxFromAccount(TransactionCase):
             order_line_2, partner, inv_type="in_invoice"
         )
         self.assertEqual(tax_id, self.test_default_purch_tax)
+
+    def test_product_tax_in_multi_companies(self):
+        # use same product, create a new sale order line
+        # in an existing sale order: order line should have
+        # tax_id = company.account_sale_tax_id
+        self.test_sale_order.company_id.account_sale_tax_id = self.test_default_sale_tax
+        so = Form(self.test_sale_order)
+        with so.order_line.new() as line_a:
+            line_a.name = "In company A"
+            line_a.product_id = self.test_product
+        so = so.save()
+
+        line_a = so.order_line.search([("product_id", "=", self.test_product.id)])
+        self.assertEqual(
+            line_a.tax_id,
+            so.company_id.account_sale_tax_id,
+            "Line A should have same tax as so's company tax_id",
+        )
+
+        # use same product, create a sale order line
+        # in an new sale order in different company(company2):
+        # order line should have tax_id = company.account_sale_tax_id
+        so_new = Form(self.env["sale.order"])
+        so_new.partner_id = self.env.ref("base.res_partner_2")
+        so_new.company_id = self.test_company
+        with so_new.order_line.new() as line_b:
+            line_b.name = "In company B"
+            line_b.product_id = self.test_product
+
+        so_new = so_new.save()
+        line_b = so_new.order_line
+        self.assertEqual(
+            line_b.tax_id,
+            so_new.company_id.account_sale_tax_id,
+            "Line B should have same tax as so_new's company tax_id",
+        )
+
+        # assign a new taxes_id(in company2) to the same product,
+        # recreate the order line in the new order and
+        # it should have: tax_id = product.taxes_id
+        self.test_product.taxes_id = self.test_tax_sale_comp2
+        with Form(so_new) as so_new:
+            so_new.order_line.remove(index=0)
+            with so_new.order_line.new() as line_b1:
+                line_b1.name = "In company B: add product taxes_id"
+                line_b1.product_id = self.test_product
+        so_new = so_new.save()
+        line_b1 = so_new.order_line
+        self.assertEqual(
+            line_b1.tax_id,
+            line_b1.product_id.taxes_id,
+            "Line B1 should have same tax as product's taxes_id",
+        )
+
+        # recreate the order line in the existing order
+        # and its tax_id should be same as before
+        with Form(so) as so:
+            so.order_line.remove(index=len(so.order_line) - 1)
+            with so.order_line.new() as line_a1:
+                line_a1.name = "In company A: check line.tax_id"
+                line_a1.product_id = self.test_product
+        so = so.save()
+        line_a1 = so.order_line[-1]
+        self.assertEqual(
+            line_a1.tax_id, line_a1.product_id.taxes_id, "Line A1 should stay the same"
+        )

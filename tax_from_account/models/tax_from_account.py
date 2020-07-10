@@ -15,22 +15,24 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
         if inv_type.startswith("out_")
         else "account_purchase_tax_id"
     )
-    tax_field = "taxes_id" if inv_type.startswith("out_") else "supplier_taxes_id"
-    account_type = "income" if inv_type.startswith("out_") else "expense"
-    tax_ids = line.env["account.tax"]
-    if line.product_id[tax_field].filtered(lambda tax: tax.company_id == company):
-        tax_ids = line.product_id[tax_field].filtered(
-            lambda tax: tax.company_id == company
-        )
-    elif line.product_id.product_tmpl_id.get_product_accounts(fiscal_pos=fpos)[
+
+    if inv_type.startswith("out_"):
+        tax_field, account_type = "taxes_id", "income"
+    else:
+        tax_field, account_type = "supplier_taxes_id", "expense"
+    account = line.product_id.product_tmpl_id.get_product_accounts(fiscal_pos=fpos)[
         account_type
-    ].tax_ids:
-        tax_ids = line.product_id.product_tmpl_id.get_product_accounts(fiscal_pos=fpos)[
-            account_type
-        ].tax_ids
-    if not tax_ids:
-        tax_ids = company[company_tax_field]
-    return fpos.map_tax(tax_ids, line.product_id, partner) if fpos else tax_ids
+    ]
+
+    # Don't try to collapse the filtering, needs independent evaluation of
+    # each possibility.
+    taxes = (
+        line.product_id[tax_field].filtered(lambda t: t.company_id == company)
+        or account.tax_ids.filtered(lambda t: t.company_id == company)
+        or company[company_tax_field]
+    )
+
+    return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
 
 
 class SaleOrderLine(models.Model):
@@ -47,12 +49,6 @@ class SaleOrderLine(models.Model):
 
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
-
-    # @api.onchange("product_id")
-    # def onchange_product_id(self):
-    #     result = super().onchange_product_id()
-    #     self._compute_tax_id()
-    #     return result
 
     def _compute_tax_id(self):
         super()._compute_tax_id()
