@@ -1,10 +1,11 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models, fields
+from datetime import datetime
+
+from odoo import api, fields, models
 from odoo.exceptions import AccessError
 from odoo.osv import expression
-from datetime import datetime
 
 
 class AccountReconciliationWidget(models.AbstractModel):
@@ -62,7 +63,13 @@ class AccountReconciliationWidget(models.AbstractModel):
 
     @api.model
     def _domain_move_lines_for_reconciliation(
-        self, st_line, aml_accounts, partner_id, excluded_ids=None, search_str=False
+        self,
+        st_line,
+        aml_accounts,
+        partner_id,
+        excluded_ids=None,
+        search_str=False,
+        mode=None,
     ):
         account_type_filter = expression.OR(
             [
@@ -99,6 +106,7 @@ class AccountReconciliationWidget(models.AbstractModel):
         search_str=False,
         offset=0,
         limit=None,
+        mode=None,
     ):
         return super().get_move_lines_for_bank_statement_line(
             st_line_id,
