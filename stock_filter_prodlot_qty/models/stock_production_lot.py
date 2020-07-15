@@ -1,23 +1,21 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models, fields
+from odoo import fields, models
 
 
 class StockProductionLot(models.Model):
 
     _inherit = "stock.production.lot"
 
-    # Inherits upstream usage of deprecated api.one
-    # pylint: disable=W8104
-    @api.one
     def _product_qty(self):
-        if self.env.context.get("location_id"):
-            self.product_qty = self.product_id.with_context(
-                location=self.env.context.get("location_id"), lot_id=self.id
-            ).qty_available
-        else:
-            super()._product_qty()
+        for lot in self:
+            if lot.env.context.get("location_id"):
+                lot.product_qty = lot.product_id.with_context(
+                    location=lot.env.context.get("location_id"), lot_id=lot.id
+                ).qty_available
+            else:
+                super()._product_qty()
 
     def _search(
         self,
