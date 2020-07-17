@@ -1,13 +1,26 @@
-from random import randint, random
-from odoo.addons.sale.tests.test_sale_common import TestSale
-from odoo import fields
-from odoo.tools import float_compare as fc
-
 import logging
+from random import randint, random
+
 import mock
 
-pricelist = "odoo.addons.product.models.product_pricelist.Pricelist"
+from odoo import fields
+from odoo.tests.common import Form
+from odoo.tools import float_compare as fc, float_round
+
+from odoo.addons.sale.tests.test_sale_common import TestSale
+
+from . import hypothesis_params as hp
+
 _logger = logging.Logger(__name__)
+
+try:
+    from hypothesis import given
+    from hypothesis import strategies as st
+    from hypothesis import assume
+except ImportError as err:
+    _logger.debug(err)
+
+pricelist = "odoo.addons.product.models.product_pricelist.Pricelist"
 
 
 class TestSaleRecalc(TestSale):
@@ -68,13 +81,13 @@ class TestSaleRecalc(TestSale):
         self.assertEqual(recalc.name, so)
         self.assertEqual(recalc.partner_id, so.partner_id)
         self.assertEqual(len(so.order_line), len(recalc.line_ids))
-        l = recalc.line_ids[randint(0, len(recalc.line_ids) - 1)]
-        s = l.name
-        self.assertEqual(s.product_id, l.product_id)
-        self.assertEqual(s.product_uom_qty, l.qty)
-        self.assertFalse(fc(s.price_unit, l.price_unit, 2))
-        self.assertFalse(fc(s.price_subtotal, l.price_subtotal, 2))
-        self.assertFalse(fc(s.price_total, l.price_total, 2))
+        line = recalc.line_ids[randint(0, len(recalc.line_ids) - 1)]
+        s = line.name
+        self.assertEqual(s.product_id, line.product_id)
+        self.assertEqual(s.product_uom_qty, line.qty)
+        self.assertFalse(fc(s.price_unit, line.price_unit, 2))
+        self.assertFalse(fc(s.price_subtotal, line.price_subtotal, 2))
+        self.assertFalse(fc(s.price_total, line.price_total, 2))
 
     def test_protected_fields(self):
         protected_field = "price_unit"
@@ -119,74 +132,77 @@ class TestSaleRecalc(TestSale):
                 s.price_total / l.price_total, approx_change, delta=1
             )
 
-    def test_change_line_total(self):
+    @given(st.data())
+    def test_change_line_total(self, data):
         """Test the changing a subtotal works correctly"""
-        line = self.env["sale.price.recalculation.line"].new()
-        line.update(
-            {
-                "price_unit": 20.0,
-                "discount": 10.0,
-                "qty": 5.0,
-                "price_subtotal": 90.0,
-                "price_total": 108.0,
-                "effective_tax_rate": 0.2,
-            }
-        )
-        with self.env.do_in_onchange():
-            check_total = 600.0
-            line.price_total = check_total
-            line._onchange_total()
-            self.assertAlmostEqual(line.price_total, check_total, delta=1)
-            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))
-            self.assertEqual(line.qty, 5.0, "Changing totals should not affect qty")
-            self.assertFalse(fc(line.price_subtotal * (1 + 0.2), line.total, 2))
-            self.assertEqual(line.discount, 0.0)
+        subtotal = data.draw(st.floats(**hp.PRICE_ARGS))
+        total = data.draw(st.floats(**hp.PRICE_ARGS))
+        assume((subtotal > 0.10 or subtotal == 0.0) and (total > 0.10 or total == 0.0))
+        # assumed because of limitations in test rounding more than anything
 
-    def test_change_line_subtotal(self):
-        """Test the changing a subtotal works correctly"""
-        line = self.env["sale.price.recalculation.line"].new()
-        line.update(
-            {
-                "price_unit": 20.0,
-                "discount": 10.0,
-                "qty": 5.0,
-                "price_subtotal": 90.0,
-                "price_total": 108.0,
-                "effective_tax_rate": 0.2,
-            }
-        )
-        with self.env.do_in_onchange():
-            check_total = 721.0
-            line.price_subtotal = check_total
-            line._onchange_subtotal()
-            self.assertAlmostEqual(line.price_subtotal, check_total, delta=1)
-            self.assertAlmostEqual(
-                line.price_subtotal, line.price_unit * line.qty, delta=0.01
-            )
-            self.assertEqual(line.qty, 5.0, "Changing totals should not affect qty")
-            self.assertAlmostEqual(
-                line.price_subtotal * (1 + 0.2), line.total, delta=0.01
-            )
-            self.assertEqual(line.discount, 0.0)
+        with Form(self.spr) as spr:
+            with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
+                line.discount = 10.0
+                original_qty = line.qty
+                check_total = float_round(total, 1)
+                line.price_total = check_total
+                self.assertAlmostEqual(line.price_total, check_total, delta=0.1)
+                self.assertAlmostEqual(
+                    line.qty * line.price_unit, line.price_subtotal, delta=0.01
+                )
+                self.assertAlmostEqual(
+                    line.qty, original_qty, 2, "Changing totals should not affect qty"
+                )
+                self.assertAlmostEqual(
+                    line.price_subtotal * (1 + line.effective_tax_rate),
+                    line.price_total,
+                    delta=0.01,
+                )
+                self.assertEqual(line.discount, 0.0)
+        spr.save()
 
-    def test_change_line_price(self):
+    @given(st.data())
+    def test_change_line_subtotal(self, data):
         """Test the changing a subtotal works correctly"""
-        line = self.env["sale.price.recalculation.line"].new()
-        line.update(
-            {
-                "price_unit": 20.0,
-                "discount": 0.0,
-                "qty": 5.0,
-                "price_subtotal": 90.0,
-                "price_total": 108.0,
-                "effective_tax_rate": 0.2,
-            }
-        )
-        with self.env.do_in_onchange():
-            check_total = 7.21
-            line.price_unit = check_total
-            line._onchange_price()
-            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))
+        subtotal = data.draw(st.floats(**hp.PRICE_ARGS))
+        total = data.draw(st.floats(**hp.PRICE_ARGS))
+        assume((subtotal > 0.10 or subtotal == 0.0) and (total > 0.10 or total == 0.0))
+        # assumed because of limitations in test rounding more than anything
+
+        with Form(self.spr) as spr:
+            with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
+                line.discount = 10.0
+                original_qty = line.qty
+                check_total = float_round(subtotal, 1)
+                line.price_subtotal = check_total
+                self.assertAlmostEqual(line.price_subtotal, check_total, delta=0.1)
+                self.assertAlmostEqual(
+                    line.qty * line.price_unit, line.price_subtotal, delta=0.01
+                )
+                self.assertAlmostEqual(
+                    line.qty, original_qty, 2, "Changing totals should not affect qty"
+                )
+                self.assertAlmostEqual(
+                    line.price_subtotal * (1 + line.effective_tax_rate),
+                    line.price_total,
+                    delta=0.01,
+                )
+                self.assertEqual(line.discount, 0.0)
+        spr.save()
+
+    @given(st.data())
+    def test_change_line_price(self, data):
+        """Test the changing a subtotal works correctly"""
+        price = data.draw(st.floats(**hp.PRICE_ARGS))
+
+        with Form(self.spr) as spr:
+            with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
+                check_total = float_round(price, 1)
+                line.price_unit = check_total
+                expect = line.qty * line.price_unit
+                subtotal = line.price_subtotal
+                self.assertAlmostEqual(expect, subtotal, delta=0.01)
+        spr.save()
 
     def test_onchange_pricelist_id(self):
         recalc = self.spr.create(self.vals)
@@ -195,9 +211,8 @@ class TestSaleRecalc(TestSale):
                 p.id: round(random() * randint(1, 9), 2) for p in self.products.values()
             }
             price_get.return_value = prices
-            with self.env.do_in_onchange():
-                recalc.pricelist_id = self.pricelist
-                recalc.onchange_pricelist_id()
+            with Form(recalc) as spr:
+                spr.pricelist_id = self.pricelist
             subtotal = 0.0
             for line in recalc.line_ids:
                 self.assertFalse(fc(prices[line.product_id.id], line.price_unit, 2))
@@ -213,9 +228,9 @@ class TestSaleRecalc(TestSale):
         quote.pricelist_id = self.pricelist
         quote.order_line[0].price_unit = 1.66
 
-        with self.env.do_in_onchange():
-            recalc.copy_quote_id = quote
-            recalc.onchange_quote_id()
+        with Form(recalc) as spr:
+            spr.copy_quote_id = quote
+
         self.assertFalse(fc(recalc.line_ids[0].price_unit, 1.66, 2))
         recalc.action_write()
         self.assertEqual(self.so.pricelist_id, quote.pricelist_id)

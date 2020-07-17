@@ -9,7 +9,7 @@ Sale Partcode Replacement
 Allows a sales order to be updated by replacing part of a part code of all products in a sale order with another.
 
 For example, if all blue products had BL in their code, and all red ones had RD, you could update the colour or the order.
-In general, this module will work best with systemised partcodes and use of variants but their may be other use cases and it is
+In general, this module will work best with systemised partcodes and use of variants but there may be other use cases and it is
 not dependent on them.
 
 Installation

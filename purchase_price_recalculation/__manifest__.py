@@ -5,7 +5,7 @@
     "name": "Purchase Price Recalculation",
     "summary": "Allows to update the pricing of confirmed purchase orders "
     "prior to reception",
-    "version": "12.0.1.1.0",
+    "version": "13.0.1.1.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
