@@ -1,10 +1,21 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
-from odoo import fields
-from odoo.tools import float_compare as fc
+import logging
 from random import randint
+
+from odoo import fields
+from odoo.tests.common import Form, TransactionCase
+from odoo.tools import float_compare as fc, float_round
+
+from . import hypothesis_params as hp
+
+_logger = logging.Logger(__name__)
+try:
+    from hypothesis import given
+    from hypothesis import strategies as st
+except ImportError as err:
+    _logger.debug(err)
 
 
 class TestPurchaseOrder(TransactionCase):
@@ -95,29 +106,23 @@ class TestPurchaseOrder(TransactionCase):
         # We test that the pricing is roughly weighted in proportion
         approx_change = self.po.amount_untaxed / recalc.total
         subtotal = 0.0
-        for l in recalc.line_ids:
-            p = l.name
+        for line in recalc.line_ids:
+            p = line.name
             self.assertAlmostEqual(
-                p.price_subtotal / l.price_subtotal, approx_change, delta=1
+                p.price_subtotal / line.price_subtotal, approx_change, delta=1
             )
-            subtotal += l.price_subtotal
+            subtotal += line.price_subtotal
         recalc.action_write()
         self.assertFalse(fc(self.po.amount_untaxed, subtotal, 2))
 
-    def test_change_line_price(self):
+    @given(st.data())
+    def test_change_line_price(self, data):
         """Test the changing a subtotal works correctly"""
-        line = self.env["purchase.price.recalculation.line"].new()
-        line.update(
-            {
-                "price_unit": 20.0,
-                "qty": 5.0,
-                "price_subtotal": 90.0,
-                "price_total": 108.0,
-                "effective_tax_rate": 0.2,
-            }
-        )
-        with self.env.do_in_onchange():
-            check_total = 7.21
-            line.price_unit = check_total
-            line._onchange_price()
-            self.assertFalse(fc(line.price_subtotal, line.price_unit * line.qty, 2))
+        price = data.draw(st.floats(**hp.PRICE_ARGS))
+        with Form(self.ppr) as ppr:
+            with ppr.line_ids.edit(randint(0, len(ppr.line_ids) - 1)) as line:
+                check_total = float_round(price, 1)
+                line.price_unit = check_total
+                self.assertAlmostEqual(
+                    line.qty * line.price_unit, line.price_subtotal, delta=0.01
+                )

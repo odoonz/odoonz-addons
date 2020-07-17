@@ -6,8 +6,9 @@
 Sale Purchase Count
 ===================
 
-Links MRP with sales, enabling
+Links purchase order with sales, enabling
 
+* Display the number of purchase order(s) in each sale order
 * Open linked purchases from sale.
 
 Installation

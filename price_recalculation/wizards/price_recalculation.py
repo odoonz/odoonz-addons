@@ -1,8 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, api, fields, _
-import odoo.addons.decimal_precision as dp
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools import float_round
 
@@ -16,7 +15,7 @@ class PriceRecalculation(models.AbstractModel):
     pricelist_id = fields.Many2one("product.pricelist", "Pricelist")
     partner_id = fields.Many2one("res.partner", "Partner")
 
-    total = fields.Float("Balance To", digits=dp.get_precision("Account"))
+    total = fields.Float("Balance To", digits="Account")
     tax_incl = fields.Boolean("Tax Incl")
     name = fields.Many2one("sale.order", "Sale Order")
     precision = fields.Integer(
@@ -86,7 +85,6 @@ class PriceRecalculation(models.AbstractModel):
                 line.price_subtotal = line.price_unit * line.qty
                 line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
-    @api.multi
     def _prepare_other_vals(self):
         """
         Hook method for extension of action_write method
@@ -94,7 +92,6 @@ class PriceRecalculation(models.AbstractModel):
         """
         return {}
 
-    @api.multi
     def _check_write_constraints(self):
         """
         Check write constraints for orders that can't be updated
@@ -108,12 +105,10 @@ class PriceRecalculation(models.AbstractModel):
                 )
             )
 
-    @api.multi
     def _set_context(self):  # pragma: no cover
         """Allow to set a custom context by model - hook method"""
         return {}
 
-    @api.multi
     def update_pricelist_lines(self, pricelist_id=False):
         if not pricelist_id:
             return

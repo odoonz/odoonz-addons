@@ -37,7 +37,7 @@
                 </field>
                 <footer>
                     <button name="action_write" string="Write Changes" type="object" class="btn-primary"/>
-                    <button class="btn-default" special="cancel" string="Close"/>
+                    <button special="cancel" string="Close"/>
                 </footer>
             </form>
         </field>
@@ -47,9 +47,8 @@
             id="purchase_price_recalculation_act_window"
             name="Update Pricing"
             view_mode="form"
-            view_type="form"
             res_model="purchase.price.recalculation"
-            src_model="purchase.order"
+            binding_model="purchase.order"
             target="new"/>
 
 </odoo>

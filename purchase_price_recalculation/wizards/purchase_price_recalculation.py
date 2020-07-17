@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -51,13 +51,11 @@ class PurchasePriceRecalculation(models.TransientModel):
             for ol in purchase.order_line
         ]
 
-    @api.multi
     def _set_context(self):
         ctx = super()._set_context()
         ctx.update({"warehouse_id": self.name.warehouse_id.id})
         return ctx
 
-    @api.multi
     def _check_write_constraints(self):
         """
         Check write constraints for orders that can't be updated
@@ -72,7 +70,6 @@ class PurchasePriceRecalculation(models.TransientModel):
                 )
             )
 
-    @api.multi
     def action_write(self):
         self.ensure_one()
         self._check_write_constraints()
@@ -97,7 +94,7 @@ class PurchasePriceRecalculation(models.TransientModel):
                     )
                 )
                 order_line.write({"price_unit": line.price_unit})
-                order_line.invoice_lines.write(
+                order_line.invoice_lines.with_context(check_move_validity=False).write(
                     {
                         "price_subtotal": line.price_subtotal,
                         "price_unit": line.price_unit,
@@ -110,7 +107,7 @@ class PurchasePriceRecalculation(models.TransientModel):
             msgs.append(u"</ul><br/>")
         else:
             msgs = []
-        order.invoice_ids.compute_taxes()
+        order.invoice_ids._compute_amount()
         msgs = header_msgs + msgs
         if msgs:
             body = "".join(msgs)

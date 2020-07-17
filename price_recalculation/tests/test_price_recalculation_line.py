@@ -2,8 +2,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
+
 from odoo.tests.common import TransactionCase
 from odoo.tools import float_round
+
 from . import hypothesis_params as hp
 
 _logger = logging.Logger(__name__)
@@ -23,6 +25,7 @@ class TestPriceRecalculationLine(TransactionCase):
 
     @given(st.data())
     def test_onchange_total(self, data):
+        """ This function is actually tested in sale_price_recalculation """
         qty = data.draw(st.floats(**hp.QTY_ARGS))
         price = data.draw(st.floats(**hp.PRICE_ARGS))
         tax_rate = data.draw(st.floats(**hp.TAX_ARGS))
@@ -32,36 +35,37 @@ class TestPriceRecalculationLine(TransactionCase):
         # assumed because of limitations in test rounding more than anything
         assume(float_round(tax_rate, 2) != -1.0)
         # impossible value which will give div / 0
+
         line = self.env["price.recalculation.line"].new(
             {
                 "product_id": self.datacard.id,
                 "qty": qty,
                 "price_unit": price,
                 "effective_tax_rate": tax_rate,
-                "total": price * qty * (1 + tax_rate),
-                "subtotal": price * qty,
+                "price_total": price * qty * (1 + tax_rate),
+                "price_subtotal": price * qty,
             }
         )
-        with self.env.do_in_onchange():
-            line.total = float_round(total, 2)
-            line._onchange_total()
-            self.assertAlmostEqual(
-                line.qty, qty, 2, "Changing totals should not affect qty"
-            )
-            self.assertAlmostEqual(
-                line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
-            )
-            expected = line.qty * line.price_unit
-            self.assertAlmostEqual(expected, line.price_subtotal, delta=0.01)
 
-            line.price_subtotal = float_round(subtotal, 2)
-            line._onchange_subtotal()
-            self.assertAlmostEqual(
-                line.qty, qty, 2, "Changing totals should not affect qty"
-            )
-            self.assertAlmostEqual(
-                line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
-            )
-            self.assertAlmostEqual(
-                line.qty * line.price_unit, line.price_subtotal, delta=0.01
-            )
+        line.total = float_round(total, 2)
+        line._onchange_total()
+        self.assertAlmostEqual(
+            line.qty, qty, 2, "Changing totals should not affect qty"
+        )
+        self.assertAlmostEqual(
+            line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
+        )
+        expected = line.qty * line.price_unit
+        self.assertAlmostEqual(expected, line.price_subtotal, delta=0.01)
+
+        line.price_subtotal = float_round(subtotal, 2)
+        line._onchange_subtotal()
+        self.assertAlmostEqual(
+            line.qty, qty, 2, "Changing totals should not affect qty"
+        )
+        self.assertAlmostEqual(
+            line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
+        )
+        self.assertAlmostEqual(
+            line.qty * line.price_unit, line.price_subtotal, delta=0.01
+        )

@@ -1,8 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, api, fields
-import odoo.addons.decimal_precision as dp
+from odoo import api, fields, models
 from odoo.tools import float_round
 
 
@@ -13,14 +12,10 @@ class PriceRecalculationLine(models.AbstractModel):
     _description = __doc__
 
     product_id = fields.Many2one("product.product", "Product", readonly=1)
-    qty = fields.Float(
-        "Qty", digits=dp.get_precision("Product Unit of Measure"), readonly=True
-    )
-    price_subtotal = fields.Float("Total ex Tax", digits=dp.get_precision("Account"))
-    price_unit = fields.Float(
-        "Unit Price", required=True, digits=dp.get_precision("Product Price")
-    )
-    price_total = fields.Float("Total inc Tax", digits=dp.get_precision("Account"))
+    qty = fields.Float("Qty", digits="Product Unit of Measure", readonly=True)
+    price_subtotal = fields.Float("Total ex Tax", digits="Account")
+    price_unit = fields.Float("Unit Price", required=True, digits="Product Price")
+    price_total = fields.Float("Total inc Tax", digits="Account")
     effective_tax_rate = fields.Float("Effective Tax Rate", readonly=True)
 
     @api.onchange("price_total")

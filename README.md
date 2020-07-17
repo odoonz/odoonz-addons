@@ -1,6 +1,6 @@
 # odoonz-addons
-[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=12.0)](https://travis-ci.org/odoonz/odoonz-addons?branch=11.0)
-[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/12.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons/branch/11.0)
+[![Build Status](https://travis-ci.org/odoonz/odoonz-addons.svg?branch=13.0)](https://travis-ci.org/odoonz/odoonz-addons?branch=13.0)
+[![codecov](https://codecov.io/gh/odoonz/odoonz-addons/branch/13.0/graph/badge.svg)](https://codecov.io/gh/odoonz/odoonz-addons/branch/13.0)
 
 [//]: # (addons)
 
