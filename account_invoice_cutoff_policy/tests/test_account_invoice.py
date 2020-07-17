@@ -32,7 +32,7 @@ class TestAccountInvoice(common.TransactionCase):
             "%s._get_lock_date" % partner_model, autospec=True
         ) as mock_date:
             mock_date.return_value = new_date
-            invoice._onchange_payment_term_date_invoice()
+            invoice._onchange_invoice_date()
         self.assertEqual(invoice.date_invoice, new_date)
 
     def test_onchange_date_invoice_in(self):
@@ -47,7 +47,7 @@ class TestAccountInvoice(common.TransactionCase):
             "%s._get_lock_date" % partner_model, autospec=True
         ) as mock_date:
             mock_date.return_value = new_date
-            invoice._onchange_payment_term_date_invoice()
+            invoice._onchange_invoice_date()
         self.assertEqual(invoice.date_invoice, orig_date)
 
     def test_onchange_date_invoice_refund(self):
@@ -61,5 +61,5 @@ class TestAccountInvoice(common.TransactionCase):
             "%s._get_lock_date" % partner_model, autospec=True
         ) as mock_date:
             mock_date.return_value = new_date
-            invoice._onchange_payment_term_date_invoice()
+            invoice._onchange_invoice_date()
         self.assertEqual(invoice.date_invoice, new_date)
