@@ -5,9 +5,8 @@ from odoo import api, models
 
 
 class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+    _inherit = "account.move"
 
-    @api.multi
     def _get_invoice_partner(self):
         """
         Hook method for extensibility to determine which partner should be used

@@ -18,14 +18,12 @@ class ResPartner(models.Model):
         [("date", "transaction date"), ("eom", "end of month following transaction")]
     )
 
-    @api.multi
     def _get_new_invoice_date(self, today):
         if self.cutoff_type == "eom":
             return today + relativedelta(day=1)
         else:
             return today
 
-    @api.multi
     def _get_lock_date(self, date_invoice):
         for partner in self:
             if not partner.enforce_cutoff:

@@ -1,10 +1,12 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from datetime import datetime
+
 import mock
+
 from odoo.tests import common
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
-from datetime import datetime
 
 partner_model = (
     "odoo.addons.account_invoice_cutoff_policy.models.res_partner.ResPartner"
@@ -19,7 +21,7 @@ class TestAccountInvoice(common.TransactionCase):
         self.partner = self.env.ref("base.res_partner_1")
 
     def test_onchange_date_invoice(self):
-        invoice = self.env["account.invoice"].new()
+        invoice = self.env["account.move"].new()
         invoice.type = "out_invoice"
         invoice.partner_id = self.partner
 
@@ -34,7 +36,7 @@ class TestAccountInvoice(common.TransactionCase):
         self.assertEqual(invoice.date_invoice, new_date)
 
     def test_onchange_date_invoice_in(self):
-        invoice = self.env["account.invoice"].new()
+        invoice = self.env["account.move"].new()
         invoice.type = "in_invoice"
         invoice.partner_id = self.partner
 
@@ -49,7 +51,7 @@ class TestAccountInvoice(common.TransactionCase):
         self.assertEqual(invoice.date_invoice, orig_date)
 
     def test_onchange_date_invoice_refund(self):
-        invoice = self.env["account.invoice"].new()
+        invoice = self.env["account.move"].new()
         invoice.type = "out_refund"
         invoice.partner_id = self.partner
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
