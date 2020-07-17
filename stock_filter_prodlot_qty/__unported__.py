@@ -9,6 +9,6 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
-    "depends": ["mrp"],
+    "depends": ["mrp", "base_view_inheritance_extension"],
     "data": ["views/mrp_product_produce.xml"],
 }
