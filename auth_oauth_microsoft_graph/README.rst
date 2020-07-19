@@ -52,6 +52,8 @@ Known issues / Roadmap
 Ideally this module shouldn't be required and will be deprecated
 as soon as Odoo supports AZUREAD logins.
 
+For v13, it is nothing to change. Please let us know the issue if any happened.
+
 Bug Tracker
 ===========
 
