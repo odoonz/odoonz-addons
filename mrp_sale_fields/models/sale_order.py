@@ -13,6 +13,7 @@ class SaleOrder(models.Model):
     )
 
     def _compute_production_ids(self):
+        self.production_count = False
         self._cr.execute(
             """SELECT mrp.sale_id, COUNT(mrp.sale_id)
         FROM mrp_production mrp

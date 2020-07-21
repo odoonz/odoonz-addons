@@ -1,7 +1,7 @@
 # Copyright 2017 Open For Small Business Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class MrpProduction(models.Model):
@@ -10,6 +10,7 @@ class MrpProduction(models.Model):
 
     @api.depends("move_dest_ids")
     def _compute_sale_order(self):
+        self.sale_id = False
         self._cr.execute(
             """SELECT sm.created_production_id, sol.order_id
         FROM stock_move sm
