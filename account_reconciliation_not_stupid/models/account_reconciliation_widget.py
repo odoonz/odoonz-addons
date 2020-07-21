@@ -1,9 +1,7 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
-
-from odoo import api, fields, models
+from odoo import api, models
 from odoo.exceptions import AccessError
 from odoo.osv import expression
 
@@ -45,21 +43,6 @@ class AccountReconciliationWidget(models.AbstractModel):
                 if not partner.company_id or partner.company_id == company:
                     new_res[k] = v
         return new_res
-
-    @api.model
-    def _domain_move_lines(self, search_str):
-        str_domain = super()._domain_move_lines(search_str)
-        try:
-            fmt = self.env["res.lang"]._lang_get(self.env.user.lang).date_format
-            move_date = fields.Date.to_string(datetime.strptime(search_str, fmt).date())
-            for term in str_domain:
-                # If its an operator string this still passes
-                # as strings subscriptable
-                if term[0] == "date_maturity":
-                    term[2] = move_date
-        except ValueError:
-            pass
-        return str_domain
 
     @api.model
     def _domain_move_lines_for_reconciliation(
