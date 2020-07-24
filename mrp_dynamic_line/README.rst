@@ -2,16 +2,21 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===============
-MRP Sale Fields
-===============
+=================
+MRP Dynamic Lines
+=================
 
-Links MRP with sales, enabling
+Provides a base to perform dynamic transformations to an exploded
+Bill of Materials, either during explode or raw move generation.
 
-* Open Productions from sale.
-* Display sale and parter in production.
-* Search/group productions by partner
+2 Sample transformations are included:
 
+* Match Attributes - which seeks to match the bom line with the
+  attributes of the parent BoM
+* Scale Weight - scales a bom line measured in kg to the quantity
+  being producedCollection of functions that may be useful in reports.
+
+NOTE: Currently untested in Alpha
 
 Installation
 ============
@@ -30,6 +35,9 @@ None
 
 Known issues / Roadmap
 ======================
+
+* Alpha
+* No tests
 
 Bug Tracker
 ===========
