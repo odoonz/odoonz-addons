@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductAttributeGroup(models.Model):
@@ -30,7 +30,6 @@ class ProductAttributeGroup(models.Model):
         ("uniq_name", "unique(name)", "The attribute group name must be unique")
     ]
 
-    @api.multi
     def write(self, vals):
         res = super().write(vals)
         if "value_ids" in vals:
@@ -39,10 +38,9 @@ class ProductAttributeGroup(models.Model):
                 for attr_line in attr_group.attribute_line_ids:
                     attr_line.onchange_attr_group()
                     product_tmpls += attr_line.product_tmpl_id
-            product_tmpls.create_variant_ids()
+            product_tmpls._create_variant_ids()
         return res
 
-    @api.multi
     def copy(self, default=None):
         """
         Override copy to ensure the copy is distinguishable
@@ -54,7 +52,6 @@ class ProductAttributeGroup(models.Model):
         default["name"] = "%s (Copy)" % self.name
         return super().copy(default=default)
 
-    @api.multi
     def button_copy(self):
         """
         Allows duplication of attribute groups from tree view

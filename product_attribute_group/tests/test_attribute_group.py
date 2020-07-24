@@ -10,7 +10,7 @@ class TestAttributeGroups(TransactionCase):
         attr_groups = self.ipod_memory_line.attr_group_ids | self.attr_group_2
         self.ipod_memory_line.attr_group_ids = attr_groups
         # Need to trigger this as usually called on the product template write
-        self.product_ipod.create_variant_ids()
+        self.product_ipod._create_variant_ids()
         self.assertTrue(
             self.product_ipod.attribute_line_ids[0].value_ids
             == self.attr_group_2.value_ids
@@ -18,7 +18,7 @@ class TestAttributeGroups(TransactionCase):
         # Then adding to them
         attr_groups |= self.attr_group_1
         self.ipod_memory_line.attr_group_ids = attr_groups
-        self.product_ipod.create_variant_ids()
+        self.product_ipod._create_variant_ids()
         self.assertTrue(
             self.product_ipod.attribute_line_ids[0].value_ids
             == (self.attr_group_2.value_ids + self.attr_group_1.value_ids)
@@ -33,8 +33,8 @@ class TestAttributeGroups(TransactionCase):
         self.ipod_memory_line.attr_group_ids = self.attr_group_1
         self.ipad_memory_line.attr_group_ids = self.attr_group_1
         # The number of variants should be the product of attribute value_ids
-        self.product_ipod.create_variant_ids()
-        self.product_ipad.create_variant_ids()
+        self.product_ipod._create_variant_ids()
+        self.product_ipad._create_variant_ids()
         ipod_factor = len(self.product_ipod.product_variant_ids) / len(
             self.attr_group_1.value_ids
         )
@@ -64,8 +64,8 @@ class TestAttributeGroups(TransactionCase):
         self.ipod_memory_line.attr_group_ids = self.attr_group_1
         self.ipad_memory_line.attr_group_ids = self.attr_group_1
         # The number of variants should be the product of attribute value_ids
-        self.product_ipod.create_variant_ids()
-        self.product_ipad.create_variant_ids()
+        self.product_ipod._create_variant_ids()
+        self.product_ipad._create_variant_ids()
         # ipod_factor = (len(self.product_ipod.product_variant_ids) //
         #                len(self.attr_group_1.value_ids))
         ipad_factor = len(self.product_ipad.product_variant_ids) // len(
@@ -174,8 +174,8 @@ class TestAttributeGroups(TransactionCase):
         )
 
         self.ipad_memory_line = self.browse_ref(
-            "product.product_template_attribute_line_1"
+            "product.product_4_attribute_1_product_template_attribute_line"
         )
         self.ipod_memory_line = self.browse_ref(
-            "product.product_template_attribute_line_4"
+            "product.product_11_attribute_1_product_template_attribute_line"
         )

@@ -39,7 +39,6 @@ class ProductAttributeLine(models.Model):
                     vals["value_ids"] = vals.get("value_ids", [])
         return super().create(vals_list)
 
-    @api.multi
     def write(self, vals):
         """
         Override write in order to ensure that values match
