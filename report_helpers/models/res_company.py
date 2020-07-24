@@ -1,14 +1,13 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ResCompany(models.Model):
 
     _inherit = "res.company"
 
-    @api.multi
     def _compute_company_address(self):
         for record in self:
             addresses = record.partner_id.address_get(["delivery", "invoice"])
