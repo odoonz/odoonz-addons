@@ -1,6 +1,6 @@
-from odoo import models, fields, api, _
-from odoo.tools.safe_eval import safe_eval
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools.safe_eval import safe_eval
 
 
 class IrActionsServer(models.Model):
@@ -51,7 +51,6 @@ class IrActionsServer(models.Model):
         )
         return False
 
-    @api.multi
     def print_behaviour(self):
         self.ensure_one()
         if self.print_action_type == "report":

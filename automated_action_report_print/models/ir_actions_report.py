@@ -1,5 +1,4 @@
-from odoo import models, fields, api, _
-from odoo import exceptions
+from odoo import _, api, exceptions, fields, models
 
 
 class IrActionsReport(models.Model):
@@ -21,7 +20,6 @@ class IrActionsReport(models.Model):
         comodel_name="ir.model", compute="_compute_model_id", store=True
     )
 
-    @api.multi
     def print_document_auto(self, record_ids, behaviour=None, data=None):
         behaviour = behaviour or self.behaviour()
         document, doc_format = self.with_context(
@@ -34,7 +32,6 @@ class IrActionsReport(models.Model):
             self, document, doc_format=self.report_type, **behaviour
         )
 
-    @api.multi
     def behaviour(self):
         if self._context.get("behaviour"):
             return {self: self._context["behaviour"]}
