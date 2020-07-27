@@ -15,13 +15,14 @@ class AccountInvoice(models.Model):
         """
         return self.commercial_partner_id
 
-    @api.onchange("payment_term_id", "date_invoice")
+    @api.onchange("invoice_date")
     def _onchange_invoice_date(self):
         """
         Extends the onchange to assign the invoice date based on the partners
         invoicing policy
         """
-        date_invoice = self.date_invoice
-        if date_invoice and self.type.startswith("out_"):
-            self.date_invoice = self._get_invoice_partner()._get_lock_date(date_invoice)
+
+        invoice_date = self.invoice_date
+        if invoice_date and self.type.startswith("out_"):
+            self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
         return super()._onchange_invoice_date()
