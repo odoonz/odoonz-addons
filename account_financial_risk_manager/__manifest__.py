@@ -5,7 +5,7 @@
     "name": "Account Financial Risk Manager",
     "summary": """
         Adds a seperate security group for managing credit releases""",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
