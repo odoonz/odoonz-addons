@@ -11,5 +11,5 @@ class ResPartner(models.Model):
         is_editable = self.env.user.has_group(
             "account_financial_risk_manager.group_risk_manager"
         )
-        for partner in self.filtered("customer"):
+        for partner in self.filtered(lambda x: x.customer_rank > 0):
             partner.risk_allow_edit = is_editable
