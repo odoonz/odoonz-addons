@@ -1,7 +1,7 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -19,7 +19,6 @@ class ProductPriceChangeWizard(models.TransientModel):
     percent_change = fields.Float()
     overwrite_existing = fields.Boolean(default=True)
 
-    @api.multi
     def update_price_change_record(self):
         for wizard in self:
             records_to_remove = wizard.price_change_id.product_line_ids.filtered(
@@ -34,7 +33,7 @@ class ProductPriceChangeWizard(models.TransientModel):
                             "The selected products already exist "
                             "in the price change list:\n -"
                         )
-                        + "\n - ".join(records_to_remove.mapped("name"))
+                        + "\n - ".join(records_to_remove.mapped("product_tmpl_id.name"))
                     )
             lines_to_create = []
             for product in self.product_tmpl_ids:

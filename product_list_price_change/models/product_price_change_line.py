@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.addons import decimal_precision as dp
 
 
 class ProductPriceChangeLine(models.Model):
@@ -35,7 +34,7 @@ class ProductPriceChangeLine(models.Model):
     list_price = fields.Float(
         "Sales Price",
         required=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
         help="Price at which the product is sold to customers.",
         states={
             "cancel": [("readonly", True)],

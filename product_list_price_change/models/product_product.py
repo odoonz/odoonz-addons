@@ -1,8 +1,9 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
 from datetime import datetime
+
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
@@ -105,7 +106,7 @@ class ProductProduct(models.Model):
             commercial_partner_id = False
 
         # only price changes before effective date, after today
-        # first any customer specifc requirements
+        # first any customer specific requirements
         for product in self:
             list_price = product.list_price
             for change in self._get_price_changes_ordered(
@@ -121,7 +122,6 @@ class ProductProduct(models.Model):
                 list_price = product.uom_id._compute_price(list_price, to_uom)
             product.lst_price = list_price + product.price_extra
 
-    @api.multi
     def price_compute(self, price_type, uom=False, currency=False, company=False):
         if price_type == "list_price":
             price_type = "lst_price"

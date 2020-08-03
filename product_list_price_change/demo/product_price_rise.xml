@@ -4,10 +4,9 @@
 
 <odoo noupdate="1">
 
-    <!-- TODO
-    <record model="product.price.rise" id="product_price_rise_demo_1">
-       <field name="name">...</field>
+    <record model="product.price.change" id="product_price_change_demo_1">
+        <field name="name">Demo 1</field>
+        <field name="effective_date" eval="time.strftime('2020-05-01')"/>
     </record>
-    -->
 
 </odoo>
