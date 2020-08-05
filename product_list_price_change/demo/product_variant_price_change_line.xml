@@ -4,10 +4,10 @@
 
 <odoo noupdate="1">
 
-    <!-- TODO
     <record model="product.variant.price.change.line" id="product_variant_price_change_line_demo_1">
-       <field name="name">...</field>
+        <field name="price_change_id" ref="product_list_price_change.product_price_change_demo_1"/>
+        <field name="product_tmpl_attribute_value_id" ref="product.product_4_attribute_1_value_2"/>
+        <field name="price_extra">10.0</field>
     </record>
-    -->
 
 </odoo>

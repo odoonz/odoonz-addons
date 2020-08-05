@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
-from odoo.addons import decimal_precision as dp
 
 
 class ProductVariantPriceChangeLine(models.Model):
@@ -34,7 +33,7 @@ class ProductVariantPriceChangeLine(models.Model):
     price_extra = fields.Float(
         "Price Extra",
         required=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
         help="Extra Price for attribute.",
         states={
             "cancel": [("readonly", True)],
