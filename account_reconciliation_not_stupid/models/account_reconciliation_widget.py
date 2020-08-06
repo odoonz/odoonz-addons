@@ -1,10 +1,9 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models, fields
+from odoo import api, models
 from odoo.exceptions import AccessError
 from odoo.osv import expression
-from datetime import datetime
 
 
 class AccountReconciliationWidget(models.AbstractModel):
@@ -46,21 +45,6 @@ class AccountReconciliationWidget(models.AbstractModel):
         return new_res
 
     @api.model
-    def _domain_move_lines(self, search_str):
-        str_domain = super()._domain_move_lines(search_str)
-        try:
-            fmt = self.env["res.lang"]._lang_get(self.env.user.lang).date_format
-            move_date = fields.Date.to_string(datetime.strptime(search_str, fmt).date())
-            for term in str_domain:
-                # If its an operator string this still passes
-                # as strings subscriptable
-                if term[0] == "date_maturity":
-                    term[2] = move_date
-        except ValueError:
-            pass
-        return str_domain
-
-    @api.model
     def _domain_move_lines_for_reconciliation(
         self, st_line, aml_accounts, partner_id, excluded_ids=None, search_str=False
     ):
@@ -99,6 +83,7 @@ class AccountReconciliationWidget(models.AbstractModel):
         search_str=False,
         offset=0,
         limit=None,
+        mode=None,
     ):
         return super().get_move_lines_for_bank_statement_line(
             st_line_id,
@@ -107,6 +92,7 @@ class AccountReconciliationWidget(models.AbstractModel):
             search_str=search_str,
             offset=offset,
             limit=None if partner_id else limit,
+            mode=mode,
         )
 
     @api.model
