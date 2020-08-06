@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record model="ir.ui.view" id="invoice_supplier_form">
-        <field ref="account.invoice_supplier_form" name="inherit_id"/>
-        <field name="model">account.invoice</field>
-        <field name="name">account.invoice.supplier.form (in account_central_billing)</field>
-        <field type="xml" name="arch">
-            <xpath expr="//page[@name='other_info']" position="after">
-                <page name="central_billing" string="Central Billing" >
-                    <group name="central_billing_group">
-                        <group name="central_billing_group_right">
-                            <field name="order_partner_id" />
-                        </group>
-                        <group name="central_billing_group_left">
-                            <field name="order_invoice_id" />
-                        </group>
-                    </group>
-                </page>
-            </xpath>
-        </field>
-
-    </record>
 
     <record model="ir.ui.view" id="account_invoice_form_view">
         <field name="name">account.invoice.form</field>
-        <field name="model">account.invoice</field>
-        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='other_info']" position="after" >
-                <page name="central_billing" string="Central Billing"
-                      >
+                <page name="central_billing" string="Central Billing">
                     <group name="central_billing_group">
                         <group name="central_billing_group_right">
                             <field name="order_partner_id" />
