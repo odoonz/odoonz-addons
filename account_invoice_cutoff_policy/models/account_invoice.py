@@ -5,9 +5,8 @@ from odoo import api, models
 
 
 class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+    _inherit = "account.move"
 
-    @api.multi
     def _get_invoice_partner(self):
         """
         Hook method for extensibility to determine which partner should be used
@@ -16,13 +15,14 @@ class AccountInvoice(models.Model):
         """
         return self.commercial_partner_id
 
-    @api.onchange("payment_term_id", "date_invoice")
-    def _onchange_payment_term_date_invoice(self):
+    @api.onchange("invoice_date")
+    def _onchange_invoice_date(self):
         """
         Extends the onchange to assign the invoice date based on the partners
         invoicing policy
         """
-        date_invoice = self.date_invoice
-        if date_invoice and self.type.startswith("out_"):
-            self.date_invoice = self._get_invoice_partner()._get_lock_date(date_invoice)
-        return super()._onchange_payment_term_date_invoice()
+
+        invoice_date = self.invoice_date
+        if invoice_date and self.type.startswith("out_"):
+            self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
+        return super()._onchange_invoice_date()
