@@ -20,14 +20,6 @@ class AccountInvoice(models.Model):
         comodel_name="res.partner", string="Invoice Partner"
     )
 
-    def _get_invoice_partner(self):
-        """
-        Hook method for extensibility to determine which partner should be used
-        for checking the lock date
-        :return: A res.partner recordset
-        """
-        return super()._get_invoice_partner() + self.order_partner_id
-
     @api.constrains("partner_id", "order_partner_id")
     def check_company(self):
         for record in self:
