@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -10,7 +10,7 @@ class AccountInvoice(models.Model):
     as well as overriding ORM functions to ensure the parent partner and order
     partner are written and created correctly"""
 
-    _inherit = "account.invoice"
+    _inherit = "account.move"
 
     order_partner_id = fields.Many2one(
         comodel_name="res.partner", string="Commercial Partner"
@@ -20,7 +20,6 @@ class AccountInvoice(models.Model):
         comodel_name="res.partner", string="Invoice Partner"
     )
 
-    @api.multi
     def _get_invoice_partner(self):
         """
         Hook method for extensibility to determine which partner should be used
@@ -58,7 +57,6 @@ class AccountInvoice(models.Model):
                     )
         return super().create(vals_list)
 
-    @api.multi
     def write(self, vals):
         """Function overrides create to ensure that parent account is
         always used"""

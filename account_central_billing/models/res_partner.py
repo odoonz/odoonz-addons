@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -19,7 +19,7 @@ class ResPartner(models.Model):
         copy=False,
     )
     billing_partner_id = fields.Many2one(
-        comodel_name="res.partner", string="Billing Supplier", oldname="hq_partner_id"
+        comodel_name="res.partner", string="Billing Supplier"
     )
 
     store_ids = fields.One2many(
@@ -40,7 +40,6 @@ class ResPartner(models.Model):
             if len(store_refs) != len(set(store_refs)):
                 raise ValidationError(_("Cannot have duplicate store codes"))
 
-    @api.multi
     def get_billing_partner(self, vals, invoice=None):
 
         self.ensure_one()
