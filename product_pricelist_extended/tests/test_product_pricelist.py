@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tools import float_compare
+
 from odoo.addons.product.tests.test_product_pricelist import TestProductPricelist
 
 
@@ -36,7 +37,9 @@ class TestProductPricelistItem(TestProductPricelist):
                         {
                             "name": "10% Discount on Laptop",
                             "applied_on": "1_product",
-                            "product_tmpl_ids": [(6, 0, [self.laptop_E5023.id])],
+                            "product_tmpl_ids": [
+                                (6, 0, [self.laptop_E5023.product_tmpl_id.id])
+                            ],
                             "compute_price": "formula",
                             "base": "list_price",
                             "price_discount": 10,
@@ -86,9 +89,8 @@ class TestProductPricelistItem(TestProductPricelist):
         context.update({"pricelist": self.extended_pricelist.id, "quantity": 1})
         # I check sale price of Laptop.
         laptop = self.laptop_E5023.with_context(context)
-        msg = "Wrong sale price: laptop E5023 should be %s instead of %s" % (
-            laptop.price,
-            (laptop.lst_price - (laptop.lst_price * 0.10)),
+        msg = "Wrong sale price: laptop E5023 should be {} instead of {}".format(
+            laptop.price, (laptop.lst_price - (laptop.lst_price * 0.10))
         )
         self.assertEqual(
             float_compare(
@@ -102,14 +104,14 @@ class TestProductPricelistItem(TestProductPricelist):
 
         # I check sale price of ipad mini
         ipad_mini = self.ipad_mini.with_context(context)
-        msg = "Wrong sale price: ipad_mini should be %s instead of %s" % (
+        msg = "Wrong sale price: ipad_mini should be {} instead of {}".format(
             ipad_mini.price,
-            float(int((ipad_mini.lst_price - (ipad_mini.lst_price * 0.20)))),
+            float(int(ipad_mini.lst_price - (ipad_mini.lst_price * 0.20))),
         )
         self.assertEqual(
             float_compare(
                 ipad_mini.price,
-                float(int((ipad_mini.lst_price - (ipad_mini.lst_price * 0.20)))),
+                float(int(ipad_mini.lst_price - (ipad_mini.lst_price * 0.20))),
                 precision_digits=2,
             ),
             0,
@@ -118,7 +120,7 @@ class TestProductPricelistItem(TestProductPricelist):
 
         # I check sale price of custom computer kit
         computer_kit = self.custom_computer_kit.with_context(context)
-        msg = "Wrong sale price: computer_kit should be %s instead of %s" % (
+        msg = "Wrong sale price: computer_kit should be {} instead of {}".format(
             computer_kit.price,
             (computer_kit.lst_price - (computer_kit.lst_price * 0.30)),
         )
@@ -134,9 +136,8 @@ class TestProductPricelistItem(TestProductPricelist):
 
         # I check sale price of laptop S3450
         laptop_S3450 = self.laptop_S3450.with_context(context)
-        msg = "Wrong sale price: laptop_S3450 should be %s instead of %s" % (
-            laptop_S3450.price,
-            laptop_S3450.lst_price,
+        msg = "Wrong sale price: laptop_S3450 should be {} instead of {}".format(
+            laptop_S3450.price, laptop_S3450.lst_price
         )
         self.assertEqual(
             float_compare(

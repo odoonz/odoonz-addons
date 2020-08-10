@@ -11,7 +11,6 @@ from odoo import _, api, fields, models, tools
 from odoo.exceptions import UserError, ValidationError
 
 # noinspection PyUnresolvedReferences
-import odoo.addons.decimal_precision as dp
 
 
 class ProductPricelist(models.Model):
@@ -21,7 +20,60 @@ class ProductPricelist(models.Model):
 
     _inherit = "product.pricelist"
 
-    @api.multi
+    def _compute_price_rule_get_items(
+        self,
+        products_qty_partner,
+        date,
+        uom_id,
+        prod_tmpl_ids,
+        prod_ids,
+        categ_ids,
+        price_categ_ids,
+    ):
+        # In v13: query has been moved to function '_compute_price_rule_get_items'
+        # Load all rules
+        # Changes: Add search of multiple products and templates
+        # plus price category to SQL
+        self._cr.execute(
+            "SELECT item.id "
+            "FROM product_pricelist_item AS item "
+            "LEFT JOIN product_category AS categ "
+            "ON item.categ_id = categ.id "
+            "LEFT JOIN pricelist_item_product_rel AS pipr "
+            "ON item.id = pipr.pricelist_item_id "
+            "LEFT JOIN pricelist_item_tmpl_rel pitr "
+            "ON item.id=pitr.pricelist_item_id "
+            "WHERE (item.product_tmpl_id IS NULL OR item.product_tmpl_id = any(%s)) "
+            "AND (pitr.tmpl_id IS NULL OR pitr.tmpl_id = any(%s)) "
+            "AND (item.product_id IS NULL OR item.product_id = any(%s)) "
+            "AND (pipr.prod_id IS NULL OR pipr.prod_id = any(%s)) "
+            "AND (item.categ_id IS NULL OR item.categ_id = any(%s)) "
+            "AND (item.price_categ_id IS NULL OR item.price_categ_id = any(%s)) "
+            "AND (item.pricelist_id = %s) "
+            "AND (item.date_start IS NULL OR item.date_start<=%s) "
+            "AND (item.date_end IS NULL OR item.date_end>=%s) "
+            "ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc ",
+            (
+                prod_tmpl_ids,
+                prod_tmpl_ids,
+                prod_ids,
+                prod_ids,
+                categ_ids,
+                price_categ_ids,
+                self.id,
+                date,
+                date,
+            ),
+        )
+
+        # Changes: due to chance of duplicates we need to filter this result
+        # but retain order
+        seen = set()
+        item_ids = [x[0] for x in self._cr.fetchall() if (x not in seen or seen.add(x))]
+        # End Changes
+        items = self.env["product.pricelist.item"].browse(item_ids)
+        return items
+
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """
 
@@ -85,47 +137,16 @@ class ProductPricelist(models.Model):
             prod_ids = [product.id for product in products]
             prod_tmpl_ids = [product.product_tmpl_id.id for product in products]
 
-        # Load all rules
-        # Changes: Add search of multiple products and templates
-        # plus price category to SQL
-        self._cr.execute(
-            "SELECT item.id "
-            "FROM product_pricelist_item AS item "
-            "LEFT JOIN product_category AS categ "
-            "ON item.categ_id = categ.id "
-            "LEFT JOIN pricelist_item_product_rel AS pipr "
-            "ON item.id = pipr.pricelist_item_id "
-            "LEFT JOIN pricelist_item_tmpl_rel pitr "
-            "ON item.id=pitr.pricelist_item_id "
-            "WHERE (item.product_tmpl_id IS NULL OR item.product_tmpl_id = any(%s)) "
-            "AND (pitr.tmpl_id IS NULL OR pitr.tmpl_id = any(%s)) "
-            "AND (item.product_id IS NULL OR item.product_id = any(%s)) "
-            "AND (pipr.prod_id IS NULL OR pipr.prod_id = any(%s)) "
-            "AND (item.categ_id IS NULL OR item.categ_id = any(%s)) "
-            "AND (item.price_categ_id IS NULL OR item.price_categ_id = any(%s)) "
-            "AND (item.pricelist_id = %s) "
-            "AND (item.date_start IS NULL OR item.date_start<=%s) "
-            "AND (item.date_end IS NULL OR item.date_end>=%s) "
-            "ORDER BY item.applied_on, item.min_quantity desc, categ.complete_name desc, item.id desc ",
-            (
-                prod_tmpl_ids,
-                prod_tmpl_ids,
-                prod_ids,
-                prod_ids,
-                categ_ids,
-                price_categ_ids,
-                self.id,
-                date,
-                date,
-            ),
+        items = self._compute_price_rule_get_items(
+            products_qty_partner,
+            date,
+            uom_id,
+            prod_tmpl_ids,
+            prod_ids,
+            categ_ids,
+            price_categ_ids,
         )
 
-        # Changes: due to chance of duplicates we need to filter this result
-        # but retain order
-        seen = set()
-        item_ids = [x[0] for x in self._cr.fetchall() if (x not in seen or seen.add(x))]
-        # End Changes
-        items = self.env["product.pricelist.item"].browse(item_ids)
         results = {}
         for product, qty, partner in products_qty_partner:
             results[product.id] = 0.0
@@ -291,7 +312,11 @@ class ProductPricelist(models.Model):
                 and suitable_rule.base != "pricelist"
             ):
                 price = product.currency_id._convert(
-                    price, self.currency_id, self.env.user.company_id, date, round=False
+                    price, self.currency_id, self.env.company, date, round=False
+                )
+            if not suitable_rule:
+                price = product.currency_id._convert(
+                    price, self.currency_id, self.env.company, date, round=False
                 )
 
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
