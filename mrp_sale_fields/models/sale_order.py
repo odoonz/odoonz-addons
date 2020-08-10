@@ -13,7 +13,6 @@ class SaleOrder(models.Model):
     )
 
     def _compute_production_ids(self):
-        self.production_count = False
         self._cr.execute(
             """SELECT mrp.sale_id, COUNT(mrp.sale_id)
         FROM mrp_production mrp
@@ -23,10 +22,13 @@ class SaleOrder(models.Model):
             (tuple(self.ids),),
         )
         production_data = self._cr.fetchall()
-        if production_data:
-            mapped_data = dict(production_data)
-            for order in self.browse(mapped_data.keys()):
-                order.production_count = mapped_data.get(order.id, 0)
+        if not production_data:
+            for order in self:
+                order.production_count = 0
+            return
+        mapped_data = dict(production_data)
+        for order in self.browse(mapped_data.keys()):
+            order.production_count = mapped_data.get(order.id, 0)
 
     def action_view_production(self):
         """

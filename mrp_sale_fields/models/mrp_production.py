@@ -10,7 +10,6 @@ class MrpProduction(models.Model):
 
     @api.depends("move_dest_ids")
     def _compute_sale_order(self):
-        self.sale_id = False
         self._cr.execute(
             """SELECT sm.created_production_id, sol.order_id
         FROM stock_move sm
@@ -21,10 +20,9 @@ class MrpProduction(models.Model):
             (tuple(self.ids),),
         )
         production_data = self._cr.fetchall()
-        if production_data:
-            mapped_data = dict(production_data)
-            for production in self:
-                production.sale_id = mapped_data.get(production.id, False)
+        mapped_data = dict(production_data)
+        for production in self:
+            production.sale_id = mapped_data.get(production.id, False)
 
     sale_id = fields.Many2one(
         comodel_name="sale.order",
