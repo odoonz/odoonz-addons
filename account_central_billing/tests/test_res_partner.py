@@ -1,9 +1,8 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common
-
 from odoo.exceptions import ValidationError
+from odoo.tests import common
 
 module = "account_central_billing"
 
@@ -94,10 +93,9 @@ class TestResPartnerInvoicing(common.TransactionCase):
         Test invoicing_partner_id is returned when invoice supplied
         """
 
-        invoice = self.env["account.invoice"].create(
+        invoice = self.env["account.move"].create(
             {
                 "partner_id": self.normal_partner.id,
-                "account_id": self.invoice_account,
                 "type": "out_invoice",
                 "company_id": self.company.id,
             }
@@ -175,10 +173,9 @@ class TestResPartnerInvoicing(common.TransactionCase):
         Test billing_partner_id is returned when invoice supplied
         """
         # Type is usually part of view context
-        invoice = self.env["account.invoice"].create(
+        invoice = self.env["account.move"].create(
             {
                 "partner_id": self.normal_partner.id,
-                "account_id": self.invoice_account,
                 "type": "in_invoice",
                 "company_id": self.company.id,
             }
