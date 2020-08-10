@@ -22,7 +22,7 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-#. For each centrally billed partner, select the approriate supplier or customer billing option.
+#. For each centrally billed partner, select the appropriate supplier or customer billing option.
 #. Specify the partner to bill / receive bills from
 
 Usage

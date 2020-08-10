@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='website']" position="after">
-                <field name="store_ref" attrs="{'invisible': [('is_company', '=', False)]}"/>
+                <field name="store_ids" attrs="{'invisible': [('is_company', '=', False)]}"/>
             </xpath>
             <xpath expr="//field[@name='property_payment_term_id']" position="after">
                 <field name="invoicing_partner_id" attrs="{'invisible': [('is_company', '=', False)]}"
@@ -38,22 +38,22 @@
                             <field name="country_id"/>
                             <field name="mobile"/>
                             <field name="state_id"/>
-                            <field name="image_small"/>
+                            <field name="image_128"/>
                             <field name="lang"/>
                             <!-- fields in form x2many view to diminish requests -->
                             <field name="comment"/>
-                            <field name="customer"/>
+                            <field name="customer_rank"/>
                             <field name="display_name"/>
-                            <field name="supplier"/>
+                            <field name="supplier_rank"/>
                             <templates>
                                 <t t-name="kanban-box">
                                     <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
                                     <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
                                         <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
                                         <div class="o_kanban_image">
-                                            <img t-if="record.image_small.raw_value"
-                                                 t-att-src="'data:image/png;base64,'+record.image_small.raw_value"/>
-                                            <t t-if="!record.image_small.raw_value">
+                                            <img t-if="record.image_128.raw_value"
+                                                 t-att-src="'data:image/png;base64,'+record.image_128.raw_value"/>
+                                            <t t-if="!record.image_128.raw_value">
                                                 <img t-if="record.type.raw_value === 'delivery'"
                                                      t-att-src='_s + "/base/static/img/truck.png"'/>
                                                 <img t-if="record.type.raw_value === 'invoice'"
@@ -141,10 +141,10 @@
                                         <field name="comment" placeholder="internal note..."/>
                                     </group>
                                 </group>
-                                <field name="supplier" invisible="True"/>
-                                <field name="customer" invisible="True"/>
+                                <field name="supplier_rank" invisible="True"/>
+                                <field name="customer_rank" invisible="True"/>
                                 <field name="lang" invisible="True"/>
-                                <field name="image" invisible="True"/>
+                                <field name="image_medium" invisible="True"/>
                             </sheet>
                         </form>
                     </field>
