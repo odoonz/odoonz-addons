@@ -22,12 +22,8 @@ class SaleOrder(models.Model):
             (tuple(self.ids),),
         )
         production_data = self._cr.fetchall()
-        if not production_data:
-            for order in self:
-                order.production_count = 0
-            return
         mapped_data = dict(production_data)
-        for order in self.browse(mapped_data.keys()):
+        for order in self:
             order.production_count = mapped_data.get(order.id, 0)
 
     def action_view_production(self):
