@@ -9,5 +9,6 @@
     "website": "https://o4sb.com",
     "depends": ["account_central_billing", "account_invoice_cutoff_policy"],
     "auto_install": True,
-    "summary": "This module is automatically installed if  ",
+    "summary": "This module is automatically installed if account_central_billing and "
+    "account_invoice_cutoff_policy",
 }
