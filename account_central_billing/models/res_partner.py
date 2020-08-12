@@ -78,9 +78,3 @@ class ResPartner(models.Model):
             "invoicing_partner_id",
             "billing_partner_id",
         ]
-
-    def _get_refund_common_fields(self):
-        return super()._get_refund_common_fields() + [
-            "order_partner_id",
-            "order_invoice_id",
-        ]
