@@ -58,9 +58,7 @@ class ResPartner(models.Model):
         elif invoice:
             invoice_company = invoice.company_id
         else:
-            invoice_company = self.env["res.company"]._company_default_get(
-                "account.invoice"
-            )
+            invoice_company = self.env.company
         company_partner = invoice_company.partner_id
         partner = self
         while partner[field]:
@@ -79,4 +77,10 @@ class ResPartner(models.Model):
         return super()._commercial_fields() + [
             "invoicing_partner_id",
             "billing_partner_id",
+        ]
+
+    def _get_refund_common_fields(self):
+        return super()._get_refund_common_fields() + [
+            "order_partner_id",
+            "order_invoice_id",
         ]
