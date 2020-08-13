@@ -4,7 +4,7 @@
 {
     "name": "Accounting Journal Lock Policy",
     "summary": "Specify journal specific lock policies",
-    "version": "12.0.1.1.0",
+    "version": "13.0.0.1.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",

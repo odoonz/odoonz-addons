@@ -2,10 +2,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import mock
-from odoo.tests import common
 
 from odoo.exceptions import UserError
-
+from odoo.tests import common
 
 module = (
     "odoo.addons.account_journal_lock_policy.models." "account_journal.AccountJournal"
@@ -34,4 +33,4 @@ class TestAccountMove(common.TransactionCase):
                         "company_id": company_id,
                     }
                 )
-                move._check_lock_date()
+                move._check_fiscalyear_lock_date()

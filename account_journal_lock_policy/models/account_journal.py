@@ -6,7 +6,7 @@ from builtins import range
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import DAILY, rrule
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class AccountJournal(models.Model):
@@ -21,7 +21,6 @@ class AccountJournal(models.Model):
         [("date", "transaction date"), ("eom", "end of month following transaction")]
     )
 
-    @api.multi
     def _is_locked(self, transaction_date):
         self.ensure_one()
         if not self.enforce_lock:
