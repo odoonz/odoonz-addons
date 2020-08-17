@@ -39,20 +39,14 @@ class ProductPricelistItem(models.Model):
             if item.price_categ_id and item.applied_on == "2_product_category":
                 item.name = _("Price Category: %s") % item.price_categ_id.display_name
             elif item.product_tmpl_ids and item.applied_on == "1_product":
-                # odoo creates new objects for item.product_tmpl_ids
-                # but this doesn't happen in v12
                 item.name = _("Product: %s") % (
                     ",".join(item.product_tmpl_ids.mapped("display_name"))
                 )
             elif item.product_ids and item.applied_on == "0_product_variant":
-                # odoo creates new objects for item.product_ids, so I put _origin here
-                # but this doesn't happen in v12
                 item.name = _("Variant: %s") % (
                     ",".join(
                         [
-                            p._origin.with_context(
-                                display_default_code=False
-                            ).display_name
+                            p.with_context(display_default_code=False).name
                             for p in item.product_ids
                         ]
                     )
@@ -74,16 +68,18 @@ class ProductPricelistItem(models.Model):
         "categ_id",
     )
     def _check_product_consistency(self):
-        # # New in V13:
-        # Rewrite this validation function:
-        # only one field should be set
+        """
+            Rewrite this validation function:
+            only one field should be set
+        """
         for item in self:
             if item.applied_on == "2_product_category" and bool(item.categ_id) == bool(
                 item.price_categ_id
             ):
                 raise ValidationError(
                     _(
-                        "Please specify product category or price category for which this rule should be applied"
+                        "Please specify product category or price category for which "
+                        "this rule should be applied"
                     )
                 )
             elif item.applied_on == "1_product" and bool(item.product_tmpl_id) == bool(
@@ -91,7 +87,8 @@ class ProductPricelistItem(models.Model):
             ):
                 raise ValidationError(
                     _(
-                        "Please specify the product for which this rule should be applied"
+                        "Please specify the product for which "
+                        "this rule should be applied"
                     )
                 )
             elif item.applied_on == "0_product_variant" and bool(
@@ -99,7 +96,8 @@ class ProductPricelistItem(models.Model):
             ) == bool(item.product_ids):
                 raise ValidationError(
                     _(
-                        "Please specify the product variant for which this rule should be applied"
+                        "Please specify the product variant for which "
+                        "this rule should be applied"
                     )
                 )
 

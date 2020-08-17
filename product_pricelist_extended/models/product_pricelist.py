@@ -10,8 +10,6 @@ from itertools import chain
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import UserError, ValidationError
 
-# noinspection PyUnresolvedReferences
-
 
 class ProductPricelist(models.Model):
     """

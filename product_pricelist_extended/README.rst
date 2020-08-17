@@ -47,7 +47,7 @@ Known issues / Roadmap
 
 * There was a report in past versions, print page in browser is nearly as good now.
 * Due to the lack of extensibility of this part of Odoo we overwrite the original function.  This may break other extensions that inherit it.
-* Be aware of we hide 'product_ids' and 'product_tmpl_ids', which in v13 there are 2 onchanges: '_onchange_product_id()', '_onchange_product_tmpl_id()'.
+* Be aware of we hide 'product_id' and 'product_tmpl_id', which in v13 there are 2 onchanges: '_onchange_product_id()', '_onchange_product_tmpl_id()'.
 Bug Tracker
 ===========
 
