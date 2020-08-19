@@ -45,10 +45,10 @@ class ProductPricelistItem(models.Model):
             elif item.product_ids and item.applied_on == "0_product_variant":
                 item.name = _("Variant: %s") % (
                     ",".join(
-                        [
-                            p.with_context(display_default_code=False).name
-                            for p in item.product_ids
-                        ]
+                        self.env["product.product"]
+                        .with_context(display_default_code=False)
+                        .browse(item.product_ids.ids)
+                        .mapped("display_name")
                     )
                 )
             suffix = []
