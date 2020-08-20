@@ -1,7 +1,7 @@
 # Copyright 2017 Open For Small Business Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api
+from odoo import api, fields, models
 
 
 class MrpProduction(models.Model):
@@ -20,10 +20,9 @@ class MrpProduction(models.Model):
             (tuple(self.ids),),
         )
         production_data = self._cr.fetchall()
-        if production_data:
-            mapped_data = dict(production_data)
-            for production in self:
-                production.sale_id = mapped_data.get(production.id, False)
+        mapped_data = dict(production_data)
+        for production in self:
+            production.sale_id = mapped_data.get(production.id, False)
 
     sale_id = fields.Many2one(
         comodel_name="sale.order",

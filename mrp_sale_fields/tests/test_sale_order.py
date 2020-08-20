@@ -12,9 +12,10 @@ class TestSaleOrder(common.TransactionCase):
         self.prod = self.env.ref("mrp.mrp_production_laptop_cust")
 
     def test_compute_production_ids(self):
-        self.assertEqual(self.sale.production_count, 0)
+        so_copy = self.sale.copy()
+        self.assertEqual(so_copy.production_count, 0)
         self.prod.sale_id = self.sale
-        self.sale.invalidate_cache()
+        self.sale.flush()
         self.assertEqual(self.sale.production_count, 1)
 
     def test_view_production(self):
