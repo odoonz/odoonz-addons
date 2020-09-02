@@ -1,7 +1,7 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 from .helper_methods import render_default_code
 
@@ -24,7 +24,6 @@ class ProductAttributeValue(models.Model):
                 vals["code"] = vals.get("name", "")[0:2]
         return super().create(vals_list)
 
-    @api.multi
     def write(self, vals):
         result = super().write(vals)
         if "code" in vals:

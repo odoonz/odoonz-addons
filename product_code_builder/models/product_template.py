@@ -1,11 +1,14 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
-from .helper_methods import DEFAULT_REFERENCE_SEPARATOR
-from .helper_methods import render_default_code, sanitize_reference_mask
+from .helper_methods import (
+    DEFAULT_REFERENCE_SEPARATOR,
+    render_default_code,
+    sanitize_reference_mask,
+)
 
 
 class ProductTemplate(models.Model):
@@ -47,7 +50,6 @@ class ProductTemplate(models.Model):
             sanitize_reference_mask(product, vals["reference_mask"])
         return super().create(vals)
 
-    @api.multi
     def write(self, vals):
         if "reference_mask" in vals and not vals["reference_mask"]:
             if len(self) > 1 and any([(t.attribute_line_ids for t in self)]):
