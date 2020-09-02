@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Product Variant Default Code",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "author": "O4SB",
     "contributors": [
         "OdooMRP team",
@@ -16,11 +16,7 @@
     "category": "Product",
     "website": "http://www.odoo-community.org",
     "depends": ["product"],
-    "data": [
-        "views/product_attribute_value_view.xml",
-        "views/product_view.xml",
-        "views/product_attribute_view.xml",
-    ],
+    "data": ["views/product_view.xml", "views/product_attribute_view.xml"],
     "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],
     "installable": True,
 }

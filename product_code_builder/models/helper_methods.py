@@ -1,11 +1,12 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import re
+from collections import defaultdict
+from string import Template
+
 from odoo import _
 from odoo.exceptions import MissingError
-import re
-from string import Template
-from collections import defaultdict
 
 DEFAULT_REFERENCE_SEPARATOR = ""
 PLACE_HOLDER_4_MISSING_VALUE = "/"
@@ -39,11 +40,13 @@ def sanitize_reference_mask(product, mask):
 def get_rendered_default_code(product, mask):
     product_attrs = defaultdict(str)
     reference_mask = ReferenceMask(mask)
-    for value in product.attribute_value_ids:
+    for value in product.product_template_attribute_value_ids:
         if value.attribute_id.code:
             product_attrs[value.attribute_id.name] += value.attribute_id.code
-        if value.code:
-            product_attrs[value.attribute_id.name] += value.code
+        if value.product_attribute_value_id.code:
+            product_attrs[
+                value.attribute_id.name
+            ] += value.product_attribute_value_id.code
     all_attrs = extract_token(mask)
     missing_attrs = all_attrs - set(product_attrs.keys())
     missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)
