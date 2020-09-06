@@ -2,44 +2,17 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import mock
-from odoo.addons.account.tests.test_account_supplier_invoice import (
-    TestAccountSupplierInvoice,
-)
+
+from odoo.tests.common import Form
+
+from odoo.addons.account.tests.account_test_savepoint import AccountTestInvoicingCommon
 
 
-class TestSupplierTaxRounding(TestAccountSupplierInvoice):
+class TestSupplierTaxRounding(AccountTestInvoicingCommon):
     def setUp(self):
         super().setUp()
-        self.company = self.env.ref("base.main_company")
+        self.company = self.company_data["company"]
         self.company.tax_calculation_rounding_method = "round_globally"
-        self.invoice_account = (
-            self.env["account.account"]
-            .search(
-                [
-                    (
-                        "user_type_id",
-                        "=",
-                        self.env.ref("account.data_account_type_receivable").id,
-                    )
-                ],
-                limit=1,
-            )
-            .id
-        )
-        self.invoice_line_account = (
-            self.env["account.account"]
-            .search(
-                [
-                    (
-                        "user_type_id",
-                        "=",
-                        self.env.ref("account.data_account_type_expenses").id,
-                    )
-                ],
-                limit=1,
-            )
-            .id
-        )
 
     def test_supplier_invoice_round_per_line(self):
         """
@@ -60,25 +33,21 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
             "odoo.addons.account.models.account.round", autospec=True
         ) as mock_round:
             mock_round.return_value = 10.0
-            invoice = self.env["account.invoice"].create(
-                {
-                    "partner_id": self.env.ref("base.res_partner_2").id,
-                    "account_id": self.invoice_account,
-                    "type": "in_invoice",
-                }
-            )
 
-            self.env["account.invoice.line"].create(
-                {
-                    "product_id": self.env.ref("product.product_product_4").id,
-                    "quantity": 1.0,
-                    "price_unit": 100.0,
-                    "invoice_id": invoice.id,
-                    "name": "product that cost 100",
-                    "account_id": self.invoice_line_account,
-                    "invoice_line_tax_ids": [(6, 0, [tax.id])],
-                }
+            move_form = Form(
+                self.env["account.move"].with_context(default_type="in_invoice")
             )
+            move_form.partner_id = self.env.ref("base.res_partner_2")
+            with move_form.invoice_line_ids.new() as line_form:
+                line_form.product_id = self.env.ref("product.product_product_4")
+                line_form.quantity = 1.0
+                line_form.price_unit = 100.0
+                line_form.name = "product that cost 100"
+                line_form.account_id = self.company_data["default_account_expense"]
+                line_form.tax_ids.clear()
+                line_form.tax_ids.add(tax)
+            move_form.save()
+
             # Note rounding of tax isn't actually called in round per line
             # tax, but round can be elsewhere, however its precision should be
             # 2 regardless - this test could be better
@@ -102,23 +71,19 @@ class TestSupplierTaxRounding(TestAccountSupplierInvoice):
             "odoo.addons.account.models.account.round", autospec=True
         ) as mock_round:
             mock_round.return_value = 10.0
-            invoice = self.env["account.invoice"].create(
-                {
-                    "partner_id": self.env.ref("base.res_partner_2").id,
-                    "account_id": self.invoice_account,
-                    "type": "in_invoice",
-                }
-            )
 
-            self.env["account.invoice.line"].create(
-                {
-                    "product_id": self.env.ref("product.product_product_4").id,
-                    "quantity": 1.0,
-                    "price_unit": 100.0,
-                    "invoice_id": invoice.id,
-                    "name": "product that cost 100",
-                    "account_id": self.invoice_line_account,
-                    "invoice_line_tax_ids": [(6, 0, [tax.id])],
-                }
+            move_form = Form(
+                self.env["account.move"].with_context(default_type="in_invoice")
             )
+            move_form.partner_id = self.env.ref("base.res_partner_2")
+            with move_form.invoice_line_ids.new() as line_form:
+                line_form.product_id = self.env.ref("product.product_product_4")
+                line_form.quantity = 1.0
+                line_form.price_unit = 100.0
+                line_form.name = "product that cost 100"
+                line_form.account_id = self.company_data["default_account_expense"]
+                line_form.tax_ids.clear()
+                line_form.tax_ids.add(tax)
+            move_form.save()
+
             mock_round.assert_called_with(10.0, 7)
