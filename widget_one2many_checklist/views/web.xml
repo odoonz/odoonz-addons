@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="widget assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script src="/widget_one2many_checklist/static/src/js/one2many_checklist.js" type="text/javascript"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<t t-name="one2many_checklist">
+        <div class="one2many_checklist_container">
+            <div class="items_list"/>
+        </div>
+    </t>
+    <t t-name="one2many_checklist_item">
+        <t t-foreach="state.data" t-as="item">
+            <div t-if="editable" class="checklist_item" t-att-id="item.id">
+                <div>
+                    <label class="o_form_label" t-att-name="namefield" t-att-placeholder="state.fields[namefield].string"
+                           style="margin-bottom:5px;" autocomplete="off"><t t-esc="(item.data[namefield]) ? item.data[namefield] : ''"/></label>
+                    <br/>
+                    <i class="fa fa-edit" style="opacity:0.6;"/>
+                    <textarea class="o_input" t-att-name="summaryfield"
+                              t-att-placeholder="state.fields[summaryfield].string" style="width: 97%;float: right;"><t t-esc="(item.data[summaryfield]) ? item.data[summaryfield]: ''"/></textarea>
+                    <span class="hidden" t-att-placeholder="state.fields[summaryfield].string"
+                          style="width: 97%;float: right;"><t t-esc="(item.data[summaryfield]) ? item.data[summaryfield]: ''"/></span>
+                </div>
+            </div>
+            <div t-if="!editable" class="checklist_item_readonly" t-att-id="item.id">
+                <span t-if="item.data[namefield]" style="font-weight: bold;"><t t-esc="item.data[namefield]"/></span>
+                <br/>
+                <div style="padding-left:20px;"><i class="fa fa-edit" style="opacity:0.6;padding-right:7px;"/>
+                    <small t-if="item.data[summaryfield]"><t t-esc="item.data[summaryfield]"/></small></div>
+            </div>
+        </t>
+        <br/>
+    </t>
+</templates>
