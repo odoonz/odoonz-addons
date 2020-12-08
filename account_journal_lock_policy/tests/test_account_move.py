@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import mock
+from unittest import mock
 
 from odoo.exceptions import UserError
 from odoo.tests import common
