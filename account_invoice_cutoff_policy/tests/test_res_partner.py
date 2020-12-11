@@ -5,7 +5,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields
-from odoo.tests import common, tagged
+from odoo.tests import common
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class TestResPartner(common.TransactionCase):

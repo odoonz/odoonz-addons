@@ -5,7 +5,7 @@ from datetime import datetime
 
 from unittest import mock
 
-from odoo.tests import common, tagged
+from odoo.tests import common
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
 partner_model = (
