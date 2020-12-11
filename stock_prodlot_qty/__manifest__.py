@@ -4,7 +4,7 @@
 {
     "name": "Stock Prodlot Qty",
     "summary": "Shows available qty in prodlot name",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
