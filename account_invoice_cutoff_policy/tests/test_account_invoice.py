@@ -3,9 +3,9 @@
 
 from datetime import datetime
 
-import mock
+from unittest import mock
 
-from odoo.tests import common
+from odoo.tests import common, tagged
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
 partner_model = (
@@ -14,7 +14,6 @@ partner_model = (
 
 spt = datetime.strptime
 
-
 class TestAccountInvoice(common.TransactionCase):
     def setUp(self):
         super().setUp()
@@ -22,7 +21,7 @@ class TestAccountInvoice(common.TransactionCase):
 
     def test_onchange_invoice_date(self):
         invoice = self.env["account.move"].new()
-        invoice.type = "out_invoice"
+        invoice.move_type = "out_invoice"
         invoice.partner_id = self.partner
 
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
@@ -37,7 +36,7 @@ class TestAccountInvoice(common.TransactionCase):
 
     def test_onchange_invoice_date_in(self):
         invoice = self.env["account.move"].new()
-        invoice.type = "in_invoice"
+        invoice.move_type = "in_invoice"
         invoice.partner_id = self.partner
 
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
@@ -52,7 +51,7 @@ class TestAccountInvoice(common.TransactionCase):
 
     def test_onchange_invoice_date_refund(self):
         invoice = self.env["account.move"].new()
-        invoice.type = "out_refund"
+        invoice.move_type = "out_refund"
         invoice.partner_id = self.partner
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
