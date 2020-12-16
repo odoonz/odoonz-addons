@@ -9,6 +9,11 @@ from odoo.addons.account.tests.account_test_savepoint import AccountTestInvoicin
 
 
 class TestSupplierTaxRounding(AccountTestInvoicingCommon):
+    @classmethod
+    def setUpClass(cls, chart_template_ref=None):
+        super().setUpClass(chart_template_ref=chart_template_ref)
+        cls.invoice = cls.init_invoice("in_invoice")
+
     def setUp(self):
         super().setUp()
         self.company = self.company_data["company"]
