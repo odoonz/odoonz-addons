@@ -29,8 +29,5 @@
         <field name="target">new</field>
         <field name="binding_model_id" ref="sale.model_sale_order"/>
     </record>
-<!--    <act_window id="sale_code_replacement_act_window" name="Substitute Partcodes" view_mode="form"-->
-<!--        res_model="sale.code.replacement" binding_model="sale.order"-->
-<!--        target="new" />-->
 
 </odoo>
