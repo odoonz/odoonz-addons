@@ -10,7 +10,8 @@
         <field name="arch" type="xml">
             <form string="Product Attribute Group">
                 <header>
-                    <button type="object" name="update_products" string="Update Templates"/>
+                    <!-- missing function -->
+<!--                    <button type="object" name="update_products" string="Update Templates"/>-->
                 </header>
                 <sheet>
                     <group>
