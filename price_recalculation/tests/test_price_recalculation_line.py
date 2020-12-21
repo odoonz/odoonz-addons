@@ -47,13 +47,13 @@ class TestPriceRecalculationLine(TransactionCase):
             }
         )
 
-        line.total = float_round(total, 2)
+        line.price_total = float_round(total, 2)
         line._onchange_total()
         self.assertAlmostEqual(
             line.qty, qty, 2, "Changing totals should not affect qty"
         )
         self.assertAlmostEqual(
-            line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
+            line.price_subtotal * (1 + tax_rate), line.price_total, delta=0.01
         )
         expected = line.qty * line.price_unit
         self.assertAlmostEqual(expected, line.price_subtotal, delta=0.01)
@@ -64,7 +64,7 @@ class TestPriceRecalculationLine(TransactionCase):
             line.qty, qty, 2, "Changing totals should not affect qty"
         )
         self.assertAlmostEqual(
-            line.price_subtotal * (1 + tax_rate), line.total, delta=0.01
+            line.price_subtotal * (1 + tax_rate), line.price_total, delta=0.01
         )
         self.assertAlmostEqual(
             line.qty * line.price_unit, line.price_subtotal, delta=0.01
