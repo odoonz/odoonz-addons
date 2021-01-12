@@ -9,12 +9,9 @@
         <field name="model">mrp.production</field>
         <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='origin']" position="after">
+            <xpath expr="//field[@name='company_id']" position="before">
                 <field name="sale_id"/>
                 <field name="partner_id"/>
-            </xpath>
-            <xpath expr="//field[@name='origin']" position="attributes">
-                <attribute name="attrs">{'invisible': [('sale_id', '!=', False)]}</attribute>
             </xpath>
         </field>
     </record>

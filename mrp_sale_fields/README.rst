@@ -21,7 +21,9 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-None
+In odoo 14 Replenish on Order (MTO) is archived. To re-enable it, go to Inventory App -> Configuration
+-> Warehouse -> Select a warehouse -> Routes (Button at right up corner), and select archived in Filters.
+Choose the Replenish on Order (MTO) and unarchive it.
 
 Usage
 =====
