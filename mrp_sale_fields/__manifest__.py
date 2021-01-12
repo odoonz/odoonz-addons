@@ -4,7 +4,7 @@
 {
     "name": "Mrp Sale Fields",
     "summary": "Adds fields from sale order when linked",
-    "version": "13.0.1.2.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
