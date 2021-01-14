@@ -161,7 +161,7 @@ class TestTaxFromAccount(TransactionCase):
             [("origin", "ilike", self.test_sale_order.name)]
         )
         prod_in_po = po.order_line.search([("product_id", "=", self.test_product.id)])
-        self.assertTrue(prod_in_po.taxes_id, self.test_tax_sale2)
+        self.assertEqual(prod_in_po.taxes_id, self.test_tax_purch2)
 
     def test_check_tax_id_in_po_line(self):
         self.test_purchase_order.fiscal_position_id = False
@@ -256,7 +256,7 @@ class TestTaxFromAccount(TransactionCase):
         )
 
         # recreate the order line in the existing order
-        # and its tax_id should be same as before
+        # and its tax_id should be same as from company A
         with Form(so) as so:
             so.order_line.remove(index=len(so.order_line) - 1)
             with so.order_line.new() as line_a1:
@@ -265,5 +265,7 @@ class TestTaxFromAccount(TransactionCase):
         so = so.save()
         line_a1 = so.order_line[-1]
         self.assertEqual(
-            line_a1.tax_id, line_a1.product_id.taxes_id, "Line A1 should stay the same"
+            line_a1.tax_id,
+            so.company_id.account_sale_tax_id,
+            "Line A1 should stay the same",
         )
