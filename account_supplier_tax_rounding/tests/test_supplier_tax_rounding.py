@@ -5,7 +5,7 @@ import mock
 
 from odoo.tests.common import Form
 
-from odoo.addons.account.tests.account_test_savepoint import AccountTestInvoicingCommon
+from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 
 
 class TestSupplierTaxRounding(AccountTestInvoicingCommon):
