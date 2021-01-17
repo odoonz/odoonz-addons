@@ -1,7 +1,8 @@
 # © 2015 Benoît GUILLOT <benoit.guillot@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
+
 from .helper_methods import render_default_code
 
 
@@ -10,7 +11,6 @@ class ProductAttribute(models.Model):
 
     code = fields.Char("Code")
 
-    @api.multi
     def write(self, vals):
         result = super().write(vals)
         if "code" in vals:
