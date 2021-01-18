@@ -3,7 +3,6 @@
 
 from odoo import api, models
 
-
 class AccountInvoice(models.Model):
     _inherit = "account.move"
 
@@ -23,6 +22,6 @@ class AccountInvoice(models.Model):
         """
 
         invoice_date = self.invoice_date
-        if invoice_date and self.type.startswith("out_"):
+        if invoice_date and self.move_type.startswith("out_"):
             self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
         return super()._onchange_invoice_date()

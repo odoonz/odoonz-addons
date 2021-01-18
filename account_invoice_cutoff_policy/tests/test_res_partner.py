@@ -8,7 +8,6 @@ from odoo import fields
 from odoo.tests import common
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
-
 class TestResPartner(common.TransactionCase):
     def setUp(self):
         super().setUp()
