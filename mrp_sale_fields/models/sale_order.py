@@ -1,37 +1,24 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import models
 
 
 class SaleOrder(models.Model):
-
     _inherit = "sale.order"
 
-    production_count = fields.Integer(
-        string="Production Orders", compute="_compute_production_ids"
-    )
+    def _compute_mrp_production_count(self):
+        super()._compute_mrp_production_count()
+        for sale in self:
+            active_mrp_orders = (
+                sale.procurement_group_id.stock_move_ids.
+                    created_production_id.procurement_group_id.mrp_production_ids.filtered(
+                    lambda o: o.state != "cancel"
+                )
+            )
+            sale.mrp_production_count = len(active_mrp_orders)
 
-    def _compute_production_ids(self):
-        self._cr.execute(
-            """SELECT mrp.sale_id, COUNT(mrp.sale_id)
-        FROM mrp_production mrp
-        WHERE mrp.sale_id IN %s
-          AND mrp.state != 'cancel'
-        GROUP BY mrp.sale_id""",
-            (tuple(self.ids),),
-        )
-        production_data = self._cr.fetchall()
-        mapped_data = dict(production_data)
-        for order in self:
-            order.production_count = mapped_data.get(order.id, 0)
-
-    def action_view_production(self):
-        """
-        This function returns an action that display existing production orders
-        of given sales order ids.
-        """
-        self.ensure_one()
-        action = self.env.ref("mrp.mrp_production_action").read()[0]
-        action["domain"] = [("sale_id", "=", self.id)]
+    def action_view_mrp_production(self):
+        action = super().action_view_mrp_production()
+        action["domain"].append(("sale_id", "=", self.id))
         return action

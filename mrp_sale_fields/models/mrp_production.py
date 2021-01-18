@@ -8,21 +8,15 @@ class MrpProduction(models.Model):
 
     _inherit = "mrp.production"
 
-    @api.depends("move_dest_ids")
+    @api.depends(
+        "procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id"
+    )
     def _compute_sale_order(self):
-        self._cr.execute(
-            """SELECT sm.created_production_id, sol.order_id
-        FROM stock_move sm
-        LEFT JOIN sale_order_line sol ON sm.sale_line_id = sol.id
-        WHERE sm.sale_line_id IS NOT NULL
-          AND sm.created_production_id IS NOT NULL
-          AND sm.created_production_id IN %s """,
-            (tuple(self.ids),),
-        )
-        production_data = self._cr.fetchall()
-        mapped_data = dict(production_data)
         for production in self:
-            production.sale_id = mapped_data.get(production.id, False)
+            production.sale_id = (
+                production.procurement_group_id.
+                    mrp_production_ids.move_dest_ids.group_id.sale_id
+            )
 
     sale_id = fields.Many2one(
         comodel_name="sale.order",
