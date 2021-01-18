@@ -29,7 +29,7 @@ class PriceRecalculationLine(models.AbstractModel):
             self._context.get("precision", price_prec),
         )
         self.price_subtotal = float_round(self.price_unit * self.qty, total_prec)
-        self.total = float_round(
+        self.price_total = float_round(
             self.price_subtotal * (1 + self.effective_tax_rate), total_prec
         )
 
@@ -43,6 +43,6 @@ class PriceRecalculationLine(models.AbstractModel):
             self._context.get("precision", price_prec),
         )
         self.price_subtotal = float_round(self.price_unit * self.qty, total_prec)
-        self.total = float_round(
+        self.price_total = float_round(
             self.price_subtotal * (1 + self.effective_tax_rate), total_prec
         )

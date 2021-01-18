@@ -5,6 +5,7 @@ import logging
 from random import randint
 
 from odoo import fields
+from odoo.exceptions import AccessError
 from odoo.tests.common import Form, TransactionCase
 from odoo.tools import float_compare as fc, float_round
 
@@ -74,6 +75,14 @@ class TestPurchaseOrder(TransactionCase):
         self.vals = self.ppr.default_get(
             ["name", "partner_id", "date_order", "line_ids"]
         )
+
+    def test_access_ppr(self):
+        user = self.env.user.copy()
+        user.groups_id = [(6, 0, [self.env.ref("purchase.group_purchase_user").id])]
+        self.ppr.with_user(user).create(self.vals)
+        user.groups_id = [(6, 0, [self.env.ref("sales_team.group_sale_salesman").id])]
+        with self.assertRaises(AccessError):
+            self.ppr.with_user(user).create(self.vals)
 
     def test_default_get(self):
         """

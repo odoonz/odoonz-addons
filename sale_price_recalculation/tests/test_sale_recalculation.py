@@ -1,13 +1,14 @@
 import logging
+import unittest.mock as mock
+from collections import OrderedDict
 from random import randint, random
 
-import mock
-
 from odoo import fields
+from odoo.exceptions import AccessError
 from odoo.tests.common import Form
 from odoo.tools import float_compare as fc, float_round
 
-from odoo.addons.sale.tests.test_sale_common import TestSale
+from odoo.addons.sale.tests.common import TestSaleCommon
 
 from . import hypothesis_params as hp
 
@@ -23,10 +24,28 @@ except ImportError as err:
 pricelist = "odoo.addons.product.models.product_pricelist.Pricelist"
 
 
-class TestSaleRecalc(TestSale):
+class TestSaleRecalc(TestSaleCommon):
     def setUp(self):
         super().setUp()
-        today = fields.Date.to_string(fields.Date.context_today(self.partner))
+        self.products = OrderedDict(
+            [
+                ("prod_order_cost", self.company_data["product_order_cost"]),
+                ("prod_del_cost", self.company_data["product_delivery_cost"]),
+                (
+                    "prod_order_sales_price",
+                    self.company_data["product_order_sales_price"],
+                ),
+                (
+                    "prod_del_sales_price",
+                    self.company_data["product_delivery_sales_price"],
+                ),
+                ("prod_order_no", self.company_data["product_order_no"]),
+                ("prod_del_no", self.company_data["product_delivery_no"]),
+                ("serv_del", self.company_data["product_service_delivery"]),
+                ("serv_order", self.company_data["product_service_order"]),
+            ]
+        )
+        today = fields.Date.to_string(fields.Date.context_today(self.partner_a))
         context_no_mail = {
             "tracking_disable": True,
             "mail_notrack": True,
@@ -38,9 +57,9 @@ class TestSaleRecalc(TestSale):
             .with_context(context_no_mail)
             .create(
                 {
-                    "partner_id": self.partner.id,
-                    "partner_invoice_id": self.partner.id,
-                    "partner_shipping_id": self.partner.id,
+                    "partner_id": self.partner_a.id,
+                    "partner_invoice_id": self.partner_a.id,
+                    "partner_shipping_id": self.partner_a.id,
                     "date_order": today,
                     "order_line": [
                         (
@@ -70,13 +89,26 @@ class TestSaleRecalc(TestSale):
 
         self.pricelist = self.env.ref("product.list0").copy()
 
+    def test_access_spr(self):
+        self.spr.with_user(self.company_data["default_user_salesman"]).create(self.vals)
+        with self.assertRaises(AccessError):
+            self.spr.with_user(self.company_data["default_user_employee"]).create(
+                self.vals
+            )
+        with self.assertRaises(AccessError):
+            self.spr.with_user(self.company_data["default_user_portal"]).create(
+                self.vals
+            )
+
     def test_default_get(self):
         """
         When we create record check that it
         is correctly defaulted
         """
         vals = self.spr.default_get(["name", "partner_id", "date_order", "line_ids"])
-        recalc = self.spr.create(vals)
+        recalc = self.spr.with_user(self.company_data["default_user_salesman"]).create(
+            vals
+        )
         so = self.so
         self.assertEqual(recalc.name, so)
         self.assertEqual(recalc.partner_id, so.partner_id)
@@ -108,10 +140,10 @@ class TestSaleRecalc(TestSale):
         )
         # We test that the pricing is roughly weighted in proportion
         approx_change = self.so.amount_untaxed / recalc.total
-        for l in recalc.line_ids:
-            s = l.name
+        for line in recalc.line_ids:
+            s = line.name
             self.assertAlmostEqual(
-                s.price_subtotal / l.price_subtotal, approx_change, delta=1
+                s.price_subtotal / line.price_subtotal, approx_change, delta=1
             )
 
     def test_change_inc_tax_total(self):
@@ -126,10 +158,10 @@ class TestSaleRecalc(TestSale):
         )
         # We test that the pricing is roughly weighted in proportion
         approx_change = self.so.amount_total / recalc.total
-        for l in recalc.line_ids:
-            s = l.name
+        for line in recalc.line_ids:
+            s = line.name
             self.assertAlmostEqual(
-                s.price_total / l.price_total, approx_change, delta=1
+                s.price_total / line.price_total, approx_change, delta=1
             )
 
     @given(st.data())

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_price_recalculation,access.price.recalculation,model_price_recalculation,base.group_user,1,1,1,0
+access_price_recalculation_line,access.price.recalculation.line,model_price_recalculation_line,base.group_user,1,1,1,0

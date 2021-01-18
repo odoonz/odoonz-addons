@@ -43,12 +43,12 @@
         </field>
     </record>
 
-    <act_window
-            id="purchase_price_recalculation_act_window"
-            name="Update Pricing"
-            view_mode="form"
-            res_model="purchase.price.recalculation"
-            binding_model="purchase.order"
-            target="new"/>
+    <record id="purchase_price_recalculation_act_window" model="ir.actions.act_window">
+        <field name="name">Update Pricing</field>
+        <field name="res_model">purchase.price.recalculation</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    </record>
 
 </odoo>
