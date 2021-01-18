@@ -1,5 +1,5 @@
 from random import randint, random
-from odoo.addons.sale.tests.test_sale_common import TestSale
+from odoo.addons.sale.tests.common import TestSaleCommon
 from odoo.tests import tagged
 from odoo import fields
 from odoo.tools import float_compare as fc
@@ -7,10 +7,10 @@ from odoo.exceptions import ValidationError
 
 
 @tagged("post_install", "-at_install")
-class TestSaleSubst(TestSale):
+class TestSaleSubst(TestSaleCommon):
     def setUp(self):
         super().setUp()
-        today = fields.Date.to_string(fields.Date.context_today(self.partner))
+        today = fields.Date.to_string(fields.Date.context_today(self.partner_a))
         context_no_mail = {
             "tracking_disable": True,
             "mail_notrack": True,
@@ -20,9 +20,9 @@ class TestSaleSubst(TestSale):
         p = self.env.ref("sale_partcode_substitution.product_product_1")
         self.blue_car = self.env.ref("sale_partcode_substitution.product_product_2")
         vals = {
-            "partner_id": self.partner.id,
-            "partner_invoice_id": self.partner.id,
-            "partner_shipping_id": self.partner.id,
+            "partner_id": self.partner_a.id,
+            "partner_invoice_id": self.partner_a.id,
+            "partner_shipping_id": self.partner_a.id,
             "date_order": today,
             "order_line": [
                 (
