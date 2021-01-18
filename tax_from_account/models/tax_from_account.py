@@ -71,11 +71,7 @@ class StockRule(models.Model):
         )
         partner = values["supplier"].name
         pol = self.env["purchase.order.line"].new(
-            {
-                "order_id": po.id,
-                "product_id": po.product_id,
-                "company_id": po.company_id,
-            }
+            {"order_id": po.id, "product_id": product_id, "company_id": company_id}
         )
         res.update(
             taxes_id=[
