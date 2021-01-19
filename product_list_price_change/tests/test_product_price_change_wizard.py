@@ -9,7 +9,7 @@ class TestProductPriceChangeWizard(TransactionCase):
     def setUp(self):
         super(TestProductPriceChangeWizard, self).setUp()
         self.product_price_change = self.env.ref(
-            "product_list_price_change" ".product_price_change_demo_1"
+            "product_list_price_change.product_price_change_demo_1"
         )
         self.ppc_wizard = self.env["product.price.change.wizard"].create(
             {
