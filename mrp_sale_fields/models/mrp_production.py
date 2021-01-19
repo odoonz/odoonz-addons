@@ -14,8 +14,7 @@ class MrpProduction(models.Model):
     def _compute_sale_order(self):
         for production in self:
             production.sale_id = (
-                production.procurement_group_id.
-                    mrp_production_ids.move_dest_ids.group_id.sale_id
+                production.procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id
             )
 
     sale_id = fields.Many2one(
