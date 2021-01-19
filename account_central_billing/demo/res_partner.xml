@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="0">
 
-    <record id="taupo_company" model="res.company">
-        <!-- <field name="account_check_printing_layout">None</field> -->
-        <field name="name">Taupo Office</field>
-        <field name="report_header">My Company Tagline</field>
-        <field name="currency_id" ref="base.NZD"/>
-    </record>
+        <record id="taupo_company" model="res.company">
+            <!-- <field name="account_check_printing_layout">None</field> -->
+            <field name="name">Taupo Office</field>
+            <field name="report_header">My Company Tagline</field>
+            <field name="currency_id" ref="base.NZD"/>
+        </record>
 
     <!--
      Resource: res.partner
@@ -14,8 +14,8 @@
 
     <record id="res_partner_hq" model="res.partner">
         <field name="name">Kwik-e-Mart Head Office</field>
-        <field name="supplier">1</field>
-        <field name="customer">1</field>
+        <field name="supplier_rank">1</field>
+        <field name="customer_rank">1</field>
         <field name="is_company">1</field>
         <field name="city">Taihape</field>
         <field name="zip">106</field>
@@ -107,8 +107,8 @@
     <!--for supply-->
     <record id="res_supplier_hq" model="res.partner">
         <field name="name">Steel Is Us Head Office</field>
-        <field name="supplier">1</field>
-        <field name="customer" eval="0" />
+        <field name="supplier_rank">1</field>
+        <field name="customer_rank" eval="0"/>
         <field name="is_company">1</field>
         <field name="city">Mangaweka</field>
         <field name="zip">106</field>
@@ -122,8 +122,8 @@
 
     <record id="res_supplier_branch_a" model="res.partner">
         <field name="name">Steel Is Us Oamaru</field>
-        <field name="supplier">1</field>
-        <field name="customer" eval="0" />
+        <field name="supplier_rank">1</field>
+        <field name="customer_rank" eval="0"/>
         <field name="is_company">1</field>
         <field name="city">Oamaru</field>
         <field name="zip">1300</field>
@@ -138,8 +138,8 @@
 
     <record id="res_supplier_branch_b" model="res.partner">
         <field name="name">Steel Is Us Waiuku</field>
-        <field name="supplier">1</field>
-        <field name="customer" eval="0" />
+        <field name="supplier_rank">1</field>
+        <field name="customer_rank" eval="0"/>
         <field name="is_company">1</field>
         <field name="city">Waiuku</field>
         <field name="zip">1300</field>
@@ -154,8 +154,8 @@
 
     <record id="res_supplier_branch_c" model="res.partner">
         <field name="name">Steel Is Us Oratia</field>
-        <field name="supplier">1</field>
-        <field name="customer" eval="0" />
+        <field name="supplier_rank">1</field>
+        <field name="customer_rank" eval="0"/>
         <field name="is_company">1</field>
         <field name="city">Oratia</field>
         <field name="zip">1300</field>
