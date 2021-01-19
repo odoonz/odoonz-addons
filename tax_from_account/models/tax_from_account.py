@@ -59,23 +59,19 @@ class PurchaseOrderLine(models.Model):
                 )
 
 
-class StockRule(models.Model):
-    _inherit = "stock.rule"
+class PurchaseOrderLine(models.Model):
+    _inherit = "purchase.order.line"
 
     @api.model
     def _prepare_purchase_order_line(
-        self, product_id, product_qty, product_uom, company_id, values, po
+        self, product_id, product_qty, product_uom, company_id, supplier, po
     ):
         res = super()._prepare_purchase_order_line(
-            product_id, product_qty, product_uom, company_id, values, po
+            product_id, product_qty, product_uom, company_id, supplier, po
         )
-        partner = values["supplier"].name
+        partner = supplier.name
         pol = self.env["purchase.order.line"].new(
-            {
-                "order_id": po.id,
-                "product_id": po.product_id,
-                "company_id": po.company_id,
-            }
+            {"order_id": po.id, "product_id": product_id, "company_id": company_id}
         )
         res.update(
             taxes_id=[
