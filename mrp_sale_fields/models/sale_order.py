@@ -10,11 +10,8 @@ class SaleOrder(models.Model):
     def _compute_mrp_production_count(self):
         super()._compute_mrp_production_count()
         for sale in self:
-            active_mrp_orders = (
-                sale.procurement_group_id.stock_move_ids.
-                    created_production_id.procurement_group_id.mrp_production_ids.filtered(
-                    lambda o: o.state != "cancel"
-                )
+            active_mrp_orders = sale.procurement_group_id.stock_move_ids.created_production_id.procurement_group_id.mrp_production_ids.filtered(
+                lambda o: o.state != "cancel"
             )
             sale.mrp_production_count = len(active_mrp_orders)
 
