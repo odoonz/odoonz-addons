@@ -5,7 +5,7 @@
     "name": "Product List Price Change",
     "summary": """
         Supports temporal list price changes for products""",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
@@ -17,9 +17,9 @@
         "data/ir_cron_data.xml",
     ],
     "demo": [
+        "demo/product_price_rise.xml",
         "demo/product_price_change_implementation_delay.xml",
         "demo/product_variant_price_change_line.xml",
         "demo/product_price_change_line.xml",
-        "demo/product_price_rise.xml",
     ],
 }

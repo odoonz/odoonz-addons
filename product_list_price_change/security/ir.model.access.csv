@@ -3,7 +3,9 @@ access_product_price_change_user,product.price.change.user,model_product_price_c
 access_product_price_change_line_user,product.price.change.line.user,model_product_price_change_line,base.group_user,1,0,0,0
 access_product_variant_price_change_line_user,product.variant.price.change.line.user,model_product_variant_price_change_line,base.group_user,1,0,0,0
 access_product_price_change_implementation_delay_user,product.price.change.implementation_delay.user,model_product_price_change_implementation_delay,base.group_user,1,0,0,0
+access_product_price_change_wizard_user,product.price.change.wizard.user,model_product_price_change_wizard,base.group_user,1,0,0,0
 access_product_price_change_manager,product.price.change.manager,model_product_price_change,base.group_erp_manager,1,1,1,1
 access_product_price_change_line_manager,product.price.change.line.manager,model_product_price_change_line,base.group_erp_manager,1,1,1,1
 access_product_variant_price_change_line_manager,product.variant.price.change.line.manager,model_product_variant_price_change_line,base.group_erp_manager,1,1,1,1
 access_product_price_change_implementation_delay_manager,product.price.change.implementation_delay.manager,model_product_price_change_implementation_delay,base.group_erp_manager,1,1,1,1
+access_product_price_change_wizard_manager,product.price.change.wizard.manager,model_product_price_change_wizard,base.group_erp_manager,1,1,1,1

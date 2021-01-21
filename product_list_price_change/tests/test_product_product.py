@@ -8,7 +8,7 @@ class TestProductProduct(TransactionCase):
     def setUp(self):
         super(TestProductProduct, self).setUp()
         self.product_price_change = self.env.ref(
-            "product_list_price_change" ".product_price_change_demo_1"
+            "product_list_price_change.product_price_change_demo_1"
         )
         self.product_product_10 = self.env.ref("product.product_product_10")
         self.attribute_value = self.env.ref("product.product_4_attribute_1_value_2")

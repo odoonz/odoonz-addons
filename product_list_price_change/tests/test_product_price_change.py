@@ -12,11 +12,10 @@ class TestProductPriceChange(TransactionCase):
         super(TestProductPriceChange, self).setUp()
         self.partner = self.env.ref("base.res_partner_1")
         self.product_price_change = self.env.ref(
-            "product_list_price_change" ".product_price_change_demo_1"
+            "product_list_price_change.product_price_change_demo_1"
         )
         self.implementation_delay = self.env.ref(
-            "product_list_price_change"
-            ".product_price_change_implementation_delay_demo_1"
+            "product_list_price_change.product_price_change_implementation_delay_demo_1"
         )
 
     def test_actions(self):
