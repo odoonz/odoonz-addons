@@ -11,7 +11,7 @@ class ProductAttributeLine(models.Model):
     attr_group_ids = fields.Many2many(
         comodel_name="product.attribute.group",
         string="Attribute Groups",
-        domain=lambda s: [("attribute_id", "=", s.attribute_id.id)],
+        domain="[('attribute_id', '=', attribute_id)]",
     )
 
     @api.onchange("attr_group_ids")
