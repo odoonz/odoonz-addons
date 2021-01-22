@@ -22,7 +22,8 @@ class AccountTax(models.Model):
             and partner.tax_calc_method == "round_per_line"
             and self.filtered(lambda t: t.type_tax_use == "purchase")
         ):
-            return super(AccountTax, self.with_context(round=True)).compute_all(
+            self = self.with_context(round=True)
+            return super().compute_all(
                 price_unit,
                 currency=currency,
                 quantity=quantity,
