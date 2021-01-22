@@ -59,6 +59,6 @@ class ProductAttributeGroup(models.Model):
         """
         self.ensure_one()
         self.copy()
-        return self.env["ir.actions.act_window"].for_xml_id(
-            "product_attribute_group", "product_attribute_group_act_window"
+        return self.env["ir.actions.act_window"]._for_xml_id(
+            "product_attribute_group.product_attribute_group_act_window"
         )
