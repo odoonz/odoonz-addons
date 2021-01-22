@@ -76,7 +76,7 @@ class ProductPricelist(models.Model):
         """
 
         :param products_qty_partner: list of tuples
-        :param date: string
+        :param datetime date: validity date, datetime, ...
         :param uom_id: unit of measure integer
         :return: dictionary of format key=integer product.id, value=float price
         """
@@ -84,9 +84,7 @@ class ProductPricelist(models.Model):
         if not date:
             # deliberately disagrees with upstream use of UTC
             date = self._context.get("date") or fields.Date.context_today(self)
-        date = fields.Date.to_date(
-            date
-        )  # handwritten query below does not work with non-dates (e.g. datetimes)
+            # handwritten query below does not work with non-dates (e.g. datetimes)
         if not uom_id and self._context.get("uom"):
             uom_id = self._context["uom"]
         if uom_id:
@@ -155,7 +153,6 @@ class ProductPricelist(models.Model):
             # which case the price_uom_id contains that UoM.
             # The final price will be converted to match `qty_uom_id`.
             qty_uom_id = self._context.get("uom") or product.uom_id.id
-            price_uom_id = product.uom_id.id
             qty_in_product_uom = qty
             if qty_uom_id != product.uom_id.id:
                 try:
