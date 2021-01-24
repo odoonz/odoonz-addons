@@ -2,15 +2,10 @@
 <odoo noupdate="0">
 
         <record id="taupo_company" model="res.company">
-            <!-- <field name="account_check_printing_layout">None</field> -->
             <field name="name">Taupo Office</field>
             <field name="report_header">My Company Tagline</field>
             <field name="currency_id" ref="base.NZD"/>
         </record>
-
-    <!--
-     Resource: res.partner
-     -->
 
     <record id="res_partner_hq" model="res.partner">
         <field name="name">Kwik-e-Mart Head Office</field>
