@@ -14,9 +14,9 @@ Bill of Materials, either during explode or raw move generation.
 * Match Attributes - which seeks to match the bom line with the
   attributes of the parent BoM
 * Scale Weight - scales a bom line measured in kg to the quantity
-  being producedCollection of functions that may be useful in reports.
+  being produced.
 
-NOTE: Currently untested in Alpha
+NOTE: Currently in Alpha
 
 Installation
 ============
@@ -37,13 +37,12 @@ Known issues / Roadmap
 ======================
 
 * Alpha
-* No tests
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/odoonz/account/issues>`_. In case of trouble, please
+<https://github.com/odoonz/odoonz-addons/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 

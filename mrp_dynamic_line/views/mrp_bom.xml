@@ -16,7 +16,7 @@
                 <field name="variant_id" domain="[('product_tmpl_id', '=', product_tmpl_id)]"
                        context="{'default_type': 'product'}"/>
             </xpath>
-            <xpath expr="//field[@name='bom_line_ids']//tree/field[@name='attribute_value_ids']" position="before">
+            <xpath expr="//field[@name='bom_line_ids']//tree/field[@name='bom_product_template_attribute_value_ids']" position="before">
                 <field name="xform_ids" widget="many2many_tags"/>
                 <field name="required_value_ids" widget="many2many_tags" options="{'no_create': True}" attrs="{'column_invisible': [('parent.product_id', '!=', False)]}" groups="product.group_product_variant"/>
             </xpath>

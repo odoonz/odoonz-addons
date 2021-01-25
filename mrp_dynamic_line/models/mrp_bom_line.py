@@ -16,6 +16,7 @@ class MrpBomLine(models.Model):
     product_id = fields.Many2one(
         string="Product Variant",
         compute="_compute_product_id",
+        store=True,
         required=False,
         inverse="_inverse_product_id",
     )
@@ -31,11 +32,6 @@ class MrpBomLine(models.Model):
         string="Required Values",
         help="Require the raw material to have these attribute values",
     )
-    # Note: Just changing a useless help message here
-    attribute_value_ids = fields.Many2many(
-        help="Only apply this line if the manufactured product contains"
-        "these attribute values."
-    )
 
     xform_ids = fields.Many2many("bom.line.xform", string="Transformations")
 
@@ -45,7 +41,6 @@ class MrpBomLine(models.Model):
                 bom_line.product_tmpl_id = bom_line.product_id.product_tmpl_id
                 bom_line.variant_id = bom_line.product_id
 
-    @api.multi
     def _compute_product_id(self):
         Product = self.env["product.product"]
         for bom_line in self:
