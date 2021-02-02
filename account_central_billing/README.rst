@@ -22,7 +22,7 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-#. For each centrally billed partner, select the approriate supplier or customer billing option.
+#. For each centrally billed partner, select the appropriate supplier or customer billing option.
 #. Specify the partner to bill / receive bills from
 
 Usage
@@ -40,7 +40,7 @@ Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/odoonz/account/issues>`_. In case of trouble, please
+<https://github.com/odoonz/odoonz-addons/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 
