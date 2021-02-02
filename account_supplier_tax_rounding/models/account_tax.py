@@ -23,22 +23,12 @@ class AccountTax(models.Model):
             and self.filtered(lambda t: t.type_tax_use == "purchase")
         ):
             self = self.with_context(round=True)
-            return super().compute_all(
-                price_unit,
-                currency=currency,
-                quantity=quantity,
-                product=product,
-                partner=partner,
-                is_refund=False,
-                handle_price_include=True,
-            )
-        else:
-            return super().compute_all(
-                price_unit,
-                currency=currency,
-                quantity=quantity,
-                product=product,
-                partner=partner,
-                is_refund=is_refund,
-                handle_price_include=handle_price_include,
-            )
+        return super().compute_all(
+            price_unit,
+            currency=currency,
+            quantity=quantity,
+            product=product,
+            partner=partner,
+            is_refund=is_refund,
+            handle_price_include=handle_price_include,
+        )
