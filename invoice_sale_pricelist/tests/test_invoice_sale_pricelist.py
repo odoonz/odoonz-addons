@@ -6,7 +6,6 @@ from odoo.tests.common import TransactionCase
 from odoo.tools import mute_logger
 from odoo.tools import float_compare as fc
 
-
 class TestSale(TransactionCase):
     @mute_logger("odoo.addons.base.ir.ir_model", "odoo.osv.orm")
     def setUp(self):
@@ -105,7 +104,7 @@ class TestSale(TransactionCase):
         payment = self.env["sale.advance.payment.inv"].create(
             {
                 "advance_payment_method": "fixed",
-                "amount": 5,
+                "fixed_amount": 5,
                 "product_id": self.env.ref("sale.advance_product_0").id,
             }
         )
@@ -117,17 +116,16 @@ class TestSale(TransactionCase):
         expected_price_unit = self.usb_adapter.with_context(
             pricelist=self.sale_pricelist_id.id
         ).price
-        with self.env.do_in_onchange():
-            ail = self.env["account.invoice.line"].new(
-                {
-                    "invoice_id": self.invoice.id,
-                    "product_id": self.usb_adapter.id,
-                    "quantity": 1.0,
-                    "uom_id": self.uom_unit_id,
-                }
-            )
-            ail.sale_line_ids |= self.sale_line
-            ail._set_taxes()
+        ail = self.env["account.move.line"].new(
+            {
+                "move_id": self.invoice.id,
+                "product_id": self.usb_adapter.id,
+                "quantity": 1.0,
+                "product_uom_id": self.uom_unit_id,
+            }
+        )
+        ail.sale_line_ids |= self.sale_line
+        ail._get_computed_taxes()
         self.assertFalse(fc(expected_price_unit, ail.price_unit, 2))
 
     def test_sale_invoice_partner(self):
@@ -136,14 +134,13 @@ class TestSale(TransactionCase):
         expected_price_unit = self.usb_adapter.with_context(
             pricelist=self.sale_pricelist_id.id
         ).price
-        with self.env.do_in_onchange():
-            ail = self.env["account.invoice.line"].new(
-                {
-                    "invoice_id": self.invoice.id,
-                    "product_id": self.usb_adapter.id,
-                    "quantity": 1.0,
-                    "uom_id": self.uom_unit_id,
-                }
-            )
-            ail._set_taxes()
+        ail = self.env["account.move.line"].new(
+            {
+                "move_id": self.invoice.id,
+                "product_id": self.usb_adapter.id,
+                "quantity": 1.0,
+                "product_uom_id": self.uom_unit_id,
+            }
+        )
+        ail._get_computed_taxes()
         self.assertFalse(fc(expected_price_unit, ail.price_unit, 2))
