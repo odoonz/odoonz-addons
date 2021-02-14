@@ -9,7 +9,7 @@ Account Supplier Tax Rounding
 Ordinarily in an ex tax environment rounding is performed
 on the ex tax total.  However some suppliers may round early
 at the line level.  This module allows you to configure this
-easing the entry of vendor invoices and 1c rouding errors.
+easing the entry of vendor invoices and 1c rounding errors.
 
 Installation
 ============
