@@ -16,7 +16,7 @@ Bill of Materials, either during explode or raw move generation.
 * Scale Weight - scales a bom line measured in kg to the quantity
   being producedCollection of functions that may be useful in reports.
 
-NOTE: Currently untested in Alpha
+NOTE: Currently untested in Alpha - significant refactoring WIP.
 
 Installation
 ============

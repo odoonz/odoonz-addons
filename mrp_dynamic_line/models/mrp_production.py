@@ -2,7 +2,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-from odoo import api, models, _
+
+from odoo import _, models
 
 _logger = logging.Logger(__name__)
 
@@ -10,6 +11,24 @@ _logger = logging.Logger(__name__)
 class MrpProduction(models.Model):
 
     _inherit = "mrp.production"
+
+    def _get_move_raw_values(
+        self,
+        product_id,
+        product_uom_qty,
+        product_uom,
+        operation_id=False,
+        bom_line=False,
+    ):
+        if bom_line and "product" in bom_line._context:
+            product_id = bom_line._context["product"]
+        return super()._get_move_raw_values(
+            product_id,
+            product_uom_qty,
+            product_uom,
+            operation_id=operation_id,
+            bom_line=bom_line,
+        )
 
     def _generate_raw_moves(self, exploded_lines):
         lines_done = []
@@ -33,7 +52,6 @@ class MrpProduction(models.Model):
         exploded_lines = lines_done
         return super()._generate_raw_moves(exploded_lines)
 
-    @api.multi
     def _update_raw_move(self, bom_line, line_data):
         self.ensure_one()
         for xform in bom_line.xform_ids.filtered(
@@ -64,7 +82,6 @@ class MrpProduction(models.Model):
                 return self.env["stock.move"], 0, 0
         return bom_line and super()._update_raw_move(bom_line, line_data)
 
-    @api.multi
     def button_plan(self):
         if len(self) == 1 and "product_id" in self._context:
             super().button_plan()

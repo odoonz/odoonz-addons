@@ -23,7 +23,6 @@
     <record id="action_xform_substitution_map" model="ir.actions.act_window">
         <field name="name">Substitution Maps</field>
         <field name="res_model">xform.substitution.map</field>
-        <field name="view_type">form</field>
         <field name="view_id" ref="xform_substitution_map_tree_view"/>
         <field name="search_view_id" ref="xform_substitution_map_search"/>
     </record>
