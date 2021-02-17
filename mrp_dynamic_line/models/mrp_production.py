@@ -20,8 +20,23 @@ class MrpProduction(models.Model):
         operation_id=False,
         bom_line=False,
     ):
-        if bom_line and "product" in bom_line._context:
-            product_id = bom_line._context["product"]
+        if bom_line:
+            if "product" in bom_line._context:
+                product_id = bom_line._context["product"]
+            for xform in bom_line.xform_ids.filtered(
+                lambda bl: bl.application_point == "move"
+            ).sorted("sequence"):
+                try:
+                    func = getattr(self, "_get_move_raw_%s" % xform.technical_name)
+                except AttributeError:
+                    _logger.error(
+                        _("No function found with name _get_move_raw_%s")
+                        % xform.technical_name
+                    )
+                else:
+                    product_id, product_uom_qty, product_uom, operation_id, bom_line = func(
+                        product_id, product_uom_qty, product_uom, operation_id, bom_line
+                    )
         return super()._get_move_raw_values(
             product_id,
             product_uom_qty,
@@ -29,28 +44,6 @@ class MrpProduction(models.Model):
             operation_id=operation_id,
             bom_line=bom_line,
         )
-
-    def _generate_raw_moves(self, exploded_lines):
-        lines_done = []
-        for bom_line, line_fields in exploded_lines:
-            for xform in bom_line.xform_ids.filtered(
-                lambda bl: bl.application_point == "move"
-            ).sorted("sequence"):
-                try:
-                    func = getattr(self, "_generate_raw_move_%s" % xform.technical_name)
-                except AttributeError:
-                    _logger.error(
-                        _("No function found with name _generate_raw_move_%s")
-                        % xform.technical_name
-                    )
-                else:
-                    bom_line, line_fields = func(bom_line, line_fields)
-                if not bom_line:
-                    # Its deleted so nothing more to xform
-                    break
-            bom_line and lines_done.append((bom_line, line_fields))
-        exploded_lines = lines_done
-        return super()._generate_raw_moves(exploded_lines)
 
     def _update_raw_move(self, bom_line, line_data):
         self.ensure_one()

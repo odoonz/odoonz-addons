@@ -11,6 +11,7 @@
         <field name="inherit_id" ref="mrp.mrp_bom_line_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="after">
+                <field name="product_tmpl_id" invisible="1" />
                 <field name="xform_ids" widget="many2many_tags"/>
                 <field name="required_value_ids" widget="many2many_tags" options="{'no_create': True}" attrs="{'column_invisible': [('parent.product_id', '!=', False)]}" groups="product.group_product_variant"/>
             </xpath>
