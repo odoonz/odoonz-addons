@@ -1,7 +1,7 @@
 # Copyright 2017 Open For Small Business Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, api
+from odoo import api, models
 
 
 class AccountInvoiceLine(models.Model):
@@ -54,7 +54,7 @@ class AccountInvoiceLine(models.Model):
             AccountInvoiceLine,
             self.with_context(
                 date=self.move_id.invoice_date,
-                partner_id=self.invoice_id.partner_id.commercial_partner_id.id,
+                partner_id=self.move_id.partner_id.commercial_partner_id.id,
             ),
         )._onchange_product_id()
 
@@ -62,6 +62,6 @@ class AccountInvoiceLine(models.Model):
     def _onchange_account_id(self):
         super()._onchange_account_id()
         self.price_unit = self.with_context(
-            partner_id=self.invoice_id.partner_id.commercial_partner_id.id,
+            partner_id=self.move_id.partner_id.commercial_partner_id.id,
             date=self.move_id.invoice_date,
         )._get_sale_price_unit()
