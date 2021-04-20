@@ -1,7 +1,7 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import models
 
 
 class StockProductionLot(models.Model):
@@ -54,11 +54,3 @@ class StockProductionLot(models.Model):
                 break
             offset += limit
         return results.ids
-
-
-class MrpProductProduce(models.TransientModel):
-    _inherit = "mrp.product.produce"
-
-    location_id = fields.Many2one(
-        "stock.location", related="production_id.location_src_id"
-    )
