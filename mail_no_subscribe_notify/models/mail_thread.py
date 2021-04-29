@@ -8,10 +8,12 @@ class MailThread(models.AbstractModel):
 
     _inherit = "mail.thread"
 
-    def _message_auto_subscribe(self, updated_values):
+    def _message_auto_subscribe(self, updated_values, followers_existing_policy="skip"):
         return super(
             MailThread, self.with_context(mail_auto_subscribe_no_notify=True)
-        )._message_auto_subscribe(updated_values)
+        )._message_auto_subscribe(
+            updated_values, followers_existing_policy=followers_existing_policy
+        )
 
     def message_subscribe(self, partner_ids=None, channel_ids=None, subtype_ids=None):
         """Filter out automatically added partner_ids"""
