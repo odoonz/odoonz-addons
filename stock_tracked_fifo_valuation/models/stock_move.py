@@ -1,79 +1,42 @@
 # Copyright 2019 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models
+from odoo import models
 
 
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    @api.model
-    def _get_in_base_domain(self, company_id=False):
-        domain = [
-            ("state", "=", "done"),
-            ("location_id.usage", "!=", "internal"),
-            (
-                "location_dest_id.company_id",
-                "=",
-                company_id or self.env.user.company_id.id,
-            ),
-            ("location_dest_id.usage", "=", "internal"),
-        ]
-        return domain
+    def _action_done(self, cancel_backorder=False):
+        moves_tracked = self.filtered(lambda s: s.product_id.tracking != "none")
+        self -= moves_tracked
+        for move in moves_tracked:
+            move.with_context(lots=move.lot_ids.ids)._action_done()
+        return super()._action_done(cancel_backorder=cancel_backorder)
 
-    @api.model
-    def _get_all_base_domain(self, company_id=False):
-        domain = [
-            ("state", "=", "done"),
-            "|",
-            "&",
-            "&",
-            ("location_id.usage", "!=", "internal"),
-            (
-                "location_dest_id.company_id",
-                "=",
-                company_id or self.env.user.company_id.id,
-            ),
-            ("location_dest_id.usage", "=", "internal"),
-            "&",
-            "&",
-            ("location_id.company_id", "=", company_id or self.env.user.company_id.id),
-            ("location_id.usage", "=", "internal"),
-            ("location_dest_id.usage", "!=", "internal"),
-        ]
-        return domain
-
-    @api.model
-    def _run_fifo(self, move, quantity=None):
-        if move.has_tracking != "none":
-            move = move.with_context(
-                lots={
-                    ml.lot_id.id: ml.qty_done for ml in move.move_line_ids if ml.lot_id
-                }
-            )
-        super()._run_fifo(move, quantity=quantity)
-
-
-class StockInventoryLine(models.Model):
-    _inherit = "stock.inventory.line"
-
-    def _get_move_values(self, qty, location_id, location_dest_id, out):
-        """Overide of funtction
-        If we are increasing qty we need to use the fifo price for that lot
-        rather than standard_price. If the lot is already consumed it will
-        default to the oldest availalbe standard price
-        """
-        values = super()._get_move_values(qty, location_id, location_dest_id, out)
+    def _get_price_unit(self):
+        """Override for case of inventory adjustments upwards of existing svl"""
+        self.ensure_one()
+        price_unit = super()._get_price_unit()
         if (
-            self.product_qty > self.theoretical_qty
+            not self.purchase_line_id
             and self.product_id.cost_method == "fifo"
-            and self.prod_lot_id
+            and len(self.lot_ids) == 1
         ):
-            candidates = self.product_id.with_context(
-                lots={self.prod_lot_id.id: qty}
-            )._get_fifo_candidates_in_move_with_company(
-                move_company_id=self.inventory_id.company_id.id
+            # lots should have same cost regardless if using actual
+            candidates = (
+                self.env["stock.valuation.layer"]
+                .sudo()
+                .search(
+                    [
+                        ("product_id", "=", self.id),
+                        ("lot_ids", "in", self.lot_ids.ids),
+                        ("quantity", ">", 0),
+                        ("value", ">", 0),
+                        ("company_id", "=", self.company_id.id),
+                    ]
+                )
             )
             if candidates:
-                values["price_unit"] = candidates[0].price_unit
-        return values
+                price_unit = candidates[0].unit_cost
+        return price_unit

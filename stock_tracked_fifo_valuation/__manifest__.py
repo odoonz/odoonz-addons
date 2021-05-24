@@ -5,11 +5,10 @@
     "name": "Stock Tracked Fifo Valuation",
     "summary": """
         Selects in moves of same lot for cost tracking (more like actual cost)""",
-    "version": "12.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
     "depends": ["stock", "stock_account"],
-    "data": [],
-    "demo": [],
+    "data": ["views/stock_valuation_layer.xml"],
 }
