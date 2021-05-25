@@ -5,11 +5,11 @@
     "name": "Account Anglosaxon Financial",
     "summary": """
         Allows purely financial invoices and credits in anglosaxon environments""",
-    "version": "12.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
     "depends": ["account", "stock_account", "purchase_stock", "sale_stock"],
-    "data": ["wizards/account_invoice_refund.xml", "views/account_invoice.xml"],
+    "data": ["wizards/account_move_reversal.xml", "views/account_invoice.xml"],
     "demo": [],
 }

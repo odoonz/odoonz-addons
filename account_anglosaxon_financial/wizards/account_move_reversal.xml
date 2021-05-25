@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_account_move_reversal">
+        <field name="name">account.move.reversal.form (in account_anglosaxon_financial)</field>
+        <field name="model">account.move.reversal</field>
+        <field name="inherit_id" ref="account.view_account_move_reversal"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='refund_method']" position="after">
+                <field name="anglo_saxon_refund_type"
+                       attrs="{'invisible': ['|', ('refund_method', '!=', 'refund'), ('anglo_saxon_accounting', '=', False)]}"/>
+                <field name="anglo_saxon_accounting" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+</odoo>
