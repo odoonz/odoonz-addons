@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 RIL
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="documents_folder_form_view">
+        <field name="name">Folder Form</field>
+        <field name="model">documents.folder</field>
+        <field name="inherit_id" ref="documents.folder_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field
+                    name="operating_unit_id"
+                    options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+                    domain="[('company_id','=', company_id)]"
+                    attrs="{'invisible': [('company_id','=',False)]}"
+                    groups="operating_unit.group_multi_operating_unit"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="documents_folder_search_view">
+        <field name="name">documents.folder.search</field>
+        <field name="model">documents.folder</field>
+        <field name="inherit_id" ref="documents.folder_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_folder_id']" position="after">
+                <field
+                    name="operating_unit_id"
+                    groups="operating_unit.group_multi_operating_unit"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="documents_folder_tree_view">
+        <field name="name">documents.folder.tree</field>
+        <field name="model">documents.folder</field>
+        <field name="inherit_id" ref="documents.folder_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+                <field
+                    name="operating_unit_id"
+                    groups="operating_unit.group_multi_operating_unit"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
