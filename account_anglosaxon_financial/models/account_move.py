@@ -8,7 +8,7 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     anglo_saxon_financial = fields.Boolean("Financial Only", default=False)
-    anglo_saxon_accounting = fields.Boolean("company_id.anglo_saxon_accounting")
+    anglo_saxon_accounting = fields.Boolean(related="company_id.anglo_saxon_accounting")
 
     @api.onchange("purchase_vendor_bill_id", "purchase_id")
     def _onchange_purchase_auto_complete(self):

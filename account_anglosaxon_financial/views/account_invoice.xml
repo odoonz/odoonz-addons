@@ -9,15 +9,22 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@name='button_box']" position="inside">
-                <field name="anglo_saxon_accounting" invisible="1"/>
-                <button name="toggle_financial" icon="fa-adjust"
-                        type="object" class="oe_stat_button"
-                        states="draft" attrs="{'invisible': ['|', ('anglo_saxon_accounting', '=', False), ('move_type', '=', 'entry')]}">
-                    <field name="anglo_saxon_financial" widget="boolean_button"
-                           help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
-                           options='{"terminology": {"string_true": "Financial", "string_false": "Stock", "hover_false": "Financial", "hover_true": "Stock"}}'/>
-                </button>
+            <xpath expr="//header" position="inside">
+                <field name="anglo_saxon_accounting" invisible="0"/>
+                <field name="anglo_saxon_financial" invisible="0"/>
+                <button name="toggle_financial" type="object" string="Convert to Financial"
+                help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
+                attrs="{'invisible': ['|', '|', '|', ('state', '!=', 'draft'), ('anglo_saxon_accounting', '=', False), ('anglo_saxon_financial', '=', True), ('move_type', '=', 'entry')]}"/>
+                <button name="toggle_financial" type="object" string="Convert to Stock"
+                help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
+                attrs="{'invisible': ['|', '|', '|', ('state', '!=', 'draft'), ('anglo_saxon_accounting', '=', False), ('anglo_saxon_financial', '=', False), ('move_type', '=', 'entry')]}"/>
+
+            </xpath>
+            <xpath expr="//form/sheet/div[@name='button_box']" position="after">
+                <widget name="web_ribbon" title="Financial Invoice" bg_color="bg-warning"
+                        attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_invoice','in_invoice'])]}"/>
+                <widget name="web_ribbon" title="Price Credit" bg_color="bg-danger"
+                attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_refund','in_refund'])]}"/>
             </xpath>
         </field>
     </record>
