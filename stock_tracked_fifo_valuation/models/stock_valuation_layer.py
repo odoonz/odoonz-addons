@@ -14,7 +14,7 @@ class StockValuationLayer(models.Model):
     @api.depends("stock_move_id")
     def _compute_lot_ids(self):
         for svl in self:
-            svl.lot_ids = svl.stock_move_id.lot_ids
+            svl.lot_ids = svl.stock_move_id.with_context(active_test=False).lot_ids
 
     def search(self, args, offset=0, limit=None, order=None, count=False):
         res = super().search(args, offset=offset, limit=limit, order=order, count=count)
