@@ -89,21 +89,20 @@ class MrpBom(models.Model):
         return bom_line.with_context(product=product), line_fields
 
     def _explode_scale_weight_kg(self, orig_product, bom_line, line_fields):
-        if bom_line.product_uom_id != self.env.ref("uom.product_uom_kgm"):
-            _logger.error(
-                _("Scale weight only works for " "raw materials measured in kg.")
-            )
-            return bom_line, line_fields
         bom = bom_line.bom_id
-        parent_product = self.env["product.product"].browse(
-            bom_line._context["product_id"]
-        )
+        product = bom_line._context["product"]
         parent_weight = (
-            bom.product_uom_id._compute_quantity(bom.product_qty, parent_product.uom_id)
-            * parent_product.weight
+            bom.product_uom_id._compute_quantity(bom.product_qty, orig_product.uom_id)
+            * orig_product.weight
             or 1.0
         )
-        qty = parent_weight * line_fields["original_qty"] * bom_line.product_qty
+        weight_factor = 1 / (product.weight or 1.0)
+        qty = (
+            parent_weight
+            * line_fields["original_qty"]
+            * bom_line.product_qty
+            * weight_factor
+        )
         rounding = bom_line.product_uom_id.rounding
         line_fields.update(
             qty=float_round(qty, precision_rounding=rounding, rounding_method="UP")
