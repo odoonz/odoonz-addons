@@ -90,7 +90,7 @@ class MrpBom(models.Model):
 
     def _explode_scale_weight_kg(self, orig_product, bom_line, line_fields):
         bom = bom_line.bom_id
-        product = bom_line._context["product"]
+        product = bom_line._context.get("product", orig_product)
         parent_weight = (
             bom.product_uom_id._compute_quantity(bom.product_qty, orig_product.uom_id)
             * orig_product.weight
