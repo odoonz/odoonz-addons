@@ -1,7 +1,7 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class ResPartner(models.Model):
@@ -10,7 +10,7 @@ class ResPartner(models.Model):
     tax_calc_method = fields.Selection(
         [("round_per_line", "Round per Line"), ("round_globally", "Round Globally")],
         "Purchase Tax Rounding",
-        default=lambda s: (s.env.user.company_id.tax_calculation_rounding_method),
+        default="round_globally",
         help="If you select 'Round per Line' : for each tax, the tax "
         "amount will first be computed and rounded for each "
         "PO or invoice line and then these rounded amounts will be "
