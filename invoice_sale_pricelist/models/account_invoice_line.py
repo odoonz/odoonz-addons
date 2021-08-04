@@ -8,13 +8,6 @@ class AccountInvoiceLine(models.Model):
 
     _inherit = "account.move.line"
 
-    def _get_computed_taxes(self):
-        """ Used in on_change to set taxes and price."""
-        super()._get_computed_taxes()
-        if self.move_id.move_type in ("in_invoice", "in_refund"):
-            return
-        self.price_unit = self._get_sale_price_unit()
-
     def _get_sale_price_unit(self):
         product_ctx = dict(
             quantity=self.quantity,

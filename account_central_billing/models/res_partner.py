@@ -1,8 +1,9 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+
 
 class ResPartner(models.Model):
     """inherit base.res_partner and add columns to allow central invoicing"""
@@ -44,7 +45,9 @@ class ResPartner(models.Model):
         self.ensure_one()
         invoice_type = vals.get(
             "move_type",
-            invoice.move_type if invoice else self._context.get("move_type", "out_invoice"),
+            invoice.move_type
+            if invoice
+            else self._context.get("move_type", "out_invoice"),
         )
         if invoice_type.startswith("out_"):
             field = "invoicing_partner_id"
@@ -53,8 +56,10 @@ class ResPartner(models.Model):
         else:
             return self
 
-        if "company_id" in vals:
-            invoice_company = self.env["res.company"].sudo().browse(vals["company_id"])
+        if "journal_id" in vals:
+            invoice_company = (
+                self.env["account.journal"].sudo().browse(vals["journal_id"]).company_id
+            )
         elif invoice:
             invoice_company = invoice.company_id
         else:
