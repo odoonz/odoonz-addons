@@ -40,8 +40,18 @@ class ResPartner(models.Model):
             if len(store_refs) != len(set(store_refs)):
                 raise ValidationError(_("Cannot have duplicate store codes"))
 
-    def get_billing_partner(self, vals, invoice=None):
+    def _get_invoice_company(self, vals, invoice):
+        if "journal_id" in vals:
+            invoice_company = (
+                self.env["account.journal"].sudo().browse(vals["journal_id"]).company_id
+            )
+        elif invoice:
+            invoice_company = invoice.company_id
+        else:
+            invoice_company = self.env.company
+        return invoice_company
 
+    def get_billing_partner(self, vals, invoice=None):
         self.ensure_one()
         invoice_type = vals.get(
             "move_type",
@@ -55,15 +65,7 @@ class ResPartner(models.Model):
             field = "billing_partner_id"
         else:
             return self
-
-        if "journal_id" in vals:
-            invoice_company = (
-                self.env["account.journal"].sudo().browse(vals["journal_id"]).company_id
-            )
-        elif invoice:
-            invoice_company = invoice.company_id
-        else:
-            invoice_company = self.env.company
+        invoice_company = self._get_invoice_company(vals, invoice)
         company_partner = invoice_company.partner_id
         partner = self
         while partner[field]:

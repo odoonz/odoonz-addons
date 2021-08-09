@@ -1,8 +1,9 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+
 
 class AccountInvoice(models.Model):
     """inherits account.account_invoice and adds the order_partner_id field
@@ -62,7 +63,7 @@ class AccountInvoice(models.Model):
         if vals.get("partner_id", False):
             Partner = self.env["res.partner"]
             partner = Partner.browse(vals["partner_id"]).commercial_partner_id
-            invoice_partner = partner.get_billing_partner(vals, self[0])
+            invoice_partner = partner.get_billing_partner(vals, invoice=self[0])
             if invoice_partner != partner:
                 vals.update(
                     {
