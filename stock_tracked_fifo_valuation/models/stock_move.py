@@ -8,14 +8,15 @@ class StockMove(models.Model):
     _inherit = "stock.move"
 
     def _action_done(self, cancel_backorder=False):
-        moves_tracked = self.filtered(
-            lambda s: s.product_id.tracking != "none" and not s._context.get("lots")
-        )
-        self -= moves_tracked
-        for move in moves_tracked:
-            move.with_context(lots=move.lot_ids.ids)._action_done(
-                cancel_backorder=cancel_backorder
+        if "lots" not in self.env.context:
+            moves_tracked = self.filtered(
+                lambda s: s.product_id.tracking != "none" and not s._context.get("lots")
             )
+            self -= moves_tracked
+            for move in moves_tracked:
+                move.with_context(lots=move.lot_ids.ids)._action_done(
+                    cancel_backorder=cancel_backorder
+                )
         return super()._action_done(cancel_backorder=cancel_backorder)
 
     def _get_price_unit(self):
