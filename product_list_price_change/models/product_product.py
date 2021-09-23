@@ -94,10 +94,13 @@ class ProductProduct(models.Model):
             effective_date = fields.Date.context_today(self)
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
-        if self._context.get("partner_id"):
+        partner_id = self._context.get("partner_id", self._context.get("partner", False))
+        if partner_id and isinstance(partner_id, models.BaseModel):
+            partner_id = partner_id.id
+        if partner_id:
             commercial_partner_id = (
                 self.env["res.partner"]
-                .browse(self._context.get("partner_id"))
+                .browse(partner_id)
                 .commercial_partner_id.id
             )
             fld = "partner_effective_date"
