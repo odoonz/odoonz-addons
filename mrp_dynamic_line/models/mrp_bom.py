@@ -25,12 +25,13 @@ class MrpBom(models.Model):
             ).sorted("sequence"):
                 try:
                     func = getattr(self, "_explode_%s" % xform.technical_name)
-                    bom_line, line_fields = func(product, bom_line, line_fields)
                 except AttributeError:
                     _logger.error(
                         _("No function found with name _explode_%s")
                         % xform.technical_name
                     )
+                else:
+                    bom_line, line_fields = func(product, bom_line, line_fields)
                 if not bom_line:
                     # Its deleted so nothing to xform
                     break
@@ -75,7 +76,7 @@ class MrpBom(models.Model):
                 )
                 % (
                     bom_line.product_tmpl_id.name,
-                    bom_line.bom_id.name,
+                    bom_line.bom_id.display_name,
                     "\n".join(names),
                 )
             )
