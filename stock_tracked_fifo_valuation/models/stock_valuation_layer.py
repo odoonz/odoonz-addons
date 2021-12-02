@@ -22,7 +22,7 @@ class StockValuationLayer(models.Model):
             new_res = self.browse()
             for svl in res:
                 if svl.product_id.tracking != "none":
-                    for lot in svl.lot_ids.ids:
+                    for lot in svl.with_context(active_test=False).lot_ids.ids:
                         if lot in self._context["lots"]:
                             new_res |= svl
                             break

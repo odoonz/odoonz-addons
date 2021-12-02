@@ -10,8 +10,8 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <field name="anglo_saxon_accounting" invisible="0"/>
-                <field name="anglo_saxon_financial" invisible="0"/>
+                <field name="anglo_saxon_accounting" invisible="1"/>
+                <field name="anglo_saxon_financial" invisible="1"/>
                 <button name="toggle_financial" type="object" string="Convert to Financial"
                 help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
                 attrs="{'invisible': ['|', '|', '|', ('state', '!=', 'draft'), ('anglo_saxon_accounting', '=', False), ('anglo_saxon_financial', '=', True), ('move_type', '=', 'entry')]}"/>
@@ -21,9 +21,9 @@
 
             </xpath>
             <xpath expr="//form/sheet/div[@name='button_box']" position="after">
-                <widget name="web_ribbon" title="Financial Invoice" bg_color="bg-warning"
+                <widget name="web_ribbon" title="Financial Invoice" bg_color="bg-success"
                         attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_invoice','in_invoice'])]}"/>
-                <widget name="web_ribbon" title="Price Credit" bg_color="bg-danger"
+                <widget name="web_ribbon" title="Price Credit" bg_color="bg-warning"
                 attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_refund','in_refund'])]}"/>
             </xpath>
         </field>

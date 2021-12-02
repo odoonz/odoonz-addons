@@ -14,9 +14,9 @@ class StockMove(models.Model):
             )
             self -= moves_tracked
             for move in moves_tracked:
-                move.with_context(lots=move.lot_ids.ids)._action_done(
-                    cancel_backorder=cancel_backorder
-                )
+                move.with_context(
+                    lots=move.with_context(active_test=False).lot_ids.ids
+                )._action_done(cancel_backorder=cancel_backorder)
         return super()._action_done(cancel_backorder=cancel_backorder)
 
     def _get_price_unit(self):
@@ -26,7 +26,7 @@ class StockMove(models.Model):
         if (
             not self.purchase_line_id
             and self.product_id.cost_method == "fifo"
-            and len(self.lot_ids) == 1
+            and len(self.with_context(active_test=False).lot_ids) == 1
         ):
             # lots should have same cost regardless if using actual
             candidates = (
@@ -35,7 +35,11 @@ class StockMove(models.Model):
                 .search(
                     [
                         ("product_id", "=", self.id),
-                        ("lot_ids", "in", self.lot_ids.ids),
+                        (
+                            "lot_ids",
+                            "in",
+                            self.with_context(active_test=False).lot_ids.ids,
+                        ),
                         ("quantity", ">", 0),
                         ("value", ">", 0),
                         ("company_id", "=", self.company_id.id),
