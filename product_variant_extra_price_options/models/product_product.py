@@ -29,3 +29,16 @@ class ProductProduct(models.Model):
             except AttributeError:
                 continue
         return price_extra_dict.values()
+
+    def price_compute(self, price_type, uom=False, currency=False, company=None):
+        if self._context.get("no_variant_attributes_price_extra"):
+            ptavs = self.env["product.template.attribute.value"].browse(
+                self._context.get("combination")
+            )
+            price_extra = tuple(
+                [sum(self._compute_price_extra_from_ptavs(ptavs)) - self.price_extra]
+            )
+            self = self.with_context(no_variant_attributes_price_extra=price_extra)
+        return super().price_compute(
+            price_type, uom=uom, currency=currency, company=company
+        )
