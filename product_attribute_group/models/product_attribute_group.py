@@ -33,12 +33,10 @@ class ProductAttributeGroup(models.Model):
     def write(self, vals):
         res = super().write(vals)
         if "value_ids" in vals:
-            product_tmpls = self.env["product.template"]
             for attr_group in self:
                 for attr_line in attr_group.attribute_line_ids:
                     attr_line.onchange_attr_group()
-                    product_tmpls += attr_line.product_tmpl_id
-            product_tmpls._create_variant_ids()
+                    attr_line.product_tmpl_id.with_delay()._create_variant_ids()
         return res
 
     def copy(self, default=None):
