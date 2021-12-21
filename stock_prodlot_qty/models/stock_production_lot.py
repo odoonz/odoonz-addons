@@ -10,8 +10,8 @@ class StockProductionLot(models.Model):
 
     def name_get(self):
         res = super().name_get()
-        if self.env.context.get("show_qty"):
+        if self.env.context.get("show_qty") and res:
             res = self.browse([r[0] for r in res]).mapped(
-                lambda r: (r.id, r.name + "(%.0f) " % r.product_qty)
+                lambda r: (r.id, (r.name or "") + "(%.0f) " % r.product_qty)
             )
         return res
