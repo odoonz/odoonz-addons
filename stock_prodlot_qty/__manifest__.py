@@ -8,5 +8,6 @@
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
-    "depends": ["stock"],
+    "depends": ["stock", "base_view_inheritance_extension"],
+    "data": ["views/stock_move.xml"],
 }

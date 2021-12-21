@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Open From Small Business Ltd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="workcenter_line_calendar" model="ir.ui.view">
+        <field name="name">mrp.production.work.order.calendar</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.workcenter_line_calendar" />
+        <field name="arch" type="xml">
+            <field name="workcenter_id" position="after" />
+                <field name="sale_id" attrs="{'invisible': [('sale_id', '=', False)]}"/>
+                <field name="partner_id" attrs="{'invisible': [('partner_id', '=', False)]}"/>
+        </field>
+    </record>
+
+    <record id="workcenter_line_gantt_production" model="ir.ui.view">
+        <field name="name">mrp.production.work.order.gantt.production</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.workcenter_line_gantt_production" />
+        <field name="arch" type="xml">
+            <field name="workcenter_id" position="after">
+                <field name="sale_id" />
+                <field name="partner_id" />
+            </field>
+            <xpath expr="//li" position="before">
+                <li t-if="sale_id"><strong>Sale Order: </strong><t t-esc="sale_id[1]" /></li>
+                <li t-if="partner_id"><strong>Customer: </strong><t t-esc="partner_id[1]" /></li>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mrp_workorder_view_gantt" model="ir.ui.view">
+        <field name="name">mrp.workorder.view.gantt</field>
+        <field name="model">mrp.workorder</field>
+        <field name="inherit_id" ref="mrp.mrp_workorder_view_gantt" />
+        <field name="arch" type="xml">
+            <field name="workcenter_id" position="after">
+                <field name="sale_id" />
+                <field name="partner_id" />
+            </field>
+            <xpath expr="//li" position="before">
+                <li t-if="sale_id"><strong>Sale Order: </strong><t t-esc="sale_id[1]" /></li>
+                <li t-if="partner_id"><strong>Sale Order: </strong><t t-esc="partner_id[1]" /></li>
+            </xpath>
+        </field>
+    </record>
+</odoo>
