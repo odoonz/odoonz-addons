@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Graeme Gellatly, O4SB Ltd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_attribute_value_form_view">
+        <field name="name">product.template.attribute.value.form (in product_variant_extra_price_options)</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="inherit_id" ref="product.product_template_attribute_value_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_extra']" position="before">
+                <field name="price_extra_method" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='price_extra']" position="attributes">
+                <attribute name="attrs">{'invisible': [('price_extra_method', '!=', 'price_extra')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='price_extra']" position="after">
+                <field name="price_multiply_extra" attrs="{'invisible': [('price_extra_method', '!=', 'multiply_extra')]}" />
+                <field name="price_multiply_attributes" attrs="{'invisible': [('price_extra_method', '!=', 'multiply_extra')]}" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_attribute_value_tree_view">
+        <field name="name">product.template.attribute.value.tree (in product_variant_extra_price_options)</field>
+        <field name="model">product.template.attribute.value</field>
+        <field name="inherit_id" ref="product.product_template_attribute_value_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_extra']" position="before">
+                <field name="price_extra_method" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='price_extra']" position="after">
+                <field name="price_multiply_extra" />
+                <field name="price_multiply_attributes" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
