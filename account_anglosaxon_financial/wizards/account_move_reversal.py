@@ -16,7 +16,7 @@ class AccountMoveReversal(models.TransientModel):
     anglo_saxon_accounting = fields.Boolean(related="company_id.anglo_saxon_accounting")
 
     def reverse_moves(self, mode="refund"):
-        res = super().compute_refund()
+        res = super().reverse_moves()
         if (
             self.refund_method == "modify"
             and self.anglo_saxon_refund_type == "financial"
