@@ -109,13 +109,14 @@ class StockMove(models.Model):
 
                     move_lines = move._prepare_account_move_line(
                         move.product_qty,
-                        move.product_id._get_price_unit() * move.product_qty,
+                        move.product_id.standard_price * move.product_qty,
                         acc_valuation,
                         acc_valuation,
                         _("%s - OU Move") % move.product_id.display_name,
                     )
                     am = (
                         self.env["account.move"]
+                        .sudo()
                         .with_context(company_id=move.company_id.id)
                         .with_company(move.location_id.company_id.id)
                         .create(
