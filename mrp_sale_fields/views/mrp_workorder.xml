@@ -4,16 +4,18 @@
 
 <odoo>
 
-    <record id="workcenter_line_calendar" model="ir.ui.view">
+    <!-- <record id="workcenter_line_calendar" model="ir.ui.view">
         <field name="name">mrp.production.work.order.calendar</field>
         <field name="model">mrp.workorder</field>
         <field name="inherit_id" ref="mrp.workcenter_line_calendar" />
         <field name="arch" type="xml">
             <field name="workcenter_id" position="after" />
+                <field name="sale_id" invisible="1" />
+                <field name="partner_id" invisible="1" />
                 <field name="sale_id" attrs="{'invisible': [('sale_id', '=', False)]}"/>
                 <field name="partner_id" attrs="{'invisible': [('partner_id', '=', False)]}"/>
         </field>
-    </record>
+    </record> -->
 
     <record id="workcenter_line_gantt_production" model="ir.ui.view">
         <field name="name">mrp.production.work.order.gantt.production</field>
