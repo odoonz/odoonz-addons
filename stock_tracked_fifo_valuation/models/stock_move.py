@@ -34,7 +34,7 @@ class StockMove(models.Model):
                 .sudo()
                 .search(
                     [
-                        ("product_id", "=", self.id),
+                        ("product_id", "=", self.product_id.id),
                         (
                             "lot_ids",
                             "in",
