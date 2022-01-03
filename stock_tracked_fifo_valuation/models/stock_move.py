@@ -43,7 +43,8 @@ class StockMove(models.Model):
                         ("quantity", ">", 0),
                         ("value", ">", 0),
                         ("company_id", "=", self.company_id.id),
-                    ]
+                    ],
+                    limit=1,
                 )
             )
             if candidates:
