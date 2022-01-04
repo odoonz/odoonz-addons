@@ -3,7 +3,6 @@
 
 from odoo import api, models
 from odoo.exceptions import AccessError
-from odoo.osv import expression
 
 
 class AccountReconciliationWidget(models.AbstractModel):
@@ -16,7 +15,7 @@ class AccountReconciliationWidget(models.AbstractModel):
         widget to display a statement line
         """
         data = super()._get_statement_line(st_line)
-        data["name"] = " ".join([st_line.name or "", st_line.ref or ""])
+        data["name"] = " ".join([st_line.payment_ref or "", st_line.ref or ""])
         return data
 
     @api.model
@@ -45,34 +44,11 @@ class AccountReconciliationWidget(models.AbstractModel):
         return new_res
 
     @api.model
-    def _domain_move_lines_for_reconciliation(
-        self, st_line, aml_accounts, partner_id, excluded_ids=None, search_str=False
-    ):
-        account_type_filter = expression.OR(
-            [
-                [("account_id.name", "=", "Liquidity Transfer")],
-                [
-                    (
-                        "account_id.internal_type",
-                        "in",
-                        ("receivable", "payable", "liquidity"),
-                    )
-                ],
-            ]
-        )
-        domain = expression.AND(
-            [
-                account_type_filter,
-                super()._domain_move_lines_for_reconciliation(
-                    st_line,
-                    aml_accounts,
-                    partner_id,
-                    excluded_ids=excluded_ids,
-                    search_str=search_str,
-                ),
-            ]
-        )
-        return domain
+    def _prepare_reconciliation_widget_query(self, statement_line, domain=None):
+        if domain is None:
+            domain = []
+        domain = domain + [("account_id.name", "not ilike", "inventory")]
+        return super()._prepare_reconciliation_widget_query(statement_line, domain)
 
     @api.model
     def get_move_lines_for_bank_statement_line(

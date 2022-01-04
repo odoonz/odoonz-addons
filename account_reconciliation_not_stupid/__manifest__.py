@@ -5,10 +5,10 @@
     "name": "Account Reconciliation Not Stupid",
     "summary": """
         A not stupid proposal for reconcilable move lines""",
-    "version": "13.0.1.1.0",
+    "version": "14.0.1.1.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
-    "depends": ["account"],
-    "data": ["views/res_partner.xml"],
+    "depends": ["account_accountant"],
+    "data": ["views/res_partner.xml", "views/account_journal_dashboard_views.xml"],
 }
