@@ -14,7 +14,7 @@ class ResUsers(models.Model):
         if not uid2:
             uid2 = self._uid
         user = self.env["res.users"].browse(uid2)
-        company_id = self.env.context.get("force_company")
+        company_id = self.env.context.get("force_ou_company")
         if not company_id:
             try:
                 company_id = self.env.context["allowed_company_ids"][0]
