@@ -12,6 +12,11 @@ class MrpProduction(models.Model):
 
     _inherit = "mrp.production"
 
+    def _get_moves_raw_values(self):
+        moves = super()._get_moves_raw_values()
+        moves = [m for m in moves if m["product_uom_qty"]]
+        return moves
+
     def _get_move_raw_values(
         self,
         product_id,
@@ -34,7 +39,13 @@ class MrpProduction(models.Model):
                         % xform.technical_name
                     )
                 else:
-                    product_id, product_uom_qty, product_uom, operation_id, bom_line = func(
+                    (
+                        product_id,
+                        product_uom_qty,
+                        product_uom,
+                        operation_id,
+                        bom_line,
+                    ) = func(
                         product_id, product_uom_qty, product_uom, operation_id, bom_line
                     )
         return super()._get_move_raw_values(
