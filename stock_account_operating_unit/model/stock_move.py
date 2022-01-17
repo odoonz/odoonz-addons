@@ -61,6 +61,9 @@ class StockMove(models.Model):
                 ou_id = (
                     self.picking_id.picking_type_id.warehouse_id.operating_unit_id.id
                 )
+                if not ou_id:
+                    # e.g. Dropship
+                    ou_id = self.picking_id.operating_unit_id.id
             else:
                 ou_id = False
 
