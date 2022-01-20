@@ -14,5 +14,6 @@
         "views/product_attribute.xml",
         "views/product_template_attribute_value.xml",
         "views/variant_templates.xml",
+        "security/ir.model.access.csv",
     ],
 }

@@ -23,6 +23,13 @@ class ProductProduct(models.Model):
         price_extra_dict = {pev.attribute_id.id: pev.price_extra for pev in ptavs}
         for ptav in ptavs:
             try:
+                price_extra_dict = getattr(
+                    ptav, "_pre_calc_%s" % ptav.price_extra_method
+                )(price_extra_dict, ptavs)
+            except AttributeError:
+                continue
+        for ptav in ptavs:
+            try:
                 price_extra_dict = getattr(ptav, "_calc_%s" % ptav.price_extra_method)(
                     price_extra_dict
                 )

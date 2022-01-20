@@ -9,7 +9,11 @@ class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
     price_extra_method = fields.Selection(
-        [("price_extra", "Price Extra"), ("multiply_extra", "Multiply Attributes")],
+        [
+            ("price_extra", "Price Extra"),
+            ("multiply_extra", "Multiply Attributes"),
+            ("price_extra_depends", "Price Extra (depends on other attributes)"),
+        ],
         default="price_extra",
         required=True,
     )

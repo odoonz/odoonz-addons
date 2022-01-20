@@ -13,11 +13,18 @@
                 <field name="price_extra_method" invisible="1" />
             </xpath>
             <xpath expr="//field[@name='price_extra']" position="attributes">
-                <attribute name="attrs">{'invisible': [('price_extra_method', '!=', 'price_extra')]}</attribute>
+                <attribute name="attrs">{'invisible': [('price_extra_method', 'not in', ('price_extra', 'price_extra_depends'))]}</attribute>
             </xpath>
             <xpath expr="//field[@name='price_extra']" position="after">
                 <field name="price_multiply_extra" attrs="{'invisible': [('price_extra_method', '!=', 'multiply_extra')]}" />
                 <field name="price_multiply_attributes" attrs="{'invisible': [('price_extra_method', '!=', 'multiply_extra')]}" widget="many2many_tags"/>
+                <field name="price_extra_depends_ids" widget="one2many" mode="tree" attrs="{'invisible': [('price_extra_method', '!=', 'price_extra_depends')]}">
+                    <tree editable="bottom">
+                        <field name="product_tmpl_id" invisible="1" />
+                        <field name="dependent_ptav_id" options="{'no_create': True}" />
+                        <field name="price_extra" />
+                    </tree>
+                </field>
             </xpath>
         </field>
     </record>
