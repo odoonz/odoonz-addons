@@ -93,3 +93,37 @@ class AccountInvoice(models.Model):
             "order_partner_id",
             "order_invoice_id",
         ]
+
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+
+    def write(self, vals):
+        """Function overrides create to ensure that parent account is
+        always used"""
+        Partner = self.env["res.partner"]
+        if vals.get("partner_id", False):
+            invoice = self.env["account.move"].browse(
+                vals.get("move_id", self[0].move_id.id)
+            )
+            order_partner = Partner.browse(vals["partner_id"])
+            partner = order_partner.commercial_partner_id
+            invoice_partner = partner.get_billing_partner(vals, invoice)
+            if invoice_partner != partner:
+                vals.update({"partner_id": invoice_partner.id})
+        return super().write(vals)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Function overrides create to ensure that parent account is
+        always used"""
+        Partner = self.env["res.partner"]
+        for vals in vals_list:
+            if vals.get("partner_id"):
+                invoice = self.env["account.move"].browse(vals.get("move_id"))
+                order_partner = Partner.browse(vals["partner_id"])
+                partner = order_partner.commercial_partner_id
+                invoice_partner = partner.get_billing_partner(vals, invoice=invoice)
+                if invoice_partner != partner:
+                    vals.update({"partner_id": invoice_partner.id})
+        return super().create(vals_list)
