@@ -35,6 +35,15 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
     return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
 
 
+class SaleOrder(models.Model):
+    _inherit = "sale.order"
+
+    def _create_delivery_line(self, carrier, price_unit):
+        sol = super()._create_delivery_line(carrier, price_unit)
+        sol._compute_tax_id()
+        return sol
+
+
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
@@ -57,10 +66,6 @@ class PurchaseOrderLine(models.Model):
                 line.taxes_id = _get_default_taxes(
                     line, line.order_id.partner_id, "in_invoice"
                 )
-
-
-class PurchaseOrderLine(models.Model):
-    _inherit = "purchase.order.line"
 
     @api.model
     def _prepare_purchase_order_line(
