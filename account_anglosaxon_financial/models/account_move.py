@@ -42,6 +42,13 @@ class AccountMove(models.Model):
         self = self.filtered(lambda s: not s.anglo_saxon_financial)
         return super()._stock_account_anglo_saxon_reconcile_valuation(product=product)
 
+    def _reverse_move_vals(self, default_values, cancel=True):
+        move_vals = super()._reverse_move_vals(default_values, cancel=cancel)
+        if self.env.context.get("no_move_lines"):
+            move_vals.pop("line_ids", False)
+            move_vals.pop("invoice_line_ids", False)
+        return move_vals
+
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
