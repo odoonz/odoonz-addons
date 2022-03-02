@@ -97,7 +97,9 @@ class PriceRecalculation(models.AbstractModel):
         Check write constraints for orders that can't be updated
         Note: Caller ensures one record
         """
-        if self.name.invoice_ids.filtered(lambda i: i.state not in ("draft", "cancel")):
+        # Temp until we can figure out how to price draft invoice
+        # if self.name.invoice_ids.filtered(lambda i: i.state not in ("draft", "cancel")):
+        if self.name.invoice_ids:
             raise ValidationError(
                 _(
                     "You cannot change pricing on an order that has "

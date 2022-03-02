@@ -34,7 +34,7 @@ class StockMove(models.Model):
                 .sudo()
                 .search(
                     [
-                        ("product_id", "=", self.id),
+                        ("product_id", "=", self.product_id.id),
                         (
                             "lot_ids",
                             "in",
@@ -43,7 +43,8 @@ class StockMove(models.Model):
                         ("quantity", ">", 0),
                         ("value", ">", 0),
                         ("company_id", "=", self.company_id.id),
-                    ]
+                    ],
+                    limit=1,
                 )
             )
             if candidates:

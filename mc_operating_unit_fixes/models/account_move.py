@@ -30,3 +30,15 @@ class AccountMove(models.Model):
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit", default=_default_operating_unit_id
     )
+
+    def write(self, vals):
+        """
+        Workaround to stop constraint error in OU with autocomplete"""
+        if (
+            not self._context.get("write_ou")
+            and self.operating_unit_id
+            and "operating_unit_id" in vals
+        ):
+            ou_id = vals.pop("operating_unit_id")
+            self.with_context(write_ou=True).write({"operating_unit_id": ou_id})
+        return super().write(vals)
