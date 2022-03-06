@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Graeme Gellatly, O4SB Ltd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.credit.control</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="sale_financial_risk.res_config_settings_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='allow_overrisk_invoice_validation']/../.."
+                position="inside"
+            >
+                    <div class="o_setting_left_pane">
+
+                        <field name="enforce_limit_sale" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            string="All customers must have limit."
+                            for="enforce_limit_sale"
+                        />
+                        <div class="text-muted">
+                            Check customer has credit limit before confirming sale orders
+                        </div>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
