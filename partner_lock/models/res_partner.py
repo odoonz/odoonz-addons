@@ -21,6 +21,7 @@ class ResPartner(models.Model):
             "risk_account_amount",
             "risk_account_amount_unpaid",
             "risk_sale_order",
+            "is_locked",
         ]
 
     def write(self, vals):
