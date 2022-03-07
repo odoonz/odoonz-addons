@@ -9,6 +9,6 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly, O4SB Ltd",
     "website": "https://o4sb.com",
-    "depends": ["sale_financial_risk"],
+    "depends": ["sale_financial_risk", "account_financial_risk_manager"],
     "data": ["views/res_config_settings.xml"],
 }

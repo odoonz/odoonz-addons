@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Graeme Gellatly, O4SB Ltd
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="partner_set_risk_wizard_form_view">
+        <field name="name">partner.set.risk.wizard.form (in sale_financial_risk_enforce)</field>
+        <field name="model">partner.set.risk.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Partner Set Risk Wizard">
+                <group>
+                    <field name="risk_invoice_unpaid_limit" />
+                    <field name="credit_limit" />
+                    <field name="credit_policy" />
+                </group>
+                <footer>
+                    <button name="set_limits"
+                            string="Set Limits"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="partner_set_risk_wizard_act_window" model="ir.actions.act_window">
+        <field name="name">Set Customer Risk</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="res_model">partner.set.risk.wizard</field>
+        <field name="view_mode">form</field>
+        <field
+            name="groups_id"
+            eval="[(4, ref('account_financial_risk_manager.group_risk_manager'))]"
+        />
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_set_risk_wiz_user,Partner Set Risk Wizard,model_partner_set_risk_wizard,account_financial_risk_manager.group_risk_manager,1,1,1,1
