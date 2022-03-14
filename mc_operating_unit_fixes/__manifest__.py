@@ -9,8 +9,10 @@
     "license": "AGPL-3",
     "author": "O4SB Ltd, Graeme Gellatly",
     "website": "https://o4sb.com",
+    "data": ["security/portal.xml"],
     "depends": [
         "account_operating_unit",
+        "sale_operating_unit",
         "purchase_operating_unit",
         "stock_account_operating_unit",
     ],

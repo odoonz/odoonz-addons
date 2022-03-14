@@ -8,3 +8,4 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     enforce_limit_sale = fields.Boolean(string="Sale must have limit")
+    allowed_min_sale = fields.Float(default="500.0")

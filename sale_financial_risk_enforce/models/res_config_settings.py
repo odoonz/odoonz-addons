@@ -11,3 +11,6 @@ class ResConfigSettings(models.TransientModel):
     enforce_limit_sale = fields.Boolean(
         related="company_id.enforce_limit_sale", readonly=False
     )
+    allowed_min_sale = fields.Float(
+        related="company_id.allowed_min_sale", readonly=False
+    )

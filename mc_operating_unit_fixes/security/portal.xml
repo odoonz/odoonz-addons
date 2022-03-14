@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- These rules so portal isn't a nightmare -->
+    <record id="sale_operating_unit.ir_rule_sale_order_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="sale_operating_unit.ir_rule_sale_order_line_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="account_operating_unit.ir_rule_move_line_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="account_operating_unit.ir_rule_move_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="purchase_operating_unit.ir_rule_purchase_order_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="purchase_operating_unit.ir_rule_purchase_order_line_allowed_operating_units" model="ir.rule">
+        <field name="global" eval="False" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

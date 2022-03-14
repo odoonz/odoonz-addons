@@ -15,7 +15,7 @@ class PartnerSetRiskWizard(models.TransientModel):
     def set_limits(self):
         self.ensure_one()
         partners = self.env["res.partner"].browse(self.env.context.get("active_ids"))
-        partners = partners.filtered(lambda s: s.is_company and not s.parent_id)
+        partners = partners.filtered(lambda s: not s.parent_id)
         partners.write(
             {
                 "credit_limit": self.credit_limit,
