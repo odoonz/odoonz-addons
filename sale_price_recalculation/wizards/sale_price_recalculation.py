@@ -59,7 +59,10 @@ class SalePriceRecalculation(models.TransientModel):
         :return: dictionary of template prices on  quote
         """
         return {
-            ql.product_id.product_tmpl_id.id: (ql.price_unit, ql.product_id.list_price)
+            ql.product_id.product_tmpl_id.id: (
+                ql.price_unit * (1.0 - ql.discount),
+                ql.product_id.list_price,
+            )
             for ql in quote.order_line
         }
 
@@ -89,6 +92,7 @@ class SalePriceRecalculation(models.TransientModel):
                 line.product_id, quoted_prices, orig_price
             )
             if line.price_unit != orig_price:
+                line.discount = 0.0
                 line.price_subtotal = line.price_unit * line.qty
                 line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
