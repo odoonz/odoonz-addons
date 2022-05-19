@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Graeme Gellatly
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_product_form_view">
+        <field name="name">product.product.form (in product_list_price_from_bom)</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="mrp_account.product_product_view_form_normal_inherit_extended"/>
+        <field name="groups_id" eval="[(4, ref('mrp.group_mrp_manager'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='pricing']" position="inside">
+                <field name="lst_price_from_bom" invisible="1" />
+                <button name="button_bom_list"
+                        string="Compute List Price from BoM" type="object"
+                        attrs="{'invisible': ['|', '|', ('lst_price_from_bom', '=', False), ('bom_count', '=', 0), '&amp;', ('valuation', '=', 'real_time'), ('cost_method', '=', 'fifo')]}"
+                        help="Compute the price of the product using products and operations of related bill of materials, for manufactured products only."
+                        class="oe_link oe_read_only pt-0"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
