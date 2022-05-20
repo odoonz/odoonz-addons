@@ -12,12 +12,12 @@ from odoo.addons.product.models.product_pricelist import Pricelist as upstream
 # other hashes may be valid but not tested, more of an early warning system
 # for changed behaviour
 
-VALID_HASHES = ["3b8538c9c617daf752b5ce8d588468bb"]
+VALID_PRG_HASHES = ["fd62af198c5551e7f5aaece5d40ca202"]
 
 
 class TestProductPricelistHash(TransactionCase):
     def test_upstream_file_hash(self):
         """Test that copied upstream function hasn't received fixes"""
-        func = inspect.getsource(upstream._compute_price_rule).encode()
+        func = inspect.getsource(upstream._compute_price_rule_get_items).encode()
         func_hash = hashlib.md5(func).hexdigest()
-        self.assertIn(func_hash, VALID_HASHES)
+        self.assertIn(func_hash, VALID_PRG_HASHES)

@@ -11,6 +11,9 @@ class ProductPricelistItem(models.Model):
     _inherit = "product.pricelist.item"
     _order = "applied_on, min_quantity desc, categ_id desc, name, id"
 
+    name = fields.Char(store=True)
+    price = fields.Char(store=True)
+
     product_ids = fields.Many2many(
         comodel_name="product.product",
         relation="pricelist_item_product_rel",
@@ -29,10 +32,8 @@ class ProductPricelistItem(models.Model):
         comodel_name="product.price.category", string="Pricing Category"
     )
 
-    code_inclusion = fields.Char("Code includes")
-    code_exclusion = fields.Char("Code excludes")
-
-    @api.depends("price_categ_id", "product_tmpl_ids", "product_ids")
+    @api.depends('applied_on', 'categ_id', 'product_tmpl_id', 'product_id', 'compute_price', 'fixed_price', \
+        'pricelist_id', 'percent_price', 'price_discount', 'price_surcharge')
     def _get_pricelist_item_name_price(self):
         super()._get_pricelist_item_name_price()
         for item in self:
@@ -51,13 +52,6 @@ class ProductPricelistItem(models.Model):
                         .mapped("display_name")
                     )
                 )
-            suffix = []
-            if item.code_inclusion:
-                suffix.append(_("contains %s") % item.code_inclusion)
-            if item.code_exclusion:
-                suffix.append(_("excludes %s") % item.code_exclusion)
-            if suffix:
-                item.name = item.name + _("(Code %s)") % ", ".join(suffix)
 
     @api.constrains(
         "product_ids",

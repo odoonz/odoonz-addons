@@ -6,6 +6,8 @@
 Pricelist Extensions
 ====================
 
+*IMPORTANT NOTE: this v15 branch is a stepping stone to 16.0 and not in production use by the author. Please use with care and if you feel this module is entirely stable raise an issue to have this notice removed*
+
 This module allows pricelist to be configured using more than just a single product or variant.
 
 In addition it disassociates the concept of a category for pricing purposes vs a product category for stock and

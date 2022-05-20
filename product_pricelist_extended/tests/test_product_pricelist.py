@@ -17,8 +17,8 @@ class TestProductPricelistItem(TestProductPricelist):
         super().setUp()
         self.price_categ1 = self.env.ref("product_pricelist_extended.price_categ1")
         self.uom_dozen = self.env.ref("uom.product_uom_dozen")
-        self.custom_computer_kit_old = self.env.ref("product.product_product_5")
-        self.laptop_S3450_old = self.env.ref("product.product_product_25")
+        self.custom_computer_kit.default_code = "ABCDEF"
+        self.laptop_S3450.default_code = "GHIJKL"
         self.extended_pricelist = self.ProductPricelist.create(
             {
                 "name": "Extended Pricelist",
@@ -71,15 +71,10 @@ class TestProductPricelistItem(TestProductPricelist):
                                     6,
                                     0,
                                     [
-                                        self.custom_computer_kit_old.id,
-                                        self.laptop_S3450_old.id,
+                                        self.custom_computer_kit.id,
                                     ],
                                 )
                             ],
-                            "code_inclusion": self.custom_computer_kit_old.default_code[
-                                :3
-                            ],
-                            "code_exclusion": self.laptop_S3450_old.default_code[1:4],
                             "compute_price": "percentage",
                             "base": "list_price",
                             "percent_price": 30,
@@ -126,7 +121,7 @@ class TestProductPricelistItem(TestProductPricelist):
         )
 
         # I check sale price of custom computer kit
-        computer_kit = self.custom_computer_kit_old.with_context(context)
+        computer_kit = self.custom_computer_kit.with_context(context)
         msg = "Wrong sale price: computer_kit should be {} instead of {}".format(
             computer_kit.price,
             (computer_kit.lst_price - (computer_kit.lst_price * 0.30)),
@@ -142,13 +137,13 @@ class TestProductPricelistItem(TestProductPricelist):
         )
 
         # I check sale price of laptop S3450
-        laptop_S3450_old = self.laptop_S3450_old.with_context(context)
+        laptop_S3450 = self.laptop_S3450.with_context(context)
         msg = "Wrong sale price: laptop_S3450 should be {} instead of {}".format(
-            laptop_S3450_old.price, laptop_S3450_old.lst_price
+            laptop_S3450.price, laptop_S3450.lst_price
         )
         self.assertEqual(
             float_compare(
-                laptop_S3450_old.price, laptop_S3450_old.lst_price, precision_digits=2
+                laptop_S3450.price, laptop_S3450.lst_price, precision_digits=2
             ),
             0,
             msg,
@@ -162,10 +157,6 @@ class TestProductPricelistItem(TestProductPricelist):
                 self.assertIn(item.product_tmpl_ids[0].name, item.name)
             elif item.product_ids:
                 self.assertIn(item.product_ids[0].name, item.name)
-            if item.code_inclusion:
-                self.assertIn("contains", item.name)
-            if item.code_exclusion:
-                self.assertIn("excludes", item.name)
 
     def test_special_cases_of_compute_price_rule(self):
         cpr = self.extended_pricelist._compute_price_rule
@@ -176,10 +167,10 @@ class TestProductPricelistItem(TestProductPricelist):
         self.assertListEqual(
             list(
                 cpr(
-                    [(self.custom_computer_kit_old.product_tmpl_id, 1.0, False)]
+                    [(self.custom_computer_kit.product_tmpl_id, 1.0, False)]
                 ).values()
             ),
-            list(cpr([(self.custom_computer_kit_old, 1.0, False)]).values()),
+            list(cpr([(self.custom_computer_kit, 1.0, False)]).values()),
             "A template with one product should be the same as its product",
         )
 
