@@ -15,9 +15,9 @@ class ResCompany(models.Model):
             record.postal_address_id = addresses["invoice"]
 
     physical_address_id = fields.Many2one(
-        comodel_name="res.partner", compute="_compute_company_address", multi="address"
+        comodel_name="res.partner", compute="_compute_company_address"
     )
 
     postal_address_id = fields.Many2one(
-        comodel_name="res.partner", compute="_compute_company_address", multi="address"
+        comodel_name="res.partner", compute="_compute_company_address"
     )

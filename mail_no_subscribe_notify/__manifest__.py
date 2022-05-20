@@ -12,4 +12,5 @@
     "depends": ["mail"],
     "data": [],
     "demo": [],
+    "installable": False,
 }

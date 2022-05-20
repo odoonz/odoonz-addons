@@ -6,6 +6,8 @@
 Sale Partcode Replacement
 =========================
 
+*IMPORTANT NOTE: Tests passing but not manually tested for v15, please raise issue to remove this not if working as expected in prod*
+
 Allows a sales order to be updated by replacing part of a part code of all products in a sale order with another.
 
 For example, if all blue products had BL in their code, and all red ones had RD, you could update the colour or the order.

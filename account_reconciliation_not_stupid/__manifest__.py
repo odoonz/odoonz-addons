@@ -11,4 +11,5 @@
     "website": "https://o4sb.com",
     "depends": ["account_accountant"],
     "data": ["views/res_partner.xml", "views/account_journal_dashboard_views.xml"],
+    "installable": False,
 }

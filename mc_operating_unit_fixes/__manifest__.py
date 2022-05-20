@@ -16,4 +16,5 @@
         "purchase_operating_unit",
         "stock_account_operating_unit",
     ],
+    "installable": False,
 }

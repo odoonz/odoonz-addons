@@ -21,5 +21,5 @@
         "security/stock_account_security.xml",
         "views/stock_valuation_layer_views.xml",
     ],
-    "installable": True,
+    "installable": False,
 }

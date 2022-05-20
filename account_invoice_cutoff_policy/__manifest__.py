@@ -10,4 +10,5 @@
     "website": "https://o4sb.com",
     "depends": ["account"],
     "data": ["views/res_partner.xml"],
+    "installable": False,
 }

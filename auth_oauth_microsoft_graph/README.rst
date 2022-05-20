@@ -6,6 +6,8 @@
 Microsoft Graph Oauth Authentication
 ====================================
 
+*IMPORTANT NOTE: There are reports of this module working on v15 untouched, however no use or testing by author as skipping v15*
+
 Allows users to login using Microsoft Graph in Azure AD environments.
 It is fairly naive, and just tests if the oauth provider is graph.microsoft.com
 and if so modifies the oauth request.

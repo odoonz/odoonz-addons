@@ -12,4 +12,5 @@
     "depends": ["sale", "purchase", "stock_operating_unit", "purchase_operating_unit"],
     "data": ["security/product_supplierinfo.xml", "views/product_supplierinfo.xml"],
     "demo": ["data/product_supplierinfo_demo.xml"],
+    "installable": False,
 }

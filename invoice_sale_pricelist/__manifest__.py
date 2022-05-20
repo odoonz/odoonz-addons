@@ -9,4 +9,5 @@
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
     "depends": ["product", "account", "sale", "sale_stock"],
+    "installable": False,
 }

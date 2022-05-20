@@ -18,5 +18,5 @@
     "depends": ["product"],
     "data": ["views/product_view.xml", "views/product_attribute_view.xml"],
     "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],
-    "installable": True,
+    "installable": False,
 }

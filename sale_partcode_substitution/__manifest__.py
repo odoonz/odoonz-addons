@@ -3,7 +3,7 @@
 
 {
     "name": "Sale Partcode Replacement",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "license": "AGPL-3",
     "category": "Sales & Purchases",
     "summary": "Allows all products of a sale order to be updated by "
@@ -11,8 +11,7 @@
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
     "depends": ["sale"],
-    "data": ["wizard/sale_partcode_replacement.xml",
-             'security/ir.model.access.csv',],
+    "data": ["wizard/sale_partcode_replacement.xml", "security/ir.model.access.csv"],
     "demo": ["demo/product_product.xml"],
     "installable": True,
 }

@@ -12,4 +12,5 @@
     "depends": [],
     "data": ["security/res_partner.xml", "views/res_partner.xml"],
     "demo": [],
+    "installable": False,
 }

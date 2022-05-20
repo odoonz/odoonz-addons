@@ -16,4 +16,5 @@
         "views/mrp_bom_line.xml",
         "views/xform_substitution_map.xml",
     ],
+    "installable": False,
 }

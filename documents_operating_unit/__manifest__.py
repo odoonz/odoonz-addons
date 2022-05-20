@@ -10,4 +10,5 @@
     "author": "O4SB",
     "depends": ["documents"],
     "data": ["security/documents_folder.xml", "views/documents_folder.xml"],
+    "installable": False,
 }

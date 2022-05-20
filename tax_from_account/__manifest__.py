@@ -13,4 +13,5 @@
     "depends": ["sale", "purchase", "account", "delivery"],
     "data": [],
     "demo": [],
+    "installable": False,
 }
