@@ -63,8 +63,12 @@ class PriceRecalculation(models.AbstractModel):
             if line.qty < lowest_qty[1]:
                 lowest_qty = (line, line.qty)
             weight = running_total / running_lines_total
-            running_lines_total -= line[fld]
-            price = line[fld] / line.qty * weight
+            try:
+                price = line[fld] / line.qty * weight
+            except ZeroDivisionError:
+                price = 0.0
+            else:
+                running_lines_total -= line[fld]
             if fld == "price_total":
                 price /= 1 + line.effective_tax_rate
             price = float_round(price, self.precision)
@@ -98,7 +102,8 @@ class PriceRecalculation(models.AbstractModel):
         Note: Caller ensures one record
         """
         # Temp until we can figure out how to price draft invoice
-        # if self.name.invoice_ids.filtered(lambda i: i.state not in ("draft", "cancel")):
+        # if self.name.invoice_ids.filtered(lambda i:
+        # i.state not in ("draft", "cancel")):
         if self.name.invoice_ids:
             raise ValidationError(
                 _(
