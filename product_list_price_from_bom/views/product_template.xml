@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Graeme Gellatly
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.form (in product_list_price_from_bom)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="mrp_account.product_product_ext_form_view2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <div>
+                    <field name="lst_price_from_bom" />
+                    <label for="lst_price_from_bom" />
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='pricing']" position="inside">
+                <button name="button_bom_list"
+                        string="Compute List Price from BoM" type="object"
+                        attrs="{'invisible': ['|', '|', '|', ('product_variant_count', '&lt;', 2), ('lst_price_from_bom', '=', False), ('bom_count', '=', 0), '&amp;', ('valuation', '=', 'real_time'), ('cost_method', '=', 'fifo')]}"
+                        help="Compute the price of the product using products and operations of related bill of materials, for manufactured products only."
+                        class="oe_link oe_read_only pt-0"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_search_view">
+        <field name="name">product.template.search (in product_list_price_from_bom)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_to_purchase']" position="after">
+                <filter string="Price from BoM" name="filter_bom_price" domain="[('lst_price_from_bom', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
