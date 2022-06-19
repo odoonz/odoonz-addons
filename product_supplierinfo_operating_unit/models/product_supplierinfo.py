@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
         if self._context.get("operating_unit_id"):
             sellers = sellers.filtered(
                 lambda r: not r.operating_unit_id
-                or r.operating_unit_id == self._context["operating_unit_id"]
+                or r.operating_unit_id.id == self._context["operating_unit_id"]
             )
         return sellers
 
