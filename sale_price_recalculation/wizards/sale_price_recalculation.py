@@ -60,7 +60,7 @@ class SalePriceRecalculation(models.TransientModel):
         """
         return {
             ql.product_id.product_tmpl_id.id: (
-                ql.price_unit * (1.0 - ql.discount),
+                ql.price_unit * (1.0 - (ql.discount / 100.0)),
                 ql.product_id.list_price,
             )
             for ql in quote.order_line
@@ -136,8 +136,8 @@ class SalePriceRecalculation(models.TransientModel):
         self.ensure_one()
         self._check_write_constraints()
         order = self.name
-        header_msgs = [_(u"<p><b>Pricing Updated</b></p>")]
-        msgs = [u"<ul>"]
+        header_msgs = [_("<p><b>Pricing Updated</b></p>")]
+        msgs = ["<ul>"]
         vals = {}
         pricelist_id = order.pricelist_id.id
         if self.pricelist_id:
@@ -146,26 +146,26 @@ class SalePriceRecalculation(models.TransientModel):
             pricelist_id = self.copy_quote_id.pricelist_id.id
             vals.update(self._prepare_quote_related_vals())
             header_msgs.append(
-                _(u"<p>Price updated from <b>{0}</b></p>").format(
+                _("<p>Price updated from <b>{0}</b></p>").format(
                     self.copy_quote_id.name
                 )
             )
         if pricelist_id != order.pricelist_id.id:
             header_msgs.append(
-                _(u"<p>Pricelist changed from <b>{0}</b> to " u"<b>{1}</b></p>").format(
+                _("<p>Pricelist changed from <b>{0}</b> to " "<b>{1}</b></p>").format(
                     order.pricelist_id.name, self.pricelist_id.name
                 )
             )
             vals["pricelist_id"] = pricelist_id
         if order.invoice_ids:
             msgs.append(
-                _(u"<p><emph>The draft invoice has also " u"been updated.</emph></p>")
+                _("<p><emph>The draft invoice has also " "been updated.</emph></p>")
             )
         vals.update(self._prepare_other_vals())
         order.write(vals)
         msgs.extend(self._reprice_lines(self.line_ids))
         if len(msgs) > 1:
-            msgs.append(u"</ul><br/>")
+            msgs.append("</ul><br/>")
         else:
             msgs = []
         order.invoice_ids._compute_amount()
@@ -186,9 +186,7 @@ class SalePriceRecalculation(models.TransientModel):
             ):
                 try:
                     msgs.append(
-                        _(
-                            u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
-                        ).format(
+                        _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
                             order_line.name,
                             order_line.price_subtotal / line.qty,
                             line.price_subtotal / line.qty,
@@ -196,9 +194,7 @@ class SalePriceRecalculation(models.TransientModel):
                     )
                 except ZeroDivisionError:
                     msgs.append(
-                        _(
-                            u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>"
-                        ).format(
+                        _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
                             order_line.name, order_line.price_unit, line.price_unit
                         )
                     )
