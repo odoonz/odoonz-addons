@@ -9,7 +9,10 @@ class ProductProduct(models.Model):
     _inherit = "product.product"
 
     bom_list_price = fields.Float(
-        "List Price From BoM", compute="_compute_bom_list", digits="Product Price"
+        "List Price From BoM",
+        compute="_compute_bom_list",
+        digits="Product Price",
+        compute_sudo=True,
     )
 
     @api.depends("list_price", "price_extra", "lst_price_from_bom")
@@ -19,6 +22,7 @@ class ProductProduct(models.Model):
         if "uom" in self._context:
             to_uom = self.env["uom.uom"].browse(self._context["uom"])
         bom_products = self.filtered(lambda s: s.lst_price_from_bom)
+        res = super(ProductProduct, self - bom_products)._compute_product_lst_price()
         for product in bom_products:
             if to_uom:
                 list_price = product.uom_id._compute_price(
@@ -27,41 +31,12 @@ class ProductProduct(models.Model):
             else:
                 list_price = product.bom_list_price
             product.lst_price = list_price
-        return super(ProductProduct, self - bom_products)._compute_product_lst_price()
+        return res
 
-    def _compute_bom_list_price(self, bom, boms_to_recompute=False):
-        self.ensure_one()
-        if not bom:
-            return 0
-
-        if not boms_to_recompute:
-            boms_to_recompute = []
-        _dummy, bom_lines = bom.explode(self, 1)
-        total = 0
-        for line, explode_details in bom_lines:
-            total += (
-                line.product_id.uom_id._compute_price(
-                    line.product_id.lst_price, line.product_uom_id
-                )
-                * explode_details["qty"]
-            )
-        # for opt in bom.operation_ids:
-        #     duration_expected = (
-        #         opt.workcenter_id.time_start +
-        #         opt.workcenter_id.time_stop +
-        #         opt.time_cycle)
-        #     total += (duration_expected / 60) * opt.workcenter_id.costs_hour # Labour margin
-        # for line in bom.bom_line_ids:
-        #     if line._skip_bom_line(self):
-        #         continue
-
-        #     # Compute recursive if line has `child_line_ids`
-        #     if line.child_bom_id and line.child_bom_id in boms_to_recompute:
-        #         child_total = line.product_id._compute_bom_list_price(line.child_bom_id, boms_to_recompute=boms_to_recompute)
-        #         total += line.product_id.uom_id._compute_price(child_total, line.product_uom_id) * line.product_qty
-        #     else:
-        #         total += line.product_id.uom_id._compute_price(line.product_id.lst_price, line.product_uom_id) * line.product_qty
-        return bom.product_uom_id._compute_price(total / bom.product_qty, self.uom_id)
+    def _compute_bom_list_price(self, bom):
+        return self._compute_bom_price_by_type(
+            bom, price="lst_price", labour="price_hour"
+        )
 
     def _compute_bom_list(self):
         return self.action_bom_list()
@@ -87,9 +62,9 @@ class ProductProduct(models.Model):
         self.ensure_one()
         bom = self.env["mrp.bom"]._bom_find(product=self)
         if bom:
-            self.bom_list_price = self._compute_bom_list_price(
-                bom, boms_to_recompute=boms_to_recompute
-            )
+            self.bom_list_price = self._compute_bom_list_price(bom)
+        else:
+            self.bom_list_price = 0.0
 
     def price_compute(self, price_type, uom=False, currency=False, company=None):
         bom_prices = {}

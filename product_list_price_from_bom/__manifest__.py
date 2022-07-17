@@ -11,6 +11,7 @@
     "website": "https://o4sb.com",
     "depends": ["product", "mrp_account", "product_configurator"],
     "data": [
+        "views/mrp_workcenter.xml",
         "views/product_product.xml",
         "views/product_template.xml",
     ],

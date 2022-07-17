@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Graeme Gellatly
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="mrp_workcenter_form_view">
+        <field name="name">mrp.workcenter.form (in product_list_price_from_bom)</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='costs_hour']" position="after">
+                <field name="price_hour" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="mrp_workcenter_tree_view">
+        <field name="name">mrp.workcenter.tree (in product_list_price_from_bom)</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="costs_hour" optional="hide" />
+                <field name="price_hour" optional="hide" />
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="multi_edit">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

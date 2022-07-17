@@ -1,8 +1,11 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
 
 from odoo import models
+
+_logger = logging.getLogger(__name__)
 
 
 class ProductProduct(models.Model):
@@ -21,3 +24,36 @@ class ProductProduct(models.Model):
             ("bom_line_ids.product_tmpl_id", "=", self.product_tmpl_id.id)
         ]
         return action
+
+    def _compute_bom_price_by_type(
+        self, bom, price="standard_price", labour="costs_hour"
+    ):
+        self.ensure_one()
+        if not bom:
+            return 0
+        boms, bom_lines = bom.explode(self, 1)
+        total = 0
+        for line, explode_details in bom_lines:
+            line_qty = explode_details["qty"]
+            product = explode_details["product"]
+            product = line.product_id
+            total += (
+                line.product_id.uom_id._compute_price(
+                    product[price], line.product_uom_id
+                )
+                * line_qty
+            )
+            _logger.debug(
+                f"Bom: {bom.product_tmpl_id.name}, Qty: {line_qty}, "
+                f"Price: {product[price]} {price}, Total: {total}"
+            )
+        for opt in bom.operation_ids:
+            duration_expected = (
+                # We remove setup and tear down time as they apply across multiple units
+                opt.time_cycle
+            )
+            total += (duration_expected / 60) * opt.workcenter_id[labour]
+        return bom.product_uom_id._compute_price(total / bom.product_qty, self.uom_id)
+
+    def _compute_bom_price(self, bom, boms_to_recompute=False):
+        return self._compute_bom_price_by_type(bom)
