@@ -14,7 +14,6 @@ class AccountMoveReversal(models.TransientModel):
             ("service", "No Stock on Invoice"),
         ],
         string="Impact of Refund",
-        required=True,
     )
     anglo_saxon_accounting = fields.Boolean(related="company_id.anglo_saxon_accounting")
 
