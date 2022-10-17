@@ -5,7 +5,7 @@
     "name": "Product No Translation",
     "summary": """
         Make product related fields non translatable""",
-    "version": "13.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
