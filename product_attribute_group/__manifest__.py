@@ -6,7 +6,7 @@
     "summary": """
         Allows grouping of product attributes for easy addition
         to a product template""",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": " Open For Small Business Ltd",
     "website": "https://o4sb.com",
