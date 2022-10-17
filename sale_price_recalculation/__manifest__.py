@@ -5,7 +5,7 @@
     "name": "Sale Price Recalculation",
     "summary": "Allows to update the pricing on confirmed sales orders "
     "prior to invoice",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": " Open For Small Business Ltd",
     "website": "https://o4sb.com",
