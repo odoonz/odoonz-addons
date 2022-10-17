@@ -7,8 +7,8 @@
 
 from itertools import chain
 
-from odoo import _, api, fields, models, tools
-from odoo.exceptions import UserError, ValidationError
+from odoo import fields, models, tools
+from odoo.exceptions import UserError
 
 
 class ProductPricelist(models.Model):

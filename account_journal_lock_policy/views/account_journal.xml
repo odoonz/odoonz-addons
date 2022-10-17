@@ -1,30 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="ir.ui.view" id="account_journal_form_view">
-        <field name="name">account.journal.form (in account_journal_lock_policy)</field>
+        <field
+      name="name"
+    >account.journal.form (in account_journal_lock_policy)</field>
         <field name="model">account.journal</field>
-        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='advanced_settings']/group" position="inside">
+            <xpath
+        expr="//page[@name='advanced_settings']/group"
+        position="inside"
+      >
                 <group string="Lock Policy">
                     <group>
-                        <field name="enforce_lock"/>
+                        <field name="enforce_lock" />
                     </group>
-                    <div name="lock_policy" attrs="{'invisible': [('enforce_lock', '=', False)]}" colspan="4">
+                    <div
+            name="lock_policy"
+            attrs="{'invisible': [('enforce_lock', '=', False)]}"
+            colspan="4"
+          >
                         Lock transactions
-                        <field name="months" class="oe_inline" widget="integer"/>
+                        <field
+              name="months"
+              class="oe_inline"
+              widget="integer"
+            />
                         month(s) &amp;
-                        <field name="days" class="oe_inline" widget="integer"/>
-                        <label string=" " for="day_type"/>
-                        <field name="day_type" class="oe_inline" attrs="{'required': [('enforce_lock', '=', True)]}"/>
-                        <label string=" " for="day_type"/>
-                        <label string="from" for="cutoff_type"/>
-                        <field name="cutoff_type" class="oe_inline"
-                               attrs="{'required': [('enforce_lock', '=', True)]}"/>
+                        <field name="days" class="oe_inline" widget="integer" />
+                        <label string=" " for="day_type" />
+                        <field
+              name="day_type"
+              class="oe_inline"
+              attrs="{'required': [('enforce_lock', '=', True)]}"
+            />
+                        <label string=" " for="day_type" />
+                        <label string="from" for="cutoff_type" />
+                        <field
+              name="cutoff_type"
+              class="oe_inline"
+              attrs="{'required': [('enforce_lock', '=', True)]}"
+            />
                     </div>
                 </group>
             </xpath>

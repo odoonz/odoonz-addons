@@ -69,8 +69,8 @@ class ProductPricelistItem(models.Model):
     )
     def _check_product_consistency(self):
         """
-            Rewrite this validation function:
-            only one field should be set
+        Rewrite this validation function:
+        only one field should be set
         """
         for item in self:
             if item.applied_on == "2_product_category" and bool(item.categ_id) == bool(

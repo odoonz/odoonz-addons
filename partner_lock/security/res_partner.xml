@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2022 Graeme Gellatly, O4SB
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="res.groups" id="group_res_partner_unlock">
@@ -11,9 +10,9 @@
     </record>
     <record model="res.groups" id="base.group_system">
         <field
-            name="implied_ids"
-            eval="[(4, ref('partner_lock.group_res_partner_unlock'))]"
-        />
+      name="implied_ids"
+      eval="[(4, ref('partner_lock.group_res_partner_unlock'))]"
+    />
     </record>
 
 </odoo>

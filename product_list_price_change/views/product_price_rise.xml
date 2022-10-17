@@ -1,33 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2019 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="ir.ui.view" id="product_price_change_form_view">
-        <field name="name">product.price.change.form (in product_list_price_change)</field>
+        <field
+      name="name"
+    >product.price.change.form (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <form string="Price Change">
                 <header>
-                    <button type="object" string="Reset to Draft" states="cancel,future" name="action_draft"/>
-                    <button type="object" string="Confirm" states="draft" name="action_confirm" class="btn-primary"/>
-                    <button type="action" string="Add Products" states="draft" name="%(product_list_price_change.product_price_change_wizard_act_window)d" />
-                    <button type="object" string="Cancel" states="draft,future" name="action_cancel"/>
-                    <field name="state" widget="statusbar" readonly="1"/>
+                    <button
+            type="object"
+            string="Reset to Draft"
+            states="cancel,future"
+            name="action_draft"
+          />
+                    <button
+            type="object"
+            string="Confirm"
+            states="draft"
+            name="action_confirm"
+            class="btn-primary"
+          />
+                    <button
+            type="action"
+            string="Add Products"
+            states="draft"
+            name="%(product_list_price_change.product_price_change_wizard_act_window)d"
+          />
+                    <button
+            type="object"
+            string="Cancel"
+            states="draft,future"
+            name="action_cancel"
+          />
+                    <field name="state" widget="statusbar" readonly="1" />
                 </header>
                 <sheet>
-                    <h1><field name="name" placeholder="Name"/></h1>
+                    <h1><field name="name" placeholder="Name" /></h1>
                     <group>
                         <group>
-                            <field name="effective_date" placeholder="Effective Date" />
+                            <field
+                name="effective_date"
+                placeholder="Effective Date"
+              />
                         </group>
                     </group>
 
                     <notebook>
                         <page name="product" string="Product Price Changes">
-                            <field colspan="5" name="product_line_ids" nolabel="1" >
-                                <tree editable="bottom" >
+                            <field
+                colspan="5"
+                name="product_line_ids"
+                nolabel="1"
+              >
+                                <tree editable="bottom">
                                     <field name="product_tmpl_id" />
                                     <field name="percent_change" />
                                     <field name="list_price" />
@@ -36,25 +65,42 @@
                             </field>
                         </page>
                         <page name="variant" string="Extra Value Price Changes">
-                            <field colspan="5" name="variant_line_ids" nolabel="1" >
-                                <tree editable="bottom" >
-                                    <field name="product_tmpl_attribute_value_id" />
+                            <field
+                colspan="5"
+                name="variant_line_ids"
+                nolabel="1"
+              >
+                                <tree editable="bottom">
+                                    <field
+                    name="product_tmpl_attribute_value_id"
+                  />
                                     <field name="price_extra" />
                                     <field name="state" invisible="1" />
                                 </tree>
                             </field>
                         </page>
                         <page name="delay" string="Implementation Delays">
-                            <field colspan="5" name="impl_delay_ids" nolabel="1">
-                                <tree editable="bottom" >
+                            <field
+                colspan="5"
+                name="impl_delay_ids"
+                nolabel="1"
+              >
+                                <tree editable="bottom">
                                     <field name="effective_date" />
                                     <field name="name" />
-                                    <field name="included_categories" widget="many2many_tags" />
+                                    <field
+                    name="included_categories"
+                    widget="many2many_tags"
+                  />
                                 </tree>
                             </field>
                         </page>
                         <page name="description" string="Description">
-                            <field name="description" nolabel="1" widget="html" />
+                            <field
+                name="description"
+                nolabel="1"
+                widget="html"
+              />
                         </page>
                     </notebook>
                 </sheet>
@@ -63,26 +109,34 @@
     </record>
 
     <record model="ir.ui.view" id="product_price_change_search_view">
-        <field name="name">product.price.change.search (in product_list_price_change)</field>
+        <field
+      name="name"
+    >product.price.change.search (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />
                 <field name="effective_date" />
                 <group expand="0" string="Group By">
-                    <filter string="Status" name="group_status" context="{'group_by':'state'}"/>
+                    <filter
+            string="Status"
+            name="group_status"
+            context="{'group_by':'state'}"
+          />
                 </group>
             </search>
         </field>
     </record>
 
     <record model="ir.ui.view" id="product_price_change_tree_view">
-        <field name="name">product.price.change.tree (in product_list_price_change)</field>
+        <field
+      name="name"
+    >product.price.change.tree (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="effective_date" />
-                <field name="name"/>
+                <field name="name" />
                 <field name="state" />
             </tree>
         </field>
@@ -96,17 +150,26 @@
         <field name="context">{}</field>
     </record>
 
-    <menuitem action="product_price_change_act_window" id="product_price_change_menu" name="Price Changes" parent="sale.product_menu_catalog" sequence="6" />
+    <menuitem
+    action="product_price_change_act_window"
+    id="product_price_change_menu"
+    name="Price Changes"
+    parent="sale.product_menu_catalog"
+    sequence="6"
+  />
 
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">product.template.form</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page name="price_change" string="Price History" >
-                    <field name="price_change_line_ids" colspan="5" nolabel="1" >
-                        <tree name="price_change_tree" decoration-muted="state == 'live'" >
+                <page name="price_change" string="Price History">
+                    <field name="price_change_line_ids" colspan="5" nolabel="1">
+                        <tree
+              name="price_change_tree"
+              decoration-muted="state == 'live'"
+            >
                             <field name="effective_date" />
                             <field name="list_price" />
                             <field name="state" />

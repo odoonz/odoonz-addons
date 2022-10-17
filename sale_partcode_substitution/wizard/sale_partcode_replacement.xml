@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <record model="ir.ui.view" id="view_sale_code_replacement">
         <field name="name">view.sale.code.replacement</field>
         <field name="model">sale.code.replacement</field>
         <field name="arch" type="xml">
-            <form string="Partcode Change" >
+            <form string="Partcode Change">
                 <group>
                     <group>
                         <field name="from_code" />
@@ -15,7 +15,12 @@
                     </group>
                 </group>
                 <footer>
-                    <button name="change_products_partcode" string="Substitute" type="object" class="oe_highlight"/>
+                    <button
+            name="change_products_partcode"
+            string="Substitute"
+            type="object"
+            class="oe_highlight"
+          />
                     <button name="cancel" string="Discard" special="cancel" />
                 </footer>
             </form>
@@ -27,7 +32,7 @@
         <field name="res_model">sale.code.replacement</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
     </record>
 
 </odoo>

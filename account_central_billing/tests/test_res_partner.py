@@ -1,8 +1,8 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common
 from odoo.exceptions import ValidationError
+from odoo.tests import common
 
 module = "account_central_billing"
 
@@ -31,7 +31,7 @@ class TestResPartnerInvoicing(common.TransactionCase):
         self.normal_partner = self.env.ref("base.res_partner_1")
         self.invoice_account = (
             self.env["account.account"]
-                .search(
+            .search(
                 [
                     (
                         "user_type_id",
@@ -41,7 +41,7 @@ class TestResPartnerInvoicing(common.TransactionCase):
                 ],
                 limit=1,
             )
-                .id
+            .id
         )
 
     def test_store_code_constraint(self):

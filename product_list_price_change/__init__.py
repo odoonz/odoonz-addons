@@ -18,7 +18,7 @@ def uninstall_hook(cr, registry):
 def post_init_hook(cr, registry):
     env = Environment(cr, SUPERUSER_ID, {})
     cr.execute("""SELECT id, list_price FROM product_template""")
-    res = cr.fetchall()
+    cr.fetchall()
     res_ids = (
         env["ir.model.data"]
         .search([("model", "=", "ir.ui.menu"), ("module", "=", "sale")])

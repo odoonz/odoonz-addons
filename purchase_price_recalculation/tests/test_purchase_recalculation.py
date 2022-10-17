@@ -13,8 +13,7 @@ from . import hypothesis_params as hp
 
 _logger = logging.Logger(__name__)
 try:
-    from hypothesis import given
-    from hypothesis import strategies as st
+    from hypothesis import given, strategies as st
 except ImportError as err:
     _logger.debug(err)
 

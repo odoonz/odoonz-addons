@@ -151,7 +151,7 @@ class TestAttributeGroups(TransactionCase):
 
     def test_button_copy(self):
         res = self.attr_group_1.button_copy()
-        self.assertTrue(res.get("type") == u"ir.actions.act_window")
+        self.assertTrue(res.get("type") == "ir.actions.act_window")
         attr_recordset = self.attr_group_1 | self.attr_group_2
         with self.assertRaises(ValueError):
             attr_recordset.button_copy()

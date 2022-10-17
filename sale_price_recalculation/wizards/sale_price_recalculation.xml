@@ -1,58 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo>
 
     <record model="ir.ui.view" id="sale_price_recalculation_form_view">
-        <field name="name">sale.price.recalculation.form (in sale_price_recalculation)</field>
+        <field
+      name="name"
+    >sale.price.recalculation.form (in sale_price_recalculation)</field>
         <field name="model">sale.price.recalculation</field>
         <field name="arch" type="xml">
             <form string="Update Pricing">
 
-                <label colspan="5" for="partner_id" string="This will update the sales order and any draft invoices.
+                <label
+          colspan="5"
+          for="partner_id"
+          string="This will update the sales order and any draft invoices.
                         It will not work if any part of the order is already invoiced. Updating from quote
-                        will use the last product template matched."/>
-                <field name="partner_id" invisible="1"/>
-                <field name="name" invisible="1"/>
+                        will use the last product template matched."
+        />
+                <field name="partner_id" invisible="1" />
+                <field name="name" invisible="1" />
                 <group>
                     <group>
                         <field name="date_order" />
-                        <field name="pricelist_id" options='{"no_open": True}'/>
-                        <field name="copy_quote_id" domain="[('partner_id', '=', partner_id)]"/>
+                        <field
+              name="pricelist_id"
+              options='{"no_open": True}'
+            />
+                        <field
+              name="copy_quote_id"
+              domain="[('partner_id', '=', partner_id)]"
+            />
                     </group>
                     <group>
-                        <field name="total"/>
-                        <field name="tax_incl"/>
-                        <field name="precision"/>
+                        <field name="total" />
+                        <field name="tax_incl" />
+                        <field name="precision" />
                     </group>
                 </group>
-                <field name="line_ids" nolabel="1" colspan="5" mode="tree" width="800">
+                <field
+          name="line_ids"
+          nolabel="1"
+          colspan="5"
+          mode="tree"
+          width="800"
+        >
                     <tree string="Order Lines" editable="bottom" create="false">
-                        <field name="name" options="{'no_open': True}" force_save="1"/>
-                        <field name="effective_tax_rate" invisible="1"/>
-                        <field name="product_id" invisible="1"/>
-                        <field name="qty" force_save="1"/>
-                        <field name="price_unit" context="{'precision': parent.precision}"/>
-                        <field name="discount"/>
-                        <field name="price_subtotal" context="{'precision': parent.precision}"/>
-                        <field name="price_total" context="{'precision': parent.precision}"/>
+                        <field
+              name="name"
+              options="{'no_open': True}"
+              force_save="1"
+            />
+                        <field name="effective_tax_rate" invisible="1" />
+                        <field name="product_id" invisible="1" />
+                        <field name="qty" force_save="1" />
+                        <field
+              name="price_unit"
+              context="{'precision': parent.precision}"
+            />
+                        <field name="discount" />
+                        <field
+              name="price_subtotal"
+              context="{'precision': parent.precision}"
+            />
+                        <field
+              name="price_total"
+              context="{'precision': parent.precision}"
+            />
                     </tree>
                 </field>
                 <footer>
-                    <button name="action_write" string="Write Changes" type="object" class="btn-primary"/>
-                    <button special="cancel" string="Close"/>
+                    <button
+            name="action_write"
+            string="Write Changes"
+            type="object"
+            class="btn-primary"
+          />
+                    <button special="cancel" string="Close" />
                 </footer>
             </form>
         </field>
     </record>
 
-    <record id="sale_price_recalculation_act_window" model="ir.actions.act_window">
+    <record
+    id="sale_price_recalculation_act_window"
+    model="ir.actions.act_window"
+  >
         <field name="name">Update Pricing</field>
         <field name="res_model">sale.price.recalculation</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
     </record>
 
 </odoo>

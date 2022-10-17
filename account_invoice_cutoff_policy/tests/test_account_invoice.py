@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
-
 from unittest import mock
 
 from odoo.tests import common
@@ -13,6 +12,7 @@ partner_model = (
 )
 
 spt = datetime.strptime
+
 
 class TestAccountInvoice(common.TransactionCase):
     def setUp(self):

@@ -2,9 +2,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from unittest import mock
-from odoo.tests import common
+
 from odoo.exceptions import ValidationError
+from odoo.tests import common
+
 partner_model = "odoo.addons.account_central_billing.models.res_partner.ResPartner"
+
 
 class TestAccountInvoice(common.TransactionCase):
     def setUp(self):
@@ -86,6 +89,8 @@ class TestAccountInvoice(common.TransactionCase):
                 "move_type": "out_invoice",
             }
         )
-        refund_fields = self.env["account.move.reversal"]._prepare_default_reversal(invoice)
+        refund_fields = self.env["account.move.reversal"]._prepare_default_reversal(
+            invoice
+        )
         self.assertIn("order_partner_id", refund_fields)
         self.assertIn("order_invoice_id", refund_fields)

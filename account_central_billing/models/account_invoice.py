@@ -78,7 +78,7 @@ class AccountInvoice(models.Model):
     def _search(self, args, **kwargs):
         """override search so we find subsidiary invoices when looking at
         that partner.
-       """
+        """
         iter_args = list(args)
         args = []
         for arg in iter_args:

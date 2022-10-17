@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
   Copyright (C) 2015 Akretion (http://www.akretion.com). All Rights Reserved
   @author Benoît GUILLOT <benoit.guillot@akretion.com>
@@ -8,24 +8,27 @@
 
     <record id="attribute_tree_view" model="ir.ui.view">
         <field name="model">product.attribute</field>
-        <field name="inherit_id" ref="product.attribute_tree_view"/>
+        <field name="inherit_id" ref="product.attribute_tree_view" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="code"/>
+                <field name="code" />
             </field>
         </field>
     </record>
 
     <record id="product_attribute_view_form" model="ir.ui.view">
         <field name="model">product.attribute</field>
-        <field name="inherit_id" ref="product.product_attribute_view_form"/>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="code"/>
-            </field>
-            <xpath expr="//field[@name='value_ids']/tree/field[@name='name']" position="after">
                 <field name="code" />
-                <field name="comment"/>
+            </field>
+            <xpath
+        expr="//field[@name='value_ids']/tree/field[@name='name']"
+        position="after"
+      >
+                <field name="code" />
+                <field name="comment" />
             </xpath>
         </field>
     </record>
@@ -34,8 +37,8 @@
         <field name="model">product.attribute</field>
         <field name="arch" type="xml">
             <search>
-                <field name="name"/>
-                <field name="code"/>
+                <field name="name" />
+                <field name="code" />
             </search>
         </field>
     </record>

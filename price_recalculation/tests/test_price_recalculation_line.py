@@ -11,9 +11,7 @@ from . import hypothesis_params as hp
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import given
-    from hypothesis import strategies as st
-    from hypothesis import assume
+    from hypothesis import assume, given, strategies as st
 except ImportError as err:
     _logger.debug(err)
 
@@ -25,7 +23,7 @@ class TestPriceRecalculationLine(TransactionCase):
 
     @given(st.data())
     def test_onchange_total(self, data):
-        """ This function is actually tested in sale_price_recalculation """
+        """This function is actually tested in sale_price_recalculation"""
         qty = data.draw(st.floats(**hp.QTY_ARGS))
         price = data.draw(st.floats(**hp.PRICE_ARGS))
         tax_rate = data.draw(st.floats(**hp.TAX_ARGS))

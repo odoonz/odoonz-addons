@@ -9,12 +9,12 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='company_id']" position="after">
                 <field
-                    name="operating_unit_id"
-                    options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
-                    domain="[('company_id','=', company_id)]"
-                    attrs="{'invisible': [('company_id','=',False)]}"
-                    groups="operating_unit.group_multi_operating_unit"
-                />
+          name="operating_unit_id"
+          options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"
+          domain="[('company_id','=', company_id)]"
+          attrs="{'invisible': [('company_id','=',False)]}"
+          groups="operating_unit.group_multi_operating_unit"
+        />
             </xpath>
         </field>
     </record>
@@ -26,9 +26,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='parent_folder_id']" position="after">
                 <field
-                    name="operating_unit_id"
-                    groups="operating_unit.group_multi_operating_unit"
-                />
+          name="operating_unit_id"
+          groups="operating_unit.group_multi_operating_unit"
+        />
             </xpath>
         </field>
     </record>
@@ -40,9 +40,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='company_id']" position="before">
                 <field
-                    name="operating_unit_id"
-                    groups="operating_unit.group_multi_operating_unit"
-                />
+          name="operating_unit_id"
+          groups="operating_unit.group_multi_operating_unit"
+        />
             </xpath>
         </field>
     </record>

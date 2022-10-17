@@ -1,30 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo noupdate="0">
 
     <!-- Product Setup -->
     <record id="product_product_1" model="product.product">
         <field name="name">Green Car</field>
-        <field name="categ_id" ref="product.product_category_5"/>
+        <field name="categ_id" ref="product.product_category_5" />
         <field name="standard_price">1000.0</field>
         <field name="list_price">1750.0</field>
         <field name="type">consu</field>
         <field name="default_code">CARGRN</field>
-        <field name="uom_id" ref="uom.product_uom_unit"/>
-        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
     </record>
 
     <record id="product_product_2" model="product.product">
         <field name="name">Blue Car</field>
-        <field name="categ_id" ref="product.product_category_5"/>
+        <field name="categ_id" ref="product.product_category_5" />
         <field name="standard_price">900.0</field>
         <field name="list_price">1550.0</field>
         <field name="type">consu</field>
         <field name="default_code">CARBLU</field>
-        <field name="uom_id" ref="uom.product_uom_unit"/>
-        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="uom_po_id" ref="uom.product_uom_unit" />
     </record>
 
 

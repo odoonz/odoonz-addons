@@ -74,12 +74,12 @@ class PurchasePriceRecalculation(models.TransientModel):
         self.ensure_one()
         self._check_write_constraints()
         order = self.name
-        header_msgs = [_(u"<p><b>Pricing Updated</b></p>")]
-        msgs = [u"<ul>"]
+        header_msgs = [_("<p><b>Pricing Updated</b></p>")]
+        msgs = ["<ul>"]
         vals = {}
         if order.invoice_ids:
             msgs.append(
-                _(u"<p><emph>The draft invoice has also " u"been updated.</emph></p>")
+                _("<p><emph>The draft invoice has also " "been updated.</emph></p>")
             )
         vals.update(self._prepare_other_vals())
         order.write(vals)
@@ -87,7 +87,7 @@ class PurchasePriceRecalculation(models.TransientModel):
             order_line = line.name
             if order_line.price_unit != line.price_unit:
                 msgs.append(
-                    _(u"<li>{0}: was ${1:.2f} ea - " u"now ${2:.2f} ea</li>").format(
+                    _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
                         order_line.name,
                         order_line.price_subtotal / line.qty,
                         line.price_subtotal / line.qty,
@@ -104,7 +104,7 @@ class PurchasePriceRecalculation(models.TransientModel):
                     {"price_unit": order_line._get_stock_move_price_unit()}
                 )
         if len(msgs) > 1:
-            msgs.append(u"</ul><br/>")
+            msgs.append("</ul><br/>")
         else:
             msgs = []
         order.invoice_ids._compute_amount()

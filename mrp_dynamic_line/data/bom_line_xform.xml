@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-
 <odoo noupdate="0">
 
     <record model="bom.line.xform" id="match_attributes">
@@ -10,7 +9,9 @@
         <field name="color">1</field>
         <field name="technical_name">match_attributes</field>
         <field name="application_point">explode</field>
-        <field name="description">This transformation matches the attributes between the BoM Line Template and the BoM
+        <field
+      name="description"
+    >This transformation matches the attributes between the BoM Line Template and the BoM
             Template
         </field>
     </record>
@@ -20,7 +21,9 @@
         <field name="color">2</field>
         <field name="technical_name">scale_weight_kg</field>
         <field name="application_point">explode</field>
-        <field name="description">This transformation scales the bom_line qty by the weight of the product being
+        <field
+      name="description"
+    >This transformation scales the bom_line qty by the weight of the product being
             produced.
         </field>
     </record>

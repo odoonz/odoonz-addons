@@ -3,8 +3,8 @@
 from datetime import datetime
 
 from odoo.tests.common import TransactionCase
-from odoo.tools import mute_logger
-from odoo.tools import float_compare as fc
+from odoo.tools import float_compare as fc, mute_logger
+
 
 class TestSale(TransactionCase):
     @mute_logger("odoo.addons.base.ir.ir_model", "odoo.osv.orm")

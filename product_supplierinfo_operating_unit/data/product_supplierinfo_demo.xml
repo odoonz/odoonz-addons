@@ -10,9 +10,9 @@
             <field name="uom_po_id" ref="uom.product_uom_unit" />
             <field name="default_code">TEST-PSOU</field>
             <field
-                name="route_ids"
-                eval="[(6, 0, [ref('stock.route_warehouse0_mto'), ref('purchase_stock.route_warehouse0_buy')])]"
-            />
+        name="route_ids"
+        eval="[(6, 0, [ref('stock.route_warehouse0_mto'), ref('purchase_stock.route_warehouse0_buy')])]"
+      />
         </record>
 
         <record id="product_supplierinfo_ou_1" model="product.supplierinfo">
@@ -21,7 +21,10 @@
             <field name="delay">0</field>
             <field name="min_qty">1</field>
             <field name="price">600</field>
-            <field name="operating_unit_id" ref="operating_unit.main_operating_unit" />
+            <field
+        name="operating_unit_id"
+        ref="operating_unit.main_operating_unit"
+      />
             <field name="currency_id" ref="base.USD" />
         </record>
 
@@ -31,7 +34,10 @@
             <field name="delay">0</field>
             <field name="min_qty">1</field>
             <field name="price">650</field>
-            <field name="operating_unit_id" ref="operating_unit.b2b_operating_unit" />
+            <field
+        name="operating_unit_id"
+        ref="operating_unit.b2b_operating_unit"
+      />
             <field name="currency_id" ref="base.USD" />
         </record>
 

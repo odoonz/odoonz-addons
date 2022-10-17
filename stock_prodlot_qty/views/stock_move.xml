@@ -8,7 +8,10 @@
     >stock.move.line.operations.tree (in stock_prodlot_qty)</field>
         <field name="model">stock.move.line</field>
         <field name="priority">99</field>
-        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree" />
+        <field
+      name="inherit_id"
+      ref="stock.view_stock_move_line_operation_tree"
+    />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='lot_id']" position="attributes">
                 <attribute

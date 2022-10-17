@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record model="ir.ui.view" id="xform_substitution_map_tree_view">
         <field name="name">Substitution Map</field>
         <field name="model">xform.substitution.map</field>
         <field name="arch" type="xml">
             <tree string="Substitution Maps" editable="top">
-                <field name="dest_product_id" options="{'no_create': True, 'no_open': True}"/>
-                <field name="src_product_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
+                <field
+          name="dest_product_id"
+          options="{'no_create': True, 'no_open': True}"
+        />
+                <field
+          name="src_product_ids"
+          widget="many2many_tags"
+          options="{'no_create': True, 'no_open': True}"
+        />
             </tree>
         </field>
     </record>
@@ -16,20 +23,22 @@
         <field name="model">xform.substitution.map</field>
         <field name="arch" type="xml">
             <search string="Substitution Map">
-                <field name="dest_product_id"/>
+                <field name="dest_product_id" />
             </search>
         </field>
     </record>
     <record id="action_xform_substitution_map" model="ir.actions.act_window">
         <field name="name">Substitution Maps</field>
         <field name="res_model">xform.substitution.map</field>
-        <field name="view_id" ref="xform_substitution_map_tree_view"/>
-        <field name="search_view_id" ref="xform_substitution_map_search"/>
+        <field name="view_id" ref="xform_substitution_map_tree_view" />
+        <field name="search_view_id" ref="xform_substitution_map_search" />
     </record>
 
-    <menuitem id="menu_view_xform_substitution_map"
-              action="action_xform_substitution_map"
-              parent="mrp.menu_mrp_configuration"
-              sequence="120"/>
+    <menuitem
+    id="menu_view_xform_substitution_map"
+    action="action_xform_substitution_map"
+    parent="mrp.menu_mrp_configuration"
+    sequence="120"
+  />
 
 </odoo>

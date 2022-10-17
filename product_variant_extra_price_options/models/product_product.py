@@ -18,8 +18,7 @@ class ProductProduct(models.Model):
             product.price_extra = sum(self._compute_price_extra_from_ptavs(ptavs))
 
     def _compute_price_extra_from_ptavs(self, ptavs):
-        """ Computes Price Extra by dispatching to ptavs price_extra_method
-        """
+        """Computes Price Extra by dispatching to ptavs price_extra_method"""
         price_extra_dict = {pev.attribute_id.id: pev.price_extra for pev in ptavs}
         for ptav in ptavs:
             try:

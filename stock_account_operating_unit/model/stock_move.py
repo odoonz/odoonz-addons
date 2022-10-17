@@ -9,7 +9,9 @@ from odoo import _, exceptions, models
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    def _prepare_common_svl_vals(self,):
+    def _prepare_common_svl_vals(
+        self,
+    ):
         res = super(StockMove, self)._prepare_common_svl_vals()
         if self._is_in():
             res.update({"operating_unit_id": self.operating_unit_dest_id.id})

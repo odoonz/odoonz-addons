@@ -1,9 +1,11 @@
 from random import randint, random
-from odoo.addons.sale.tests.common import TestSaleCommon
-from odoo.tests import tagged
+
 from odoo import fields
-from odoo.tools import float_compare as fc
 from odoo.exceptions import ValidationError
+from odoo.tests import tagged
+from odoo.tools import float_compare as fc
+
+from odoo.addons.sale.tests.common import TestSaleCommon
 
 
 @tagged("post_install", "-at_install")

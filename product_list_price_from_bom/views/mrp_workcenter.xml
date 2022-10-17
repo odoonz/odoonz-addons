@@ -4,7 +4,9 @@
 <odoo>
 
     <record model="ir.ui.view" id="mrp_workcenter_form_view">
-        <field name="name">mrp.workcenter.form (in product_list_price_from_bom)</field>
+        <field
+      name="name"
+    >mrp.workcenter.form (in product_list_price_from_bom)</field>
         <field name="model">mrp.workcenter</field>
         <field name="inherit_id" ref="mrp.mrp_workcenter_view" />
         <field name="arch" type="xml">
@@ -15,7 +17,9 @@
     </record>
 
     <record model="ir.ui.view" id="mrp_workcenter_tree_view">
-        <field name="name">mrp.workcenter.tree (in product_list_price_from_bom)</field>
+        <field
+      name="name"
+    >mrp.workcenter.tree (in product_list_price_from_bom)</field>
         <field name="model">mrp.workcenter</field>
         <field name="inherit_id" ref="mrp.mrp_workcenter_tree_view" />
         <field name="arch" type="xml">
