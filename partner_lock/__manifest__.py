@@ -5,7 +5,7 @@
     "name": "Partner Lock",
     "summary": """
         Lock Partners to prevent editing""",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly, O4SB",
     "website": "https://o4sb.com",
