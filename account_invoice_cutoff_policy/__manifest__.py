@@ -4,7 +4,7 @@
 {
     "name": "Customer Invoicing Cutoff Policy",
     "summary": "Specify customer specific invocing cutoff policies",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
     "website": "https://o4sb.com",
