@@ -5,7 +5,7 @@
     "name": "Base Intracompany User",
     "description": """
         New "Intracompany User" for executing actions restricted to a single company""",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "O4SB",
     "website": "https://o4sb.com/",
