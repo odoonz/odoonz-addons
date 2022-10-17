@@ -3,7 +3,7 @@
 
 {
     "name": "Account Central Billing",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": " Open for Small Business Ltd",
     "website": "https://o4sb.com",
