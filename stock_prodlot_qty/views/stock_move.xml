@@ -2,7 +2,7 @@
 <!-- Copyright 2021 Open From Small Business Ltd
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record id="view_stock_move_line_operation_tree" model="ir.ui.view">
+    <!-- <record id="view_stock_move_line_operation_tree" model="ir.ui.view">
         <field
       name="name"
     >stock.move.line.operations.tree (in stock_prodlot_qty)</field>
@@ -18,5 +18,5 @@
         >context.get('show_qty')</attribute>
             </xpath>
         </field>
-    </record>
+    </record> -->
 </odoo>
