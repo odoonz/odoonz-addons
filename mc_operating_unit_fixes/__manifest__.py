@@ -5,7 +5,7 @@
     "name": "Mc Operating Unit Fixes",
     "summary": """
         Various Fixes for Using Operating Units in Multicompany""",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "O4SB Ltd, Graeme Gellatly",
     "website": "https://o4sb.com",
