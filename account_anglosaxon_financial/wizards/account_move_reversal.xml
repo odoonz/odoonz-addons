@@ -13,7 +13,7 @@
             <xpath expr="//field[@name='refund_method']" position="after">
                 <field
           name="anglo_saxon_refund_type"
-          attrs="{'invisible': ['|', ('refund_method', '!=', 'refund'), ('anglo_saxon_accounting', '=', False)], 'required': ['|', ('refund_method', '=', 'refund'), ('anglo_saxon_accounting', '=', True)]}"
+          attrs="{'invisible': ['|', ('refund_method', '!=', 'refund'), ('anglo_saxon_accounting', '=', False)], 'required': [('refund_method', '=', 'refund'), ('anglo_saxon_accounting', '=', True)]}"
         />
                 <field name="anglo_saxon_accounting" invisible="1" />
             </xpath>
