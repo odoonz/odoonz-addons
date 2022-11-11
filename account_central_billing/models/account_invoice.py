@@ -34,7 +34,7 @@ class AccountInvoice(models.Model):
             if record.company_id.partner_id.id in [
                 record.partner_id.id,
                 record.partner_id.commercial_partner_id.id,
-            ]:
+            ] and record.move_type != "entry":
                 raise ValidationError(_("Cannot self bill. %d") % record.id)
 
     @api.model_create_multi
