@@ -1,20 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
     <record id="product_pricelist_item_tree_view" model="ir.ui.view">
         <field name="name">product.pricelist.item.tree</field>
         <field name="model">product.pricelist.item</field>
         <field name="priority">99</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_tree_view_from_product"/>
+        <field
+      name="inherit_id"
+      ref="product.product_pricelist_item_tree_view_from_product"
+    />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_id']" position="replace" >
-                <field name="product_ids" groups="product.group_product_variant" widget="many2many_tags"/>
+            <xpath expr="//field[@name='product_id']" position="replace">
+                <field
+          name="product_ids"
+          groups="product.group_product_variant"
+          widget="many2many_tags"
+        />
             </xpath>
             <xpath expr="//field[@name='product_tmpl_id']" position="replace">
-                <field name="product_tmpl_ids" widget="many2many_tags"/>
+                <field name="product_tmpl_ids" widget="many2many_tags" />
             </xpath>
             <xpath expr="//field[@name='categ_id']" position="after">
-                <field name="price_categ_id"/>
+                <field name="price_categ_id" />
             </xpath>
         </field>
     </record>
@@ -23,35 +30,50 @@
         <field name="name">product.pricelist.item.form</field>
         <field name="model">product.pricelist.item</field>
         <field name="type">form</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="after">
-                <field name="price_categ_id"
-                       attrs="{'invisible':[('applied_on', '!=', '2_product_category')],'required':[('applied_on', '=', '2_product_category'), ('categ_id', '=', False)]}"/>
-                <label string="You must complete one and only one of the above categories" colspan="3" for="price_categ_id"
-                        attrs="{'invisible':[('applied_on', '!=', '2_product_category')]}" />
+                <field
+          name="price_categ_id"
+          attrs="{'invisible':[('applied_on', '!=', '2_product_category')],'required':[('applied_on', '=', '2_product_category'), ('categ_id', '=', False)]}"
+        />
+                <label
+          string="You must complete one and only one of the above categories"
+          colspan="3"
+          for="price_categ_id"
+          attrs="{'invisible':[('applied_on', '!=', '2_product_category')]}"
+        />
             </xpath>
             <xpath expr="//field[@name='categ_id']" position="attributes">
-                <attribute name="attrs">{'invisible':[('applied_on', '!=', '2_product_category')],'required':[('applied_on', '=', '2_product_category'), ('price_categ_id', '=', False)]}</attribute>
+                <attribute
+          name="attrs"
+        >{'invisible':[('applied_on', '!=', '2_product_category')],'required':[('applied_on', '=', '2_product_category'), ('price_categ_id', '=', False)]}</attribute>
             </xpath>
             <xpath expr="//field[@name='product_tmpl_id']" position="after">
-                <field name="product_tmpl_ids" widget="many2many_tags"
-                       attrs="{'invisible':[('applied_on', '!=', '1_product')],'required':[('applied_on', '=', '1_product'), ]}"/>
+                <field
+          name="product_tmpl_ids"
+          widget="many2many_tags"
+          attrs="{'invisible':[('applied_on', '!=', '1_product')],'required':[('applied_on', '=', '1_product'), ]}"
+        />
             </xpath>
             <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
-                <attribute name="attrs">{'invisible':['|',('applied_on', '!=', '1_product'), ('product_tmpl_id', '=', False)]}</attribute>
+                <attribute
+          name="attrs"
+        >{'invisible':['|',('applied_on', '!=', '1_product'), ('product_tmpl_id', '=', False)]}</attribute>
             </xpath>
             <xpath expr="//field[@name='product_id']" position="after">
-                <field name="product_ids" widget="many2many_tags"
-                       attrs="{'invisible':[('applied_on', '!=', '0_product_variant')],'required':[('applied_on', '=', '0_product_variant')]}"/>
+                <field
+          name="product_ids"
+          widget="many2many_tags"
+          attrs="{'invisible':[('applied_on', '!=', '0_product_variant')],'required':[('applied_on', '=', '0_product_variant')]}"
+        />
             </xpath>
             <xpath expr="//field[@name='product_id']" position="attributes">
-                <attribute name="attrs">{'invisible':['|',('applied_on', '!=', '0_product_variant'), ('product_id', '=', False)]}</attribute>
+                <attribute
+          name="attrs"
+        >{'invisible':['|',('applied_on', '!=', '0_product_variant'), ('product_id', '=', False)]}</attribute>
             </xpath>
-            <xpath expr="//field[@name='date_end']" position="after">
-                <field name="code_inclusion" attrs="{'invisible':[('applied_on', 'not in', ['1_product','2_product_category'])]}" />
-                <field name="code_exclusion" attrs="{'invisible':[('applied_on', 'not in', ['1_product','2_product_category'])]}" />
-            </xpath>
+
         </field>
     </record>
 

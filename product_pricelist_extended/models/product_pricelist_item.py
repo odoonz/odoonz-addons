@@ -29,9 +29,6 @@ class ProductPricelistItem(models.Model):
         comodel_name="product.price.category", string="Pricing Category"
     )
 
-    code_inclusion = fields.Char("Code includes")
-    code_exclusion = fields.Char("Code excludes")
-
     @api.depends("price_categ_id", "product_tmpl_ids", "product_ids")
     def _get_pricelist_item_name_price(self):
         super()._get_pricelist_item_name_price()
@@ -52,10 +49,6 @@ class ProductPricelistItem(models.Model):
                     )
                 )
             suffix = []
-            if item.code_inclusion:
-                suffix.append(_("contains %s") % item.code_inclusion)
-            if item.code_exclusion:
-                suffix.append(_("excludes %s") % item.code_exclusion)
             if suffix:
                 item.name = item.name + _("(Code %s)") % ", ".join(suffix)
 
@@ -69,8 +62,8 @@ class ProductPricelistItem(models.Model):
     )
     def _check_product_consistency(self):
         """
-            Rewrite this validation function:
-            only one field should be set
+        Rewrite this validation function:
+        only one field should be set
         """
         for item in self:
             if item.applied_on == "2_product_category" and bool(item.categ_id) == bool(
