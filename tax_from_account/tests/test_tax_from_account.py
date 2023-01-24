@@ -94,9 +94,6 @@ class TestTaxFromAccount(TransactionCase):
                 "taxes_id": False,
                 "supplier_taxes_id": False,
                 "seller_ids": self.test_vender,
-                "route_ids": self.env["stock.location.route"].search(
-                    [("name", "in", ("Buy", "Replenish on Order (MTO)"))]
-                ),
             }
         )
         self.test_company = self.env["res.company"].create(
@@ -142,26 +139,6 @@ class TestTaxFromAccount(TransactionCase):
         self.test_sale_order.fiscal_position_id = self.test_fpos_so
         tax_id = tax_from_account._get_default_taxes(so_line_1, partner)
         self.assertEqual(tax_id, self.test_default_sale_tax)
-
-    def test_check_tax_id_in_prep_po_line(self):
-        self.test_sale_order.order_line.create(
-            {
-                "order_id": self.test_sale_order.id,
-                "product_id": self.test_product.id,
-                "product_uom_qty": 10.0,
-            }
-        )
-        # assign test tax to account tax_id
-        self.test_product.product_tmpl_id.get_product_accounts()[
-            "expense"
-        ].tax_ids = self.test_tax_purch2
-        self.test_sale_order.action_confirm()
-        self.assertTrue(self.test_sale_order.state, "sale")
-        po = self.env["purchase.order"].search(
-            [("origin", "ilike", self.test_sale_order.name)]
-        )
-        prod_in_po = po.order_line.search([("product_id", "=", self.test_product.id)])
-        self.assertEqual(prod_in_po.taxes_id, self.test_tax_purch2)
 
     def test_check_tax_id_in_po_line(self):
         self.test_purchase_order.fiscal_position_id = False

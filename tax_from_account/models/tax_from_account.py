@@ -32,7 +32,7 @@ def _get_default_taxes(line, partner=None, inv_type="out_invoice"):
         or company[company_tax_field]
     )
 
-    return fpos.map_tax(taxes, line.product_id, partner) if fpos else taxes
+    return fpos.map_tax(taxes) if fpos else taxes
 
 
 class SaleOrder(models.Model):
