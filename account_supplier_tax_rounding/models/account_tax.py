@@ -16,7 +16,12 @@ class AccountTax(models.Model):
         partner=None,
         is_refund=False,
         handle_price_include=True,
+        include_caba_tags=False,
+        fixed_multiplicator=1,
     ):
+        """Intercept call to compute all, to set context key to rounding
+        method set on supplier then call super
+        """
         if (
             partner
             and partner.tax_calc_method == "round_per_line"
@@ -31,4 +36,6 @@ class AccountTax(models.Model):
             partner=partner,
             is_refund=is_refund,
             handle_price_include=handle_price_include,
+            include_caba_tags=include_caba_tags,
+            fixed_multiplicator=fixed_multiplicator,
         )

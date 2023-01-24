@@ -12,7 +12,10 @@
         expr="//field[@name='property_supplier_payment_term_id']"
         position="after"
       >
-                <field name="tax_calc_method" />
+                <field
+          name="tax_calc_method"
+          groups="account.group_account_invoice,account.group_account_readonly"
+        />
             </xpath>
         </field>
     </record>
