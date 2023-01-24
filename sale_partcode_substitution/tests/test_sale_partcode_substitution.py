@@ -10,21 +10,22 @@ from odoo.addons.sale.tests.common import TestSaleCommon
 
 @tagged("post_install", "-at_install")
 class TestSaleSubst(TestSaleCommon):
-    def setUp(self):
-        super().setUp()
-        today = fields.Date.to_string(fields.Date.context_today(self.partner_a))
+    @classmethod
+    def setUpClass(cls, chart_template_ref="l10n_nz.l10n_nz_chart_template"):
+        super().setUpClass(chart_template_ref=chart_template_ref)
+        today = fields.Date.to_string(fields.Date.context_today(cls.partner_a))
         context_no_mail = {
             "tracking_disable": True,
             "mail_notrack": True,
             "mail_create_nolog": True,
             "no_reset_password": True,
         }
-        p = self.env.ref("sale_partcode_substitution.product_product_1")
-        self.blue_car = self.env.ref("sale_partcode_substitution.product_product_2")
+        p = cls.env.ref("sale_partcode_substitution.product_product_1")
+        cls.blue_car = cls.env.ref("sale_partcode_substitution.product_product_2")
         vals = {
-            "partner_id": self.partner_a.id,
-            "partner_invoice_id": self.partner_a.id,
-            "partner_shipping_id": self.partner_a.id,
+            "partner_id": cls.partner_a.id,
+            "partner_invoice_id": cls.partner_a.id,
+            "partner_shipping_id": cls.partner_a.id,
             "date_order": today,
             "order_line": [
                 (
@@ -40,14 +41,14 @@ class TestSaleSubst(TestSaleCommon):
                     },
                 )
             ],
-            "pricelist_id": self.env.ref("product.list0").id,
+            "pricelist_id": cls.env.ref("product.list0").id,
         }
-        SaleOrder = self.env["sale.order"].with_context(context_no_mail)
-        self.so = SaleOrder.create(vals)
-        self.scr = (
-            self.env["sale.code.replacement"]
+        SaleOrder = cls.env["sale.order"].with_context(context_no_mail)
+        cls.so = SaleOrder.create(vals)
+        cls.scr = (
+            cls.env["sale.code.replacement"]
             .with_context(
-                active_id=self.so.id, active_ids=[self.so.id], active_model="sale.order"
+                active_id=cls.so.id, active_ids=[cls.so.id], active_model="sale.order"
             )
             .create({})
         )

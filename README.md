@@ -22,7 +22,7 @@
 | [product_no_translation](product_no_translation/)               | 13.0.1.0.0 | Make product related fields non translatable                                                                                        |
 | [product_pricelist_extended](product_pricelist_extended/)       | 12.0.1.0.0 | This module implements many2many products in pricelists.                                                                            |
 | [purchase_price_recalculation](purchase_price_recalculation/)   | 13.0.1.1.0 | Allows to update the pricing of confirmed purchase orders prior to reception                                                        |
-| [sale_partcode_substitution](sale_partcode_substitution/)       | 13.0.1.1.1 | Allows all products of a sale order to be updated by substituting part of their partcode                                            |
+| [sale_partcode_substitution](sale_partcode_substitution/)       | 16.0.1.0.0 | Allows all products of a sale order to be updated by substituting part of their partcode                                            |
 | [sale_price_recalculation](sale_price_recalculation/)           | 13.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice                                                             |
 | [sale_purchase_count](sale_purchase_count/)                     | 13.0.1.1.0 | View MTO purchases from sales order                                                                                                 |
 | [stock_filter_prodlot_qty](stock_filter_prodlot_qty/)           | 13.0.1.0.0 | Filters production lots by availability in location                                                                                 |

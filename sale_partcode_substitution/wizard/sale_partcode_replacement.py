@@ -12,17 +12,9 @@ class SaleCodeReplacement(models.TransientModel):
     from_code = fields.Char("From", default="???", required=True)
     to_code = fields.Char("To", default="???", required=True)
 
-    def _finalize_vals(self, vals, line, product):
-        """
-        For overriding
-        :return: vals dict
-        """
-        return vals
-
     def change_products_partcode(self):
         self.ensure_one()
         sale = self.env["sale.order"].browse(self._context["active_id"])
-        order_line = self.env["sale.order.line"]
         if sale.state not in ["draft", "sent"]:
             raise ValidationError(
                 _(
@@ -40,17 +32,5 @@ class SaleCodeReplacement(models.TransientModel):
                     new_partcode = old_part.replace(self.from_code, self.to_code)
                     new_part = prod_pool.search([("default_code", "=", new_partcode)])
                     if new_part:
-                        vals = {"product_id": new_part.id}
-                        vals.update(
-                            order_line._prepare_add_missing_fields(
-                                {
-                                    "product_uom_qty": line.product_uom_qty,
-                                    "order_id": sale.id,
-                                    "product_id": new_part.id,
-                                }
-                            )
-                        )
-                        vals = self._finalize_vals(vals, line, new_part)
-                        line.write(vals)
-        sale._amount_all()  # TODO: Why is this needed now?
-        return {}
+                        line.product_id = new_part[0]
+        return {"type": "ir.actions.act_window_close"}
