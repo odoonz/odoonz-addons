@@ -52,6 +52,7 @@
     If you're not running Odoo in docker at all, then
     PYDEVD_PYCHARM_HOST should probably just be "localhost".
     """,
+    "depends": ["base"],
     "auto_install": True,
     "installable": True,
 }
