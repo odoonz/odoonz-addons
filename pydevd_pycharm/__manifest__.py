@@ -16,7 +16,7 @@
        "Build #PY-223.8617.48, built on January 25, 2023"
        In this case,
 
-       `pip3 install pydevd-pycharm~=223.8617.48a`
+       `pip3 install pydevd-pycharm~=223.8617.48`
 
        (for our projects, we do this in a docker entrypoint,
        looking up the version number from .env where each
