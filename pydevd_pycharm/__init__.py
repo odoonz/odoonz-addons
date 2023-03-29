@@ -7,7 +7,7 @@ PORT = int(os.environ.get("PYDEVD_PYCHARM_PORT", 21000))
 logger = logging.getLogger(__name__)
 
 
-if os.environ.get("ENABLE_PYDEVD_PYCHARM"):
+if os.environ.get("ENABLE_PYDEVD_PYCHARM") == "1":
     logger.info("Debugging with pydevd_pycharm enabled")
     try:
         import pydevd_pycharm
