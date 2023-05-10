@@ -5,7 +5,7 @@
     "category": "Other",
     "author": "Danny W. Adair - O4SB",
     "website": "https://o4sb.com",
-    "summary": """
+    "description": """
     Start PyDev debugging for PyCharm
 
     1. Install pydevd-pycharm in your Odoo environment.
@@ -36,7 +36,7 @@
        Debug server and stop at your breakpoints. Enjoy!
 
     You can override the defaults of where to find the
-    PyCharm Debug Server:
+    PyCharm Debug Server with environment variables:
 
     * PYDEVD_PYCHARM_HOST (default: "host.docker.internal")
     * PYDEVD_PYCHARM_PORT (default: "21000")
@@ -51,6 +51,15 @@
 
     If you're not running Odoo in docker at all, then
     PYDEVD_PYCHARM_HOST should probably just be "localhost".
+
+    It's annoying to start Odoo with debugging enabled, only to
+    realise that you didn't start the Debug Server first...
+    If the addon cannot connect to the Debug Server, it will
+    retry 10 times every 3 seconds.
+    You can adjust these figures with environment variables:
+
+    * PYDEVD_PYCHARM_RETRY_SECONDS (default: "3")
+    * PYDEVD_PYCHARM_RETRY_ATTEMPTS (default: "10")
     """,
     "depends": ["base"],
     "auto_install": True,
