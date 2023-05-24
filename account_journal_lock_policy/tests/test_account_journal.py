@@ -20,7 +20,7 @@ class TestResPartner(common.TransactionCase):
         self.days = 7
 
     def test_is_locked_normal(self):
-        self.journal.write({"enforce_lock": False})
+        self.journal.write({"enforce_lock": 'none'})
         test_date = datetime.strptime("2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
         self.assertFalse(self.journal._is_locked(test_date))
         self.assertFalse(self.journal._is_locked(False))
@@ -29,7 +29,7 @@ class TestResPartner(common.TransactionCase):
         # Journal Transactions can be no older than 1mo 7 weekdays
         self.journal.write(
             {
-                "enforce_lock": True,
+                "enforce_lock": 'policy',
                 "days": self.days,
                 "months": 1,
                 "day_type": "weekday",
@@ -46,7 +46,7 @@ class TestResPartner(common.TransactionCase):
     def test_is_locked_days(self):
         self.journal.write(
             {
-                "enforce_lock": True,
+                "enforce_lock": 'policy',
                 "days": self.days,
                 "months": 1,
                 "day_type": "day",
@@ -65,7 +65,7 @@ class TestResPartner(common.TransactionCase):
         # until x days into month
         self.journal.write(
             {
-                "enforce_lock": True,
+                "enforce_lock": 'policy',
                 "days": 0,
                 "months": 1,
                 "day_type": "day",
@@ -81,4 +81,17 @@ class TestResPartner(common.TransactionCase):
         self.assertFalse(self.journal._is_locked(tdate2))
         self.assertTrue(self.journal._is_locked(tdate3))
         self.assertFalse(self.journal._is_locked(tdate4))
+        self.assertFalse(self.journal._is_locked(False))
+
+    def test_is_locked_fixed(self):
+        self.journal.write(
+            {
+                "enforce_lock": 'fixed',
+                "cutoff_date": self.today,
+            }
+        )
+        tdate1 = self.today + relativedelta(days=1)
+        tdate2 = self.today - relativedelta(days=1)
+        self.assertFalse(self.journal._is_locked(tdate1))
+        self.assertTrue(self.journal._is_locked(tdate2))
         self.assertFalse(self.journal._is_locked(False))

@@ -17,10 +17,11 @@
                 <group string="Lock Policy">
                     <group>
                         <field name="enforce_lock" />
+                        <field name="cutoff_date" attrs="{'required': [('enforce_lock', '=', 'fixed')], 'invisible': [('enforce_lock', '!=', 'fixed')]}" />
                     </group>
                     <div
             name="lock_policy"
-            attrs="{'invisible': [('enforce_lock', '=', False)]}"
+            attrs="{'invisible': [('enforce_lock', '!=', 'policy')]}"
             colspan="4"
           >
                         Lock transactions
@@ -42,7 +43,7 @@
                         <field
               name="cutoff_type"
               class="oe_inline"
-              attrs="{'required': [('enforce_lock', '=', True)]}"
+              attrs="{'required': [('enforce_lock', '=', 'policy')]}"
             />
                     </div>
                 </group>
