@@ -10,4 +10,5 @@
     "website": "https://o4sb.com",
     "depends": ["stock"],
     "data": ["views/stock_warehouse.xml", "views/stock_picking_type.xml"],
+    "installable": False,
 }

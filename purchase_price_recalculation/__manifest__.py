@@ -14,5 +14,5 @@
         "wizards/purchase_price_recalculation.xml",
         "security/ir.model.access.csv",
     ],
-    "demo": [],
+    "installable": False,
 }

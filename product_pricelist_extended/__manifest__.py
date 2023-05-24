@@ -16,5 +16,5 @@
         "security/ir.model.access.csv",
     ],
     "demo": ["demo/product.price.category.csv"],
-    "installable": True,
+    "installable": False,
 }

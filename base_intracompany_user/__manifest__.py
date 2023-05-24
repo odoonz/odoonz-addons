@@ -3,15 +3,15 @@
 
 {
     "name": "Base Intracompany User",
-    "description": """
+    "summary": """
         New "Intracompany User" for executing actions restricted to a single company""",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "O4SB",
     "website": "https://o4sb.com/",
-    "depends": [],
+    "depends": ["base"],
     "data": [
         "views/company_view.xml",
     ],
-    "demo": [],
+    "installable": False,
 }

@@ -10,4 +10,5 @@
     "website": "https://o4sb.com",
     "depends": ["stock", "base_view_inheritance_extension"],
     "data": ["views/stock_move.xml"],
+    "installable": False,
 }

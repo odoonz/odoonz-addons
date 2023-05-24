@@ -10,5 +10,5 @@
     "website": "https://o4sb.com",
     "depends": [],
     "data": ["views/res_users.xml"],
-    "demo": [],
+    "installable": False,
 }

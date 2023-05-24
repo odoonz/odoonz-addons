@@ -11,5 +11,5 @@
     "website": "https://o4sb.com",
     "depends": ["price_recalculation", "sale"],
     "data": ["wizards/sale_price_recalculation.xml", "security/ir.model.access.csv"],
-    "demo": [],
+    "installable": False,
 }

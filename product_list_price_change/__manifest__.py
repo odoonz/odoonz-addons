@@ -22,4 +22,5 @@
         "demo/product_variant_price_change_line.xml",
         "demo/product_price_change_line.xml",
     ],
+    "installable": False,
 }

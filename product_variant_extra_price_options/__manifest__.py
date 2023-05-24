@@ -16,4 +16,5 @@
         "views/variant_templates.xml",
         "security/ir.model.access.csv",
     ],
+    "installable": False,
 }

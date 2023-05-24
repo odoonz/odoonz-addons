@@ -11,4 +11,5 @@
     "website": "https://o4sb.com",
     "depends": ["stock", "stock_account"],
     "data": ["views/stock_valuation_layer.xml"],
+    "installable": False,
 }
