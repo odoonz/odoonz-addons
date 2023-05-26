@@ -30,6 +30,5 @@
 | [stock_prodlot_qty](stock_prodlot_qty/)                         | 13.0.1.0.0 | Shows available qty in prodlot name                                                                                                 |
 | [stock_warehouse_address](stock_warehouse_address/)             | 13.0.1.0.0 | Adds a postal address to warehouse                                                                                                  |
 | [tax_from_account](tax_from_account/)                           | 16.0.1.0.0 | Sets the taxes on sales, purchases and invoices from account rather than product. If product has taxes set, these are used instead. |
-| [user_signature_logo](user_signature_logo/)                     | 12.0.1.0.0 | Logo for user signature                                                                                                             |
 
 [//]: # "end addons"
