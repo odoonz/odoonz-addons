@@ -25,7 +25,6 @@
 | [purchase_price_recalculation](purchase_price_recalculation/)   | 13.0.1.1.0 | Allows to update the pricing of confirmed purchase orders prior to reception                                                        |
 | [sale_partcode_substitution](sale_partcode_substitution/)       | 16.0.1.0.0 | Allows all products of a sale order to be updated by substituting part of their partcode                                            |
 | [sale_price_recalculation](sale_price_recalculation/)           | 13.0.1.1.0 | Allows to update the pricing on confirmed sales orders prior to invoice                                                             |
-| [sale_purchase_count](sale_purchase_count/)                     | 13.0.1.1.0 | View MTO purchases from sales order                                                                                                 |
 | [stock_filter_prodlot_qty](stock_filter_prodlot_qty/)           | 13.0.1.0.0 | Filters production lots by availability in location                                                                                 |
 | [stock_prodlot_qty](stock_prodlot_qty/)                         | 13.0.1.0.0 | Shows available qty in prodlot name                                                                                                 |
 | [stock_warehouse_address](stock_warehouse_address/)             | 13.0.1.0.0 | Adds a postal address to warehouse                                                                                                  |
