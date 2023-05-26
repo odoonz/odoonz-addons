@@ -20,7 +20,7 @@
 | [price_recalculation](price_recalculation/)                     | 13.0.1.0.0 | Base module for x_price_recalculation modules.                                                                                      |
 | [product_attribute_group](product_attribute_group/)             | 12.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template                                                       |
 | [product_code_builder](product_code_builder/)                   | 16.0.1.0.0 | Product Variant Default Code                                                                                                        |
-| [product_no_translation](product_no_translation/)               | 13.0.1.0.0 | Make product related fields non translatable                                                                                        |
+| [product_no_translation](product_no_translation/)               | 16.0.1.0.0 | Make product related fields non translatable                                                                                        |
 | [product_pricelist_extended](product_pricelist_extended/)       | 12.0.1.0.0 | This module implements many2many products in pricelists.                                                                            |
 | [purchase_price_recalculation](purchase_price_recalculation/)   | 13.0.1.1.0 | Allows to update the pricing of confirmed purchase orders prior to reception                                                        |
 | [sale_partcode_substitution](sale_partcode_substitution/)       | 16.0.1.0.0 | Allows all products of a sale order to be updated by substituting part of their partcode                                            |
