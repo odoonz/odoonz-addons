@@ -12,5 +12,4 @@
     "company to a different company",
     "data": ["views/res_partner.xml", "views/account_invoice.xml"],
     "demo": ["demo/res_partner.xml"],
-    "installable": False,
 }

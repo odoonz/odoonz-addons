@@ -12,6 +12,8 @@ class TestResPartnerInvoicing(common.TransactionCase):
         super().setUp()
         self.company = self.env.ref("base.main_company")
         self.subsidiary = self.env.ref("%s.taupo_company" % module)
+        chart_template = self.env.ref('l10n_generic_coa.configurable_chart_template', raise_if_not_found=False)
+        chart_template.try_loading(company=self.subsidiary, install_demo=False)
         # Create an invoicing structure
         # Branch A, B, C are ultimately billed to Customer HQ
         # by the Main company. i.e. intermediate invoices from
@@ -34,9 +36,9 @@ class TestResPartnerInvoicing(common.TransactionCase):
             .search(
                 [
                     (
-                        "user_type_id",
+                        "account_type",
                         "=",
-                        self.env.ref("account.data_account_type_receivable").id,
+                        'asset_receivable',
                     )
                 ],
                 limit=1,
@@ -57,32 +59,32 @@ class TestResPartnerInvoicing(common.TransactionCase):
         Test invoicing_partner_id is returned when vals supplied
         """
         # Type is usually part of view context
-        vals = dict(type="out_invoice", company_id=self.company.id)
+        vals = dict(move_type="out_invoice")
         self.assertEqual(
-            self.store_b.get_billing_partner(vals),
+            self.store_b.with_company(self.company).get_billing_partner(vals),
             self.hq,
             "Centrally billed partners should use their invoicing partner",
         )
         self.assertEqual(
-            self.contact_a.get_billing_partner(vals),
+            self.contact_a.with_company(self.company).get_billing_partner(vals),
             self.hq,
             "Contacts of centrally billed partners should use their "
             "invoicing partner",
         )
 
-        vals = dict(type="out_invoice", company_id=self.subsidiary.id)
+        vals = dict(move_type="out_invoice")
         self.assertEqual(
-            self.hq.get_billing_partner(vals),
+            self.hq.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
-            self.store_b.get_billing_partner(vals),
+            self.store_b.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
-            "Centrally billed partners of subsidiary should invoice " "main company",
+            "Centrally billed partners of subsidiary should invoice main company",
         )
         self.assertEqual(
-            self.contact_a.get_billing_partner(vals),
+            self.contact_a.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
             "Contacts of centrally billed partners of subsidiary should "
             "invoice main company",
@@ -112,56 +114,62 @@ class TestResPartnerInvoicing(common.TransactionCase):
             "Contacts of centrally billed partners should use their "
             "invoicing partner",
         )
-        # TO DO fix tests
-        # invoice.company_id = self.subsidiary.id
-        # self.assertEqual(
-        #     self.hq.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Centrally billed partners of subsidiary should invoice " "main company",
-        # )
-        # self.assertEqual(
-        #     self.store_b.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Centrally billed partners of subsidiary should invoice " "main company",
-        # )
-        # self.assertEqual(
-        #     self.contact_a.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Contacts of centrally billed partners of subsidiary should "
-        #     "invoice main company",
-        # )
+        # TO DO fix tests - it needs a full chart setup as it needs a sale journal
+        invoice = self.env["account.move"].create(
+            {
+                "partner_id": self.normal_partner.id,
+                "move_type": "out_invoice",
+                "company_id": self.subsidiary.id,
+            }
+        )
+        self.assertEqual(
+            self.hq.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Centrally billed partners of subsidiary should invoice " "main company",
+        )
+        self.assertEqual(
+            self.store_b.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Centrally billed partners of subsidiary should invoice " "main company",
+        )
+        self.assertEqual(
+            self.contact_a.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Contacts of centrally billed partners of subsidiary should "
+            "invoice main company",
+        )
 
     def test_get_billing_partner_vals(self):
         """
         Test billing_partner_id is returned when vals supplied
         """
         # Type is usually part of view context
-        vals = dict(move_type="in_invoice", company_id=self.company.id)
+        vals = dict(move_type="in_invoice")
         self.assertEqual(
-            self.branch_b.get_billing_partner(vals),
+            self.branch_b.with_company(self.company).get_billing_partner(vals),
             self.supplier_hq,
             "Centrally billed partners should use their invoicing partner",
         )
         self.assertEqual(
-            self.supp_contact_a.get_billing_partner(vals),
+            self.supp_contact_a.with_company(self.company).get_billing_partner(vals),
             self.supplier_hq,
             "Contacts of centrally billed partners should use their "
             "invoicing partner",
         )
 
-        vals = dict(move_type="in_invoice", company_id=self.subsidiary.id)
+        vals = dict(move_type="in_invoice")
         self.assertEqual(
-            self.supplier_hq.get_billing_partner(vals),
+            self.supplier_hq.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
             "Centrally billed partners of subsidiary should invoice " "main company",
         )
         self.assertEqual(
-            self.branch_b.get_billing_partner(vals),
+            self.branch_b.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
             "Centrally billed partners of subsidiary should invoice " "main company",
         )
         self.assertEqual(
-            self.supp_contact_a.get_billing_partner(vals),
+            self.supp_contact_a.with_company(self.subsidiary).get_billing_partner(vals),
             self.company.partner_id,
             "Contacts of centrally billed partners of subsidiary should "
             "invoice main company",
@@ -193,24 +201,24 @@ class TestResPartnerInvoicing(common.TransactionCase):
         )
 
         # TO DO fix tests
-        # invoice.company_id = self.subsidiary.id
-        #
-        # self.assertEqual(
-        #     self.supplier_hq.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Centrally billed partners of subsidiary should invoice " "main company",
-        # )
-        # self.assertEqual(
-        #     self.branch_b.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Centrally billed partners of subsidiary should invoice " "main company",
-        # )
-        # self.assertEqual(
-        #     self.supp_contact_a.get_billing_partner(vals, invoice=invoice),
-        #     self.company.partner_id,
-        #     "Contacts of centrally billed partners of subsidiary should "
-        #     "invoice main company",
-        # )
+        invoice.company_id = self.subsidiary.id
+
+        self.assertEqual(
+            self.supplier_hq.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Centrally billed partners of subsidiary should invoice " "main company",
+        )
+        self.assertEqual(
+            self.branch_b.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Centrally billed partners of subsidiary should invoice " "main company",
+        )
+        self.assertEqual(
+            self.supp_contact_a.get_billing_partner(vals, invoice=invoice),
+            self.company.partner_id,
+            "Contacts of centrally billed partners of subsidiary should "
+            "invoice main company",
+        )
 
     def test_commercial_fields(self):
         comm_fields = self.env["res.partner"]._commercial_fields()

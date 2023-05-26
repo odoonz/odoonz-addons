@@ -18,9 +18,9 @@ class TestAccountInvoice(common.TransactionCase):
             .search(
                 [
                     (
-                        "user_type_id",
+                        "account_type",
                         "=",
-                        self.env.ref("account.data_account_type_receivable").id,
+                        'asset_receivable',
                     )
                 ],
                 limit=1,
