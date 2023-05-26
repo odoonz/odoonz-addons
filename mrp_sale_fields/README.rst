@@ -9,7 +9,7 @@ MRP Sale Fields
 Links MRP with sales, enabling
 
 * Open Productions from sale.
-* Display sale and parter in production.
+* Display sale and partner in production.
 * Search/group productions by partner
 
 

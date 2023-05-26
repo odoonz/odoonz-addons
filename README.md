@@ -16,7 +16,7 @@
 | [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 16.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.                    |
 | [base_intracompany_user](base_intracompany_user/)               | 16.0.1.0.0 | This module allows to define users as intracompany users.                                                                          |
 | [mrp_dynamic_line](mrp_dynamic_line/)                           | 12.0.3.0.0 | Dynamic BoM Transformations                                                                                                         |
-| [mrp_sale_fields](mrp_sale_fields/)                             | 12.0.1.1.0 | Adds fields from sale order when linked                                                                                             |
+| [mrp_sale_fields](mrp_sale_fields/)                             | 16.0.1.0.0 | Adds fields from sale order when linked                                                                                             |
 | [price_recalculation](price_recalculation/)                     | 13.0.1.0.0 | Base module for x_price_recalculation modules.                                                                                      |
 | [product_attribute_group](product_attribute_group/)             | 12.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template                                                       |
 | [product_code_builder](product_code_builder/)                   | 16.0.1.0.0 | Product Variant Default Code                                                                                                        |
