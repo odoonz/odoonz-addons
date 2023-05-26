@@ -15,7 +15,6 @@
 | [account_journal_lock_policy](account_journal_lock_policy/)     | 16.0.1.0.0 | Specify journal specific lock policies or dates                                                                                     |
 | [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 16.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.                    |
 | [base_intracompany_user](base_intracompany_user/)               | 16.0.1.0.0 | This module allows to define users as intracompany users.                                                                          |
-| [invoice_sale_pricelist](invoice_sale_pricelist/)               | 12.0.1.1.0 | Lookup prices using sale pricelist on invoices                                                                                      |
 | [mrp_dynamic_line](mrp_dynamic_line/)                           | 12.0.3.0.0 | Dynamic BoM Transformations                                                                                                         |
 | [mrp_sale_fields](mrp_sale_fields/)                             | 12.0.1.1.0 | Adds fields from sale order when linked                                                                                             |
 | [price_recalculation](price_recalculation/)                     | 13.0.1.0.0 | Base module for x_price_recalculation modules.                                                                                      |
