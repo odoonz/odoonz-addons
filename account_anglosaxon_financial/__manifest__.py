@@ -11,5 +11,4 @@
     "website": "https://o4sb.com",
     "depends": ["account", "stock_account", "purchase_stock", "sale_stock"],
     "data": ["wizards/account_move_reversal.xml", "views/account_invoice.xml"],
-    "demo": [],
 }

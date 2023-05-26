@@ -8,10 +8,11 @@
 ## Available addons
 
 | addon                                                           | version    | summary                                                                                                                             |
-| --------------------------------------------------------------- |------------| ----------------------------------------------------------------------------------------------------------------------------------- |
-| [account_central_billing](account_central_billing/)             | 12.0.1.1.0 | This module allows to invoice all sales or purchases for onecompany to a different company                                          |
+|-----------------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| [account_anglosaxon_financial](account_anglosaxon_financial/)   | 16.0.1.0.0 | This module adds the option of excluding anglosaxon lines for some invoices                                                         |
+| [account_central_billing](account_central_billing/)             | 16.0.1.1.0 | This module allows to invoice all sales or purchases for one company to a different company                                         |
 | [account_invoice_cutoff_policy](account_invoice_cutoff_policy/) | 12.0.1.1.0 | Specify customer specific invocing cutoff policies                                                                                  |
-| [account_journal_lock_policy](account_journal_lock_policy/)     | 16.0.1.1.0 | Specify journal specific lock policies                                                                                              |
+| [account_journal_lock_policy](account_journal_lock_policy/)     | 16.0.1.1.0 | Specify journal specific lock policies or dates                                                                                     |
 | [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 16.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.                    |
 | [invoice_sale_pricelist](invoice_sale_pricelist/)               | 12.0.1.1.0 | Lookup prices using sale pricelist on invoices                                                                                      |
 | [mrp_dynamic_line](mrp_dynamic_line/)                           | 12.0.3.0.0 | Dynamic BoM Transformations                                                                                                         |
