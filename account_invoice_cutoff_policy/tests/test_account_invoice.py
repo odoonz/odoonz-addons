@@ -7,9 +7,6 @@ from unittest import mock
 from odoo.tests import common
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
-partner_model = (
-    "odoo.addons.account_invoice_cutoff_policy.models.res_partner.ResPartner"
-)
 
 spt = datetime.strptime
 
@@ -27,11 +24,8 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch(
-            "%s._get_lock_date" % partner_model, autospec=True
-        ) as mock_date:
-            mock_date.return_value = new_date
-            invoice._onchange_invoice_date()
+        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+            invoice._compute_date()
         self.assertEqual(invoice.invoice_date, new_date)
 
     def test_onchange_invoice_date_in(self):
@@ -42,11 +36,8 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch(
-            "%s._get_lock_date" % partner_model, autospec=True
-        ) as mock_date:
-            mock_date.return_value = new_date
-            invoice._onchange_invoice_date()
+        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+            invoice._compute_date()
         self.assertEqual(invoice.invoice_date, orig_date)
 
     def test_onchange_invoice_date_refund(self):
@@ -56,9 +47,6 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch(
-            "%s._get_lock_date" % partner_model, autospec=True
-        ) as mock_date:
-            mock_date.return_value = new_date
-            invoice._onchange_invoice_date()
+        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+            invoice._compute_date()
         self.assertEqual(invoice.invoice_date, new_date)
