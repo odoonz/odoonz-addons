@@ -6,6 +6,7 @@ from random import randint, random
 from odoo import fields
 from odoo.exceptions import AccessError
 from odoo.tests.common import Form
+from odoo.tests import tagged
 from odoo.tools import float_compare as fc, float_round
 
 from odoo.addons.sale.tests.common import TestSaleCommon
@@ -15,13 +16,16 @@ from . import hypothesis_params as hp
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import assume, given, strategies as st
+    from hypothesis import settings, assume, given, strategies as st
+    settings.register_profile("ci", database=None)
+    settings.load_profile("ci")
 except ImportError as err:
     _logger.debug(err)
 
 pricelist = "odoo.addons.product.models.product_pricelist.Pricelist"
 
 
+@tagged("post_install", "-at_install")
 class TestSaleRecalc(TestSaleCommon):
     def setUp(self):
         super().setUp()
@@ -236,18 +240,16 @@ class TestSaleRecalc(TestSaleCommon):
 
     def test_onchange_pricelist_id(self):
         recalc = self.spr.create(self.vals)
-        with mock.patch("%s.get_products_price" % pricelist) as price_get:
-            prices = {
-                p.id: round(random() * randint(1, 9), 2) for p in self.products.values()
-            }
-            price_get.return_value = prices
+        price = 12.47
+        with mock.patch.object(type(self.pricelist), "_get_product_price", return_value=price):
             with Form(recalc) as spr:
                 spr.pricelist_id = self.pricelist
-            subtotal = 0.0
-            for line in recalc.line_ids:
-                self.assertFalse(fc(prices[line.product_id.id], line.price_unit, 2))
-                subtotal += line.price_subtotal
-            recalc.action_write()
+                subtotal = 0.0
+                for idx in range(len(spr.line_ids)):
+                    with spr.line_ids.edit(idx) as line:
+                        self.assertFalse(fc(price, line.price_unit, 2))
+                        subtotal += line.price_subtotal
+        recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)
         self.assertFalse(fc(so.amount_untaxed, subtotal, 2))
         self.assertEqual(so.pricelist_id, recalc.pricelist_id)
@@ -257,11 +259,11 @@ class TestSaleRecalc(TestSaleCommon):
         quote = self.so.copy()
         quote.pricelist_id = self.pricelist
         quote.order_line[0].price_unit = 1.66
-
+        quote.order_line[0].discount = 0.0
         with Form(recalc) as spr:
             spr.copy_quote_id = quote
-
-        self.assertFalse(fc(recalc.line_ids[0].price_unit, 1.66, 2))
+            with spr.line_ids.edit(0) as line:
+                self.assertFalse(fc(line.price_unit, 1.66, 2))
         recalc.action_write()
         self.assertEqual(self.so.pricelist_id, quote.pricelist_id)
         self.assertFalse(fc(self.so.order_line[0].price_unit, 1.66, 2))

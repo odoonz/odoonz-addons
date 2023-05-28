@@ -120,16 +120,12 @@ class PriceRecalculation(models.AbstractModel):
         if not pricelist_id:
             return
         self.ensure_one()
-        products = self.line_ids.mapped("product_id").with_context(
-            **self._set_context()
-        )
-        prices = pricelist_id.with_context(**self._set_context()).get_products_price(
-            products,
-            self.line_ids.mapped("qty"),
-            [self.partner_id.id] * len(self.line_ids),
+        prices = {}
+        for line in self.line_ids.with_context(**self._set_context()):
+            line.price_unit = pricelist_id.with_context(**self._set_context())._get_product_price(
+            line.product_id,
+            line.qty,
             date=self.date_order,
         )
-        for line in self.line_ids:
-            line.price_unit = prices[line.product_id.id]
             line.price_subtotal = line.price_unit * line.qty
             line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
