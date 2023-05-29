@@ -7,20 +7,20 @@ from odoo.tests.common import TransactionCase
 class TestAttributeGroups(TransactionCase):
     def test_replace_values_with_attr_group(self):
         # First changing them
-        attr_groups = self.ipod_memory_line.attr_group_ids | self.attr_group_2
-        self.ipod_memory_line.attr_group_ids = attr_groups
+        attr_groups = self.chair_memory_line.attr_group_ids | self.attr_group_2
+        self.chair_memory_line.attr_group_ids = attr_groups
         # Need to trigger this as usually called on the product template write
-        self.product_ipod._create_variant_ids()
+        self.product_chair._create_variant_ids()
         self.assertTrue(
-            self.product_ipod.attribute_line_ids[0].value_ids
+            self.product_chair.attribute_line_ids[0].value_ids
             == self.attr_group_2.value_ids
         )
         # Then adding to them
         attr_groups |= self.attr_group_1
-        self.ipod_memory_line.attr_group_ids = attr_groups
-        self.product_ipod._create_variant_ids()
+        self.chair_memory_line.attr_group_ids = attr_groups
+        self.product_chair._create_variant_ids()
         self.assertTrue(
-            self.product_ipod.attribute_line_ids[0].value_ids
+            self.product_chair.attribute_line_ids[0].value_ids
             == (self.attr_group_2.value_ids + self.attr_group_1.value_ids)
         )
 
@@ -30,29 +30,25 @@ class TestAttributeGroups(TransactionCase):
         adding a value to check that the number of variants has increased
         :return:
         """
-        self.ipod_memory_line.attr_group_ids = self.attr_group_1
-        self.ipad_memory_line.attr_group_ids = self.attr_group_1
+        self.chair_memory_line.attr_group_ids = self.attr_group_1
+        self.desk_memory_line.attr_group_ids = self.attr_group_1
         # The number of variants should be the product of attribute value_ids
-        self.product_ipod._create_variant_ids()
-        self.product_ipad._create_variant_ids()
-        ipod_factor = len(self.product_ipod.product_variant_ids) / len(
-            self.attr_group_1.value_ids
-        )
-        ipad_factor = len(self.product_ipad.product_variant_ids) / len(
-            self.attr_group_1.value_ids
-        )
+        self.product_chair._create_variant_ids()
+        self.product_desk._create_variant_ids()
+        chair_len = len(self.product_chair.product_variant_ids) + 1
+        desk_len = len(self.product_desk.product_variant_ids) + 2
         initial_length = len(self.attr_group_1.value_ids)
         self.attr_group_1.value_ids += self.browse_ref(
             "product_attribute_group.product_attribute_value_64gb"
         )
         self.assertTrue(len(self.attr_group_1.value_ids) == initial_length + 1)
         self.assertTrue(
-            len(self.product_ipod.product_variant_ids)
-            == len(self.attr_group_1.value_ids) * ipod_factor
+            len(self.product_chair.product_variant_ids)
+            == chair_len
         )
         self.assertTrue(
-            len(self.product_ipad.product_variant_ids)
-            == len(self.attr_group_1.value_ids) * ipad_factor
+            len(self.product_desk.product_variant_ids)
+            == desk_len
         )
 
     def test_removing_values_from_attr_group(self):
@@ -61,14 +57,14 @@ class TestAttributeGroups(TransactionCase):
         removing a value to check that the number of variants has decreased
         :return:
         """
-        self.ipod_memory_line.attr_group_ids = self.attr_group_1
-        self.ipad_memory_line.attr_group_ids = self.attr_group_1
+        self.chair_memory_line.attr_group_ids = self.attr_group_1
+        self.desk_memory_line.attr_group_ids = self.attr_group_1
         # The number of variants should be the product of attribute value_ids
-        self.product_ipod._create_variant_ids()
-        self.product_ipad._create_variant_ids()
-        # ipod_factor = (len(self.product_ipod.product_variant_ids) //
-        #                len(self.attr_group_1.value_ids))
-        ipad_factor = len(self.product_ipad.product_variant_ids) // len(
+        self.product_chair._create_variant_ids()
+        self.product_desk._create_variant_ids()
+        chair_factor = (len(self.product_chair.product_variant_ids) //
+                       len(self.attr_group_1.value_ids))
+        desk_factor = len(self.product_desk.product_variant_ids) // len(
             self.attr_group_1.value_ids
         )
         initial_length = len(self.attr_group_1.value_ids)
@@ -79,11 +75,11 @@ class TestAttributeGroups(TransactionCase):
         # Remove this assertion it seems that behaviour has been changed if
         # only 1 variant left - unrelated to module
         # self.assertTrue(
-        #     len(self.product_ipod.product_variant_ids) ==
-        #     len(self.attr_group_1.value_ids) * ipod_factor)
+        #     len(self.product_chair.product_variant_ids) ==
+        #     len(self.attr_group_1.value_ids) * chair_factor)
         self.assertTrue(
-            len(self.product_ipad.product_variant_ids)
-            == len(self.attr_group_1.value_ids) * ipad_factor
+            len(self.product_desk.product_variant_ids)
+            == len(self.attr_group_1.value_ids) * desk_factor
         )
 
     def test_creation(self):
@@ -166,16 +162,16 @@ class TestAttributeGroups(TransactionCase):
             "product_attribute_group.product_attribute_group_2"
         )
 
-        self.product_ipad = self.browse_ref(
+        self.product_desk = self.browse_ref(
             "product.product_product_4_product_template"
         )
-        self.product_ipod = self.browse_ref(
+        self.product_chair = self.browse_ref(
             "product.product_product_11_product_template"
         )
 
-        self.ipad_memory_line = self.browse_ref(
+        self.desk_memory_line = self.browse_ref(
             "product.product_4_attribute_1_product_template_attribute_line"
         )
-        self.ipod_memory_line = self.browse_ref(
+        self.chair_memory_line = self.browse_ref(
             "product.product_11_attribute_1_product_template_attribute_line"
         )

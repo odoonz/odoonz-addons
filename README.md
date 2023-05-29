@@ -18,7 +18,7 @@
 | [mrp_dynamic_line](mrp_dynamic_line/)                           | 12.0.3.0.0 | Dynamic BoM Transformations                                                                                                         |
 | [mrp_sale_fields](mrp_sale_fields/)                             | 16.0.1.0.0 | Adds fields from sale order when linked                                                                                             |
 | [price_recalculation](price_recalculation/)                     | 16.0.1.0.0 | Base module for x_price_recalculation modules.                                                                                      |
-| [product_attribute_group](product_attribute_group/)             | 12.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template                                                       |
+| [product_attribute_group](product_attribute_group/)             | 16.0.1.0.0 | Allows grouping of product attributes for easy addition to a product template                                                       |
 | [product_code_builder](product_code_builder/)                   | 16.0.1.0.0 | Product Variant Default Code                                                                                                        |
 | [product_no_translation](product_no_translation/)               | 16.0.1.0.0 | Make product related fields non translatable                                                                                        |
 | [product_pricelist_extended](product_pricelist_extended/)       | 12.0.1.0.0 | This module implements many2many products in pricelists.                                                                            |

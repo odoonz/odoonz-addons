@@ -36,7 +36,7 @@ class ProductAttributeGroup(models.Model):
             for attr_group in self:
                 for attr_line in attr_group.attribute_line_ids:
                     attr_line.onchange_attr_group()
-                    attr_line.product_tmpl_id.with_delay()._create_variant_ids()
+                    # attr_line.product_tmpl_id.with_delay()._create_variant_ids()
         return res
 
     def copy(self, default=None):
@@ -57,6 +57,6 @@ class ProductAttributeGroup(models.Model):
         """
         self.ensure_one()
         self.copy()
-        return self.env["ir.actions.act_window"].for_xml_id(
-            "product_attribute_group", "product_attribute_group_act_window"
+        return self.env["ir.actions.act_window"]._for_xml_id(
+            "product_attribute_group.product_attribute_group_act_window"
         )
