@@ -16,5 +16,5 @@
         "views/res_partner_view.xml",
         "wizards/partner_set_risk_wizard.xml",
     ],
-    "installable": False,
+    "installable": False, # Awaiting Dependencies to test migration
 }

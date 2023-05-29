@@ -11,6 +11,7 @@
 |-----------------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | [account_anglosaxon_financial](account_anglosaxon_financial/)   | 16.0.1.0.0 | This module adds the option of excluding anglosaxon lines for some invoices                                                         |
 | [account_central_billing](account_central_billing/)             | 16.0.1.0.0 | This module allows to invoice all sales or purchases for one company to a different company                                         |
+| [account_financial_risk_manager](account_financial_risk_manager/) | 16.0.1.0.0 | This module adds a seperate security group for managing and viewing credit risk                                                    |
 | [account_invoice_cutoff_policy](account_invoice_cutoff_policy/) | 16.0.1.0.0 | Specify customer specific invocing cutoff policies                                                                                  |
 | [account_journal_lock_policy](account_journal_lock_policy/)     | 16.0.1.0.0 | Specify journal specific lock policies or dates                                                                                     |
 | [account_supplier_tax_rounding](account_supplier_tax_rounding/) | 16.0.1.0.0 | This module allows for the tax setting to be be set per supplier. It assumes global rounding set on the company.                    |

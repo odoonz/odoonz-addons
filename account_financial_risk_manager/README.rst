@@ -4,7 +4,8 @@ Account Financial Risk Manager
 
 This module extends the functionality of OCA Financial Risk modules by adding
 a separate security group for credit controllers rather than requiring
-accounting access to release orders.
+accounting access to release orders. It also gives credit managers a wizard in order
+to bulk set the credit limit for multiple customers.
 
 **Table of contents**
 

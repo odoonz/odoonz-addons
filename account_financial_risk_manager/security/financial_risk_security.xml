@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="module_credit_risk_category" model="ir.module.category">
+        <field name="name">Credit Risk</field>
+        <field name="sequence">17</field>
+    </record>
+    <record id="group_risk_user" model="res.groups">
+        <field name="name">User (readonly)</field>
+        <field name="category_id" ref="module_credit_risk_category" />
+        <field name="implied_ids" eval="[(4, ref('account_financial_risk.group_overpass_partner_risk_exception'))]" />
+    </record>
+    <record id="account_financial_risk.group_overpass_partner_risk_exception" model="res.groups">
+        <field name="category_id" ref="module_credit_risk_category" />
+        <field name="implied_ids" eval="[(4, ref('account_financial_risk_manager.group_risk_user'))]" />
+    </record>
     <record id="group_risk_manager" model="res.groups">
-        <field name="name">Manage Credit Risk</field>
-        <field name="category_id" ref="base.module_category_hidden" />
+        <field name="name">Risk Manager</field>
+        <field name="category_id" ref="module_credit_risk_category" />
+        <field name="implied_ids" eval="[(4, ref('account_financial_risk.group_overpass_partner_risk_exception'))]" />
     </record>
 
     <record id="account.group_account_manager" model="res.groups">
