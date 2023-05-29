@@ -176,4 +176,4 @@ class ProductProduct(models.Model):
         return super(
             ProductProduct,
             self.with_context(uom_already_computed=price_type == "lst_price"),
-        ).price_compute(price_type, uom=uom, currency=currency, company=company)
+        ).price_compute(price_type, uom=uom, currency=currency, company=company, date=date)

@@ -75,7 +75,7 @@ class ProductProduct(models.Model):
                 product.id: product.bom_list_price for product in lst_price_from_bom
             }
         prices = super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+            price_type, uom=uom, currency=currency, company=company, date=date
         )
         prices.update(bom_prices)
         return prices

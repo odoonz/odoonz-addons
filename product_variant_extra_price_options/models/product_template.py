@@ -57,5 +57,5 @@ class ProductTemplate(models.Model):
             )
             self = self.with_context(current_attributes_price_extra=price_extra)
         return super().price_compute(
-            price_type, uom=uom, currency=currency, company=company
+            price_type, uom=uom, currency=currency, company=company, date=date
         )
