@@ -36,7 +36,6 @@ class ProductAttributeGroup(models.Model):
             for attr_group in self:
                 for attr_line in attr_group.attribute_line_ids:
                     attr_line.onchange_attr_group()
-                    # attr_line.product_tmpl_id.with_delay()._create_variant_ids()
         return res
 
     def copy(self, default=None):

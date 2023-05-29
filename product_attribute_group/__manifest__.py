@@ -10,7 +10,7 @@
     "license": "AGPL-3",
     "author": " Open For Small Business Ltd",
     "website": "https://o4sb.com",
-    "depends": ["product", "sale", "sales_team", "stock", "queue_job"],
+    "depends": ["product", "sale", "sales_team", "stock"],
     "data": [
         "security/product_attribute_group.xml",
         "views/product_attribute_group.xml",
