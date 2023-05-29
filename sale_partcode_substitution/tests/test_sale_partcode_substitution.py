@@ -11,7 +11,7 @@ from odoo.addons.sale.tests.common import TestSaleCommon
 @tagged("post_install", "-at_install")
 class TestSaleSubst(TestSaleCommon):
     @classmethod
-    def setUpClass(cls, chart_template_ref="l10n_nz.l10n_nz_chart_template"):
+    def setUpClass(cls, chart_template_ref=None):
         super().setUpClass(chart_template_ref=chart_template_ref)
         today = fields.Date.to_string(fields.Date.context_today(cls.partner_a))
         context_no_mail = {
