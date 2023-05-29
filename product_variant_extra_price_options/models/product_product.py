@@ -36,7 +36,7 @@ class ProductProduct(models.Model):
                 continue
         return price_extra_dict.values()
 
-    def price_compute(self, price_type, uom=False, currency=False, company=None):
+    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
         if self._context.get("no_variant_attributes_price_extra"):
             ptavs = self.env["product.template.attribute.value"].browse(
                 self._context.get("combination")

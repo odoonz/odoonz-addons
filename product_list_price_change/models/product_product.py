@@ -170,7 +170,7 @@ class ProductProduct(models.Model):
                 list_price = product.uom_id._compute_price(list_price, to_uom)
             product.lst_price = list_price + product.price_extra
 
-    def price_compute(self, price_type, uom=False, currency=False, company=False):
+    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
         if price_type == "list_price":
             price_type = "lst_price"
         return super(

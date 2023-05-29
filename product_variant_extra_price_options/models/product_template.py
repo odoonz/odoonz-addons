@@ -44,7 +44,7 @@ class ProductTemplate(models.Model):
             only_template=only_template,
         )
 
-    def price_compute(self, price_type, uom=False, currency=False, company=None):
+    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
         """Overides method to set current_attributes_price_extra
         based on the price_extra methods
         """

@@ -66,7 +66,7 @@ class ProductProduct(models.Model):
         else:
             self.bom_list_price = 0.0
 
-    def price_compute(self, price_type, uom=False, currency=False, company=None):
+    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
         bom_prices = {}
         if price_type == "list_price":
             lst_price_from_bom = self.filtered(lambda s: s.lst_price_from_bom)
