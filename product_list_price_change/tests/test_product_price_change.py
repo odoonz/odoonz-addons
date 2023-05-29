@@ -36,7 +36,7 @@ class TestProductPriceChange(TransactionCase):
             self.product_price_change.partner_effective_date,
             self.product_price_change.effective_date,
         )
-        self.product_price_change.invalidate_cache()
+        self.product_price_change.invalidate_recordset()
         self.assertEqual(
             self.product_price_change.with_context(
                 partner_id=self.partner.id

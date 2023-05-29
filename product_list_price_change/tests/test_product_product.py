@@ -25,7 +25,7 @@ class TestProductProduct(TransactionCase):
         unit_product = self.product_product_10.with_context(uom=self.test_uom_unit.id)
         dozen_product = self.product_product_10.with_context(uom=self.test_uom_dozen.id)
         self.assertEqual(expected, unit_product.price_extra)
-        self.product_product_10.invalidate_cache()
+        self.product_product_10.invalidate_recordset()
         expected = 10.0 * 12
         self.assertEqual(expected, dozen_product.price_extra)
 
@@ -41,6 +41,12 @@ class TestProductProduct(TransactionCase):
         dozen_product = self.product_product_10.with_context(uom=self.test_uom_dozen.id)
         expected_list_price = 15.0
         self.assertEqual(expected_list_price, unit_product.lst_price)
-        self.product_product_10.invalidate_cache()
+        self.product_product_10.invalidate_recordset()
         expected_list_price = 15.0 * 12
         self.assertEqual(expected_list_price, dozen_product.lst_price)
+
+    def test_update_empty_price_change_records(self):
+        products = self.env["product.template"].search([('price_change_line_ids', '=', False)])
+        if products:
+            self.env['product.template']._update_templates_without_price_change()
+            self.assertFalse(self.env["product.template"].search([('price_change_line_ids', '=', False)]))

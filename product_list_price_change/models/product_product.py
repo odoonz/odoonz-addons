@@ -17,6 +17,51 @@ class ProductTemplate(models.Model):
         domain=[("state", "in", ("live", "future"))],
     )
 
+    def _create_default_price_change_record(self):
+        """
+        Create a default price change record for the product template
+        :return: product.price.change
+        """
+        ppc = self.env["product.price.change"].create(
+            {
+                "name": "Value at Creation",
+                "effective_date": '1970-01-01',
+            }
+        )
+        for record in self:
+            self.env["product.price.change.line"].create(
+                {
+                    "product_tmpl_id": record.id,
+                    "price_change_id": ppc.id,
+                    "list_price": record.list_price,
+                }
+            )
+        ppc.action_confirm()
+        ppc.state = "live"
+
+    def create(self, vals):
+        res = super().create(vals)
+        res._create_default_price_change_record()
+        return res
+
+    def write(self, vals):
+        res = super().write(vals)
+        no_price_record = self.filtered(lambda s: not s.price_change_line_ids)
+        if no_price_record:
+            no_price_record._create_default_price_change_record()
+        return res
+
+    @api.model
+    def _update_templates_without_price_change(self):
+        """
+        Update templates without price change records
+        Helper method, as previous versions did not check a record existed
+        Designed to be run from shell
+        :return: None
+        """
+        templates = self.search([('price_change_line_ids', '=', False)])
+        templates._create_default_price_change_record()
+
 
 class ProductTemplateAttributeValue(models.Model):
     _inherit = "product.template.attribute.value"
