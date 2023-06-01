@@ -36,14 +36,19 @@ class TestTaxFromAccount(TransactionCase):
                 "amount_type": "percent",
             }
         )
+        self.test_company = self.env["res.company"].create(
+            {"name": "Test Company"}
+        )
         self.test_tax_sale2 = self.env["account.tax"].create(
             {
                 "name": "Test 30%",
                 "type_tax_use": "sale",
                 "amount": 30.0,
                 "amount_type": "percent",
+                "company_id": self.test_company.id,
             }
         )
+        self.test_company.account_sale_tax_id = self.test_tax_sale2
 
         self.test_tax_purch1 = self.env["account.tax"].create(
             {
@@ -95,9 +100,6 @@ class TestTaxFromAccount(TransactionCase):
                 "supplier_taxes_id": False,
                 "seller_ids": self.test_vender,
             }
-        )
-        self.test_company = self.env["res.company"].create(
-            {"name": "Test Company", "account_sale_tax_id": self.test_tax_sale2.id}
         )
         self.test_tax_sale_comp2 = self.env["account.tax"].create(
             {
