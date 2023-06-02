@@ -17,25 +17,29 @@ class ProductTemplate(models.Model):
         domain=[("state", "in", ("live", "future"))],
     )
 
+    def _prepare_price_change_vals(self, price_change):
+        return {
+            "product_tmpl_id": self.id,
+            "list_price": self.list_price,
+            "price_change_id": price_change.id,
+        }
+
+    def _prepare_price_change(self):
+        return {
+            "name": "Value at Creation",
+            "effective_date": '1970-01-01',
+        }
+
     def _create_default_price_change_record(self):
         """
         Create a default price change record for the product template
         :return: product.price.change
         """
-        ppc = self.env["product.price.change"].create(
-            {
-                "name": "Value at Creation",
-                "effective_date": '1970-01-01',
-            }
-        )
+        ppc = self.env["product.price.change"].create(self._prepare_price_change())
+        create_vals = []
         for record in self:
-            self.env["product.price.change.line"].create(
-                {
-                    "product_tmpl_id": record.id,
-                    "price_change_id": ppc.id,
-                    "list_price": record.list_price,
-                }
-            )
+            create_vals.append(record._prepare_price_change_vals(ppc))
+        self.env["product.price.change.line"].create(create_vals)
         ppc.action_confirm()
         ppc.state = "live"
 
@@ -127,6 +131,7 @@ class ProductProduct(models.Model):
             product.price_extra = price_extra
 
     @api.depends("list_price", "price_extra")
+    @api.depends_context("date")
     def _compute_product_lst_price(self):
         to_uom = None
         if (

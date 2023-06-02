@@ -13,6 +13,7 @@ class ProductPriceChangeLine(models.Model):
 
     product_tmpl_id = fields.Many2one(
         string="Product",
+        ondelete="cascade",
         comodel_name="product.template",
         required=True,
         states={
