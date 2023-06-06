@@ -6,7 +6,7 @@ from odoo import models
 
 class StockProductionLot(models.Model):
 
-    _inherit = "stock.production.lot"
+    _inherit = "stock.lot"
 
     def name_get(self):
         res = super().name_get()

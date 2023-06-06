@@ -14,11 +14,9 @@
     />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='lot_id']" position="attributes">
-                <attribute
-          name="context"
-          key="show_qty"
-          operation="python_dict"
-        >context.get('show_qty')</attribute>
+                <attribute name="context"
+                           operation="update"
+                >{"show_qty": context.get('show_qty')}</attribute>
             </xpath>
         </field>
     </record>
