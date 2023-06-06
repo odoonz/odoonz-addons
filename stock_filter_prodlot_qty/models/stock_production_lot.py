@@ -6,7 +6,7 @@ from odoo import models
 
 class StockProductionLot(models.Model):
 
-    _inherit = "stock.production.lot"
+    _inherit = "stock.lot"
 
     def _product_qty(self):
         for lot in self:

@@ -10,5 +10,5 @@
     "author": "Graeme Gellatly",
     "website": "https://o4sb.com",
     "depends": ["mrp"],
-    "installable": False,
+    "installable": True,
 }
