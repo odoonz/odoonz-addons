@@ -32,5 +32,9 @@ class SaleCodeReplacement(models.TransientModel):
                     new_partcode = old_part.replace(self.from_code, self.to_code)
                     new_part = prod_pool.search([("default_code", "=", new_partcode)])
                     if new_part:
+                        self._finalize_vals(line, new_part[0])
                         line.product_id = new_part[0]
         return {"type": "ir.actions.act_window_close"}
+
+    def _finalize_vals(self, line, product):
+        return {"product_id": product.id}

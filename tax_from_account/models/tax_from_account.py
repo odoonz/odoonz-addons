@@ -74,7 +74,7 @@ class PurchaseOrderLine(models.Model):
         res = super()._prepare_purchase_order_line(
             product_id, product_qty, product_uom, company_id, supplier, po
         )
-        partner = supplier.name
+        partner = supplier.partner_id
         pol = self.env["purchase.order.line"].new(
             {"order_id": po.id, "product_id": product_id, "company_id": company_id}
         )
