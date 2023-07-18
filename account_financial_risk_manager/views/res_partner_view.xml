@@ -3,20 +3,20 @@
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
 
-    <record id="res_partner_view_risk" model="ir.ui.view" >
+    <record id="res_partner_view_risk" model="ir.ui.view">
         <field name="inherit_id" ref="account_financial_risk.res_partner_view_risk" />
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='sales_purchases']" position="attributes">
-                <attribute name="groups">group_risk_user</attribute>
+                <attribute
+          name="groups"
+        >account_financial_risk_manager.group_risk_user</attribute>
             </xpath>
         </field>
     </record>
 
     <record model="ir.ui.view" id="res_partner_search_view">
-        <field
-      name="name"
-    >res.partner.search (in sale_financial_risk_enforce)</field>
+        <field name="name">res.partner.search (in sale_financial_risk_enforce)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter" />
         <field name="arch" type="xml">

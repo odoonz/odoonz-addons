@@ -11,5 +11,5 @@
     "website": "https://o4sb.com",
     "depends": ["sale_financial_risk", "account_financial_risk_manager"],
     "data": ["views/res_config_settings.xml"],
-    "installable": False,
+    "installable": True,
 }
