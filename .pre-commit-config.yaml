@@ -1,6 +1,5 @@
 exclude: |
   # NOT INSTALLABLE ADDONS
-  ^account_financial_risk_manager/|
   ^mail_no_subscribe_notify/|
   ^product_list_price_from_bom/|
   ^product_pricelist_extended/|
@@ -103,7 +102,7 @@ repos:
       - id: pylint
         name: pylint with optional checks
         args:
-          - --valid_odoo_versions=14.0
+          - --valid_odoo_versions=16.0
           - --rcfile=.pylintrc
           - --exit-zero
         verbose: true
@@ -113,7 +112,7 @@ repos:
       - id: pylint
         name: pylint with mandatory checks
         args:
-          - --valid_odoo_versions=14.0
+          - --valid_odoo_versions=16.0
           - --rcfile=.pylintrc-mandatory
         additional_dependencies:
           - isort==4.3.21
