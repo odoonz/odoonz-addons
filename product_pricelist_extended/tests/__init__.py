@@ -1,2 +1,1 @@
-from . import test_product_pricelist
-from . import test_product_pricelist_hash
+from . import test_product_assortment
