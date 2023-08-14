@@ -1,17 +1,20 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+/.venv
+/.pytest_cache
 
 # C extensions
 *.so
 
 # Distribution / packaging
+.Python
+env/
 bin/
 build/
 develop-eggs/
 dist/
 eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -19,12 +22,14 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+*.eggs
 
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+htmlcov/
 .tox/
 .coverage
 .cache
@@ -34,23 +39,36 @@ coverage.xml
 # Translations
 *.mo
 
+# Pycharm
+.idea
+
+# Eclipse
+.settings
+
+# Visual Studio cache/options directory
+.vs/
+.vscode
+
+# OSX Files
+.DS_Store
+
+# Django stuff:
+*.log
+
 # Mr Developer
 .mr.developer.cfg
 .project
 .pydevproject
-.vscode
+
 # Rope
 .ropeproject
-
-# Django stuff:
-*.log
-*.pot
 
 # Sphinx documentation
 docs/_build/
 
-documents/Ursa_Implementation_Plan_1105.xlsx
-documents/Ursa_Implementation_Plan_1108.xlsx
-documents/Ursa_Implementation_Plan_1108_Internal.xlsx
-documents/Ursa_Implementation_Plan_1111_Internal.xlsx
-documents/implementation/Production_server_checklist.docx
+# Backup files
+*~
+*.swp
+
+# OCA rules
+!static/lib/

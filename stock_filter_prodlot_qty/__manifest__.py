@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/project",
     "depends": ["mrp"],
     "installable": True,
 }

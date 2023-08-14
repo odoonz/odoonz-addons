@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly, O4SB Ltd",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/project",
     "depends": ["sale_financial_risk", "account_financial_risk_manager"],
     "data": ["views/res_config_settings.xml"],
     "installable": True,

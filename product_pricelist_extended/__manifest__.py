@@ -1,20 +1,22 @@
-# Copyright 2014 Graeme Gellatly
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2023 Graeme Gellatly
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Pricelist Extensions",
+    "name": "Product Pricelist Filter",
+    "summary": """
+        Allows to use filters on pricelists""",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
-    "category": "Sales & Purchases",
-    "author": "Open For Small Business Ltd",
-    "website": "https://o4sb.com",
-    "depends": ["product", "sale"],
-    "summary": "This module implements many2many products in pricelists.",
+    "author": "Graeme Gellatly",
+    "website": "https://github.com/OCA/project",
+    "depends": ["product", "mail"],
     "data": [
-        "views/product_pricelist_view.xml",
-        "views/product_price_category_view.xml",
         "security/ir.model.access.csv",
+        "security/product_pricelist_assortment_item.xml",
+        "views/ir_filters.xml",
+        "views/product_pricelist_item.xml",
+        "views/product_pricelist.xml",
+        "views/product_pricelist_assortment_item.xml",
+        "data/ir_cron.xml",
     ],
-    "demo": ["demo/product.price.category.csv"],
-    "installable": False,
 }

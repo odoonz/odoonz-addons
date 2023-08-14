@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly, O4SB",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/project",
     "depends": [],
     "data": ["security/res_partner.xml", "views/res_partner.xml"],
     "demo": [],

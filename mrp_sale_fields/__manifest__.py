@@ -7,7 +7,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open For Small Business Ltd",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/project",
     "depends": ["sale_mrp"],
     "data": ["views/mrp_production.xml", "views/mrp_workorder.xml"],
 }

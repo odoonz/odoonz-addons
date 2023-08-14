@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="product_assortment_view_search" model="ir.ui.view">
+        <field name="name">product.assortment.search</field>
+        <field name="model">ir.filters</field>
+        <field name="arch" type="xml">
+            <search string="Assortments">
+                <field name="name" string="Assortment Name" />
+                <field name="model_id" />
+            </search>
+        </field>
+    </record>
+    <record id="product_assortment_view_tree" model="ir.ui.view">
+        <field name="model">ir.filters</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model_id" />
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+    <record id="product_assortment_view_form" model="ir.ui.view">
+        <field name="model">ir.filters</field>
+        <field name="arch" type="xml">
+            <form string="Filters">
+                <sheet>
+                    <div class="oe_button_box" name="buttons">
+                        <button class="oe_stat_button" name="show_products" icon="fa-list" type="object">
+                            <div class="o_stat_info">
+                                <field name="record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Products</span>
+                            </div>
+                        </button>
+                        <button
+                            class="oe_stat_button"
+                            name="show_templates"
+                            icon="fa-list"
+                            type="object"
+                            attrs="{'invisible': [('tmpl_record_count', '=', 0)]}"
+                        >
+                            <div class="o_stat_info">
+                                <field name="tmpl_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Templates</span>
+                            </div>
+                        </button>
+                        <button
+                            class="oe_stat_button"
+                            name="show_categories"
+                            icon="fa-list"
+                            type="object"
+                            attrs="{'invisible': [('categ_record_count', '=', 0)]}"
+                        >
+                            <div class="o_stat_info">
+                                <field name="categ_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Categories</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" name="show_pricelists" icon="fa-list" type="object">
+                            <div class="o_stat_info">
+                                <field name="pricelist_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Pricelists</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group name="main">
+                        <group name="left">
+                            <field name="name" string="Assortment Name" />
+                            <field name="model_id" />
+                        </group>
+                        <group name="right">
+                            <field name="active" widget="boolean_toggle" />
+                            <field name="show_in_filters" widget="boolean_toggle" />
+                            <field name="is_assortment" invisible="1" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="domain" widget="domain" options="{'model': 'model_id'}" />
+                    </group>
+                    <group name="details">
+                        <field name="description" />
+                    </group>
+                    <group name="product_filters" attrs="{'invisible': [('model_id', '!=', 'product.product')]}">
+                        <div name="to_include">
+                            <separator string="Products to include" />
+                            <field name="whitelist_product_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="display_name" string="Variant" />
+                                </tree>
+                            </field>
+                        </div>
+                        <div name="to_exclude">
+                            <separator string="Products to exclude" />
+                            <field name="blacklist_product_ids" nolabel="1">
+                                <tree>
+                                    <field name="display_name" string="Variant" />
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group name="template_filters" attrs="{'invisible': [('model_id', '!=', 'product.template')]}">
+                        <div name="to_include">
+                            <separator string="Templates to include" />
+                            <field name="whitelist_template_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="display_name" string="Template" />
+                                </tree>
+                            </field>
+                        </div>
+                        <div name="to_exclude">
+                            <separator string="Templates to exclude" />
+                            <field name="blacklist_template_ids" nolabel="1">
+                                <tree>
+                                    <field name="display_name" string="Template" />
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group name="category_filters" attrs="{'invisible': [('model_id', '!=', 'product.category')]}">
+                        <div name="to_include">
+                            <separator string="Categories to include" />
+                            <field name="whitelist_category_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="display_name" string="Category" />
+                                </tree>
+                            </field>
+                        </div>
+                        <div name="to_exclude">
+                            <separator string="Categories to exclude" />
+                            <field name="blacklist_category_ids" nolabel="1">
+                                <tree>
+                                    <field name="display_name" string="Category" />
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="actions_product_assortment_view" model="ir.actions.act_window">
+        <field name="name">Product assortment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.filters</field>
+        <field name="domain">[('is_assortment', '=', True)]</field>
+        <field name="context">{'product_assortment': True,
+                               'default_is_assortment': 1}</field>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('product_assortment_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('product_assortment_view_form')})]"
+        />
+    </record>
+    <menuitem
+        name="Product Assortment"
+        id="menu_product_assortments"
+        parent="sale.product_menu_catalog"
+        action="actions_product_assortment_view"
+        sequence="15"
+        groups="product.group_product_pricelist"
+    />
+</odoo>

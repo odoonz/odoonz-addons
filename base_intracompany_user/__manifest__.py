@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "O4SB",
-    "website": "https://o4sb.com/",
+    "website": "https://github.com/OCA/project",
     "depends": ["base"],
     "data": [
         "views/company_view.xml",

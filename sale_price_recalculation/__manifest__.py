@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": " Open For Small Business Ltd",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/project",
     "depends": ["price_recalculation", "sale"],
     "data": ["wizards/sale_price_recalculation.xml", "security/ir.model.access.csv"],
 }

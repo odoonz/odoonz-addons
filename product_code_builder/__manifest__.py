@@ -14,7 +14,7 @@
     ],
     "license": "AGPL-3",
     "category": "Product",
-    "website": "http://www.odoo-community.org",
+    "website": "https://github.com/OCA/project",
     "depends": ["product"],
     "data": ["views/product_view.xml", "views/product_attribute_view.xml"],
     "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],
