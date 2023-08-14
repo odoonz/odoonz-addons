@@ -39,12 +39,50 @@
                                 <span class="o_stat_text">Products</span>
                             </div>
                         </button>
+                        <button
+                            class="oe_stat_button"
+                            name="show_templates"
+                            icon="fa-list"
+                            type="object"
+                            attrs="{'invisible': [('tmpl_record_count', '=', 0)]}"
+                        >
+                            <div class="o_stat_info">
+                                <field name="tmpl_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Templates</span>
+                            </div>
+                        </button>
+                        <button
+                            class="oe_stat_button"
+                            name="show_categories"
+                            icon="fa-list"
+                            type="object"
+                            attrs="{'invisible': [('categ_record_count', '=', 0)]}"
+                        >
+                            <div class="o_stat_info">
+                                <field name="categ_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Categories</span>
+                            </div>
+                        </button>
+                        <button
+                            class="oe_stat_button"
+                            name="show_pricelists"
+                            icon="fa-list"
+                            type="object"
+                        >
+                            <div class="o_stat_info">
+                                <field name="pricelist_record_count" class="o_stat_value" />
+                                <span class="o_stat_text">Pricelists</span>
+                            </div>
+                        </button>
                     </div>
                     <group name="main">
                         <group name="left">
                             <field name="name" string="Assortment Name" />
                             <field name="model_id" />
-                            <field name="active" />
+                        </group>
+                        <group name="right">
+                            <field name="active" widget="boolean_toggle" />
+                            <field name="show_in_filters" widget="boolean_toggle" />
                             <field name="is_assortment" invisible="1" />
                         </group>
                     </group>
@@ -94,6 +132,24 @@
                             </field>
                         </div>
                     </group>
+                    <group name="category_filters" attrs="{'invisible': [('model_id', '!=', 'product.category')]}">
+                        <div name="to_include">
+                            <separator string="Categories to include" />
+                            <field name="whitelist_category_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="display_name" string="Category" />
+                                </tree>
+                            </field>
+                        </div>
+                        <div name="to_exclude">
+                            <separator string="Categories to exclude" />
+                            <field name="blacklist_category_ids" nolabel="1">
+                                <tree>
+                                    <field name="display_name" string="Category" />
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" />
@@ -120,8 +176,9 @@
     <menuitem
         name="Product Assortment"
         id="menu_product_assortments"
+        parent="sale.product_menu_catalog"
         action="actions_product_assortment_view"
-        sequence="5"
-        web_icon="product_assortment,static/description/icon.png"
+        sequence="15"
+        groups="product.group_product_pricelist"
     />
 </odoo>

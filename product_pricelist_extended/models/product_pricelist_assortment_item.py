@@ -48,8 +48,8 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_pricelist_category_values(self, categs, default_values):
         list_values = []
-        categs |= self.assortment_filter_id.whitelist_template_ids
-        categs -= self.assortment_filter_id.blacklist_template_ids
+        categs |= self.assortment_filter_id.whitelist_category_ids
+        categs -= self.assortment_filter_id.blacklist_category_ids
         item_ids = set()
         for categ in categs:
             values = default_values.copy()
