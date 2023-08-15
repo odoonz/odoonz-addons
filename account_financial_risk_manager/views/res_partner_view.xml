@@ -7,10 +7,8 @@
         <field name="inherit_id" ref="account_financial_risk.res_partner_view_risk" />
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='sales_purchases']" position="attributes">
-                <attribute
-          name="groups"
-        >account_financial_risk_manager.group_risk_user</attribute>
+            <xpath expr="//page[@name='financial_risk']" position="attributes">
+                <attribute name="groups">account_financial_risk_manager.group_risk_user</attribute>
             </xpath>
         </field>
     </record>
@@ -22,10 +20,10 @@
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='inactive']" position="before">
                 <filter
-          string="No Credit Limit"
-          name="no_credit_limit"
-          domain="[('parent_id', '=', False), ('is_company', '=', True), ('credit_limit', '=', 0.0)]"
-        />
+                    string="No Credit Limit"
+                    name="no_credit_limit"
+                    domain="[('parent_id', '=', False), ('is_company', '=', True), ('credit_limit', '=', 0.0)]"
+                />
             </xpath>
         </field>
     </record>
