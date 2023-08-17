@@ -114,7 +114,7 @@ class ProductPricelistAssortmentItem(models.Model):
         :return: list of dict
         """
         self.ensure_one()
-        items = self._get_product_from_assortment()
+        items = self._get_items_from_assortment()
         # fields to ignore to create pricelist item
         blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
         blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
@@ -128,7 +128,7 @@ class ProductPricelistAssortmentItem(models.Model):
             f"_get_pricelist_{self.assortment_filter_id.model_id.split('.')[1]}_values",
         )(items, default_values)
 
-    def _get_product_from_assortment(self):
+    def _get_items_from_assortment(self):
         domain = self.assortment_filter_id._get_eval_domain()
         if self.company_id:
             domain = expression.AND(
@@ -139,17 +139,8 @@ class ProductPricelistAssortmentItem(models.Model):
         products = self.env[self.assortment_filter_id.model_id].search(domain)
         return products
 
-    def _get_related_items(self, new_item_ids=False):
+    def _get_related_items(self):
         domain = [("assortment_item_id", "in", self.ids)]
-        if isinstance(new_item_ids, set):
-            new_item_ids = list(new_item_ids)
-        if new_item_ids:
-            if self.applied_on == "0_product_variant":
-                domain.append(("product_id", "not in", new_item_ids))
-            elif self.applied_on == "1_product":
-                domain.append(("product_tmpl_id", "not in", new_item_ids))
-            elif self.applied_on == "2_product_category":
-                domain.append(("categ_id", "not in", new_item_ids))
         return self.env["product.pricelist.item"].search(domain)
 
     def _update_assortment_items(self):
@@ -172,7 +163,7 @@ class ProductPricelistAssortmentItem(models.Model):
         item_obj = self.env["product.pricelist.item"]
         items_values, item_ids = self._get_pricelist_item_values()
         # These items are no longer valid so we remove them
-        self._get_related_items(item_ids).unlink()
+        self._get_related_items().unlink()
         for item_value in items_values:
             item_obj.create(item_value)
         return True
@@ -183,6 +174,7 @@ class ProductPricelistAssortmentItem(models.Model):
             if any((rec.product_id, rec.product_tmpl_id, rec.categ_id)):
                 raise ValidationError(
                     _(
-                        "You can't set a product, a product template or a category on an assortment item."
+                        "You can't set a product, a product template or a "
+                        "category on an assortment item."
                     )
                 )
