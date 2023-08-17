@@ -109,7 +109,7 @@ class ProductPricelistAssortmentItem(models.Model):
         :return: list of dict
         """
         self.ensure_one()
-        items = self._get_product_from_assortment()
+        items = self._get_items_from_assortment()
         list_values = []
         # fields to ignore to create pricelist item
         blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
@@ -121,22 +121,13 @@ class ProductPricelistAssortmentItem(models.Model):
         }
         return getattr(self, f"_get_pricelist_{self.assortment_filter_id.model_id.split('.')[1]}_values")(items, default_values)
 
-    def _get_product_from_assortment(self):
+    def _get_items_from_assortment(self):
         domain = self.assortment_filter_id._get_eval_domain()
         products = self.env[self.assortment_filter_id.model_id].search(domain)
         return products
 
     def _get_related_items(self, new_item_ids=False):
         domain = [('assortment_item_id', 'in', self.ids)]
-        if isinstance(new_item_ids, set):
-            new_item_ids = list(new_item_ids)
-        if new_item_ids:
-            if self.applied_on == '0_product_variant':
-                domain.append(('product_id', 'not in', new_item_ids))
-            elif self.applied_on == '1_product':
-                domain.append(('product_tmpl_id', 'not in', new_item_ids))
-            elif self.applied_on == '2_product_category':
-                domain.append(('categ_id', 'not in', new_item_ids))
         return self.env['product.pricelist.item'].search(domain)
 
     def _update_assortment_items(self):

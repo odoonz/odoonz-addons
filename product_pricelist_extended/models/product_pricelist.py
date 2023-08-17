@@ -50,7 +50,7 @@ class ProductPricelist(models.Model):
                 seen = set()
                 for rec in records:
                     current_len = len(seen)
-                    items = self.env[model].search(rec.get_eval_domain()).ids
+                    items = self.env[model].search(rec.assortment_filter_id._get_eval_domain()).ids
                     seen.update(items)
                     if len(items) != len(seen) - current_len:
                         raise ValidationError(f'Records should not overlap. Overlap found in {rec.name}')
