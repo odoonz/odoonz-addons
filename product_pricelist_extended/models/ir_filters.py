@@ -50,14 +50,15 @@ class IrFilters(models.Model):
     categ_record_count = fields.Integer(compute="_compute_record_count")
     pricelist_record_count = fields.Integer(compute="_compute_record_count")
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
-    show_in_filters = fields.Boolean(default=False)
 
     @api.model
     def _list_all_models(self):
         if self.is_assortment or self.env.context.get("product_assortment", False):
+            lang = self.env.lang or "en_US"
             self._cr.execute(
-                "SELECT model, name FROM ir_model WHERE model IN %s ORDER BY name",
-                [tuple(MODEL_NAMES)],
+                "SELECT model, COALESCE(name->>%s, name->>'en_US') "
+                "FROM ir_model WHERE model IN %s ORDER BY 2",
+                [lang, tuple(MODEL_NAMES)],
             )
             return self._cr.fetchall()
         return super()._list_all_models()
@@ -202,7 +203,7 @@ class IrFilters(models.Model):
         domain = super()._get_action_domain(action_id=action_id)
         domain = expression.AND(
             [
-                ["|", ("is_assortment", "=", False), ("show_in_filters", "=", True)],
+                [("is_assortment", "=", False)],
                 domain,
             ]
         )

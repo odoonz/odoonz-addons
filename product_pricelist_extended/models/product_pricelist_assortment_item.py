@@ -9,6 +9,15 @@ from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
 
+BLACKLIST_FIELDS = [
+    "blacklist_product_ids",
+    "blacklist_template_ids",
+    "blacklist_category_ids",
+    "whitelist_product_ids",
+    "whitelist_template_ids",
+    "whitelist_category_ids",
+]
+
 
 class ProductPricelistAssortmentItem(models.Model):
 
@@ -29,6 +38,28 @@ class ProductPricelistAssortmentItem(models.Model):
         help="Pricelist items created automatically",
     )
     applied_on = fields.Selection(compute="_compute_applied_on", store=True)
+    # NOTE: If extending with other models, make sure your whitelist/blacklist
+    # fields are named in the same way, last word of the model in whitelist_<last>_ids
+    # and blacklist_<last>_ids. These are applied in addition to the filter exclusions
+    # for fine grained control
+    blacklist_product_ids = fields.Many2many(
+        comodel_name="product.product", relation="assortment_item_product_blacklisted"
+    )
+    whitelist_product_ids = fields.Many2many(
+        comodel_name="product.product", relation="assortment_item_product_whitelisted"
+    )
+    blacklist_template_ids = fields.Many2many(
+        comodel_name="product.template", relation="assortment_item_tmpl_blacklisted"
+    )
+    whitelist_template_ids = fields.Many2many(
+        comodel_name="product.template", relation="assortment_item_tmpl_whitelisted"
+    )
+    blacklist_category_ids = fields.Many2many(
+        comodel_name="product.category", relation="assortment_item_categ_blacklisted"
+    )
+    whitelist_category_ids = fields.Many2many(
+        comodel_name="product.category", relation="assortment_item_categ_whitelisted"
+    )
 
     @api.depends("assortment_filter_id", "assortment_filter_id.model_id")
     @api.onchange("assortment_filter_id")
@@ -39,9 +70,25 @@ class ProductPricelistAssortmentItem(models.Model):
             "product.category": "2_product_category",
         }
         for rec in self:
-            rec.applied_on = model_map.get(
-                rec.assortment_filter_id.model_id, "0_product_variant"
-            )
+            model = rec.assortment_filter_id.model_id
+            rec.applied_on = model_map.get(model, "0_product_variant")
+            if model == "product.product":
+                rec.whitelist_template_ids = False
+                rec.blacklist_template_ids = False
+                rec.whitelist_category_ids = False
+                rec.blacklist_category_ids = False
+            elif model == "product.template":
+                rec.whitelist_template_ids = rec.whitelist_product_ids.product_tmpl_id
+                rec.blacklist_template_ids = rec.blacklist_product_ids.product_tmpl_id
+                rec.whitelist_product_ids = False
+                rec.blacklist_product_ids = False
+                rec.whitelist_category_ids = False
+                rec.blacklist_category_ids = False
+            elif model == "product.category":
+                rec.whitelist_product_ids = False
+                rec.blacklist_product_ids = False
+                rec.whitelist_template_ids = False
+                rec.blacklist_template_ids = False
 
     @api.depends("assortment_filter_id")
     def _compute_name_and_price(self):
@@ -53,8 +100,14 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_pricelist_category_values(self, categs, default_values):
         list_values = []
-        categs |= self.assortment_filter_id.whitelist_category_ids
-        categs -= self.assortment_filter_id.blacklist_category_ids
+        categs |= (
+            self.assortment_filter_id.whitelist_category_ids
+            + self.whitelist_category_ids
+        )
+        categs -= (
+            self.assortment_filter_id.blacklist_category_ids
+            + self.blacklist_category_ids
+        )
         item_ids = set()
         for categ in categs:
             values = default_values.copy()
@@ -72,8 +125,14 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_pricelist_template_values(self, templates, default_values):
         list_values = []
-        templates |= self.assortment_filter_id.whitelist_template_ids
-        templates -= self.assortment_filter_id.blacklist_template_ids
+        templates |= (
+            self.assortment_filter_id.whitelist_template_ids
+            + self.whitelist_template_ids
+        )
+        templates -= (
+            self.assortment_filter_id.blacklist_template_ids
+            + self.blacklist_template_ids
+        )
         item_ids = set()
         for tmpl in templates:
             values = default_values.copy()
@@ -89,11 +148,18 @@ class ProductPricelistAssortmentItem(models.Model):
             item_ids.add(tmpl.id)
         return list_values, item_ids
 
+    def _get_blacklisted_fields(self):
+        return models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD] + BLACKLIST_FIELDS
+
     def _get_pricelist_product_values(self, products, default_values):
         list_values = []
         item_ids = set()
-        products |= self.assortment_filter_id.whitelist_product_ids
-        products -= self.assortment_filter_id.blacklist_product_ids
+        products |= (
+            self.assortment_filter_id.whitelist_product_ids + self.whitelist_product_ids
+        )
+        products -= (
+            self.assortment_filter_id.blacklist_product_ids + self.blacklist_product_ids
+        )
         for product in products:
             values = default_values.copy()
             values.update(
@@ -116,7 +182,7 @@ class ProductPricelistAssortmentItem(models.Model):
         self.ensure_one()
         items = self._get_items_from_assortment()
         # fields to ignore to create pricelist item
-        blacklist = models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD]
+        blacklist = self._get_blacklisted_fields()
         blacklist.extend(["assortment_filter_id", "pricelist_item_ids"])
         default_values = {
             k: self._fields.get(k).convert_to_write(self[k], self)
@@ -130,12 +196,14 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_items_from_assortment(self):
         domain = self.assortment_filter_id._get_eval_domain()
-        if self.company_id:
-            domain = expression.AND(
-                [domain, [("company_id", "in", (self.company_id.id, False))]]
-            )
-        else:
-            domain = expression.AND([domain, [("company_id", "=", False)]])
+        model_obj = self.env[self.assortment_filter_id.model_id]
+        if hasattr(model_obj, "company_id"):
+            if self.company_id:
+                domain = expression.AND(
+                    [domain, [("company_id", "in", (self.company_id.id, False))]]
+                )
+            else:
+                domain = expression.AND([domain, [("company_id", "=", False)]])
         products = self.env[self.assortment_filter_id.model_id].search(domain)
         return products
 

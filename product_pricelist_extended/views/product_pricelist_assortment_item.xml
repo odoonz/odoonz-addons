@@ -8,17 +8,65 @@
         <field name="mode">primary</field>
         <field name="model">product.pricelist.assortment.item</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="before">
+            <xpath expr="//field[@name='compute_price']" position="before">
                 <field
                     name="assortment_filter_id"
                     context="{'product_assortment': True, 'tree_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"
                 />
             </xpath>
+            <xpath expr="//group[@name='pricelist_rule_computation']" position="after">
+                <group name="product_filters" attrs="{'invisible': [('applied_on', '!=', '0_product_variant')]}">
+                    <group name="to_include">
+                        <separator />
+                        <field name="whitelist_product_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Variant" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Products to exclude">
+                        <field name="blacklist_product_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Variant" />
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+                <group name="template_filters" attrs="{'invisible': [('applied_on', '!=', '1_product')]}">
+                    <group name="to_include" string="Templates to include">
+                        <field name="whitelist_template_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Template" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Templates to exclude">
+                        <field name="blacklist_template_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Template" />
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+                <group name="category_filters" attrs="{'invisible': [('applied_on', '!=', '2_product_category')]}">
+                    <group name="to_include" string="Categories to include">
+                        <field name="whitelist_category_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Category" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Categories to exclude">
+                        <field name="blacklist_category_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Category" />
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+            </xpath>
             <xpath expr="//group[@name='pricelist_rule_target']" position="attributes">
                 <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//group[@name='pricelist_rule_target']" position="after">
-                <group name="dummy" />
             </xpath>
         </field>
     </record>

@@ -27,7 +27,7 @@
         <field name="arch" type="xml">
             <form string="Filters">
                 <sheet>
-                    <div class="oe_button_box" name="buttons">
+                    <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button" name="show_products" icon="fa-list" type="object">
                             <div class="o_stat_info">
                                 <field name="record_count" class="o_stat_value" />
@@ -72,7 +72,6 @@
                         </group>
                         <group name="right">
                             <field name="active" widget="boolean_toggle" />
-                            <field name="show_in_filters" widget="boolean_toggle" />
                             <field name="is_assortment" invisible="1" />
                         </group>
                     </group>
@@ -83,58 +82,53 @@
                         <field name="description" />
                     </group>
                     <group name="product_filters" attrs="{'invisible': [('model_id', '!=', 'product.product')]}">
-                        <div name="to_include">
-                            <separator string="Products to include" />
-                            <field name="whitelist_product_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="display_name" string="Variant" />
-                                </tree>
-                            </field>
-                        </div>
-                        <div name="to_exclude">
-                            <separator string="Products to exclude" />
-                            <field name="blacklist_product_ids" nolabel="1">
-                                <tree>
-                                    <field name="display_name" string="Variant" />
-                                </tree>
-                            </field>
-                        </div>
+                        <group name="to_include">
+                        <separator />
+                        <field name="whitelist_product_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Variant" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Products to exclude">
+                        <field name="blacklist_product_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Variant" />
+                            </tree>
+                        </field>
+                    </group>
                     </group>
                     <group name="template_filters" attrs="{'invisible': [('model_id', '!=', 'product.template')]}">
-                        <div name="to_include">
-                            <separator string="Templates to include" />
-                            <field name="whitelist_template_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="display_name" string="Template" />
-                                </tree>
-                            </field>
-                        </div>
-                        <div name="to_exclude">
-                            <separator string="Templates to exclude" />
-                            <field name="blacklist_template_ids" nolabel="1">
-                                <tree>
-                                    <field name="display_name" string="Template" />
-                                </tree>
-                            </field>
-                        </div>
+                        <group name="to_include" string="Templates to include">
+                        <field name="whitelist_template_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Template" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Templates to exclude">
+                        <field name="blacklist_template_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Template" />
+                            </tree>
+                        </field>
+                    </group>
                     </group>
                     <group name="category_filters" attrs="{'invisible': [('model_id', '!=', 'product.category')]}">
-                        <div name="to_include">
-                            <separator string="Categories to include" />
-                            <field name="whitelist_category_ids" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="display_name" string="Category" />
-                                </tree>
-                            </field>
-                        </div>
-                        <div name="to_exclude">
-                            <separator string="Categories to exclude" />
-                            <field name="blacklist_category_ids" nolabel="1">
-                                <tree>
-                                    <field name="display_name" string="Category" />
-                                </tree>
-                            </field>
-                        </div>
+                        <group name="to_include" string="Categories to include">
+                        <field name="whitelist_category_ids" nolabel="1" colspan="4">
+                            <tree editable="bottom">
+                                <field name="display_name" string="Category" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="to_exclude" string="Categories to exclude">
+                        <field name="blacklist_category_ids" nolabel="1" colspan="4">
+                            <tree>
+                                <field name="display_name" string="Category" />
+                            </tree>
+                        </field>
+                    </group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
