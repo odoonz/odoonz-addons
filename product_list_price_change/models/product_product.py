@@ -82,6 +82,7 @@ class ProductProduct(models.Model):
             product.price_extra = price_extra
 
     @api.depends("list_price", "price_extra")
+    @api.depends_context("date")
     def _compute_product_lst_price(self):
         to_uom = None
         if (
