@@ -24,11 +24,12 @@ class ResPartner(models.Model):
         else:
             return today
 
-    def _get_lock_date(self, invoice_date):
+    def _get_lock_date(self, invoice_date, today=None):
+        if today is None:
+            today = fields.Date.context_today(self)
         for partner in self:
             if not partner.enforce_cutoff:
                 continue
-            today = fields.Date.context_today(partner)
             transaction_date = invoice_date
             if transaction_date >= today:
                 continue

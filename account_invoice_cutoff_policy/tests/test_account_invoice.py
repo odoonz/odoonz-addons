@@ -17,7 +17,7 @@ spt = datetime.strptime
 class TestAccountInvoice(common.TransactionCase):
     def setUp(self):
         super().setUp()
-        self.partner = self.env.ref("base.res_partner_1")
+        self.partner = self.env["res.partner"].create({"name": "Test Partner"})
 
     def test_onchange_invoice_date(self):
         invoice = self.env["account.move"].new()

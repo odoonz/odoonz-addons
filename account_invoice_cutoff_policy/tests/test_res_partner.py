@@ -11,7 +11,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 class TestResPartner(common.TransactionCase):
     def setUp(self):
         super().setUp()
-        self.partner = self.env.ref("base.res_partner_1")
+        self.partner = self.env['res.partner'].create({'name': 'Test Partner'})
         self.today = fields.Date.context_today(self.partner)
         self.long_ago = datetime.strptime(
             "2030-12-19", DEFAULT_SERVER_DATE_FORMAT
@@ -86,3 +86,14 @@ class TestResPartner(common.TransactionCase):
         self.assertIn("days", comm_fields)
         self.assertIn("day_type", comm_fields)
         self.assertIn("cutoff_type", comm_fields)
+
+    def test_enforce_cutoff_true_with_zero_days(self):
+        partner = self.env['res.partner'].create({'name': 'Test'})
+        partner.enforce_cutoff = True
+        partner.days = 0
+        partner.day_type = "day"
+        partner.cutoff_type = "eom"
+        today = fields.Date.today() - relativedelta(day=1)
+        invoice_date = today - relativedelta(day=31, months=1)
+        lock_date = partner._get_lock_date(invoice_date, today)
+        self.assertEqual(lock_date, today)
