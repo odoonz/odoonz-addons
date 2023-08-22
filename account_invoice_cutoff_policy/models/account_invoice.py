@@ -12,7 +12,12 @@ class AccountInvoice(models.Model):
         for checking the lock date
         :return: A res.partner recordset
         """
-        return self.commercial_partner_id
+        # NOTE: In practice this we always use this module with account_central_billing but do not want
+        # the modules to depend on each other - so this is a bit hackish
+        partner = self.commercial_partner_id
+        if hasattr(self, "order_partner_id"):
+            partner |= self.order_partner_id
+        return partner
 
     @api.onchange("invoice_date")
     def _onchange_invoice_date(self):
@@ -25,3 +30,10 @@ class AccountInvoice(models.Model):
         if invoice_date and self.move_type.startswith("out_"):
             self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
         return super()._onchange_invoice_date()
+
+    def _get_accounting_date(self, invoice_date, has_tax):
+        new_invoice_date = invoice_date
+        if invoice_date and self.move_type.startswith("out_"):
+            new_invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
+            self.invoice_date = new_invoice_date
+        return super()._get_accounting_date(new_invoice_date, has_tax)
