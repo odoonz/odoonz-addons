@@ -41,7 +41,7 @@ class ProductPricelistAssortmentItem(models.Model):
     # NOTE: If extending with other models, make sure your whitelist/blacklist
     # fields are named in the same way, last word of the model in whitelist_<last>_ids
     # and blacklist_<last>_ids. These are applied in addition to the filter exclusions
-    # for fine grained control
+    # for fine-grained control
     blacklist_product_ids = fields.Many2many(
         comodel_name="product.product", relation="assortment_item_product_blacklisted"
     )
@@ -98,81 +98,85 @@ class ProductPricelistAssortmentItem(models.Model):
                 rec.name = rec.assortment_filter_id.name
         return res
 
-    def _get_pricelist_category_values(self, categs, default_values):
+    @classmethod
+    def _get_blacklisted_fields(cls):
+        return models.MAGIC_COLUMNS + [cls.CONCURRENCY_CHECK_FIELD] + BLACKLIST_FIELDS
+
+    def _update_assortment_items(self):
+        """
+        Update the pricelist with current assortment:
+        - Prepare values for new assortment items;
+        - Delete no longer included items.
+        - Create new assortment items;
+
+        :return: bool
+        """
+        self.ensure_one()
+        if not self.assortment_filter_id.active:
+            _logger.info(
+                "The assortment item %s is ignored because the "
+                "related assortment/filter is not active",
+                self.display_name,
+            )
+            return False
+        self._delete_no_longer_included_items()
+        self._create_new_assortment_items()
+        return True
+
+    def _delete_no_longer_included_items(self):
+        """
+        Delete no longer included items from pricelist
+        """
+        self._get_related_items().unlink()
+
+    def _create_new_assortment_items(self):
+        """
+        Create new assortment items in pricelist
+        """
+        item_obj = self.env["product.pricelist.item"]
+        items_values, item_ids = self._get_pricelist_item_values()
+        for item_value in items_values:
+            item_obj.create(item_value)
+
+    def _get_pricelist_values(self, items, default_values, applied_on, field_name):
         list_values = []
-        categs |= (
-            self.assortment_filter_id.whitelist_category_ids
-            + self.whitelist_category_ids
-        )
-        categs -= (
-            self.assortment_filter_id.blacklist_category_ids
-            + self.blacklist_category_ids
-        )
         item_ids = set()
-        for categ in categs:
+        items |= (
+            self.assortment_filter_id[f"whitelist_{field_name}_ids"]
+            + self[f"whitelist_{field_name}_ids"]
+        )
+        items -= (
+            self.assortment_filter_id[f"blacklist_{field_name}_ids"]
+            + self[f"blacklist_{field_name}_ids"]
+        )
+        for item in items:
             values = default_values.copy()
             values.update(
                 {
                     "pricelist_id": self.pricelist_id.id,
                     "assortment_item_id": self.id,
-                    "applied_on": "2_product_category",
-                    "categ_id": categ.id,
+                    "applied_on": applied_on,
+                    field_name: item.id,
                 }
             )
+            item_ids.add(item.id)
             list_values.append(values)
-            item_ids.add(categ.id)
         return list_values, item_ids
+
+    def _get_pricelist_category_values(self, categs, default_values):
+        return self._get_pricelist_values(
+            categs, default_values, "2_product_category", "categ"
+        )
 
     def _get_pricelist_template_values(self, templates, default_values):
-        list_values = []
-        templates |= (
-            self.assortment_filter_id.whitelist_template_ids
-            + self.whitelist_template_ids
+        return self._get_pricelist_values(
+            templates, default_values, "1_product", "product_tmpl"
         )
-        templates -= (
-            self.assortment_filter_id.blacklist_template_ids
-            + self.blacklist_template_ids
-        )
-        item_ids = set()
-        for tmpl in templates:
-            values = default_values.copy()
-            values.update(
-                {
-                    "pricelist_id": self.pricelist_id.id,
-                    "assortment_item_id": self.id,
-                    "applied_on": "1_product",
-                    "product_tmpl_id": tmpl.id,
-                }
-            )
-            list_values.append(values)
-            item_ids.add(tmpl.id)
-        return list_values, item_ids
-
-    def _get_blacklisted_fields(self):
-        return models.MAGIC_COLUMNS + [self.CONCURRENCY_CHECK_FIELD] + BLACKLIST_FIELDS
 
     def _get_pricelist_product_values(self, products, default_values):
-        list_values = []
-        item_ids = set()
-        products |= (
-            self.assortment_filter_id.whitelist_product_ids + self.whitelist_product_ids
+        return self._get_pricelist_values(
+            products, default_values, "0_product_variant", "product"
         )
-        products -= (
-            self.assortment_filter_id.blacklist_product_ids + self.blacklist_product_ids
-        )
-        for product in products:
-            values = default_values.copy()
-            values.update(
-                {
-                    "pricelist_id": self.pricelist_id.id,
-                    "assortment_item_id": self.id,
-                    "applied_on": "0_product_variant",
-                    "product_id": product.id,
-                }
-            )
-            item_ids.add(product.id)
-            list_values.append(values)
-        return list_values, item_ids
 
     def _get_pricelist_item_values(self):
         """
@@ -210,31 +214,6 @@ class ProductPricelistAssortmentItem(models.Model):
     def _get_related_items(self):
         domain = [("assortment_item_id", "in", self.ids)]
         return self.env["product.pricelist.item"].search(domain)
-
-    def _update_assortment_items(self):
-        """
-        Update the pricelist with current assortment:
-        - Prepare values for new assorment items;
-        - Delete no longer included items.
-        - Create new assortments items;
-
-        :return: bool
-        """
-        self.ensure_one()
-        if not self.assortment_filter_id.active:
-            _logger.info(
-                "The assortment item %s is ignored because the "
-                "related assortment/filter is not active",
-                self.display_name,
-            )
-            return False
-        item_obj = self.env["product.pricelist.item"]
-        items_values, item_ids = self._get_pricelist_item_values()
-        # These items are no longer valid so we remove them
-        self._get_related_items().unlink()
-        for item_value in items_values:
-            item_obj.create(item_value)
-        return True
 
     @api.constrains("product_id", "product_tmpl_id", "categ_id")
     def _check_product_consistency(self):
