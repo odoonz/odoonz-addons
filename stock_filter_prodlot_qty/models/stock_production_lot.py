@@ -35,7 +35,7 @@ class StockProductionLot(models.Model):
                 count=count,
                 access_rights_uid=access_rights_uid,
             )
-        results = self.env["stock.production.lot"]
+        results = self.env["stock.lot"]
         while len(results) < (limit or 1):
             result = super()._search(
                 args,
