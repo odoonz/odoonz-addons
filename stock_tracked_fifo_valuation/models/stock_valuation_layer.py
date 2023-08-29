@@ -5,7 +5,7 @@ class StockValuationLayer(models.Model):
     _inherit = "stock.valuation.layer"
 
     lot_ids = fields.Many2many(
-        "stock.production.lot",
+        "stock.lot",
         compute="_compute_lot_ids",
         string="Serial Numbers",
         store=True,
