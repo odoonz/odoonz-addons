@@ -13,7 +13,10 @@ class AccountJournal(models.Model):
 
     _inherit = "account.journal"
 
-    enforce_lock = fields.Selection([("policy", "Lock Policy"), ("fixed", "Fixed Date"), ("none", "No Lock")], default="none")
+    enforce_lock = fields.Selection(
+        [("policy", "Lock Policy"), ("fixed", "Fixed Date"), ("none", "No Lock")],
+        default="none",
+    )
     days = fields.Integer()
     day_type = fields.Selection([("weekday", "working days"), ("day", "days")])
     months = fields.Integer()
@@ -24,7 +27,7 @@ class AccountJournal(models.Model):
 
     def _is_locked(self, transaction_date):
         self.ensure_one()
-        if self.enforce_lock == "none":
+        if self.enforce_lock in (False, "none"):
             return False
         today = fields.Date.context_today(self)
         if not transaction_date:
@@ -33,7 +36,7 @@ class AccountJournal(models.Model):
         if transaction_date >= today:
             return False
         if self.enforce_lock == "fixed":
-            return not(transaction_date >= self.cutoff_date)
+            return not (transaction_date >= self.cutoff_date)
 
         if self.cutoff_type == "eom":
             transaction_date += relativedelta(day=31)
