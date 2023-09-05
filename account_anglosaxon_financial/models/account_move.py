@@ -70,3 +70,11 @@ class AccountMoveLine(models.Model):
             if accounts:
                 return accounts["expense"]
         return super()._get_computed_account()
+
+    def _eligible_for_cogs(self):
+        self.ensure_one()
+        if self.move_id.anglo_saxon_financial or self.env.context.get(
+            "anglo_saxon_financial"
+        ):
+            return False
+        return super()._eligible_for_cogs()
