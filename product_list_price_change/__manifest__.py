@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/OCA/project",
-    "depends": ["product"],
+    "depends": ["product", "sale"],
     "data": [
         "wizards/product_price_change_wizard.xml",
         "security/ir.model.access.csv",
