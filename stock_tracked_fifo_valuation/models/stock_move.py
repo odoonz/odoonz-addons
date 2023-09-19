@@ -9,9 +9,7 @@ class StockMove(models.Model):
 
     def _action_done(self, cancel_backorder=False):
         if "lots" not in self.env.context:
-            moves_tracked = self.filtered(
-                lambda s: s.product_id.tracking != "none" and not s._context.get("lots")
-            )
+            moves_tracked = self.filtered(lambda s: s.product_id.tracking == "fifo")
             self -= moves_tracked
             for move in moves_tracked:
                 move.with_context(

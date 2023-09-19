@@ -7,6 +7,9 @@ class StockValuationLayer(models.Model):
     lot_ids = fields.Many2many(
         "stock.lot",
         compute="_compute_lot_ids",
+        relation="stock_production_lot_stock_valuation_layer_rel",
+        column1="stock_valuation_layer_id",
+        column2="stock_production_lot_id",
         string="Serial Numbers",
         store=True,
     )

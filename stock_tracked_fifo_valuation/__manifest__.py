@@ -11,5 +11,5 @@
     "website": "https://github.com/OCA/project",
     "depends": ["stock", "stock_account"],
     "data": ["views/stock_valuation_layer.xml"],
-    "installable": False,
+    "installable": True,
 }
