@@ -53,7 +53,7 @@ class AccountMove(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    def _get_computed_account(self):
+    def _compute_account_id(self):
         self.ensure_one()
         if (
             self.product_id.type == "product"
@@ -69,7 +69,7 @@ class AccountMoveLine(models.Model):
             )
             if accounts:
                 return accounts["expense"]
-        return super()._get_computed_account()
+        return super()._compute_account_id()
 
     def _eligible_for_cogs(self):
         self.ensure_one()
