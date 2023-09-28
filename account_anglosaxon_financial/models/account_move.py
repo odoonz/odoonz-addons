@@ -28,7 +28,7 @@ class AccountMove(models.Model):
             if move.move_type in ("in_invoice", "in_refund"):
                 for line in move.invoice_line_ids:
                     if line.product_id:
-                        line.account_id = line._get_computed_account()
+                        line.account_id = line._compute_account_id()
 
     def _stock_account_prepare_anglo_saxon_in_lines_vals(self):
         self = self.filtered(lambda s: not s.anglo_saxon_financial)
