@@ -28,7 +28,7 @@ class AccountMove(models.Model):
             if move.move_type in ("in_invoice", "in_refund"):
                 for line in move.invoice_line_ids:
                     if line.product_id:
-                        line.account_id = line._compute_account_id()
+                        line._compute_account_id()
 
     def _stock_account_prepare_anglo_saxon_in_lines_vals(self):
         self = self.filtered(lambda s: not s.anglo_saxon_financial)
@@ -54,22 +54,25 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     def _compute_account_id(self):
-        self.ensure_one()
-        if (
-            self.product_id.type == "product"
-            and (
-                self.move_id.anglo_saxon_financial
-                or self.env.context.get("anglo_saxon_financial")
+        super()._compute_account_id()
+        if not self.env.context.get("anglo_saxon_financial"):
+            return
+
+        input_lines = self.filtered(
+            lambda line: (
+                line._can_use_stock_accounts()
+                and line.move_id.company_id.anglo_saxon_accounting
+                and line.move_id.is_purchase_document()
             )
-            and self.move_id.company_id.anglo_saxon_accounting
-            and self.move_id.is_purchase_document()
-        ):
-            accounts = self.product_id.product_tmpl_id.get_product_accounts(
-                fiscal_pos=self.move_id.fiscal_position_id
+        )
+        for line in input_lines:
+            line = line.with_company(line.move_id.journal_id.company_id)
+            fiscal_position = line.move_id.fiscal_position_id
+            accounts = line.product_id.product_tmpl_id.get_product_accounts(
+                fiscal_pos=fiscal_position
             )
             if accounts:
-                return accounts["expense"]
-        return super()._compute_account_id()
+                line.account_id = accounts["expense"]
 
     def _eligible_for_cogs(self):
         self.ensure_one()
