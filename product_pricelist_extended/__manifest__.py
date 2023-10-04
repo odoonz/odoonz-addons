@@ -5,7 +5,7 @@
     'name': 'Product Pricelist Filter',
     'description': """
         Allows to use filters on pricelists""",
-    'version': '14.0.2.0.0',
+    'version': '14.0.3.0.0',
     'license': 'AGPL-3',
     'author': 'Graeme Gellatly',
     'website': 'https://o4sb.com',
