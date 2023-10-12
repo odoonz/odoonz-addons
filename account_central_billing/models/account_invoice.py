@@ -31,7 +31,7 @@ class AccountInvoice(models.Model):
     @api.constrains("partner_id", "order_partner_id")
     def check_company(self):
         for record in self:
-            if record.company_id.partner_id.id in [
+            if record.move_type != "entry" and record.company_id.partner_id.id in [
                 record.partner_id.id,
                 record.partner_id.commercial_partner_id.id,
             ]:
