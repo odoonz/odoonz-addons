@@ -54,9 +54,13 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     @api.depends_context("anglo_saxon_financial")
+    @api.depends("move_id.anglo_saxon_financial")
     def _compute_account_id(self):
         super()._compute_account_id()
-        if not self.env.context.get("anglo_saxon_financial"):
+        if (
+            not self.env.context.get("anglo_saxon_financial")
+            or not self.move_id.anglo_saxon_financial
+        ):
             return
 
         input_lines = self.filtered(
