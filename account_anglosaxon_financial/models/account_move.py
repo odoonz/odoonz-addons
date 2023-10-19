@@ -59,7 +59,7 @@ class AccountMoveLine(models.Model):
         super()._compute_account_id()
         if (
             not self.env.context.get("anglo_saxon_financial")
-            or not self.move_id.anglo_saxon_financial
+            and not self.move_id.anglo_saxon_financial
         ):
             return
 
