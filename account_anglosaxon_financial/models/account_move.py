@@ -53,21 +53,15 @@ class AccountMove(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    @api.depends_context("anglo_saxon_financial")
     @api.depends("move_id.anglo_saxon_financial")
     def _compute_account_id(self):
-        super()._compute_account_id()
-        if (
-            not self.env.context.get("anglo_saxon_financial")
-            and not self.move_id.anglo_saxon_financial
-        ):
-            return
-
+        res = super()._compute_account_id()
         input_lines = self.filtered(
             lambda line: (
                 line._can_use_stock_accounts()
                 and line.move_id.company_id.anglo_saxon_accounting
                 and line.move_id.is_purchase_document()
+                and line.move_id.anglo_saxon_financial
             )
         )
         for line in input_lines:
@@ -78,6 +72,7 @@ class AccountMoveLine(models.Model):
             )
             if accounts:
                 line.account_id = accounts["expense"]
+        return res
 
     def _eligible_for_cogs(self):
         self.ensure_one()
