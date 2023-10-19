@@ -53,6 +53,7 @@ class AccountMove(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
+    @api.depends_context("anglo_saxon_financial")
     def _compute_account_id(self):
         super()._compute_account_id()
         if not self.env.context.get("anglo_saxon_financial"):
