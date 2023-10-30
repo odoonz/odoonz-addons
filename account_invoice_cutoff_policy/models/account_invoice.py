@@ -29,6 +29,7 @@ class AccountInvoice(models.Model):
         invoice_date = self.invoice_date
         if invoice_date and self.move_type.startswith("out_"):
             self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
+            self.date = self.invoice_date
         return super()._onchange_invoice_date()
 
     def _get_accounting_date(self, invoice_date, has_tax):
