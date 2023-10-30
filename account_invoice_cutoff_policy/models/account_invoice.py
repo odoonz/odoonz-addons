@@ -21,8 +21,10 @@ class AccountInvoice(models.Model):
         Extends the onchange to assign the invoice date based on the partners
         invoicing policy
         """
-
-        invoice_date = self.invoice_date
-        if invoice_date and self.move_type.startswith("out_"):
-            self.invoice_date = self._get_invoice_partner()._get_lock_date(invoice_date)
+        for invoice in self:
+            invoice_date = invoice.invoice_date
+            if invoice_date and invoice.move_type.startswith("out_"):
+                invoice.invoice_date = invoice._get_invoice_partner()._get_lock_date(
+                    invoice_date
+                )
         return super()._compute_date()
