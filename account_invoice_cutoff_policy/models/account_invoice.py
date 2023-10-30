@@ -27,4 +27,5 @@ class AccountInvoice(models.Model):
                 invoice.invoice_date = invoice._get_invoice_partner()._get_lock_date(
                     invoice_date
                 )
+                invoice.date = invoice.invoice_date
         return super()._compute_date()
