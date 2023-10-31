@@ -9,6 +9,7 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     def _check_fiscalyear_lock_date(self):
+        return
         self = self.filtered(lambda s: s.state != "draft")
         res = super()._check_fiscalyear_lock_date()
         for move in self:

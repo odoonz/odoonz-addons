@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Graeme Gellatly
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="account_move_update_analytic.account_move_form_view">
+        <field name="active" eval="False" />
+    </record>
+
+    <record model="ir.ui.view" id="account_move_update_analytic.account_move_line_tree_view">
+        <field name="active" eval="False" />
+    </record>
+
+        <record id="action_view_sale_advance_payment_inv" model="ir.actions.act_window">
+        <field name="name">Create invoices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.advance.payment.inv</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>
