@@ -170,7 +170,7 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_pricelist_template_values(self, templates, default_values):
         return self._get_pricelist_values(
-            templates, default_values, "1_product", "product_tmpl"
+            templates, default_values, "1_product", "template"
         )
 
     def _get_pricelist_product_values(self, products, default_values):
