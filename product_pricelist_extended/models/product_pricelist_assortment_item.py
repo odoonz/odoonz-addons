@@ -142,11 +142,15 @@ class ProductPricelistAssortmentItem(models.Model):
         list_values = []
         item_ids = set()
         items |= (
-            self.assortment_filter_id[f"whitelist_{field_name}_ids"]
+            self.assortment_filter_id[
+                f"whitelist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+            ]
             + self[f"whitelist_{field_name}_ids"]
         )
         items -= (
-            self.assortment_filter_id[f"blacklist_{field_name}_ids"]
+            self.assortment_filter_id[
+                f"blacklist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+            ]
             + self[f"blacklist_{field_name}_ids"]
         )
         for item in items:
@@ -170,7 +174,7 @@ class ProductPricelistAssortmentItem(models.Model):
 
     def _get_pricelist_template_values(self, templates, default_values):
         return self._get_pricelist_values(
-            templates, default_values, "1_product", "template"
+            templates, default_values, "1_product", "product_tmpl"
         )
 
     def _get_pricelist_product_values(self, products, default_values):
