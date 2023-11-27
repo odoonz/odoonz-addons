@@ -11,12 +11,13 @@ class ProductProduct(models.Model):
 
     manual_code = fields.Boolean(string="Manual code", default=False)
 
-    @api.model
+    @api.model_create_multi
     def create(self, values):
-        product = super().create(values)
-        if product.reference_mask:
-            render_default_code(product, product.reference_mask)
-        return product
+        products = super().create(values)
+        for product in products:
+            if product.reference_mask:
+                render_default_code(product, product.reference_mask)
+        return products
 
     @api.onchange("default_code")
     def onchange_default_code(self):
