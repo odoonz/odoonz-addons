@@ -145,13 +145,17 @@ class ProductPricelistAssortmentItem(models.Model):
             self.assortment_filter_id[
                 f"whitelist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
             ]
-            + self[f"whitelist_{field_name}_ids"]
+            + self[
+                f"whitelist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+            ]
         )
         items -= (
             self.assortment_filter_id[
                 f"blacklist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
             ]
-            + self[f"blacklist_{field_name}_ids"]
+            + self[
+                f"blacklist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+            ]
         )
         for item in items:
             values = default_values.copy()
