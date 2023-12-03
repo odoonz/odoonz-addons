@@ -164,7 +164,7 @@ class ProductPricelistAssortmentItem(models.Model):
                     "pricelist_id": self.pricelist_id.id,
                     "assortment_item_id": self.id,
                     "applied_on": applied_on,
-                    field_name: item.id,
+                    f"{field_name}_id": item.id,
                 }
             )
             item_ids.add(item.id)
