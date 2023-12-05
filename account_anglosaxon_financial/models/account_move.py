@@ -81,3 +81,37 @@ class AccountMoveLine(models.Model):
         ):
             return False
         return super()._eligible_for_cogs()
+
+
+class SaleOrderLine(models.Model):
+    _inherit = "sale.order.line"
+
+    @api.depends("invoice_lines.move_id.state", "invoice_lines.quantity")
+    def _compute_qty_invoiced(self):
+        self = self.with_context(exclude_financial=True)
+        return super()._compute_qty_invoiced()
+
+    def _get_invoice_lines(self):
+        invoice_lines = super()._get_invoice_lines()
+        if self._context.get("exclude_financial"):
+            invoice_lines = invoice_lines.filtered(
+                lambda s: not s.move_id.anglo_saxon_financial
+            )
+        return invoice_lines
+
+
+class PurchaseOrderLine(models.Model):
+    _inherit = "purchase.order.line"
+
+    @api.depends("invoice_lines.move_id.state", "invoice_lines.quantity")
+    def _compute_qty_invoiced(self):
+        self = self.with_context(exclude_financial=True)
+        return super()._compute_qty_invoiced()
+
+    def _get_invoice_lines(self):
+        invoice_lines = super()._get_invoice_lines()
+        if self._context.get("exclude_financial"):
+            invoice_lines = invoice_lines.filtered(
+                lambda s: not s.move_id.anglo_saxon_financial
+            )
+        return invoice_lines
