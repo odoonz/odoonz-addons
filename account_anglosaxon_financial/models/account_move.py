@@ -74,6 +74,11 @@ class AccountMoveLine(models.Model):
                 line.account_id = accounts["expense"]
         return res
 
+    def _onchange_is_landed_costs_line(self):
+        super()._onchange_is_landed_costs_line()
+        if self.is_landed_costs_line:
+            self.move_id.anglo_saxon_financial = True
+
     def _eligible_for_cogs(self):
         self.ensure_one()
         if self.move_id.anglo_saxon_financial or self.env.context.get(
