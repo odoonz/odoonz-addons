@@ -19,7 +19,7 @@ class TestStockFilterProdlotQty(TransactionCase):
                 "product_uom_id": self.env.ref("uom.product_uom_unit").id,
                 "inventory_id": self.inventory.id,
                 "product_qty": 30.0,
-                "prod_lot_id": self.lot0.id,
+                "lot_id": self.lot0.id,
                 "location_id": self.location_components.id,
             }
         )
