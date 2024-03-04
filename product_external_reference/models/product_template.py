@@ -12,6 +12,7 @@ class ProductTemplate(models.Model):
         help="Import File Reference for the primary supplier of this product.",
     )
     external_reference = fields.Char(
+        string="Supplier Reference",
         compute="_compute_external_reference",
         inverse="_inverse_external_reference",
         store=True,
