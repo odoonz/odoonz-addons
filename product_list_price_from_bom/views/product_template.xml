@@ -20,6 +20,9 @@
                 </div>
             </xpath>
             <xpath expr="//div[@name='pricing']" position="inside">
+                <field name="bom_count" invisible="1" groups="!mrp.group_mrp_manager"/>
+                <field name="valuation" invisible="1" groups="!mrp.group_mrp_manager"/>
+                <field name="cost_method" invisible="1" groups="!mrp.group_mrp_manager"/>
                 <button
           name="button_bom_list"
           string="Compute List Price from BoM"
