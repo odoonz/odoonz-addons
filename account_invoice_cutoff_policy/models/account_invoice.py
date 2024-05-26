@@ -29,3 +29,9 @@ class AccountInvoice(models.Model):
                 )
                 invoice.date = invoice.invoice_date
         return super()._compute_date()
+
+    @api.constrains("invoice_date", "date")
+    def _check_invoice_date(self):
+        for inv in self:
+            if inv.date and inv.invoice_date and inv.date > inv.invoice_date:
+                inv.invoice_date = inv.date
