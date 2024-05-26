@@ -25,6 +25,7 @@ class ResPartner(models.Model):
             return today
 
     def _get_lock_date(self, invoice_date):
+        dates = [invoice_date]
         for partner in self:
             if not partner.enforce_cutoff:
                 continue
@@ -47,8 +48,8 @@ class ResPartner(models.Model):
                     dtstart=transaction_date,
                 )[-1].date()
             if transaction_date < today:
-                return partner._get_new_invoice_date(today)
-        return invoice_date
+                dates.append(partner._get_new_invoice_date(today))
+        return max(dates)
 
     @api.model
     def _commercial_fields(self):
