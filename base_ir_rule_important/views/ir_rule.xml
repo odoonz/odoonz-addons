@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Graeme Gellatly
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="ir_rule_form_view">
+        <field name="model">ir.rule</field>
+        <field name="inherit_id" ref="base.view_rule_form" />
+        <field name="priority" eval="99" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='global']" position="after">
+                <field name="important" widget="boolean_toggle" />
+            </xpath>
+            <xpath expr="//div" position="replace">
+                <div>
+                      <p>
+                         Global rules (non group-specific) are restrictions, and cannot be bypassed.<br />
+                         Group Specific Important rules are never combined with their other group specific rules, but
+                          rather combined with all other important rules belonging to the users groups. Each important rule relaxes
+                          other important rules.<br />
+                         Group-specific rules grant additional permissions, but are constrained within the bounds of global and important ones.
+                         The first group rules restrict further the global rules, but can be relaxed by additional group rules.
+                      </p>
+                      <p>
+                        Detailed algorithm:
+                        <ol>
+                          <li
+                            >Global rules are combined together with a logical AND operator, and with the result of the following steps</li>
+                          <li>Important Group-specific rules are combined together with a logical OR operator</li>
+                          <li>Other Group-specific rules are combined together with a logical OR operator</li>
+                          <li
+                            >If user belongs to several groups, the results from step 3 are combined with logical OR operator</li>
+                        </ol>
+                      </p>
+                      <p
+                    >Example: GLOBAL_RULE_1 AND GLOBAL_RULE_2 AND (IMPORTANT_GROUP_A_RULE_1 OR IMPORTANT_GROUP_B_RULE_2) AND ( (GROUP_A_RULE_1 OR GROUP_A_RULE_2) OR (GROUP_B_RULE_1 OR GROUP_B_RULE_2) )</p>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="ir_rule_tree_view">
+        <field name="model">ir.rule</field>
+        <field name="inherit_id" ref="base.view_rule_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-success">important</attribute>
+            </xpath>
+            <xpath expr="//field[@name='domain_force']" position="after">
+                <field name="important" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="ir_rule_search_view">
+        <field name="model">ir.rule</field>
+        <field name="inherit_id" ref="base.view_rule_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='global']" position="after">
+                <filter name="important" string="Important" domain="[('important', '=', True)]" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
