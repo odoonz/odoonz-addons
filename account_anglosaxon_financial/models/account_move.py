@@ -53,7 +53,6 @@ class AccountMove(models.Model):
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    @api.depends("move_id.anglo_saxon_financial")
     def _compute_account_id(self):
         res = super()._compute_account_id()
         input_lines = self.filtered(
