@@ -5,12 +5,12 @@
     "name": "Partner Lock",
     "summary": """
         Lock Partners to prevent editing""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly, O4SB",
     "website": "https://github.com/OCA/project",
     "depends": [],
     "data": ["security/res_partner.xml", "views/res_partner.xml"],
     "demo": [],
-    "installable": True,
+    "installable": False,
 }
