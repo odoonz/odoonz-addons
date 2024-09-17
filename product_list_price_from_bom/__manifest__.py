@@ -5,7 +5,7 @@
     "name": "Product List Price From Bom",
     "summary": """
         Calculates List Price from component retail prices - very much WIP""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/OCA/project",
@@ -15,5 +15,5 @@
         "views/product_product.xml",
         "views/product_template.xml",
     ],
-    "installable": True,
+    "installable": False,
 }
