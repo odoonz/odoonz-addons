@@ -3,7 +3,7 @@
 
 {
     "name": "Account Central Billing",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": " Open for Small Business Ltd",
     "website": "https://github.com/OCA/project",
@@ -12,4 +12,5 @@
     "company to a different company",
     "data": ["views/res_partner.xml", "views/account_invoice.xml"],
     "demo": ["demo/res_partner.xml"],
+    "installable": False,
 }
