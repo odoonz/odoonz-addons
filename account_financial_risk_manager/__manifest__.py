@@ -5,7 +5,7 @@
     "name": "Account Financial Risk Manager",
     "summary": """
         Adds a seperate security group for managing credit releases""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/OCA/project",
@@ -16,5 +16,5 @@
         "views/res_partner_view.xml",
         "wizards/partner_set_risk_wizard.xml",
     ],
-    "installable": True,
+    "installable": False,
 }
