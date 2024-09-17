@@ -5,7 +5,7 @@
     "name": "Product Pricelist Filter",
     "summary": """
         Allows to use filters on pricelists""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/OCA/project",
@@ -19,4 +19,5 @@
         "views/product_pricelist_assortment_item.xml",
         "data/ir_cron.xml",
     ],
+    "installable": False,
 }
