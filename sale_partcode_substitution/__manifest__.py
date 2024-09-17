@@ -3,7 +3,7 @@
 
 {
     "name": "Sale Partcode Replacement",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "category": "Sales & Purchases",
     "summary": "Allows all products of a sale order to be updated by "
@@ -16,4 +16,5 @@
         "security/ir.model.access.csv",
     ],
     "demo": ["demo/product_product.xml"],
+    "installable": False,
 }
