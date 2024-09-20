@@ -14,7 +14,7 @@
     />
         <field name="arch" type="xml">
             <xpath
-        expr="//page[@name='variants']//tree//field[@name='attribute_id']"
+        expr="//page[@name='variants']//list//field[@name='attribute_id']"
         position="after"
       >
                 <field
@@ -26,7 +26,7 @@
         />
             </xpath>
             <xpath
-        expr="//page[@name='variants']//tree//field[@name='value_ids']"
+        expr="//page[@name='variants']//list//field[@name='value_ids']"
         position="attributes"
       >
                 <attribute

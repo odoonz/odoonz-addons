@@ -11,7 +11,7 @@
             <xpath expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']" position="attributes">
                 <attribute name="domain">[('assortment_item_id', '=', False)]</attribute>
             </xpath>
-            <xpath expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/tree" position="inside">
+            <xpath expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/list" position="inside">
                 <field name="assortment_item_id" invisible="1" />
             </xpath>
             <xpath expr="//notebook/page[@name='pricelist_rules']" position="after">
@@ -24,7 +24,7 @@
                         string="Launch assortment update"
                     />
                     <field name="item_assortment_ids" nolabel="1" colspan="2">
-                        <tree>
+                        <list>
                             <field name="assortment_filter_id" />
                             <field name="min_quantity" />
                             <field name="date_start" />
@@ -33,7 +33,7 @@
                             <field name="base" invisible="1" />
                             <field name="price_discount" invisible="1" />
                             <field name="compute_price" invisible="1" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>

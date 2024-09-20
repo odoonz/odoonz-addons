@@ -44,7 +44,7 @@
     >product.attribute.group.tree (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
-            <tree string="Product Attribute Groups" editable="bottom">
+            <list string="Product Attribute Groups" editable="bottom">
                 <field name="name" />
                 <field name="attribute_id" options="{'no_create_edit': True}" />
                 <field
@@ -59,7 +59,7 @@
           string="Duplicate"
           icon="fa-copy"
         />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -69,7 +69,7 @@
   >
         <field name="name">Product Attribute Groups</field>
         <field name="res_model">product.attribute.group</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field
       name="search_view_id"
       ref="product_attribute_group_search_view"

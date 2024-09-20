@@ -56,12 +56,12 @@
                 name="product_line_ids"
                 nolabel="1"
               >
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="product_tmpl_id" />
                                     <field name="percent_change" />
                                     <field name="list_price" />
                                     <field name="state" invisible="1" />
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page name="variant" string="Extra Value Price Changes">
@@ -70,13 +70,13 @@
                 name="variant_line_ids"
                 nolabel="1"
               >
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field
                     name="product_tmpl_attribute_value_id"
                   />
                                     <field name="price_extra" />
                                     <field name="state" invisible="1" />
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page name="delay" string="Implementation Delays">
@@ -85,14 +85,14 @@
                 name="impl_delay_ids"
                 nolabel="1"
               >
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="effective_date" />
                                     <field name="name" />
                                     <field
                     name="included_categories"
                     widget="many2many_tags"
                   />
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page name="description" string="Description">
@@ -134,18 +134,18 @@
     >product.price.change.tree (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="effective_date" />
                 <field name="name" />
                 <field name="state" />
-            </tree>
+            </list>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="product_price_change_act_window">
         <field name="name">Price Changes</field>
         <field name="res_model">product.price.change</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
@@ -166,14 +166,14 @@
             <xpath expr="//notebook" position="inside">
                 <page name="price_change" string="Price History">
                     <field name="price_change_line_ids" colspan="5" nolabel="1">
-                        <tree
+                        <list
               name="price_change_tree"
               decoration-muted="state == 'live'"
             >
                             <field name="effective_date" />
                             <field name="list_price" />
                             <field name="state" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>
