@@ -25,9 +25,9 @@
                 </group>
                 <group string="Products">
                     <field colspan="5" name="product_tmpl_ids" nolabel="1">
-                        <tree>
+                        <list>
                             <field name="name" />
-                        </tree>
+                        </list>
                     </field>
                 </group>
                 <footer>

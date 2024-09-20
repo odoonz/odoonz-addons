@@ -4,7 +4,7 @@
         <field name="name">Substitution Map</field>
         <field name="model">xform.substitution.map</field>
         <field name="arch" type="xml">
-            <tree string="Substitution Maps" editable="top">
+            <list string="Substitution Maps" editable="top">
                 <field
           name="dest_product_id"
           options="{'no_create': True, 'no_open': True}"
@@ -14,7 +14,7 @@
           widget="many2many_tags"
           options="{'no_create': True, 'no_open': True}"
         />
-            </tree>
+            </list>
         </field>
     </record>
 

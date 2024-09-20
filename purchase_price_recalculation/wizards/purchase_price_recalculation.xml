@@ -33,10 +33,10 @@
           name="line_ids"
           nolabel="1"
           colspan="5"
-          mode="tree"
+          mode="list"
           width="800"
         >
-                    <tree string="Order Lines" editable="bottom" create="false">
+                    <list string="Order Lines" editable="bottom" create="false">
                         <field name="name" force_save="1" invisible="1" />
                         <field name="effective_tax_rate" invisible="1" />
                         <field name="product_id" force_save="1" />
@@ -53,7 +53,7 @@
               name="price_total"
               context="{'precision': parent.precision}"
             />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button

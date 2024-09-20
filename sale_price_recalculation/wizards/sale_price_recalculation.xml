@@ -42,10 +42,10 @@
           name="line_ids"
           nolabel="1"
           colspan="5"
-          mode="tree"
+          mode="list"
           width="800"
         >
-                    <tree string="Order Lines" editable="bottom" create="false">
+                    <list string="Order Lines" editable="bottom" create="false">
                         <field
               name="name"
               options="{'no_open': True}"
@@ -67,7 +67,7 @@
               name="price_total"
               context="{'precision': parent.precision}"
             />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button

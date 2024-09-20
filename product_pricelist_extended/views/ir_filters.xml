@@ -15,11 +15,11 @@
     <record id="product_assortment_view_tree" model="ir.ui.view">
         <field name="model">ir.filters</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="model_id" />
                 <field name="name" />
                 <field name="description" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="product_assortment_view_form" model="ir.ui.view">
@@ -85,48 +85,48 @@
                         <group name="to_include">
                         <separator />
                         <field name="whitelist_product_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Variant" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Products to exclude">
                         <field name="blacklist_product_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Variant" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     </group>
                     <group name="template_filters" attrs="{'invisible': [('model_id', '!=', 'product.template')]}">
                         <group name="to_include" string="Templates to include">
                         <field name="whitelist_template_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Template" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Templates to exclude">
                         <field name="blacklist_template_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Template" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     </group>
                     <group name="category_filters" attrs="{'invisible': [('model_id', '!=', 'product.category')]}">
                         <group name="to_include" string="Categories to include">
                         <field name="whitelist_category_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Category" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Categories to exclude">
                         <field name="blacklist_category_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Category" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     </group>
@@ -149,7 +149,7 @@
         <field
             name="view_ids"
             eval="[(5, 0, 0),
-                          (0, 0, {'view_mode': 'tree', 'view_id': ref('product_assortment_view_tree')}),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('product_assortment_view_tree')}),
                           (0, 0, {'view_mode': 'form', 'view_id': ref('product_assortment_view_form')})]"
         />
     </record>

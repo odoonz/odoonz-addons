@@ -11,7 +11,7 @@
             <xpath expr="//field[@name='compute_price']" position="before">
                 <field
                     name="assortment_filter_id"
-                    context="{'product_assortment': True, 'tree_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"
+                    context="{'product_assortment': True, 'list_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"
                 />
             </xpath>
             <xpath expr="//group[@name='pricelist_rule_computation']" position="after">
@@ -19,48 +19,48 @@
                     <group name="to_include">
                         <separator />
                         <field name="whitelist_product_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Variant" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Products to exclude">
                         <field name="blacklist_product_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Variant" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </group>
                 <group name="template_filters" attrs="{'invisible': [('applied_on', '!=', '1_product')]}">
                     <group name="to_include" string="Templates to include">
                         <field name="whitelist_template_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Template" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Templates to exclude">
                         <field name="blacklist_template_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Template" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </group>
                 <group name="category_filters" attrs="{'invisible': [('applied_on', '!=', '2_product_category')]}">
                     <group name="to_include" string="Categories to include">
                         <field name="whitelist_category_ids" nolabel="1" colspan="4">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="display_name" string="Category" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Categories to exclude">
                         <field name="blacklist_category_ids" nolabel="1" colspan="4">
-                            <tree>
+                            <list>
                                 <field name="display_name" string="Category" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </group>
@@ -119,7 +119,7 @@
     <record model="ir.actions.act_window" id="product_pricelist_assortment_item_action">
         <field name="name">Pricelist Assortment Items</field>
         <field name="res_model">product.pricelist.assortment.item</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{'display_pricelist': True}</field>
     </record>
 </odoo>
