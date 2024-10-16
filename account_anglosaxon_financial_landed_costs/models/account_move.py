@@ -11,5 +11,5 @@ class AccountMoveLine(models.Model):
     def _onchange_is_landed_costs_line(self):
         res = super()._onchange_is_landed_costs_line()
         if self.is_landed_costs_line:
-            self.move_id.anglo_saxon_financial = True
+            self.move_id.anglo_saxon_financial = False
         return res

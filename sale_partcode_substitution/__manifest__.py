@@ -9,7 +9,7 @@
     "summary": "Allows all products of a sale order to be updated by "
     "substituting part of their partcode",
     "author": "Open For Small Business Ltd",
-    "website": "https://github.com/OCA/project",
+    "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale"],
     "data": [
         "wizard/sale_partcode_replacement.xml",

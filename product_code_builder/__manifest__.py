@@ -14,7 +14,7 @@
     ],
     "license": "AGPL-3",
     "category": "Product",
-    "website": "https://github.com/OCA/project",
+    "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["product"],
     "data": ["views/product_view.xml", "views/product_attribute_view.xml"],
     "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],

@@ -14,7 +14,8 @@ class AccountMoveReversal(models.TransientModel):
             ("service", "No Stock on Invoice"),
         ],
         string="Impact of Refund",
-        default="financial",
+        help="If you are just correcting a pricing error then select Financial"
+        ", otherwise if stock was returned, use Stock",
     )
     anglo_saxon_accounting = fields.Boolean(related="company_id.anglo_saxon_accounting")
 
@@ -24,9 +25,3 @@ class AccountMoveReversal(models.TransientModel):
             and self.anglo_saxon_refund_type == "financial"
             and self.refund_method == "modify"
         )
-        if is_fin and self.refund_method == "refund":
-            self = self.with_context(no_move_lines=True)
-        res = super().reverse_moves()
-        if is_fin:
-            self.new_move_ids.toggle_financial()
-        return res
