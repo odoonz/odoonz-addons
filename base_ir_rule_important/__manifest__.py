@@ -8,7 +8,7 @@
     "version": "18.0.1.0.0",
     "license": "LGPL-3",
     "author": "Graeme Gellatly",
-    "website": "https://github.com/OCA/project",
+    "website": "https://github.com/odoonz/odoonz-addons",
     "depends": [],
     "data": [
         "views/ir_rule.xml",

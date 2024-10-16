@@ -4,9 +4,7 @@
 <odoo>
 
     <record model="ir.ui.view" id="view_move_form">
-        <field
-      name="name"
-    >account.move.form (in account_anglosaxon_financial)</field>
+        <field name="name">account.move.form (in account_anglosaxon_financial)</field>
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form" />
         <field name="arch" type="xml">
@@ -14,34 +12,28 @@
                 <field name="anglo_saxon_accounting" invisible="1" />
                 <field name="anglo_saxon_financial" invisible="1" />
                 <button
-          name="toggle_financial"
-          type="object"
-          string="Convert to Financial"
-          help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
-          attrs="{'invisible': ['|', '|', '|', ('state', '!=', 'draft'), ('anglo_saxon_accounting', '=', False), ('anglo_saxon_financial', '=', True), ('move_type', '=', 'entry')]}"
-        />
-                <button
-          name="toggle_financial"
-          type="object"
-          string="Convert to Stock"
-          help="Use Financial when stock and stock entries should not be created. A classic example is when providing a customer a price credit"
-          attrs="{'invisible': ['|', '|', '|', ('state', '!=', 'draft'), ('anglo_saxon_accounting', '=', False), ('anglo_saxon_financial', '=', False), ('move_type', '=', 'entry')]}"
-        />
-
+                    name="toggle_financial"
+                    type="object"
+                    invisible="state != 'draft'"
+                    help="Use Financial when stock entries should not be created. A classic example is when providing a customer a price credit"
+                >
+                    <div>
+                        <span invisible="not anglo_saxon_accounting or not anglo_saxon_financial">Change to Stock</span>
+                        <span
+                            invisible="not anglo_saxon_accounting or anglo_saxon_financial or move_type == 'entry'"
+                        >Change to Financial</span>
+                    </div>
+                </button>
             </xpath>
-            <xpath expr="//form/sheet/div[@name='button_box']" position="after">
-                <widget
-          name="web_ribbon"
-          title="Financial Invoice"
-          bg_color="bg-success"
-          attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_invoice','in_invoice'])]}"
-        />
-                <widget
-          name="web_ribbon"
-          title="Price Credit"
-          bg_color="bg-warning"
-          attrs="{'invisible': ['|', ('anglo_saxon_financial', '=', False), ('move_type', 'not in', ['out_refund','in_refund'])]}"
-        />
+            <xpath expr="//header" position="after">
+                <div class="alert alert-info" invisible="not anglo_saxon_financial">
+                    <strong invisible="'refund' not in move_type">Price Credit</strong>
+                    <strong invisible="'invoice' not in move_type">Financial Invoice</strong>
+                </div>
+                <div class="alert alert-success" invisible="anglo_saxon_financial">
+                    <strong invisible="'refund' not in move_type">Stock Credit</strong>
+                    <strong invisible="'invoice' not in move_type">Stock Invoice</strong>
+                </div>
             </xpath>
         </field>
     </record>
@@ -50,57 +42,35 @@
     <!--    or purchase will be financial only. The exception is vendor bills, and this is handled in an onchange the first time a purchase_id-->
     <!--    is added-->
 
-    <record
-    id="account.action_move_in_refund_type"
-    model="ir.actions.act_window"
-  >
+    <record id="account.action_move_in_refund_type" model="ir.actions.act_window">
         <field
-      name="context"
-    >{'default_move_type': 'in_refund', 'default_anglo_saxon_financial': True}</field>
+            name="context"
+        >{'search_default_in_refund': 1, 'default_move_type': 'in_refund', 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record
-    id="account.action_move_out_refund_type"
-    model="ir.actions.act_window"
-  >
+    <record id="account.action_move_out_refund_type" model="ir.actions.act_window">
         <field
-      name="context"
-    >{'default_move_type': 'out_refund', 'default_anglo_saxon_financial': True}</field>
+            name="context"
+        >{'search_default_out_refund': 1, 'default_move_type': 'out_refund', 'display_account_trust': True, 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record
-    id="account.action_move_out_invoice_type"
-    model="ir.actions.act_window"
-  >
+    <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
         <field
-      name="context"
-    >{'default_move_type':'out_invoice', 'default_anglo_saxon_financial': True}</field>
+            name="context"
+        >{'search_default_out_invoice': 1, 'default_move_type':'out_invoice', 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record
-    id="account.action_move_out_receipt_type"
-    model="ir.actions.act_window"
-  >
-        <field
-      name="context"
-    >{'default_move_type':'out_receipt', 'default_anglo_saxon_financial': True}</field>
+    <record id="account.action_move_out_receipt_type" model="ir.actions.act_window">
+        <field name="context">{'default_move_type':'out_receipt', 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record
-    id="account.action_move_in_receipt_type"
-    model="ir.actions.act_window"
-  >
-        <field
-      name="context"
-    >{'default_move_type':'in_receipt', 'default_anglo_saxon_financial': True}</field>
+    <record id="account.action_move_in_receipt_type" model="ir.actions.act_window">
+        <field name="context">{'default_move_type':'in_receipt', 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record
-    id="account.action_move_in_invoice_type"
-    model="ir.actions.act_window"
-  >
+    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
         <field
-      name="context"
-    >{'default_move_type': 'in_invoice', 'default_anglo_saxon_financial': True}</field>
+            name="context"
+        >{'search_default_in_invoice': 1, 'default_move_type': 'in_invoice', 'display_account_trust': True, 'default_anglo_saxon_financial': True}</field>
     </record>
 </odoo>

@@ -1,8 +1,6 @@
 exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
-  ^account_anglosaxon_financial/|
-  ^account_anglosaxon_financial_landed_costs/|
   ^account_cb_icp_glue/|
   ^account_central_billing/|
   ^account_financial_risk_manager/|
@@ -73,7 +71,7 @@ repos:
       - id: oca-fix-manifest-website
         args: ["https://github.com/odoonz/odoonz-addons"]
   - repo: https://github.com/myint/autoflake
-    rev: v1.6.1
+    rev: v2.3.1
     hooks:
       - id: autoflake
         args:
@@ -142,13 +140,13 @@ repos:
           - --settings=.
         exclude: /__init__\.py$
   - repo: https://github.com/PyCQA/flake8
-    rev: 3.9.2
+    rev: 7.1.1
     hooks:
       - id: flake8
         name: flake8
         additional_dependencies: ["flake8-bugbear==21.9.2"]
   - repo: https://github.com/OCA/pylint-odoo
-    rev: 7.0.2
+    rev: v9.1.3
     hooks:
       - id: pylint_odoo
         name: pylint with optional checks

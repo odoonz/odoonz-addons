@@ -4,17 +4,16 @@
 <odoo>
 
     <record model="ir.ui.view" id="view_account_move_reversal">
-        <field
-      name="name"
-    >account.move.reversal.form (in account_anglosaxon_financial)</field>
+        <field name="name">account.move.reversal.form (in account_anglosaxon_financial)</field>
         <field name="model">account.move.reversal</field>
         <field name="inherit_id" ref="account.view_account_move_reversal" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='refund_method']" position="after">
+            <xpath expr="//field[@name='reason']" position="after">
                 <field
-          name="anglo_saxon_refund_type"
-          attrs="{'invisible': ['|', ('refund_method', '!=', 'refund'), ('anglo_saxon_accounting', '=', False)], 'required': ['|', ('refund_method', '=', 'refund'), ('anglo_saxon_accounting', '=', True)]}"
-        />
+                    name="anglo_saxon_refund_type"
+                    invisible="not anglo_saxon_accounting or move_type =='entry'"
+                    required="move_type != 'entry' and anglo_saxon_accounting"
+                />
                 <field name="anglo_saxon_accounting" invisible="1" />
             </xpath>
         </field>

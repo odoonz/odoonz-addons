@@ -8,7 +8,7 @@
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
-    "website": "https://github.com/OCA/project",
+    "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["product", "mrp_account", "product_configurator"],
     "data": [
         "views/mrp_workcenter.xml",
