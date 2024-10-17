@@ -5,12 +5,11 @@
     "name": "Account Central Billing",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
-    "author": " Open for Small Business Ltd",
+    "author": " MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["account", "base"],
     "summary": "This module allows to invoice all sales or purchases for one"
     "company to a different company",
     "data": ["views/res_partner.xml", "views/account_invoice.xml"],
-    "demo": ["demo/res_partner.xml"],
-    "installable": False,
+    "installable": True,
 }

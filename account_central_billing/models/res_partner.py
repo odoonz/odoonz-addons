@@ -40,39 +40,20 @@ class ResPartner(models.Model):
             if len(store_refs) != len(set(store_refs)):
                 raise ValidationError(_("Cannot have duplicate store codes"))
 
-    def _get_invoice_company(self, vals, invoice):
-        if "journal_id" in vals:
-            invoice_company = (
-                self.env["account.journal"].sudo().browse(vals["journal_id"]).company_id
-            )
-        elif invoice:
-            invoice_company = invoice.company_id
-        else:
-            invoice_company = self.env.company
-        return invoice_company
-
-    def get_billing_partner(self, vals, invoice=None):
+    def _get_billing_partner(self, move_type, company):
         self.ensure_one()
-        invoice_type = vals.get(
-            "move_type",
-            invoice.move_type
-            if invoice
-            else self._context.get("move_type", "out_invoice"),
-        )
-        if invoice_type.startswith("out_"):
+        if move_type.startswith("out_"):
             field = "invoicing_partner_id"
-        elif invoice_type.startswith("in_"):
+        elif move_type.startswith("in_"):
             field = "billing_partner_id"
         else:
             return self
-        invoice_company = self._get_invoice_company(vals, invoice)
-        company_partner = invoice_company.partner_id
+        company_partner = company.partner_id
         partner = self
         while partner[field]:
             if partner[field] == company_partner:
                 break
             partner = partner[field]
-
         return partner
 
     @api.model

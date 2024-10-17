@@ -2,7 +2,6 @@ exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
   ^account_cb_icp_glue/|
-  ^account_central_billing/|
   ^account_financial_risk_manager/|
   ^account_invoice_cutoff_policy/|
   ^account_journal_lock_policy/|

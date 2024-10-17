@@ -3,12 +3,14 @@
 
 from unittest import mock
 
+from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests import common
+from odoo.tests import common, tagged
 
 partner_model = "odoo.addons.account_central_billing.models.res_partner.ResPartner"
 
 
+@tagged("post_install", "-at_install")
 class TestAccountInvoice(common.TransactionCase):
     def setUp(self):
         super().setUp()
@@ -20,7 +22,7 @@ class TestAccountInvoice(common.TransactionCase):
                     (
                         "account_type",
                         "=",
-                        'asset_receivable',
+                        "asset_receivable",
                     )
                 ],
                 limit=1,
@@ -48,7 +50,7 @@ class TestAccountInvoice(common.TransactionCase):
         part2 = self.env.ref("base.res_partner_2")
         part3 = self.env.ref("base.res_partner_3")
         with mock.patch(
-            "%s.get_billing_partner" % partner_model, autospec=True
+            "%s._get_billing_partner" % partner_model, autospec=True
         ) as mock_partner:
             mock_partner.return_value = part3
             invoice = self.env["account.move"].create(
@@ -68,10 +70,11 @@ class TestAccountInvoice(common.TransactionCase):
         invoice = self.env["account.move"].create(
             {
                 "partner_id": part4.id,
+                "move_type": "out_invoice",
             }
         )
         with mock.patch(
-            "%s.get_billing_partner" % partner_model, autospec=True
+            "%s._get_billing_partner" % partner_model, autospec=True
         ) as mock_partner:
             mock_partner.return_value = part3
             invoice.write({"partner_id": part2.id})
@@ -87,10 +90,21 @@ class TestAccountInvoice(common.TransactionCase):
             {
                 "partner_id": self.env.ref("base.res_partner_2").id,
                 "move_type": "out_invoice",
+                "company_id": self.company.id,
             }
         )
-        refund_fields = self.env["account.move.reversal"]._prepare_default_reversal(
-            invoice
+        invoice.state = "posted"
+        reversal = (
+            self.env["account.move.reversal"]
+            .with_context(active_model="account.move", active_ids=invoice.ids)
+            .create(
+                {
+                    "date": fields.Date.context_today(invoice),
+                    "reason": "no reason",
+                    "journal_id": invoice.journal_id.id,
+                }
+            )
         )
+        refund_fields = reversal._prepare_default_reversal(invoice)
         self.assertIn("order_partner_id", refund_fields)
         self.assertIn("order_invoice_id", refund_fields)
