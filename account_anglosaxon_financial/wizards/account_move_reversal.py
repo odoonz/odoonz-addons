@@ -13,6 +13,7 @@ class AccountMoveReversal(models.TransientModel):
             ("stock", "Stock Affected"),
             ("service", "No Stock on Invoice"),
         ],
+        default="financial",
         string="Impact of Refund",
         help="If you are just correcting a pricing error then select Financial"
         ", otherwise if stock was returned, use Stock",
