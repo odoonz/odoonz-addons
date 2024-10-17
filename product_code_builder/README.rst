@@ -86,7 +86,7 @@ This module was initially a direct port of the module with the same name from th
 * Serv. Tecnol. Avanzados - Pedro M. Baeza
 * Shine IT(http://www.openerp.cn)
 * Tony Gu <tony@openerp.cn>
-* Graeme Gellatly <graeme@o4sb.com>
+* Graeme Gellatly <graeme@moahub.nz>
 
 The module was then renamed to product_code_builder to replace that module and some functionality ported as well as
 fields renmaed to match.
@@ -99,6 +99,6 @@ fields renmaed to match.
 Maintainer
 ----------
 
-This module is maintained by Open for Small Business Ltd.
+This module is maintained by MoaHub Ltd.
 
-Open for Small Business is a small developer and integrator of Odoo software since 2009.
+MoaHub is a small developer and integrator of Odoo software since 2009.

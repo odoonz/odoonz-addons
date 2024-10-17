@@ -5,7 +5,7 @@
     "name": "Microsoft Graph Oauth Authentication",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
-    "author": "O4SB",
+    "author": "MoaHub",
     "website": "https://github.com/odoonz/odoonz-addons",
     "summary": "Allow users to login using Microsoft Graph.",
     "depends": ["auth_oauth"],

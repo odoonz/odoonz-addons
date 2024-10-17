@@ -8,7 +8,7 @@
     "category": "Sales & Purchases",
     "summary": "Allows all products of a sale order to be updated by "
     "substituting part of their partcode",
-    "author": "Open For Small Business Ltd",
+    "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale"],
     "data": [
