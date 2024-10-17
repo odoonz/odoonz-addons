@@ -18,14 +18,14 @@
                 <group name="product_filters" attrs="{'invisible': [('applied_on', '!=', '0_product_variant')]}">
                     <group name="to_include">
                         <separator />
-                        <field name="whitelist_product_ids" nolabel="1" colspan="4">
+                        <field name="whitelist_product_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
                                 <field name="display_name" string="Variant" />
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Products to exclude">
-                        <field name="blacklist_product_ids" nolabel="1" colspan="4">
+                        <field name="blacklist_product_ids" nolabel="1" colspan="2">
                             <list>
                                 <field name="display_name" string="Variant" />
                             </list>
@@ -34,14 +34,14 @@
                 </group>
                 <group name="template_filters" attrs="{'invisible': [('applied_on', '!=', '1_product')]}">
                     <group name="to_include" string="Templates to include">
-                        <field name="whitelist_template_ids" nolabel="1" colspan="4">
+                        <field name="whitelist_template_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
                                 <field name="display_name" string="Template" />
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Templates to exclude">
-                        <field name="blacklist_template_ids" nolabel="1" colspan="4">
+                        <field name="blacklist_template_ids" nolabel="1" colspan="2">
                             <list>
                                 <field name="display_name" string="Template" />
                             </list>
@@ -50,14 +50,14 @@
                 </group>
                 <group name="category_filters" attrs="{'invisible': [('applied_on', '!=', '2_product_category')]}">
                     <group name="to_include" string="Categories to include">
-                        <field name="whitelist_category_ids" nolabel="1" colspan="4">
+                        <field name="whitelist_category_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
                                 <field name="display_name" string="Category" />
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Categories to exclude">
-                        <field name="blacklist_category_ids" nolabel="1" colspan="4">
+                        <field name="blacklist_category_ids" nolabel="1" colspan="2">
                             <list>
                                 <field name="display_name" string="Category" />
                             </list>
