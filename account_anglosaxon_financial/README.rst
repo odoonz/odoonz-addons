@@ -64,6 +64,6 @@ Contributors
 Maintainer
 ----------
 
-This module is maintained by Open for Small Business Ltd.
+This module is maintained by MoaHub Ltd.
 
-Open for Small Business is a small developer and integrator of Odoo software since 2009.
+MoaHub is a small developer and integrator of Odoo software since 2009.

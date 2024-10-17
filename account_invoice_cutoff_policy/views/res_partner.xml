@@ -4,38 +4,20 @@
 <odoo>
 
     <record model="ir.ui.view" id="view_partner_form">
-        <field
-      name="name"
-    >res.partner.form (in account_invoice_cutoff_policy)</field>
+        <field name="name">res.partner.form (in account_invoice_cutoff_policy)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="account.view_partner_property_form" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='sale']" position="inside">
-                <field
-          name="enforce_cutoff"
-          groups="account.group_account_manager"
-        />
-                <div
-          colspan="2"
-          name="lock_policy"
-          attrs="{'invisible': [('enforce_cutoff', '=', False)]}"
-          groups="account.group_account_manager"
-        >
+                <field name="enforce_cutoff" groups="account.group_account_manager" />
+                <div colspan="2" name="lock_policy" invisible="not enforce_cutoff" groups="account.group_account_manager">
                     Redate invoices
                     <field name="days" class="oe_inline" widget="integer" />
                     <label string=" " for="day_type" />
-                    <field
-            name="day_type"
-            class="oe_inline"
-            attrs="{'required': [('enforce_cutoff', '=', True)]}"
-          />
+                    <field name="day_type" class="oe_inline" required="enforce_cutoff" />
                     <label string=" " for="day_type" />
                     <label string="after" for="cutoff_type" />
-                    <field
-            name="cutoff_type"
-            class="oe_inline"
-            attrs="{'required': [('enforce_cutoff', '=', True)]}"
-          />.
+                    <field name="cutoff_type" class="oe_inline" required="enforce_cutoff" />.
                 </div>
 
             </xpath>
