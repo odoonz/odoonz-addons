@@ -34,14 +34,14 @@
                 </group>
                 <group name="template_filters" attrs="{'invisible': [('applied_on', '!=', '1_product')]}">
                     <group name="to_include" string="Templates to include">
-                        <field name="whitelist_template_ids" nolabel="1" colspan="4">
+                        <field name="whitelist_template_ids" nolabel="1" colspan="2">
                             <tree editable="bottom">
                                 <field name="display_name" string="Template" />
                             </tree>
                         </field>
                     </group>
                     <group name="to_exclude" string="Templates to exclude">
-                        <field name="blacklist_template_ids" nolabel="1" colspan="4">
+                        <field name="blacklist_template_ids" nolabel="1" colspan="2">
                             <tree>
                                 <field name="display_name" string="Template" />
                             </tree>
@@ -50,14 +50,14 @@
                 </group>
                 <group name="category_filters" attrs="{'invisible': [('applied_on', '!=', '2_product_category')]}">
                     <group name="to_include" string="Categories to include">
-                        <field name="whitelist_category_ids" nolabel="1" colspan="4">
+                        <field name="whitelist_category_ids" nolabel="1" colspan="2">
                             <tree editable="bottom">
                                 <field name="display_name" string="Category" />
                             </tree>
                         </field>
                     </group>
                     <group name="to_exclude" string="Categories to exclude">
-                        <field name="blacklist_category_ids" nolabel="1" colspan="4">
+                        <field name="blacklist_category_ids" nolabel="1" colspan="2">
                             <tree>
                                 <field name="display_name" string="Category" />
                             </tree>
