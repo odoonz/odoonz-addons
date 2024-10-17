@@ -1,4 +1,4 @@
-# Copyright 2022 O4SB
+# Copyright 2022 MoaHub
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
@@ -7,7 +7,7 @@
         New "Intracompany User" for executing actions restricted to a single company""",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
-    "author": "O4SB",
+    "author": "MoaHub",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["base"],
     "data": [

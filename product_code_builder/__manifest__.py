@@ -3,14 +3,14 @@
 {
     "name": "Product Variant Default Code",
     "version": "18.0.1.0.0",
-    "author": "O4SB",
+    "author": "MoaHub",
     "contributors": [
         "OdooMRP team",
         "Avanzosc",
         "Serv. Tecnol. Avanzados - Pedro M. Baeza",
         "Shine IT(http://www.openerp.cn)",
         "Tony Gu <tony@openerp.cn>",
-        "Graeme Gellatly <graeme@o4sb.com>",
+        "Graeme Gellatly <graeme@moahub.nz>",
     ],
     "license": "AGPL-3",
     "category": "Product",

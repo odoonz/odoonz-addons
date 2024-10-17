@@ -1,4 +1,4 @@
-# Copyright 2022 Graeme Gellatly, O4SB Ltd
+# Copyright 2022 Graeme Gellatly, MoaHub Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models

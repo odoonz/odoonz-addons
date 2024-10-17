@@ -1,4 +1,4 @@
-# Copyright 2019- Graeme Gellatly <graeme@o4sb.com>
+# Copyright 2019- Graeme Gellatly <graeme@moahub.nz>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import models

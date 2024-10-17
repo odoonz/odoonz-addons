@@ -30,13 +30,13 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Graeme Gellatly <graeme@o4sb.com> (https://o4sb.com)
+* Graeme Gellatly <graeme@moahub.nz> (https://moahub.nz)
 
 Maintainers
 ~~~~~~~~~~~
 
-This module is maintained by the O4SB.
+This module is maintained by the MoaHub.
 
 .. image:: https://odoo-community.org/logo.png
-   :alt: Open For Small Business Ltd
-   :target: https://o4sb.com
+   :alt: MoaHub Ltd
+   :target: https://moahub.nz

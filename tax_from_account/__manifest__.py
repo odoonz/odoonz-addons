@@ -1,4 +1,4 @@
-# Copyright 2017 Open For Small Business Ltd
+# Copyright 2017 MoaHub Ltd
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
@@ -8,7 +8,7 @@
     "used instead.",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Open For Small Business Ltd",
+    "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale", "purchase", "account", "delivery"],
     "installable": False,
