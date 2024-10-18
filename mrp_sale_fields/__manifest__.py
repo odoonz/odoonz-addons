@@ -9,6 +9,6 @@
     "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale_mrp"],
-    "data": ["views/mrp_production.xml", "views/mrp_workorder.xml"],
+    "data": ["views/mrp_production.xml"],
     "installable": False,
 }

@@ -8,23 +8,23 @@
         <field name="model">mrp.production</field>
         <field name="inherit_id" ref="mrp.mrp_production_form_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='company_id']" position="before">
+            <xpath expr="//field[@name='user_id']" position="before">
                 <field name="sale_id" />
                 <field name="partner_id" />
             </xpath>
         </field>
     </record>
 
-    <record id="mrp_production_tree_view" model="ir.ui.view">
-        <field name="name">mrp.production.tree (in mrp_sale_fields)</field>
+    <record id="mrp_production_list_view" model="ir.ui.view">
+        <field name="name">mrp.production.list (in mrp_sale_fields)</field>
         <field name="model">mrp.production</field>
         <field name="inherit_id" ref="mrp.mrp_production_tree_view" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="sale_id" />
+                <field name="sale_id" optional="show"/>
             </xpath>
-            <xpath expr="//field[@name='date_planned_start']" position="after">
-                <field name="partner_id" />
+            <xpath expr="//field[@name='date_start']" position="after">
+                <field name="partner_id" optional="show"/>
             </xpath>
         </field>
     </record>

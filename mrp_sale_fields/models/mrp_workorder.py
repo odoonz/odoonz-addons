@@ -9,4 +9,4 @@ class MrpProduction(models.Model):
     _inherit = "mrp.workorder"
 
     sale_id = fields.Many2one(related="production_id.sale_id", store=True)
-    partner_id = fields.Many2one(related="production_id.partner_id", store=True)
+    partner_id = fields.Many2one(related="production_id.sale_id.partner_id", store=True)

@@ -26,12 +26,8 @@
                 <field name="partner_id" />
             </field>
             <xpath expr="//li" position="before">
-                <li t-if="sale_id"><strong>Sale Order: </strong><t
-            t-esc="sale_id[1]"
-          /></li>
-                <li t-if="partner_id"><strong>Customer: </strong><t
-            t-esc="partner_id[1]"
-          /></li>
+                <li t-if="sale_id"><strong>Sale Order: </strong><t t-esc="sale_id[1]" /></li>
+                <li t-if="partner_id"><strong>Customer: </strong><t t-esc="partner_id[1]" /></li>
             </xpath>
         </field>
     </record>
@@ -46,12 +42,8 @@
                 <field name="partner_id" />
             </field>
             <xpath expr="//li" position="before">
-                <li t-if="sale_id"><strong>Sale Order: </strong><t
-            t-esc="sale_id[1]"
-          /></li>
-                <li t-if="partner_id"><strong>Sale Order: </strong><t
-            t-esc="partner_id[1]"
-          /></li>
+                <li t-if="sale_id"><strong>Sale Order: </strong><t t-esc="sale_id[1]" /></li>
+                <li t-if="partner_id"><strong>Sale Order: </strong><t t-esc="partner_id[1]" /></li>
             </xpath>
         </field>
     </record>
