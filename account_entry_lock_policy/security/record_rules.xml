@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- security/record_rules.xml -->
+<odoo>
+    <!-- Rule: Allow read access to all account.lock.policy records -->
+    <record id="account_lock_policy_rule_read" model="ir.rule">
+        <field name="name">account.lock.policy: read access</field>
+        <field name="model_id" ref="model_account_lock_policy" />
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+        <field name="groups" eval="[(4, ref('account.group_account_manager'))]" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <!-- Rule: Allow create, write and unlink if record has company set -->
+    <record id="account_lock_policy_rule_create_unlink" model="ir.rule">
+        <field name="name">account.lock.policy: create and unlink</field>
+        <field name="model_id" ref="model_account_lock_policy" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('account.group_account_manager'))]" />
+        <field name="perm_read" eval="0" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+        <!-- Rule: Free access for system administrators -->
+    <record id="account_lock_policy_rule_system_admin" model="ir.rule">
+        <field name="name">account.lock.policy: free access for system administrators</field>
+        <field name="model_id" ref="model_account_lock_policy" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>

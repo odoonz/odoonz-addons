@@ -1,8 +1,8 @@
 exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
+  ^account_entry_lock_policy/|
   ^account_financial_risk_manager/|
-  ^account_journal_lock_policy/|
   ^account_supplier_tax_rounding/|
   ^auth_oauth_microsoft_graph/|
   ^base_intracompany_user/|

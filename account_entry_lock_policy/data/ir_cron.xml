@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- data/cron.xml -->
+<odoo>
+    <record id="ir_cron_update_lock_dates" model="ir.cron">
+        <field name="name">Update Lock Dates</field>
+        <field name="model_id" ref="model_account_lock_policy" />
+        <field name="state">code</field>
+        <field name="code">model._cron_update_lock_dates()</field>
+        <field name="active" eval="True" />
+        <field name="interval_number">3</field>
+        <field name="interval_type">hours</field>
+    </record>
+</odoo>
