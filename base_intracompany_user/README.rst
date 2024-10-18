@@ -2,7 +2,8 @@
 Base Intracompany User
 ======================
 
-New "Intracompany User" for executing actions restricted to a single company
+New "Intracompany User" for executing actions restricted to a single company. The use case is usually
+within automation or company specific things that need to be from a company restricted user.
 
 Configuration
 =============
