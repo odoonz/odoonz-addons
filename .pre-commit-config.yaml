@@ -5,7 +5,6 @@ exclude: |
   ^account_financial_risk_manager/|
   ^auth_oauth_microsoft_graph/|
   ^base_ir_rule_important/|
-  ^hr_expense_report_attachment/|
   ^mail_no_subscribe_notify/|
   ^mrp_dynamic_line/|
   ^mrp_sale_fields/|
