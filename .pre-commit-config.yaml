@@ -4,7 +4,6 @@ exclude: |
   ^account_entry_lock_policy/|
   ^account_financial_risk_manager/|
   ^auth_oauth_microsoft_graph/|
-  ^base_intracompany_user/|
   ^base_ir_rule_important/|
   ^hr_expense_report_attachment/|
   ^mail_no_subscribe_notify/|
