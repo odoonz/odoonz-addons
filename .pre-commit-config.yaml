@@ -3,7 +3,6 @@ exclude: |
   # NOT INSTALLABLE ADDONS
   ^account_entry_lock_policy/|
   ^account_financial_risk_manager/|
-  ^account_supplier_tax_rounding/|
   ^auth_oauth_microsoft_graph/|
   ^base_intracompany_user/|
   ^base_ir_rule_important/|
