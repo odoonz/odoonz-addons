@@ -17,17 +17,13 @@ class AccountTax(models.Model):
         is_refund=False,
         handle_price_include=True,
         include_caba_tags=False,
-        fixed_multiplicator=1,
+        rounding_method=None,
     ):
         """Intercept call to compute all, to set context key to rounding
         method set on supplier then call super
         """
-        if (
-            partner
-            and partner.tax_calc_method == "round_per_line"
-            and self.filtered(lambda t: t.type_tax_use == "purchase")
-        ):
-            self = self.with_context(round=True)
+        if partner and self._is_purchase_tax():
+            rounding_method = partner.tax_calc_method
         return super().compute_all(
             price_unit,
             currency=currency,
@@ -37,5 +33,8 @@ class AccountTax(models.Model):
             is_refund=is_refund,
             handle_price_include=handle_price_include,
             include_caba_tags=include_caba_tags,
-            fixed_multiplicator=fixed_multiplicator,
+            rounding_method=rounding_method,
         )
+
+    def _is_purchase_tax(self):
+        return self.filtered(lambda t: t.type_tax_use == "purchase")

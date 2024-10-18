@@ -31,7 +31,7 @@ invoices are automatically calculated using the tax configuration.
 Known issues / Roadmap
 ======================
 
-* Only works if company policy is set to round globally
+* Not tested if company policy is set to round per line (but changes to compute_all suggest it might work, let us know)
 
 Bug Tracker
 ===========
