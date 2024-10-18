@@ -10,7 +10,7 @@ from odoo.tests import common
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-class TestResPartner(common.TransactionCase):
+class TestLockPolicy(common.TransactionCase):
     def setUp(self):
         super().setUp()
         self.journal = self.env["account.journal"].search(
@@ -20,7 +20,7 @@ class TestResPartner(common.TransactionCase):
         self.days = 7
 
     def test_is_locked_normal(self):
-        self.journal.write({"enforce_lock": 'none'})
+        self.journal.write({"enforce_lock": "none"})
         test_date = datetime.strptime("2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
         self.assertFalse(self.journal._is_locked(test_date))
         self.assertFalse(self.journal._is_locked(False))
@@ -29,7 +29,7 @@ class TestResPartner(common.TransactionCase):
         # Journal Transactions can be no older than 1mo 7 weekdays
         self.journal.write(
             {
-                "enforce_lock": 'policy',
+                "enforce_lock": "policy",
                 "days": self.days,
                 "months": 1,
                 "day_type": "weekday",
@@ -46,7 +46,7 @@ class TestResPartner(common.TransactionCase):
     def test_is_locked_days(self):
         self.journal.write(
             {
-                "enforce_lock": 'policy',
+                "enforce_lock": "policy",
                 "days": self.days,
                 "months": 1,
                 "day_type": "day",
@@ -65,7 +65,7 @@ class TestResPartner(common.TransactionCase):
         # until x days into month
         self.journal.write(
             {
-                "enforce_lock": 'policy',
+                "enforce_lock": "policy",
                 "days": 0,
                 "months": 1,
                 "day_type": "day",
@@ -86,7 +86,7 @@ class TestResPartner(common.TransactionCase):
     def test_is_locked_fixed(self):
         self.journal.write(
             {
-                "enforce_lock": 'fixed',
+                "enforce_lock": "fixed",
                 "cutoff_date": self.today,
             }
         )

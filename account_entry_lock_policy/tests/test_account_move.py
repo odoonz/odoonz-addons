@@ -12,9 +12,7 @@ class TestAccountMove(common.TransactionCase):
         super().setUp()
 
     def test_get_lock_date_fail(self):
-        journal = self.env["account.journal"].search(
-            [("type", "=", "bank")], limit=1
-        )
+        journal = self.env["account.journal"].search([("type", "=", "bank")], limit=1)
         with mock.patch.object(type(journal), "_is_locked", return_value=True):
             with self.assertRaises(UserError):
                 company_id = self.env["res.users"].browse(self.env.uid).company_id.id
