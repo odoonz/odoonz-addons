@@ -9,17 +9,23 @@
         <field name="inherit_id" ref="base.view_res_partner_filter" />
         <field name="arch" type="xml">
             <filter name="inactive" position="after">
-                <filter
-          string="Locked"
-          name="locked"
-          domain="[('is_locked', '=', True)]"
-        />
-                <filter
-          string="Unlocked"
-          name="unlocked"
-          domain="[('is_locked', '=', False)]"
-        />
+                <filter string="Locked" name="locked" domain="[('is_locked', '=', True)]" />
+                <filter string="Unlocked" name="unlocked" domain="[('is_locked', '=', False)]" />
             </filter>
+        </field>
+    </record>
+
+    <record id="res_partner_view_form" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit.hr</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-info" invisible="not is_locked">
+                    <strong
+                    >This partner is locked. If you need to edit it, please contact an administrator or locked partner records manager</strong>
+                </div>
+            </xpath>
         </field>
     </record>
 
@@ -36,10 +42,7 @@
 
     <record id="action_lock_partner" model="ir.actions.server">
         <field name="name">Lock Partner</field>
-        <field
-      name="groups_id"
-      eval="[(4, ref('partner_lock.group_res_partner_unlock'))]"
-    />
+        <field name="groups_id" eval="[(4, ref('partner_lock.group_res_partner_unlock'))]" />
         <field name="model_id" ref="model_res_partner" />
         <field name="binding_model_id" ref="model_res_partner" />
         <field name="state">code</field>

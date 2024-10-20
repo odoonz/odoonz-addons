@@ -9,7 +9,6 @@ exclude: |
   ^mrp_dynamic_line/|
   ^mrp_sale_fields/|
   ^mrp_sale_fields_enterprise/|
-  ^partner_lock/|
   ^price_recalculation/|
   ^product_attribute_group/|
   ^product_code_builder/|
