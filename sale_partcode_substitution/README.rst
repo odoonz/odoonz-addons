@@ -30,13 +30,14 @@ To use this module, you need to:
 #. Open a sales order.
 #. From the more menu click 'Substitute Partcodes'
 #. Enter the portion of partcode you wish to replace and what you wish to replace with.
+#. Choose whether to keep or replace manual pricing
 #. Click Substitute.
 #. The sale order will update the partcodes and pricing, based on the pricelist of the order.
 
 Known issues / Roadmap
 ======================
 
-* Currently no easy way to apply global exclusions to all affected templates.
+
 
 Bug Tracker
 ===========

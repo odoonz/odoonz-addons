@@ -9,18 +9,22 @@
                 <group>
                     <group>
                         <field name="from_code" />
+                        <field name="to_code" />
                     </group>
                     <group>
-                        <field name="to_code" />
+                        <field name="keep_manual_pricing" widget="boolean_toggle" />
+                        <a
+                            colspan="2"
+                            invisible="keep_manual_pricing"
+                        >All pricing for which a substitute code is found will have pricing updated including lines that were manually priced</a>
+                        <a
+                            colspan="2"
+                            invisible="not keep_manual_pricing"
+                        >Only pricing for which a substitute code is found and was not manually priced will have pricing updated</a>
                     </group>
                 </group>
                 <footer>
-                    <button
-            name="change_products_partcode"
-            string="Substitute"
-            type="object"
-            class="oe_highlight"
-          />
+                    <button name="change_products_partcode" string="Substitute" type="object" class="oe_highlight" />
                     <button name="cancel" string="Discard" special="cancel" />
                 </footer>
             </form>

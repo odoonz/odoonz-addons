@@ -18,7 +18,6 @@ exclude: |
   ^product_pricelist_extended/|
   ^purchase_price_recalculation/|
   ^sale_financial_risk_enforce/|
-  ^sale_partcode_substitution/|
   ^sale_price_recalculation/|
   ^stock_filter_prodlot_qty/|
   ^stock_prodlot_qty/|

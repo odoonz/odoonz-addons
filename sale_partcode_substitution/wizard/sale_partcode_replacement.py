@@ -11,10 +11,39 @@ class SaleCodeReplacement(models.TransientModel):
 
     from_code = fields.Char("From", default="???", required=True)
     to_code = fields.Char("To", default="???", required=True)
+    keep_manual_pricing = fields.Boolean(default=True)
+
+    def _browse_calling_record(self):
+        return self.env[self._context["active_model"]].browse(
+            self._context["active_id"]
+        )
 
     def change_products_partcode(self):
         self.ensure_one()
-        sale = self.env["sale.order"].browse(self._context["active_id"])
+        sale = self._browse_calling_record()
+        self._check_sale_valid_state(sale)
+        keep_manual = self.keep_manual_pricing
+        for line in sale.order_line:
+            replacement_product = self._find_replacement_product(line)
+            if replacement_product:
+                if not keep_manual:
+                    line.technical_price_unit = 0.0
+                line.product_id = replacement_product
+        return {"type": "ir.actions.act_window_close"}
+
+    def _find_replacement_product(self, line):
+        if not line.product_id:
+            return False
+        existing_code = line.product_id.default_code
+        if self.from_code in existing_code:
+            replacement_code = existing_code.replace(self.from_code, self.to_code)
+            replacement_product = self.env["product.product"].search(
+                [("default_code", "=", replacement_code)]
+            )
+            return replacement_product[:1]
+        return False
+
+    def _check_sale_valid_state(self, sale):
         if sale.state not in ["draft", "sent"]:
             raise ValidationError(
                 _(
@@ -22,19 +51,3 @@ class SaleCodeReplacement(models.TransientModel):
                     'the Sales Order is in "Quotation" state!'
                 )
             )
-
-        prod_pool = self.env["product.product"]
-
-        for line in sale.order_line:
-            if line.product_id:
-                old_part = line.product_id.default_code
-                if old_part.find(self.from_code) != -1:
-                    new_partcode = old_part.replace(self.from_code, self.to_code)
-                    new_part = prod_pool.search([("default_code", "=", new_partcode)])
-                    if new_part:
-                        self._finalize_vals(line, new_part[0])
-                        line.product_id = new_part[0]
-        return {"type": "ir.actions.act_window_close"}
-
-    def _finalize_vals(self, line, product):
-        return {"product_id": product.id}

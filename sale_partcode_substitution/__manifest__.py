@@ -16,5 +16,4 @@
         "security/ir.model.access.csv",
     ],
     "demo": ["demo/product_product.xml"],
-    "installable": False,
 }
