@@ -12,7 +12,6 @@ exclude: |
   ^price_recalculation/|
   ^product_attribute_group/|
   ^product_code_builder/|
-  ^product_external_reference/|
   ^product_list_price_change/|
   ^product_list_price_from_bom/|
   ^product_no_translation/|

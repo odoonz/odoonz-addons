@@ -20,9 +20,7 @@ class ProductTemplate(models.Model):
 
     @api.depends("product_variant_ids", "product_variant_ids.external_reference")
     def _compute_external_reference(self):
-        unique_variants = self.filtered(
-            lambda template: len(template.product_variant_ids) == 1
-        )
+        unique_variants = self.filtered(lambda tmpl: len(tmpl.product_variant_ids) == 1)
         for template in unique_variants:
             template.external_reference = (
                 template.product_variant_ids.external_reference
