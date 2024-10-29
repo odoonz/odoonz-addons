@@ -23,7 +23,7 @@ class PriceRecalculation(models.AbstractModel):
         default=lambda s: s.env["decimal.precision"].precision_get("Account"),
         help="The number of decimal places to use for the unit price",
     )
-    date_order = fields.Date("Reprice as at", required=True)
+    as_at_date = fields.Date("Reprice as at", required=True)
 
     @staticmethod
     def _get_lines(obj):
@@ -44,17 +44,14 @@ class PriceRecalculation(models.AbstractModel):
         if "line_ids" in flds:
             res.update(line_ids=self._get_lines(obj))
         if "date_order" in flds:
-            res.update(date_order=obj.date_order)
+            res.update(as_at_date=obj.date_order)
         return res
 
     @api.onchange("total", "tax_incl")
     def _onchange_balance_to_total(self):
         if not self.total:
             return
-        if self.tax_incl:
-            fld = "price_total"
-        else:
-            fld = "price_subtotal"
+        fld = "price_total" if self.tax_incl else "price_subtotal"
         running_total = self.total
         running_lines_total = sum([x[fld] for x in self.line_ids])
         lowest_qty = (None, float("inf"))
@@ -66,7 +63,7 @@ class PriceRecalculation(models.AbstractModel):
             try:
                 price = line[fld] / line.qty * weight
             except ZeroDivisionError:
-                price = 0.0
+                price = line.price_unit
             else:
                 running_lines_total -= line[fld]
             if fld == "price_total":
@@ -116,16 +113,10 @@ class PriceRecalculation(models.AbstractModel):
         """Allow to set a custom context by model - hook method"""
         return {}
 
-    def update_pricelist_lines(self, pricelist_id=False):
-        if not pricelist_id:
+    def update_pricelist_lines(self, pricelist=False):
+        if not pricelist:
             return
         self.ensure_one()
-        prices = {}
+        pricelist = pricelist.with_context(**self._set_context())
         for line in self.line_ids.with_context(**self._set_context()):
-            line.price_unit = pricelist_id.with_context(**self._set_context())._get_product_price(
-            line.product_id,
-            line.qty,
-            date=self.date_order,
-        )
-            line.price_subtotal = line.price_unit * line.qty
-            line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
+            line._update_pricing(self.as_at_date, pricelist)
