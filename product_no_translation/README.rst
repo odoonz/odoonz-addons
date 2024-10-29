@@ -2,13 +2,13 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===========================
-Account Journal Lock Policy
-===========================
+======================
+Product No Translation
+======================
 
-Allows to specify a lock date policy at the journal level.  The policy can be based
-either on the transaction date or the end of month and can be any number of months,
-days, or weekdays in the future.
+Technical module which removes translations on most product related fields. For people who
+don't require it is slightly more performant and much less problematic if using for example
+en_AU and en_US.
 
 Installation
 ============
@@ -18,22 +18,7 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-There are no special configuration instructions for this module.
-
-Usage
-=====
-
-Go to Accounting -> Settings -> Journals
-Under Advanced Settings check enforce lock and complete policy.
-
-Note the policy is exclusive, so if you specified 3 days after end of month, then transactions
-on the 3rd for the prior month would not be allowed.
-
-Known issues / Roadmap
-======================
-
-* Currently no tests.
-* Using negatives has not been tested and no validation around that.
+There are no specific configuration options in this module.
 
 Bug Tracker
 ===========
