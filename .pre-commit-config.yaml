@@ -20,7 +20,6 @@ exclude: |
   ^sale_price_recalculation/|
   ^stock_filter_prodlot_qty/|
   ^stock_prodlot_qty/|
-  ^stock_tracked_fifo_valuation/|
   ^stock_warehouse_address/|
   ^tax_from_account/|
   # END NOT INSTALLABLE ADDONS
