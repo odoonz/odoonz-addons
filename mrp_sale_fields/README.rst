@@ -21,7 +21,7 @@ There are no special installation instructions for this module.
 Configuration
 =============
 
-In odoo 14 Replenish on Order (MTO) is archived. To re-enable it, go to Inventory App -> Configuration
+In odoo 14+ Replenish on Order (MTO) is archived. To re-enable it, go to Inventory App -> Configuration
 -> Warehouse -> Select a warehouse -> Routes (Button at right up corner), and select archived in Filters.
 Choose the Replenish on Order (MTO) and unarchive it.
 
@@ -33,8 +33,8 @@ None
 Known issues / Roadmap
 ======================
 
-Due to changes in version 12, this module has been entirely and quickly
-rewritten so should be considered beta
+sale_mrp uses a broken procurement chain. We try to fix here but will adapt once that gets fixed.
+
 
 Bug Tracker
 ===========

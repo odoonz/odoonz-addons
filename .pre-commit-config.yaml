@@ -6,7 +6,6 @@ exclude: |
   ^base_ir_rule_important/|
   ^mail_no_subscribe_notify/|
   ^mrp_dynamic_line/|
-  ^mrp_sale_fields/|
   ^mrp_sale_fields_enterprise/|
   ^price_recalculation/|
   ^product_attribute_group/|
