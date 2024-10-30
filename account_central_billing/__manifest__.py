@@ -11,5 +11,4 @@
     "summary": "This module allows to invoice all sales or purchases for one"
     "company to a different company",
     "data": ["views/res_partner.xml", "views/account_invoice.xml"],
-    "installable": True,
 }
