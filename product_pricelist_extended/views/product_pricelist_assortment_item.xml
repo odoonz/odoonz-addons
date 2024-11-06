@@ -14,6 +14,16 @@
                     context="{'product_assortment': True, 'tree_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"
                 />
             </xpath>
+<!--            Because we inherit from pricelist.item view, there are some conditions that do not apply to assortments-->
+            <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
             <xpath expr="//group[@name='pricelist_rule_computation']" position="after">
                 <group name="product_filters" attrs="{'invisible': [('applied_on', '!=', '0_product_variant')]}">
                     <group name="to_include">
@@ -66,7 +76,7 @@
                 </group>
             </xpath>
             <xpath expr="//group[@name='pricelist_rule_target']" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="invisible">0</attribute>
             </xpath>
         </field>
     </record>
