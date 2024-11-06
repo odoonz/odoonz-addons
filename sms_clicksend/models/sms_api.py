@@ -1,6 +1,7 @@
 # Copyright 2024 Moahub Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import ast
 import logging
 
 import clicksend_client
@@ -32,27 +33,29 @@ class SmsApi(models.AbstractModel):
         configuration.password = account.sms_clicksend_password
         sms_api = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
         sms_message = SmsMessage(source="odoo", to=number, body=message)
-        _logger.info("Sending SMS:", sms_message)
+        _logger.info(f"Sending SMS: {sms_message}")
         try:
             sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])
             api_response = sms_api.sms_send_post(sms_messages)
-            _logger.info("API response:", api_response)
+            _logger.info(f"API response: {api_response}")
+            # That actually returns a stringified Python dictionary...
+            api_response = ast.literal_eval(api_response)
             if api_response["response_code"] == "SUCCESS":
                 # E.g. unregistered country could be successful but blocked
-                if api_response["response_code"].get("blocked_count") == 1:
+                if api_response["data"].get("blocked_count") == 1:
                     try:
                         reason = api_response["data"]["messages"][0]["status"]
                     except (KeyError, IndexError):
                         reason = "BLOCKED"
-                    self.set_error_detail(reason)
+                    self._set_error_detail(sms_id, reason)
                     return "server_error"
                 else:
                     return "success"
             else:
-                self.set_error_detail(api_response["response_msg"])
+                self._set_error_detail(sms_id, api_response["response_msg"])
                 return "server_error"
         except ApiException as e:
-            self.set_error_details(e)
+            self._set_error_details(sms_id, e)
             return "server_error"
 
     def _is_sent_with_clicksend(self):
