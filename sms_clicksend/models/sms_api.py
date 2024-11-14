@@ -41,16 +41,12 @@ class SmsApi(models.AbstractModel):
             # That actually returns a stringified Python dictionary...
             api_response = ast.literal_eval(api_response)
             if api_response["response_code"] == "SUCCESS":
-                # E.g. unregistered country could be successful but blocked
-                if api_response["data"].get("blocked_count") == 1:
-                    try:
-                        reason = api_response["data"]["messages"][0]["status"]
-                    except (KeyError, IndexError):
-                        reason = "BLOCKED"
-                    self._set_error_detail(sms_id, reason)
-                    return "server_error"
-                else:
+                message_status = api_response["data"]["messages"][0]["status"]
+                if message_status == "SUCCESS":
                     return "success"
+                else:
+                    self._set_error_detail(sms_id, message_status)
+                    return "server_error"
             else:
                 self._set_error_detail(sms_id, api_response["response_msg"])
                 return "server_error"
