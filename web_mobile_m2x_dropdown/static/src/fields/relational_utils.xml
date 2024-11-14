@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="web_mobile)m2x_dropdown.Many2XAutocomplete"
+        t-inherit="web.Many2XAutocomplete"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div" position="replace">
+    <div class="o_input_dropdown" t-ref="autocomplete_container">
+        <!-- don't use search view select in mobile view for -->
+        <AutoComplete
+                    value="props.value"
+                    id="props.id"
+                    placeholder="props.placeholder"
+                    sources="sources"
+                    autoSelect="props.autoSelect"
+                    onSelect.bind="onSelect"
+                    onInput.bind="onInput"
+                    onChange.bind="onChange"
+                />
+        <a role="button" class="o_dropdown_button" draggable="false" />
+    </div>
+
+        </xpath>
+    </t>
+
+</templates>
