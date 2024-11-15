@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="discuss_email_send.Composer" t-inherit="mail.Composer" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-if='composerView.isExpandable']" position="after">
+            <t t-if="composerView.isInDiscuss">
+                <div class="o_Composer_secondaryToolButtons">
+                    <button
+                        class="o_Composer_button o_Composer_buttonFullComposer o_Composer_toolButton btn btn-light fa fa-expand mx-1 border-0 rounded-pill bg-view"
+                        t-att-class="{ 'o-isDeviceSmall': messaging.device.isSmall }"
+                        title="Full composer"
+                        aria-label="Full composer"
+                        type="button"
+                        t-on-click="composerView.onClickFullComposer"
+                    />
+                </div>
+            </t>
+        </xpath>
+
+    </t>
+</templates>
