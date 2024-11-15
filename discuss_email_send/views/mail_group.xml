@@ -6,7 +6,12 @@
         <field name="inherit_id" ref="mail_group.mail_group_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button type="object" name="button_convert_to_discuss" string="Convert to Discuss Channel" />
+                <button
+                    type="object"
+                    name="button_convert_to_discuss"
+                    string="Convert to Discuss Channel"
+                    groups="base.group_no_one"
+                />
             </xpath>
         </field>
     </record>
