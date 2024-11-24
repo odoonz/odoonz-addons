@@ -14,9 +14,14 @@ class MrpBom(models.Model):
 
     _inherit = "mrp.bom"
 
-    def explode(self, product, quantity, picking_type=False):
+    def explode(
+        self, product, quantity, picking_type=False, never_attribute_values=False
+    ):
         boms_done, orig_lines_done = super().explode(
-            product, quantity, picking_type=picking_type
+            product=product,
+            quantity=quantity,
+            picking_type=picking_type,
+            never_attribute_values=never_attribute_values,
         )
         lines_done = []
         for bom_line, line_fields in orig_lines_done:
@@ -46,7 +51,6 @@ class MrpBom(models.Model):
             search_domain.append(
                 ("product_template_attribute_value_ids", "in", [value.id])
             )
-        common_attrs = self.env["product.attribute"]
         op_ptav = orig_product.product_template_attribute_value_ids
         parent_attrs = op_ptav.product_attribute_value_id.attribute_id
         bom_attrs = bom_tmpl.attribute_line_ids.mapped("attribute_id")
@@ -71,14 +75,14 @@ class MrpBom(models.Model):
             names = ["  - %s" % p[1] for p in product.name_get()]
             raise ValidationError(
                 _(
-                    "The BoM Line %s in BoM %s is matching too many "
-                    "products.  Expected < 1 and received:\n%s"
+                    "The BoM Line %(bom_line)s in BoM %(bom)s is matching too many "
+                    "products.  Expected <= 1 and received:\n%(products)s"
                 )
-                % (
-                    bom_line.product_tmpl_id.name,
-                    bom_line.bom_id.display_name,
-                    "\n".join(names),
-                )
+                % {
+                    "bom_line": bom_line.product_tmpl_id.name,
+                    "bom": bom_line.bom_id.display_name,
+                    "products": "\n".join(names),
+                }
             )
         elif not product:
             product = bom_line.product_id

@@ -4,7 +4,6 @@ exclude: |
   ^account_entry_lock_policy/|
   ^account_financial_risk_manager/|
   ^base_ir_rule_important/|
-  ^mrp_dynamic_line/|
   ^mrp_sale_fields_enterprise/|
   ^price_recalculation/|
   ^product_attribute_group/|

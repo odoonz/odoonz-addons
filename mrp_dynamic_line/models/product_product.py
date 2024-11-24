@@ -35,7 +35,6 @@ class ProductProduct(models.Model):
         total = 0
         for line, explode_details in bom_lines:
             line_qty = explode_details["qty"]
-            product = explode_details["product"]
             product = line.product_id
             total += (
                 line.product_id.uom_id._compute_price(
