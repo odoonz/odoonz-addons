@@ -16,7 +16,7 @@
                     name="required_value_ids"
                     widget="many2many_tags"
                     options="{'no_create': True}"
-                    column_invisible="parent.product_id != False"
+                    column_invisible="parent.product_id"
                     groups="product.group_product_variant"
                 />
             </xpath>
