@@ -10,11 +10,12 @@ from odoo.tests.common import TransactionCase
 # Upstream changes may be valid but not tested,
 # more of an early warning system for changed behaviour
 FUNCTION_HASHES = {
+    # full_import_path_to_class: { function_name: [valid_hashes] }
     "odoo.addons.mrp.models.mrp_production.MrpProduction": {
-        "_update_raw_moves": "3a739954869c58e9a20034c00c935739",
+        "_update_raw_moves": ["3a739954869c58e9a20034c00c935739"],
     },
     "odoo.addons.mrp.models.stock_move.StockMove": {
-        "write": "ebb7db855e21b11106366279d8f9b554",
+        "write": ["ebb7db855e21b11106366279d8f9b554"],
     },
 }
 
@@ -27,13 +28,13 @@ class TestUpstreamHashes(TransactionCase):
             module = importlib.import_module(module_name)
             cls = getattr(module, class_name)
 
-            for func_name, expected_hash in functions.items():
+            for func_name, valid_hashes in functions.items():
                 with self.subTest(class_name=full_class_name, func_name=func_name):
                     current_func = getattr(cls, func_name)
                     current_src = inspect.getsource(current_func).encode()
                     current_hash = hashlib.md5(current_src).hexdigest()
-                    self.assertEqual(
+                    self.assertIn(
                         current_hash,
-                        expected_hash,
+                        valid_hashes,
                         msg=f"Hash mismatch for {full_class_name}.{func_name}",
                     )
