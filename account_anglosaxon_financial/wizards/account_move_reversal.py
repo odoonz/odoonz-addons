@@ -20,7 +20,9 @@ class AccountMoveReversal(models.TransientModel):
 
     def reverse_moves(self):
         is_fin = (
-            self.move_type != "entry" and self.anglo_saxon_refund_type == "financial"
+            self.move_type != "entry"
+            and self.anglo_saxon_refund_type == "financial"
+            and self.refund_method == "modify"
         )
         if is_fin and self.refund_method == "refund":
             self = self.with_context(no_move_lines=True)
