@@ -53,6 +53,7 @@ class PriceRecalculation(models.AbstractModel):
         lowest_qty = (None, float("inf"))
         prec = self.env["decimal.precision"].precision_get("Account")
         for line in self.line_ids.sorted(key=lambda r: r.qty, reverse=True):
+            line.discount = 0.0
             if line.qty < lowest_qty[1]:
                 lowest_qty = (line, line.qty)
             weight = running_total / running_lines_total

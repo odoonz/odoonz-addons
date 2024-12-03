@@ -26,15 +26,6 @@ class SalePriceRecalculation(models.TransientModel):
         elif self.copy_quote_id:
             self.onchange_quote_id()
 
-    @api.onchange("total", "tax_incl")
-    def _onchange_balance_to_total(self):
-        """Override: Remove discounts before balancing to total"""
-        if not self.total:
-            return
-        for line in self.line_ids:
-            line.discount = 0.0
-        return super()._onchange_balance_to_total()
-
     @api.onchange("pricelist_id")
     def _onchange_pricelist_id(self):
         """Clear discounts and re-determine unit prices from selected pricelist"""
