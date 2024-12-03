@@ -23,8 +23,8 @@ class TestPriceCalculation(TestSaleOrder):
                 .with_context(
                     active_ids=[self.sale_order.id], active_model="sale.order"
                 )
-                .default_get(["name", "partner_id", "line_ids", "date_order"])
+                .default_get(["name", "partner_id", "line_ids", "as_at_date"])
             )
         self.assertEqual(flds["name"], self.sale_order.id)
         self.assertEqual(flds["partner_id"], self.sale_order.partner_id.id)
-        self.assertEqual(flds["date_order"], self.sale_order.date_order)
+        self.assertEqual(flds["as_at_date"], self.sale_order.date_order)

@@ -5,8 +5,7 @@ from random import randint, random
 
 from odoo import fields
 from odoo.exceptions import AccessError
-from odoo.tests import tagged
-from odoo.tests.common import Form
+from odoo.tests import Form, tagged
 from odoo.tools import float_compare as fc, float_round
 
 from odoo.addons.sale.tests.common import TestSaleCommon
