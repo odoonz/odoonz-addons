@@ -14,7 +14,8 @@ from . import hypothesis_params as hp
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import settings, assume, given, strategies as st
+    from hypothesis import given, settings, strategies as st
+
     settings.register_profile("ci", database=None)
     settings.load_profile("ci")
 except ImportError as err:
@@ -68,14 +69,14 @@ class TestPurchaseOrder(TransactionCase):
             ],
         }
 
-        self.po = self.PurchaseOrder.with_context(context_no_mail).create(po_vals)
+        self.po = self.PurchaseOrder.with_context(**context_no_mail).create(po_vals)
         self.po.button_confirm()
 
         self.ppr = self.env["purchase.price.recalculation"].with_context(
             active_id=self.po.id, active_ids=[self.po.id], active_model="purchase.order"
         )
         self.vals = self.ppr.default_get(
-            ["name", "partner_id", "date_order", "line_ids"]
+            ["name", "partner_id", "as_at_date", "line_ids"]
         )
 
     def test_access_ppr(self):
@@ -91,7 +92,7 @@ class TestPurchaseOrder(TransactionCase):
         When we create record check that it
         is correctly defaulted
         """
-        vals = self.ppr.default_get(["name", "partner_id", "date_order", "line_ids"])
+        vals = self.ppr.default_get(["name", "partner_id", "as_at_date", "line_ids"])
         recalc = self.ppr.create(vals)
         po = self.po
         self.assertEqual(recalc.name, po)

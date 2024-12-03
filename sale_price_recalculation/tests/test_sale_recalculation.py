@@ -5,8 +5,8 @@ from random import randint, random
 
 from odoo import fields
 from odoo.exceptions import AccessError
-from odoo.tests.common import Form
 from odoo.tests import tagged
+from odoo.tests.common import Form
 from odoo.tools import float_compare as fc, float_round
 
 from odoo.addons.sale.tests.common import TestSaleCommon
@@ -16,7 +16,8 @@ from . import hypothesis_params as hp
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import settings, assume, given, strategies as st
+    from hypothesis import assume, given, settings, strategies as st
+
     settings.register_profile("ci", database=None)
     settings.load_profile("ci")
 except ImportError as err:
@@ -56,13 +57,13 @@ class TestSaleRecalc(TestSaleCommon):
         }
         self.so = (
             self.env["sale.order"]
-            .with_context(context_no_mail)
+            .with_context(**context_no_mail)
             .create(
                 {
                     "partner_id": self.partner_a.id,
                     "partner_invoice_id": self.partner_a.id,
                     "partner_shipping_id": self.partner_a.id,
-                    "date_order": today,
+                    "as_at_date": today,
                     "order_line": [
                         (
                             0,
@@ -86,7 +87,7 @@ class TestSaleRecalc(TestSaleCommon):
             active_id=self.so.id, active_ids=[self.so.id], active_model="sale.order"
         )
         self.vals = self.spr.default_get(
-            ["name", "partner_id", "date_order", "line_ids"]
+            ["name", "partner_id", "as_at_date", "line_ids"]
         )
 
         self.pricelist = self.env.ref("product.list0").copy()
@@ -107,7 +108,7 @@ class TestSaleRecalc(TestSaleCommon):
         When we create record check that it
         is correctly defaulted
         """
-        vals = self.spr.default_get(["name", "partner_id", "date_order", "line_ids"])
+        vals = self.spr.default_get(["name", "partner_id", "as_at_date", "line_ids"])
         recalc = self.spr.with_user(self.company_data["default_user_salesman"]).create(
             vals
         )
@@ -241,7 +242,9 @@ class TestSaleRecalc(TestSaleCommon):
     def test_onchange_pricelist_id(self):
         recalc = self.spr.create(self.vals)
         price = 12.47
-        with mock.patch.object(type(self.pricelist), "_get_product_price", return_value=price):
+        with mock.patch.object(
+            type(self.pricelist), "_get_product_price", return_value=price
+        ):
             with Form(recalc) as spr:
                 spr.pricelist_id = self.pricelist
                 subtotal = 0.0

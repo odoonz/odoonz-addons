@@ -1,26 +1,26 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from markupsafe import Markup
+
 from odoo import _, api, fields, models
 
 
 class SalePriceRecalculation(models.TransientModel):
-    """Sale Price Recalculation"""
-
     _inherit = ["price.recalculation"]
     _name = "sale.price.recalculation"
-    _description = __doc__
+    _description = "Sale Price Recalculation"
 
+    pricelist_id = fields.Many2one("product.pricelist", "Pricelist")
     copy_quote_id = fields.Many2one("sale.order", "Copy Quote")
     line_ids = fields.One2many(
-        "sale.price.recalculation.line", "price_recalculation_id", "Lines"
+        "sale.price.recalculation.line",
+        "price_recalculation_id",
+        "Lines",
     )
 
-    def _prepare_quote_related_vals(self):
-        return {}
-
-    @api.onchange("date_order")
-    def _onchange_date_order(self):
+    @api.onchange("as_at_date")
+    def _onchange_as_at_date(self):
         if self.pricelist_id:
             self.onchange_pricelist_id()
         elif self.copy_quote_id:
@@ -28,6 +28,7 @@ class SalePriceRecalculation(models.TransientModel):
 
     @api.onchange("total", "tax_incl")
     def _onchange_balance_to_total(self):
+        """Override: Remove discounts before balancing to total"""
         if not self.total:
             return
         for line in self.line_ids:
@@ -35,10 +36,32 @@ class SalePriceRecalculation(models.TransientModel):
         return super()._onchange_balance_to_total()
 
     @api.onchange("pricelist_id")
-    def onchange_pricelist_id(self):
-        for line in self.line_ids:
+    def _onchange_pricelist_id(self):
+        """Clear discounts and re-determine unit prices from selected pricelist"""
+        if not self.pricelist_id:
+            return
+        pricelist = self.pricelist_id.with_context(**self._set_context())
+        for line in self.line_ids.with_context(**self._set_context()):
             line.discount = 0.0
-        return self.update_pricelist_lines(self.pricelist_id)
+            line._update_pricing(self.as_at_date, pricelist)
+
+    @api.onchange("copy_quote_id")
+    def _onchange_copy_quote_id(self):
+        """Re-determine prices when quote or date changes"""
+        pricelist = self.copy_quote_id.pricelist_id
+        if pricelist:
+            for line in self.line_ids.with_context(**self._set_context()):
+                line.update_pricelist_lines(self.as_at_date, pricelist)
+        quoted_prices = self._get_quoted_prices(self.copy_quote_id)
+        for line in self.line_ids:
+            orig_price = line.price_unit
+            line.price_unit = self._get_line_quoted_price(
+                line.product_id, quoted_prices, orig_price
+            )
+            if line.price_unit != orig_price:
+                line.discount = 0.0
+                line.price_subtotal = line.price_unit * line.qty
+                line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
     def _set_context(self):
         ctx = super()._set_context()
@@ -46,7 +69,7 @@ class SalePriceRecalculation(models.TransientModel):
             {
                 "warehouse_id": self.name.warehouse_id.id,
                 "partner_id": self.name.partner_id.commercial_partner_id.id,
-                "date": self.date_order,
+                "date": self.as_at_date,
             }
         )
         return ctx
@@ -81,20 +104,6 @@ class SalePriceRecalculation(models.TransientModel):
         else:
             ratio = 0.0
         return quoted_prices[tmpl_id][0] * ratio
-
-    @api.onchange("copy_quote_id")
-    def onchange_quote_id(self):
-        self.update_pricelist_lines(self.copy_quote_id.pricelist_id)
-        quoted_prices = self._get_quoted_prices(self.copy_quote_id)
-        for line in self.line_ids:
-            orig_price = line.price_unit
-            line.price_unit = self._get_line_quoted_price(
-                line.product_id, quoted_prices, orig_price
-            )
-            if line.price_unit != orig_price:
-                line.discount = 0.0
-                line.price_subtotal = line.price_unit * line.qty
-                line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
     @staticmethod
     def _get_lines(order):
@@ -132,47 +141,7 @@ class SalePriceRecalculation(models.TransientModel):
             if not ol.display_type
         ]
 
-    def action_write(self):
-        self.ensure_one()
-        self._check_write_constraints()
-        order = self.name
-        header_msgs = [_("<p><b>Pricing Updated</b></p>")]
-        msgs = ["<ul>"]
-        vals = {}
-        pricelist_id = order.pricelist_id.id
-        if self.pricelist_id:
-            pricelist_id = self.pricelist_id.id
-        elif self.copy_quote_id:
-            pricelist_id = self.copy_quote_id.pricelist_id.id
-            vals.update(self._prepare_quote_related_vals())
-            header_msgs.append(
-                _("<p>Price updated from <b>{0}</b></p>").format(
-                    self.copy_quote_id.name
-                )
-            )
-        if pricelist_id != order.pricelist_id.id:
-            header_msgs.append(
-                _("<p>Pricelist changed from <b>{0}</b> to " "<b>{1}</b></p>").format(
-                    order.pricelist_id.name, self.pricelist_id.name
-                )
-            )
-            vals["pricelist_id"] = pricelist_id
-        if order.invoice_ids:
-            msgs.append(
-                _("<p><emph>The draft invoice has also " "been updated.</emph></p>")
-            )
-        vals.update(self._prepare_other_vals())
-        order.write(vals)
-        msgs.extend(self._reprice_lines(self.line_ids))
-        if len(msgs) > 1:
-            msgs.append("</ul><br/>")
-        else:
-            msgs = []
-        order.invoice_ids._compute_amount()
-        msgs = header_msgs + msgs
-        if msgs:
-            body = "".join(msgs)
-            order.message_post(body=body)
+    def _prepare_quote_related_vals(self):
         return {}
 
     def _reprice_lines(self, lines):
@@ -184,18 +153,26 @@ class SalePriceRecalculation(models.TransientModel):
             if (order_line.price_unit != line.price_unit) or (
                 line.name.discount != line.discount
             ):
-                try:
+                if line.qty == 0:
                     msgs.append(
-                        _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
-                            order_line.name,
-                            order_line.price_subtotal / line.qty,
-                            line.price_subtotal / line.qty,
+                        _(
+                            "<li>{name}: was ${old_value:.2f} ea - "
+                            "now ${new_value:.2f} ea</li>"
+                        ).format(
+                            name=order_line.name,
+                            old_value=order_line.price_unit,
+                            new_value=line.price_unit,
                         )
                     )
-                except ZeroDivisionError:
+                else:
                     msgs.append(
-                        _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
-                            order_line.name, order_line.price_unit, line.price_unit
+                        _(
+                            "<li>{name}: was ${old_value:.2f} ea - "
+                            "now ${new_value:.2f} ea</li>"
+                        ).format(
+                            name=order_line.name,
+                            old_value=order_line.price_subtotal / line.qty,
+                            new_value=line.price_subtotal / line.qty,
                         )
                     )
                 order_line.write(
@@ -210,3 +187,48 @@ class SalePriceRecalculation(models.TransientModel):
                     }
                 )
         return msgs
+
+    def action_write(self):
+        self.ensure_one()
+        self._check_write_constraints()
+        order = self.name
+        header_msgs = [_("<p><b>Pricing Updated</b></p>")]
+        msgs = ["<ul>"]
+        vals = {}
+        pricelist_id = order.pricelist_id.id
+        if self.pricelist_id:
+            pricelist_id = self.pricelist_id.id
+        elif self.copy_quote_id:
+            pricelist_id = self.copy_quote_id.pricelist_id.id
+            vals.update(self._prepare_quote_related_vals())
+            header_msgs.append(
+                _("<p>Price updated from <b>{quote}</b></p>").format(
+                    quote=self.copy_quote_id.name,
+                )
+            )
+        if pricelist_id != order.pricelist_id.id:
+            header_msgs.append(
+                _(
+                    "<p>Pricelist changed from <b>{old_name}</b> to "
+                    "<b>{new_name}</b></p>"
+                ).format(
+                    old_name=order.pricelist_id.name,
+                    new_name=self.pricelist_id.name,
+                )
+            )
+            vals["pricelist_id"] = pricelist_id
+        if order.invoice_ids:
+            msgs.append(_("<p><em>The draft invoice has also been updated.</em></p>"))
+        vals.update(self._prepare_other_vals())
+        order.write(vals)
+        msgs.extend(self._reprice_lines(self.line_ids))
+        if len(msgs) > 1:
+            msgs.append("</ul><br/>")
+        else:
+            msgs = []
+        order.invoice_ids._compute_amount()
+        msgs = header_msgs + msgs
+        if msgs:
+            body = "".join(msgs)
+            order.message_post(body=Markup(body))
+        return {}

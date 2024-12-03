@@ -11,7 +11,8 @@ from . import hypothesis_params as hp
 _logger = logging.Logger(__name__)
 
 try:
-    from hypothesis import settings, assume, given, strategies as st
+    from hypothesis import assume, given, settings, strategies as st
+
     settings.register_profile("ci", database=None)
     settings.load_profile("ci")
 except ImportError as err:

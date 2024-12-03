@@ -7,16 +7,12 @@ from odoo.tools import float_round
 
 
 class PriceRecalculation(models.AbstractModel):
-    """Recalculate Price"""
-
     _name = "price.recalculation"
-    _description = __doc__
+    _description = "Recalculate Price"
 
-    pricelist_id = fields.Many2one("product.pricelist", "Pricelist")
     partner_id = fields.Many2one("res.partner", "Partner")
-
     total = fields.Float("Balance To", digits="Account")
-    tax_incl = fields.Boolean("Tax Incl")
+    tax_incl = fields.Boolean()
     name = fields.Many2one("sale.order", "Sale Order")
     precision = fields.Integer(
         "Unit Price Precision",
@@ -43,7 +39,7 @@ class PriceRecalculation(models.AbstractModel):
             res.update(partner_id=obj.partner_id.id)
         if "line_ids" in flds:
             res.update(line_ids=self._get_lines(obj))
-        if "date_order" in flds:
+        if "as_at_date" in flds:
             res.update(as_at_date=obj.date_order)
         return res
 
@@ -86,13 +82,6 @@ class PriceRecalculation(models.AbstractModel):
                 line.price_subtotal = line.price_unit * line.qty
                 line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
 
-    def _prepare_other_vals(self):
-        """
-        Hook method for extension of action_write method
-        :return: dict of field_name: value pairings
-        """
-        return {}
-
     def _check_write_constraints(self):
         """
         Check write constraints for orders that can't be updated
@@ -108,15 +97,15 @@ class PriceRecalculation(models.AbstractModel):
                     "already been invoiced."
                 )
             )
+        return True
 
-    def _set_context(self):  # pragma: no cover
-        """Allow to set a custom context by model - hook method"""
+    def _prepare_other_vals(self):
+        """
+        Hook method for extension of action_write method
+        :return: dict of field_name: value pairings
+        """
         return {}
 
-    def update_pricelist_lines(self, pricelist=False):
-        if not pricelist:
-            return
-        self.ensure_one()
-        pricelist = pricelist.with_context(**self._set_context())
-        for line in self.line_ids.with_context(**self._set_context()):
-            line._update_pricing(self.as_at_date, pricelist)
+    def _set_context(self):  # pragma: no cover
+        """Hook method for setting a custom context by model"""
+        return {}

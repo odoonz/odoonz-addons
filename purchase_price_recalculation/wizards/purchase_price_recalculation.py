@@ -69,6 +69,7 @@ class PurchasePriceRecalculation(models.TransientModel):
                     "already been received."
                 )
             )
+        return True
 
     def action_write(self):
         self.ensure_one()
@@ -78,19 +79,20 @@ class PurchasePriceRecalculation(models.TransientModel):
         msgs = ["<ul>"]
         vals = {}
         if order.invoice_ids:
-            msgs.append(
-                _("<p><emph>The draft invoice has also " "been updated.</emph></p>")
-            )
+            msgs.append(_("<p><em>The draft invoice has also been updated.</em></p>"))
         vals.update(self._prepare_other_vals())
         order.write(vals)
         for line in self.line_ids:
             order_line = line.name
             if order_line.price_unit != line.price_unit:
                 msgs.append(
-                    _("<li>{0}: was ${1:.2f} ea - " "now ${2:.2f} ea</li>").format(
-                        order_line.name,
-                        order_line.price_subtotal / line.qty,
-                        line.price_subtotal / line.qty,
+                    _(
+                        "<li>{name}: was ${old_value:.2f} ea - "
+                        "now ${new_value:.2f} ea</li>"
+                    ).format(
+                        name=order_line.name,
+                        old_value=order_line.price_subtotal / line.qty,
+                        new_value=line.price_subtotal / line.qty,
                     )
                 )
                 order_line.write({"price_unit": line.price_unit})
