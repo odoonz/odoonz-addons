@@ -109,29 +109,51 @@ class TestSaleRecalc(TestSaleCommon):
         When we create record check that it
         is correctly defaulted
         """
+        SaleOrderLine = self.env["sale.order.line"]
+        Product = self.env["product.product"]
+
         vals = self.spr.default_get(["name", "partner_id", "as_at_date", "line_ids"])
-        recalc = self.spr.with_user(self.company_data["default_user_salesman"]).create(
-            vals
-        )
         so = self.so
+
+        vals_lines = [line[2] for line in vals["line_ids"]]
+        vals_line = vals_lines[randint(0, len(vals_lines) - 1)]
+        sol = SaleOrderLine.browse(vals_line["name"])
+        self.assertEqual(sol.order_id, so)
+        product = Product.browse(vals_line["product_id"])
+        self.assertEqual(sol.product_id, product)
+        self.assertEqual(sol.product_uom_qty, vals_line["qty"])
+        try:
+            self.assertFalse(fc(sol.price_unit, vals_line["price_unit"], 2))
+        except AssertionError:
+            _logger.error(
+                f"sol.price_unit: {sol.price_subtotal} !="
+                f' vals_line["price_unit"]: {vals_line["price_subtotal"]}'
+            )
+            raise
+
+        recalc = (
+            self.spr.with_user(self.company_data["default_user_salesman"])
+            .with_context(active_id=so.id, active_model=so._name)
+            .create(vals)
+        )
         self.assertEqual(recalc.name, so)
         self.assertEqual(recalc.as_at_date, so.date_order.date())
         self.assertEqual(recalc.partner_id, so.partner_id)
         self.assertEqual(len(so.order_line), len(recalc.line_ids))
         line = recalc.line_ids[randint(0, len(recalc.line_ids) - 1)]
-        s = line.name
-        self.assertEqual(s.product_id, line.product_id)
-        self.assertEqual(s.product_uom_qty, line.qty)
-        self.assertFalse(fc(s.price_unit, line.price_unit, 2))
+        sol = line.name
+        self.assertEqual(sol.product_id, line.product_id)
+        self.assertEqual(sol.product_uom_qty, line.qty)
+        self.assertFalse(fc(sol.price_unit, line.price_unit, 2))
         try:
-            self.assertFalse(fc(s.price_subtotal, line.price_subtotal, 2))
+            self.assertFalse(fc(sol.price_subtotal, line.price_subtotal, 2))
         except AssertionError:
             _logger.error(
-                f"s.price_subtotal: {s.price_subtotal} !="
+                f"sol.price_subtotal: {sol.price_subtotal} !="
                 f" line.price_subtotal: {line.price_subtotal}"
             )
             raise
-        self.assertFalse(fc(s.price_total, line.price_total, 2))
+        self.assertFalse(fc(sol.price_total, line.price_total, 2))
 
     def test_protected_fields(self):
         protected_field = "price_unit"
