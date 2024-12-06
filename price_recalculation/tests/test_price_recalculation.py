@@ -5,10 +5,9 @@ from odoo.tests import tagged
 
 from odoo.addons.sale.tests.test_sale_order import TestSaleOrder
 
-_logger = logging.Logger(__name__)
-
-wizard = (
-    "odoo.addons.price_recalculation.wizards." "price_recalculation.PriceRecalculation"
+_logger = logging.getLogger(__name__)
+WIZARD = (
+    "odoo.addons.price_recalculation.wizards.price_recalculation.PriceRecalculation"
 )
 
 
@@ -19,7 +18,7 @@ class TestPriceCalculation(TestSaleOrder):
         super().setUp()
 
     def test_defaults(self):
-        with mock.patch("%s._get_lines" % wizard) as get_lines:
+        with mock.patch("%s._get_lines" % WIZARD) as get_lines:
             get_lines.return_value = []
             flds = (
                 self.env["price.recalculation"]
