@@ -8,7 +8,7 @@ from odoo.tools import float_round
 
 from . import hypothesis_params as hp
 
-_logger = logging.Logger(__name__)
+_logger = logging.getLogger(__name__)
 
 try:
     from hypothesis import assume, given, settings, strategies as st

@@ -12,7 +12,7 @@ from odoo.addons.sale.tests.common import TestSaleCommon
 
 from . import hypothesis_params as hp
 
-_logger = logging.Logger(__name__)
+_logger = logging.getLogger(__name__)
 
 try:
     from hypothesis import assume, given, settings, strategies as st
@@ -94,10 +94,12 @@ class TestSaleRecalc(TestSaleCommon):
     def test_access_spr(self):
         self.spr.with_user(self.company_data["default_user_salesman"]).create(self.vals)
         with self.assertRaises(AccessError):
+            _logger.info('Expecting "Access Denied by ACLs"...')
             self.spr.with_user(self.company_data["default_user_employee"]).create(
                 self.vals
             )
         with self.assertRaises(AccessError):
+            _logger.info('Expecting "Access Denied by ACLs"...')
             self.spr.with_user(self.company_data["default_user_portal"]).create(
                 self.vals
             )
@@ -121,7 +123,14 @@ class TestSaleRecalc(TestSaleCommon):
         self.assertEqual(s.product_id, line.product_id)
         self.assertEqual(s.product_uom_qty, line.qty)
         self.assertFalse(fc(s.price_unit, line.price_unit, 2))
-        self.assertFalse(fc(s.price_subtotal, line.price_subtotal, 2))
+        try:
+            self.assertFalse(fc(s.price_subtotal, line.price_subtotal, 2))
+        except AssertionError:
+            _logger.error(
+                f"s.price_subtotal: {s.price_subtotal} !="
+                f" line.price_subtotal: {line.price_subtotal}"
+            )
+            raise
         self.assertFalse(fc(s.price_total, line.price_total, 2))
 
     def test_protected_fields(self):
@@ -247,20 +256,33 @@ class TestSaleRecalc(TestSaleCommon):
 
     def test_onchange_pricelist_id(self):
         recalc = self.spr.create(self.vals)
-        price = 12.47
+        price_unit = 12.47
         with mock.patch.object(
-            type(self.pricelist), "_get_product_price", return_value=price
+            type(self.pricelist), "_get_product_price", return_value=price_unit
         ):
             with Form(recalc) as spr:
                 spr.pricelist_id = self.pricelist
                 subtotal = 0.0
                 for idx in range(len(spr.line_ids)):
                     with spr.line_ids.edit(idx) as line:
-                        self.assertFalse(fc(price, line.price_unit, 2))
+                        try:
+                            self.assertFalse(fc(price_unit, line.price_unit, 2))
+                        except AssertionError:
+                            _logger.error(
+                                f"price_unit: {price_unit} !="
+                                f" line.price_unit: {line.price_unit}"
+                            )
+                            raise
                         subtotal += line.price_subtotal
         recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)
-        self.assertFalse(fc(so.amount_untaxed, subtotal, 2))
+        try:
+            self.assertFalse(fc(so.amount_untaxed, subtotal, 2))
+        except AssertionError:
+            _logger.error(
+                f"so.amount_untaxed: {so.amount_untaxed} != subtotal: {subtotal}"
+            )
+            raise
         self.assertEqual(so.pricelist_id, recalc.pricelist_id)
 
     def test_onchange_quote_id(self):

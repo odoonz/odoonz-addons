@@ -11,7 +11,7 @@ from odoo.tools import float_compare as fc, float_round
 
 from . import hypothesis_params as hp
 
-_logger = logging.Logger(__name__)
+_logger = logging.getLogger(__name__)
 
 try:
     from hypothesis import given, settings, strategies as st
