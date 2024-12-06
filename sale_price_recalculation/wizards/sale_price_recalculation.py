@@ -36,13 +36,10 @@ class SalePriceRecalculation(models.TransientModel):
             line.discount = 0.0
             line._update_pricing(self.as_at_date, pricelist)
 
-    @api.onchange("copy_quote_id")
+    @api.onchange("copy_quote_id", "as_at_date")
     def _onchange_copy_quote_id(self):
         """Re-determine prices when quote or date changes"""
-        pricelist = self.copy_quote_id.pricelist_id
-        if pricelist:
-            for line in self.line_ids.with_context(**self._set_context()):
-                line.update_pricelist_lines(self.as_at_date, pricelist)
+        self._update_lines_from_pricelist(self.copy_quote_id.pricelist_id)
         quoted_prices = self._get_quoted_prices(self.copy_quote_id)
         for line in self.line_ids:
             orig_price = line.price_unit
@@ -64,6 +61,16 @@ class SalePriceRecalculation(models.TransientModel):
             }
         )
         return ctx
+
+    def _update_lines_from_pricelist(self, pricelist=False):
+        if not pricelist:
+            return
+        self.ensure_one()
+        for line in self.line_ids.with_context(**self._set_context()):
+            line._update_pricing(
+                as_at_date=self.as_at_date,
+                pricelist=pricelist,
+            )
 
     def _get_quoted_prices(self, quote):
         """

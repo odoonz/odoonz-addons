@@ -14,6 +14,11 @@ class PriceRecalculationLine(models.AbstractModel):
     qty = fields.Float(digits="Product Unit of Measure", readonly=True)
     price_unit = fields.Float("Unit Price", required=True, digits="Product Price")
     discount = fields.Float("Discount (%)", digits="Discount")
+    discount_factor = fields.Float(
+        "Discount factor)",
+        digits="Discount",
+        compute="_compute_discount_factor",
+    )
     price_subtotal = fields.Float(
         "Total ex Tax",
         digits="Account",
@@ -27,6 +32,10 @@ class PriceRecalculationLine(models.AbstractModel):
         readonly=False,
     )
     effective_tax_rate = fields.Float(readonly=True)
+
+    def _compute_discount_factor(self):
+        for line in self:
+            line.discount_factor = (100.0 - line.discount) / 100.0
 
     @api.depends("qty", "price_unit", "discount")
     def _compute_price_subtotal(self):
@@ -59,7 +68,6 @@ class PriceRecalculationLine(models.AbstractModel):
         It will be re-determined from the rounded unit price to the closest value
         (the discount is never changed).
         """
-        discount_factor = (100.0 - self.discount) / 100.0
         precision_total = self.env["decimal.precision"].precision_get("Account")
         if price_total is not False:
             # Total was set: Calculate subtotal from total
@@ -69,7 +77,7 @@ class PriceRecalculationLine(models.AbstractModel):
             )
         if price_subtotal is not False:
             # Subtotal was set or calculated just now: Calculate unit price from subtotal
-            price_unit = price_subtotal / (self.qty or 1.0) / discount_factor
+            price_unit = price_subtotal / (self.qty or 1.0) / self.discount_factor
         if price_unit is not False:
             # Unit price was set or calculated just now: Round for new subtotal
             precision_price = self.price_calculation_id.precision or self.env[
@@ -79,7 +87,7 @@ class PriceRecalculationLine(models.AbstractModel):
         # Calculate subtotal again
         # (possibly rounded from unit price rounding from originally set value)
         self.price_subtotal = float_round(
-            self.price_unit * self.qty * discount_factor, precision_total
+            self.price_unit * self.qty * self.discount_factor, precision_total
         )
         # Calculate total again
         # (will trigger no-op recalculation in onchange() but needed for manual user changes)

@@ -1,6 +1,8 @@
 import logging
 import unittest.mock as mock
 
+from odoo.tests import tagged
+
 from odoo.addons.sale.tests.test_sale_order import TestSaleOrder
 
 _logger = logging.Logger(__name__)
@@ -10,6 +12,7 @@ wizard = (
 )
 
 
+@tagged("post-install", "-at-install")
 class TestPriceCalculation(TestSaleOrder):
     def setUp(self):
         """Initial Setup"""

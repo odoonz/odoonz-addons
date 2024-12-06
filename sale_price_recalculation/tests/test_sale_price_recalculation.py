@@ -62,7 +62,7 @@ class TestSaleRecalc(TestSaleCommon):
                     "partner_id": self.partner_a.id,
                     "partner_invoice_id": self.partner_a.id,
                     "partner_shipping_id": self.partner_a.id,
-                    "as_at_date": today,
+                    "date_order": today,
                     "order_line": [
                         (
                             0,
@@ -78,7 +78,7 @@ class TestSaleRecalc(TestSaleCommon):
                         )
                         for p in self.products.values()
                     ],
-                    "pricelist_id": self.env.ref("product.list0").id,
+                    "pricelist_id": self.company_data["default_pricelist"].id,
                 }
             )
         )
@@ -89,7 +89,7 @@ class TestSaleRecalc(TestSaleCommon):
             ["name", "partner_id", "as_at_date", "line_ids"]
         )
 
-        self.pricelist = self.env.ref("product.list0").copy()
+        self.pricelist = self.company_data["default_pricelist"].copy()
 
     def test_access_spr(self):
         self.spr.with_user(self.company_data["default_user_salesman"]).create(self.vals)
@@ -113,6 +113,7 @@ class TestSaleRecalc(TestSaleCommon):
         )
         so = self.so
         self.assertEqual(recalc.name, so)
+        self.assertEqual(recalc.as_at_date, so.date_order.date())
         self.assertEqual(recalc.partner_id, so.partner_id)
         self.assertEqual(len(so.order_line), len(recalc.line_ids))
         line = recalc.line_ids[randint(0, len(recalc.line_ids) - 1)]
@@ -226,16 +227,22 @@ class TestSaleRecalc(TestSaleCommon):
 
     @given(st.data())
     def test_change_line_price(self, data):
-        """Test the changing a subtotal works correctly"""
-        price = data.draw(st.floats(**hp.PRICE_ARGS))
+        """Test the changing a unit price works correctly"""
+        new_price_unit = float_round(
+            data.draw(st.floats(**hp.PRICE_ARGS)),
+            2,
+        )
 
         with Form(self.spr) as spr:
             with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
-                check_total = float_round(price, 1)
-                line.price_unit = check_total
-                expect = line.qty * line.price_unit
-                subtotal = line.price_subtotal
-                self.assertAlmostEqual(expect, subtotal, delta=0.01)
+                discount_factor = (100.0 - line.discount) / 100.0
+                expected_subtotal = float_round(
+                    line.qty * new_price_unit * discount_factor, 2
+                )
+                line.price_unit = new_price_unit
+                self.assertAlmostEqual(
+                    line.price_subtotal, expected_subtotal, delta=0.01
+                )
         spr.save()
 
     def test_onchange_pricelist_id(self):

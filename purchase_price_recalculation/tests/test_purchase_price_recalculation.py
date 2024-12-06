@@ -6,8 +6,7 @@ from random import randint
 
 from odoo import fields
 from odoo.exceptions import AccessError
-from odoo.tests import Form
-from odoo.tests.common import TransactionCase
+from odoo.tests import Form, common, tagged
 from odoo.tools import float_compare as fc, float_round
 
 from . import hypothesis_params as hp
@@ -23,7 +22,8 @@ except ImportError as err:
     _logger.debug(err)
 
 
-class TestPurchaseOrder(TransactionCase):
+@tagged("post-install", "-at-install")
+class TestPurchaseOrder(common.TransactionCase):
     def setUp(self):
         super(TestPurchaseOrder, self).setUp()
         context_no_mail = {
@@ -33,10 +33,40 @@ class TestPurchaseOrder(TransactionCase):
             "no_reset_password": True,
         }
         self.PurchaseOrder = self.env["purchase.order"]
-
-        self.partner_id = self.env.ref("base.res_partner_1")
-        self.product_id_1 = self.env.ref("product.product_product_8")
-        self.product_id_2 = self.env.ref("product.product_product_11")
+        self.partner_id = self.env["res.partner"].create(
+            {
+                "name": "Wood Corner",
+                "is_company": True,
+                "street": "1839 Arbor Way",
+                "city": "Turlock",
+                "state_id": self.env.ref("base.state_us_5").id,
+                "zip": "95380",
+                "country_id": self.env.ref("base.us").id,
+                "email": "wood.corner26@example.com",
+                "phone": "(623)-853-7197",
+                "website": "http://www.wood-corner.com",
+                "vat": "US12345672",
+            }
+        )
+        self.product_id_1 = self.env["product.product"].create(
+            {
+                "name": "Large Desk",
+                "standard_price": 1299.0,
+                "list_price": 1799.0,
+                "type": "consu",
+                "weight": 9.54,
+                "uom_id": self.env.ref("uom.product_uom_unit").id,
+                "uom_po_id": self.env.ref("uom.product_uom_unit").id,
+                "default_code": "E-COM09",
+            }
+        )
+        self.product_id_2 = self.env["product.product"].create(
+            {
+                "name": "Product 11",
+                "default_code": "E-COM12",
+                "weight": 0.01,
+            }
+        )
 
         (self.product_id_1 | self.product_id_2).write({"purchase_method": "purchase"})
         po_date = fields.Datetime.to_string(fields.Datetime.now(self.product_id_1))

@@ -1,1 +1,1 @@
-from . import test_purchase_recalculation
+from . import test_purchase_price_recalculation
