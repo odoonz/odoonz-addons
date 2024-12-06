@@ -7,7 +7,7 @@ from odoo import _, models
 from odoo.exceptions import ValidationError
 from odoo.tools import float_round
 
-_logger = logging.Logger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class MrpBom(models.Model):
