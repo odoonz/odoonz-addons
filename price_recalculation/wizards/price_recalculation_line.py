@@ -15,7 +15,7 @@ class PriceRecalculationLine(models.AbstractModel):
     price_unit = fields.Float("Unit Price", required=True, digits="Product Price")
     discount = fields.Float("Discount (%)", digits="Discount")
     discount_factor = fields.Float(
-        "Discount factor)",
+        "Discount (factor)",
         compute="_compute_discount_factor",
     )
     price_subtotal = fields.Float(
