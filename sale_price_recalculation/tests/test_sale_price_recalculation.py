@@ -115,6 +115,7 @@ class TestSaleRecalc(TestSaleCommon):
         vals = self.spr.default_get(["name", "partner_id", "as_at_date", "line_ids"])
         so = self.so
 
+        # Test values returned by default_get()
         vals_lines = [line[2] for line in vals["line_ids"]]
         vals_line = vals_lines[randint(0, len(vals_lines) - 1)]
         sol = SaleOrderLine.browse(vals_line["name"])
@@ -131,6 +132,7 @@ class TestSaleRecalc(TestSaleCommon):
             )
             raise
 
+        # Test created recalculation which should be using default_get()
         recalc = (
             self.spr.with_user(self.company_data["default_user_salesman"])
             .with_context(active_id=so.id, active_model=so._name)
