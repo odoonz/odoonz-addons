@@ -262,7 +262,6 @@ class TestSaleRecalc(TestSaleCommon):
         ):
             with Form(recalc) as spr:
                 spr.pricelist_id = self.pricelist
-                subtotal = 0.0
                 for idx in range(len(spr.line_ids)):
                     with spr.line_ids.edit(idx) as line:
                         try:
@@ -273,7 +272,7 @@ class TestSaleRecalc(TestSaleCommon):
                                 f" line.price_unit: {line.price_unit}"
                             )
                             raise
-                        subtotal += line.price_subtotal
+        subtotal = sum(recalc.line_ids.mapped("price_subtotal"))
         recalc.action_write()
         so = self.env["sale.order"].browse(self.so.id)
         try:
