@@ -243,9 +243,10 @@ class TestSaleRecalc(TestSaleCommon):
                 original_qty = line.qty
                 check_total = float_round(subtotal, 1)
                 line.price_subtotal = check_total
+                discount_factor = (100.0 - line.discount) / 100.0
                 self.assertAlmostEqual(line.price_subtotal, check_total, delta=0.1)
                 self.assertAlmostEqual(
-                    line.qty * line.price_unit * line.get_discount_factor(),
+                    line.qty * line.price_unit * discount_factor,
                     subtotal,
                     delta=0.01,
                 )
