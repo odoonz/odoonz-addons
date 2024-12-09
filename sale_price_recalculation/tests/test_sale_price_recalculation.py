@@ -245,7 +245,9 @@ class TestSaleRecalc(TestSaleCommon):
                 line.price_subtotal = check_total
                 self.assertAlmostEqual(line.price_subtotal, check_total, delta=0.1)
                 self.assertAlmostEqual(
-                    line.qty * line.price_unit, line.price_subtotal, delta=0.01
+                    line.qty * line.price_unit * line.get_discount_factor(),
+                    subtotal,
+                    delta=0.01,
                 )
                 self.assertAlmostEqual(
                     line.qty, original_qty, 2, "Changing totals should not affect qty"
