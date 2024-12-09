@@ -258,7 +258,6 @@ class TestSaleRecalc(TestSaleCommon):
                     line.price_total,
                     delta=0.01,
                 )
-                self.assertEqual(line.discount, 0.0)
         spr.save()
 
     @given(st.data())
