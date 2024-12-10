@@ -47,13 +47,15 @@ class PriceRecalculation(models.AbstractModel):
     def _onchange_balance_to_total(self):
         if not self.total:
             return
+        for line in self.line_ids:
+            # Clear discounts first
+            line.discount = 0.0
         fld = "price_total" if self.tax_incl else "price_subtotal"
         running_total = self.total
         running_lines_total = sum([x[fld] for x in self.line_ids])
         lowest_qty = (None, float("inf"))
         prec = self.env["decimal.precision"].precision_get("Account")
         for line in self.line_ids.sorted(key=lambda r: r.qty, reverse=True):
-            line.discount = 0.0
             if line.qty < lowest_qty[1]:
                 lowest_qty = (line, line.qty)
             weight = running_total / running_lines_total
@@ -65,10 +67,7 @@ class PriceRecalculation(models.AbstractModel):
                 running_lines_total -= line[fld]
             if fld == "price_total":
                 price /= 1 + line.effective_tax_rate
-            price = float_round(price, self.precision)
-            line.price_unit = price
-            line.price_subtotal = line.price_unit * line.qty
-            line.price_total = line.price_subtotal * (1 + line.effective_tax_rate)
+            line.price_unit = float_round(price, self.precision)
             running_total -= line[fld]
             if not running_lines_total:
                 break
