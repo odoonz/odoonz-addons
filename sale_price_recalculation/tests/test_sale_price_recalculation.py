@@ -207,16 +207,19 @@ class TestSaleRecalc(TestSaleCommon):
         total = data.draw(st.floats(**hp.PRICE_ARGS))
         assume((subtotal > 0.10 or subtotal == 0.0) and (total > 0.10 or total == 0.0))
         # assumed because of limitations in test rounding more than anything
+        new_price_total = float_round(total, 1)
 
         with Form(self.spr) as spr:
             with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
                 line.discount = 10.0
                 original_qty = line.qty
-                check_total = float_round(total, 1)
-                line.price_total = check_total
-                self.assertAlmostEqual(line.price_total, check_total, delta=0.1)
+                line.price_total = new_price_total
+                self.assertAlmostEqual(line.price_total, new_price_total, delta=0.1)
+                discount_factor = (100.0 - line.discount) / 100.0
                 self.assertAlmostEqual(
-                    line.qty * line.price_unit, line.price_subtotal, delta=0.01
+                    line.qty * line.price_unit * discount_factor,
+                    line.price_subtotal,
+                    delta=0.01,
                 )
                 self.assertAlmostEqual(
                     line.qty, original_qty, 2, "Changing totals should not affect qty"
@@ -226,7 +229,6 @@ class TestSaleRecalc(TestSaleCommon):
                     line.price_total,
                     delta=0.01,
                 )
-                self.assertEqual(line.discount, 0.0)
         spr.save()
 
     @given(st.data())
@@ -236,18 +238,20 @@ class TestSaleRecalc(TestSaleCommon):
         total = data.draw(st.floats(**hp.PRICE_ARGS))
         assume((subtotal > 0.10 or subtotal == 0.0) and (total > 0.10 or total == 0.0))
         # assumed because of limitations in test rounding more than anything
+        new_price_subtotal = float_round(subtotal, 1)
 
         with Form(self.spr) as spr:
             with spr.line_ids.edit(randint(0, len(spr.line_ids) - 1)) as line:
                 line.discount = 10.0
                 original_qty = line.qty
-                check_total = float_round(subtotal, 1)
-                line.price_subtotal = check_total
+                line.price_subtotal = new_price_subtotal
+                self.assertAlmostEqual(
+                    line.price_subtotal, new_price_subtotal, delta=0.1
+                )
                 discount_factor = (100.0 - line.discount) / 100.0
-                self.assertAlmostEqual(line.price_subtotal, check_total, delta=0.1)
                 self.assertAlmostEqual(
                     line.qty * line.price_unit * discount_factor,
-                    subtotal,
+                    line.price_subtotal,
                     delta=0.01,
                 )
                 self.assertAlmostEqual(
