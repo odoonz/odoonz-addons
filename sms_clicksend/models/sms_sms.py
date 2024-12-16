@@ -9,10 +9,10 @@ class SmsSms(models.Model):
 
     error_detail = fields.Text(readonly=True)
 
-    def get_related_object(self):
+    def _get_related_object(self):
         """Return the object that the message is attached to
 
-        May be useful for get_from_email()"""
+        May be useful for _get_from_email()"""
         mail_message = self.mail_message_id
         if mail_message and mail_message.model and mail_message.res_id:
             related_object = self.env[mail_message.model].browse(mail_message.res_id)
@@ -20,7 +20,7 @@ class SmsSms(models.Model):
                 return related_object
         return None
 
-    def get_from_email(self):
+    def _get_from_email(self):
         """Hook method for providing an email address for SMS replies"""
         return None
 

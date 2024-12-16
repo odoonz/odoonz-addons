@@ -38,7 +38,7 @@ class SmsApi(models.AbstractModel):
             to=number,
             body=message,
         )
-        from_email = self.env["sms.sms"].sudo().browse(sms_id).get_from_email()
+        from_email = self.env["sms.sms"].sudo().browse(sms_id)._get_from_email()
         if from_email:
             sms_args["from_email"] = from_email
         sms_message = SmsMessage(**sms_args)
