@@ -27,12 +27,21 @@ class SmsApi(models.AbstractModel):
         if not number:
             # see odoo/addons/sms/models/sms_sms.py IAP_TO_SMS_STATE
             return "wrong_number_format"
+
         account = self._get_sms_account()
         configuration = clicksend_client.Configuration()
         configuration.username = account.sms_clicksend_username
         configuration.password = account.sms_clicksend_password
         sms_api = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
-        sms_message = SmsMessage(source="odoo", to=number, body=message)
+        sms_args = dict(
+            source="odoo",
+            to=number,
+            body=message,
+        )
+        from_email = self.env["sms.sms"].sudo().browse(sms_id).get_from_email()
+        if from_email:
+            sms_args["from_email"] = from_email
+        sms_message = SmsMessage(**sms_args)
         _logger.info(f"Sending SMS: {sms_message}")
         try:
             sms_messages = clicksend_client.SmsMessageCollection(messages=[sms_message])

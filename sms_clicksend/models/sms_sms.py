@@ -9,6 +9,10 @@ class SmsSms(models.Model):
 
     error_detail = fields.Text(readonly=True)
 
+    def get_from_email(self):
+        """Hook method for providing an email address for SMS replies"""
+        return None
+
     def _split_batch(self):
         if self.env["sms.api"]._is_sent_with_clicksend():
             # Only send individual SMS
