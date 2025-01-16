@@ -3,13 +3,11 @@
 
 from odoo import fields, models
 
-from .helper_methods import render_default_code
-
 
 class ProductAttribute(models.Model):
     _inherit = "product.attribute"
 
-    code = fields.Char("Code")
+    code = fields.Char()
 
     def write(self, vals):
         result = super().write(vals)
@@ -21,14 +19,15 @@ class ProductAttribute(models.Model):
         attribute_line_obj = self.env["product.template.attribute.line"]
         product_obj = self.env["product.product"]
         for attribute in self:
-            attribute_lines = attribute_line_obj.search([("attribute_id", "=", attribute.id)])
+            attribute_lines = attribute_line_obj.search(
+                [("attribute_id", "=", attribute.id)]
+            )
             for line in attribute_lines:
                 prod_cond = [
                     ("product_tmpl_id", "=", line.product_tmpl_id.id),
                     ("manual_code", "=", False),
-                    ("reference_mask", "!=", False)
+                    ("reference_mask", "!=", False),
                 ]
                 products = product_obj.with_context(active_test=False).search(prod_cond)
                 for product in products:
-                    render_default_code(product, product.reference_mask)
-
+                    product._compute_default_code()

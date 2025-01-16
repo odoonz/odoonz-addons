@@ -3,8 +3,6 @@
 
 from odoo import api, fields, models
 
-from .helper_methods import render_default_code
-
 
 class ProductAttributeValue(models.Model):
     _inherit = "product.attribute.value"
@@ -15,8 +13,8 @@ class ProductAttributeValue(models.Model):
             if value.name and not value.code:
                 value.code = value.name[0:2].upper()
 
-    code = fields.Char(string="Code", compute="_compute_code", readonly=False, store=True)
-    comment = fields.Text("Comment")
+    code = fields.Char(compute="_compute_code", readonly=False, store=True)
+    comment = fields.Text()
 
     def write(self, vals):
         result = super().write(vals)

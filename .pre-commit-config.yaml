@@ -5,7 +5,6 @@ exclude: |
   ^account_financial_risk_manager/|
   ^base_ir_rule_important/|
   ^mrp_sale_fields_enterprise/|
-  ^product_code_builder/|
   ^product_list_price_change/|
   ^product_list_price_from_bom/|
   ^product_pricelist_extended/|

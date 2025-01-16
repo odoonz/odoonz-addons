@@ -3,7 +3,7 @@
 {
     "name": "Product Variant Default Code",
     "version": "18.0.1.0.0",
-    "author": "MoaHub",
+    "author": "MoaHub Ltd",
     "contributors": [
         "OdooMRP team",
         "Avanzosc",
@@ -18,5 +18,4 @@
     "depends": ["product"],
     "data": ["views/product_view.xml", "views/product_attribute_view.xml"],
     "demo": ["demo/product.attribute.xml", "demo/product.attribute.value.csv"],
-    "installable": False,
 }

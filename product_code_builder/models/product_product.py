@@ -5,13 +5,11 @@ import re
 from collections import defaultdict
 from string import Template
 
-from odoo import _, models
-from odoo.api import readonly
+from odoo import _, api, fields, models
 from odoo.exceptions import MissingError
 
 DEFAULT_REFERENCE_SEPARATOR = ""
 PLACE_HOLDER_4_MISSING_VALUE = "/"
-from odoo import api, fields, models
 
 
 class ReferenceMask(Template):
@@ -26,8 +24,12 @@ class ReferenceMask(Template):
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
-    manual_code = fields.Boolean(string="Manual code", compute="_compute_manual_code", readonly=False, store=True)
-    default_code = fields.Char(compute="_compute_default_code", store=True, index="trigram", readonly=False)
+    manual_code = fields.Boolean(
+        string="Manual code", compute="_compute_manual_code", readonly=False, store=True
+    )
+    default_code = fields.Char(
+        compute="_compute_default_code", store=True, index="trigram", readonly=False
+    )
 
     @api.model_create_multi
     def create(self, values):
@@ -38,14 +40,23 @@ class ProductProduct(models.Model):
     @api.depends("default_code")
     def _compute_manual_code(self):
         for product in self:
-            product.manual_code = bool(product.default_code != product._get_rendered_default_code())
+            product.manual_code = bool(
+                product.default_code != product._get_rendered_default_code()
+            )
 
     @staticmethod
     def _extract_token(s):
+        if not s:
+            return set()
         pattern = re.compile(r"\[([^\]]+?)\]")
         return set(pattern.findall(s))
 
-    @api.constrains("reference_mask", "attribute_line_ids", "attribute_line_ids.attribute_id", "attribute_line_ids.attribute_id.name")
+    @api.constrains(
+        "reference_mask",
+        "attribute_line_ids",
+        "attribute_line_ids.attribute_id",
+        "attribute_line_ids.attribute_id.name",
+    )
     def _check_reference_mask(self, mask):
         tokens = self._extract_token(mask)
         attribute_names = set()
@@ -58,7 +69,8 @@ class ProductProduct(models.Model):
 
     def _get_rendered_default_code(self):
         product_attrs = defaultdict(str)
-        reference_mask = ReferenceMask(self.reference_mask)
+        reference_mask_str = self.reference_mask or ""
+        reference_mask = ReferenceMask(reference_mask_str)
         for value in self.product_template_attribute_value_ids:
             if value.attribute_id.code:
                 product_attrs[value.attribute_id.name] += value.attribute_id.code

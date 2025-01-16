@@ -4,11 +4,7 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
-from .helper_methods import (
-    DEFAULT_REFERENCE_SEPARATOR,
-    render_default_code,
-    sanitize_reference_mask,
-)
+from .product_product import DEFAULT_REFERENCE_SEPARATOR
 
 
 class ProductTemplate(models.Model):
@@ -37,18 +33,21 @@ class ProductTemplate(models.Model):
         "attribute name",
     )
 
-    @api.model
-    def create(self, vals):
-        product = self.new(vals)
-        if not vals.get("reference_mask") and product.attribute_line_ids:
-            attribute_names = []
-            for line in product.attribute_line_ids:
-                attribute_names.append("[{}]".format(line.attribute_id.name))
-            default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
-            vals["reference_mask"] = default_mask
-        elif vals.get("reference_mask"):
-            sanitize_reference_mask(product, vals["reference_mask"])
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            product = self.new(vals)
+            if not vals.get("reference_mask") and product.attribute_line_ids:
+                attribute_names = [
+                    "[{}]".format(line.attribute_id.name)
+                    for line in product.attribute_line_ids
+                ]
+                default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
+                vals["reference_mask"] = default_mask
+            elif vals.get("reference_mask"):
+                product._check_reference_mask(vals["reference_mask"])
+        products = super().create(vals_list)
+        return products
 
     def write(self, vals):
         if "reference_mask" in vals and not vals["reference_mask"]:
@@ -76,5 +75,5 @@ class ProductTemplate(models.Model):
                 cond = [("product_tmpl_id", "=", tmpl.id), ("manual_code", "=", False)]
                 products = product_obj.with_context(active_test=False).search(cond)
                 for product in products:
-                    render_default_code(product, vals["reference_mask"])
+                    product._compute_default_code()
         return result
