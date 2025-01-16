@@ -14,6 +14,9 @@ class ProductAttributeLine(models.Model):
         domain="[('attribute_id', '=', attribute_id)]",
     )
 
+    def _set_values_from_attribute_groups(self):
+        self.value_ids = self.attr_group_ids.mapped("value_ids")
+
     @api.onchange("attr_group_ids")
     def onchange_attr_group(self):
         """
@@ -22,15 +25,16 @@ class ProductAttributeLine(models.Model):
         readonly in the UI it won't write so we handle properly in write
         :return:
         """
-        self.value_ids = self.attr_group_ids.mapped("value_ids")
+        self._set_values_from_attribute_groups()
 
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if "attr_group_ids" in vals:
                 if vals.get("attr_group_ids"):
+                    # all will be newly added / mode 4
                     attr_groups = self.env["product.attribute.group"].browse(
-                        vals["attr_group_ids"][0][2]
+                        vals["attr_group_ids"][0][1]
                     )
                     vals["value_ids"] = [
                         [6, False, attr_groups.mapped("value_ids").ids]
@@ -42,13 +46,12 @@ class ProductAttributeLine(models.Model):
     def write(self, vals):
         """
         Override write in order to ensure that values match
-        the group.
+        the group(s).
         :param vals:
         :return:
         """
-        if vals.get("attr_group_ids"):
-            attr_groups = self.env["product.attribute.group"].browse(
-                vals["attr_group_ids"][0][2]
-            )
-            vals["value_ids"] = [[6, False, attr_groups.mapped("value_ids").ids]]
-        return super().write(vals)
+        attribute_groups_changed = "attr_group_ids" in vals
+        result = super().write(vals)
+        if attribute_groups_changed:
+            self._set_values_from_attribute_groups()
+        return result
