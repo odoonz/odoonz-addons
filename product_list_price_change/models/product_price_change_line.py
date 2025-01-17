@@ -16,32 +16,17 @@ class ProductPriceChangeLine(models.Model):
         ondelete="cascade",
         comodel_name="product.template",
         required=True,
-        states={
-            "cancel": [("readonly", True)],
-            "future": [("readonly", True)],
-            "live": [("readonly", True)],
-        },
     )
     price_change_id = fields.Many2one(
         string="Price Change",
         comodel_name="product.price.change",
         required=True,
-        states={
-            "cancel": [("readonly", True)],
-            "future": [("readonly", True)],
-            "live": [("readonly", True)],
-        },
     )
     list_price = fields.Float(
         "Sales Price",
         required=True,
         digits="Product Price",
         help="Price at which the product is sold to customers.",
-        states={
-            "cancel": [("readonly", True)],
-            "future": [("readonly", True)],
-            "live": [("readonly", True)],
-        },
     )
 
     state = fields.Selection(related="price_change_id.state", store=True)
