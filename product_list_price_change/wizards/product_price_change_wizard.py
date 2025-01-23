@@ -22,7 +22,8 @@ class ProductPriceChangeWizard(models.TransientModel):
     def update_price_change_record(self):
         for wizard in self:
             records_to_remove = wizard.price_change_id.product_line_ids.filtered(
-                lambda s: s.product_tmpl_id.id in wizard.product_tmpl_ids.ids
+                lambda s, wizard=wizard: s.product_tmpl_id.id
+                in wizard.product_tmpl_ids.ids
             )
             if records_to_remove:
                 if wizard.overwrite_existing:

@@ -46,7 +46,13 @@ class TestProductProduct(TransactionCase):
         self.assertEqual(expected_list_price, dozen_product.lst_price)
 
     def test_update_empty_price_change_records(self):
-        products = self.env["product.template"].search([('price_change_line_ids', '=', False)])
+        products = self.env["product.template"].search(
+            [("price_change_line_ids", "=", False)]
+        )
         if products:
-            self.env['product.template']._update_templates_without_price_change()
-            self.assertFalse(self.env["product.template"].search([('price_change_line_ids', '=', False)]))
+            self.env["product.template"]._update_templates_without_price_change()
+            self.assertFalse(
+                self.env["product.template"].search(
+                    [("price_change_line_ids", "=", False)]
+                )
+            )

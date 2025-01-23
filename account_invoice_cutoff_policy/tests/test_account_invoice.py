@@ -7,7 +7,6 @@ from unittest import mock
 from odoo.tests import common
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 
-
 spt = datetime.strptime
 
 
@@ -24,7 +23,9 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+        with mock.patch.object(
+            type(self.partner), "_get_lock_date", return_value=new_date
+        ):
             invoice._compute_date()
         self.assertEqual(invoice.invoice_date, new_date)
 
@@ -36,7 +37,9 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+        with mock.patch.object(
+            type(self.partner), "_get_lock_date", return_value=new_date
+        ):
             invoice._compute_date()
         self.assertEqual(invoice.invoice_date, orig_date)
 
@@ -47,6 +50,8 @@ class TestAccountInvoice(common.TransactionCase):
         orig_date = spt("2008-08-03", DEFAULT_SERVER_DATE_FORMAT).date()
         new_date = spt("2012-12-24", DEFAULT_SERVER_DATE_FORMAT).date()
         invoice.invoice_date = orig_date
-        with mock.patch.object(type(self.partner), "_get_lock_date", return_value=new_date) as mock_date:
+        with mock.patch.object(
+            type(self.partner), "_get_lock_date", return_value=new_date
+        ):
             invoice._compute_date()
         self.assertEqual(invoice.invoice_date, new_date)

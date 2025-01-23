@@ -27,7 +27,7 @@ class ProductTemplate(models.Model):
     def _prepare_price_change(self):
         return {
             "name": "Value at Creation",
-            "effective_date": '1970-01-01',
+            "effective_date": "1970-01-01",
         }
 
     def _create_default_price_change_record(self):
@@ -63,7 +63,7 @@ class ProductTemplate(models.Model):
         Designed to be run from shell
         :return: None
         """
-        templates = self.search([('price_change_line_ids', '=', False)])
+        templates = self.search([("price_change_line_ids", "=", False)])
         templates._create_default_price_change_record()
 
 
@@ -175,10 +175,16 @@ class ProductProduct(models.Model):
                 list_price = product.uom_id._compute_price(list_price, to_uom)
             product.lst_price = list_price + product.price_extra
 
-    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
+    def price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         if price_type == "list_price":
             price_type = "lst_price"
         return super(
             ProductProduct,
-            self.with_context(uom_already_computed=price_type == "lst_price",date=date),
-        ).price_compute(price_type, uom=uom, currency=currency, company=company, date=date)
+            self.with_context(
+                uom_already_computed=price_type == "lst_price", date=date
+            ),
+        ).price_compute(
+            price_type, uom=uom, currency=currency, company=company, date=date
+        )

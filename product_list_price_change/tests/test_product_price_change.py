@@ -29,6 +29,7 @@ class TestProductPriceChange(TransactionCase):
         self.product_price_change.state = "live"
         with self.assertRaises(UserError):
             self.product_price_change.action_cancel()
+        with self.assertRaises(UserError):
             self.product_price_change.action_draft()
 
     def test_compute_partner_effective_date(self):

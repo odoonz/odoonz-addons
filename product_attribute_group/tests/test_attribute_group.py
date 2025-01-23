@@ -42,14 +42,8 @@ class TestAttributeGroups(TransactionCase):
             "product_attribute_group.product_attribute_value_64gb"
         )
         self.assertTrue(len(self.attr_group_1.value_ids) == initial_length + 1)
-        self.assertTrue(
-            len(self.product_chair.product_variant_ids)
-            == chair_len
-        )
-        self.assertTrue(
-            len(self.product_desk.product_variant_ids)
-            == desk_len
-        )
+        self.assertTrue(len(self.product_chair.product_variant_ids) == chair_len)
+        self.assertTrue(len(self.product_desk.product_variant_ids) == desk_len)
 
     def test_removing_values_from_attr_group(self):
         """
@@ -62,8 +56,9 @@ class TestAttributeGroups(TransactionCase):
         # The number of variants should be the product of attribute value_ids
         self.product_chair._create_variant_ids()
         self.product_desk._create_variant_ids()
-        chair_factor = (len(self.product_chair.product_variant_ids) //
-                       len(self.attr_group_1.value_ids))
+        # chair_factor = len(self.product_chair.product_variant_ids) // len(
+        #    self.attr_group_1.value_ids
+        # )
         desk_factor = len(self.product_desk.product_variant_ids) // len(
             self.attr_group_1.value_ids
         )

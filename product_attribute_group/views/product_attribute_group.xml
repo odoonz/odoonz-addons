@@ -4,19 +4,14 @@
 <odoo>
 
     <record model="ir.ui.view" id="product_attribute_group_form_view">
-        <field
-      name="name"
-    >product.attribute.group.form (in product_attribute_group)</field>
+        <field name="name">product.attribute.group.form (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <form string="Product Attribute Group">
                 <sheet>
                     <group>
                         <field name="name" />
-                        <field
-              name="attribute_id"
-              options="{'no_create_edit': True}"
-            />
+                        <field name="attribute_id" options="{'no_create_edit': True}" />
                         <field name="value_ids" widget="many2many_tags" />
                     </group>
                 </sheet>
@@ -25,9 +20,7 @@
     </record>
 
     <record model="ir.ui.view" id="product_attribute_group_search_view">
-        <field
-      name="name"
-    >product.attribute.group.search (in product_attribute_group)</field>
+        <field name="name">product.attribute.group.search (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <search string="Product Attribute Groups">
@@ -39,41 +32,28 @@
     </record>
 
     <record model="ir.ui.view" id="product_attribute_group_tree_view">
-        <field
-      name="name"
-    >product.attribute.group.tree (in product_attribute_group)</field>
+        <field name="name">product.attribute.group.tree (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <list string="Product Attribute Groups" editable="bottom">
                 <field name="name" />
                 <field name="attribute_id" options="{'no_create_edit': True}" />
                 <field
-          name="value_ids"
-          context="{'show_attribute': False, 'default_attribute_id': attribute_id}"
-          widget="many2many_tags"
-          domain="[('attribute_id', '=', attribute_id)]"
-        />
-                <button
-          name="button_copy"
-          type="object"
-          string="Duplicate"
-          icon="fa-copy"
-        />
+                    name="value_ids"
+                    context="{'show_attribute': False, 'default_attribute_id': attribute_id}"
+                    widget="many2many_tags"
+                    domain="[('attribute_id', '=', attribute_id)]"
+                />
+                <button name="button_copy" type="object" string="Duplicate" icon="fa-copy" />
             </list>
         </field>
     </record>
 
-    <record
-    model="ir.actions.act_window"
-    id="product_attribute_group_act_window"
-  >
+    <record model="ir.actions.act_window" id="product_attribute_group_act_window">
         <field name="name">Product Attribute Groups</field>
         <field name="res_model">product.attribute.group</field>
         <field name="view_mode">list,form</field>
-        <field
-      name="search_view_id"
-      ref="product_attribute_group_search_view"
-    />
+        <field name="search_view_id" ref="product_attribute_group_search_view" />
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
@@ -93,19 +73,19 @@
     </record>
 
     <menuitem
-    action="product_attribute_group_act_window"
-    id="product_attribute_group_menu"
-    parent="sale.prod_config_main"
-    sequence="6"
-    groups="product.group_product_variant"
-  />
+        action="product_attribute_group_act_window"
+        id="product_attribute_group_menu"
+        parent="sale.prod_config_main"
+        sequence="6"
+        groups="product.group_product_variant"
+    />
 
     <menuitem
-    action="product_attribute_group_act_window"
-    id="product_attribute_group_stock_menu"
-    parent="stock.menu_product_in_config_stock"
-    sequence="6"
-    groups="product.group_product_variant"
-  />
+        action="product_attribute_group_act_window"
+        id="product_attribute_group_stock_menu"
+        parent="stock.menu_product_in_config_stock"
+        sequence="6"
+        groups="product.group_product_variant"
+    />
 
 </odoo>

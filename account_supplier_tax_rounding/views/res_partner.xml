@@ -2,20 +2,12 @@
 <odoo>
 
     <record id="view_partner_form" model="ir.ui.view">
-        <field
-      name="name"
-    >res.partner.tax.calc (in account_supplier_tax_rounding)</field>
+        <field name="name">res.partner.tax.calc (in account_supplier_tax_rounding)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="account.view_partner_property_form" />
         <field name="arch" type="xml">
-            <xpath
-        expr="//field[@name='property_supplier_payment_term_id']"
-        position="after"
-      >
-                <field
-          name="tax_calc_method"
-          groups="account.group_account_invoice,account.group_account_readonly"
-        />
+            <xpath expr="//field[@name='property_supplier_payment_term_id']" position="after">
+                <field name="tax_calc_method" groups="account.group_account_invoice,account.group_account_readonly" />
             </xpath>
         </field>
     </record>

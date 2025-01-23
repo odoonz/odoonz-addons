@@ -23,10 +23,7 @@
             <field name="name" position="after">
                 <field name="code" />
             </field>
-            <xpath
-        expr="//field[@name='value_ids']/list/field[@name='name']"
-        position="after"
-      >
+            <xpath expr="//field[@name='value_ids']/list/field[@name='name']" position="after">
                 <field name="code" />
                 <field name="comment" />
             </xpath>
