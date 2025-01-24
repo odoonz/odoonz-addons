@@ -93,22 +93,16 @@ class TestSaleRecalc(TestSaleCommon):
 
     def test_access_spr(self):
         self.spr.with_user(self.company_data["default_user_salesman"]).create(self.vals)
+        _logger.info('Expecting "Access Denied by ACLs"...')
         with self.assertRaises(AccessError):
-            try:
-                self.spr.with_user(self.company_data["default_user_employee"]).create(
-                    self.vals
-                )
-            except AccessError:
-                _logger.info('Expecting "Access Denied by ACLs"...')
-                raise
+            self.spr.with_user(self.company_data["default_user_employee"]).create(
+                self.vals
+            )
+        _logger.info('Expecting "Access Denied by ACLs"...')
         with self.assertRaises(AccessError):
-            try:
-                self.spr.with_user(self.company_data["default_user_portal"]).create(
-                    self.vals
-                )
-            except AccessError:
-                _logger.info('Expecting "Access Denied by ACLs"...')
-                raise
+            self.spr.with_user(self.company_data["default_user_portal"]).create(
+                self.vals
+            )
 
     def test_default_get(self):
         """
