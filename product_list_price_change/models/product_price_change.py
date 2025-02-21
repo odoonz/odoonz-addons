@@ -6,7 +6,6 @@ from odoo.exceptions import UserError
 
 
 class ProductPriceChange(models.Model):
-
     _name = "product.price.change"
     _description = "Product Price Change"
     _order = "effective_date desc, id"

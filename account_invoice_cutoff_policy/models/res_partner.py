@@ -8,7 +8,6 @@ from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
-
     _inherit = "res.partner"
 
     enforce_cutoff = fields.Boolean(default=False)

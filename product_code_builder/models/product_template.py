@@ -39,8 +39,7 @@ class ProductTemplate(models.Model):
             product = self.new(vals)
             if not vals.get("reference_mask") and product.attribute_line_ids:
                 attribute_names = [
-                    "[{}]".format(line.attribute_id.name)
-                    for line in product.attribute_line_ids
+                    f"[{line.attribute_id.name}]" for line in product.attribute_line_ids
                 ]
                 default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
                 vals["reference_mask"] = default_mask
@@ -61,7 +60,7 @@ class ProductTemplate(models.Model):
             elif self.attribute_line_ids:
                 attribute_names = []
                 for line in self.attribute_line_ids:
-                    attribute_names.append("[{}]".format(line.attribute_id.name))
+                    attribute_names.append(f"[{line.attribute_id.name}]")
                 default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
                 vals["reference_mask"] = default_mask
         result = super().write(vals)

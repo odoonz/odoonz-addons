@@ -6,7 +6,7 @@ from odoo.addons.mrp.tests import common
 class TestMrpDynamic(common.TestMrpCommon):
     @classmethod
     def setUpClass(cls):
-        super(TestMrpDynamic, cls).setUpClass()
+        super().setUpClass()
         cls.color_attribute = cls.env["product.attribute"].create(
             {
                 "name": "Color (MRP Dynamic Line Tests)",

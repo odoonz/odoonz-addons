@@ -4,7 +4,9 @@
 <odoo>
 
     <record model="ir.ui.view" id="view_account_move_reversal">
-        <field name="name">account.move.reversal.form (in account_anglosaxon_financial)</field>
+        <field
+            name="name"
+        >account.move.reversal.form (in account_anglosaxon_financial)</field>
         <field name="model">account.move.reversal</field>
         <field name="inherit_id" ref="account.view_account_move_reversal" />
         <field name="arch" type="xml">

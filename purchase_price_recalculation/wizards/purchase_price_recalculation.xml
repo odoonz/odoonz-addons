@@ -4,7 +4,9 @@
 <odoo>
 
     <record model="ir.ui.view" id="purchase_price_recalculation_form_view">
-        <field name="name">purchase.price.recalculation.form (in purchase_price_recalculation)</field>
+        <field
+            name="name"
+        >purchase.price.recalculation.form (in purchase_price_recalculation)</field>
         <field name="model">purchase.price.recalculation</field>
         <field name="arch" type="xml">
             <form string="Update Pricing">
@@ -33,13 +35,27 @@
                         <field name="effective_tax_rate" invisible="1" />
                         <field name="product_id" force_save="1" />
                         <field name="qty" force_save="1" />
-                        <field name="price_unit" context="{'precision': parent.precision}" />
-                        <field name="price_subtotal" context="{'precision': parent.precision}" />
-                        <field name="price_total" context="{'precision': parent.precision}" />
+                        <field
+                            name="price_unit"
+                            context="{'precision': parent.precision}"
+                        />
+                        <field
+                            name="price_subtotal"
+                            context="{'precision': parent.precision}"
+                        />
+                        <field
+                            name="price_total"
+                            context="{'precision': parent.precision}"
+                        />
                     </list>
                 </field>
                 <footer>
-                    <button name="action_write" string="Write Changes" type="object" class="btn-primary" />
+                    <button
+                        name="action_write"
+                        string="Write Changes"
+                        type="object"
+                        class="btn-primary"
+                    />
                     <button special="cancel" string="Close" />
                 </footer>
             </form>

@@ -5,7 +5,6 @@ from odoo import api, models
 
 
 class StockProductionLot(models.Model):
-
     _inherit = "stock.lot"
 
     @api.depends("name", "quant_ids", "quant_ids.quantity")

@@ -7,14 +7,16 @@ from random import randint
 from odoo import fields
 from odoo.exceptions import AccessError
 from odoo.tests import Form, common, tagged
-from odoo.tools import float_compare as fc, float_round
+from odoo.tools import float_compare as fc
+from odoo.tools import float_round
 
 from . import hypothesis_params as hp
 
 _logger = logging.getLogger(__name__)
 
 try:
-    from hypothesis import given, settings, strategies as st
+    from hypothesis import given, settings
+    from hypothesis import strategies as st
 
     settings.register_profile("ci", database=None)
     settings.load_profile("ci")
@@ -25,7 +27,7 @@ except ImportError as err:
 @tagged("post-install", "-at-install")
 class TestPurchaseOrder(common.TransactionCase):
     def setUp(self):
-        super(TestPurchaseOrder, self).setUp()
+        super().setUp()
         context_no_mail = {
             "tracking_disable": True,
             "mail_notrack": True,

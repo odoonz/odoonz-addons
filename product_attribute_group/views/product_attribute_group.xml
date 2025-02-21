@@ -4,7 +4,9 @@
 <odoo>
 
     <record model="ir.ui.view" id="product_attribute_group_form_view">
-        <field name="name">product.attribute.group.form (in product_attribute_group)</field>
+        <field
+            name="name"
+        >product.attribute.group.form (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <form string="Product Attribute Group">
@@ -20,7 +22,9 @@
     </record>
 
     <record model="ir.ui.view" id="product_attribute_group_search_view">
-        <field name="name">product.attribute.group.search (in product_attribute_group)</field>
+        <field
+            name="name"
+        >product.attribute.group.search (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <search string="Product Attribute Groups">
@@ -32,7 +36,9 @@
     </record>
 
     <record model="ir.ui.view" id="product_attribute_group_tree_view">
-        <field name="name">product.attribute.group.tree (in product_attribute_group)</field>
+        <field
+            name="name"
+        >product.attribute.group.tree (in product_attribute_group)</field>
         <field name="model">product.attribute.group</field>
         <field name="arch" type="xml">
             <list string="Product Attribute Groups" editable="bottom">
@@ -44,7 +50,12 @@
                     widget="many2many_tags"
                     domain="[('attribute_id', '=', attribute_id)]"
                 />
-                <button name="button_copy" type="object" string="Duplicate" icon="fa-copy" />
+                <button
+                    name="button_copy"
+                    type="object"
+                    string="Duplicate"
+                    icon="fa-copy"
+                />
             </list>
         </field>
     </record>

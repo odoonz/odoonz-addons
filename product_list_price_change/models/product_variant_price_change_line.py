@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductVariantPriceChangeLine(models.Model):
-
     _name = "product.variant.price.change.line"
     _description = "Product Variant Price Change Line"
     _rec_name = "product_tmpl_attribute_value_id"

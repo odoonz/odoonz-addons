@@ -5,8 +5,15 @@
         <field name="model">xform.substitution.map</field>
         <field name="arch" type="xml">
             <list string="Substitution Maps" editable="top">
-                <field name="dest_product_id" options="{'no_create': True, 'no_open': True}" />
-                <field name="src_product_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}" />
+                <field
+                    name="dest_product_id"
+                    options="{'no_create': True, 'no_open': True}"
+                />
+                <field
+                    name="src_product_ids"
+                    widget="many2many_tags"
+                    options="{'no_create': True, 'no_open': True}"
+                />
             </list>
         </field>
     </record>

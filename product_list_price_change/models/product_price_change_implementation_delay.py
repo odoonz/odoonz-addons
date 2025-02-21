@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductPriceChangeImplementationDelay(models.Model):
-
     _name = "product.price.change.implementation_delay"
     _description = "Product Price Change Implementation Delay"
     _order = "effective_date desc"

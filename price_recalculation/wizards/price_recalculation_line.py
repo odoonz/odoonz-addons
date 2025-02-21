@@ -70,7 +70,8 @@ class PriceRecalculationLine(models.AbstractModel):
                 precision_total,
             )
         if price_subtotal is not False:
-            # Subtotal was set or calculated just now: Calculate unit price from subtotal
+            # Subtotal was set or calculated just now:
+            # Calculate unit price from subtotal
             price_unit = price_subtotal / (self.qty or 1.0) / self.get_discount_factor()
         if price_unit is not False:
             # Unit price was set or calculated just now: Round for new subtotal
@@ -84,7 +85,8 @@ class PriceRecalculationLine(models.AbstractModel):
             self.price_unit * self.qty * self.get_discount_factor(), precision_total
         )
         # Calculate total again
-        # (will trigger no-op recalculation in onchange() but needed for manual user changes)
+        # (will trigger no-op recalculation in onchange() but
+        # needed for manual user changes)
         self.price_total = float_round(
             self.price_subtotal * (1 + self.effective_tax_rate), precision_total
         )

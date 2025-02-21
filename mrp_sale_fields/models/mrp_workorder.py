@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class MrpProduction(models.Model):
-
     _inherit = "mrp.workorder"
 
     sale_id = fields.Many2one(related="production_id.sale_id", store=True)

@@ -5,11 +5,13 @@ from odoo import fields, models
 
 
 class ResCompany(models.Model):
-
     _inherit = "res.company"
 
     intracompany_user_id = fields.Many2one(
         "res.users",
         string="Create as",
-        help="Responsible user for actions that need to be restricted to just this company.",
+        help=(
+            "Responsible user for actions that need to be restricted to just "
+            "this company."
+        ),
     )

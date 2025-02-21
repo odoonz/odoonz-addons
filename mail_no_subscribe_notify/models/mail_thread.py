@@ -5,7 +5,6 @@ from odoo import models
 
 
 class MailThread(models.AbstractModel):
-
     _inherit = "mail.thread"
 
     def _message_auto_subscribe(self, updated_values, followers_existing_policy="skip"):

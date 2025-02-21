@@ -6,7 +6,6 @@ from odoo import fields, models
 
 
 class MrpBomLine(models.Model):
-
     _inherit = "mrp.bom.line"
 
     required_value_ids = fields.Many2many(

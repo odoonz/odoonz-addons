@@ -50,7 +50,7 @@ class TestAccountInvoice(common.TransactionCase):
         part2 = self.env.ref("base.res_partner_2")
         part3 = self.env.ref("base.res_partner_3")
         with mock.patch(
-            "%s._get_billing_partner" % partner_model, autospec=True
+            f"{partner_model}._get_billing_partner", autospec=True
         ) as mock_partner:
             mock_partner.return_value = part3
             invoice = self.env["account.move"].create(
@@ -74,7 +74,7 @@ class TestAccountInvoice(common.TransactionCase):
             }
         )
         with mock.patch(
-            "%s._get_billing_partner" % partner_model, autospec=True
+            f"{partner_model}._get_billing_partner", autospec=True
         ) as mock_partner:
             mock_partner.return_value = part3
             invoice.write({"partner_id": part2.id})

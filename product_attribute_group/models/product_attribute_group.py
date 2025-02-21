@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductAttributeGroup(models.Model):
-
     _name = "product.attribute.group"
     _description = "Product Attribute Group"
     _order = "attribute_id, name asc"
@@ -46,7 +45,7 @@ class ProductAttributeGroup(models.Model):
         :return: newly created record
         """
         default = dict(default or {})
-        default["name"] = "%s (Copy)" % self.name
+        default["name"] = f"{self.name} (Copy)"
         return super().copy(default=default)
 
     def button_copy(self):

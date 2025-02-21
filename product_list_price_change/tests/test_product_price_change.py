@@ -9,7 +9,7 @@ from odoo.tests.common import TransactionCase
 
 class TestProductPriceChange(TransactionCase):
     def setUp(self):
-        super(TestProductPriceChange, self).setUp()
+        super().setUp()
         self.partner = self.env.ref("base.res_partner_1")
         self.product_price_change = self.env.ref(
             "product_list_price_change.product_price_change_demo_1"

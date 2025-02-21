@@ -6,7 +6,7 @@ from odoo.tests.common import Form, TransactionCase
 
 class TestProductPriceChangeLine(TransactionCase):
     def setUp(self):
-        super(TestProductPriceChangeLine, self).setUp()
+        super().setUp()
         self.product_price_change = self.env.ref(
             "product_list_price_change.product_price_change_demo_1"
         )

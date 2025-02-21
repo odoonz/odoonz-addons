@@ -5,7 +5,6 @@ from odoo import models
 
 
 class ResPartner(models.Model):
-
     _inherit = "res.partner"
 
     def _get_price_change_effective_date(self, price_change):

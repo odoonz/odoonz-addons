@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductAttributeLine(models.Model):
-
     _inherit = "product.template.attribute.line"
 
     attr_group_ids = fields.Many2many(

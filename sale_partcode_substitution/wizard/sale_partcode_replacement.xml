@@ -24,7 +24,12 @@
                     </group>
                 </group>
                 <footer>
-                    <button name="change_products_partcode" string="Substitute" type="object" class="oe_highlight" />
+                    <button
+                        name="change_products_partcode"
+                        string="Substitute"
+                        type="object"
+                        class="oe_highlight"
+                    />
                     <button name="cancel" string="Discard" special="cancel" />
                 </footer>
             </form>

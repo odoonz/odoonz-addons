@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 
 
 class MrpProduction(models.Model):
-
     _inherit = "mrp.production"
 
     def _get_moves_raw_values(self):
@@ -33,7 +32,7 @@ class MrpProduction(models.Model):
                 lambda bl: bl.application_point == "move"
             ).sorted("sequence"):
                 try:
-                    func = getattr(self, "_get_move_raw_%s" % xform.technical_name)
+                    func = getattr(self, f"_get_move_raw_{xform.technical_name}")
                 except AttributeError:
                     _logger.error(
                         _("No function found with name _get_move_raw_%s")
@@ -92,7 +91,7 @@ class MrpProduction(models.Model):
                 new_qty = bom_vals["qty"]
                 for xform in xforms:
                     try:
-                        func = getattr(self, "_get_move_raw_%s" % xform.technical_name)
+                        func = getattr(self, f"_get_move_raw_{xform.technical_name}")
                     except AttributeError:
                         _logger.error(
                             _("No function found with name _get_move_raw_%s")

@@ -11,7 +11,6 @@ _logger = logging.getLogger(__name__)
 
 
 class MrpBom(models.Model):
-
     _inherit = "mrp.bom"
 
     def explode(
@@ -29,7 +28,7 @@ class MrpBom(models.Model):
                 lambda bl: bl.application_point == "explode"
             ).sorted("sequence"):
                 try:
-                    func = getattr(self, "_explode_%s" % xform.technical_name)
+                    func = getattr(self, f"_explode_{xform.technical_name}")
                 except AttributeError:
                     _logger.error(
                         _("No function found with name _explode_%s")
@@ -72,7 +71,7 @@ class MrpBom(models.Model):
                 )
         product = Product.search(search_domain)
         if len(product) > 1:
-            names = ["  - %s" % p[1] for p in product.name_get()]
+            names = [f"  - {p[1]}" for p in product.name_get()]
             raise ValidationError(
                 _(
                     "The BoM Line %(bom_line)s in BoM %(bom)s is matching too many "

@@ -75,9 +75,9 @@ class ProductProduct(models.Model):
             if value.attribute_id.code:
                 product_attrs[value.attribute_id.name] += value.attribute_id.code
             if value.product_attribute_value_id.code:
-                product_attrs[
-                    value.attribute_id.name
-                ] += value.product_attribute_value_id.code
+                product_attrs[value.attribute_id.name] += (
+                    value.product_attribute_value_id.code
+                )
         all_attrs = self._extract_token(self.reference_mask)
         missing_attrs = all_attrs - set(product_attrs.keys())
         missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)

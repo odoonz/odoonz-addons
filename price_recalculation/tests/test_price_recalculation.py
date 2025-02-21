@@ -18,7 +18,7 @@ class TestPriceCalculation(TestSaleOrder):
         super().setUp()
 
     def test_defaults(self):
-        with mock.patch("%s._get_lines" % WIZARD) as get_lines:
+        with mock.patch(f"{WIZARD}._get_lines") as get_lines:
             get_lines.return_value = []
             flds = (
                 self.env["price.recalculation"]

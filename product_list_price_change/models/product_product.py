@@ -80,7 +80,6 @@ class ProductTemplateAttributeValue(models.Model):
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     @staticmethod

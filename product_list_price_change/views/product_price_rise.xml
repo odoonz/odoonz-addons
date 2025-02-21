@@ -4,7 +4,9 @@
 <odoo>
 
     <record model="ir.ui.view" id="product_price_change_form_view">
-        <field name="name">product.price.change.form (in product_list_price_change)</field>
+        <field
+            name="name"
+        >product.price.change.form (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <form string="Price Change">
@@ -28,7 +30,12 @@
                         invisible="state != 'draft'"
                         name="%(product_list_price_change.product_price_change_wizard_act_window)d"
                     />
-                    <button type="object" string="Cancel" invisible="state not in ('draft', 'future')" name="action_cancel" />
+                    <button
+                        type="object"
+                        string="Cancel"
+                        invisible="state not in ('draft', 'future')"
+                        name="action_cancel"
+                    />
                     <field name="state" widget="statusbar" readonly="1" />
                 </header>
                 <sheet>
@@ -48,9 +55,15 @@
                                 nolabel="1"
                             >
                                 <list editable="bottom">
-                                    <field name="product_tmpl_id" readonly="state in ('cancel', 'future', 'live')" />
+                                    <field
+                                        name="product_tmpl_id"
+                                        readonly="state in ('cancel', 'future', 'live')"
+                                    />
                                     <field name="percent_change" />
-                                    <field name="list_price" readonly="state in ('cancel', 'future', 'live')" />
+                                    <field
+                                        name="list_price"
+                                        readonly="state in ('cancel', 'future', 'live')"
+                                    />
                                     <field name="state" invisible="1" nolabel="1" />
                                 </list>
                             </field>
@@ -67,7 +80,10 @@
                                         name="product_tmpl_attribute_value_id"
                                         readonly="state in ('cancel', 'future', 'live')"
                                     />
-                                    <field name="price_extra" readonly="state in ('cancel', 'future', 'live')" />
+                                    <field
+                                        name="price_extra"
+                                        readonly="state in ('cancel', 'future', 'live')"
+                                    />
                                     <field name="state" invisible="1" nolabel="1" />
                                 </list>
                             </field>
@@ -82,7 +98,10 @@
                                 <list editable="bottom">
                                     <field name="effective_date" />
                                     <field name="name" />
-                                    <field name="included_categories" widget="many2many_tags" />
+                                    <field
+                                        name="included_categories"
+                                        widget="many2many_tags"
+                                    />
                                 </list>
                             </field>
                         </page>
@@ -96,21 +115,29 @@
     </record>
 
     <record model="ir.ui.view" id="product_price_change_search_view">
-        <field name="name">product.price.change.search (in product_list_price_change)</field>
+        <field
+            name="name"
+        >product.price.change.search (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />
                 <field name="effective_date" />
                 <group expand="0" string="Group By">
-                    <filter string="Status" name="group_status" context="{'group_by':'state'}" />
+                    <filter
+                        string="Status"
+                        name="group_status"
+                        context="{'group_by':'state'}"
+                    />
                 </group>
             </search>
         </field>
     </record>
 
     <record model="ir.ui.view" id="product_price_change_tree_view">
-        <field name="name">product.price.change.tree (in product_list_price_change)</field>
+        <field
+            name="name"
+        >product.price.change.tree (in product_list_price_change)</field>
         <field name="model">product.price.change</field>
         <field name="arch" type="xml">
             <list>
@@ -145,9 +172,15 @@
             <xpath expr="//notebook" position="inside">
                 <page name="price_change" string="Price History">
                     <field name="price_change_line_ids" colspan="5" nolabel="1">
-                        <list name="price_change_tree" decoration-muted="state == 'live'">
+                        <list
+                            name="price_change_tree"
+                            decoration-muted="state == 'live'"
+                        >
                             <field name="effective_date" readonly="state != 'draft'" />
-                            <field name="list_price" readonly="state in ('cancel', 'future', 'live')" />
+                            <field
+                                name="list_price"
+                                readonly="state in ('cancel', 'future', 'live')"
+                            />
                             <field name="state" />
                         </list>
                     </field>

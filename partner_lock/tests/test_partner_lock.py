@@ -6,7 +6,7 @@ from odoo.tests.common import TransactionCase, tagged
 class TestResPartner(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestResPartner, cls).setUpClass()
+        super().setUpClass()
         cls.partner_model = cls.env["res.partner"]
         cls.user_model = cls.env["res.users"]
         cls.group_unlock = cls.env.ref("partner_lock.group_res_partner_unlock")

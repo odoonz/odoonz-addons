@@ -5,7 +5,6 @@ from odoo import models
 
 
 class AccountMove(models.Model):
-
     _inherit = "account.move"
 
     def _get_invoice_partner(self):

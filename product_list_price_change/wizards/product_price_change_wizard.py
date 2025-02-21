@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 
 class ProductPriceChangeWizard(models.TransientModel):
-
     _name = "product.price.change.wizard"
     _rec_name = "price_change_id"
     _description = "Add Price Changes in Bulk"

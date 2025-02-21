@@ -9,7 +9,6 @@ _logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
-
     _inherit = "res.partner"
 
     is_locked = fields.Boolean("Locked")

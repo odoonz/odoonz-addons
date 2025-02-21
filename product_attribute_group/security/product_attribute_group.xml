@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2017 Graeme Gellatly
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<odoo>
-<data noupdate="1">
+<odoo noupdate="1">
 
     <record model="ir.model.access" id="product_attribute_group_access_user">
         <field name="name">product.attribute.group access user</field>
@@ -24,5 +23,4 @@
         <field name="perm_unlink" eval="1" />
     </record>
 
-</data>
 </odoo>

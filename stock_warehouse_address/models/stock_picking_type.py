@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class StockPickingType(models.Model):
-
     _inherit = "stock.picking.type"
 
     address_id = fields.Many2one(comodel_name="res.partner", string="Address")

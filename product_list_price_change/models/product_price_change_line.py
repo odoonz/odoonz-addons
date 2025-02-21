@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductPriceChangeLine(models.Model):
-
     _name = "product.price.change.line"
     _description = "Product Price Change Line"
     _rec_name = "product_tmpl_id"

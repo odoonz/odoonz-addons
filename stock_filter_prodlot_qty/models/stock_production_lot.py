@@ -6,7 +6,6 @@ from odoo.osv import expression
 
 
 class StockProductionLot(models.Model):
-
     _inherit = "stock.lot"
 
     @api.depends_context("location_id")

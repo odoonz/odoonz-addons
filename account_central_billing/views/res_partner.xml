@@ -10,10 +10,21 @@
                 <field name="store_ref" invisible="not is_company" />
             </xpath>
             <xpath expr="//field[@name='property_payment_term_id']" position="after">
-                <field name="invoicing_partner_id" invisible="not is_company" groups="account.group_account_manager" />
+                <field
+                    name="invoicing_partner_id"
+                    invisible="not is_company"
+                    groups="account.group_account_manager"
+                />
             </xpath>
-            <xpath expr="//field[@name='property_supplier_payment_term_id']" position="after">
-                <field name="billing_partner_id" invisible="not is_company" groups="account.group_account_manager" />
+            <xpath
+                expr="//field[@name='property_supplier_payment_term_id']"
+                position="after"
+            >
+                <field
+                    name="billing_partner_id"
+                    invisible="not is_company"
+                    groups="account.group_account_manager"
+                />
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Stores" invisible="not store_ids">
@@ -45,11 +56,19 @@
                             <field name="supplier_rank" />
                             <templates>
                                 <t t-name="kanban-box">
-                                    <t t-set="color" t-value="kanban_color(record.color.raw_value)" />
+                                    <t
+                                        t-set="color"
+                                        t-value="kanban_color(record.color.raw_value)"
+                                    />
                                     <div
                                         t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'"
                                     >
-                                        <a title="box" t-if="!read_only_mode" type="delete" class="fa fa-times pull-right" />
+                                        <a
+                                            title="box"
+                                            t-if="!read_only_mode"
+                                            type="delete"
+                                            class="fa fa-times pull-right"
+                                        />
                                         <div class="o_kanban_image">
                                             <img
                                                 t-if="record.image_128.raw_value"
@@ -72,7 +91,9 @@
                                                     t-att-src="_s + &quot;/sale_dropship_address/static/src/img/site.png&quot;"
                                                     alt="Image"
                                                 />
-                                                <t t-if="record.type.raw_value === 'contact'">
+                                                <t
+                                                    t-if="record.type.raw_value === 'contact'"
+                                                >
                                                     <img
                                                         t-if="record.is_company.raw_value === true"
                                                         t-att-src='_s + "/base/static/img/company_image.png"'
@@ -95,16 +116,24 @@
                                             <div t-if="record.email.raw_value">
                                                 <field name="email" />
                                             </div>
-                                            <div t-if="record.type.raw_value != 'contact'">
+                                            <div
+                                                t-if="record.type.raw_value != 'contact'"
+                                            >
                                                 <div>
 
-                                                    <field t-if="record.street.raw_value" name="street" />
+                                                    <field
+                                                        t-if="record.street.raw_value"
+                                                        name="street"
+                                                    />
                                                     <br />
                                                     <t t-if="record.street2.raw_value">
                                                         <field name="street2" />
                                                         <br />
                                                     </t>
-                                                    <field t-if="record.city.raw_value" name="city" />
+                                                    <field
+                                                        t-if="record.city.raw_value"
+                                                        name="city"
+                                                    />
                                                     <field name="zip" />
 
                                                 </div>
@@ -124,17 +153,37 @@
                         </kanban>
                         <form string="Store">
                             <sheet>
-                                <field name="type" required="1" widget="radio" options="{'horizontal': true}" />
+                                <field
+                                    name="type"
+                                    required="1"
+                                    widget="radio"
+                                    options="{'horizontal': true}"
+                                />
                                 <hr />
                                 <group>
                                     <group invisible="type == 'contact'">
                                         <label for="street" string="Address" />
                                         <div>
-                                            <div class="o_address_format" name="div_address">
+                                            <div
+                                                class="o_address_format"
+                                                name="div_address"
+                                            >
                                                 <!-- removed widget here fr gplaces-->
-                                                <field name="street" placeholder="Street..." class="o_address_street" />
-                                                <field name="street2" placeholder="Street 2..." class="o_address_street" />
-                                                <field name="city" placeholder="City" class="o_address_city" />
+                                                <field
+                                                    name="street"
+                                                    placeholder="Street..."
+                                                    class="o_address_street"
+                                                />
+                                                <field
+                                                    name="street2"
+                                                    placeholder="Street 2..."
+                                                    class="o_address_street"
+                                                />
+                                                <field
+                                                    name="city"
+                                                    placeholder="City"
+                                                    class="o_address_city"
+                                                />
                                                 <field
                                                     name="state_id"
                                                     class="o_address_state"
@@ -142,7 +191,11 @@
                                                     options='{"no_open": True}'
                                                     context="{'country_id': country_id, 'zip': zip}"
                                                 />
-                                                <field name="zip" placeholder="ZIP" class="o_address_zip" />
+                                                <field
+                                                    name="zip"
+                                                    placeholder="ZIP"
+                                                    class="o_address_zip"
+                                                />
                                                 <field
                                                     name="country_id"
                                                     placeholder="Country"
@@ -153,8 +206,16 @@
                                         </div>
                                     </group>
                                     <group>
-                                        <field name="name" string="Contact Name" invisible="type == 'contact'" />
-                                        <field name="title" placeholder="e.g. Mr." invisible="type != 'contact'" />
+                                        <field
+                                            name="name"
+                                            string="Contact Name"
+                                            invisible="type == 'contact'"
+                                        />
+                                        <field
+                                            name="title"
+                                            placeholder="e.g. Mr."
+                                            invisible="type != 'contact'"
+                                        />
                                         <field
                                             name="function"
                                             placeholder="e.g. Sales Director"
@@ -163,7 +224,10 @@
                                         <field name="email" />
                                         <field name="phone" widget="phone" />
                                         <field name="mobile" widget="phone" />
-                                        <field name="comment" placeholder="internal note..." />
+                                        <field
+                                            name="comment"
+                                            placeholder="internal note..."
+                                        />
                                     </group>
                                 </group>
                                 <field name="supplier_rank" invisible="True" />

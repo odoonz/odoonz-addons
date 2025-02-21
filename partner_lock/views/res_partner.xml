@@ -9,8 +9,16 @@
         <field name="inherit_id" ref="base.view_res_partner_filter" />
         <field name="arch" type="xml">
             <filter name="inactive" position="after">
-                <filter string="Locked" name="locked" domain="[('is_locked', '=', True)]" />
-                <filter string="Unlocked" name="unlocked" domain="[('is_locked', '=', False)]" />
+                <filter
+                    string="Locked"
+                    name="locked"
+                    domain="[('is_locked', '=', True)]"
+                />
+                <filter
+                    string="Unlocked"
+                    name="unlocked"
+                    domain="[('is_locked', '=', False)]"
+                />
             </filter>
         </field>
     </record>
@@ -42,7 +50,10 @@
 
     <record id="action_lock_partner" model="ir.actions.server">
         <field name="name">Lock Partner</field>
-        <field name="groups_id" eval="[(4, ref('partner_lock.group_res_partner_unlock'))]" />
+        <field
+            name="groups_id"
+            eval="[(4, ref('partner_lock.group_res_partner_unlock'))]"
+        />
         <field name="model_id" ref="model_res_partner" />
         <field name="binding_model_id" ref="model_res_partner" />
         <field name="state">code</field>

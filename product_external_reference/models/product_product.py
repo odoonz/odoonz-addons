@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     external_reference = fields.Char(
