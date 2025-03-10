@@ -35,8 +35,10 @@ class MrpProduction(models.Model):
                     func = getattr(self, f"_get_move_raw_{xform.technical_name}")
                 except AttributeError:
                     _logger.error(
-                        _("No function found with name _get_move_raw_%s")
-                        % xform.technical_name
+                        _(
+                            "No function found with name _get_move_raw_%(name)s",
+                            name=xform.technical_name,
+                        )
                     )
                 else:
                     (
@@ -94,8 +96,10 @@ class MrpProduction(models.Model):
                         func = getattr(self, f"_get_move_raw_{xform.technical_name}")
                     except AttributeError:
                         _logger.error(
-                            _("No function found with name _get_move_raw_%s")
-                            % xform.technical_name
+                            _(
+                                "No function found with name _get_move_raw_%(name)s",
+                                name=xform.technical_name,
+                            )
                         )
                     else:
                         new_qty = func(

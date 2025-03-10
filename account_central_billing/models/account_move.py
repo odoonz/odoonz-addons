@@ -27,7 +27,7 @@ class AccountMove(models.Model):
                 record.partner_id.id,
                 record.partner_id.commercial_partner_id.id,
             ]:
-                raise ValidationError(_("Cannot self bill. %d") % record.id)
+                raise ValidationError(_("Cannot self bill. %(id)d", id=record.id))
 
     @api.model_create_multi
     def create(self, vals_list):
