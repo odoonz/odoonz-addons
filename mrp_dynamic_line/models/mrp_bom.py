@@ -41,7 +41,8 @@ class MrpBom(models.Model):
                 if not bom_line:
                     # Its deleted so nothing to xform
                     break
-            bom_line and lines_done.append((bom_line, line_fields))
+            if bom_line:
+                lines_done.append((bom_line, line_fields))
         return boms_done, lines_done
 
     def _compute_matched_product(self, orig_product, bom_line):
