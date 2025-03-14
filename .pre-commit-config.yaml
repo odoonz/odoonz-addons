@@ -7,7 +7,6 @@ exclude: |
   ^mrp_sale_fields_enterprise/|
   ^product_list_price_from_bom/|
   ^product_pricelist_extended/|
-  ^sale_financial_risk_enforce/|
   ^sms_clicksend/|
   ^web_mobile_m2x_dropdown/|
   # END NOT INSTALLABLE ADDONS
