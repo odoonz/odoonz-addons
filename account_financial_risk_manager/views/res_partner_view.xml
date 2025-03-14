@@ -8,7 +8,9 @@
         <field name="model">res.partner</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='financial_risk']" position="attributes">
-                <attribute name="groups">account_financial_risk_manager.group_risk_user</attribute>
+                <attribute
+                    name="groups"
+                >account_financial_risk_manager.group_risk_user</attribute>
             </xpath>
         </field>
     </record>
