@@ -5,7 +5,6 @@ from odoo import _, models
 
 
 class SaleOrder(models.Model):
-
     _inherit = "sale.order"
 
     def evaluate_risk_message(self, partner):
