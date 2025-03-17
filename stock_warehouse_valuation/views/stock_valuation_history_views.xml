@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_stock_valuation_history_tree" model="ir.ui.view">
+        <field name="name">stock.valuation.history.tree</field>
+        <field name="model">stock.valuation.history</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="date" />
+                <field name="name" optional="hide" />
+                <field name="product_id" />
+                <field name="product_tmpl_id" optional="hide" />
+                <field name="product_categ_id" optional="hide" />
+                <field name="valuation_account_id" optional="show" />
+                <field name="warehouse_id" />
+                <field name="location_id" optional="hide" />
+                <field name="quantity" />
+                <field name="uom_id" groups="uom.group_uom" optional="hide" />
+                <field name="currency_id" invisible="1" />
+                <field name="value" sum="Total Value" />
+                <field name="cost_method" optional="hide" />
+                <field name="company_id" groups="base.group_multi_company" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_stock_valuation_history_graph" model="ir.ui.view">
+        <field name="name">stock.valuation.history.graph</field>
+        <field name="model">stock.valuation.history</field>
+        <field name="arch" type="xml">
+            <graph string="Stock Valuation Analysis" type="line" sample="1">
+                <field name="date" interval="month" />
+                <field name="value" type="measure" />
+                <field name="product_categ_id" type="row" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_stock_valuation_history_pivot" model="ir.ui.view">
+        <field name="name">stock.valuation.history.pivot</field>
+        <field name="model">stock.valuation.history</field>
+        <field name="arch" type="xml">
+            <pivot string="Stock Valuation Analysis" sample="1">
+                <field name="date" type="row" interval="month" />
+                <field name="product_categ_id" type="row" />
+                <field name="warehouse_id" type="col" />
+                <field name="value" type="measure" />
+                <field name="quantity" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_stock_valuation_history_search" model="ir.ui.view">
+        <field name="name">stock.valuation.history.search</field>
+        <field name="model">stock.valuation.history</field>
+        <field name="arch" type="xml">
+            <search string="Stock Valuation History">
+                <field name="name" />
+                <filter name="date" string="Date" date="date" />
+                <field name="product_id" />
+                <field name="product_tmpl_id" />
+                <field name="product_categ_id" />
+                <field name="warehouse_id" />
+                <field name="location_id" />
+                <field name="valuation_account_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group expand="0" string="Group By">
+                    <filter string="Product" name="groupby_product" context="{'group_by': 'product_id'}" />
+                    <filter
+                        string="Product Template"
+                        name="groupby_product_template"
+                        context="{'group_by': 'product_tmpl_id'}"
+                    />
+                    <filter string="Product Category" name="groupby_category" context="{'group_by': 'product_categ_id'}" />
+                    <filter string="Warehouse" name="groupby_warehouse" context="{'group_by': 'warehouse_id'}" />
+                    <filter string="Location" name="groupby_location" context="{'group_by': 'location_id'}" />
+                    <filter string="Costing Method" name="groupby_costing" context="{'group_by': 'cost_method'}" />
+                    <filter string="Date" name="groupby_date" context="{'group_by': 'date'}" />
+                    <filter
+                        string="Company"
+                        name="groupby_company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
+                <separator />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_valuation_history" model="ir.actions.act_window">
+        <field name="name">Stock Valuation History</field>
+        <field name="res_model">stock.valuation.history</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="search_view_id" ref="view_stock_valuation_history_search" />
+        <field name="context">{
+            'search_default_group_by_warehouse_id': 1,
+            'search_default_groupby_date': 1,
+            'search_default_groupby_valuation_account_id': 1,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No stock valuation history found.
+            </p>
+            <p>
+                Stock valuation history records are created automatically at the end of each month
+                or can be generated manually.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_stock_valuation_history"
+        name="Stock Valuation History"
+        parent="stock.menu_warehouse_report"
+        action="action_stock_valuation_history"
+        sequence="150"
+    />
+
+</odoo>
