@@ -1,0 +1,18 @@
+{
+    "name": "Stock Warehouse Temporal Valuation",
+    "version": "16.0.1.0.0",
+    "license": "LGPL-3",
+    "category": "Warehouse",
+    "summary": "Provides temporal stock valuation by location and warehouse",
+    "author": "Graeme Gellatly",
+    "website": "https://github.com/OCA/project",
+    "depends": [
+        "stock_account",
+    ],
+    "data": [
+        "security/stock_valuation_security.xml",
+        "security/ir.model.access.csv",
+        "views/stock_valuation_history_views.xml",
+    ],
+    "installable": True,
+}
