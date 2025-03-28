@@ -1,3 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_stock_valuation_history_user,stock.valuation.history user,model_stock_valuation_history,stock.group_stock_user,1,0,0,0
-access_stock_valuation_history_manager,stock.valuation.history manager,model_stock_valuation_history,stock.group_stock_manager,1,0,0,0
+access_stock_valuation_historical_user,stock.valuation.historical user,model_stock_valuation_historical,stock.group_stock_user,1,0,0,0
+access_stock_valuation_historical_manager,stock.valuation.historical manager,model_stock_valuation_historical,stock.group_stock_manager,1,0,0,0
