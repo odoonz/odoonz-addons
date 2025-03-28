@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 
 class StockValuationHistory(models.Model):
-    _name = "stock.valuation.history"
+    _name = "stock.valuation.historical"
     _description = "Stock Valuation History"
     _order = "date desc, id desc"
 
@@ -188,7 +188,7 @@ class StockValuationHistory(models.Model):
                         "model_id",
                         "=",
                         self.env["ir.model"]
-                        .search([("model", "=", "stock.valuation.history")])
+                        .search([("model", "=", "stock.valuation.historical")])
                         .id,
                     ),
                 ],
@@ -196,24 +196,27 @@ class StockValuationHistory(models.Model):
             )
         )
         if not cron:
-            self.env["ir.cron"].sudo().create(
-                {
-                    "name": "Generate Monthly Stock Valuation History",
-                    "model_id": self.env["ir.model"]
-                    .search([("model", "=", "stock.valuation.history")])
-                    .id,
-                    "state": "code",
-                    "code": "model._run_month_end_valuation()",
-                    "interval_number": 1,
-                    "interval_type": "months",
-                    "numbercall": -1,
-                    "nextcall": self._get_next_call(),
-                    "doall": False,
-                    "active": True,
-                }
-            )
+            try:
+                self.env["ir.cron"].sudo().create(
+                    {
+                        "name": "Generate Monthly Stock Valuation History",
+                        "model_id": self.env["ir.model"]
+                        .search([("model", "=", "stock.valuation.historical")])
+                        .id,
+                        "state": "code",
+                        "code": "model._run_month_end_valuation()",
+                        "interval_number": 1,
+                        "interval_type": "months",
+                        "numbercall": -1,
+                        "nextcall": self._get_next_call(),
+                        "doall": False,
+                        "active": True,
+                    }
+                )
+            except Exception as e:
+                _logger.error("Error setting up cron job: %s", str(e))
 
-    @api.model
-    def init(self):
-        """Initialize the module by setting up the cron job."""
-        self._setup_cron()
+    # @api.model
+    # def init(self):
+    #     """Initialize the module by setting up the cron job."""
+    #     self._setup_cron()
