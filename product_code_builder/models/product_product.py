@@ -34,7 +34,7 @@ class ProductProduct(models.Model):
     @api.model_create_multi
     def create(self, values):
         products = super().create(values)
-        products._render_default_code()
+        products._compute_default_code()
         return products
 
     @api.depends("default_code")
