@@ -2,7 +2,6 @@ exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
   ^account_entry_lock_policy/|
-  ^base_ir_rule_important/|
   ^discuss_email_send/|
   ^mrp_sale_fields_enterprise/|
   ^product_list_price_from_bom/|
