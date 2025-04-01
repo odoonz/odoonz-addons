@@ -28,13 +28,21 @@
                 </button>
             </xpath>
             <xpath expr="//header" position="after">
-                <div class="alert alert-info" invisible="not anglo_saxon_financial">
+                <div
+                    class="alert alert-info"
+                    role="alert"
+                    invisible="not anglo_saxon_financial"
+                >
                     <strong invisible="'refund' not in move_type">Price Credit</strong>
                     <strong
                         invisible="'invoice' not in move_type"
                     >Financial Invoice</strong>
                 </div>
-                <div class="alert alert-success" invisible="anglo_saxon_financial">
+                <div
+                    class="alert alert-success"
+                    role="alert"
+                    invisible="anglo_saxon_financial"
+                >
                     <strong invisible="'refund' not in move_type">Stock Credit</strong>
                     <strong
                         invisible="'invoice' not in move_type"
