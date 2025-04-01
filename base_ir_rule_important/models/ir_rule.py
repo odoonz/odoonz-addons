@@ -8,7 +8,6 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class IrRule(models.Model):
-
     _inherit = "ir.rule"
 
     important = fields.Boolean(default=False, copy=False)
@@ -24,20 +23,18 @@ class IrRule(models.Model):
         current user.
         """
         if mode not in self._MODES:
-            raise ValueError("Invalid mode: %r" % (mode,))
+            raise ValueError(f"Invalid mode: {mode!r}")
 
         if self.env.su:
             return self.browse(())
 
-        query = """ SELECT r.id FROM ir_rule r JOIN ir_model m ON (r.model_id=m.id)
+        query = f""" SELECT r.id FROM ir_rule r JOIN ir_model m ON (r.model_id=m.id)
                     WHERE m.model=%s AND r.active AND r.important AND r.perm_{mode}
                     AND r.id IN (SELECT rule_group_id FROM rule_group_rel rg
                                   JOIN res_groups_users_rel gu ON (rg.group_id=gu.gid)
                                   WHERE gu.uid=%s)
                     ORDER BY r.id
-                """.format(
-            mode=mode
-        )
+                """
         self._cr.execute(query, (model_name, self._uid))
         return self.browse(row[0] for row in self._cr.fetchall())
 

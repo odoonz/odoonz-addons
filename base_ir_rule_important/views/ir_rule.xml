@@ -14,7 +14,8 @@
             <xpath expr="//div" position="replace">
                 <div>
                       <p>
-                         Global rules (non group-specific) are restrictions, and cannot be bypassed.<br />
+                         Global rules (non group-specific) are restrictions, and cannot be bypassed.<br
+                        />
                          Group Specific Important rules are never combined with their other group specific rules, but
                           rather combined with all other important rules belonging to the users groups. Each important rule relaxes
                           other important rules.<br />
@@ -26,8 +27,10 @@
                         <ol>
                           <li
                             >Global rules are combined together with a logical AND operator, and with the result of the following steps</li>
-                          <li>Important Group-specific rules are combined together with a logical OR operator</li>
-                          <li>Other Group-specific rules are combined together with a logical OR operator</li>
+                          <li
+                            >Important Group-specific rules are combined together with a logical OR operator</li>
+                          <li
+                            >Other Group-specific rules are combined together with a logical OR operator</li>
                           <li
                             >If user belongs to several groups, the results from step 3 are combined with logical OR operator</li>
                         </ol>
@@ -57,7 +60,11 @@
         <field name="inherit_id" ref="base.view_rule_search" />
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='global']" position="after">
-                <filter name="important" string="Important" domain="[('important', '=', True)]" />
+                <filter
+                    name="important"
+                    string="Important"
+                    domain="[('important', '=', True)]"
+                />
             </xpath>
         </field>
     </record>
