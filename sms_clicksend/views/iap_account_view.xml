@@ -5,11 +5,19 @@
         <field name="inherit_id" ref="iap.iap_account_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='account']" position="after">
-                <group string="ClickSend account" name="clicksend" attrs="{'invisible': [('provider', '!=', 'sms_clicksend')]}">
+                <group
+                    string="ClickSend account"
+                    name="clicksend"
+                    invisible="provider != 'sms_clicksend'"
+                >
                     <field name="service_name" />
                     <field name="sms_clicksend_username" />
                     <field name="sms_clicksend_password" />
-                    <field name="company_ids" widget="many2many_tags" domain="[('id', 'in', allowed_company_ids)]" />
+                    <field
+                        name="company_ids"
+                        widget="many2many_tags"
+                        domain="[('id', 'in', allowed_company_ids)]"
+                    />
                 </group>
             </xpath>
         </field>

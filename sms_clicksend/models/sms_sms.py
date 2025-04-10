@@ -3,6 +3,8 @@
 
 from odoo import fields, models
 
+from ..tools.sms_api import ClicksendSmsApi
+
 
 class SmsSms(models.Model):
     _inherit = "sms.sms"
@@ -25,7 +27,7 @@ class SmsSms(models.Model):
         return None
 
     def _split_batch(self):
-        if self.env["sms.api"]._is_sent_with_clicksend():
+        if ClicksendSmsApi(self.env)._get_clicksend_sms_account():
             # Only send individual SMS
             for record in self:
                 yield [record.id]

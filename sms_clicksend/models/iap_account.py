@@ -17,3 +17,4 @@ class IapAccount(models.Model):
     def _get_service_from_provider(self):
         if self.provider == "sms_clicksend":
             return "sms"
+        return super()._get_service_from_provider()
