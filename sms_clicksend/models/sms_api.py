@@ -60,7 +60,7 @@ class SmsApi(models.AbstractModel):
                 self._set_error_detail(sms_id, api_response["response_msg"])
                 return "server_error"
         except ApiException as e:
-            self._set_error_details(sms_id, e)
+            self._set_error_detail(sms_id, e)
             return "server_error"
 
     def _is_sent_with_clicksend(self):
