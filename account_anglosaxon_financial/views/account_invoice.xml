@@ -56,12 +56,6 @@
     <!--    or purchase will be financial only. The exception is vendor bills, and this is handled in an onchange the first time a purchase_id-->
     <!--    is added-->
 
-    <record id="account.action_move_in_refund_type" model="ir.actions.act_window">
-        <field
-            name="context"
-        >{'search_default_in_refund': 1, 'default_move_type': 'in_refund', 'default_anglo_saxon_financial': True}</field>
-    </record>
-
     <record id="account.action_move_out_refund_type" model="ir.actions.act_window">
         <field
             name="context"
@@ -80,15 +74,4 @@
         >{'default_move_type':'out_receipt', 'default_anglo_saxon_financial': True}</field>
     </record>
 
-    <record id="account.action_move_in_receipt_type" model="ir.actions.act_window">
-        <field
-            name="context"
-        >{'default_move_type':'in_receipt', 'default_anglo_saxon_financial': True}</field>
-    </record>
-
-    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
-        <field
-            name="context"
-        >{'search_default_in_invoice': 1, 'default_move_type': 'in_invoice', 'display_account_trust': True, 'default_anglo_saxon_financial': True}</field>
-    </record>
 </odoo>

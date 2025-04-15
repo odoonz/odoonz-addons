@@ -72,12 +72,12 @@ class TestAngloSaxonFinancial(TestAngloSaxonValuation):
                     "date": fields.Date.context_today(invoice),
                     "reason": "no reason",
                     "journal_id": invoice.journal_id.id,
-                    "anglo_saxon_refund_type": "financial",
                 }
             )
         )
         reversal = move_reversal.refund_moves()
         credit_note = self.env["account.move"].browse(reversal["res_id"])
+        credit_note.anglo_saxon_financial = True
         credit_note.invoice_line_ids.price_unit = 4.0
         credit_note.action_post()
 
@@ -135,7 +135,6 @@ class TestAngloSaxonFinancial(TestAngloSaxonValuation):
                     "date": fields.Date.context_today(invoice),
                     "reason": "no reason",
                     "journal_id": invoice.journal_id.id,
-                    "anglo_saxon_refund_type": "stock",
                 }
             )
         )
@@ -201,7 +200,6 @@ class TestAngloSaxonFinancial(TestAngloSaxonValuation):
                     "date": fields.Date.context_today(invoice),
                     "reason": "no reason",
                     "journal_id": invoice.journal_id.id,
-                    "anglo_saxon_refund_type": "financial",
                 }
             )
         )

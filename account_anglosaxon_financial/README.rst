@@ -24,12 +24,6 @@ This module tries to use sensible defaults. If creating an invoice or credit man
 button, this will default to being a financial invoice. If creation comes from a sale or purchase, it will default
 to stock. In a supplier invoice, adding a purchase order automatically changes to stock.
 
-With credit notes, when the reversal wizard shows an additional dropdown is shown to choose between stock and financial.
-This will only affect reversals. If selecting reverse and modify, these will always be stock invoices. In part this is
-due to a limitation in Odoo reversal logic, and in part there is a particular case where even if stock is unaffected we
-still want to have stock entries, namely where the wrong supplier or customer was used. And in all other cases, the
-stock figures either balance out, or if changing quantities, they should be changed.
-
 Known issues / Roadmap
 ======================
 
