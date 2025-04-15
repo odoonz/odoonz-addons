@@ -1,11 +1,11 @@
 {
     "name": "Stock Warehouse Temporal Valuation",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "LGPL-3",
     "category": "Warehouse",
     "summary": "Provides temporal stock valuation by location and warehouse",
     "author": "Graeme Gellatly",
-    "website": "https://github.com/OCA/project",
+    "website": "https://github.com/odoonz/odoonz-addons",
     "depends": [
         "stock_account",
     ],

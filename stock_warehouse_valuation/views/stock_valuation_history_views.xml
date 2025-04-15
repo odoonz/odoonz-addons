@@ -18,7 +18,11 @@
                 <field name="currency_id" invisible="1" />
                 <field name="value" sum="Total Value" />
                 <field name="cost_method" optional="hide" />
-                <field name="company_id" groups="base.group_multi_company" optional="hide" />
+                <field
+                    name="company_id"
+                    groups="base.group_multi_company"
+                    optional="hide"
+                />
             </tree>
         </field>
     </record>
@@ -64,17 +68,41 @@
                 <field name="valuation_account_id" />
                 <field name="company_id" groups="base.group_multi_company" />
                 <group expand="0" string="Group By">
-                    <filter string="Product" name="groupby_product" context="{'group_by': 'product_id'}" />
+                    <filter
+                        string="Product"
+                        name="groupby_product"
+                        context="{'group_by': 'product_id'}"
+                    />
                     <filter
                         string="Product Template"
                         name="groupby_product_template"
                         context="{'group_by': 'product_tmpl_id'}"
                     />
-                    <filter string="Product Category" name="groupby_category" context="{'group_by': 'product_categ_id'}" />
-                    <filter string="Warehouse" name="groupby_warehouse" context="{'group_by': 'warehouse_id'}" />
-                    <filter string="Location" name="groupby_location" context="{'group_by': 'location_id'}" />
-                    <filter string="Costing Method" name="groupby_costing" context="{'group_by': 'cost_method'}" />
-                    <filter string="Date" name="groupby_date" context="{'group_by': 'date'}" />
+                    <filter
+                        string="Product Category"
+                        name="groupby_category"
+                        context="{'group_by': 'product_categ_id'}"
+                    />
+                    <filter
+                        string="Warehouse"
+                        name="groupby_warehouse"
+                        context="{'group_by': 'warehouse_id'}"
+                    />
+                    <filter
+                        string="Location"
+                        name="groupby_location"
+                        context="{'group_by': 'location_id'}"
+                    />
+                    <filter
+                        string="Costing Method"
+                        name="groupby_costing"
+                        context="{'group_by': 'cost_method'}"
+                    />
+                    <filter
+                        string="Date"
+                        name="groupby_date"
+                        context="{'group_by': 'date'}"
+                    />
                     <filter
                         string="Company"
                         name="groupby_company"
