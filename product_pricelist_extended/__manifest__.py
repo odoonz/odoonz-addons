@@ -19,5 +19,5 @@
         "views/product_pricelist_assortment_item.xml",
         "data/ir_cron.xml",
     ],
-    "installable": False,
+    "installable": True,
 }

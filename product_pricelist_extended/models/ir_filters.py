@@ -18,12 +18,6 @@ class IrFilters(models.Model):
 
     description = fields.Text()
 
-    @api.model
-    def _get_default_is_assortment(self):
-        if self.env.context.get("product_assortment", False):
-            return True
-        return False
-
     # NOTE: If extending with other models, make sure your whitelist/blacklist
     # fields are named in the same way, last word of the model in whitelist_<last>_ids
     # and blacklist_<last>_ids
@@ -52,6 +46,12 @@ class IrFilters(models.Model):
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
 
     @api.model
+    def _get_default_is_assortment(self):
+        if self.env.context.get("product_assortment", False):
+            return True
+        return False
+
+    @api.model
     def _list_all_models(self):
         if self.is_assortment or self.env.context.get("product_assortment", False):
             lang = self.env.lang or "en_US"
@@ -71,7 +71,10 @@ class IrFilters(models.Model):
             result_domain = [
                 ("id", "in", self[f"whitelist_{self.model_id.split('.')[-1]}_ids"].ids)
             ]
-            res = expression.OR([result_domain, res])
+            if not res:
+                res = result_domain
+            else:
+                res = expression.OR([result_domain, res])
         if self[f"blacklist_{self.model_id.split('.')[-1]}_ids"]:
             result_domain = [
                 (
@@ -80,14 +83,17 @@ class IrFilters(models.Model):
                     self[f"blacklist_{self.model_id.split('.')[-1]}_ids"].ids,
                 )
             ]
-            res = expression.AND([result_domain, res])
+            if not res:
+                res = result_domain
+            else:
+                res = expression.AND([result_domain, res])
         return res
 
     @api.onchange("model_id")
     def _onchange_model_id(self):
         """Onchange to clear irrelevant inclusions and exclusions. Deliberately a
-        bit longwinded in order to allow model extensions for things such as supplierinfo where
-        we might want to include or exclude quite differently."""
+        bit longwinded in order to allow model extensions for things such as
+        supplierinfo where we might want to include or exclude quite differently."""
         if self.model_id == "product.product":
             self.whitelist_template_ids = False
             self.blacklist_template_ids = False
@@ -197,10 +203,16 @@ class IrFilters(models.Model):
             )
 
     @api.model
-    def _get_action_domain(self, action_id=None):
+    def _get_action_domain(
+        self, action_id=None, embedded_action_id=None, embedded_parent_res_id=None
+    ):
         # tricky way to act on get_filter method to prevent returning
         # assortment in search view filters
-        domain = super()._get_action_domain(action_id=action_id)
+        domain = super()._get_action_domain(
+            action_id=action_id,
+            embedded_action_id=embedded_action_id,
+            embedded_parent_res_id=embedded_parent_res_id,
+        )
         domain = expression.AND(
             [
                 [("is_assortment", "=", False)],

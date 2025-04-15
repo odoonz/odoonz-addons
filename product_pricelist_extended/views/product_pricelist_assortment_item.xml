@@ -3,7 +3,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="product_pricelist_assortment_item_form_view">
-        <field name="name">product.pricelist.assortment.item.form (in product_pricelist_assortment)</field>
+        <field
+            name="name"
+        >product.pricelist.assortment.item.form (in product_pricelist_assortment)</field>
         <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
         <field name="mode">primary</field>
         <field name="model">product.pricelist.assortment.item</field>
@@ -15,17 +17,23 @@
                 />
             </xpath>
 <!--            Because we inherit from pricelist.item view, there are some conditions that do not apply to assortments-->
+            <xpath expr="//field[@name='display_applied_on']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//field[@name='product_tmpl_id']" position="attributes">
-                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='product_id']" position="attributes">
-                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='categ_id']" position="attributes">
-                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//group[@name='pricelist_rule_computation']" position="after">
-                <group name="product_filters" attrs="{'invisible': [('applied_on', '!=', '0_product_variant')]}">
+                <group
+                    name="product_filters"
+                    invisible="display_applied_on != '0_product_variant'"
+                >
                     <group name="to_include">
                         <separator />
                         <field name="whitelist_product_ids" nolabel="1" colspan="2">
@@ -42,7 +50,10 @@
                         </field>
                     </group>
                 </group>
-                <group name="template_filters" attrs="{'invisible': [('applied_on', '!=', '1_product')]}">
+                <group
+                    name="template_filters"
+                    invisible="display_applied_on != '1_product'"
+                >
                     <group name="to_include" string="Templates to include">
                         <field name="whitelist_template_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
@@ -58,7 +69,10 @@
                         </field>
                     </group>
                 </group>
-                <group name="category_filters" attrs="{'invisible': [('applied_on', '!=', '2_product_category')]}">
+                <group
+                    name="category_filters"
+                    invisible="display_applied_on != '2_product_category'"
+                >
                     <group name="to_include" string="Categories to include">
                         <field name="whitelist_category_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
@@ -75,13 +89,12 @@
                     </group>
                 </group>
             </xpath>
-            <xpath expr="//group[@name='pricelist_rule_target']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
         </field>
     </record>
     <record model="ir.ui.view" id="product_pricelist_assortment_item_tree">
-        <field name="name">product.pricelist.assortment.item.tree (in product_pricelist_assortment)</field>
+        <field
+            name="name"
+        >product.pricelist.assortment.item.tree (in product_pricelist_assortment)</field>
         <field name="model">product.pricelist.assortment.item</field>
         <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
         <field name="mode">primary</field>
@@ -93,18 +106,28 @@
     </record>
 
     <record model="ir.ui.view" id="product_pricelist_assortment_item_search">
-        <field name="name">product.pricelist.assortment.item.search (in product_pricelist_assortment)</field>
+        <field
+            name="name"
+        >product.pricelist.assortment.item.search (in product_pricelist_assortment)</field>
         <field name="model">product.pricelist.assortment.item</field>
         <field name="arch" type="xml">
             <search>
-                <filter string="Product Rule" name="template_rule" domain="[('applied_on', '=', '1_product')]" />
+                <filter
+                    string="Product Rule"
+                    name="template_rule"
+                    domain="[('applied_on', '=', '1_product')]"
+                />
                 <filter
                     string="Variant Rule"
                     name="product_rule"
                     domain="[('applied_on', '=', '0_product_variant')]"
                     groups="product.group_product_variant"
                 />
-                <filter string="Category Rule" name="category_rule" domain="[('applied_on', '=', '2_product_category')]" />
+                <filter
+                    string="Category Rule"
+                    name="category_rule"
+                    domain="[('applied_on', '=', '2_product_category')]"
+                />
                 <separator />
                 <field name="pricelist_id" />
                 <field name="assortment_filter_id" />

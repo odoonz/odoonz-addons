@@ -20,7 +20,6 @@ BLACKLIST_FIELDS = [
 
 
 class ProductPricelistAssortmentItem(models.Model):
-
     _name = "product.pricelist.assortment.item"
     _description = "Product Pricelist Assortment Item"
     _inherit = "product.pricelist.item"
@@ -37,7 +36,9 @@ class ProductPricelistAssortmentItem(models.Model):
         inverse_name="assortment_item_id",
         help="Pricelist items created automatically",
     )
-    applied_on = fields.Selection(compute="_compute_applied_on", store=True)
+    display_applied_on = fields.Selection(
+        compute="_compute_display_applied_on", store=True
+    )
     # NOTE: If extending with other models, make sure your whitelist/blacklist
     # fields are named in the same way, last word of the model in whitelist_<last>_ids
     # and blacklist_<last>_ids. These are applied in addition to the filter exclusions
@@ -63,7 +64,7 @@ class ProductPricelistAssortmentItem(models.Model):
 
     @api.depends("assortment_filter_id", "assortment_filter_id.model_id")
     @api.onchange("assortment_filter_id")
-    def _compute_applied_on(self):
+    def _compute_display_applied_on(self):
         model_map = {
             "product.product": "0_product_variant",
             "product.template": "1_product",
@@ -72,6 +73,9 @@ class ProductPricelistAssortmentItem(models.Model):
         for rec in self:
             model = rec.assortment_filter_id.model_id
             rec.applied_on = model_map.get(model, "0_product_variant")
+            rec.display_applied_on = (
+                rec.applied_on if rec.applied_on != "0_product_variant" else "1_product"
+            )
             if model == "product.product":
                 rec.whitelist_template_ids = False
                 rec.blacklist_template_ids = False
@@ -91,8 +95,8 @@ class ProductPricelistAssortmentItem(models.Model):
                 rec.blacklist_template_ids = False
 
     @api.depends("assortment_filter_id")
-    def _compute_name_and_price(self):
-        res = super()._compute_name_and_price()
+    def _compute_name(self):
+        res = super()._compute_name()
         for rec in self:
             if rec.assortment_filter_id:
                 rec.name = rec.assortment_filter_id.name
@@ -138,23 +142,23 @@ class ProductPricelistAssortmentItem(models.Model):
         for item_value in items_values:
             item_obj.create(item_value)
 
-    def _get_pricelist_values(self, items, default_values, applied_on, field_name):
+    def _get_pricelist_values(self, items, default_values, applied_on, f_name):
         list_values = []
         item_ids = set()
         items |= (
             self.assortment_filter_id[
-                f"whitelist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+                f"whitelist_{f_name if f_name != 'product_tmpl' else 'template'}_ids"
             ]
             + self[
-                f"whitelist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+                f"whitelist_{f_name if f_name != 'product_tmpl' else 'template'}_ids"
             ]
         )
         items -= (
             self.assortment_filter_id[
-                f"blacklist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+                f"blacklist_{f_name if f_name != 'product_tmpl' else 'template'}_ids"
             ]
             + self[
-                f"blacklist_{field_name if field_name != 'product_tmpl' else 'template'}_ids"
+                f"blacklist_{f_name if f_name != 'product_tmpl' else 'template'}_ids"
             ]
         )
         for item in items:
@@ -163,10 +167,15 @@ class ProductPricelistAssortmentItem(models.Model):
                 {
                     "pricelist_id": self.pricelist_id.id,
                     "assortment_item_id": self.id,
-                    "applied_on": applied_on,
-                    f"{field_name}_id": item.id,
+                    "display_applied_on": applied_on,
+                    "applied_on": applied_on
+                    if applied_on != "0_product_variant"
+                    else "1_product",
+                    f"{f_name}_id": item.id,
                 }
             )
+            if f_name == "product":
+                values["product_tmpl_id"] = item.product_tmpl_id.id
             item_ids.add(item.id)
             list_values.append(values)
         return list_values, item_ids

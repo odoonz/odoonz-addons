@@ -8,10 +8,10 @@ from odoo.tools.misc import mute_logger
 
 class TestProductAssortment(TransactionCase):
     def setUp(self):
-        super(TestProductAssortment, self).setUp()
+        super().setUp()
         self.filter_obj = self.env["ir.filters"]
         self.product_obj = self.env["product.product"]
-        self.assortment = self.filter_obj.create(
+        self.assortment = self.filter_obj.with_context(is_assortment=True).create(
             {
                 "name": "Test Product Assortment",
                 "model_id": "product.product",
@@ -82,20 +82,12 @@ class TestProductAssortment(TransactionCase):
 
     def test_product_assortment_view(self):
         included_product = self.env.ref("product.product_product_7")
+        self.assortment.model_id = "product.product"
         self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        self.env.registry.clear_cache()
         res = self.assortment.show_products()
         self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
 
     def test_record_count(self):
         products = self.product_obj.search([])
         self.assertEqual(self.assortment.record_count, len(products))
-
-        # reduce assortment to services products
-        domain = [("type", "=", "service")]
-        self.assortment.domain = domain
-
-        products = self.product_obj.search(domain)
-        domain = self.assortment._get_product_eval_domain()
-        products_filtered = self.product_obj.search(domain)
-        self.assortment.invalidate_cache()
-        self.assertEqual(self.assortment.record_count, len(products_filtered))

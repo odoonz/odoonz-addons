@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 
 class ProductPricelist(models.Model):
-
     _inherit = "product.pricelist"
 
     item_assortment_ids = fields.One2many(
@@ -51,7 +50,7 @@ class ProductPricelist(models.Model):
                 ("product.category", "2_product_category"),
             ]:
                 records = record.item_assortment_ids.filtered(
-                    lambda x: x.applied_on == applied_on
+                    lambda x, applied_on=applied_on: x.display_applied_on == applied_on
                 )
                 seen = set()
                 for rec in records:

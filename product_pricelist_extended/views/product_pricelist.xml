@@ -3,15 +3,25 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="product_pricelist_form_view">
-        <field name="name">product.pricelist.form (in product_pricelist_assortment)</field>
+        <field
+            name="name"
+        >product.pricelist.form (in product_pricelist_assortment)</field>
         <field name="model">product.pricelist</field>
         <field name="inherit_id" ref="product.product_pricelist_view" />
         <field name="priority" eval="90" />
         <field name="arch" type="xml">
-            <xpath expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']" position="attributes">
-                <attribute name="domain">[('assortment_item_id', '=', False)]</attribute>
+            <xpath
+                expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']"
+                position="attributes"
+            >
+                <attribute
+                    name="domain"
+                >[('assortment_item_id', '=', False)]</attribute>
             </xpath>
-            <xpath expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/list" position="inside">
+            <xpath
+                expr="//notebook/page[@name='pricelist_rules']//field[@name='item_ids']/list"
+                position="inside"
+            >
                 <field name="assortment_item_id" invisible="1" />
             </xpath>
             <xpath expr="//notebook/page[@name='pricelist_rules']" position="after">
