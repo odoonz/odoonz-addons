@@ -35,13 +35,20 @@ class AccountMove(models.Model):
         always used"""
         for vals in vals_list:
             if vals.get("partner_id"):
-                vals.update(
-                    self._get_central_billing_partner_vals(
-                        vals["partner_id"],
-                        vals["move_type"],
-                        self._get_invoice_company(vals),
+                company = self._get_invoice_company(vals)
+                move_type = vals.get("move_type")
+                if move_type in ["out_invoice", "out_refund"]:
+                    vals.update(
+                        self._get_out_central_billing_partner_vals(
+                            vals["partner_id"], company
+                        )
                     )
-                )
+                elif move_type in ["in_invoice", "in_refund"]:
+                    vals.update(
+                        self._get_in_central_billing_partner_vals(
+                            vals["partner_id"], company
+                        )
+                    )
         return super().create(vals_list)
 
     def write(self, vals):
@@ -50,28 +57,51 @@ class AccountMove(models.Model):
         if vals.get("partner_id", False):
             company = self._get_invoice_company(vals)
             move_type = vals.get("move_type", self[0].move_type)
-            vals.update(
-                self._get_central_billing_partner_vals(
-                    vals["partner_id"], move_type, company
+            if move_type in ["out_invoice", "out_refund"]:
+                vals.update(
+                    self._get_out_central_billing_partner_vals(
+                        vals["partner_id"], company
+                    )
                 )
-            )
+            elif move_type in ["in_invoice", "in_refund"]:
+                vals.update(
+                    self._get_in_central_billing_partner_vals(
+                        vals["partner_id"], company
+                    )
+                )
         return super().write(vals)
 
-    def _get_central_billing_partner_vals(self, partner_id, move_type, company):
+    def _get_out_central_billing_partner_vals(self, partner_id, company):
         vals = {}
         if not partner_id:
             return vals
         partner = self.env["res.partner"].browse(partner_id).commercial_partner_id
-        invoice_partner = partner._get_billing_partner(move_type, company)
-        if invoice_partner != partner:
-            vals.update(
-                {
-                    "partner_id": invoice_partner.id,
-                    "order_partner_id": partner.id,
-                    "order_invoice_id": partner_id,
-                }
-            )
+        invoice_partner = partner._get_out_billing_partner(company)
+        vals.update(
+            self._prepare_billing_partner_vals(partner_id, partner, invoice_partner)
+        )
         return vals
+
+    def _get_in_central_billing_partner_vals(self, partner_id, company):
+        vals = {}
+        if not partner_id:
+            return vals
+        partner = self.env["res.partner"].browse(partner_id).commercial_partner_id
+        invoice_partner = partner._get_in_billing_partner(company)
+        vals.update(
+            self._prepare_billing_partner_vals(partner_id, partner, invoice_partner)
+        )
+        return vals
+
+    @staticmethod
+    def _prepare_billing_partner_vals(partner_id, commercial_partner, invoice_partner):
+        if invoice_partner != commercial_partner:
+            return {
+                "partner_id": invoice_partner.id,
+                "order_partner_id": commercial_partner.id,
+                "order_invoice_id": partner_id,
+            }
+        return {}
 
     @api.model
     def _search(self, args, **kwargs):
