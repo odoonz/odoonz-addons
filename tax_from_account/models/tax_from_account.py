@@ -91,3 +91,21 @@ class PurchaseOrderLine(models.Model):
         )
         res.update(taxes_id=[(6, 0, pol._get_default_taxes(inv_type="in_invoice").ids)])
         return res
+
+
+class AccountMoveLine(models.Model):
+    _name = "account.move.line"
+    _inherit = ["account.move.line", "tax.from.account"]
+
+    def _get_computed_taxes(self):
+        """
+        Override to use default company taxes if not taxes found.
+        """
+        tax_ids = super()._get_computed_taxes()
+        if tax_ids:
+            return tax_ids
+        if self.move_id.is_sale_document(include_receipts=True):
+            tax_ids = self.move_id.company_id.account_sale_tax_id
+        elif self.move_id.is_purchase_document(include_receipts=True):
+            tax_ids = self.move_id.company_id.account_purchase_tax_id
+        return tax_ids
