@@ -14,7 +14,7 @@ class ResPartner(models.Model):
     days = fields.Integer()
     day_type = fields.Selection([("weekday", "working days"), ("day", "days")])
     cutoff_type = fields.Selection(
-        [("date", "transaction date"), ("eom", "end of month following transaction")]
+        [("date", "after transaction date"), ("eom", "after end of month")]
     )
 
     def _get_new_invoice_date(self, today):
