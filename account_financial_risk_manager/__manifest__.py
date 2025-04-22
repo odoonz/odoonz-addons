@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
-    "depends": ["account_financial_risk", "account"],
+    "depends": ["account_financial_risk", "account", "sale_financial_risk"],
     "data": [
         "security/financial_risk_security.xml",
         "security/ir.model.access.csv",
