@@ -41,12 +41,9 @@
                 <div
                     class="alert alert-success"
                     role="alert"
-                    invisible="anglo_saxon_financial"
+                    invisible="anglo_saxon_financial and 'refund' not in move_type"
                 >
-                    <strong invisible="'refund' not in move_type">Stock Credit</strong>
-                    <strong
-                        invisible="'invoice' not in move_type"
-                    >Stock Invoice</strong>
+                    <strong invisible="">Stock Credit</strong>
                 </div>
             </xpath>
         </field>
