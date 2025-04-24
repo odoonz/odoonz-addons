@@ -5,7 +5,7 @@
     "name": "Sale Price Recalculation",
     "summary": "Allows to update the pricing on confirmed sales orders "
     "prior to invoice",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.1.0",
     "license": "AGPL-3",
     "author": " MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
