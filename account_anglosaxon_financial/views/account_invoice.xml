@@ -41,7 +41,7 @@
                 <div
                     class="alert alert-success"
                     role="alert"
-                    invisible="anglo_saxon_financial and 'refund' in move_type"
+                    invisible="anglo_saxon_financial or 'refund' not in move_type"
                 >
                     <strong invisible="">Stock Credit</strong>
                 </div>
