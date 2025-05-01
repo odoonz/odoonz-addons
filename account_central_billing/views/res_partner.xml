@@ -32,122 +32,38 @@
                         <kanban>
                             <field name="color" />
                             <field name="store_ref" />
-                            <field name="name" />
-                            <field name="title" />
                             <field name="type" />
-                            <field name="email" />
-                            <field name="parent_id" />
                             <field name="is_company" />
-                            <field name="function" />
-                            <field name="phone" />
-                            <field name="street" />
-                            <field name="street2" />
-                            <field name="zip" />
-                            <field name="city" />
-                            <field name="country_id" />
-                            <field name="mobile" />
-                            <field name="state_id" />
-                            <field name="image_128" />
-                            <field name="lang" />
-                            <!-- fields in form x2many view to diminish requests -->
-                            <field name="comment" />
-                            <field name="customer_rank" />
-                            <field name="display_name" />
-                            <field name="supplier_rank" />
                             <templates>
-                                <t t-name="kanban-box">
-                                    <t
-                                        t-set="color"
-                                        t-value="kanban_color(record.color.raw_value)"
-                                    />
-                                    <div
-                                        t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'"
-                                    >
-                                        <a
-                                            title="box"
-                                            t-if="!read_only_mode"
-                                            type="delete"
-                                            class="fa fa-times pull-right"
+                                <t t-name="card" class="flex-row">
+                                    <aside class="o_kanban_aside_full">
+                                        <field
+                                            name="avatar_128"
+                                            class="o_kanban_image_fill w-100"
+                                            widget="image"
+                                            options="{'img_class': 'object-fit-cover'}"
+                                            alt="Contact image"
                                         />
-                                        <div class="o_kanban_image">
-                                            <img
-                                                t-if="record.image_128.raw_value"
-                                                t-att-src="'data:image/png;base64,'+record.image_128.raw_value"
-                                                alt="Image"
-                                            />
-                                            <t t-if="!record.image_128.raw_value">
-                                                <img
-                                                    t-if="record.type.raw_value === 'delivery'"
-                                                    t-att-src='_s + "/base/static/img/truck.png"'
-                                                    alt="Image"
-                                                />
-                                                <img
-                                                    t-if="record.type.raw_value === 'invoice'"
-                                                    t-att-src='_s + "/base/static/img/money.png"'
-                                                    alt="Image"
-                                                />
-                                                <img
-                                                    t-if="record.type.raw_value === 'other'"
-                                                    t-att-src="_s + &quot;/sale_dropship_address/static/src/img/site.png&quot;"
-                                                    alt="Image"
-                                                />
-                                                <t
-                                                    t-if="record.type.raw_value === 'contact'"
-                                                >
-                                                    <img
-                                                        t-if="record.is_company.raw_value === true"
-                                                        t-att-src='_s + "/base/static/img/company_image.png"'
-                                                        alt="Image"
-                                                    />
-                                                    <img
-                                                        t-if="record.is_company.raw_value === false"
-                                                        t-att-src='_s + "/base/static/img/avatar.png"'
-                                                        alt="Image"
-                                                    />
-                                                </t>
-                                            </t>
+                                    </aside>
+                                    <main class="ps-2 ps-md-0">
+                                        <field name="name" class="fw-bold" />
+                                        <field name="function" />
+                                        <field name="email" widget="email" />
+                                        <div t-if="record.type.raw_value != 'contact'">
+                                            <div>
+                                                <field class="me-1" name="zip" />
+                                                <field name="city" />
+                                            </div>
+                                            <field class="me-1" name="state_id" />
+                                            <field name="country_id" />
                                         </div>
-                                        <div class="oe_kanban_details">
-                                            <field name="name" />
-                                            <field name="store_ref" />
-                                            <div t-if="record.function.raw_value">
-                                                <field name="function" />
-                                            </div>
-                                            <div t-if="record.email.raw_value">
-                                                <field name="email" />
-                                            </div>
-                                            <div
-                                                t-if="record.type.raw_value != 'contact'"
-                                            >
-                                                <div>
-
-                                                    <field
-                                                        t-if="record.street.raw_value"
-                                                        name="street"
-                                                    />
-                                                    <br />
-                                                    <t t-if="record.street2.raw_value">
-                                                        <field name="street2" />
-                                                        <br />
-                                                    </t>
-                                                    <field
-                                                        t-if="record.city.raw_value"
-                                                        name="city"
-                                                    />
-                                                    <field name="zip" />
-
-                                                </div>
-                                            </div>
-                                            <div t-if="record.phone.raw_value">Phone:
-                                                <field name="phone" />
-                                            </div>
-                                            <div t-if="record.mobile.raw_value">
-                                                <b>Mobile:
-                                                    <field name="mobile" />
-                                                </b>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <div t-if="record.phone.raw_value">Phone: <field
+                                                name="phone"
+                                            /></div>
+                                        <div
+                                            t-if="record.mobile.raw_value"
+                                        >Mobile: <field name="mobile" /></div>
+                                    </main>
                                 </t>
                             </templates>
                         </kanban>
@@ -161,14 +77,34 @@
                                 />
                                 <hr />
                                 <group>
-                                    <group invisible="type == 'contact'">
-                                        <label for="street" string="Address" />
-                                        <div>
+                                    <group>
+                                        <field
+                                            name="name"
+                                            string="Contact Name"
+                                            required="type == 'contact'"
+                                            placeholder="e.g. New Address"
+                                        />
+                                        <field
+                                            name="title"
+                                            options="{'no_open': True}"
+                                            placeholder="e.g. Mr."
+                                            invisible="type != 'contact'"
+                                        />
+                                        <field
+                                            name="function"
+                                            placeholder="e.g. Sales Director"
+                                            invisible="type != 'contact'"
+                                        />
+                                        <label
+                                            for="street"
+                                            string="Address"
+                                            invisible="type == 'contact'"
+                                        />
+                                        <div invisible="type == 'contact'">
                                             <div
                                                 class="o_address_format"
                                                 name="div_address"
                                             >
-                                                <!-- removed widget here fr gplaces-->
                                                 <field
                                                     name="street"
                                                     placeholder="Street..."
@@ -188,8 +124,8 @@
                                                     name="state_id"
                                                     class="o_address_state"
                                                     placeholder="State"
-                                                    options='{"no_open": True}'
-                                                    context="{'country_id': country_id, 'zip': zip}"
+                                                    options="{'no_open': True, 'no_quick_create': True}"
+                                                    context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"
                                                 />
                                                 <field
                                                     name="zip"
@@ -206,34 +142,26 @@
                                         </div>
                                     </group>
                                     <group>
-                                        <field
-                                            name="name"
-                                            string="Contact Name"
-                                            invisible="type == 'contact'"
-                                        />
-                                        <field
-                                            name="title"
-                                            placeholder="e.g. Mr."
-                                            invisible="type != 'contact'"
-                                        />
-                                        <field
-                                            name="function"
-                                            placeholder="e.g. Sales Director"
-                                            invisible="type != 'contact'"
-                                        />
-                                        <field name="email" />
+                                        <field name="email" widget="email" />
                                         <field name="phone" widget="phone" />
                                         <field name="mobile" widget="phone" />
                                         <field
-                                            name="comment"
-                                            placeholder="internal note..."
-                                        />
+                                            name="company_id"
+                                            invisible="1"
+                                        />    <!-- Need to save value from parented record, cf onchange -->
                                     </group>
                                 </group>
-                                <field name="supplier_rank" invisible="True" />
-                                <field name="customer_rank" invisible="True" />
-                                <field name="lang" invisible="True" />
-                                <field name="image_256" invisible="True" />
+                                <group>
+                                    <field
+                                        name="comment"
+                                        placeholder="Internal notes..."
+                                        nolabel="1"
+                                    />
+                                </group>
+                                <field
+                                    name="lang"
+                                    invisible="True"
+                                />  <!-- Need to add lang to save default value from parented record -->
                             </sheet>
                         </form>
                     </field>

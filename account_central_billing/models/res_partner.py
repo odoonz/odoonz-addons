@@ -24,6 +24,7 @@ class ResPartner(models.Model):
 
     store_ids = fields.One2many(
         comodel_name="res.partner",
+        domain=[("is_company", "=", True), ("parent_id", "=", False)],
         inverse_name="invoicing_partner_id",
         string="Stores",
         copy=False,
