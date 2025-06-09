@@ -76,6 +76,14 @@ class StockValuationHistory(models.Model):
     valuation_account_id = fields.Many2one(
         "account.account", string="Valuation Account", readonly=True, store=True
     )
+
+    valuation_account_name = fields.Char(
+        string="Valuation Account Name",
+        related="valuation_account_id.display_name",
+        readonly=True,
+        store=True,
+    )
+
     cost_method = fields.Selection(
         related="product_categ_id.property_cost_method",
         string="Costing Method",
@@ -116,6 +124,7 @@ class StockValuationHistory(models.Model):
                 if not warehouse:
                     continue
                 product = quant.product_id.with_company(company)
+                account = product.categ_id.property_stock_valuation_account_id
 
                 vals_list.append(
                     {
@@ -127,7 +136,7 @@ class StockValuationHistory(models.Model):
                         "quantity": quant.quantity,
                         "currency_id": quant.company_id.currency_id.id,
                         "value": quant.value,
-                        "valuation_account_id": product.categ_id.property_stock_valuation_account_id.id,
+                        "valuation_account_id": account.id,
                     }
                 )
 

@@ -73,6 +73,11 @@
                     <filter string="Product Category" name="groupby_category" context="{'group_by': 'product_categ_id'}" />
                     <filter string="Warehouse" name="groupby_warehouse" context="{'group_by': 'warehouse_id'}" />
                     <filter string="Location" name="groupby_location" context="{'group_by': 'location_id'}" />
+                    <filter
+                        string="Valuation Account"
+                        name="groupby_valuation_account"
+                        context="{'group_by': 'valuation_account_name'}"
+                    />
                     <filter string="Costing Method" name="groupby_costing" context="{'group_by': 'cost_method'}" />
                     <filter string="Date" name="groupby_date" context="{'group_by': 'date'}" />
                     <filter
