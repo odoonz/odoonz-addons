@@ -8,7 +8,7 @@
         <field name="name">User (readonly)</field>
     </record>
     <record id="group_risk_manager" model="res.groups">
-        <field name="name">Risk Manager</field>
+        <field name="name">Risk Manager (Edit Risk)</field>
         <field
             name="category_id"
             ref="account_financial_risk.category_financial_risk"
@@ -21,12 +21,5 @@
             name="comment"
         >Can view risk limit and overpass partner risk exceptions</field>
     </record>
-    <record id="account.group_account_manager" model="res.groups">
-        <field
-            name="implied_ids"
-            eval="[(4, ref('account_financial_risk_manager.group_risk_manager'))]"
-        />
-    </record>
-
 
 </odoo>
