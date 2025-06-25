@@ -20,6 +20,7 @@
                 />
                 <field name="partner_id" invisible="1" />
                 <field name="name" invisible="1" />
+                <field name="currency_id" invisible="1" />
                 <group>
                     <group>
                         <field name="as_at_date" />

@@ -4,6 +4,7 @@
 from markupsafe import Markup
 
 from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class SalePriceRecalculation(models.TransientModel):
@@ -11,7 +12,12 @@ class SalePriceRecalculation(models.TransientModel):
     _name = "sale.price.recalculation"
     _description = "Sale Price Recalculation"
 
-    pricelist_id = fields.Many2one("product.pricelist", "Pricelist")
+    pricelist_id = fields.Many2one(
+        "product.pricelist",
+        "Pricelist",
+        domain="[('currency_id', 'in', [currency_id, False])]",
+    )
+    currency_id = fields.Many2one("res.currency", related="name.currency_id")
     copy_quote_id = fields.Many2one("sale.order", "Copy Quote")
     line_ids = fields.One2many(
         "sale.price.recalculation.line",
@@ -193,18 +199,21 @@ class SalePriceRecalculation(models.TransientModel):
         header_msgs = [_("<p><b>Pricing Updated</b></p>")]
         msgs = ["<ul>"]
         vals = {}
-        pricelist_id = order.pricelist_id.id
+        pricelist = order.pricelist_id
         if self.pricelist_id:
-            pricelist_id = self.pricelist_id.id
+            pricelist = self.pricelist_id
         elif self.copy_quote_id:
-            pricelist_id = self.copy_quote_id.pricelist_id.id
+            pricelist = self.copy_quote_id.pricelist_id
             vals.update(self._prepare_quote_related_vals())
             header_msgs.append(
                 _("<p>Price updated from <b>{quote}</b></p>").format(
                     quote=self.copy_quote_id.name,
                 )
             )
-        if pricelist_id != order.pricelist_id.id:
+        if pricelist != order.pricelist_id and (
+            not pricelist.currency_id
+            or pricelist.currency_id == order.pricelist_id.currency_id
+        ):
             header_msgs.append(
                 _(
                     "<p>Pricelist changed from <b>{old_name}</b> to "
@@ -214,7 +223,17 @@ class SalePriceRecalculation(models.TransientModel):
                     new_name=self.pricelist_id.name,
                 )
             )
-            vals["pricelist_id"] = pricelist_id
+            #
+            # Odoo now prevents write on pricelist_id, so we need to
+            # update the pricelist_id differently
+            if order.state == "draft":
+                vals["pricelist_id"] = pricelist.id
+            elif order.state == "sale":
+                order.state = "draft"
+                order.pricelist_id = pricelist
+                order.state = "sale"
+            else:
+                raise UserError(_("Cannot update pricelist for this order"))
         if order.invoice_ids:
             msgs.append(_("<p><em>The draft invoice has also been updated.</em></p>"))
         vals.update(self._prepare_other_vals())
