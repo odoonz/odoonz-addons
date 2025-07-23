@@ -23,6 +23,7 @@ class AccountMoveLine(models.Model):
         return self.filtered(
             lambda line: (
                 line.with_context(ignore_financial=True)._eligible_for_cogs()
+                and line.move_id.anglo_saxon_financial
                 and line.move_id.company_id.anglo_saxon_accounting
                 and line.move_id.is_purchase_document()
             )
@@ -43,7 +44,6 @@ class AccountMoveLine(models.Model):
         if (
             not self.env.context.get("ignore_financial")
             and self.move_id.anglo_saxon_financial
-            or self.env.context.get("anglo_saxon_financial")
         ):
             return False
         return super()._eligible_for_cogs()
