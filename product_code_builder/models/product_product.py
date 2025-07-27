@@ -54,8 +54,6 @@ class ProductProduct(models.Model):
     @api.constrains(
         "reference_mask",
         "attribute_line_ids",
-        "attribute_line_ids.attribute_id",
-        "attribute_line_ids.attribute_id.name",
     )
     def _check_reference_mask(self, mask):
         tokens = self._extract_token(mask)
