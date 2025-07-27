@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <search string="Assortments">
                 <field name="name" string="Assortment Name" />
-                <field name="model_id" />
+                <field name="model_assortment" />
             </search>
         </field>
     </record>
@@ -16,7 +16,8 @@
         <field name="model">ir.filters</field>
         <field name="arch" type="xml">
             <list>
-                <field name="model_id" />
+                <field name="model_id" invisible="1" />
+                <field name="model_assortment" />
                 <field name="name" />
                 <field name="description" />
             </list>
@@ -81,7 +82,8 @@
                     <group name="main" colspan="4">
                         <group name="left">
                             <field name="name" string="Assortment Name" />
-                            <field name="model_id" />
+                            <field name="model_assortment" />
+                            <field name="model_id" invisible="1" force_save="1" />
                         </group>
                         <group name="right">
                             <field name="active" widget="boolean_toggle" />

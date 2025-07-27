@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
-    "depends": ["product", "mail"],
+    "depends": ["product", "mail", "sale"],
     "data": [
         "security/ir.model.access.csv",
         "security/product_pricelist_assortment_item.xml",

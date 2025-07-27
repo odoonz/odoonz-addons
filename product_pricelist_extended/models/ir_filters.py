@@ -44,6 +44,13 @@ class IrFilters(models.Model):
     categ_record_count = fields.Integer(compute="_compute_record_count")
     pricelist_record_count = fields.Integer(compute="_compute_record_count")
     is_assortment = fields.Boolean(default=lambda x: x._get_default_is_assortment())
+    model_assortment = fields.Selection(
+        selection=[
+            ("product.product", "Product"),
+            ("product.template", "Template"),
+            ("product.category", "Category"),
+        ]
+    )
 
     @api.model
     def _get_default_is_assortment(self):
@@ -51,17 +58,10 @@ class IrFilters(models.Model):
             return True
         return False
 
-    @api.model
-    def _list_all_models(self):
-        if self.is_assortment or self.env.context.get("product_assortment", False):
-            lang = self.env.lang or "en_US"
-            self._cr.execute(
-                "SELECT model, COALESCE(name->>%s, name->>'en_US') "
-                "FROM ir_model WHERE model IN %s ORDER BY 2",
-                [lang, tuple(MODEL_NAMES)],
-            )
-            return self._cr.fetchall()
-        return super()._list_all_models()
+    @api.onchange("is_assortment", "model_assortment")
+    def _onchange_model_assortment(self):
+        for record in self.filtered(lambda x: x.is_assortment and x.model_assortment):
+            record.model_id = record.model_assortment
 
     def _get_eval_domain(self):
         res = super()._get_eval_domain()
