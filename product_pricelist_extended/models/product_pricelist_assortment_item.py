@@ -104,7 +104,7 @@ class ProductPricelistAssortmentItem(models.Model):
 
     @classmethod
     def _get_blacklisted_fields(cls):
-        return models.MAGIC_COLUMNS + [cls.CONCURRENCY_CHECK_FIELD] + BLACKLIST_FIELDS
+        return models.MAGIC_COLUMNS + BLACKLIST_FIELDS
 
     def _update_assortment_items(self):
         """
