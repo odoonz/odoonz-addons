@@ -30,8 +30,13 @@ class AccountInvoice(models.Model):
                 invoice.date = invoice.invoice_date
         return super()._compute_date()
 
-    @api.constrains("invoice_date", "date")
+    @api.constrains("invoice_date", "date", "move_type")
     def _check_invoice_date(self):
         for inv in self:
             if inv.date and inv.invoice_date and inv.date > inv.invoice_date:
                 inv.invoice_date = inv.date
+            if inv.move_type.startswith("out_"):
+                lock_date = inv._get_invoice_partner()._get_lock_date(inv.invoice_date)
+                if inv.invoice_date < lock_date:
+                    inv.invoice_date = lock_date
+                    inv.date = lock_date
