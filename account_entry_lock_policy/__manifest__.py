@@ -15,5 +15,4 @@
         "security/ir.model.access.csv",
         "security/record_rules.xml",
     ],
-    "installable": False,
 }
