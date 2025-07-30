@@ -1,10 +1,31 @@
 # Copyright 2014- Odoo Community Association - OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+import re
+from collections import defaultdict
+from string import Template
 
-from .product_product import DEFAULT_REFERENCE_SEPARATOR
+from odoo import _, api, fields, models
+from odoo.exceptions import MissingError, ValidationError
+
+DEFAULT_REFERENCE_SEPARATOR = ""
+PLACE_HOLDER_4_MISSING_VALUE = "/"
+
+
+class ReferenceMask(Template):
+    pattern = r"""\[(?:
+                    (?P<escaped>\[) |
+                    (?P<named>[^\]]+?)\] |
+                    (?P<braced>[^\]]+?)\] |
+                    (?P<invalid>)
+                    )"""  # type: ignore
+
+
+def extract_token(s):
+    if not s:
+        return set()
+    pattern = re.compile(r"\[([^\]]+?)\]")
+    return set(pattern.findall(s))
 
 
 class ProductTemplate(models.Model):
@@ -33,6 +54,20 @@ class ProductTemplate(models.Model):
         "attribute name",
     )
 
+    @api.constrains(
+        "reference_mask",
+        "attribute_line_ids",
+    )
+    def _check_reference_mask(self):
+        if not self.reference_mask:
+            return
+        tokens = extract_token(self.reference_mask)
+        attribute_names = {line.attribute_id.name for line in self.attribute_line_ids}
+        if not tokens.issubset(attribute_names):
+            raise MissingError(
+                _("Found unrecognized attribute name in Partcode Template")
+            )
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
@@ -43,8 +78,6 @@ class ProductTemplate(models.Model):
                 ]
                 default_mask = DEFAULT_REFERENCE_SEPARATOR.join(attribute_names)
                 vals["reference_mask"] = default_mask
-            elif vals.get("reference_mask"):
-                product._check_reference_mask(vals["reference_mask"])
         products = super().create(vals_list)
         return products
 
@@ -76,3 +109,57 @@ class ProductTemplate(models.Model):
                 for product in products:
                     product._compute_default_code()
         return result
+
+
+class ProductProduct(models.Model):
+    _inherit = "product.product"
+
+    manual_code = fields.Boolean(
+        string="Manual code", compute="_compute_manual_code", readonly=False, store=True
+    )
+    default_code = fields.Char(
+        compute="_compute_default_code", store=True, index="trigram", readonly=False
+    )
+
+    @api.model_create_multi
+    def create(self, values):
+        products = super().create(values)
+        products._compute_default_code()
+        return products
+
+    @api.depends("default_code")
+    def _compute_manual_code(self):
+        for product in self:
+            product.manual_code = bool(
+                product.default_code != product._get_rendered_default_code()
+            )
+
+    def _get_rendered_default_code(self):
+        product_attrs = defaultdict(str)
+        reference_mask_str = self.product_tmpl_id.reference_mask or ""
+        reference_mask = ReferenceMask(reference_mask_str)
+        for value in self.product_template_attribute_value_ids:
+            if value.attribute_id.code:
+                product_attrs[value.attribute_id.name] += value.attribute_id.code
+            if value.product_attribute_value_id.code:
+                product_attrs[value.attribute_id.name] += (
+                    value.product_attribute_value_id.code
+                )
+        all_attrs = extract_token(self.reference_mask)
+        missing_attrs = all_attrs - set(product_attrs.keys())
+        missing = dict.fromkeys(missing_attrs, PLACE_HOLDER_4_MISSING_VALUE)
+        product_attrs.update(missing)
+        default_code = reference_mask.safe_substitute(product_attrs)
+        return default_code
+
+    @api.depends(
+        "product_tmpl_id.reference_mask",
+        "manual_code",
+        "product_template_attribute_value_ids.product_attribute_value_id.code",
+    )
+    def _compute_default_code(self):
+        for product in self:
+            template = product.product_tmpl_id
+            if not template.reference_mask or product.manual_code:
+                continue
+            product.default_code = product._get_rendered_default_code()

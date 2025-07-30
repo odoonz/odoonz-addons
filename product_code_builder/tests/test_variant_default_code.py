@@ -121,7 +121,7 @@ class TestCodeOnTemplate(TransactionCase):
 
     def test_code_generation(self):
         """Ensure generated codes are correct"""
-        product_codes = {"TESTMRe", "TESTLRe", "TESTMGr", "TESTLGr"}
+        product_codes = {"TESTMRE", "TESTLRE", "TESTMGR", "TESTLGR"}
         # for debug check creation worked
         self.assertTrue(len(self.template.product_variant_ids) == 4)
 
@@ -135,7 +135,7 @@ class TestCodeOnTemplate(TransactionCase):
         :return:
         """
         for value in self.attribute2.value_ids:
-            self.assertEqual(value.code, value.name[:2])
+            self.assertEqual(value.code, value.name[:2].upper())
 
     def test_writing_new_code(self):
         """Ensure changing an attribute code changes associated part code"""
