@@ -1,15 +1,12 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from builtins import range
-
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models
 
 
 class AccountLockPolicy(models.Model):
-
     _name = "account.lock.policy"
 
     lock_date_field = fields.Selection(

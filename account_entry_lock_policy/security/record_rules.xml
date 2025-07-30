@@ -27,7 +27,9 @@
 
         <!-- Rule: Free access for system administrators -->
     <record id="account_lock_policy_rule_system_admin" model="ir.rule">
-        <field name="name">account.lock.policy: free access for system administrators</field>
+        <field
+            name="name"
+        >account.lock.policy: free access for system administrators</field>
         <field name="model_id" ref="model_account_lock_policy" />
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('base.group_system'))]" />

@@ -15,7 +15,13 @@
                 <field name="months" />
                 <field name="company_id" groups="base.group_multi_company" />
                 <field name="active" widget="boolean_toggle" />
-                <button name="button_update_lock_date" type="object" string="" title="Update Lock Date" icon="fa-refresh" />
+                <button
+                    name="button_update_lock_date"
+                    type="object"
+                    string=""
+                    title="Update Lock Date"
+                    icon="fa-refresh"
+                />
             </list>
         </field>
     </record>
