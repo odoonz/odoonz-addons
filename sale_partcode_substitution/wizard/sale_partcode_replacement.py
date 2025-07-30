@@ -26,9 +26,9 @@ class SaleCodeReplacement(models.TransientModel):
         for line in sale.order_line:
             replacement_product = self._find_replacement_product(line)
             if replacement_product:
-                if not keep_manual:
-                    line.technical_price_unit = 0.0
                 line.product_id = replacement_product
+                if not keep_manual:
+                    line._reset_price_unit()
         return {"type": "ir.actions.act_window_close"}
 
     def _find_replacement_product(self, line):
