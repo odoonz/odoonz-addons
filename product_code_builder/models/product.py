@@ -159,7 +159,6 @@ class ProductProduct(models.Model):
     )
     def _compute_default_code(self):
         for product in self:
-            template = product.product_tmpl_id
-            if not template.reference_mask or product.manual_code:
+            if product.manual_code or not product.product_tmpl_id.reference_mask:
                 continue
             product.default_code = product._get_rendered_default_code()
