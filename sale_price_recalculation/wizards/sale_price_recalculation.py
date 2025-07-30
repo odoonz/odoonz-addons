@@ -28,9 +28,9 @@ class SalePriceRecalculation(models.TransientModel):
     @api.onchange("as_at_date")
     def _onchange_as_at_date(self):
         if self.pricelist_id:
-            self.onchange_pricelist_id()
+            self._onchange_pricelist_id()
         elif self.copy_quote_id:
-            self.onchange_quote_id()
+            self._onchange_copy_quote_id()
 
     @api.onchange("pricelist_id")
     def _onchange_pricelist_id(self):
