@@ -5,11 +5,16 @@
     "name": "Account Financial Risk Manager",
     "summary": """
         Adds a seperate security group for managing credit releases""",
-    "version": "18.0.1.1.0",
+    "version": "18.0.2.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
-    "depends": ["account_financial_risk", "account", "sale_financial_risk"],
+    "depends": [
+        "account_financial_risk",
+        "account",
+        "sale_financial_risk",
+        "sale_force_invoiced",
+    ],
     "data": [
         "security/financial_risk_security.xml",
         "security/ir.model.access.csv",

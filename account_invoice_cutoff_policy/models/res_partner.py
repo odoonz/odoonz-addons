@@ -30,6 +30,8 @@ class ResPartner(models.Model):
                 continue
             today = fields.Date.context_today(partner)
             transaction_date = invoice_date
+            if not transaction_date:
+                continue
             if transaction_date >= today:
                 continue
             if partner.cutoff_type == "eom":
