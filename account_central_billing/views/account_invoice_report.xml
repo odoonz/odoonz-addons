@@ -10,7 +10,7 @@
                 <field name="commercial_partner_id" optional="hide" />
                 <field name="order_partner_id" optional="hide" />
                 <field name="invoice_partner_id" optional="hide" />
-                <field name="original_commercial_partner_id" optional="hide" />
+                <field name="orig_commercial_partner_id" optional="hide" />
             </field>
         </field>
     </record>
@@ -24,7 +24,7 @@
             <field name="partner_id" position="after">
                 <field name="order_partner_id" operator="child_of" />
                 <field name="invoice_partner_id" operator="child_of" />
-                <field name="original_commercial_partner_id" operator="child_of" />
+                <field name="orig_commercial_partner_id" operator="child_of" />
             </field>
             <group position="inside">
                 <filter
@@ -40,7 +40,7 @@
                 <filter
                     string="Original Partner"
                     name="original_commercial_partner"
-                    context="{'group_by':'original_commercial_partner_id'}"
+                    context="{'group_by':'orig_commercial_partner_id'}"
                 />
             </group>
         </field>
