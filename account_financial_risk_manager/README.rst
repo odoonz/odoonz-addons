@@ -87,17 +87,17 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Graeme Gellatly
 
 Contributors
-~~~~~~~~~~~~
+------------
 
 * Graeme Gellatly <graeme@moahub.nz> (https://moahub.nz)
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the MoaHub.
 
