@@ -10,5 +10,9 @@
     "depends": ["account", "base"],
     "summary": "This module allows to invoice all sales or purchases for one"
     "company to a different company",
-    "data": ["views/res_partner.xml", "views/account_invoice.xml"],
+    "data": [
+        "views/res_partner.xml",
+        "views/account_invoice.xml",
+        "views/account_invoice_report.xml",
+    ],
 }

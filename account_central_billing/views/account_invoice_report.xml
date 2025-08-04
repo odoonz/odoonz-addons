@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Inherit the tree view to add new fields -->
+    <record id="view_account_invoice_report_tree_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.report.view.list.inherit</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.account_invoice_report_view_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="commercial_partner_id" optional="hide" />
+                <field name="order_partner_id" optional="hide" />
+                <field name="invoice_partner_id" optional="hide" />
+                <field name="original_commercial_partner_id" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit the search view to add new fields -->
+    <record id="view_account_invoice_report_search_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.report.search.inherit</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="order_partner_id" operator="child_of" />
+                <field name="invoice_partner_id" operator="child_of" />
+                <field name="original_commercial_partner_id" operator="child_of" />
+            </field>
+            <group position="inside">
+                <filter
+                    string="Order Partner"
+                    name="order_partner"
+                    context="{'group_by':'order_partner_id'}"
+                />
+                <filter
+                    string="Invoice Partner"
+                    name="invoice_partner"
+                    context="{'group_by':'invoice_partner_id'}"
+                />
+                <filter
+                    string="Original Partner"
+                    name="original_commercial_partner"
+                    context="{'group_by':'original_commercial_partner_id'}"
+                />
+            </group>
+        </field>
+    </record>
+
+</odoo>
