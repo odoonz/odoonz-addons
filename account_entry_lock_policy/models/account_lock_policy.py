@@ -8,6 +8,7 @@ from odoo import fields, models
 
 class AccountLockPolicy(models.Model):
     _name = "account.lock.policy"
+    _description = "Account Lock Policy"
 
     lock_date_field = fields.Selection(
         [

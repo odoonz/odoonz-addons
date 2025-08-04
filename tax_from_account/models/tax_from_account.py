@@ -6,6 +6,7 @@ from odoo import api, models
 
 class TaxFromAccount(models.AbstractModel):
     _name = "tax.from.account"
+    _description = "Tax From Account Mixin"
 
     def _get_default_taxes(self, inv_type="out_invoice"):
         self.ensure_one()
