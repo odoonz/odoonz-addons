@@ -1,6 +1,7 @@
 exclude: |
   (?x)
   # NOT INSTALLABLE ADDONS
+  ^account_tax_total_included/|
   ^discuss_email_send/|
   ^mrp_sale_fields_enterprise/|
   ^product_list_price_from_bom/|
