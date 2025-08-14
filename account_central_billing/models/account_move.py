@@ -104,24 +104,18 @@ class AccountMove(models.Model):
         return {}
 
     @api.model
-    def _search(self, args, **kwargs):
+    def _search(self, domain, offset=0, limit=None, order=None):
         """override search so we find subsidiary invoices when looking at
         that partner.
         """
-        iter_args = list(args)
-        args = []
+        iter_args = list(domain)
+        domain = []
         for arg in iter_args:
             if arg[0] == "partner_id" and arg[1] in ("=", "like", "ilike", "child_of"):
-                args.extend(["|", arg, ("order_partner_id", arg[1], arg[2])])
+                domain.extend(["|", arg, ("order_partner_id", arg[1], arg[2])])
             else:
-                args.append(arg)
-        return super()._search(args, **kwargs)
-
-    def _get_refund_common_fields(self):
-        return super()._get_refund_common_fields() + [
-            "order_partner_id",
-            "order_invoice_id",
-        ]
+                domain.append(arg)
+        return super()._search(domain, offset=offset, limit=limit, order=order)
 
     def _get_invoice_company(self, vals):
         if "company_id" in vals:
