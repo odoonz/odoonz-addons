@@ -226,7 +226,7 @@ class SalePriceRecalculation(models.TransientModel):
             #
             # Odoo now prevents write on pricelist_id, so we need to
             # update the pricelist_id differently
-            if order.state == "draft":
+            if order.state in ("draft", "sent"):
                 vals["pricelist_id"] = pricelist.id
             elif order.state == "sale":
                 order.state = "draft"
