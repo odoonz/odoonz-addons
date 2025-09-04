@@ -13,44 +13,17 @@ class ProductAttributeLine(models.Model):
         domain="[('attribute_id', '=', attribute_id)]",
     )
 
-    def _set_values_from_attribute_groups(self):
-        self.value_ids = self.attr_group_ids.mapped("value_ids")
+    value_ids = fields.Many2many(
+        compute="_compute_value_ids", store=True, readonly=False
+    )
 
-    @api.onchange("attr_group_ids")
-    def onchange_attr_group(self):
+    @api.depends("attr_group_ids", "attr_group_ids.value_ids", "attribute_id")
+    def _compute_value_ids(self):
         """
         Mostly eye candy - we update the display to show the new values
         when the attribute group changes - however as the field is
         readonly in the UI it won't write so we handle properly in write
         :return:
         """
-        self._set_values_from_attribute_groups()
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if "attr_group_ids" in vals:
-                if vals.get("attr_group_ids"):
-                    # all will be newly added / mode 4
-                    attr_groups = self.env["product.attribute.group"].browse(
-                        vals["attr_group_ids"][0][1]
-                    )
-                    vals["value_ids"] = [
-                        [6, False, attr_groups.mapped("value_ids").ids]
-                    ]
-                else:
-                    vals["value_ids"] = vals.get("value_ids", [])
-        return super().create(vals_list)
-
-    def write(self, vals):
-        """
-        Override write in order to ensure that values match
-        the group(s).
-        :param vals:
-        :return:
-        """
-        attribute_groups_changed = "attr_group_ids" in vals
-        result = super().write(vals)
-        if attribute_groups_changed:
-            self._set_values_from_attribute_groups()
-        return result
+        if self.attr_group_ids:
+            self.value_ids = self.attr_group_ids.value_ids

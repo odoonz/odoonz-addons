@@ -18,7 +18,6 @@
                     name="attr_group_ids"
                     widget="many2many_tags"
                     options="{'no_create_edit': True}"
-                    domain="[('attribute_id', '=', attribute_id)]"
                     context="{'default_attribute_id': attribute_id}"
                 />
             </xpath>
@@ -26,9 +25,7 @@
                 expr="//page[@name='variants']//list//field[@name='value_ids']"
                 position="attributes"
             >
-                <attribute
-                    name="attrs"
-                >{'readonly': ['!', ('attr_group_ids', '=', [])]}</attribute>
+                <attribute name="readonly">attr_group_ids</attribute>
             </xpath>
         </field>
     </record>

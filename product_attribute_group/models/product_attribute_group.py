@@ -29,14 +29,6 @@ class ProductAttributeGroup(models.Model):
         ("uniq_name", "unique(name)", "The attribute group name must be unique")
     ]
 
-    def write(self, vals):
-        res = super().write(vals)
-        if "value_ids" in vals:
-            for attr_group in self:
-                for attr_line in attr_group.attribute_line_ids:
-                    attr_line.onchange_attr_group()
-        return res
-
     def copy(self, default=None):
         """
         Override copy to ensure the copy is distinguishable
