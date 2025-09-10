@@ -96,7 +96,10 @@ class StockValuationHistory(models.Model):
     @api.depends("product_id", "quantity", "value")
     def _compute_cost_price(self):
         for record in self:
-            record.cost_price = record.value / record.quantity
+            if record.quantity:
+                record.cost_price = record.value / record.quantity
+            else:
+                record.cost_price = 0.0
 
     def _prepare_valuation_lines(self, companies=False):
         """Prepare valuation data from quants.
