@@ -48,9 +48,9 @@ class AccountLockPolicy(models.Model):
     def _calculate_lock_date(self):
         self.ensure_one()
         today = fields.Date.context_today(self)
-        earliest_date = today - relativedelta(day=31, months=self.months)
-        if self._over_days_limit(today):
-            earliest_date = earliest_date - relativedelta(months=1)
+        earliest_date = today - relativedelta(day=31, months=self.months + 1)
+        if not self._over_days_limit(today):
+            earliest_date = earliest_date - relativedelta(months=1, day=31)
         return earliest_date
 
     def _over_days_limit(self, date_to):
@@ -61,8 +61,7 @@ class AccountLockPolicy(models.Model):
             all_days = (
                 date_from + relativedelta(days=x + 1) for x in range(date_to.day)
             )
-            count = sum(1 for day in all_days if day.weekday() < 5)
-            days = count
+            days = sum(1 for day in all_days if day.weekday() < 5)
         return date_to.day > days
 
 
