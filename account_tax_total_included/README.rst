@@ -20,7 +20,7 @@ How it Works
 4. **Tax Computation**: Taxes are computed using the `total_included` special mode when enabled
 
 Technical Details
-----------------
+-----------------
 
 * **Partner Model**: `res.partner` extended with `force_tax_total_included` field
 * **Invoice Model**: `account.move` automatically inherits the setting from the partner
@@ -45,7 +45,7 @@ Benefits
 * **User Experience**: Cleaner invoice interface without unnecessary buttons
 
 Migration from Previous Version
-------------------------------
+-------------------------------
 
 The previous version used buttons on invoices to toggle tax modes. This version:
 * Removes the toggle buttons
