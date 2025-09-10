@@ -73,6 +73,11 @@ class StockValuationHistory(models.Model):
     value = fields.Monetary(
         string="Total Value", currency_field="currency_id", readonly=True
     )
+    cost_price = fields.Monetary(
+        currency_field="currency_id",
+        compute="_compute_cost_price",
+        store=True,
+    )
     valuation_account_id = fields.Many2one(
         "account.account", string="Valuation Account", readonly=True, store=True
     )
@@ -87,6 +92,11 @@ class StockValuationHistory(models.Model):
     def _compute_name(self):
         for record in self:
             record.name = f"{record.date:%d %b %Y}"
+
+    @api.depends("product_id", "quantity", "value")
+    def _compute_cost_price(self):
+        for record in self:
+            record.cost_price = record.value / record.quantity
 
     def _prepare_valuation_lines(self, companies=False):
         """Prepare valuation data from quants.
@@ -207,16 +217,9 @@ class StockValuationHistory(models.Model):
                         "code": "model._run_month_end_valuation()",
                         "interval_number": 1,
                         "interval_type": "months",
-                        "numbercall": -1,
                         "nextcall": self._get_next_call(),
-                        "doall": False,
                         "active": True,
                     }
                 )
             except Exception as e:
                 _logger.error("Error setting up cron job: %s", str(e))
-
-    # @api.model
-    # def init(self):
-    #     """Initialize the module by setting up the cron job."""
-    #     self._setup_cron()
