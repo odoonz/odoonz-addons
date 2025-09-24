@@ -27,3 +27,5 @@ class ProductAttributeLine(models.Model):
         """
         if self.attr_group_ids:
             self.value_ids = self.attr_group_ids.value_ids
+            if self._context.get("create_product_product", True):
+                self._update_product_template_attribute_values()
