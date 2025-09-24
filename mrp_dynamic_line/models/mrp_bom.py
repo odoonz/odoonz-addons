@@ -13,6 +13,15 @@ _logger = logging.getLogger(__name__)
 class MrpBom(models.Model):
     _inherit = "mrp.bom"
 
+    def _get_production_vals_for_bom_price(self, product):
+        return {
+            "product_id": product.id,
+            "bom_id": self.id,
+            "product_qty": self.product_qty
+            * 100,  # Multiply to minimise rounding effects
+            "company_id": self.company_id.id or self.env.company.id,
+        }
+
     def explode(
         self, product, quantity, picking_type=False, never_attribute_values=False
     ):
