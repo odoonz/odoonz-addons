@@ -27,5 +27,17 @@ class ProductAttributeLine(models.Model):
         """
         if self.attr_group_ids:
             self.value_ids = self.attr_group_ids.value_ids
+
+    def write(self, values):
+        """Sync product template attribute values
+
+        We're doing this on every write to the line because value_ids
+        might have been updated from a group, and the compute method
+        for it is too early for FK relations.
+        """
+        result = super().write(values)
+        if "value_ids" in values:
             if self._context.get("create_product_product", True):
                 self._update_product_template_attribute_values()
+
+        return result
