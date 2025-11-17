@@ -66,7 +66,7 @@ class ProductProduct(models.Model):
         else:
             self.bom_list_price = 0.0
 
-    def price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
+    def _price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
         bom_prices = {}
         if price_type == "list_price":
             lst_price_from_bom = self.filtered(lambda s: s.lst_price_from_bom)
@@ -74,7 +74,7 @@ class ProductProduct(models.Model):
             bom_prices = {
                 product.id: product.bom_list_price for product in lst_price_from_bom
             }
-        prices = super().price_compute(
+        prices = super()._price_compute(
             price_type, uom=uom, currency=currency, company=company, date=date
         )
         prices.update(bom_prices)

@@ -174,7 +174,7 @@ class ProductProduct(models.Model):
                 list_price = product.uom_id._compute_price(list_price, to_uom)
             product.lst_price = list_price + product.price_extra
 
-    def price_compute(
+    def _price_compute(
         self, price_type, uom=None, currency=None, company=None, date=False
     ):
         if price_type == "list_price":
@@ -184,6 +184,6 @@ class ProductProduct(models.Model):
             self.with_context(
                 uom_already_computed=price_type == "lst_price", date=date
             ),
-        ).price_compute(
+        )._price_compute(
             price_type, uom=uom, currency=currency, company=company, date=date
         )
