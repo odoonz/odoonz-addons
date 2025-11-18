@@ -1,7 +1,5 @@
 import logging
-from datetime import datetime
 
-import pytz
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models
@@ -166,6 +164,11 @@ class StockValuationHistory(models.Model):
     @api.model
     def _run_month_end_valuation(self):
         """Cron job method to create month-end valuation."""
+        # Check if last day of month and return if not
+        today = fields.Date.context_today(self)
+        last_day_of_month = today + relativedelta(day=31)
+        if today != last_day_of_month:
+            return False
         try:
             self._create_month_end_valuation()
             return True
@@ -173,56 +176,3 @@ class StockValuationHistory(models.Model):
             # Log error but don't fail the cron job
             _logger.error("Error running month-end stock valuation: %s", str(e))
             return False
-
-    @api.model
-    def _get_next_call(self):
-        """Calculate next call time in user's timezone and return as naive UTC."""
-        user_tz = pytz.timezone(self.env.context.get("tz") or self.env.user.tz or "UTC")
-        dt_now = datetime.now()
-        # Convert to user timezone
-        dt_now = pytz.UTC.localize(dt_now).astimezone(user_tz)
-        # Set to first day of next month at 23:00
-        next_month = dt_now.replace(day=1) + relativedelta(
-            months=1, days=-1, hour=23, minute=30, second=0, microsecond=0
-        )
-        # Convert back to UTC and make naive
-        return next_month.astimezone(pytz.UTC).replace(tzinfo=None)
-
-    @api.model
-    def _setup_cron(self):
-        """Set up the cron job with proper timezone handling."""
-        cron = (
-            self.env["ir.cron"]
-            .sudo()
-            .search(
-                [
-                    ("name", "=", "Generate Monthly Stock Valuation History"),
-                    (
-                        "model_id",
-                        "=",
-                        self.env["ir.model"]
-                        .search([("model", "=", "stock.valuation.historical")])
-                        .id,
-                    ),
-                ],
-                limit=1,
-            )
-        )
-        if not cron:
-            try:
-                self.env["ir.cron"].sudo().create(
-                    {
-                        "name": "Generate Monthly Stock Valuation History",
-                        "model_id": self.env["ir.model"]
-                        .search([("model", "=", "stock.valuation.historical")])
-                        .id,
-                        "state": "code",
-                        "code": "model._run_month_end_valuation()",
-                        "interval_number": 1,
-                        "interval_type": "months",
-                        "nextcall": self._get_next_call(),
-                        "active": True,
-                    }
-                )
-            except Exception as e:
-                _logger.error("Error setting up cron job: %s", str(e))

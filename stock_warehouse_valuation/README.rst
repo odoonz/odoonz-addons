@@ -43,7 +43,7 @@ To configure this module, you need to:
 * Go to Inventory > Configuration > Settings
 * Ensure you have "Storage Locations" enabled
 * Ensure you have "Multi-Warehouses" enabled if you want to track valuations across multiple warehouses
-* You also need to run `env[stock.valuation.historical]._setup_cron()` to setup the cron job.
+* The cron job is automatically set up when the module is installed.
 
 Usage
 =====

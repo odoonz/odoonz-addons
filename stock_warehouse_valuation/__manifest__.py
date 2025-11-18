@@ -12,6 +12,7 @@
     "data": [
         "security/stock_valuation_security.xml",
         "security/ir.model.access.csv",
+        "data/ir_cron_data.xml",
         "views/stock_valuation_history_views.xml",
     ],
     "installable": True,
