@@ -142,7 +142,7 @@ class SalePriceRecalculation(models.TransientModel):
                 },
             )
             for ol in order.order_line
-            if not ol.display_type
+            if not ol.display_type and not ol.is_downpayment
         ]
 
     def _prepare_quote_related_vals(self):

@@ -90,7 +90,9 @@ class PriceRecalculation(models.AbstractModel):
         # Temp until we can figure out how to price draft invoice
         # if self.name.invoice_ids.filtered(lambda i:
         # i.state not in ("draft", "cancel")):
-        if self.name.invoice_ids:
+        if self.name.invoice_ids and not all(
+            [line.is_downpayment for line in self.name.invoice_ids.invoice_line_ids]
+        ):
             raise ValidationError(
                 _(
                     "You cannot change pricing on an order that has "
