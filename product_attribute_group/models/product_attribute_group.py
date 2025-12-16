@@ -29,6 +29,22 @@ class ProductAttributeGroup(models.Model):
         ("uniq_name", "unique(name)", "The attribute group name must be unique")
     ]
 
+    def write(self, values):
+        """Update template attribute lines when value_ids change."""
+        result = super().write(values)
+
+        if "value_ids" in values:
+            attribute_lines = self.env["product.template.attribute.line"].search(
+                [("attr_group_ids", "in", self.ids)]
+            )
+
+            if attribute_lines:
+                for line in attribute_lines:
+                    new_value_ids = line.attr_group_ids.value_ids
+                    line.write({"value_ids": [(6, 0, new_value_ids.ids)]})
+
+        return result
+
     def copy(self, default=None):
         """
         Override copy to ensure the copy is distinguishable
