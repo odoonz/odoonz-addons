@@ -4,7 +4,7 @@
 {
     "name": "Stock Prodlot Qty",
     "summary": "Shows available qty in prodlot name",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
