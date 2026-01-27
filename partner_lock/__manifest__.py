@@ -5,7 +5,7 @@
     "name": "Partner Lock",
     "summary": """
         Lock Partners to prevent editing""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly, MoaHub",
     "website": "https://github.com/odoonz/odoonz-addons",

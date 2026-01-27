@@ -42,7 +42,7 @@ class TestResPartner(TransactionCase):
                 "email": "unlock_user@example.com",
             }
         )
-        cls.unlock_user.groups_id = [(4, cls.group_unlock.id)]
+        cls.unlock_user.group_ids = [(4, cls.group_unlock.id)]
 
     def test_write_unlocked_partner(self):
         """Test writing to an unlocked partner"""

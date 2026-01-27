@@ -51,7 +51,7 @@
     <record id="action_lock_partner" model="ir.actions.server">
         <field name="name">Lock Partner</field>
         <field
-            name="groups_id"
+            name="group_ids"
             eval="[(4, ref('partner_lock.group_res_partner_unlock'))]"
         />
         <field name="model_id" ref="model_res_partner" />
