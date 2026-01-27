@@ -91,17 +91,17 @@ class ProductProduct(models.Model):
     @api.depends("product_template_attribute_value_ids.price_extra")
     def _compute_product_price_extra(self):
         to_uom = None
-        if "uom" in self._context:
-            to_uom = self.env["uom.uom"].browse([self._context["uom"]])
-        effective_date = self._context.get("date")
+        if "uom" in self.env.context:
+            to_uom = self.env["uom.uom"].browse([self.env.context["uom"]])
+        effective_date = self.env.context.get("date")
         if not effective_date:
             effective_date = fields.Date.context_today(self)
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
-        if self._context.get("partner_id"):
+        if self.env.context.get("partner_id"):
             commercial_partner_id = (
                 self.env["res.partner"]
-                .browse(self._context.get("partner_id"))
+                .browse(self.env.context.get("partner_id"))
                 .commercial_partner_id.id
             )
             fld = "partner_effective_date"
@@ -134,17 +134,17 @@ class ProductProduct(models.Model):
     def _compute_product_lst_price(self):
         to_uom = None
         if (
-            not self._context.get("uom_already_computed", False)
-            and "uom" in self._context
+            not self.env.context.get("uom_already_computed", False)
+            and "uom" in self.env.context
         ):
-            to_uom = self.env["uom.uom"].browse([self._context["uom"]])
-        effective_date = self._context.get("date")
+            to_uom = self.env["uom.uom"].browse([self.env.context["uom"]])
+        effective_date = self.env.context.get("date")
         if not effective_date:
             effective_date = fields.Date.context_today(self)
         if isinstance(effective_date, datetime):
             effective_date = fields.Date.context_today(self, effective_date)
-        partner_id = self._context.get(
-            "partner_id", self._context.get("partner", False)
+        partner_id = self.env.context.get(
+            "partner_id", self.env.context.get("partner", False)
         )
         if partner_id and isinstance(partner_id, models.BaseModel):
             partner_id = partner_id.id

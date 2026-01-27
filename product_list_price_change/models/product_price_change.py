@@ -62,7 +62,7 @@ class ProductPriceChange(models.Model):
             record.state = "draft"
 
     def _compute_partner_effective_date(self):
-        partner_id = self._context.get("partner_id")
+        partner_id = self.env.context.get("partner_id")
         if partner_id:
             tag_ids = (
                 self.env["res.partner"]

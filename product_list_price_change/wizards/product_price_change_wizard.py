@@ -12,7 +12,7 @@ class ProductPriceChangeWizard(models.TransientModel):
 
     price_change_id = fields.Many2one(
         comodel_name="product.price.change",
-        default=lambda s: s._context.get("active_id"),
+        default=lambda s: s.env.context.get("active_id"),
     )
     product_tmpl_ids = fields.Many2many(comodel_name="product.template")
     percent_change = fields.Float()
