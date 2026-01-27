@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class StockProductionLot(models.Model):
@@ -21,7 +21,7 @@ class StockProductionLot(models.Model):
 
     def _search(self, domain, offset=0, limit=None, order=None):
         if location := self.env.context.get("location_id"):
-            domain = expression.AND(
+            domain = Domain.AND(
                 [domain, [("quant_ids.location_id", "=", int(location))]]
             )
         return super()._search(domain, offset=offset, limit=limit, order=order)
