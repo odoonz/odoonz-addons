@@ -14,8 +14,8 @@ class SaleCodeReplacement(models.TransientModel):
     keep_manual_pricing = fields.Boolean(default=True)
 
     def _browse_calling_record(self):
-        return self.env[self._context["active_model"]].browse(
-            self._context["active_id"]
+        return self.env[self.env.context["active_model"]].browse(
+            self.env.context["active_id"]
         )
 
     def change_products_partcode(self):
