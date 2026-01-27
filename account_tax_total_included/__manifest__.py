@@ -3,7 +3,7 @@
 
 {
     "name": "Account Tax Total Included",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
@@ -13,6 +13,6 @@
         "views/account_move_views.xml",
         "views/res_partner_views.xml",
     ],
-    "installable": False,  # Maybe an idea for future, needs a bit more thought and testing
+    "installable": True,  # Maybe an idea for future, needs a bit more thought and testing
     "auto_install": False,
 }
