@@ -5,11 +5,11 @@
     "name": "Mrp Sale Fields Enterprise",
     "summary": """
         Adds Sales Fields to workorder views""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["mrp_workorder"],
     "data": ["views/mrp_workorder.xml"],
-    "installable": False,
+    "installable": True,
 }
