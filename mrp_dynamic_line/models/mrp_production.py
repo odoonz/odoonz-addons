@@ -26,8 +26,8 @@ class MrpProduction(models.Model):
         bom_line=False,
     ):
         if bom_line:
-            if "product" in bom_line._context:
-                product_id = bom_line._context["product"]
+            if "product" in bom_line.env.context:
+                product_id = bom_line.env.context["product"]
             for xform in bom_line.xform_ids.filtered(
                 lambda bl: bl.application_point == "move"
             ).sorted("sequence"):
@@ -122,7 +122,7 @@ class MrpProduction(models.Model):
         # These should be the unprocessed ones
         for bom_line, bom_vals in lines_done.items():
             # We need the specific context of the key to get the product
-            product = bom_line._context.get("product", bom_line.product_id)
+            product = bom_line.env.context.get("product", bom_line.product_id)
             move_vals = self._get_move_raw_values(
                 product,
                 bom_vals["qty"],
@@ -138,7 +138,7 @@ class MrpProduction(models.Model):
         return update_info
 
     def button_plan(self):
-        if len(self) == 1 and "product_id" in self._context:
+        if len(self) == 1 and "product_id" in self.env.context:
             super().button_plan()
         else:
             for order in self:
