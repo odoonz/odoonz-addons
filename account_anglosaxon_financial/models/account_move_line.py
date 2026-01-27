@@ -33,7 +33,7 @@ class AccountMoveLine(models.Model):
         """In the cases where we want to exclude financial lines
         filter them out"""
         invoice_lines = self
-        if self._context.get("exclude_financial"):
+        if self.env.context.get("exclude_financial"):
             invoice_lines = invoice_lines.filtered(
                 lambda s: not s.move_id.anglo_saxon_financial
             )
