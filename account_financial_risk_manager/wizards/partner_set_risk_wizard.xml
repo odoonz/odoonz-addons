@@ -34,7 +34,7 @@
         <field name="res_model">partner.set.risk.wizard</field>
         <field name="view_mode">form</field>
         <field
-            name="groups_id"
+            name="group_ids"
             eval="[(4, ref('account_financial_risk_manager.group_risk_manager'))]"
         />
         <field name="target">new</field>
