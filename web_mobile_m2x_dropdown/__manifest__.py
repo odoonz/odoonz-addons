@@ -5,7 +5,7 @@
     "name": "Web Mobile M2x Dropdown",
     "summary": """
         Opens Dropdown in mobile rather than search for m2x fields""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
@@ -15,5 +15,5 @@
             "web_mobile_m2x_dropdown/static/src/**/*.xml",
         ],
     },
-    "installable": False,
+    "installable": True,
 }
