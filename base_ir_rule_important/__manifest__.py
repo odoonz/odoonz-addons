@@ -5,7 +5,7 @@
     "name": "Base Ir Rule Important",
     "summary": """
         Allows Important Rules for certain groups""",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "LGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",

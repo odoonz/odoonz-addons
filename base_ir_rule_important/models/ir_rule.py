@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, tools
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools import config
 from odoo.tools.safe_eval import safe_eval
 
@@ -35,8 +35,8 @@ class IrRule(models.Model):
                                   WHERE gu.uid=%s)
                     ORDER BY r.id
                 """
-        self._cr.execute(query, (model_name, self._uid))
-        return self.browse(row[0] for row in self._cr.fetchall())
+        self.env.cr.execute(query, (model_name, self.env.uid))
+        return self.browse(row[0] for row in self.env.cr.fetchall())
 
     def _get_rules(self, model_name, mode="read"):
         # This is dumb and probably more expensive than just letting them go
@@ -67,7 +67,7 @@ class IrRule(models.Model):
 
         # browse user and rules as SUPERUSER_ID to avoid access errors!
         eval_context = self._eval_context()
-        user_groups = self.env.user.groups_id
+        user_groups = self.env.user.group_ids
         important_domains = []
         for rule in rules.sudo():
             # evaluate the domain for the current user
@@ -81,4 +81,4 @@ class IrRule(models.Model):
         # combine domains
         if not important_domains:
             return domain
-        return expression.AND(important_domains + [domain])
+        return Domain.AND(important_domains + [domain])
