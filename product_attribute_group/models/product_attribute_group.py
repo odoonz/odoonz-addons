@@ -25,9 +25,10 @@ class ProductAttributeGroup(models.Model):
         copy=False,
     )
 
-    _sql_constraints = [
-        ("uniq_name", "unique(name)", "The attribute group name must be unique")
-    ]
+    _uniq_name = models.Constraint(
+        'unique(name)',
+        "The attribute group name must be unique",
+    )
 
     def write(self, values):
         """Update template attribute lines when value_ids change."""

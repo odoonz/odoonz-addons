@@ -37,7 +37,7 @@ class ProductAttributeLine(models.Model):
         """
         result = super().write(values)
         if "value_ids" in values:
-            if self._context.get("create_product_product", True):
+            if self.env.context.get("create_product_product", True):
                 self._update_product_template_attribute_values()
 
         return result
