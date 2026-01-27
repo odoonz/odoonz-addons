@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 # To extend you will need to import this list and append.
 MODEL_NAMES = [
@@ -74,7 +74,7 @@ class IrFilters(models.Model):
             if not res:
                 res = result_domain
             else:
-                res = expression.OR([result_domain, res])
+                res = Domain.OR([result_domain, res])
         if self[f"blacklist_{self.model_id.split('.')[-1]}_ids"]:
             result_domain = [
                 (
@@ -86,7 +86,7 @@ class IrFilters(models.Model):
             if not res:
                 res = result_domain
             else:
-                res = expression.AND([result_domain, res])
+                res = Domain.AND([result_domain, res])
         return res
 
     @api.onchange("model_id")
@@ -213,7 +213,7 @@ class IrFilters(models.Model):
             embedded_action_id=embedded_action_id,
             embedded_parent_res_id=embedded_parent_res_id,
         )
-        domain = expression.AND(
+        domain = Domain.AND(
             [
                 [("is_assortment", "=", False)],
                 domain,

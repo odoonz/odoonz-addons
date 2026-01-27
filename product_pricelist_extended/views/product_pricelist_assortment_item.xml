@@ -1,20 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- Copyright 2021 ACSONE SA/NV
-     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record model="ir.ui.view" id="product_pricelist_assortment_item_form_view">
-        <field
-            name="name"
-        >product.pricelist.assortment.item.form (in product_pricelist_assortment)</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="name">product.pricelist.assortment.item.form (in product_pricelist_assortment)</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
         <field name="mode">primary</field>
         <field name="model">product.pricelist.assortment.item</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='compute_price']" position="before">
-                <field
-                    name="assortment_filter_id"
-                    context="{'product_assortment': True, 'list_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"
-                />
+                <field name="assortment_filter_id" context="{'product_assortment': True, 'list_view_ref': 'product_pricelist_extended.product_assortment_view_tree', 'form_view_ref': 'product_pricelist_extended.product_assortment_view_form'}"/>
             </xpath>
 <!--            Because we inherit from pricelist.item view, there are some conditions that do not apply to assortments-->
             <xpath expr="//field[@name='display_applied_on']" position="attributes">
@@ -30,60 +23,51 @@
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//group[@name='pricelist_rule_computation']" position="after">
-                <group
-                    name="product_filters"
-                    invisible="display_applied_on != '0_product_variant'"
-                >
+                <group name="product_filters" invisible="display_applied_on != '0_product_variant'">
                     <group name="to_include">
-                        <separator />
+                        <separator/>
                         <field name="whitelist_product_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
-                                <field name="display_name" string="Variant" />
+                                <field name="display_name" string="Variant"/>
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Products to exclude">
                         <field name="blacklist_product_ids" nolabel="1" colspan="2">
                             <list>
-                                <field name="display_name" string="Variant" />
+                                <field name="display_name" string="Variant"/>
                             </list>
                         </field>
                     </group>
                 </group>
-                <group
-                    name="template_filters"
-                    invisible="display_applied_on != '1_product'"
-                >
+                <group name="template_filters" invisible="display_applied_on != '1_product'">
                     <group name="to_include" string="Templates to include">
                         <field name="whitelist_template_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
-                                <field name="display_name" string="Template" />
+                                <field name="display_name" string="Template"/>
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Templates to exclude">
                         <field name="blacklist_template_ids" nolabel="1" colspan="2">
                             <list>
-                                <field name="display_name" string="Template" />
+                                <field name="display_name" string="Template"/>
                             </list>
                         </field>
                     </group>
                 </group>
-                <group
-                    name="category_filters"
-                    invisible="display_applied_on != '2_product_category'"
-                >
+                <group name="category_filters" invisible="display_applied_on != '2_product_category'">
                     <group name="to_include" string="Categories to include">
                         <field name="whitelist_category_ids" nolabel="1" colspan="2">
                             <list editable="bottom">
-                                <field name="display_name" string="Category" />
+                                <field name="display_name" string="Category"/>
                             </list>
                         </field>
                     </group>
                     <group name="to_exclude" string="Categories to exclude">
                         <field name="blacklist_category_ids" nolabel="1" colspan="2">
                             <list>
-                                <field name="display_name" string="Category" />
+                                <field name="display_name" string="Category"/>
                             </list>
                         </field>
                     </group>
@@ -92,59 +76,33 @@
         </field>
     </record>
     <record model="ir.ui.view" id="product_pricelist_assortment_item_tree">
-        <field
-            name="name"
-        >product.pricelist.assortment.item.tree (in product_pricelist_assortment)</field>
+        <field name="name">product.pricelist.assortment.item.tree (in product_pricelist_assortment)</field>
         <field name="model">product.pricelist.assortment.item</field>
-        <field name="inherit_id" ref="product.product_pricelist_item_tree_view" />
+        <field name="inherit_id" ref="product.product_pricelist_item_tree_view"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-                <field name="assortment_filter_id" />
+                <field name="assortment_filter_id"/>
             </xpath>
         </field>
     </record>
 
     <record model="ir.ui.view" id="product_pricelist_assortment_item_search">
-        <field
-            name="name"
-        >product.pricelist.assortment.item.search (in product_pricelist_assortment)</field>
+        <field name="name">product.pricelist.assortment.item.search (in product_pricelist_assortment)</field>
         <field name="model">product.pricelist.assortment.item</field>
         <field name="arch" type="xml">
             <search>
-                <filter
-                    string="Product Rule"
-                    name="template_rule"
-                    domain="[('applied_on', '=', '1_product')]"
-                />
-                <filter
-                    string="Variant Rule"
-                    name="product_rule"
-                    domain="[('applied_on', '=', '0_product_variant')]"
-                    groups="product.group_product_variant"
-                />
-                <filter
-                    string="Category Rule"
-                    name="category_rule"
-                    domain="[('applied_on', '=', '2_product_category')]"
-                />
-                <separator />
-                <field name="pricelist_id" />
-                <field name="assortment_filter_id" />
-                <field name="company_id" groups="base.group_multi_company" />
-                <field name="currency_id" groups="base.group_multi_currency" />
-                <group expand="0" string="Group By">
-                    <filter
-                        string="Pricelist"
-                        name="groupby_pricelist"
-                        context="{'group_by':'pricelist_id'}"
-                        groups="product.group_product_pricelist"
-                    />
-                    <filter
-                        string="Assortment Filter"
-                        name="groupby_assortment_filter"
-                        context="{'group_by':'assortment_filter_id'}"
-                    />
+                <filter string="Product Rule" name="template_rule" domain="[('applied_on', '=', '1_product')]"/>
+                <filter string="Variant Rule" name="product_rule" domain="[('applied_on', '=', '0_product_variant')]" groups="product.group_product_variant"/>
+                <filter string="Category Rule" name="category_rule" domain="[('applied_on', '=', '2_product_category')]"/>
+                <separator/>
+                <field name="pricelist_id"/>
+                <field name="assortment_filter_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="currency_id" groups="base.group_multi_currency"/>
+                <group>
+                    <filter string="Pricelist" name="groupby_pricelist" context="{'group_by':'pricelist_id'}" groups="product.group_product_pricelist"/>
+                    <filter string="Assortment Filter" name="groupby_assortment_filter" context="{'group_by':'assortment_filter_id'}"/>
                 </group>
             </search>
         </field>

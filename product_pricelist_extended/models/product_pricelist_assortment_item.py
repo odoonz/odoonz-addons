@@ -5,7 +5,7 @@ import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from odoo.fields import Domain
 
 _logger = logging.getLogger(__name__)
 
@@ -220,11 +220,11 @@ class ProductPricelistAssortmentItem(models.Model):
         model_obj = self.env[self.assortment_filter_id.model_id]
         if hasattr(model_obj, "company_id"):
             if self.company_id:
-                domain = expression.AND(
+                domain = Domain.AND(
                     [domain, [("company_id", "in", (self.company_id.id, False))]]
                 )
             else:
-                domain = expression.AND([domain, [("company_id", "=", False)]])
+                domain = Domain.AND([domain, [("company_id", "=", False)]])
         products = self.env[self.assortment_filter_id.model_id].search(domain)
         return products
 
