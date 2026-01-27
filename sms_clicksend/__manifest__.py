@@ -12,4 +12,5 @@
     "external_dependencies": {"python": ["clicksend_client"]},
     "depends": ["sms", "iap_alternative_provider"],
     "data": ["views/iap_account_view.xml", "views/sms_sms_view.xml"],
+    "installable": False,
 }

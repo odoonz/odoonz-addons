@@ -12,5 +12,5 @@
         Base module for x_price_recalculation modules.
      """,
     "depends": ["sale"],
-    "installable": True,
+    "installable": False,
 }

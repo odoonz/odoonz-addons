@@ -10,4 +10,5 @@
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["mail"],
+    "installable": False,
 }

@@ -15,5 +15,5 @@
             "web_mobile_m2x_dropdown/static/src/**/*.xml",
         ],
     },
-    "installable": True,
+    "installable": False,
 }

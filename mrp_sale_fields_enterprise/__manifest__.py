@@ -11,5 +11,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["mrp_workorder"],
     "data": ["views/mrp_workorder.xml"],
-    "installable": True,
+    "installable": False,
 }

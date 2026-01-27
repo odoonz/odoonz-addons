@@ -10,4 +10,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale_mrp"],
     "data": ["views/mrp_production.xml"],
+    "installable": False,
 }

@@ -13,6 +13,6 @@
         "views/account_move_views.xml",
         "views/res_partner_views.xml",
     ],
-    "installable": True,  # Maybe an idea for future, needs a bit more thought and testing
+    "installable": False,  # Maybe an idea for future, needs a bit more thought and testing
     "auto_install": False,
 }

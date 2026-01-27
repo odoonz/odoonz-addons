@@ -10,4 +10,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["account"],
     "data": ["views/res_partner.xml"],
+    "installable": False,
 }

@@ -11,5 +11,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["price_recalculation", "sale"],
     "data": ["wizards/sale_price_recalculation.xml", "security/ir.model.access.csv"],
-    "installable": True,
+    "installable": False,
 }
