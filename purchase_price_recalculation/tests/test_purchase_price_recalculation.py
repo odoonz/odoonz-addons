@@ -114,9 +114,9 @@ class TestPurchaseOrder(common.TransactionCase):
 
     def test_access_ppr(self):
         user = self.env.user.copy()
-        user.groups_id = [(6, 0, [self.env.ref("purchase.group_purchase_user").id])]
+        user.group_ids = [(6, 0, [self.env.ref("purchase.group_purchase_user").id])]
         self.ppr.with_user(user).create(self.vals)
-        user.groups_id = [(6, 0, [self.env.ref("sales_team.group_sale_salesman").id])]
+        user.group_ids = [(6, 0, [self.env.ref("sales_team.group_sale_salesman").id])]
         with self.assertRaises(AccessError):
             self.ppr.with_user(user).create(self.vals)
 
