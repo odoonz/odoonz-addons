@@ -19,8 +19,8 @@ class ProductProduct(models.Model):
     @api.depends_context("uom")
     def _compute_product_lst_price(self):
         to_uom = None
-        if "uom" in self._context:
-            to_uom = self.env["uom.uom"].browse(self._context["uom"])
+        if "uom" in self.env.context:
+            to_uom = self.env["uom.uom"].browse(self.env.context["uom"])
         bom_products = self.filtered(lambda s: s.lst_price_from_bom)
         res = super(ProductProduct, self - bom_products)._compute_product_lst_price()
         for product in bom_products:
