@@ -30,8 +30,8 @@ class PriceRecalculation(models.AbstractModel):
         res = super().default_get(flds)
         if len(self.env.context.get("active_ids", [])) != 1:
             return res
-        obj = self.env[self._context["active_model"]].browse(
-            self._context["active_ids"][0]
+        obj = self.env[self.env.context["active_model"]].browse(
+            self.env.context["active_ids"][0]
         )
         if "name" in flds:
             res.update(name=obj.id)
