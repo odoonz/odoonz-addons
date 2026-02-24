@@ -24,7 +24,7 @@ except ImportError as err:
     _logger.debug(err)
 
 
-@tagged("post-install", "-at-install")
+@tagged("post_install", "-at_install")
 class TestPurchaseOrder(common.TransactionCase):
     def setUp(self):
         super().setUp()

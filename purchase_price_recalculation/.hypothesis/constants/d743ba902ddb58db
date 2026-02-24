@@ -1,0 +1,4 @@
+# file: /odoo/src/account-financial-reporting/partner_statement/wizard/statement_common.py
+# hypothesis_version: 6.131.14
+
+['%', ',', '=', '=like', 'Accounts to exclude', 'Age by Days', 'Age by Months', 'Aging Method', 'Company', 'Payable', 'Receivable', 'account.account', 'account_type', 'active_ids', 'aging_type', 'asset_receivable', 'code', 'company_id', 'date_end', 'days', 'liability_payable', 'months', 'partner_ids', 'qweb-html', 'qweb-pdf', 'res.company', 'show_aging_buckets', 'show_only_overdue', 'xlsx']

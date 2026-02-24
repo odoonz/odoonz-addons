@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_crm/wizard/crm_opportunity_to_quotation.py
+# hypothesis_version: 6.131.14
+
+['Associated Lead', 'Customer', 'Quotation Customer', 'action', 'active_id', 'active_model', 'create', 'crm.lead', 'exist', 'lead_id', 'nothing', 'partner_id', 'res.partner']

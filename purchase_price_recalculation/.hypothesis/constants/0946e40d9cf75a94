@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/partner_lock/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['\n  - ', ', ', 'Locked', 'child_ids', 'customer_rank', 'is_locked', 'name', 'res.partner', 'risk_account_amount', 'risk_invoice_open', 'risk_invoice_unpaid', 'risk_sale_order', 'supplier_rank']

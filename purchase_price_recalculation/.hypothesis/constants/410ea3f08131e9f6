@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/models/queue_job_channel.py
+# hypothesis_version: 6.131.14
+
+['.', '=', 'Job Channels', 'Job Functions', 'Parent Channel', 'channel_id', 'complete_name', 'install_mode', 'name', 'name_uniq', 'noupdate', 'parent_id', 'queue.job', 'queue.job.channel', 'queue.job.function', 'restrict', 'root']

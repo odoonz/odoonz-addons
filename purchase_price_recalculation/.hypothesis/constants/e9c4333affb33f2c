@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar_sms/models/calendar_alarm.py
+# hypothesis_version: 6.131.14
+
+[' - ', 'Notify Responsible', 'SMS Template', 'SMS Text Message', 'alarm_type', 'calendar.alarm', 'calendar.event', 'duration', 'in', 'interval', 'ir.model.data', 'model', 'set default', 'sms', 'sms.template', 'sms_template_id']

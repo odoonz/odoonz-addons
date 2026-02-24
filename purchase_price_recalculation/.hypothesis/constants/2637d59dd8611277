@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/models/product_strategy.py
+# hypothesis_version: 6.131.14
+
+['=', 'Active', 'Closest Location', 'Company', 'FIFO, LIFO...', 'Last Used', 'Method', 'Name', 'No', 'Package Type', 'Priority', 'Product', 'Product Category', 'Putaway Rule', 'Removal Strategy', 'Storage Category', 'Store to sublocation', 'Warning', 'active_id', 'active_model', 'cascade', 'child_of', 'closest_location', 'company_id', 'date desc', 'done', 'id', 'in', 'last_used', 'location_dest_id', 'location_in_id', 'location_out_id', 'message', 'no', 'product.category', 'product.product', 'product.removal', 'product.template', 'product_id', 'res.company', 'sequence,product_id', 'state', 'stock.location', 'stock.move.line', 'stock.package.type', 'stock.putaway.rule', 'stock.warehouse', 'storage_category_id', 'sublocation', 'title', 'warning']

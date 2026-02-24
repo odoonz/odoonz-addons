@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_work_entry_contract/wizard/hr_work_entry_regeneration_wizard.py
+# hypothesis_version: 6.131.14
+
+['!=', '<=', '=', '>=', 'Earliest date', 'Employees', 'From', 'Latest date', 'To', '_compute_date_to', '_compute_valid', 'active', 'company_id', 'date_end', 'date_from', 'date_generated_from', 'date_generated_to', 'date_start', 'date_stop', 'date_to', 'employee_id', 'employee_ids', 'hr.employee', 'hr.work.entry', 'in', 'res.lang', 'state', 'validated']

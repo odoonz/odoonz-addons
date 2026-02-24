@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_hr/controllers/documents.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'access_token', 'documents.redirect', 'employee_id']

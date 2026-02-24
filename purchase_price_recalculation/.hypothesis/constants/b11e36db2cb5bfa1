@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_spreadsheet/wizard/save_spreadsheet_template.py
+# hypothesis_version: 6.131.14
+
+['display_notification', 'info', 'ir.actions.client', 'message', 'name', 'params', 'spreadsheet.mixin', 'spreadsheet.template', 'spreadsheet_data', 'sticky', 'tag', 'thumbnail', 'type']

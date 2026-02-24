@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/google_translate.py
+# hypothesis_version: 6.131.14
+
+['=', '_', 'body', 'data', 'detect', 'detections', 'error', 'id', 'ir.config_parameter', 'json', 'lang_name', 'language', 'mail.message', 'message', 'message_id', 'q', 'source', 'source_lang', 'target', 'target_lang', 'translatedText', 'translations', 'user']

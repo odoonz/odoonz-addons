@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_account/wizard/stock_request_count.py
+# hypothesis_version: 6.131.14
+
+['Accounting Date', 'accounting_date', 'stock.request.count']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/models/balance_sheet.py
+# hypothesis_version: 6.131.14
+
+['cta', 'currency_table', 'type']

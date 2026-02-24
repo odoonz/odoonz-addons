@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/portal/wizard/portal_share.py
+# hypothesis_version: 6.131.14
+
+['%s,%s', '/mail/view', 'Access warning', 'Link', 'Portal Sharing', 'Recipients', 'Related Document', 'Related Document ID', '_compute_share_link', 'access_token', 'active_id', 'active_model', 'b2c', 'ir.config_parameter', 'ir.model', 'mail.mt_note', 'model_description', 'note', 'partner', 'portal.mixin', 'portal.share', 'record', 'res.partner', 'res_id', 'res_model', 'share_link', 'type']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/modules/graph.py
+# hypothesis_version: 6.131.14
+
+['%s\n', '%s`-> %s', ', ', 'all', 'children', 'dbdemo', 'demo', 'depends', 'depth', 'id', 'imported', 'info', 'init', 'installable', 'installed', 'installed_version', 'ir_module_module', 'name', 'state', 'studio_customization', 'uninstalled', 'update']

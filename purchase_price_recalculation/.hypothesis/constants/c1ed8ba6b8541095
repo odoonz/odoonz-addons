@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_signup/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['Customer Account', 'Free sign up', 'On invitation', 'b2b', 'b2c', 'res.config.settings', 'res.users']

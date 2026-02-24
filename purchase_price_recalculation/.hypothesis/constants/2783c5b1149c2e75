@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase_stock/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+[100, '!=', '365', '=', '>', 'Purchase Lines', 'date', 'date_order', 'date_planned', 'done', 'in', 'ir.config_parameter', 'order_id.state', 'partner_id', 'product.product', 'product_id', 'product_uom_qty', 'purchase', 'purchase.order.line', 'purchase_line_id', 'purchase_line_ids', 'qty_received', 'quantity', 'res.partner', 'service', 'state', 'stock.move', 'type']

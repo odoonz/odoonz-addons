@@ -1,0 +1,4 @@
+# file: /odoo/src/reporting-engine/report_xlsx_helper/report/report_xlsx_format.py
+# hypothesis_version: 6.131.14
+
+['format_amount_center', 'format_amount_left', 'format_amount_right', 'format_center', 'format_center_bold', 'format_date_center', 'format_date_left', 'format_date_right', 'format_integer_left', 'format_integer_right', 'format_left', 'format_left_bold', 'format_percent_left', 'format_percent_right', 'format_right', 'format_right_bold', 'format_tcell_center', 'format_tcell_left', 'format_tcell_right', 'format_ws_title', 'xls_footers', 'xls_headers']

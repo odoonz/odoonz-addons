@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/bus/models/ir_websocket.py
+# hypothesis_version: 6.131.14
+
+['=', '>', '_', 'base.public_user', 'broadcast', 'bus.bus', 'bus.presence', 'channels', 'id', 'in', 'ir.websocket', 'last', 'last_poll', 'missed_presences', 'odoo-presence-', 'offline', 'presence', 'res.partner', 'user_id']

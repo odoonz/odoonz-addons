@@ -1,9 +1,11 @@
 # Copyright 2024 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.tests import tagged
 from odoo.tests.common import TransactionCase
 
 
+@tagged("post_install", "-at_install")
 class TestResPartnerTaxTotalIncluded(TransactionCase):
     """Test the res.partner tax total included functionality"""
 

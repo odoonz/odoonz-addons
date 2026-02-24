@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/spreadsheet/models/spreadsheet_mixin.py
+# hypothesis_version: 6.131.14
+
+[',', '.', '/web/image/(\\d+)', '=', 'START_REVISION', 'Sheet1', 'Spreadsheet file', 'Spreadsheet mixin', '[Content_Types].xml', 'content', 'display_name', 'id', 'imageSrc', 'in', 'ir.attachment', 'ir.binary', 'locale', 'model', 'name', 'path', 'res.lang', 'res_field', 'res_id', 'res_model', 'revisionId', 'settings', 'sheet1', 'sheets', 'spreadsheet.mixin', 'test_enable', 'test_file', 'version', 'w']

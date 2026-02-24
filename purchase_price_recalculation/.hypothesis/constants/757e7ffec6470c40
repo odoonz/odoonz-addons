@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_purchase/models/sale_order_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, ', ', '=', '__count', 'account.tax', 'cancel', 'company_id', 'create_date DESC', 'currency_id', 'date_order', 'date_planned', 'decimal.precision', 'dest_address_id', 'discount', 'done', 'draft', 'fiscal_position_id', 'id desc', 'in', 'lang', 'message', 'name', 'order_id', 'origin', 'origin_values', 'partner_id', 'partner_ref', 'payment_term_id', 'price_unit', 'product_id', 'product_qty', 'product_uom', 'product_uom_qty', 'purchase', 'purchase.order', 'purchase.order.line', 'purchase_line_ids', 'sale', 'sale.order.line', 'sale_line_id', 'sale_lines', 'sale_orders', 'seller_id', 'sent', 'service', 'state', 'taxes_id', 'title', 'to approve', 'warning']

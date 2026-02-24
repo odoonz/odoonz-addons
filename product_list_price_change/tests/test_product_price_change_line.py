@@ -29,11 +29,12 @@ class TestProductPriceChangeLine(TransactionCase):
             self.assertEqual(
                 test_new_ppcl.list_price, self.test_product_template_11.list_price
             )
-            # test onchange percent_change
+            # test onchange percent_change (allowing for float rounding)
             test_new_ppcl.percent_change = 10.0
-            self.assertEqual(
+            self.assertAlmostEqual(
                 test_new_ppcl.list_price,
                 self.test_product_template_11.list_price * 1.10,
+                places=2,
             )
             # test onchange list_price
             test_new_ppcl.list_price = 50.0

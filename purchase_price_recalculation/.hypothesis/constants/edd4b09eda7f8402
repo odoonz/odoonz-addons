@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_expense/controllers/webmanifest.py
+# hypothesis_version: 6.131.14
+
+['POST', 'accept', 'action', 'application/pdf', 'enctype', 'externalMedia', 'files', 'image/*', 'method', 'multipart/form-data', 'name', 'params', 'share_target']

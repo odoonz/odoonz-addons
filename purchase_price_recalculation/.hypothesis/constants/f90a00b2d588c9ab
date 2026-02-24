@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_expense/models/hr_employee.py
+# hypothesis_version: 6.131.14
+
+['=', 'Expense', 'child_of', 'company_id', 'expense_manager_id', 'groups_id', 'hr.employee', 'hr.employee.base', 'hr.employee.public', 'hr.group_hr_user', 'id', 'in', 'parent_id', 'res.users', '|']

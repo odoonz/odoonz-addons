@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/discuss/res_groups.py
+# hypothesis_version: 6.131.14
+
+['discuss.channel', 'group_ids', 'in', 'res.groups', 'users']

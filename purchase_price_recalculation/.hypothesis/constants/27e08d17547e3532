@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/wizard/account_autopost_bills_wizard.py
+# hypothesis_version: 6.131.14
+
+['always', 'ask', 'never', 'partner_id.name', 'res.partner']

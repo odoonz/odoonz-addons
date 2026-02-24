@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk_account/models/helpdesk_ticket.py
+# hypothesis_version: 6.131.14
+
+['Credit Notes', 'Credit Notes Count', 'account.move', 'context', 'domain', 'form', 'helpdesk.ticket', 'id', 'in', 'invoice_ids', 'list,form', 'name', 'out_refund', 'res_id', 'res_model', 'type', 'view_mode']

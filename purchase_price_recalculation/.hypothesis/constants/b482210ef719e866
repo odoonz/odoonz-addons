@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/win32.py
+# hypothesis_version: 6.131.14
+
+['%H', '%H:%M:%S', '%M', '%S', '%X', '%Y', '%d', '%d/%m/%Y', '%m', '%x', '04', '12', '13', '13:24:56', '2004', '24', '30', '30/12/2004', '56', 'D_FMT', 'T_FMT', 'nl_langinfo']

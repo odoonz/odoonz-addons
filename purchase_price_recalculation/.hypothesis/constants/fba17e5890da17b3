@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/hr_departure_reason.py
+# hypothesis_version: 6.131.14
+
+[340, 342, 343, 'Departure Reason', 'Reason', 'Sequence', 'fired', 'hr.departure.reason', 'resigned', 'retired', 'sequence']

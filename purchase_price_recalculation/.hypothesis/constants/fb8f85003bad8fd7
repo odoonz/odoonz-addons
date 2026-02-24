@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_delivery/models/sale_order.py
+# hypothesis_version: 6.131.14
+
+[' {pre}{0}{post}', 'before', 'cancel', 'done', 'lang', 'name', 'price_unit', 'real', 'route_ids', 'sale', 'sale.order', 'sale.order.line', '{symbol}\xa0', '\xa0{symbol}']

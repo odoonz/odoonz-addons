@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/barcodes/models/barcode_rule.py
+# hypothesis_version: 6.131.14
+
+['*', '.*', '0', 'Alias', 'Any', 'Barcode Nomenclature', 'Barcode Pattern', 'Barcode Rule', 'EAN-13', 'EAN-8', 'Encoding', 'Rule Name', 'Sequence', 'Type', 'UPC-A', 'Unit Product', 'X', '[{][N]*[D]*[}]', '[{][}]', '[{]|[}]', '\\\\', '\\{', '\\}', 'alias', 'any', 'barcode.nomenclature', 'barcode.rule', 'ean13', 'ean8', 'pattern', 'product', 'sequence asc, id', 'upca', '{N+D*}']

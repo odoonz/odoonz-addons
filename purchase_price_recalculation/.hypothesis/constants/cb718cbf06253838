@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_template_attribute_exclusion.py
+# hypothesis_version: 6.131.14
+
+['Attribute Value', 'Attribute Values', 'Product Template', 'cascade', 'product.template', 'product_tmpl_id', 'product_tmpl_id, id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_loans/wizard/account_loan_compute_wizard.py
+# hypothesis_version: 6.131.14
+
+[1.0, 100, '...', '30A/360', '30E/360', '30E/360 ISDA', '30U/360', 'A/360', 'A/365F', 'A/A AFB', 'A/A ISDA', 'At Anniversary', 'Balance', 'Compounding Method', 'Date', 'End of Month', 'First Payment', 'Interest', 'Interest Rate', 'Loan', 'Loan Amount', 'Loan Compute Wizard', 'Loan Term', 'Payment', 'Principal', 'Start Date', '_compute_preview', 'account.loan', 'account.loan.line', 'amount_borrowed', 'annuity', 'at_anniversary', 'compounding_method', 'context', 'date', 'duration', 'end_of_month', 'first_payment_date', 'form', 'interest', 'interest_rate', 'linear', 'loan_amount', 'loan_id', 'loan_id.currency_id', 'loan_term', 'name', 'payment_end_of_month', 'principal', 'res_id', 'res_model', 'self', 'start_date', 'target', 'type', 'views', 'yyyy-MM-dd']

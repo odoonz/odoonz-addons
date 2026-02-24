@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_list_price_change/models/product_template.py
+# hypothesis_version: 6.131.14
+
+['date', 'effective_date', 'fold_rate', 'partner_id', 'product.template']

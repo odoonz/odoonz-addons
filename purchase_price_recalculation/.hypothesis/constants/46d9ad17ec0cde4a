@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_delivery/wizard/choose_delivery_package.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Package too heavy!', 'Picking', 'Shipping Weight', 'batch_pack', 'message', 'product.template', 'shipping_weight', 'stock.move.line', 'stock.package.type', 'stock.picking', 'title', 'warning']

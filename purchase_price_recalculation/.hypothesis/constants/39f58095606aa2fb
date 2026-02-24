@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_category.py
+# hypothesis_version: 6.131.14
+
+['# Products', '%s / %s', 'Child Categories', 'Complete Name', 'Name', 'Parent Category', 'Product Category', 'Product Properties', '__count', 'cascade', 'categ_id', 'child_of', 'complete_name', 'hierarchical_naming', 'id', 'mail.thread', 'name', 'parent_id', 'product.cat_expense', 'product.category', 'product.template', 'trigram']

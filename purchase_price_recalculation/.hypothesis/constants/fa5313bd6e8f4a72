@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/account_invoice_extract_ril/vendors/konnect.py
+# hypothesis_version: 6.131.14
+
+[0.0, 1.0, 100, '</ul>', '<br />', 'account.move', 'amount_total', 'done', 'error_status', 'lines', 'mail.mt_note', 'price', 'price_unit', 'product', 'quantity']

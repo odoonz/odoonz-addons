@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/spreadsheet_sale_management/models/sale_order_template.py
+# hypothesis_version: 6.131.14
+
+['Quote calculator', 'sale.order.template']

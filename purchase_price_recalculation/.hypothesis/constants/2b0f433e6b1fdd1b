@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_mobile/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['Medium-sized image', 'avatar_128', 'res.partner']

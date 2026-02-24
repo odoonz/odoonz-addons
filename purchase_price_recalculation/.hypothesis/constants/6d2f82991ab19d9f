@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/modules/loading.py
+# hypothesis_version: 6.131.14
+
+[',', ', ', '.', '.csv', '.xml', '=', 'Modules loaded.', '_', '_xml', 'all', 'at_install', 'base', 'base.autovacuum_job', 'company_dependent', 'count', 'data', 'demo', 'demo_xml', 'end', 'error', 'in', 'init', 'init db', 'init_xml', 'installed', 'ir.demo_failure', 'ir.model.data', 'ir.module.module', 'ir.ui.view', 'ir_model_fields', 'latest_version', 'load_language', 'loading %s/%s', 'models_to_check', 'module', 'module_id', 'name', 'odoo.addons.%s', 'open', 'post', 'post_init_hook', 'pre', 'pre_init_hook', 'pre_upgrade_scripts', 'res.groups', 'state', 'test', 'test_enable', 'to install', 'to remove', 'to upgrade', 'uninstall_hook', 'uninstalled', 'update', 'update_xml', 'version', 'without_demo']

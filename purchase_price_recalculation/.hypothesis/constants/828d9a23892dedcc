@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/product_pricelist_extended/models/product_pricelist.py
+# hypothesis_version: 6.131.14
+
+['!=', '0_product_variant', '1_product', '2_product_category', 'Assortment items', 'item_assortment_ids', 'migration_mode', 'pricelist_id', 'product.category', 'product.pricelist', 'product.product', 'product.template']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_quote_format/models/account_invoice.py
+# hypothesis_version: 6.131.14
+
+['Quote Format', '_compute_quote_type', 'account.move', 'lumpqty', 'lumpsum', 'partner_id', 'rate']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['Buyer', 'Days Before Receipt', 'Purchase Order Count', 'Receipt Reminder', 'Supplier Currency', '__count', 'child_of', 'id', 'in', 'no-message', 'parent_id', 'partner_id', 'purchase.order', 'res.currency', 'res.partner', 'res.users']

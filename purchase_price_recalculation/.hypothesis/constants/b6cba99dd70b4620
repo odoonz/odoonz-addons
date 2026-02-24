@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase_stock/models/account_invoice.py
+# hypothesis_version: 6.131.14
+
+['Product Price', 'account.move', 'account.move.line', 'account_id', 'amount_currency', 'balance', 'cogs', 'currency_id', 'decimal.precision', 'display_type', 'done', 'expense', 'in_invoice', 'in_receipt', 'in_refund', 'incoterm_location', 'move_id', 'move_reverse_cancel', 'name', 'partner_id', 'price_subtotal', 'price_unit', 'product_id', 'product_uom_id', 'purchase_id', 'quantity', 'standard', 'standard_price', 'supplier']

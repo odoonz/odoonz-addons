@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/website_menu.py
+# hypothesis_version: 6.131.14
+
+['!=', '#', '/', '/%s', '/default-main-menu', '=', '@', 'Child Menus', 'Is Visible', 'Menu', 'New Window', 'Parent Menu', 'Referer', 'Related Model Page', 'Related Page', 'Url', 'Visible Groups', 'Website', 'Website Menu', '_compute_visible', 'cascade', 'child_id', 'children', 'data', 'display_website', 'fields', 'group_ids', 'http', 'id', 'ir.http', 'ir.ui.view', 'is_homepage', 'is_mega_menu', 'mailto', 'mailto:%s', 'mega_menu_content', 'name', 'new_window', 'page_id', 'parent_id', 'password', 'res.groups', 'sequence', 'sequence DESC', 'sequence, id', 'templates', 'to_delete', 'url', 'website', 'website.main_menu', 'website.menu', 'website.page', 'website_id', '|']

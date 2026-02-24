@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/discuss/ir_attachment.py
+# hypothesis_version: 6.131.14
+
+['attachment_id', 'discuss.channel', 'ir.attachment', 'mail.guest', 'voice']

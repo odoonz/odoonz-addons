@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/wizard/account_change_lock_date.py
+# hypothesis_version: 6.131.14
+
+['account.report', 'tax_lock_date']

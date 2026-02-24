@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/update.py
+# hypothesis_version: 6.131.14
+
+['=', '>=', 'action', 'active', 'application', 'apps', 'arg0', 'database.create_date', 'database.uuid', 'db_create_date', 'dbname', 'dbuuid', 'email', 'enterprise_code', 'enterprise_info', 'expiration_date', 'expiration_reason', 'in', 'installed', 'ir.config_parameter', 'ir.module.module', 'language', 'login_date', 'mail.mt_comment', 'messages', 'name', 'nbr_active_users', 'nbr_share_users', 'nbr_users', 'phone', 'res.users', 'share', 'state', 'to remove', 'to upgrade', 'trial', 'update', 'version', 'web.base.url', 'web_base_url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_totp/models/res_users.py
+# hypothesis_version: 6.131.14
+
+['!=', ', ', '/web/login/totp', 'Trusted Devices', '\\s', '_compute_totp_secret', '_inverse_token', '_totp_enable_search', 'auth_totp.device', 'auth_totp.wizard', 'browser', 'context', 'display_notification', 'form', 'id', 'in', 'ir.actions.client', 'login', 'message', 'name', 'new', 'next', 'params', 'res.users', 'res_id', 'res_model', 'secret', 'tag', 'target', 'td_id', 'totp', 'totp_enabled', 'totp_secret', 'type', 'user_id', 'views', 'warning']

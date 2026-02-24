@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_enterprise/version.py
+# hypothesis_version: 6.131.14
+
+['+e', '-', 'e', '{0}+e{1}{2}']

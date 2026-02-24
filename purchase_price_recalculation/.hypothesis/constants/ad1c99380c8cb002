@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp_account/wizard/mrp_wip_accounting.py
+# hypothesis_version: 6.131.14
+
+['Account', 'Credit', 'Currency', 'Date', 'Debit', 'Journal', 'Label', 'Manual Entry', 'Reference', 'Reversal Date', 'Reversal of: %s', 'WIP - Overhead', 'WIP accounting lines', '_compute_credit', '_compute_debit', '_compute_line_ids', 'account.account', 'account.journal', 'account.move', 'account_id', 'active_ids', 'check_debit_credit', 'confirmed', 'credit', 'date', 'debit', 'entry', 'journal_id', 'label', 'line_ids', 'mo_ids', 'move_type', 'mrp.production', 'name', 'product.category', 'progress', 'ref', 'reference', 'res.currency', 'to_close', 'wip_accounting_id', 'wip_production_ids']

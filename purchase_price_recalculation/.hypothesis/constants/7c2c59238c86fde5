@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_request_count.py
+# hypothesis_version: 6.131.14
+
+['&', '=', 'Count', 'Inventory Date', 'Leave Empty', 'Set Current Value', 'User', 'empty', 'groups_id', 'in', 'inventory_date', 'location_id', 'none', 'product_id', 'res.users', 'set', 'stock.quant', 'stock.request.count', 'user_id']

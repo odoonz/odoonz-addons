@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/report/report_stock_rule.py
+# hypothesis_version: 6.131.14
+
+['#008B8B', '#228B22', '#32CD32', '#4682B4', '#800080', '#FF0000', '#FFA500', '=', 'Stock rule report', 'customer', 'destination', 'display_name', 'docs', 'header_lines', 'is_rtl', 'location_id', 'locations', 'orderpoint', 'origin', 'product.product', 'product_id', 'production', 'pull', 'putaway', 'res.lang', 'route_ids', 'route_lines', 'rtl', 'rule', 'rule_ids', 'source', 'stock.location', 'stock.rule', 'stock.warehouse', 'supplier', 'warehouse_ids']

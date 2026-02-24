@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/view_validation.py
+# hypothesis_version: 6.131.14
+
+['%s', '%s_view.rng', '.', 'False', 'Invalid XML: %s', 'Non-dict expression', 'None', 'True', '\\breadonly\\b', 'abs', 'activity', 'allowed_company_ids', 'base', 'bool', 'calendar', 'context', 'context_today', 'current_company_id', 'current_date', 'datetime', 'eval', 'float', 'graph', 'len', 'list', 'now', 'parent', 'pivot', 'relativedelta', 'rng', 'search', 'self', 'set', 'str', 'time', 'today', 'uid', 'unicode']

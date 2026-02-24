@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/resource/models/resource_resource.py
+# hypothesis_version: 6.131.14
+
+[100, '%s (copy)', 'Active', 'Company', 'Efficiency Factor', 'Human', 'Material', 'Resources', 'Timezone', 'Type', 'UTC', 'User', 'Working Time', '_compute_avatar_128', 'calendar_id', 'check_idempotence', 'company_id', 'material', 'name', 'res.company', 'res.users', 'resource.calendar', 'resource.resource', 'tz', 'user', 'user_id', 'user_id.email', 'user_id.phone', 'user_id.share']

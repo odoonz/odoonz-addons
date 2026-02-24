@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_payment/controllers/payment.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'access_token', 'account.move', 'amount', 'cancel', 'company_id', 'currency_id', 'invoice_id', 'invoice_ids', 'json', 'landing_route', 'partner_id', 'public', 'reference', 'reference_prefix', 'transaction_route']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/product_list_price_change/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'active', 'ir.model.data', 'ir.ui.menu', 'model', 'module', 'res_id', 'sale']

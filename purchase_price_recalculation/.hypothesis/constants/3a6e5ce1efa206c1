@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_management/models/sale_order_template_line.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'Description', 'Note', 'Quantity', 'Section', 'Sequence', 'Unit of Measure', 'cascade', 'combo', 'display_type', 'line_note', 'line_section', 'name', 'product.product', 'product_id', 'product_uom', 'product_uom_qty', 'sale.order.template', 'sale_ok', 'sequence', 'type', 'uom.uom']

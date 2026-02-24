@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_gantt/models/ir_ui_view.py
+# hypothesis_version: 6.131.14
+
+['Gantt', '__validate__', 'cell_create', 'class', 'collapse_first_level', 'color', 'consolidation', 'consolidation_max', 'create', 'date_start', 'date_stop', 'day', 'decoration-danger', 'decoration-info', 'decoration-secondary', 'decoration-success', 'decoration-warning', 'default_group_by', 'default_range', 'default_scale', 'delete', 'dense', 'dependency_field', 'disable_drag_drop', 'display_mode', 'dynamic_range', 'edit', 'fa fa-tasks', 'field', 'form_view_id', 'gantt', 'groups_limit', 'icon', 'ir.ui.view', 'js_class', 'month', 'month_3', 'offset', 'on_create', 'pill_label', 'plan', 'precision', 'progress', 'progress_bar', 'quarter', 'sample', 'scales', 'sparse', 'string', 'templates', 'thumbnails', 'total_row', 'validate', 'week', 'week_2', 'year']

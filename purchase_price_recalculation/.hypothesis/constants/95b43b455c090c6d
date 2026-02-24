@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mrp_workorder/controllers/webmanifest.py
+# hypothesis_version: 6.131.14
+
+[180, 255, 'Content-Type', 'any', 'image/png', 'image/svg+xml', 'mrp_shop_floor', 'rb', 'sizes', 'src', 'type']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mrp_account_enterprise/models/product.py
+# hypothesis_version: 6.131.14
+
+['product.product', 'product.template']

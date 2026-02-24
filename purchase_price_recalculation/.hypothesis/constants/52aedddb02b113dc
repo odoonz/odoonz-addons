@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/post_load.py
+# hypothesis_version: 6.131.14
+
+['/queue_job/runjob', 'db']

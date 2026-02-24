@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/models/iap_account.py
+# hypothesis_version: 6.131.14
+
+['Register Account', 'context', 'default_account_id', 'form', 'iap.account', 'name', 'new', 'res_model', 'sender_name', 'sms', 'sms.account.phone', 'sms.account.sender', 'target', 'type', 'view_mode']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/l10n_us_check_printing/models/account_payment.py
+# hypothesis_version: 6.131.14
+
+['*****', '000000', '000000000', 'account.payment', 'bank_city_state', 'bank_name', 'bank_routing', 'bank_street', 'ckus_amount_in_word', 'ckus_special_line', 'company_city_state', 'company_logo', 'company_name', 'company_street', 'partner_city_state', 'partner_street']

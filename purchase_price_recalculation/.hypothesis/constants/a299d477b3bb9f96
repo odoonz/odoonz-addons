@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/agreement_rebate_ril/models/agreement_type.py
+# hypothesis_version: 6.131.14
+
+['=', 'Customer Credit Note', 'Customer Invoice', 'Vendor Bill', 'Vendor Credit Note', 'account.journal', 'agreement.type', 'company_id', 'in_invoice', 'in_refund', 'name', 'out_invoice', 'out_refund', 'product.product', 'rebate_journal_id', 'res.company']

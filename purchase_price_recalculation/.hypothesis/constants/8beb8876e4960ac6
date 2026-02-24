@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/tools/structured_reference.py
+# hypothesis_version: 6.131.14
+
+['(\\d{1,19})(\\d)', '(\\d{10})(\\d{2})', '-', 'RF{} {}', 'SI01', '[+*/]', '\\d+', '\\d{7}', '\\d{9,16}', '\\s', '^(\\d+)-(\\d+)-(\\d+)$', '{}RF']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/service/model.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Unknown', '_', '_api_private', '_description', '_name', 'en_US', 'execute', 'execute_kw', 'lang', 'name', 'seekable', 'string', 'unknown', 'unreachable']
