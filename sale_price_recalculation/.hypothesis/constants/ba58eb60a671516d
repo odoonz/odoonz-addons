@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_stock/models/stock.py
+# hypothesis_version: 6.131.14
+
+['=', 'DOWN', 'Sale Line', 'Sale Order', 'Sale order count', 'Sales Order', 'Sales Orders', '_compute_sale_id', '_set_sale_id', 'btree_not_null', 'context', 'customer', 'delivery', 'domain', 'done', 'group_id', 'id', 'in', 'int4', 'ir.actions.actions', 'ir.qweb', 'lot_id', 'mail.mt_note', 'move_ids', 'moves_information', 'name', 'order', 'order_id', 'origin', 'origin_moves', 'origin_picking', 'partner_id', 'picking_id', 'posted', 'price_unit', 'procurement.group', 'product_id', 'product_uom', 'product_uom_qty', 'qty_delivered', 'sale.action_orders', 'sale.order', 'sale.order.line', 'sale_id', 'sale_line_id', 'sale_order_ids.id', 'self', 'sequence', 'state', 'stock.lot', 'stock.move', 'stock.move.line', 'stock.picking', 'stock.route', 'stock.rule', 'stock_picking', 'to_refund', 'transit']

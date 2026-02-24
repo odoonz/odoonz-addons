@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/website_page_properties.py
+# hypothesis_version: 6.131.14
+
+['/', '301', '302', '=', 'Homepage', 'Page Properties', 'Page Properties Base', '_compute_can_publish', '_compute_is_homepage', '_compute_is_in_menu', '_compute_menu_ids', '_inverse_is_homepage', '_inverse_is_in_menu', 'base.group_user', 'can_publish', 'ir.model', 'ir.ui.view', 'is_published', 'menu_ids', 'name', 'page_id', 'parent_id', 'redirect_old_url', 'redirect_type', 'restricted_group', 'target_model_id', 'target_model_id.name', 'target_model_id.url', 'templates', 'url', 'url_from', 'url_to', 'website', 'website.menu', 'website.page', 'website.rewrite', 'website_id']

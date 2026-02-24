@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Bill Control', 'Company Currency', 'Minimum Amount', 'Ordered quantities', 'Purchase Agreements', 'Purchase Grid Entry', 'Purchase Warnings', 'Receipt Reminder', 'Received quantities', 'company_currency_id', 'company_id.po_lead', 'company_id.po_lock', 'edit', 'lock', 'one_step', 'product.template', 'purchase', 'purchase.use_po_lead', 'receive', 'res.config.settings', 'res.currency', 'two_step', 'use_po_lead']

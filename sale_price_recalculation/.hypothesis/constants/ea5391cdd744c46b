@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/mail_message.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', '>', 'Account', 'Audit Log Activated', 'Company ', 'Description', 'Journal Entry', 'Partner', 'Tax', 'Updated', 'account.account', 'account.move', 'account.tax', 'body', 'bypass_audit', 'changedField', 'company_id', 'customer_rank', 'display_name', 'field', 'id', 'ilike', 'in', 'like', 'mail.message', 'message_type', 'model', 'newValue', 'new_value', 'not ilike', 'not in', 'not like', 'notification', 'oldValue', 'old_value', 'partner_id', 'res.company', 'res.partner', 'res_id', 'res_model', 'subject', 'subtype_id', 'supplier_rank', 'tracking_value_ids', 'value', '|']

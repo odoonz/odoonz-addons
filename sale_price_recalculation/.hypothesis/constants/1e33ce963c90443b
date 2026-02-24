@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_stock/wizard/sale_order_cancel.py
+# hypothesis_version: 6.131.14
+
+['Delivery Alert', 'done', 'order_id', 'outgoing', 'sale.order.cancel']

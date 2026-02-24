@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/agreement_rebate_ril/wizards/create_rebate_agreement_wizard.py
+# hypothesis_version: 6.131.14
+
+['=', 'Branch', 'Company Group', 'Month', 'Partner', 'Quarter', 'Rebate Agreement', 'Template', 'Year', 'agreement', 'apply_nationally', 'branch_id', 'branch_id.company_id', 'code', 'company_group_id', 'company_id', 'current', 'end_date', 'form', 'is_company', 'is_template', 'month', 'name', 'parent_id', 'partner_id', 'prompt_payment', 'quarter', 'res.company', 'res.partner', 'res_id', 'res_model', 'ril.branch', 'settlement_frequency', 'settlement_timing', 'standard', 'start_date', 'target', 'template_id', 'type', 'view_mode', 'year']

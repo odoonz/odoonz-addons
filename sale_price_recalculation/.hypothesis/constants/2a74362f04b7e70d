@@ -1,0 +1,4 @@
+# file: /odoo/src/report-print-send/base_report_to_printer/models/ir_actions_report.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'Actions', 'Default Behaviour', 'Default Printer', 'Paper Source', 'action', 'client', 'error', 'id', 'ir.actions.report', 'object', 'pdf', 'printer', 'printer_exception', 'printer_name', 'printing.action', 'printing.printer', 'printing.tray', 'printing_printer_id', 'qweb-pdf', 'qweb-text', 'report_id', 'res_ids', 'server', 'server-error', 'text', 'time', 'title', 'tray', 'unavailable', 'user_default', 'user_id', '…']

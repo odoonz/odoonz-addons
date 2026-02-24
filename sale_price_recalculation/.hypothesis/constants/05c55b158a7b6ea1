@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/pdf/_pypdf2_2.py
+# hypothesis_version: 6.131.14
+
+['PdfReader', 'PdfWriter', 'create_string_object', 'errors', 'filters', 'generic']

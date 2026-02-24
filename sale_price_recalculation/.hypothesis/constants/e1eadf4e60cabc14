@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_dropshipping/models/res_company.py
+# hypothesis_version: 6.131.14
+
+['%s → %s', '=', 'DS', 'DS/', 'Dropship', 'Dropship (%s)', 'action', 'buy', 'code', 'company_id', 'customer', 'dropship', 'ir.sequence', 'location_dest_id', 'location_src_id', 'make_to_stock', 'name', 'padding', 'picking_type_id', 'prefix', 'procure_method', 'res.company', 'route_id', 'sequence', 'sequence_code', 'sequence_id', 'stock.dropshipping', 'stock.picking.type', 'stock.rule', 'supplier', 'use_existing_lots', 'warehouse_id']

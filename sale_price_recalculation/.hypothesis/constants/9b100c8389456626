@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/fleet/models/fleet_vehicle_state.py
+# hypothesis_version: 6.131.14
+
+['Vehicle Status', 'fleet.vehicle.state', 'sequence asc', 'unique(name)']

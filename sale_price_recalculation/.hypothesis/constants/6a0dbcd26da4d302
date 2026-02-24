@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/account_invoice_extract_ril/models/account_invoice.py
+# hypothesis_version: 6.131.14
+
+[0.0, 0.01, 0.1, 1.0, ' Amount w/o tax: %s', '../templates', '/', '0', '</ul><br/>', '=', 'Auto Approved', 'No OCR used', 'PO/', 'Partially completed', 'account.move', 'amount', 'amount_tax', 'amount_total', 'amount_untaxed', 'auto', 'auto_post', 'bank_account_number', 'code', 'company_id', 'credit', 'currency', 'customer', 'date', 'date_due', 'description', 'done', 'draft', 'email', 'error_status', 'handler', 'in', 'in_invoice', 'in_refund', 'invoice', 'invoice_date', 'invoice_date_due', 'invoice_number', 'invoice_show_amount', 'ir.sequence', 'iso', 'lines', 'mail.mt_note', 'name', 'none', 'parent_id', 'partial', 'partner', 'partner_email', 'partner_id', 'partner_name', 'partner_website', 'payment_reference', 'purchase.order', 'purchase_order', 'ref', 'res.company', 'res.partner', 'retry', 'supplier_code', 'tax_line_id', 'type', 'vat', 'website']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/report.py
+# hypothesis_version: 6.131.14
+
+[200, '%s.%s', ',', '/', '/report/barcode', '/report/download', '/report/pdf/', '/report/text/', '?', '???', 'Cache-Control', 'Content-Disposition', 'Content-Length', 'Content-Type', 'Odoo Server Error', 'application/pdf', 'code', 'context', 'data', 'html', 'http', 'image/png', 'ir.actions.report', 'json', 'message', 'object', 'options', 'pdf', 'public', 'qweb-pdf', 'qweb-text', 'text', 'text/plain', 'time', 'txt', 'user', '{}']

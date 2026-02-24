@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/portal/models/portal_mixin.py
+# hypothesis_version: 6.131.14
+
+['#', '#%s', '%s?%s', '&download=true', '&report_type=%s', '/mail/view', 'Access warning', 'Customer Portal URL', 'Portal Access URL', 'Portal Mixin', 'Security Token', '_compute_access_url', 'access_token', 'active_id', 'active_model', 'context', 'hash', 'ir.actions.act_url', 'ir.actions.actions', 'model', 'partner_id', 'pid', 'portal.mixin', 'read', 'res.users', 'res_id', 'self', 'target', 'type', 'url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_payment/wizards/payment_link_wizard.py
+# hypothesis_version: 6.131.14
+
+['#portal_pay', '</div>', '<div>', 'Amount Due', '_compute_epd_info', 'account.move', 'amount', 'amount_max', 'currency_id', 'date_maturity', 'ir.config_parameter', 'move_id', 'number', 'open_installments', 'payment', 'payment.link.wizard', 'payment_token']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/report/product_label_report.py
+# hypothesis_version: 6.131.14
+
+['Lot Label Report', 'Product Label Report', 'active_model', 'barcode', 'custom_barcodes', 'default_code', 'display_name_markup', 'docs', 'layout_wizard', 'lot_record', 'name', 'pricelist', 'product.label.layout', 'product.product', 'product.template', 'quantity', 'quantity_by_product', 'stock.lot']

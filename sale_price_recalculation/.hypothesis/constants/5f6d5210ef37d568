@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_bank_statement_import/models/account_bank_statement.py
+# hypothesis_version: 6.131.14
+
+[', ', 'Import ID', 'Nothing to do here!', 'account.journal', 'help', 'unique_import_id']

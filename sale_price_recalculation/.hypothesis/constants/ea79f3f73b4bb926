@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_disallowed_expenses_fleet/report/account_disallowed_expenses_report.py
+# hypothesis_version: 6.131.14
+
+['!=', '%s, account.id', '<=', '=', '>', '>=', 'AND vehicle.id = %s', 'AccountReportFilters', 'GROUP BY category.id', 'ORDER BY account.id', '__count', 'account.account', 'account.move.line', 'account.report', 'account_id', 'account_rate', 'account_type', 'alert_type', 'args', 'caret_options', 'category_id', 'columns', 'date', 'date_from', 'date_to', 'domain', 'expand_function', 'expense', 'fleet.vehicle', 'fleet_rate', 'form', 'id', 'in', 'level', 'lines', 'list', 'multi_rate_in_period', 'name', 'parent_state', 'posted', 'report_id', 'res_model', 'templates', 'type', 'unfoldable', 'vehicle_id', 'vehicle_name', 'vehicle_split', 'views', 'warning']

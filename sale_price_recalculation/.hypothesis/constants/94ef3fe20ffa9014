@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_intercompany_rules/wizards/invoice_recharge_wizard.py
+# hypothesis_version: 6.131.14
+
+['!=', 'Recharge To', 'Their Ref', 'account.move', 'active_ids', 'id', 'in', 'in_invoice', 'in_refund', 'invoice', 'posted', 'res.company', 'res.partner']

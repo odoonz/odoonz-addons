@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/wizard/mrp_production_backorder.py
+# hypothesis_version: 6.131.14
+
+['MO Backorder', 'Manufacturing Order', 'Show backorder lines', 'To Backorder', 'cascade', 'mrp.production']

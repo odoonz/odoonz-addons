@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_package_destination.py
+# hypothesis_version: 6.131.14
+
+['Destination location', 'Products', '_filter_location', 'location_dest_id', 'move_line_ids', 'picking_id', 'stock.location', 'stock.move.line', 'stock.picking']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/sale_purchase_inter_company_rules/models/sale_order.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'auto_generated', 'auto_sale_order_id', 'company_id', 'create', 'currency_id', 'date_order', 'date_planned', 'discount', 'display_type', 'fiscal_position_id', 'ir.sequence', 'name', 'order_line', 'origin', 'partner_id', 'partner_ref', 'payment_term_id', 'posted', 'price_unit', 'product_id', 'product_qty', 'product_uom', 'purchase.order', 'res.company', 'sale.order']

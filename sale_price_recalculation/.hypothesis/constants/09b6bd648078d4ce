@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/report/account_hash_integrity_templates.py
+# hypothesis_version: 6.131.14
+
+['data', 'doc_ids', 'doc_model', 'docs', 'res.company']

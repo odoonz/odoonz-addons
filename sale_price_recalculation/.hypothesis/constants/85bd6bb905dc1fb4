@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/wizards/payment_capture_wizard.py
+# hypothesis_version: 6.131.14
+
+['Already Captured', 'Already Voided', 'Authorized Amount', 'active_ids', 'amount', 'amount_to_capture', 'authorized', 'authorized_amount', 'available_amount', 'cancel', 'captured_amount', 'done', 'draft', 'partial', 'payment.transaction', 'transaction_ids', 'voided_amount']

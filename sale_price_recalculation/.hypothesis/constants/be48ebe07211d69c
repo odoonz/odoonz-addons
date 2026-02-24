@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/mrp_sale_fields/models/mrp_workorder.py
+# hypothesis_version: 6.131.14
+
+['mrp.workorder']

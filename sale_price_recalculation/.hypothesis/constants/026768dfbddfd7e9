@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_import_module/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[500, '1', 'POST', 'http', 'ir.module.module', 'login', 'none', 'password', 'type']

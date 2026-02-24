@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_credit_helpdesk/wizard/stock_return_picking.py
+# hypothesis_version: 6.131.14
+
+['done', 'helpdesk.ticket', 'helpdesk_ticket_id', 'location_id', 'stock', 'stock.return.picking']

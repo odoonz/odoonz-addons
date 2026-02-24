@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/crm_iap_mine/models/crm_iap_lead_role.py
+# hypothesis_version: 6.131.14
+
+['Color Index', 'People Role', 'Role Name', '_', 'crm.iap.lead.role', 'name_uniq', 'unique (name)']

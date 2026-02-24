@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/wizard/calendar_popover_delete_wizard.py
+# hypothesis_version: 6.131.14
+
+['Calendar Event', 'Delete this event', 'all', 'all_events', 'calendar.event', 'future_events', 'next', 'one']

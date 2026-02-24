@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/wizard/stock_backorder_confirmation.py
+# hypothesis_version: 6.131.14
+
+['pick_ids']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/delivery/models/sale_order.py
+# hypothesis_version: 6.131.14
+
+[0.0, '%s\nFree Shipping', '%s: %s', '- %s: %s x %s', '=', 'Delivery Method', 'Service Product', 'Shipping Weight', 'Update shipping cost', 'active', 'carrier_recompute', 'city', 'code', 'consu', 'context', 'country_code', 'country_id', 'default_carrier_id', 'default_order_id', 'default_total_weight', 'delivery', 'delivery.carrier', 'email', 'error', 'form', 'is_delivery', 'lang', 'name', 'new', 'order_id', 'order_line', 'parent_id', 'partner_id', 'partner_shipping_id', 'phone', 'pickup_locations', 'price_unit', 'product_id', 'product_uom', 'product_uom_qty', 'res.country', 'res.country.state', 'res.partner', 'res_model', 'sale.order', 'sale.order.line', 'sequence', 'service', 'state', 'state_id', 'street', 'target', 'tax_id', 'type', 'view_id', 'view_mode', 'views', 'zip', 'zip_code']

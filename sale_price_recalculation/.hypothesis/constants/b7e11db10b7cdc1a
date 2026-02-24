@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/database.py
+# hypothesis_version: 6.131.14
+
+['%Y-%m-%d_%H-%M-%S', '%s_%s.%s', '/odoo', '/web/database/backup', '/web/database/create', '/web/database/drop', '/web/database/list', 'Content-Disposition', 'Content-Type', 'Database.backup', 'POST', 'admin', 'countries', 'country_code', 'create_database', 'create_form', 'database_manager', 'databases', 'db', 'demo', 'drop', 'duplicate_database', 'http', 'insecure', 'json', 'langs', 'list_db', 'login', 'manage', 'master_input', 'none', 'password', 'pattern', 'phone', 'r', 'type', 'zip']

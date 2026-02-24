@@ -65,7 +65,7 @@ class TestPriceRecalculationLine(common.TransactionCase):
         assume(float_round(tax_rate, 2) != -1.0)
         # impossible value which will give div / 0
 
-        line = self.env["price.recalculation.line"].new(
+        line = self.model.new(
             {
                 "product_id": self.datacard.id,
                 "qty": qty,

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/discuss/gif.py
+# hypothesis_version: 6.131.14
+
+[',', '/discuss/gif/search', '=', 'US', 'client_key', 'contentfilter', 'country', 'create_uid', 'discuss.gif.favorite', 'en', 'ids', 'ir.config_parameter', 'json', 'key', 'limit', 'locale', 'media_filter', 'pos', 'q', 'results', 'tenor_gif_id', 'tinygif', 'user']

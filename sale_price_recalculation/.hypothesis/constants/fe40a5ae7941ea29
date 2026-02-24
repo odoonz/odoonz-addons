@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_batch_payment/report/account_batch_payment_report.py
+# hypothesis_version: 6.131.14
+
+['Batch Deposit Report', 'doc_ids', 'doc_model', 'docs', 'ir.actions.report']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/spreadsheet_edition/models/spreadsheet_revision.py
+# hypothesis_version: 6.131.14
+
+[365, '<=', '=', 'Model', 'Record id', 'Revision name', 'active', 'in', 'initial_unique', 'ir.config_parameter', 'name', 'parent_unique', 'res_id', 'res_model', 'revision_uuid', 'spreadsheet.revision', 'spreadsheet_snapshot', 'write_date:max']

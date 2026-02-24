@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/models/mail_message.py
+# hypothesis_version: 6.131.14
+
+['&', '=', 'Has SMS error', 'SMS', 'comment', 'exception', 'in', 'mail.message', 'mail.notification', 'mail_message_id', 'message_type', 'notification_status', 'notification_type', 'sms']

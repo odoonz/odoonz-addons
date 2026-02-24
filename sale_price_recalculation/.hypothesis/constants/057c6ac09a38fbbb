@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/models/stock_storage_category.py
+# hypothesis_version: 6.131.14
+
+['%s (copy)', 'Allow mixed products', 'CHECK(quantity > 0)', 'Company', 'Max Weight', 'Package Type', 'Product', 'Quantity', 'Stock Weight', 'Storage Category', 'Weight unit', 'capacity_ids', 'cascade', 'empty', 'mixed', 'name', 'positive_max_weight', 'positive_quantity', 'product.product', 'product.template', 'product_id.uom_id', 'res.company', 'same', 'stock.location', 'stock.package.type', 'storage_category_id', 'unique_package_type', 'unique_product']

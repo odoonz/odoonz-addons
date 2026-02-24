@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_packaging.py
+# hypothesis_version: 6.131.14
+
+[1.0, 'Barcode', 'CHECK(qty > 0)', 'Company', 'Contained Quantity', 'HALF-UP', 'Product', 'Product Packaging', 'Sequence', 'barcode', 'barcode_uniq', 'cascade', 'in', 'positive_qty', 'product.packaging', 'product.product', 'product_id.uom_id', 'res.company', 'unique(barcode)', 'uom.uom']

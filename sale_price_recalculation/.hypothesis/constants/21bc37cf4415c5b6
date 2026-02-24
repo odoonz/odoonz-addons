@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/price_change_notification/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['%d %B %Y', 'partner_id', 'price.change.record', 'res.partner']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_expense/models/hr_expense_sheet.py
+# hypothesis_version: 6.131.14
+
+[0.0, 100, 'currency_id', 'current', 'domain', 'form', 'hr.expense.sheet', 'id', 'in', 'list', 'list,form', 'name', 'order_id', 'price_unit', 'product_id', 'product_uom_qty', 'qty_delivered', 'res.company', 'res.currency', 'res_id', 'res_model', 'rounding', 'sale.order', 'sale.order.line', 'sale.view_order_form', 'sale.view_order_tree', 'target', 'type', 'view_mode', 'views']

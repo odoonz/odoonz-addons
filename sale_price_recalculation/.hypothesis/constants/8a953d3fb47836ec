@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_edi_ubl_cii/tools/ubl_21_credit_note.py
+# hypothesis_version: 6.131.14
+
+['CreditNote', '_tag', 'cac:AllowanceCharge', 'cac:BillingReference', 'cac:CreditNoteLine', 'cac:Delivery', 'cac:InvoicePeriod', 'cac:Item', 'cac:OrderReference', 'cac:PaymentMeans', 'cac:PaymentTerms', 'cac:PrepaidPayment', 'cac:Price', 'cac:PricingReference', 'cac:Signature', 'cac:TaxExchangeRate', 'cac:TaxTotal', 'cbc:BuyerReference', 'cbc:CopyIndicator', 'cbc:CreditedQuantity', 'cbc:CustomizationID', 'cbc:ID', 'cbc:IssueDate', 'cbc:IssueTime', 'cbc:LineCountNumeric', 'cbc:Note', 'cbc:ProfileID', 'cbc:TaxCurrencyCode', 'cbc:UBLVersionID', 'cbc:UUID', 'ext:UBLExtensions']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/js_transpiler.py
+# hypothesis_version: 6.131.14
+
+[' as ', '%s: %s', ',', ', ', '.', '..', '.js', '/', '/index', '/index.js', ': ', '@%s%s', '@%s/../lib%s', '@%s/../tests%s', 'alias', 'default', 'ignore', 'lib', 'module', 'named_exports', 'object', 'object_clean', 'object_process', 'path', 'space', 'src', 'tests', 'type', 'url', '{', '}']

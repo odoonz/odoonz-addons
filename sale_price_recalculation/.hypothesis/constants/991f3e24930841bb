@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'Barcode Scanner', 'Consignment', 'Delivery Methods', 'Dropshipping', 'Easypost Connector', 'Expiration Dates', 'FedEx Connector', 'Multi-Step Routes', 'Packages', 'Quality', 'Quality Worksheet', 'Reception Report', 'SMS Confirmation', 'Sendcloud Connector', 'Separator', 'Shiprocket Connector', 'Signature', 'Starshipit Connector', 'Storage Locations', 'UPS Connector', 'USPS Connector', 'Warnings for Stock', 'base.group_user', 'bpost Connector', 'delivery_steps', 'none', 'one_step', 'product.product', 'reception_steps', 'res.config.settings', 'ship_only', 'stock.warehouse', 'tracking']

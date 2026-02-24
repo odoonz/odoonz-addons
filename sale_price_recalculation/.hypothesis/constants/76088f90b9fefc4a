@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_automatic_workflow/models/ril_automatic_workflow.py
+# hypothesis_version: 6.131.14
+
+[1000, '!=', '<=', '=', '=like', 'account.move', 'action_post', 'cancel', 'create_date', 'date_done', 'dispatch.manifest', 'done', 'draft', 'func_string', 'in', 'invoice_status', 'invoiced', 'locked', 'manifest_id', 'move_type', 'not in', 'out_invoice', 'partner_id', 'queue.job', 'res.company', 'sale', 'sale.order', 'state', 'stock.picking', 'write_date', '|']

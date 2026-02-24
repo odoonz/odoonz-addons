@@ -1,0 +1,4 @@
+# file: /odoo/src/google-maps/base_google_places/models/google_places_type.py
+# hypothesis_version: 6.131.14
+
+['Code', 'Google Places Type', 'Name', 'Name must be unique!', 'UNIQUE(code, name)', 'google.places.type', 'type_unique']

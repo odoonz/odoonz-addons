@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/product_label_layout.py
+# hypothesis_version: 6.131.14
+
+['Custom', 'Operation Quantities', 'Quantity to print', 'ZPL Labels', 'custom', 'custom_barcodes', 'move', 'product.label.layout', 'quantity_by_product', 'set default', 'stock.move', 'zpl', 'zplxprice']

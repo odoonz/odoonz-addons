@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/models/mail_activity_type.py
+# hypothesis_version: 6.131.14
+
+['Tax report', 'account.journal', 'account.move', 'mail.activity.type', 'res_model', 'tax_report', 'unlink']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/report/purchase_bill.py
+# hypothesis_version: 6.131.14
+
+[0.0, ' - ', ': ', 'Amount', 'Company', 'Currency', 'Date', 'Purchase Order', 'Reference', 'Source', 'Vendor', 'Vendor Bill', 'account.move', 'amount', 'currency_id', 'date desc, name desc', 'name', 'no', 'purchase.bill.union', 'purchase.order', 'purchase_bill_union', 'purchase_order_id', 'reference', 'res.company', 'res.currency', 'res.partner', 'show_total_amount']

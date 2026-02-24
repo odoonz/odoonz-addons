@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_sequence.py
+# hypothesis_version: 6.131.14
+
+[100000, ' INCREMENT BY %s', ' RESTART WITH %s', '%%0%sd', '%03d', '%03d_%03d', '%H', '%I', '%M', '%S', '%W', '%Y', '%d', '%j', '%m', '%w', '%y', ',', '<=', '=', '>=', 'Actual Next Number', 'Company', 'From', 'Implementation', 'Main Sequence', 'Next Number', 'No gap', 'S', 'SELECT nextval(%s)', 'Sequence', 'Sequence Code', 'Sequence Date Range', 'Sequence Size', 'Standard', 'Step', 'Subsequences', 'To', 'UTC', 'cascade', 'code', 'company_id', 'current_', 'date_from', 'date_from desc', 'date_to', 'date_to desc', 'day', 'doy', 'h12', 'h24', 'id', 'implementation', 'in', 'ir.sequence', 'ir_sequence_%03d', 'ir_sequence_%s', 'ir_sequence_date', 'min', 'month', 'name', 'no_gap', 'number_increment', 'number_next', 'number_next_actual', 'range_', 'read', 'res.company', 'sec', 'sequence_id', 'standard', 'tz', 'weekday', 'woy', 'y', 'year', '{}-01-01', '{}-12-31']

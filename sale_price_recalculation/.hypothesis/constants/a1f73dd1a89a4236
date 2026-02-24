@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/website_configurator_feature.py
+# hypothesis_version: 6.131.14
+
+['#383E45', '#3AADAA', '#7C6576', '#F6F6F6', '#FFFFFF', '#FOOTER_COLOR', '#MENU_COLOR', 'cascade', 'color1', 'color2', 'color3', 'color4', 'color5', 'footer', 'ir.module.module', 'ir.ui.view', 'menu', 'module_id', 'page_view_id', 'r', 'sequence']

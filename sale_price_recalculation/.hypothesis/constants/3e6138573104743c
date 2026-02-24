@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_online_synchronization/models/account_bank_statement.py
+# hypothesis_version: 6.131.14
+
+[180, 500, '=', 'Error', 'account.move', 'account.online.link', 'amount', 'date', 'error', 'is_zero_balancing', 'journal_id', 'last_sync', 'limit_time_real_cron', 'online_sync', 'payment_ref', 'sequence', 'testing', 'transactions_total']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/res_bank.py
+# hypothesis_version: 6.131.14
+
+[' - ', '!', '%', '=', '=ilike', 'Account Holder', 'Account Holder Name', 'Account Number', 'Bank', 'Bank Accounts', 'Bank Identifier Code', 'Company', 'Country Code', 'Currency', 'Fed. State', 'Normal', 'Send Money', 'Type', '\\W+', '_compute_acc_type', 'acc_number', 'bank', 'bank_id', 'bank_id.bic', 'bank_id.name', 'bic', 'cascade', 'country', 'country.code', 'ilike', 'ir.actions.client', 'is_company', 'name', 'not ilike', 'parent_id', 'partner_id.name', 'reload', 'res.bank', 'res.company', 'res.country', 'res.country.state', 'res.currency', 'res.partner', 'res.partner.bank', 'sanitized_acc_number', 'sequence, id', 'state', 'tag', 'type', 'unique_number', '|']

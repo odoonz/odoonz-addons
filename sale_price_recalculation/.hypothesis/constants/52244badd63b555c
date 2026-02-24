@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/models/account_bank_statement.py
+# hypothesis_version: 6.131.14
+
+['!=', ', ', '=', '=ilike', '>', 'Bank Reconciliation', 'Bank Statement.pdf', '_kanban', 'application/pdf', 'auto_reconcile', 'bank.rec.widget', 'binary', 'cancel', 'company_id', 'complete_name', 'context', 'create_date', 'cron_last_check', 'default_journal_id', 'default_st_line_id', 'default_statement_id', 'domain', 'ilike', 'in', 'invoice_matching', 'ir.actions.report', 'ir.attachment', 'is_reconciled', 'mimetype', 'name', 'narration', 'parent_id', 'parent_of', 'payment_ref', 'raw', 'ref', 'res.partner', 'res.partner.bank', 'res_id', 'res_model', 'rule_type', 'sanitized_acc_number', 'search_default_id', 'state', 'statement_id', 'type', 'valid', 'writeoff_button', 'writeoff_suggestion']

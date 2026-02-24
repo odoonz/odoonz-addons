@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp_account/models/account_move.py
+# hypothesis_version: 6.131.14
+
+['Relevant WIP MOs', 'WIP MOs of %s', 'account.move', 'account.move.line', 'domain', 'form', 'id', 'in', 'list,form', 'mrp.bom', 'mrp.production', 'name', 'phantom', 'product.product', 'qty', 'res_id', 'res_model', 'type', 'view_mode', 'wip_production_ids']

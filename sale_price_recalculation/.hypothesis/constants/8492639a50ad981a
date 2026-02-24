@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/models/documents_redirect.py
+# hypothesis_version: 6.131.14
+
+['=', 'Document Redirect', 'access_token', 'btree', 'cascade', 'documents.document', 'documents.redirect', 'view']

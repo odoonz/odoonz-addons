@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_totp/models/totp.py
+# hypothesis_version: 6.131.14
+
+[160, 2147483647, '>I', '>Q', 'sha1']

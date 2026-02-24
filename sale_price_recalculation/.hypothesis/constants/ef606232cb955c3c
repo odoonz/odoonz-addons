@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/sequence_mixin.py
+# hypothesis_version: 6.131.14
+
+[9999, ' AND id != %(id)s ', '(?P<prefix1>.*?)', '(?P<prefix2>\\D)', '(?P<prefix3>\\D+?)', '(?P<seq>\\d*)', '(?P<suffix>\\D*?)', '00000000', '1970-01-01', '2', '?:', '?P<seq>', 'Automatic sequence', '\\?P<\\w+>', '_sequence_index', 'date', 'id', 'ir.config_parameter', 'last_rec', 'month', 'name', 'never', 'prefix1', 'seq', 'seq_length', 'seq_list', 'sequence.mixin', 'sequence_number', 'sequence_prefix', 'suffix', 'with_prefix', 'year', 'year_end', 'year_end_length', 'year_length', 'year_range', 'year_range_month', '{%s}', '{month:02d}', '{seq:0{seq_length}d}']

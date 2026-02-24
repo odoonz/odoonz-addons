@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_cohort/models/models.py
+# hypothesis_version: 6.131.14
+
+[0.0, 100, '!=', '%B %Y', '%Y', '%d %b', '%d %b %Y', '%s - %s', '&', '-', ':', '<', '=', '>=', 'W%W %Y', '__count', 'avg', 'avg_value', 'backward', 'base', 'churn', 'churn_value', 'columns', 'columns_avg', 'count', 'date', 'datetime', 'day', 'domain', 'many2one', 'month', 'percentage', 'period', 'rows', 'value', 'week', 'year', '|']

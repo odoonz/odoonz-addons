@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/hr_employee_public.py
+# hypothesis_version: 6.131.14
+
+[',', 'Avatar', 'Avatar 1024', 'Avatar 128', 'Avatar 256', 'Avatar 512', 'Coach', 'Direct subordinates', 'Employee', 'Image', 'Image 1024', 'Image 128', 'Image 256', 'Image 512', 'Manager', 'Public Employee', "User's partner", '_compute_employee_id', '_compute_is_manager', '_search_employee_id', 'child_of', 'emp.%s', 'hr.employee', 'hr.employee.base', 'hr.employee.public', 'id', 'many2many', 'name', 'one2many', 'parent_id', 'uid', 'user_id.partner_id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/models/stock_replenish_mixin.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'Preferred Route', 'product_id', 'product_selectable', 'product_tmpl_id', 'stock.route']

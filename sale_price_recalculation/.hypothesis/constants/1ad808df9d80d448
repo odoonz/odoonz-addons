@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_stock/report/stock_forecasted.py
+# hypothesis_version: 6.131.14
+
+['=', 'amount_untaxed', 'currency_id', 'draft', 'draft_sale_orders', 'draft_sale_qty', 'id', 'in', 'move_out', 'name', 'order_id', 'out', 'partner_id', 'picking_id', 'priority', 'product_id', 'product_template_id', 'qty', 'sale.order.line', 'sale_id', 'sent', 'state', 'stock.warehouse', 'warehouse_id']

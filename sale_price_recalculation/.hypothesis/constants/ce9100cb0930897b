@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/google_gmail/models/ir_mail_server.py
+# hypothesis_version: 6.131.14
+
+[587, 'AUTH', 'from_filter', 'gmail', 'google.gmail.mixin', 'ir.mail_server', 'set default', 'smtp.gmail.com', 'smtp_authentication', 'smtp_encryption', 'smtp_pass', 'smtp_user', 'starttls']

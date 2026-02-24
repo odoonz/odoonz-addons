@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_expense/models/product_product.py
+# hypothesis_version: 6.131.14
+
+['=', 'company_id', 'draft', 'hr.expense', 'in', 'price_unit', 'product.product', 'product_has_cost', 'product_id', 'quantity', 'reported', 'standard_price', 'state']

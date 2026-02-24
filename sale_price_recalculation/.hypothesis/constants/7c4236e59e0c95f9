@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_inventory/models/stock_quant.py
+# hypothesis_version: 6.131.14
+
+[0.0, '!=', "'|'", ', ', '=', '>', ']', 'active', 'active_model', 'annulus', 'company_id', 'end_coil', 'id', 'internal', 'inventory_name', 'location_id.usage', 'lot_id', 'mm', 'product.product', 'product.template', 'product_id', 'quantity', 'relocation_id', 'stock.location', 'stock.lot', 'stock.quant']

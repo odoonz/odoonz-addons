@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/models/payment_method.py
+# hypothesis_version: 6.131.14
+
+['!=', ', ', '=', 'Active', 'Brands', 'Code', 'Countries', 'Currencies', 'Express Checkout', 'Full & Partial', 'Full Only', 'Image', 'Name', 'Payment Method', 'Providers', 'Refund', 'Sequence', 'Tokenization', 'Unsupported', 'Warning', '_compute_is_primary', '_search_is_primary', 'active', 'active_test', 'code', 'disabled', 'full_only', 'image', 'in', 'incompatible_country', 'is_primary', 'message', 'name', 'none', 'partial', 'payment.method', 'payment.provider', 'payment.token', 'payment_method_id', 'provider_id', 'provider_ids', 'res.country', 'res.currency', 'res.partner', 'support_tokenization', 'title', 'warning']

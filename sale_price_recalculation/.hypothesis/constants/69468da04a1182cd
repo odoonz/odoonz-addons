@@ -1,0 +1,4 @@
+# file: /odoo/src/report-print-send/base_report_to_printer/models/printing_server.py
+# hypothesis_version: 6.131.14
+
+[631, '/', '0', '1', '2', '3', '=', 'HTTP_ENCRYPT_ALWAYS', 'HTTP_ENCRYPT_NEVER', 'Localhost', 'Name of the server.', 'Port of the server.', 'Printers List', 'Printing server', 'aborted', 'active', 'address', 'all', 'canceled', 'completed', 'job-id', 'job-media-progress', 'job-name', 'job-state', 'job-state-reasons', 'job_id_cups', 'job_media_progress', 'job_state', 'job_state_reason', 'localhost', 'name', 'not in', 'not-completed', 'pending', 'pending held', 'port', 'printer-uri', 'printer_id', 'printing.job', 'printing.printer', 'printing.server', 'processing', 'processing stopped', 'server-error', 'server_id', 'status', 'system_name', 'time-at-completed', 'time-at-creation', 'time-at-processing', 'time_at_completed', 'time_at_creation', 'time_at_processing', 'unavailable', 'unknown']

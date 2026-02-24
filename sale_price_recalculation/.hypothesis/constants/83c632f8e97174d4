@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/wizard/mail_activity_schedule.py
+# hypothesis_version: 6.131.14
+
+['=', 'active_model', 'department_id', 'hr.department', 'hr.employee', 'mail.activity.plan', 'plan_date', 'plan_id', 'res_ids', 'res_model', 'res_model_id', 'responsible', 'responsible_type', 'sort_by_responsible', 'summary_lines', '|']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/sale_account_accountant/models/bank_rec_widget.py
+# hypothesis_version: 6.131.14
+
+['Sale Orders', 'bank.rec.widget', 'context', 'create', 'domain', 'form', 'id', 'in', 'list,form', 'name', 'res_id', 'res_model', 'sale.order', 'sale_orders', 'type', 'view_mode']

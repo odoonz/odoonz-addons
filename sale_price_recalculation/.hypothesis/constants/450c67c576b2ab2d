@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_scheduled_message.py
+# hypothesis_version: 6.131.14
+
+['<=', 'Attachments', 'Author', 'Contents', 'Edit Scheduled Note', 'Is a note', 'Recipients', 'Related Document Id', 'Scheduled Date', 'Scheduled Message', 'Subject', '_mail_post_access', 'attachment_id', 'attachment_ids', 'author', 'body', 'email_add_signature', 'email_from', 'email_layout_xmlid', 'force_email_lang', 'form', 'id', 'ir.attachment', 'is_note', 'mail.compose.message', 'mail.mt_comment', 'mail.mt_note', 'mail.thread', 'mail_auto_delete', 'mail_server_id', 'message_type', 'model', 'model_description', 'name', 'new', 'reply_to', 'reply_to_force_new', 'res.partner', 'res_id', 'res_model', 'scheduled_date', 'scheduled_message_id', 'subject', 'subtype_id', 'target', 'testing', 'type', 'view_mode', 'views', 'write', '{}']

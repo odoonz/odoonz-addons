@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/models/budget.py
+# hypothesis_version: 6.131.14
+
+['%s (copy)', '<=', '=', '>=', 'Account', 'Amount', 'Budget', 'Company', 'DOWN', 'Items', 'Name', 'Sequence', 'account.account', 'account_id', 'amount', 'budget_id', 'cascade', 'date', 'id', 'month', 'name', 'res.company', 'sequence, id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk_account/models/account_move.py
+# hypothesis_version: 6.131.14
+
+['<br/>', '=', 'Refund %(status)s', 'account.move', 'cancel', 'helpdesk.ticket', 'in', 'invoice_ids', 'posted', 'state', 'use_credit_notes']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/bus/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['IM Status', '_compute_im_status', 'bus.listener.mixin', 'bus.presence', 'im_partner', 'in', 'offline', 'online', 'res.partner', 'user_id']

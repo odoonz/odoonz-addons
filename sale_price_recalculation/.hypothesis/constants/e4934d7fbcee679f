@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web_editor/models/ir_ui_view.py
+# hypothesis_version: 6.131.14
+
+[' Block', '%s (%s)', '%s%%', '%s.%s', '%s_%s', '.', '//t[@t-call]', '=', '=like', 'active_test', 'arch', 'arch_db', 'class', 'contenteditable', 'data', 'data-name', 'data-note-id', 'data-oe-', 'data-oe-expression', 'data-oe-field', 'data-oe-id', 'data-oe-model', 'data-oe-type', 'en_US', 'extension', 'field', 'href', 'id', 'inherit_id', 'ir.qweb.field', 'ir.qweb.field.', 'ir.ui.view', 'key', 'lang', 'mode', 'model', 'model_data_id', 'name', 'no_primary_children', 'noupdate', 'o_editable', 'primary', 'qweb', 'replace', 'res.lang', 'resId', 'style', 't-call', 't-call-assets', 't-field', 'target', 'true', 'type', 'unicode', 'utf-8', 'website', 'website_id', 'write', 'xpath']

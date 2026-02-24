@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_pricelist.py
+# hypothesis_version: 6.131.14
+
+[0.0, '%s (copy)', '&', '<=', '=', '>=', 'Active', 'Country Groups', 'New', 'Pricelist', 'Pricelist Name', 'Pricelist Rules', 'active', 'base', 'base_pricelist_id', 'categ_id', 'code', 'company_id', 'country_code', 'country_group_ids', 'country_id', 'currency_id', 'date_end', 'date_start', 'display_name', 'in', 'ir.actions.client', 'ir.config_parameter', 'label', 'mail.activity.mixin', 'mail.thread', 'name', 'not in', 'parent_of', 'pricelist', 'pricelist_id', 'product.pricelist', 'product.template', 'product_id', 'product_id.active', 'product_tmpl_id', 'res.company', 'res.country', 'res.country.group', 'res.currency', 'res.partner', 'res_country_group_id', 'sequence, id, name', 'tag', 'template', 'type', '|']

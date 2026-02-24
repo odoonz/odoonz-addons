@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/purchase_priced_correctly/models/purchase_order_line.py
+# hypothesis_version: 6.131.14
+
+['%s is PoA', 'message', 'product_id', 'purchase.order.line', 'title', 'warning']

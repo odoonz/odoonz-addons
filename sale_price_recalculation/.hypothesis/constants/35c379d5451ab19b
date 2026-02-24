@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/action.py
+# hypothesis_version: 6.131.14
+
+['.', '/web/action/load', '/web/action/run', '=', 'New', 'action', 'display_name', 'error', 'form', 'id', 'ir.actions.', 'ir.actions.actions', 'ir.actions.client', 'ir.actions.report', 'ir.actions.server', 'json', 'model', 'name', 'new', 'path', 'read', 'resId', 'res_model', 'search', 'type', 'user', 'views']

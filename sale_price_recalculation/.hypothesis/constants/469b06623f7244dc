@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_followers.py
+# hypothesis_version: 6.131.14
+
+[' OR ', ', partner.active', '=', 'AND (%s)', 'Document Followers', 'Email', 'Is Active', 'Name', 'Related Document ID', 'Related Partner', 'Subtype', 'active', 'cascade', 'customer', 'display_name', 'email', 'fol.partner_id IN %s', 'force', 'groups', 'groups_id', 'id', 'in', 'internal', 'is_active', 'is_follower', 'lang', 'mail.followers', 'mail.mail', 'mail.message', 'mail.message.subtype', 'mail_ids', 'message_id', 'model', 'name', 'notif', 'notification_type', 'partner', 'partner_id', 'partner_id.active', 'partner_id.email', 'partner_id.name', 'partner_share', 'portal', 'recipient_ids', 'replace', 'res.groups', 'res.partner', 'res.users', 'res_id', 'res_model', 'share', 'skip', 'subtype_ids', 'thread', 'type', 'uid', 'update', 'user', 'user_notification', 'users', 'ushare']

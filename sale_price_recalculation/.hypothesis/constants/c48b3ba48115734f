@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_inventory/models/product_template.py
+# hypothesis_version: 6.131.14
+
+[0.01, 2.0, 100.0, 150, 'Coil Width (mm)', 'Density', 'Made from', 'density.coefficient', 'product.product', 'product.template', 'product_variant_ids']
