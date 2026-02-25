@@ -61,8 +61,10 @@ class AccountLockPolicy(models.Model):
             all_days = (
                 date_from + relativedelta(days=x + 1) for x in range(date_to.day)
             )
-            days = sum(1 for day in all_days if day.weekday() < 5)
-        return date_to.day > days
+            weekdays = sum(1 for day in all_days if day.weekday() < 5)
+        else:
+            weekdays = date_to.day
+        return weekdays > days
 
 
 class ResCompany(models.Model):

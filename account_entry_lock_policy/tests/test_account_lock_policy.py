@@ -1,105 +1,77 @@
-# Copyright 2017 Graeme Gellatly
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
-from datetime import datetime
-from unittest import SkipTest
-
-from dateutil.relativedelta import relativedelta
+from datetime import date
 
 from odoo import fields
-from odoo.tests import common
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.tests import TransactionCase, freeze_time, tagged
 
 
-class TestLockPolicy(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        # This module has been refactored to use company-level lock
-        # policies (`account.lock.policy`) rather than per-journal
-        # fields and the `_is_locked` helper exercised by these legacy
-        # tests. The original semantics are already covered by the core
-        # accounting tests; skip these outdated journal-based tests in
-        # this environment.
-        raise SkipTest(
-            "Journal-based lock policy tests are obsolete with "
-            "company-level lock policies."
-        )
-        self.today = fields.Date.context_today(self.journal)
-        self.days = 7
+@freeze_time("2024-03-10")
+@tagged("post_install", "-at_install")
+class TestLockPolicy(TransactionCase):
+    """Tests for company-level account.lock.policy behaviour."""
 
-    def test_is_locked_normal(self):
-        self.journal.write({"enforce_lock": "none"})
-        test_date = datetime.strptime("2020-12-19", DEFAULT_SERVER_DATE_FORMAT).date()
-        self.assertFalse(self.journal._is_locked(test_date))
-        self.assertFalse(self.journal._is_locked(False))
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.company = cls.env.company
 
-    def test_is_locked_weekdays(self):
-        # Journal Transactions can be no older than 1mo 7 weekdays
-        self.journal.write(
-            {
-                "enforce_lock": "policy",
-                "days": self.days,
-                "months": 1,
-                "day_type": "weekday",
-                "cutoff_type": "date",
-            }
-        )
-        tdate1 = self.today + relativedelta(days=self.days + 1)
-        tdate2 = self.today - relativedelta(months=1, days=7)
+    def _create_policy(self, **vals):
+        base = {
+            "lock_date_field": "fiscalyear_lock_date",
+            "days": 7,
+            "day_type": "day",
+            "months": 1,
+            "company_id": self.company.id,
+        }
+        base.update(vals)
+        return self.env["account.lock.policy"].create(base)
 
-        self.assertFalse(self.journal._is_locked(tdate1))
-        self.assertFalse(self.journal._is_locked(tdate2))
-        self.assertFalse(self.journal._is_locked(False))
+    def test_calculate_lock_date_days_over_limit(self):
+        """When over the day limit, use last day of month N+1 months ago."""
+        policy = self._create_policy(days=7, day_type="day", months=1)
+        lock_date = policy._calculate_lock_date()
+        # With today frozen at 2024-03-10, this should be 2024-01-31.
+        self.assertEqual(lock_date, date(2024, 1, 31))
 
-    def test_is_locked_days(self):
-        self.journal.write(
-            {
-                "enforce_lock": "policy",
-                "days": self.days,
-                "months": 1,
-                "day_type": "day",
-                "cutoff_type": "date",
-            }
-        )
-        tdate1 = self.today + relativedelta(days=self.days + 1)
-        tdate2 = self.today - relativedelta(months=1, days=7)
+    def test_calculate_lock_date_days_not_over_limit(self):
+        """When not over the day limit, go back one additional month."""
+        policy = self._create_policy(days=15, day_type="day", months=1)
+        lock_date = policy._calculate_lock_date()
+        # With today frozen at 2024-03-10, this should be 2023-12-31.
+        self.assertEqual(lock_date, date(2023, 12, 31))
 
-        self.assertFalse(self.journal._is_locked(tdate1))
-        self.assertTrue(self.journal._is_locked(tdate2))
-        self.assertFalse(self.journal._is_locked(False))
+    def test_over_days_limit_weekdays(self):
+        """Weekday-based limit counts working days only."""
+        policy = self._create_policy(days=6, day_type="weekday", months=0)
+        today = fields.Date.context_today(policy)
+        # For the frozen date (2024-03-10, a Sunday), there are 5
+        # weekdays since the previous month-end; we should *not* be
+        # over the limit when days == 5.
+        self.assertFalse(policy._over_days_limit(today))
 
-    def test_is_locked_eom(self):
-        # Note test with zero days here or else tests will fail
-        # until x days into month
-        self.journal.write(
-            {
-                "enforce_lock": "policy",
-                "days": 0,
-                "months": 1,
-                "day_type": "day",
-                "cutoff_type": "eom",
-            }
-        )
-        tdate1 = self.today + relativedelta(months=-1, day=1)
-        tdate2 = self.today + relativedelta(months=1, days=self.days)
-        tdate3 = self.today + relativedelta(months=-2)
-        tdate4 = self.today + relativedelta(months=2)
+        policy.days = 3
+        self.assertTrue(policy._over_days_limit(today))
 
-        self.assertFalse(self.journal._is_locked(tdate1))
-        self.assertFalse(self.journal._is_locked(tdate2))
-        self.assertTrue(self.journal._is_locked(tdate3))
-        self.assertFalse(self.journal._is_locked(tdate4))
-        self.assertFalse(self.journal._is_locked(False))
+    def test_update_lock_dates_sets_company_field(self):
+        """_update_lock_dates sets the target lock date when allowed."""
+        policy = self._create_policy(lock_date_field="fiscalyear_lock_date")
+        self.company.fiscalyear_lock_date = False
 
-    def test_is_locked_fixed(self):
-        self.journal.write(
-            {
-                "enforce_lock": "fixed",
-                "cutoff_date": self.today,
-            }
-        )
-        tdate1 = self.today + relativedelta(days=1)
-        tdate2 = self.today - relativedelta(days=1)
-        self.assertFalse(self.journal._is_locked(tdate1))
-        self.assertTrue(self.journal._is_locked(tdate2))
-        self.assertFalse(self.journal._is_locked(False))
+        expected = policy._calculate_lock_date()
+        policy._update_lock_dates()
+
+        self.assertEqual(self.company.fiscalyear_lock_date, expected)
+
+    def test_update_lock_dates_never_regresses_lock_date(self):
+        """Existing lock dates are not moved backwards in time."""
+        policy = self._create_policy(lock_date_field="fiscalyear_lock_date")
+        newer = date(2024, 2, 28)
+        self.company.fiscalyear_lock_date = newer
+
+        # Force policy to compute an older date than `newer`.
+        policy.months = 2
+        computed = policy._calculate_lock_date()
+        self.assertLess(computed, newer)
+
+        policy._update_lock_dates()
+        # Lock date must stay at the newer value.
+        self.assertEqual(self.company.fiscalyear_lock_date, newer)
