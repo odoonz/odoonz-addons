@@ -83,7 +83,7 @@ class MrpBom(models.Model):
                 )
         product = Product.search(search_domain)
         if len(product) > 1:
-            names = [f"  - {p[1]}" for p in product.name_get()]
+            names = [f"  - {p.display_name}" for p in product]
             raise ValidationError(
                 _(
                     "The BoM Line %(bom_line)s in BoM %(bom)s is matching too many "
