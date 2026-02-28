@@ -13,7 +13,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 class TestResPartner(common.TransactionCase):
     def setUp(self):
         super().setUp()
-        self.partner = self.env.ref("base.res_partner_1")
+        self.partner = self.env["res.partner"].create({"name": "Test Partner"})
         self.today = fields.Date.context_today(self.partner)
         self.long_ago = datetime.strptime(
             "2030-12-19", DEFAULT_SERVER_DATE_FORMAT
