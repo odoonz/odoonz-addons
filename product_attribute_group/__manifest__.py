@@ -16,6 +16,5 @@
         "views/product_attribute_group.xml",
         "views/product_template.xml",
     ],
-    "demo": ["demo/product_demo.xml"],
     "installable": True,
 }

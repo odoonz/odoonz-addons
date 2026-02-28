@@ -15,6 +15,5 @@
         "wizard/sale_partcode_replacement.xml",
         "security/ir.model.access.csv",
     ],
-    "demo": ["demo/product_product.xml"],
     "installable": True,
 }
