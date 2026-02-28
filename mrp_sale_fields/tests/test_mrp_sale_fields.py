@@ -77,15 +77,12 @@ class TestMrpSaleFields(TransactionCase):
         self.assertEqual(prod.sale_id, order)
         self.assertEqual(prod.partner_id, self.partner)
 
-    def test_production_sale_id_from_procurement_group(self):
-        """MO with procurement_group_id.sale_id computes sale_id."""
+    def test_production_sale_id_from_reference(self):
+        """MO with reference_ids linking to sale computes sale_id."""
         if not self.picking_type:
             self.skipTest("No mrp_operation picking type")
         order = self._create_sale_order()
         order.action_confirm()
-        group = order.procurement_group_id
-        if not group:
-            self.skipTest("No procurement group on confirmed SO")
         prod = self.env["mrp.production"].create(
             {
                 "product_id": self.product.id,
@@ -93,14 +90,17 @@ class TestMrpSaleFields(TransactionCase):
                 "product_uom_id": self.product.uom_id.id,
                 "bom_id": self.bom.id,
                 "picking_type_id": self.picking_type.id,
-                "procurement_group_id": group.id,
             }
         )
+        ref = self.env["stock.reference"].create(
+            {"name": order.name, "sale_ids": [Command.link(order.id)]}
+        )
+        prod.reference_ids = [Command.link(ref.id)]
         prod.invalidate_recordset()
         self.assertIn(order, prod.sale_id)
 
     def test_production_no_sale_link(self):
-        """MO without sale line or procurement group has no sale_id."""
+        """MO without sale line or reference has no sale_id."""
         if not self.picking_type:
             self.skipTest("No mrp_operation picking type")
         prod = self.env["mrp.production"].create(

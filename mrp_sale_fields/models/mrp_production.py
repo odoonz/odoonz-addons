@@ -8,20 +8,13 @@ class MrpProduction(models.Model):
     _inherit = "mrp.production"
 
     @api.depends(
-        "procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id",
-        "procurement_group_id.sale_id",
-        "procurement_group_id",
+        "reference_ids.sale_ids",
         "sale_line_id",
         "sale_line_id.order_id",
     )
     def _compute_sale_order(self):
         for prod in self:
-            # should not be like this, upstream broken
-            prod.sale_id = (
-                prod.procurement_group_id.mrp_production_ids.move_dest_ids.group_id.sale_id
-                | prod.procurement_group_id.sale_id
-                | prod.sale_line_id.order_id
-            )
+            prod.sale_id = prod.reference_ids.sale_ids | prod.sale_line_id.order_id
 
     sale_id = fields.Many2one(
         comodel_name="sale.order",
