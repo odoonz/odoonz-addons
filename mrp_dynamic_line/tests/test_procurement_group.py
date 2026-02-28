@@ -65,8 +65,8 @@ class TestProcurementGroupDynamic(TransactionCase):
 
     def test_run_kit_uses_bom_line_product_from_explode(self):
         """run() should build procurements using bom_line_data['product'] for kits."""
-        group = self.env["procurement.group"]
-        Procurement = group.Procurement
+        rule = self.env["stock.rule"]
+        Procurement = rule.Procurement
 
         procurement = Procurement(
             self.product_kit,
@@ -108,6 +108,6 @@ class TestProcurementGroupDynamic(TransactionCase):
             ),
         ):
             try:
-                group.run([procurement], raise_user_error=False)
+                rule.run([procurement], raise_user_error=False)
             except ProcurementException:
                 pass  # Expected: no route for substitute product

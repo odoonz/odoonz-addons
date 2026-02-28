@@ -12,7 +12,7 @@ from odoo.tests.common import TransactionCase
 FUNCTION_HASHES = {
     # full_import_path_to_class: { function_name: [valid_hashes] }
     "odoo.addons.mrp.models.mrp_production.MrpProduction": {
-        "_update_raw_moves": ["3a739954869c58e9a20034c00c935739"],
+        "_update_raw_moves": ["3064542ffe52ea86b422353683547061"],
     },
 }
 
