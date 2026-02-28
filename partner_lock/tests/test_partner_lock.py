@@ -26,12 +26,15 @@ class TestResPartner(TransactionCase):
             }
         )
 
-        # Create test user
+        # v19 requires partner manager for res.partner write access
+        group_partner_mgr = cls.env.ref("base.group_partner_manager")
+        group_user = cls.env.ref("base.group_user")
         cls.test_user = cls.user_model.create(
             {
                 "name": "test user",
                 "login": "test_user",
                 "email": "test_user@example.com",
+                "group_ids": [(4, group_partner_mgr.id), (4, group_user.id)],
             }
         )
 
@@ -40,9 +43,13 @@ class TestResPartner(TransactionCase):
                 "name": "unlock user",
                 "login": "unlock_user",
                 "email": "unlock_user@example.com",
+                "group_ids": [
+                    (4, group_partner_mgr.id),
+                    (4, group_user.id),
+                    (4, cls.group_unlock.id),
+                ],
             }
         )
-        cls.unlock_user.group_ids = [(4, cls.group_unlock.id)]
 
     def test_write_unlocked_partner(self):
         """Test writing to an unlocked partner"""
