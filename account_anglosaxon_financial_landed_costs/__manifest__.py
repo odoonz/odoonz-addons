@@ -11,5 +11,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["account_anglosaxon_financial", "stock_landed_costs"],
     "auto_install": True,
-    "installable": False,
+    "installable": True,
 }

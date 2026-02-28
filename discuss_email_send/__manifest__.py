@@ -25,5 +25,5 @@
             "discuss_email_send/static/src/xml/*.xml",
         ],
     },
-    "installable": False,
+    "installable": True,
 }

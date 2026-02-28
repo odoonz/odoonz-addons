@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class MrpWorkcenter(models.Model):
-
     _inherit = "mrp.workcenter"
 
     def _get_default_labour_price(self):

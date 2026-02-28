@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, tools
 from odoo.fields import Domain
+from odoo.osv import expression
 from odoo.tools import config
 from odoo.tools.safe_eval import safe_eval
 

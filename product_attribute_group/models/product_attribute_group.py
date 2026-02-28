@@ -26,7 +26,7 @@ class ProductAttributeGroup(models.Model):
     )
 
     _uniq_name = models.Constraint(
-        'unique(name)',
+        "unique(name)",
         "The attribute group name must be unique",
     )
 

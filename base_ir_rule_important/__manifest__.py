@@ -13,5 +13,5 @@
     "data": [
         "views/ir_rule.xml",
     ],
-    "installable": False,
+    "installable": True,
 }

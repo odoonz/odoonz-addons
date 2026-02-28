@@ -6,7 +6,6 @@ from odoo.exceptions import ValidationError
 
 
 class ProductConfigSession(models.Model):
-
     _inherit = "product.config.session"
 
     def get_cfg_price(self, value_ids=None, custom_vals=None):

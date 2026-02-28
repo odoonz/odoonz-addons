@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="discuss_email_send.Composer" t-inherit="mail.Composer" t-inherit-mode="extension" owl="1">
+    <t
+        t-name="discuss_email_send.Composer"
+        t-inherit="mail.Composer"
+        t-inherit-mode="extension"
+        owl="1"
+    >
         <xpath expr="//t[@t-if='composerView.isExpandable']" position="after">
             <t t-if="composerView.isInDiscuss">
                 <div class="o_Composer_secondaryToolButtons">
