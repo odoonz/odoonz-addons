@@ -31,10 +31,6 @@ class TestAngloSaxonFinancial(TransactionCase):
         )
         cls.company_data = helper.collect_company_accounting_data(cls.company)
 
-        cls.env.user.groups_id += cls.env.ref(
-            "stock_account.group_stock_accounting_automatic"
-        )
-
         cls.stock_account_product_categ = cls.env["product.category"].create(
             {
                 "name": "Test category",
@@ -42,12 +38,6 @@ class TestAngloSaxonFinancial(TransactionCase):
                 "property_cost_method": "standard",
                 "property_stock_valuation_account_id": cls.company_data[
                     "default_account_stock_valuation"
-                ].id,
-                "property_stock_account_input_categ_id": cls.company_data[
-                    "default_account_stock_in"
-                ].id,
-                "property_stock_account_output_categ_id": cls.company_data[
-                    "default_account_stock_out"
                 ].id,
             }
         )
@@ -89,9 +79,9 @@ class TestAngloSaxonFinancial(TransactionCase):
                             "name": self.product.name,
                             "product_id": self.product.id,
                             "product_uom_qty": 2.0,
-                            "product_uom": self.product.uom_id.id,
+                            "product_uom_id": self.product.uom_id.id,
                             "price_unit": 12,
-                            "tax_id": False,
+                            "tax_ids": False,
                         },
                     )
                 ],
@@ -110,10 +100,11 @@ class TestAngloSaxonFinancial(TransactionCase):
         # Check the resulting accounting entries
         amls = invoice.line_ids
         self.assertEqual(len(amls), 2)
-        stock_out_aml = amls.filtered(
-            lambda aml: aml.account_id == self.company_data["default_account_stock_out"]
+        stock_valuation_aml = amls.filtered(
+            lambda aml: aml.account_id
+            == self.company_data["default_account_stock_valuation"]
         )
-        self.assertFalse(stock_out_aml)
+        self.assertFalse(stock_valuation_aml)
         cogs_aml = amls.filtered(
             lambda aml: aml.account_id == self.company_data["default_account_expense"]
         )
@@ -135,12 +126,12 @@ class TestAngloSaxonFinancial(TransactionCase):
         invoice = sale_order._create_invoices()
         invoice.action_post()
 
-        # Check invoice has stock lines
+        # v19: COGS lines use stock valuation account directly (no stock output)
         amls = invoice.line_ids
         self.assertTrue(
             amls.filtered(
                 lambda aml: aml.account_id
-                == self.company_data["default_account_stock_out"]
+                == self.company_data["default_account_stock_valuation"]
             )
         )
         self.assertTrue(
@@ -174,7 +165,8 @@ class TestAngloSaxonFinancial(TransactionCase):
         amls = credit_note.line_ids
         self.assertEqual(len(amls), 2)
         stock_out_aml = amls.filtered(
-            lambda aml: aml.account_id == self.company_data["default_account_stock_out"]
+            lambda aml: aml.account_id
+            == self.company_data["default_account_stock_valuation"]
         )
         self.assertFalse(stock_out_aml)
         cogs_aml = amls.filtered(
@@ -203,7 +195,7 @@ class TestAngloSaxonFinancial(TransactionCase):
         self.assertTrue(
             amls.filtered(
                 lambda aml: aml.account_id
-                == self.company_data["default_account_stock_out"]
+                == self.company_data["default_account_stock_valuation"]
             )
         )
         self.assertTrue(
@@ -243,7 +235,8 @@ class TestAngloSaxonFinancial(TransactionCase):
         amls = credit_note.line_ids
         self.assertEqual(len(amls), 4)
         stock_out_aml = amls.filtered(
-            lambda aml: aml.account_id == self.company_data["default_account_stock_out"]
+            lambda aml: aml.account_id
+            == self.company_data["default_account_stock_valuation"]
         )
         self.assertEqual(stock_out_aml.debit, 10)
         self.assertEqual(stock_out_aml.credit, 0)
@@ -274,7 +267,7 @@ class TestAngloSaxonFinancial(TransactionCase):
         self.assertTrue(
             amls.filtered(
                 lambda aml: aml.account_id
-                == self.company_data["default_account_stock_out"]
+                == self.company_data["default_account_stock_valuation"]
             )
         )
         self.assertTrue(
@@ -305,7 +298,8 @@ class TestAngloSaxonFinancial(TransactionCase):
         amls = new_invoice.line_ids
         self.assertEqual(len(amls), 4)
         stock_out_aml = amls.filtered(
-            lambda aml: aml.account_id == self.company_data["default_account_stock_out"]
+            lambda aml: aml.account_id
+            == self.company_data["default_account_stock_valuation"]
         )
         self.assertEqual(stock_out_aml.debit, 0)
         self.assertEqual(stock_out_aml.credit, 20)
@@ -333,7 +327,8 @@ class TestAngloSaxonFinancial(TransactionCase):
         amls = credit_note.line_ids
         self.assertEqual(len(amls), 4)
         stock_out_aml = amls.filtered(
-            lambda aml: aml.account_id == self.company_data["default_account_stock_out"]
+            lambda aml: aml.account_id
+            == self.company_data["default_account_stock_valuation"]
         )
         self.assertEqual(stock_out_aml.debit, 20)
         self.assertEqual(stock_out_aml.credit, 0)
