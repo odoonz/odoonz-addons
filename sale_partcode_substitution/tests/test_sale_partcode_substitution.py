@@ -59,7 +59,7 @@ class TestSaleSubst(TransactionCase):
                         "name": cls.productA.name,
                         "product_id": cls.productA.id,
                         "product_uom_qty": randint(1, 10),
-                        "product_uom": cls.productA.uom_id.id,
+                        "product_uom_id": cls.productA.uom_id.id,
                         "price_unit": randint(1, 100) / 2.1,
                         "discount": random() * 100.0,
                     },
