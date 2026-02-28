@@ -58,7 +58,6 @@ class TestPurchaseOrder(common.TransactionCase):
                 "type": "consu",
                 "weight": 9.54,
                 "uom_id": self.env.ref("uom.product_uom_unit").id,
-                "uom_po_id": self.env.ref("uom.product_uom_unit").id,
                 "default_code": "E-COM09",
             }
         )
@@ -82,7 +81,7 @@ class TestPurchaseOrder(common.TransactionCase):
                         "name": self.product_id_1.name,
                         "product_id": self.product_id_1.id,
                         "product_qty": 5.0,
-                        "product_uom": self.product_id_1.uom_po_id.id,
+                        "product_uom_id": self.product_id_1.uom_id.id,
                         "price_unit": 500.0,
                         "date_planned": po_date,
                     },
@@ -94,7 +93,7 @@ class TestPurchaseOrder(common.TransactionCase):
                         "name": self.product_id_2.name,
                         "product_id": self.product_id_2.id,
                         "product_qty": 5.0,
-                        "product_uom": self.product_id_2.uom_po_id.id,
+                        "product_uom_id": self.product_id_2.uom_id.id,
                         "price_unit": 250.0,
                         "date_planned": po_date,
                     },
