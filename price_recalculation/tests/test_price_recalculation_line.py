@@ -39,7 +39,6 @@ class TestPriceRecalculationLine(common.TransactionCase):
                 "type": "consu",
                 "weight": 0.01,
                 "uom_id": self.env.ref("uom.product_uom_unit").id,
-                "uom_po_id": self.env.ref("uom.product_uom_unit").id,
                 "default_code": "FURN_8888",
                 # Omitting the image field unless it's essential for your test
             }
