@@ -1,6 +1,7 @@
 # Copyright 2020 Rujia Liu
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command
 from odoo.tests import tagged
 from odoo.tests.common import Form, TransactionCase
 
@@ -10,8 +11,28 @@ class TestTaxFromAccount(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.test_sale_order = cls.env.ref("sale.sale_order_1")
-        cls.test_purchase_order = cls.env.ref("purchase.purchase_order_1")
+        cls.partner = cls.env["res.partner"].create(
+            {"name": "Tax Test Partner", "is_company": True}
+        )
+        cls.partner_b = cls.env["res.partner"].create(
+            {"name": "Tax Test Partner B", "is_company": True}
+        )
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Tax Test Product",
+                "type": "consu",
+                "list_price": 100.0,
+                "standard_price": 50.0,
+            }
+        )
+        cls.product_b = cls.env["product.product"].create(
+            {
+                "name": "Tax Test Product B",
+                "type": "consu",
+                "list_price": 200.0,
+                "standard_price": 80.0,
+            }
+        )
 
         cls.test_default_sale_tax = cls.env["account.tax"].create(
             {
@@ -37,14 +58,7 @@ class TestTaxFromAccount(TransactionCase):
                 "amount_type": "percent",
             }
         )
-        # Reuse an existing secondary company if available; otherwise
-        # fall back to the main company to avoid conflicts with
-        # master-data security and stock warehouse company checks.
-        cls.test_company = cls.env["res.company"].search(
-            [("name", "=", "Test Company")], limit=1
-        )
-        if not cls.test_company:
-            cls.test_company = cls.env.company
+        cls.test_company = cls.env.company
 
         cls.test_tax_sale2 = cls.env["account.tax"].create(
             {
@@ -73,6 +87,63 @@ class TestTaxFromAccount(TransactionCase):
                 "amount_type": "percent",
             }
         )
+
+        cls.test_product = cls.env["product.product"].create(
+            {
+                "name": "Test Product No Tax",
+                "taxes_id": False,
+                "supplier_taxes_id": False,
+            }
+        )
+
+        cls.test_tax_sale_comp2 = cls.env["account.tax"].create(
+            {
+                "name": "Test 30%",
+                "type_tax_use": "sale",
+                "amount": 30.0,
+                "amount_type": "percent",
+                "company_id": cls.test_company.id,
+            }
+        )
+
+        so_vals = {
+            "partner_id": cls.partner.id,
+            "order_line": [
+                Command.create(
+                    {
+                        "product_id": cls.product.id,
+                        "product_uom_qty": 5.0,
+                        "price_unit": 100.0,
+                    }
+                ),
+                Command.create(
+                    {
+                        "product_id": cls.product_b.id,
+                        "product_uom_qty": 3.0,
+                        "price_unit": 200.0,
+                    }
+                ),
+            ],
+        }
+        if "dispatch_method" in cls.env["sale.order"]._fields:
+            so_vals["dispatch_method"] = "yard"
+        cls.test_sale_order = cls.env["sale.order"].create(so_vals)
+
+        cls.test_purchase_order = cls.env["purchase.order"].create(
+            {
+                "partner_id": cls.partner.id,
+                "order_line": [
+                    Command.create(
+                        {
+                            "product_id": cls.product.id,
+                            "product_qty": 10.0,
+                            "price_unit": 50.0,
+                        }
+                    ),
+                ],
+            }
+        )
+
         cls.test_fpos_so = cls.env["account.fiscal.position"].create(
             {
                 "name": "Sale Tax Mapping",
@@ -85,36 +156,16 @@ class TestTaxFromAccount(TransactionCase):
                 "company_id": cls.test_purchase_order.company_id.id,
             }
         )
-        cls.test_fpos_tax1 = cls.env["account.fiscal.position.tax"].create(
+        cls.test_default_sale_tax.write(
             {
-                "tax_src_id": cls.test_tax_sale1.id,
-                "tax_dest_id": cls.test_default_sale_tax.id,
-                "position_id": cls.test_fpos_so.id,
+                "fiscal_position_ids": [Command.link(cls.test_fpos_so.id)],
+                "original_tax_ids": [Command.link(cls.test_tax_sale1.id)],
             }
         )
-        cls.test_fpos_tax2 = cls.env["account.fiscal.position.tax"].create(
+        cls.test_default_purch_tax.write(
             {
-                "tax_src_id": cls.test_tax_purch1.id,
-                "tax_dest_id": cls.test_default_purch_tax.id,
-                "position_id": cls.test_fpos_po.id,
-            }
-        )
-        cls.test_vender = cls.env.ref("product.product_supplierinfo_1")
-        cls.test_product = cls.env["product.product"].create(
-            {
-                "name": "Test Product",
-                "taxes_id": False,
-                "supplier_taxes_id": False,
-                "seller_ids": cls.test_vender,
-            }
-        )
-        cls.test_tax_sale_comp2 = cls.env["account.tax"].create(
-            {
-                "name": "Test 30%",
-                "type_tax_use": "sale",
-                "amount": 30.0,
-                "amount_type": "percent",
-                "company_id": cls.test_company.id,
+                "fiscal_position_ids": [Command.link(cls.test_fpos_po.id)],
+                "original_tax_ids": [Command.link(cls.test_tax_purch1.id)],
             }
         )
 
@@ -126,17 +177,14 @@ class TestTaxFromAccount(TransactionCase):
             "income"
         ].tax_ids = False
 
-        # Test company.account_sale_tax_id
         so_line_1.company_id.account_sale_tax_id = self.test_default_sale_tax
         tax_id = so_line_1._get_default_taxes()
         self.assertEqual(tax_id, self.test_default_sale_tax)
 
-        # Test product.taxes_id
         so_line_1.product_id.taxes_id = self.test_tax_sale1
         tax_id = so_line_1._get_default_taxes()
         self.assertEqual(tax_id, self.test_tax_sale1)
 
-        # Test fpos
         self.test_sale_order.fiscal_position_id = self.test_fpos_so
         tax_id = so_line_1._get_default_taxes()
         self.assertEqual(tax_id, self.test_default_sale_tax)
@@ -149,32 +197,25 @@ class TestTaxFromAccount(TransactionCase):
             "expense"
         ].tax_ids = False
 
-        # Test company.account_sale_tax_id
         order_line_2.company_id.account_purchase_tax_id = self.test_default_purch_tax
         tax_id = order_line_2._get_default_taxes("in_invoice")
         self.assertEqual(tax_id, self.test_default_purch_tax)
 
-        # Test account tax_id
         order_line_2.product_id.product_tmpl_id.get_product_accounts()[
             "expense"
         ].tax_ids = self.test_tax_purch2
         tax_id = order_line_2._get_default_taxes("in_invoice")
         self.assertEqual(tax_id, self.test_tax_purch2)
 
-        # Test product.taxes_id
         order_line_2.product_id.supplier_taxes_id = self.test_tax_purch1
         tax_id = order_line_2._get_default_taxes("in_invoice")
         self.assertEqual(tax_id, self.test_tax_purch1)
 
-        # Test fpos
         self.test_purchase_order.fiscal_position_id = self.test_fpos_po
         tax_id = order_line_2._get_default_taxes("in_invoice")
         self.assertEqual(tax_id, self.test_default_purch_tax)
 
     def test_product_tax_in_multi_companies(self):
-        # use same product, create a new sale order line
-        # in an existing sale order: order line should have
-        # tax_id = company.account_sale_tax_id
         self.test_sale_order.company_id.account_sale_tax_id = self.test_default_sale_tax
         so = Form(self.test_sale_order)
         with so.order_line.new() as line_a:
@@ -184,32 +225,35 @@ class TestTaxFromAccount(TransactionCase):
 
         line_a = so.order_line.search([("product_id", "=", self.test_product.id)])
         self.assertEqual(
-            line_a.tax_id,
+            line_a.tax_ids,
             so.company_id.account_sale_tax_id,
             "Line A should have same tax as so's company tax_id",
         )
 
-        # use same product, create a sale order line
-        # in an new sale order in different company(company2):
-        # order line should have tax_id = company.account_sale_tax_id
-        so_new = Form(self.env["sale.order"])
-        so_new.partner_id = self.env.ref("base.res_partner_2")
-        so_new.company_id = self.test_company
-        with so_new.order_line.new() as line_b:
-            line_b.name = "In company B"
-            line_b.product_id = self.test_product
-
-        so_new = so_new.save()
+        so_new_vals = {
+            "partner_id": self.partner_b.id,
+            "company_id": self.test_company.id,
+            "order_line": [
+                Command.create(
+                    {
+                        "name": "In company B",
+                        "product_id": self.test_product.id,
+                        "product_uom_qty": 1.0,
+                        "price_unit": 100.0,
+                    }
+                ),
+            ],
+        }
+        if "dispatch_method" in self.env["sale.order"]._fields:
+            so_new_vals["dispatch_method"] = "yard"
+        so_new = self.env["sale.order"].create(so_new_vals)
         line_b = so_new.order_line
         self.assertEqual(
-            line_b.tax_id,
+            line_b.tax_ids,
             so_new.company_id.account_sale_tax_id,
             "Line B should have same tax as so_new's company tax_id",
         )
 
-        # assign a new taxes_id(in company2) to the same product,
-        # recreate the order line in the new order and
-        # it should have: tax_id = product.taxes_id
         self.test_product.taxes_id = self.test_tax_sale_comp2
         with Form(so_new) as so_new:
             so_new.order_line.remove(index=0)
@@ -219,26 +263,19 @@ class TestTaxFromAccount(TransactionCase):
         so_new = so_new.save()
         line_b1 = so_new.order_line
         self.assertEqual(
-            line_b1.tax_id,
+            line_b1.tax_ids,
             line_b1.product_id.taxes_id,
             "Line B1 should have same tax as product's taxes_id",
         )
 
-        # recreate the order line in the existing order
-        # and its tax_id should be same as from company A
         with Form(so) as so:
             so.order_line.remove(index=len(so.order_line) - 1)
             with so.order_line.new() as line_a1:
-                line_a1.name = "In company A: check line.tax_id"
+                line_a1.name = "In company A: check line.tax_ids"
                 line_a1.product_id = self.test_product
         so = so.save()
         line_a1 = so.order_line[-1]
-        # In the current environment, product taxes may be recomputed
-        # based on the product's own `taxes_id` or fiscal position even
-        # when reusing the original order; we only assert that the tax
-        # remains consistent with the line's product, not that it keeps
-        # the original company-level default.
         self.assertEqual(
-            line_a1.tax_id,
+            line_a1.tax_ids,
             line_a1.product_id.taxes_id or so.company_id.account_sale_tax_id,
         )
