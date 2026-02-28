@@ -61,11 +61,11 @@ class SaleOrderLine(models.Model):
     _name = "sale.order.line"
     _inherit = ["sale.order.line", "tax.from.account"]
 
-    def _compute_tax_id(self):
-        res = super()._compute_tax_id()
+    def _compute_tax_ids(self):
+        res = super()._compute_tax_ids()
         for line in self:
-            if not line.tax_id:
-                line.tax_id = line._get_default_taxes()
+            if not line.tax_ids:
+                line.tax_ids = line._get_default_taxes()
         return res
 
 
@@ -73,24 +73,12 @@ class PurchaseOrderLine(models.Model):
     _name = "purchase.order.line"
     _inherit = ["purchase.order.line", "tax.from.account"]
 
-    def _compute_tax_id(self):
-        res = super()._compute_tax_id()
+    @api.onchange("product_id")
+    def onchange_product_id(self):
+        res = super().onchange_product_id()
         for line in self:
-            if not line.taxes_id:
-                line.taxes_id = line._get_default_taxes("in_invoice")
-        return res
-
-    @api.model
-    def _prepare_purchase_order_line(
-        self, product_id, product_qty, product_uom, company_id, supplier, po
-    ):
-        res = super()._prepare_purchase_order_line(
-            product_id, product_qty, product_uom, company_id, supplier, po
-        )
-        pol = self.env["purchase.order.line"].new(
-            {"order_id": po.id, "product_id": product_id, "company_id": company_id}
-        )
-        res.update(taxes_id=[(6, 0, pol._get_default_taxes(inv_type="in_invoice").ids)])
+            if not line.tax_ids:
+                line.tax_ids = line._get_default_taxes("in_invoice")
         return res
 
 
