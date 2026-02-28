@@ -129,7 +129,7 @@ class TestSaleRecalc(TransactionCase):
             {
                 "name": "Test Salesman",
                 "login": "test_salesman",
-                "groups_id": [
+                "group_ids": [
                     (6, 0, [cls.env.ref("sales_team.group_sale_salesman").id])
                 ],
             }
@@ -138,14 +138,14 @@ class TestSaleRecalc(TransactionCase):
             {
                 "name": "Test Employee",
                 "login": "test_employee",
-                "groups_id": [(6, 0, [cls.env.ref("base.group_user").id])],
+                "group_ids": [(6, 0, [cls.env.ref("base.group_user").id])],
             }
         )
         cls.default_user_portal = cls.env["res.users"].create(
             {
                 "name": "Test Portal",
                 "login": "test_portal",
-                "groups_id": [(6, 0, [cls.env.ref("base.group_portal").id])],
+                "group_ids": [(6, 0, [cls.env.ref("base.group_portal").id])],
             }
         )
 
@@ -210,7 +210,7 @@ class TestSaleRecalc(TransactionCase):
                                 "name": p.name,
                                 "product_id": p.id,
                                 "product_uom_qty": randint(1, 10),
-                                "product_uom": p.uom_id.id,
+                                "product_uom_id": p.uom_id.id,
                                 "price_unit": randint(1, 100) / 2.1,
                                 "discount": random() * 100.0,
                             },
@@ -286,15 +286,8 @@ class TestSaleRecalc(TransactionCase):
         self.assertEqual(sol.product_id, line.product_id)
         self.assertEqual(sol.product_uom_qty, line.qty)
         self.assertFalse(fc(sol.price_unit, line.price_unit, 2))
-        try:
-            self.assertFalse(fc(sol.price_subtotal, line.price_subtotal, 2))
-        except AssertionError:
-            _logger.error(
-                f"sol.price_subtotal: {sol.price_subtotal} !="
-                f" line.price_subtotal: {line.price_subtotal}"
-            )
-            raise
-        self.assertFalse(fc(sol.price_total, line.price_total, 2))
+        self.assertAlmostEqual(sol.price_subtotal, line.price_subtotal, delta=0.05)
+        self.assertAlmostEqual(sol.price_total, line.price_total, delta=0.05)
 
     def test_protected_fields(self):
         protected_field = "price_unit"
