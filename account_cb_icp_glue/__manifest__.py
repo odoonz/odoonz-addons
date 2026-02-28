@@ -11,5 +11,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["account_central_billing", "account_invoice_cutoff_policy"],
     "auto_install": True,
-    "installable": False,
+    "installable": True,
 }

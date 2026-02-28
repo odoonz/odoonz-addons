@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
-
     _inherit = "product.template"
 
     lst_price_from_bom = fields.Boolean("Use BoM Price")

@@ -15,5 +15,5 @@
         "data/ir_cron_data.xml",
         "views/stock_valuation_history_views.xml",
     ],
-    "installable": False,
+    "installable": True,
 }

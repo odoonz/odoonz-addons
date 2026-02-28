@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
-
     _inherit = "product.product"
 
     bom_list_price = fields.Float(
@@ -66,7 +65,9 @@ class ProductProduct(models.Model):
         else:
             self.bom_list_price = 0.0
 
-    def _price_compute(self, price_type, uom=None, currency=None, company=None, date=False):
+    def _price_compute(
+        self, price_type, uom=None, currency=None, company=None, date=False
+    ):
         bom_prices = {}
         if price_type == "list_price":
             lst_price_from_bom = self.filtered(lambda s: s.lst_price_from_bom)

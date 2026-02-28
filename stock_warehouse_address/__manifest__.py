@@ -10,5 +10,5 @@
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["stock"],
     "data": ["views/stock_warehouse.xml", "views/stock_picking_type.xml"],
-    "installable": False,
+    "installable": True,
 }

@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class MailChannel(models.Model):
-
     _inherit = "mail.channel"
 
     email_send = fields.Boolean()

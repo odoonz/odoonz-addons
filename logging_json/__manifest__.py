@@ -15,5 +15,5 @@
     },
     "website": "https://github.com/odoonz/odoonz-addons",
     "data": [],
-    "installable": False,
+    "installable": True,
 }

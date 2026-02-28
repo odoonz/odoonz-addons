@@ -11,5 +11,5 @@
     "author": "MoaHub Ltd",
     "website": "https://github.com/odoonz/odoonz-addons",
     "depends": ["sale", "purchase", "account", "delivery"],
-    "installable": False,
+    "installable": True,
 }
