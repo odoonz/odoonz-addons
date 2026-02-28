@@ -19,9 +19,11 @@ class StockProductionLot(models.Model):
         else:
             return super()._product_qty()
 
-    def _search(self, domain, offset=0, limit=None, order=None):
+    def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
         if location := self.env.context.get("location_id"):
             domain = Domain.AND(
                 [domain, [("quant_ids.location_id", "=", int(location))]]
             )
-        return super()._search(domain, offset=offset, limit=limit, order=order)
+        return super()._search(
+            domain, offset=offset, limit=limit, order=order, **kwargs
+        )
