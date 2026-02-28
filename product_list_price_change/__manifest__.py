@@ -16,11 +16,5 @@
         "views/product_price_rise.xml",
         "data/ir_cron_data.xml",
     ],
-    "demo": [
-        "demo/product_price_rise.xml",
-        "demo/product_price_change_implementation_delay.xml",
-        "demo/product_variant_price_change_line.xml",
-        "demo/product_price_change_line.xml",
-    ],
     "installable": True,
 }
