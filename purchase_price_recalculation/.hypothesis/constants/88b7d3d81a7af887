@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/hr_work_location.py
+# hypothesis_version: 6.131.14
+
+['Cover Image', 'Home', 'Office', 'Other', 'Work Address', 'Work Location', 'home', 'hr.work.location', 'name', 'office', 'other', 'res.company', 'res.partner']

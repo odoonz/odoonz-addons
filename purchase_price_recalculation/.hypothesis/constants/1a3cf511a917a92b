@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/fleet/models/fleet_vehicle_odometer.py
+# hypothesis_version: 6.131.14
+
+[' / ', 'Driver', 'Odometer Value', 'Unit', 'Vehicle', 'date', 'date desc', 'fleet.vehicle', 'max', 'vehicle_id', 'vehicle_id.driver_id']

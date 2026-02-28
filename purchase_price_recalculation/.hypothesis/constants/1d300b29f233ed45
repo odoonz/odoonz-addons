@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_expense/models/hr_expense_split.py
+# hypothesis_version: 6.131.14
+
+['Can be reinvoiced', 'can_be_reinvoiced', 'cost', 'expense_id', 'hr.expense', 'hr.expense.split', 'product_id', 'sale.order', 'sale_order_id', 'sales_price']

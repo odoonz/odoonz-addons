@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/session.py
+# hypothesis_version: 6.131.14
+
+[303, '/odoo', '/web/session/account', '/web/session/check', '/web/session/destroy', '/web/session/logout', '/web/session/modules', 'Database not found.', 'Languages', 'client_id', 'd', 'database.uuid', 'db', 'error', 'http', 'ir.config_parameter', 'ir.http', 'json', 'list_lang', 'login', 'none', 'password', 'response_type', 'scope', 'session_id', 'state', 'title', 'token', 'type', 'u', 'uid', 'user', 'userinfo', 'web.base.url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_secondary_unit/models/stock_lot.py
+# hypothesis_version: 6.131.14
+
+[0.0, 1.0, 'Second unit', 'Secondary Qty', 'product_qty', 'product_uom_id', 'restrict', 'secondary_uom_id', 'stock.lot']

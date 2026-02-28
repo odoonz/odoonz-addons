@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/speedscope.py
+# hypothesis_version: 6.131.14
+
+[150, '$schema', ',', ', ', 'C', 'Combined', 'Combined no context', 'O', 'Speedscope', 'activeProfileIndex', 'at', 'endValue', 'evented', 'events', 'exec_context', 'file', 'frame', 'frames', 'full_query', 'line', 'name', 'profiles', 'query', 'seconds', 'shared', 'stack', 'start', 'startValue', 'time', 'type', 'unit']

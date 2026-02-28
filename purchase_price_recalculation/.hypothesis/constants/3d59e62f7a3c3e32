@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/models/calendar_attendee.py
+# hypothesis_version: 6.131.14
+
+[100, ':', '@', 'Attendee', 'Available', 'Available/Busy', 'Busy', 'Common name', 'Email', 'Invitation Token', 'Maybe', 'Meeting linked', 'Needs Action', 'No', 'Phone', 'Status', 'Yes', '_compute_common_name', '_compute_mail_tz', 'accepted', 'body_html', 'busy', 'calendar.attendee', 'calendar.block_mail', 'calendar.event', 'calendar.recurrence', 'cascade', 'common_name', 'create_date ASC', 'datas', 'declined', 'description', 'email', 'email_from', 'event_id', 'free', 'invitation.ics', 'ir.attachment', 'ir.config_parameter', 'mail.compose.message', 'mail.message', 'mail_notify_author', 'mimetype', 'name', 'needsAction', 'no_document', 'no_mail_to_attendees', 'partner_id', 'partner_id.email', 'partner_id.name', 'partner_id.phone', 'res.partner', 'res_id', 'res_model', 'state', 'subject', 'tentative', 'text/calendar', 'write']

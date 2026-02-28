@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_repack/models/mrp_production_cutlist.py
+# hypothesis_version: 6.131.14
+
+['Split Quantity', 'cancel', 'done', 'draft', 'line_id', 'line_id.pack_cutlist', 'line_id.state', 'name', 'qty', 'sequence', 'split_qty']

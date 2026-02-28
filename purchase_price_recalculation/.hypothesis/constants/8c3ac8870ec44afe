@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/_monkeypatches/lxml.py
+# hypothesis_version: 6.131.14
+
+['4.6.0', '5.2.0', 'lxml']

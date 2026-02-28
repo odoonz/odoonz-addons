@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/discuss/public_page.py
+# hypothesis_version: 6.131.14
+
+['=', 'GET', 'Guest', 'channel', 'channel_type', 'companyName', 'data', 'default_display_mode', 'discuss.channel', 'group_public_id', 'http', 'id', 'inPublicPage', 'ir.config_parameter', 'ir.http', 'isChannelTokenSecret', 'mail.chat_from_token', 'mail.guest', 'name', 'public', 'session_info', 'uuid', 'video_full_screen']

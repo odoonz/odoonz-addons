@@ -1,0 +1,4 @@
+# file: /odoo/src/agreement/agreement_rebate/models/agreement.py
+# hypothesis_version: 6.131.14
+
+[0.0, '% Dto', 'Agreement', 'Discount', 'Domain', 'From', 'Product categories', 'Product templates', 'Product variant', 'Products', 'Rebate condition', 'Rebate domain', 'To', 'agreement', 'agreement_id', 'category', 'condition', 'domain', 'global', 'in', 'line', 'product', 'product.category', 'product.product', 'product.template', 'product_id', 'product_id.categ_id', 'product_tmpl', 'rebate type', 'rebate_category_ids', 'rebate_condition_id', 'rebate_product_ids', 'rebate_target', 'section_prorated', 'section_total']

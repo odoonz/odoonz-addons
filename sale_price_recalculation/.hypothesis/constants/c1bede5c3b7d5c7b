@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_statement_run/wizards/activity_statement_wizard.py
+# hypothesis_version: 6.131.14
+
+['Statement Message', 'message']

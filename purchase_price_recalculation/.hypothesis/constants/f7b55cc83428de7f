@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/wizard/account_auto_reconcile_wizard.py
+# hypothesis_version: 6.131.14
+
+[0.0, '!=', '<=', '=', '>=', 'Accounts', 'Clear Account', 'From', 'Partners', 'Perfect Match', 'Reconcile', 'To', 'account.account', 'account.move.line', 'account_id', 'account_id.reconcile', 'account_ids', 'amount_residual', 'balance', 'company_id', 'context', 'currency_id', 'date', 'display_type', 'domain', 'from_date', 'full_reconcile_id', 'id', 'id:recordset', 'in', 'line_ids', 'line_note', 'line_section', 'list', 'name', 'not in', 'one_to_one', 'parent_state', 'partner_id', 'partner_ids', 'posted', 'reconciled', 'res.company', 'res.partner', 'res_model', 'search_mode', 'to_date', 'type', 'view_mode', 'zero_balance']

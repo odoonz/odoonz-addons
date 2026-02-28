@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax/lib/avatax_client.py
+# hypothesis_version: 6.131.14
+
+[1200, 'Authorization', 'Bearer ', 'GET', 'POST', 'X-Avalara-Client', 'addresses/resolve', 'logger', 'production', 'utilities/ping', '{}/api/v2/{}']

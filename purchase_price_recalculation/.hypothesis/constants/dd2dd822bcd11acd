@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/spreadsheet_dashboard/controllers/share.py
+# hypothesis_version: 6.131.14
+
+['GET', 'dashboard', 'dataUrl', 'downloadExcelUrl', 'excel_export', 'http', 'ir.binary', 'ir.http', 'is_frozen', 'mode', 'props', 'public', 'session_info', 'share', 'spreadsheet_name']

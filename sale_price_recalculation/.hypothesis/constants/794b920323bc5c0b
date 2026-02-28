@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/website_controller_page.py
+# hypothesis_version: 6.131.14
+
+['/', 'Demo URL', 'Domain', 'Grid', 'List', 'Listing view', 'Model Page', 'Record view', 'Related Menus', 'URL', '_compute_name', '_compute_url_demo', '_inverse_name', 'cascade', 'controller_page_id', 'grid', 'ir.actions.act_url', 'ir.http', 'ir.ui.view', 'list', 'model', 'model_id', 'name', 'name_slugified', 'read', 'type', 'url', 'url should be unique', 'view_id', 'view_id.website_id', 'website.menu', 'website_id, id DESC']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mrp_workorder/models/mrp_workcenter.py
+# hypothesis_version: 6.131.14
+
+[0.0, '=', 'Cost', 'Employee', 'Employee Hourly Cost', '_compute_employee', '_compute_total_cost', 'active_id', 'barcode', 'blocked', 'context', 'currency_id', 'date_end', 'desktop_list_view', 'done', 'duration', 'employee_cost', 'employee_id', 'hr.employee', 'in', 'ir.actions.actions', 'mrp.workcenter', 'normal', 'performance', 'productive', 'search_default_ready', 'time_ids', 'time_ids.date_end', 'time_ids.loss_type', 'user_id', 'workcenter_id', '{}']

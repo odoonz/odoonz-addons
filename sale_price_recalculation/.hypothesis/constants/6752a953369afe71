@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_warn_insufficient_qty.py
+# hypothesis_version: 6.131.14
+
+['=', 'Location', 'Product', 'Quantity', 'Scrap', 'Unit of Measure', '_compute_quant_ids', 'internal', 'location_id.usage', 'product.product', 'product_id', 'stock.location', 'stock.quant', 'stock.scrap']

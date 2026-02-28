@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/snailmail_account/models/account_move_send.py
+# hypothesis_version: 6.131.14
+
+[', ', 'Check Invoice(s)', 'View Invoice(s)', 'account.move', 'account.move.send', 'action', 'action_text', 'author_user_id', 'company_id', 'danger', 'ir.actions.report', 'level', 'message', 'model', 'name', 'partner_id', 'report_template', 'res_id', 'sending_methods', 'snailmail', 'snailmail.letter', 'user_id', 'warning']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/crm/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['/lead/case_mark_lost', '/lead/case_mark_won', '/lead/convert', 'GET', 'crm.lead', 'http', 'user']

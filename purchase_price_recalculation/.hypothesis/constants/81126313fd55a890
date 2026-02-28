@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_delivery/models/delivery_carrier.py
+# hypothesis_version: 6.131.14
+
+[0.0, '%s_cancel_shipment', '%s_get_return_label', '%s_get_tracking_link', '%s_send_shipping', '=', 'Bulk Content', 'LabelReturn-%s', 'LabelShipping-%s', 'Real cost', 'Routes', 'ShippingDoc-%s', 'consu', 'delivery.carrier', 'exact_price', 'order_weight', 'product.template', 'real', 'route_id', 'set default', 'shipping_id', 'shipping_selectable', 'stock.route', 'stock_route_shipping', 'tracking_number']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['/sms/status', '=', 'Bad parameters', 'OK', '^[0-9a-f]{32}$', '^\\w+$', 'in', 'json', 'public', 'sms.sms', 'sms.tracker', 'sms_status', 'sms_uuid', 'to_delete', 'uuid', 'uuids']

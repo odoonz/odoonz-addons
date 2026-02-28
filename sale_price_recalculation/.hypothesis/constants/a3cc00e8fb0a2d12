@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/models/stock_valuation_layer.py
+# hypothesis_version: 6.131.14
+
+['=', 'company_id', 'ril.branch']

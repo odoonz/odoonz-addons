@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_fleet/models/employee.py
+# hypothesis_version: 6.131.14
+
+['Cars', 'Vehicles (private)', '__count', 'context', 'domain', 'driver_employee_id', 'driver_id', 'fleet.vehicle', 'form', 'future_driver_id', 'hr.employee', 'hr.employee.public', 'hr.group_hr_user', 'id', 'in', 'license_plate', 'list', 'mobility_card', 'name', 'private_car_plate', 'res_model', 'type', 'views', 'work_contact_id', '|']

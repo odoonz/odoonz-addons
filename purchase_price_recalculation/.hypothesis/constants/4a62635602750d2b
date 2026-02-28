@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/phone_validation/models/phone_blacklist.py
+# hypothesis_version: 6.131.14
+
+['Phone Blacklist', 'Phone Number', 'active', 'context', 'dialog_size', 'form', 'in', 'mail.mt_note', 'mail.thread', 'medium', 'name', 'new', 'number', 'phone.blacklist', 'res_model', 'target', 'type', 'unique (number)', 'unique_number', 'view_mode']

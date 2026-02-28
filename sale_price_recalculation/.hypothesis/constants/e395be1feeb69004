@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/bus_presence.py
+# hypothesis_version: 6.131.14
+
+['Guest', 'bus.presence', 'cascade', 'guest_id', 'im_status', 'mail.guest']

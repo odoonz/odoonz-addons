@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_rules_report.py
+# hypothesis_version: 6.131.14
+
+['Has variants', 'Product', 'Product Template', 'Stock Rules report', 'Warehouses', 'default_product_id', 'product.product', 'product.template', 'product_has_variants', 'product_id', 'product_tmpl_id', 'stock.rules.report', 'stock.warehouse', 'warehouse_ids']

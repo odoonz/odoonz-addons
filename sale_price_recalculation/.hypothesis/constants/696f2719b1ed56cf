@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+[100, '=', 'Demo Data Active', 'Multiscan Separator', 'RFID Timer', 'barcode.nomenclature', 'company_id', 'demo', 'ir.module.module', 'name', 'res.config.settings', 'stock_barcode']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+[2020, 'Fiscal Years', 'Predict Bill Product', 'Sign', 'account.account', 'account.journal', 'fiscalyear_last_day', 'ir.module.module', 'res.config.settings', 'res.users', 'sign', 'sign_invoice']

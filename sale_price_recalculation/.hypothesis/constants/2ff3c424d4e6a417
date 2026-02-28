@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/snailmail/wizard/snailmail_letter_missing_required_fields.py
+# hypothesis_version: 6.131.14
+
+['=', 'City', 'Country', 'State', 'Street', 'Street2', 'Zip', 'city', 'country_id', 'error_code', 'letter_id', 'partner_id', 'res.country', 'res.country.state', 'res.partner', 'snailmail.letter', 'state_id', 'street', 'street2', 'zip']

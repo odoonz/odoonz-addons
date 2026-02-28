@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/models/documents_access.py
+# hypothesis_version: 6.131.14
+
+[1000, '<=', 'Document / Partner', 'Editor', 'Expiration', 'Last Accessed On', 'Role', 'Viewer', 'cascade', 'document_id', 'documents.access', 'documents.document', 'edit', 'expiration_date', 'partner_id', 'res.partner', 'view', 'write']

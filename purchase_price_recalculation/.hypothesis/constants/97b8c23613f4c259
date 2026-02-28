@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/l10n_us/models/res_partner_bank.py
+# hypothesis_version: 6.131.14
+
+['ABA/Routing', '^\\d{1,9}$', 'aba_routing', 'res.partner.bank']

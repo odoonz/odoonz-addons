@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'MX', 'installed', 'ir.module.module', 'l10n_mx_hr', 'name', 'not in', 'res.company', 'state', 'to install', 'to upgrade']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/onboarding/models/onboarding_onboarding_step.py
+# hypothesis_version: 6.131.14
+
+['Button text', 'Completion State', 'Description', 'Is per company', 'JUST_DONE', "Let's do it", 'NOT_FOUND', 'Onboarding Step', 'Onboardings', 'Opening action', 'Step Completed!', 'Step Image', 'Step Image Filename', 'Step Progress', 'Title', 'WAS_DONE', 'company', 'company_id', 'fa-star', 'in', 'is_per_company', 'not_done', 'onboarding.progress', 'onboarding_id', 'onboarding_ids', 'progress_ids', 'sequence asc, id asc', 'step_id', 'step_image', 'title']

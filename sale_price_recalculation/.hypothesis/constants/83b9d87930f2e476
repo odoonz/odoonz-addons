@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/controller/main.py
+# hypothesis_version: 6.131.14
+
+['attached_on_bom', 'attached_on_mrp', 'bom']

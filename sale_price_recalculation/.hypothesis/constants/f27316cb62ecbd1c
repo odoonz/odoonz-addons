@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_rule.py
+# hypothesis_version: 6.131.14
+
+['Create', 'Delete', 'Domain', 'Invalid domain: %s', 'Invalid mode: %r', 'Model', 'Read', 'Record Rule', 'Write', '_compute_global', 'active', 'allowed_company_ids', 'any', 'base.group_no_one', 'cascade', 'company_id', 'company_ids', 'create', 'dev_mode', 'display_name', 'domain_force', 'global', 'group_id', 'groups', 'id', 'in', 'ir.model', 'ir.rule', 'mode', 'model_id', 'model_id DESC,id', 'model_name', 'no_access_rights', 'read', 'res.groups', 'restrict', 'rule_group_id', 'rule_group_rel', 'self.env.su', 'self.env.uid', 'suggested_company', 'time', 'unlink', 'user', 'write', 'xml']

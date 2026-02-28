@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_totp/controllers/home.py
+# hypothesis_version: 6.131.14
+
+[86400, '/web/login', '/web/login/totp', 'GET', 'Lax', 'POST', '\\s', 'auth_totp.device', 'browser', 'error', 'http', 'public', 'redirect', 'remember', 'res.users', 'td_id', 'totp_token', 'user']

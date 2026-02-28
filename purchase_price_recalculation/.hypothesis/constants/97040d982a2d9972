@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/models/stock_picking.py
+# hypothesis_version: 6.131.14
+
+[':array_agg', '<', '=', 'Confirmed', 'DOWN', 'Manufacturing', 'PDF', 'ZPL', '[]', '__count', '_compute_has_kits', '_get_mo_count', 'active', 'allowed_company_ids', 'bom_line_id', 'cancel', 'code', 'confirmed', 'context', 'count_mo_in_progress', 'count_mo_late', 'count_mo_to_close', 'count_mo_todo', 'count_mo_waiting', 'date_start', 'default_company_id', 'display_name', 'domain', 'done', 'form', 'group_id', 'has_kits', 'id', 'in', 'incoming', 'ir.actions.actions', 'list,form', 'move_dest_ids', 'move_ids', 'mrp.group_mrp_user', 'mrp.production', 'mrp_operation', 'not in', 'pdf', 'picking_type_id', 'progress', 'res_id', 'res_model', 'reservation_state', 'state', 'stock.picking', 'stock.picking.type', 'to_close', 'type', 'view_mode', 'waiting', 'zpl']

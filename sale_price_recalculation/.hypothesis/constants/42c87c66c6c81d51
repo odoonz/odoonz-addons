@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/pivot.py
+# hypothesis_version: 6.131.14
+
+[100000, '#AAAAAA', '.xlsx', 'Content-Disposition', 'Content-Type', 'bg_color', 'bold', 'col_group_headers', 'height', 'http', 'in_memory', 'is_bold', 'measure_count', 'measure_headers', 'model', 'origin_count', 'origin_headers', 'pattern', 'rows', 'title', 'user', 'value', 'values', 'width', 'x']

@@ -1,0 +1,4 @@
+# file: /odoo/src/report-print-send/base_report_to_printer/models/printing_report_xml_action.py
+# hypothesis_version: 6.131.14
+
+['Paper Source', 'Printer', 'Report', 'User', 'action', 'cascade', 'ir.actions.report', 'printer', 'printer_id', 'printing.action', 'printing.printer', 'printing.tray', 'res.users', 'tray']

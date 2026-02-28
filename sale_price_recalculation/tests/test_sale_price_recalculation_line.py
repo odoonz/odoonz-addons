@@ -8,7 +8,7 @@ from odoo.addons.price_recalculation.tests.test_price_recalculation_line import 
 )
 
 
-@tagged("post-install", "-at-install")
+@tagged("post_install", "-at_install")
 class TestSalePriceRecalculationLine(TestPriceRecalculationLine):
     def setUp(self):
         """Set model to enable base tests (skipped for the AbstractModel)"""

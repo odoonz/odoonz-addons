@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['=', '>=', 'Alias Domain', 'Base64 encoded key', 'Fail Mail', 'High', 'Low', 'Mail Layout', 'Medium', 'Off', 'SFU Server URL', 'SFU Server key', 'Tenor API key', 'Tenor content filter', 'Twilio Account SID', 'date', 'exception', 'form', 'high', 'ir.actions.actions', 'ir.ui.view', 'low', 'mail.alias.domain', 'mail.mail', 'mail.sfu_server_key', 'mail.sfu_server_url', 'medium', 'name', 'off', 'res.config.settings', 'res_id', 'res_model', 'state', 'type', 'view_mode']

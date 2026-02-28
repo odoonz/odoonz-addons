@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_expense/wizard/account_payment_register.py
+# hypothesis_version: 6.131.14
+
+['batch', 'done', 'expense_id', 'lines', 'own_account', 'partner_bank_id']

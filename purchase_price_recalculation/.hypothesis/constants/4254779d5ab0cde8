@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/portal/wizard/portal_wizard.py
+# hypothesis_version: 6.131.14
+
+['Already Registered', 'Contact', 'Email', 'Grant Portal Access', 'Invalid', 'Invitation Message', 'Is Internal', 'Is Portal', 'Partners', 'Portal User Config', 'Status', 'User', 'Users', 'Valid', 'Wizard', '_compute_email_state', '_compute_user_id', '_compute_user_ids', 'active', 'active_ids', 'base.group_portal', 'base.group_public', 'cascade', 'company_id', 'company_ids', 'contact', 'default_partner_ids', 'email', 'exist', 'form', 'groups_id', 'id', 'in', 'ko', 'login', 'name', 'new', 'ok', 'other', 'partner_id', 'partner_ids', 'portal.wizard', 'portal.wizard.user', 'res.partner', 'res.users', 'res_id', 'res_model', 'target', 'type', 'user_id', 'user_id.groups_id', 'user_id.login_date', 'view_mode', 'wizard_id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/models/mail_activity_mixin.py
+# hypothesis_version: 6.131.14
+
+['base.group_user', 'calendar.event', 'mail.activity.mixin']

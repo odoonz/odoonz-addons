@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_notification.py
+# hypothesis_version: 6.131.14
+
+[180, '<', '=', 'Author', 'Bounce', 'Bounced', 'Cancelled', 'Delivered', 'Email', 'Exception', 'Failure reason', 'Failure type', 'Inbox', 'Invalid from address', 'Is Read', 'Mail', 'Message', 'Missing from address', 'No Error', 'Notification Type', 'Processing', 'Read Date', 'Ready to Send', 'Recipient', 'Sent', 'Status', 'Unknown error', 'base.autovacuum_job', 'bounce', 'canceled', 'cascade', 'email', 'exception', 'failure_type', 'in', 'inbox', 'is_read', 'mail.mail', 'mail.message', 'mail.notification', 'mail_bounce', 'mail_email_invalid', 'mail_email_missing', 'mail_from_invalid', 'mail_from_missing', 'mail_message_id', 'mail_notification', 'mail_smtp', 'message', 'name', 'notification_status', 'notification_type', 'pending', 'persona', 'process', 'read', 'read_date', 'ready', 'res.partner', 'res_partner_id', 'sent', 'set null', 'unknown']

@@ -1,0 +1,4 @@
+# file: /usr/lib/python3/dist-packages/packaging/tags.py
+# hypothesis_version: 6.131.14
+
+[1114111, '-', '-c', '-sS', '.', '0', 'Darwin', 'EXT_SUFFIX', 'Linux', 'MacVersion', 'P', 'Py_DEBUG', 'Py_GIL_DISABLED', 'Py_UNICODE_SIZE', 'WITH_PYMALLOC', '_', '_abi', '_d.pyd', '_hash', '_interpreter', '_platform', 'abi3', 'any', 'arm64', 'armv7l', 'armv8l', 'cp', 'cp\\d+(.*)', 'cpython', 'cp{version}', 'd', 'fat', 'fat32', 'fat64', 'gettotalrefcount', 'graalpy', 'i386', 'intel', 'ip', 'ironpython', 'jy', 'jython', 'linux_', 'linux_aarch64', 'linux_armv8l', 'linux_i686', 'linux_x86_64', 'm', 'none', 'pp', 'pp3', 'ppc', 'ppc64', 'py', 'py_version_nodot', 'pypy', 'python', 't', 'u', 'universal', 'universal2', 'x86_64']

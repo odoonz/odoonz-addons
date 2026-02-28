@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_sale_rule/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['Partner Sale Rules', 'Sales Team', 'crm.team', 'partner.sale.rule', 'res.partner', 'team_id', 'user_id']

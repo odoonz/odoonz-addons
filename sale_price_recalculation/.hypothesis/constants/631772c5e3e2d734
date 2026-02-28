@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/models/ir_http.py
+# hypothesis_version: 6.131.14
+
+['=', 'access_token', 'anonymous', 'calendar.attendee', 'ir.http', 'res.users', 'token']

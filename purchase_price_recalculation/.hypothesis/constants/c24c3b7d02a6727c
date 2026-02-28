@@ -1,0 +1,4 @@
+# file: /odoo/src/credit-control/sale_financial_risk/models/sale.py
+# hypothesis_version: 6.131.14
+
+[0.0, 0.01, 'Commercial Entity', 'Company Currency', '_compute_risk_amount', 'action_confirm', 'bypass_risk', 'cancel', 'company_currency_id', 'continue_method', 'delivery', 'done', 'exception_msg', 'ir.config_parameter', 'move_ids', 'origin_reference', 'partner_id', 'price_reduce_taxinc', 'product_uom_qty', 'qty_delivered', 'qty_invoiced', 'res.currency', 'sale', 'sale.order', 'sale.order.line', 'state', 'stock_move']

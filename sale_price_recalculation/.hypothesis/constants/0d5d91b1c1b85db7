@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/crm_helpdesk/wizard/crm_lead_convert2ticket.py
+# hypothesis_version: 6.131.14
+
+['=', 'Customer', 'Lead', 'Lead Converted', 'Team', 'Ticket Created', 'active_id', 'campaign_id', 'context', 'crm.lead', 'description', 'form', 'helpdesk.team', 'helpdesk.ticket', 'ir.attachment', 'lead', 'lead_id', 'mail.mt_note', 'medium_id', 'name', 'origin', 'partner_email', 'partner_id', 'partner_name', 'partner_phone', 'read', 'res.partner', 'res_id', 'res_model', 'self', 'source_id', 'team_id', 'type', 'user_id', 'view_id', 'view_mode']

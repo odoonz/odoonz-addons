@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_online_synchronization/wizard/account_journal_missing_transactions.py
+# hypothesis_version: 6.131.14
+
+['=', '>=', 'Starting Date', 'account.journal', 'connected', 'context', 'date', 'domain', 'form', 'has_manual_entries', 'id', 'in', 'journal_id', 'list', 'name', 'pending', 'pendings', 'res_model', 'state', 'transactions', 'type', 'view_mode', 'views']

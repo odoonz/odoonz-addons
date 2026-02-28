@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['Web App Name', 'res.config.settings', 'web.web_app_name']

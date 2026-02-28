@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/models/ir_qweb_fields.py
+# hypothesis_version: 6.131.14
+
+['"', '%sx%s', '-', '--', '..', '/', '/%s', '/>', '1', '<img', '="', 'Qweb Field Image', '\\', 'alt', 'alt-field', 'class', 'data-no-post-process', 'data-zoom', 'data-zoom-image', 'filename', 'filename-field', 'height', 'img', 'img-fluid', 'ir.qweb', 'ir.qweb.field.image', 'itemprop', 'max_height', 'max_width', 'name', 'preview_image', 'qweb_img_raw_data', 'qweb_img_responsive', 'resize', 'src', 'style', 'tagName', 'utf-8', 'width', 'write_date', 'zoom']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_inventory/models/stock_move_line.py
+# hypothesis_version: 6.131.14
+
+['done', 'location_dest_id', 'move_orig_ids', 'relocation_id', 'state', 'stock.move', 'stock.move.line']

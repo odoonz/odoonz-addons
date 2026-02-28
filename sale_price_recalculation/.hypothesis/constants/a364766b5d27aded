@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mail_mobile/models/mail_thread.py
+# hypothesis_version: 6.131.14
+
+[4000, '!=', '%s?%s', '/', '/iap/ocn/send', 'AtMention', 'Following', 'access_token', 'afl', 'android_channel_id', 'apn', 'auth_signup_token', 'author_id', 'author_name', 'body', 'com.odoo.mobile', 'data', 'db_id', 'ibi', 'id', 'ifl', 'in', 'ir.config_parameter', 'link', 'mail.thread', 'model', 'ocn_token', 'ocn_tokens', 'odoo_ocn.project_id', 'record_name', 'res.config.settings', 'res.partner', 'res_id', 'scheduled_date', 'subject', 'utf-8', 'view', 'web.base.url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/documents_link/wizard/link_to_record.py
+# hypothesis_version: 6.131.14
+
+['=', 'Model', 'True', 'account.move', 'in', 'ir.model', 'ir.model.access', 'is_mail_thread', 'model', 'mrp.production', 'mrp.workorder', 'purchase.order', 'sale.order', 'stock.inventory', 'stock.lot', 'stock.move', 'stock.picking', 'uid', 'write']

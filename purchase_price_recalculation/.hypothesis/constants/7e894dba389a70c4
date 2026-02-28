@@ -1,0 +1,4 @@
+# file: /usr/lib/python3/dist-packages/packaging/_tokenizer.py
+# hypothesis_version: 6.131.14
+
+['$', ',', ';', 'AT', 'BOOLOP', 'COMMA', 'END', 'IDENTIFIER', 'IN', 'LEFT_BRACKET', 'LEFT_PARENTHESIS', 'NOT', 'OP', 'QUOTED_STRING', 'RIGHT_BRACKET', 'RIGHT_PARENTHESIS', 'SEMICOLON', 'SPECIFIER', 'URL', 'VARIABLE', 'VERSION_PREFIX_TRAIL', 'WS', '[ \\t]+', '[^ \\t]+', '\\(', '\\)', '\\.\\*', '\\@', '\\[', '\\]', '\\b(or|and)\\b', '\\bin\\b', '\\bnot\\b', '^', '~']

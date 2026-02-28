@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/rating/models/rating_data.py
+# hypothesis_version: 6.131.14
+
+[2.33, 3.66, '!=', '<', '<=', '=', '>', '>=', 'Dissatisfied', 'No Rating yet', 'Okay', 'Satisfied', 'bad', 'great', 'ko', 'none', 'ok', 'okay', 'top']

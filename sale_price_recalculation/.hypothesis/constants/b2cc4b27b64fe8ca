@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/controllers/post_processing.py
+# hypothesis_version: 6.131.14
+
+['/payment/status', '/payment/status/poll', 'http', 'json', 'landing_route', 'payment.transaction', 'payment_not_found', 'provider_code', 'public', 'retry', 'state', 'tx']

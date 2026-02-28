@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_mrp/models/sale_order.py
+# hypothesis_version: 6.131.14
+
+['domain', 'form', 'id', 'id:recordset', 'in', 'list,form', 'mrp.group_mrp_user', 'mrp.production', 'name', 'procurement.group', 'res_id', 'res_model', 'sale.order', 'sale_id', 'sale_line_id', 'type', 'view_mode']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/ir_model.py
+# hypothesis_version: 6.131.14
+
+['Has Mail Activity', 'Has Mail Blacklist', 'Has Mail Thread', '_inherits', 'fields', 'has_activities', 'id', 'in', 'ir.attachment', 'ir.model', 'is_mail_activity', 'is_mail_blacklist', 'is_mail_thread', 'mail.activity', 'mail.activity.mixin', 'mail.activity.type', 'mail.followers', 'mail.message', 'mail.thread', 'manual', 'model', 'tracking', 'x_email']

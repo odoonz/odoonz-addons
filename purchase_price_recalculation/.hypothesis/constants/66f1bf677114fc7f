@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_map/models/ir_ui_view.py
+# hypothesis_version: 6.131.14
+
+['Map', 'fa fa-map-marker', 'icon', 'ir.ui.view', 'map']

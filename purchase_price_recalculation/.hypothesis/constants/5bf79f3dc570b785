@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch_intercompany_glue/models/account_move.py
+# hypothesis_version: 6.131.14
+
+[0.0, 1.0, 100.0, '=', 'account.account', 'account.journal', 'account.move', 'account.move.line', 'account_id', 'analytic_account_id', 'branch_id', 'company_id', 'credit', 'debit', 'entry', 'general', 'in_invoice', 'in_refund', 'invoice_line_ids', 'is_rebate_invoice', 'journal_id', 'name', 'onbehalf.rule', 'out', 'out_invoice', 'out_refund', 'price_unit', 'product_id', 'quantity', 'recharge.rule', 'res.company', 'ril.branch', 'type']

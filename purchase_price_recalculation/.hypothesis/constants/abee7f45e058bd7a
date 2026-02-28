@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/profiling.py
+# hypothesis_version: 6.131.14
+
+[500, ',', '/web/set_profiling', '/web/speedscope', '0', 'application/json', 'cdn', 'error: %s', 'http', 'ir.config_parameter', 'ir.profile', 'profile', 'public', 'speedscope_cdn', 'sql', 'text/plain', 'traces_async', 'url_root', 'user']

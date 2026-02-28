@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/controllers/rpc.py
+# hypothesis_version: 6.131.14
+
+['/jsonrpc', '/xmlrpc/2/<service>', '/xmlrpc/<service>', 'AccessDenied', 'POST', 'json', 'none', 'text/xml', 'warning -- Warning\n\n']

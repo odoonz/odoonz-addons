@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant_fleet/models/bank_rec_widget_line.py
+# hypothesis_version: 6.131.14
+
+['_compute_vehicle_id', 'aml', 'bank.rec.widget.line', 'fleet.vehicle', 'source_aml_id']

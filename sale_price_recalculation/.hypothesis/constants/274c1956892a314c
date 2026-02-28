@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/models/base_document_layout.py
+# hypothesis_version: 6.131.14
+
+[b'===', 0.2, 175, 225, '#000000', '%(company_name)s\n', '=', '===', 'Preview logo', 'RGBA', '_compute_logo_colors', '_compute_preview', 'base.document.layout', 'bin_size', 'company', 'company_details', 'company_id', 'company_id.email', 'company_id.font', 'company_id.logo', 'company_id.name', 'company_id.phone', 'company_id.vat', 'company_id.website', 'company_ids', 'company_name', 'custom_colors', 'expanded', 'font', 'ir.qweb', 'ir.ui.view', 'is_html_empty', 'layout_background', 'logo', 'logo_primary_color', 'logo_secondary_color', 'preview_css', 'primary_color', 'report.layout', 'report_action', 'report_footer', 'report_header', 'report_layout_id', 'res.company', 'secondary_color', 'type', 'view_id.key']

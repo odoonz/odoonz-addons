@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/models/account_account.py
+# hypothesis_version: 6.131.14
+
+['=', 'account.account', 'account_id', 'domain']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_coil_split/report/stock_traceability_report.py
+# hypothesis_version: 6.131.14
+
+['ril.coil.slit']

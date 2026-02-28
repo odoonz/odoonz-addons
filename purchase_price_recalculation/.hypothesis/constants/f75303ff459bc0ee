@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_mrp/models/account_move.py
+# hypothesis_version: 6.131.14
+
+['=', 'account.move.line', 'bom_line_id.bom_id', 'cancel', 'cogs', 'id', 'in', 'is_storable', 'mrp.bom', 'out_refund', 'phantom', 'posted', 'product.product', 'qty']

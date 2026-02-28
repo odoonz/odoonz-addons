@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/rendering_tools.py
+# hypothesis_version: 6.131.14
+
+['abs', 'datetime', 'filter', 'hasattr', 'len', 'map', 'max', 'min', 'quote', 'reduce', 'relativedelta', 'round', 'str', 'sum', 'urlencode']

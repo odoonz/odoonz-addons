@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_sms/wizard/confirm_stock_sms.py
+# hypothesis_version: 6.131.14
+
+['Confirm Stock SMS', 'confirm.stock.sms', 'stock.picking']

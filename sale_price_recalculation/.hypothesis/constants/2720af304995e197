@@ -1,0 +1,4 @@
+# file: /odoo/src/sale-workflow/sale_order_secondary_unit/models/product_template.py
+# hypothesis_version: 6.131.14
+
+['Warning', 'message', 'product.template', 'product_variant_ids', 'title', 'warning']

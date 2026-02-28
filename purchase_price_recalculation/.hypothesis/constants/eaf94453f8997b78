@@ -1,0 +1,4 @@
+# file: /odoo/src/report-print-send/base_report_to_printer/models/printing_action.py
+# hypothesis_version: 6.131.14
+
+['Print Job Action', 'Send to Client', 'Send to Printer', 'Type', "Use user's defaults", 'client', 'printing.action', 'server', 'user_default']

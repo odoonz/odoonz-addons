@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/report/report_stock_quantity.py
+# hypothesis_version: 6.131.14
+
+['3', 'Date', 'Forecasted Receipts', 'Forecasted Stock', 'Product', 'Quantity', 'State', 'company_id', 'date', 'forecast', 'in', 'ir.config_parameter', 'location_dest_id', 'location_final_id', 'location_id', 'out', 'parent_path', 'product.product', 'product.template', 'product_id', 'product_qty', 'product_tmpl_id', 'quantity', 'report_period', 'res.company', 'state', 'stock.location', 'stock.move', 'stock.quant', 'stock.warehouse', 'type', 'view_location_id']

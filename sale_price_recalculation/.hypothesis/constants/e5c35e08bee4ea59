@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/api.py
+# hypothesis_version: 6.131.14
+
+['%s IN %s', '%s=%r', ', ', '.', '.create', '<NewId 0x%x>', '<NewId origin=%r>', '<NewId ref=%r>', '<binary>', 'Environment', 'Invalid cache: %s', 'M', 'Meta', 'NewId_%s', 'T', '_', '__', '_api', '_constrains', '_data', '_depends', '_depends_context', '_dirty', '_en_US', '_onchange', '_ondelete', '_patches', '_returns', 'active_test', 'allowed_company_ids', 'base', 'bin_size', 'bin_size_', 'binary', 'cache', 'cached', 'call %s.%s(%s)', 'call_kw', 'check_translations', 'company', 'constrains', 'context', 'create', 'depends', 'edit_translations', 'en_US', 'envs', 'fetched', 'id', 'ir.model.data', 'lang', 'model', 'model_create', 'monetary', 'onchange', 'origin', 'prefetch_langs', 'protected', 'ref', 'registry', 'res.company', 'res.lang', 'res.users', 'returns', 'tocompute', 'uid', 'value']

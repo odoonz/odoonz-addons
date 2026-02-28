@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['0', '1', '=', 'Cubic Feet', 'Cubic Meters', 'Kilograms', 'Pounds', 'Pricelists', 'Product Packagings', 'Units of Measure', 'Variants', 'active', 'message', 'product.pricelist', 'res.company', 'res.config.settings', 'uom.group_uom', 'warning']

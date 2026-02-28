@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/res_partner_bank.py
+# hypothesis_version: 6.131.14
+
+['/report/barcode/?', '967', '974', '977', '=', 'Account Journal', 'PPS EU SA', 'Paynovate', 'Wise', 'acc_number', 'acc_type', 'account.journal', 'account.move', 'active', 'allow_out_payment', 'amount', 'bank', 'bank_account_id', 'bank_id', 'currency', 'debtor_partner', 'default_acc_number', 'default_name', 'free_communication', 'iban', 'ir.actions.report', 'journal_id', 'mail.activity.mixin', 'mail.thread', 'partner_bank_id', 'partner_id', 'qr_method', 'related', 'res.partner', 'res.partner.bank', 'sanitized_acc_number', 'tracking', 'trusted', 'type', 'uid', 'untrusted']

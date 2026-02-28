@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_dropshipping/models/stock.py
+# hypothesis_version: 6.131.14
+
+['=', 'Dropship', 'Is a Dropship', '_compute_is_dropship', 'active', 'code', 'company_id', 'customer', 'dropship', 'location_id.usage', 'outgoing', 'procurement.group', 'sale_line_id', 'stock.lot', 'stock.move', 'stock.picking', 'stock.picking.type', 'stock.rule', 'supplier', 'transit']

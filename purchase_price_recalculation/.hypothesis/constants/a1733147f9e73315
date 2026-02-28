@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website_payment/models/payment_transaction.py
+# hypothesis_version: 6.131.14
+
+['<br/>- %s: %s', 'Is donation', 'author_id', 'body_html', 'comment', 'company_id', 'done', 'email_from', 'email_to', 'ir.qweb', 'name', 'partner_country_id', 'partner_email', 'partner_id', 'partner_name', 'payment.transaction', 'subject', 'tx']

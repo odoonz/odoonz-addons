@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/controllers/tests_shared_js_python.py
+# hypothesis_version: 6.131.14
+
+['[]', 'http', 'ir.config_parameter', 'json', 'props', 'tests', 'user']

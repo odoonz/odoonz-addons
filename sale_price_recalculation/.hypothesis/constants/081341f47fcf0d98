@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/ir_attachment.py
+# hypothesis_version: 6.131.14
+
+[100, '.xml', '/xml', 'account.move', 'attachment', 'binary', 'check', 'content', 'decoder', 'filename', 'format', 'id', 'ir.attachment', 'on_close', 'originator_pdf', 'pdf', 'pdf_reader', 'sort_weight', 'text/plain', 'type', 'w', 'xml', 'xml_tree']

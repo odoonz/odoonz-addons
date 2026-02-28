@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/modules/migration.py
+# hypothesis_version: 6.131.14
+
+['%s.%s', '*.py', '.', '.py', '/migrations', '/upgrades', '0.0.0', '[$%s]', '[%s>]', '[>%s]', '_cr', '_version', 'cr', 'end', 'load_state', 'load_version', 'migrate', 'module', 'module_upgrades', 'post', 'pre', 'tests', 'to install', 'to upgrade', 'update', 'upgrade', 'version']

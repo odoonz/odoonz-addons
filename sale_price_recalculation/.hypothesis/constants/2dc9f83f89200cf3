@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/models/ril_branch.py
+# hypothesis_version: 6.131.14
+
+['Branch Code', 'Branch Name', 'Company', 'MAIN', 'Main', 'Physical Address', 'Postal Address', 'RIL Branch', 'code', 'company_id', 'name', 'plan_id', 'res.company', 'res.partner', 'res.users', 'ril.branch']

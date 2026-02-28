@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_base/models/mrp_production.py
+# hypothesis_version: 6.131.14
+
+['_compute_manual', '_compute_total', 'cutlines', 'cutlines.subtotal', 'cutlist.line', 'line_id', 'manual', 'mrp.production', 'product_id', 'product_id.ctl_type']

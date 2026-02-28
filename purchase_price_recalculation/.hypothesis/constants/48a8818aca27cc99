@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/tools/sms_api.py
+# hypothesis_version: 6.131.14
+
+['/api/sms/3/send', 'Buy credits.', 'Register now.', 'account_token', 'banned_account', 'closed_feature', 'code', 'database.uuid', 'dbuuid', 'duplicate_message', 'existing_sender', 'format_error', 'iap.account', 'incompatible_content', 'insufficient_credit', 'invalid_code', 'invalid_phone_number', 'ir.config_parameter', 'messages', 'no_sms_account', 'phone_number', 'registration_needed', 'sender_name', 'server_error', 'sms', 'sms.endpoint', 'sms_acc', 'sms_credit', 'sms_number_format', 'sms_number_missing', 'sms_server', 'too_many_attempts', 'unknown_error', 'unregistered', 'unregistered_account', 'webhook_url', 'wrong_number_format']

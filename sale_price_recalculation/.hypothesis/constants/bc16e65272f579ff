@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/test_mail/models/mail_test_access.py
+# hypothesis_version: 6.131.14
+
+['Access', 'Admin', 'Customer', 'Followers', 'Internal', 'Internal readonly', 'Logged', 'Mail Access Test', 'admin', 'create', 'customer_id', 'email_from', 'followers', 'id DESC', 'internal', 'internal_ro', 'logged', 'logged_ro', 'mail.test.access', 'public', 'read', 'res.partner', 'write']

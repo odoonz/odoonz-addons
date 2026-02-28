@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase_stock/wizard/product_replenish.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', '>=', 'action', 'buy', 'context', 'group_id', 'id', 'in', 'ir.config_parameter', 'label', 'product.product', 'product.replenish', 'product_id', 'purchase.order.line', 'purchase.use_po_lead', 'replenish_id', 'route_id', 'show_vendor', 'stock.warehouse', 'supplier', 'supplier_id', 'supplierinfo_id', 'url', 'warehouse_id', 'write_date']

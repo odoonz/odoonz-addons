@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_batch_payment/models/account_payment.py
+# hypothesis_version: 6.131.14
+
+['Batch Payment', 'account.payment', 'amount', 'batch_payment_id', 'batch_type', 'comment', 'context', 'create', 'currency_id', 'form', 'journal_id', 'name', 'outbound', 'payment_ids', 'payment_method_id', 'payment_type', 'res_id', 'res_model', 'set null', 'type', 'view_mode', 'views']

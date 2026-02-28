@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_base/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['50mm increment', 'Exact', 'Girth Measure', 'Product Price', 'discount', 'fixed', 'flashing_girth', 'fold', 'fold_discount', 'fold_number', 'fold_price_method', 'fold_rate', 'girth', 'pricelist', 'res.partner', 'sqm']

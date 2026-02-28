@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_external_tax/models/account_move.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Taxes', 'account.move', 'amount_currency', 'balance', 'base_amount_currency', 'discount', 'group_name', 'id', 'is_refund', 'model_name', 'out_invoice', 'out_refund', 'posted', 'price_subtotal', 'price_total', 'price_unit', 'product', 'product_id', 'qty', 'same_tax_base', 'subtotals', 'tax_amount', 'tax_amount_currency', 'tax_groups', 'tax_ids', 'total']

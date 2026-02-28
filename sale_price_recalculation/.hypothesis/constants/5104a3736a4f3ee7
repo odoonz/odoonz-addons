@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_no_followup/models/account_move.py
+# hypothesis_version: 6.131.14
+
+['No Follow-Up', '_compute_no_followup', '_inverse_no_followup', 'account.move', 'asset_receivable', 'liability_payable', 'line_ids.no_followup']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_fleet/models/fleet_vehicle.py
+# hypothesis_version: 6.131.14
+
+['&', '=', 'Documents', '__count', 'context', 'default_res_id', 'default_res_model', 'documents.document', 'documents.mixin', 'domain', 'fleet.vehicle', 'folder', 'in', 'res_id', 'res_model', 'type', '|']

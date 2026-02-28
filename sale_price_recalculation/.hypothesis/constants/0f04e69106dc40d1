@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_demo.py
+# hypothesis_version: 6.131.14
+
+['/odoo', 'Demo', 'ir.actions.act_url', 'ir.demo', 'self', 'target', 'type', 'url']

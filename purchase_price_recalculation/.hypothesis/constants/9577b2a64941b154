@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/crm/models/crm_lost_reason.py
+# hypothesis_version: 6.131.14
+
+['Active', 'Description', 'Leads', 'Leads Count', 'Opp. Lost Reason', '__count', '_compute_leads_count', 'active_test', 'context', 'create', 'crm.lead', 'crm.lost.reason', 'domain', 'in', 'list,form', 'lost_reason_id', 'name', 'res_model', 'type', 'view_mode']

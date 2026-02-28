@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_amendment/models/stock_rule.py
+# hypothesis_version: 6.131.14
+
+['group_id', 'stock.rule', 'uid', 'user_id']

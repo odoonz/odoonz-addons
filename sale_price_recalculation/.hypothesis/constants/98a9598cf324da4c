@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/documents_automation/models/document_patterns.py
+# hypothesis_version: 6.131.14
+
+['Create Vendor Bill', 'Link MRP Production', 'Link Sale Order', 'Link Stock Picking', 'cascade', 'create_vendor_bill', 'link_mrp_production', 'link_sale_order', 'link_stock_picking', 'sequence']

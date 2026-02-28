@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/loglevels.py
+# hypothesis_version: 6.131.14
+
+['1252', 'Unknown message', 'args', 'cp1252', 'critical', 'debug', 'error', 'info', 'iso-8859-1', 'iso-8859-8-i', 'iso8859-15', 'iso8859-8', 'latin1', 'latin9', 'notset', 'strict', 'utf-8', 'utf8', 'warn']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/rating/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['=', 'Dissatisfied', 'Okay', 'POST', 'Satisfied', 'access_token', 'feedback', 'get', 'http', 'ir.model', 'ir.ui.view', 'model_name', 'name', 'post', 'public', 'rate', 'rate_names', 'rating', 'rating.rating', 'token', 'web_base_url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/analytic/models/analytic_distribution_model.py
+# hypothesis_version: 6.131.14
+
+['Company', 'Partner', 'Partner Category', 'analytic.mixin', 'cascade', 'company_id', 'create_date', 'form', 'in', 'model', 'name', 'partner_category_id', 'partner_id', 'res.company', 'res.partner', 'res.partner.category', 'res_id', 'res_model', 'sequence, id desc', 'type', 'view_mode', 'view_type']

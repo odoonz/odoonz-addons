@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_online_synchronization/wizard/account_bank_statement_line.py
+# hypothesis_version: 6.131.14
+
+['Amount in Currency', 'Foreign Currency', 'Pending', 'Posted', '_classic_read', 'account.journal', 'account_number', 'amount', 'amount_currency', 'company_id', 'date', 'date asc', 'foreign_currency_id', 'journal_id', 'online_account_id', 'partner_name', 'payment_ref', 'pending', 'posted', 'res.company', 'res.currency', 'transaction_details']

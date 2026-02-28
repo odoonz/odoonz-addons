@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/cli/upgrade_code.py
+# hypothesis_version: 6.131.14
+
+['**/*', '*.py', ',', '-', '--addons-path', '--dry-run', '--from', '--glob', '--script', '--to', '.css', '.csv', '.js', '.py', '.scss', '.xml', '/odoo/upgrade_code', 'NAME', 'PATH,...', 'VERSION', '__main__', '__pycache__', 'addons_path', 'from_version', 'store_true', 'to_version', 'tools', 'upgrade_code', 'w']

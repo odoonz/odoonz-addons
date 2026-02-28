@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/models/account_report.py
+# hypothesis_version: 6.131.14
+
+[' and %s others', ' and one other', ', ', 'All Branches', 'Branch', 'account.report', 'branch_id', 'company_id', 'filter_multi_branch', 'filters', 'id', 'in', 'multi_branch', 'name', 'res.company', 'root_report_id', 'selected', 'show_multi_branch']

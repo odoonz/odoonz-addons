@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/wizard/setup_wizards.py
+# hypothesis_version: 6.131.14
+
+[2020, '!=', '=', 'Bic', 'JUST_DONE', 'Journal', 'Opening Date', 'Opening Move Posted', '_compute_company_id', 'acc_number', 'account.journal', 'account.move', 'account_opening_date', 'bank', 'bank_account_id', 'bank_bic', 'bank_id', 'bank_id.bic', 'bic', 'cascade', 'code', 'company_id', 'date', 'fiscalyear_last_day', 'id', 'ir.actions.client', 'journal_id', 'linked_journal_id', 'name', 'new_journal_name', 'opening_date', 'partner_id', 'res.bank', 'res.company', 'res.partner.bank', 'res_partner_bank_id', 'soft_reload', 'tag', 'type', 'undefined']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/utm/models/utm_stage.py
+# hypothesis_version: 6.131.14
+
+['Campaign Stage', 'sequence', 'utm.stage']

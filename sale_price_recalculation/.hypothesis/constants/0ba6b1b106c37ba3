@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_contact_management/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['<br/>', 'Email', 'Name', 'None', 'Order Ref', 'Printed', 'Statement Preference', 'address_inline', 'complete_name', 'country_id', 'email', 'html_format', 'job_origin', 'lang', 'mobile', 'name', 'none', 'order', 'partner_show_db_id', 'phone', 'print', 'res.partner', 'show_address', 'show_email', 'show_phone', 'show_vat', 'state_id', 'stmt_preference', 'vat']

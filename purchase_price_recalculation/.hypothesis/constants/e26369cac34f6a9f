@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_dropship_address/models/sale_order.py
+# hypothesis_version: 6.131.14
+
+['Carrier', 'Collect', 'Delivery Method', 'Orders', 'Related Quote', 'Site', 'Site Address', 'Source From', 'Taken', 'Yard', 'cancel', 'collect', 'delivery', 'dispatch_method', 'in', 'invoice', 'is_dropship', 'opportunity_id', 'out_invoice', 'out_refund', 'partner.site.mixin', 'partner_id', 'partner_shipping_id', 'quote_id', 'res.partner.site', 'reversed_entry_id', 'sale', 'sale.order', 'site', 'stock.warehouse', 'taken', 'yard']

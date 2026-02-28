@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/account_lock_exception.py
+# hypothesis_version: 6.131.14
+
+[" for '%s'", ' valid until %s', '!', '!=', '&', '<', '<=', '=', '>=', 'Active', 'Changed Lock Date', 'Company', 'End Date', 'Exception', 'Expired', 'Global Lock Date', 'Journal Items', 'Lock Date Field', 'Original Lock Date', 'Purchase Lock Date', 'Reason', 'Revoked', 'Sales Lock Date', 'State', 'Tax Return Lock Date', 'User', '_compute_lock_dates', '_compute_state', '_search_state', 'account.move', 'account.move.line', 'active', 'active = TRUE', 'any', 'child_of', 'company_id', 'company_lock_date', 'create_uid', 'date', 'domain', 'end_datetime', 'everyone', 'expired', 'fiscalyear_lock_date', 'ir.model.fields', 'list,form', 'lock_date', 'lock_date_field', 'mail.tracking.value', 'move_id', 'name', 'purchase_lock_date', 'res.company', 'res.users', 'res_model', 'revoked', 'sale_lock_date', 'state', 'tax_lock_date', 'type', 'user_id', 'view_mode', '|']

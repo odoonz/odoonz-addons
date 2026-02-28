@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/controllers/model_page.py
+# hypothesis_version: 6.131.14
+
+['.', '/model/%s/%s', '=', '[]', 'create_date desc', 'href', 'ilike', 'ir.http', 'layout_mode', 'listing', 'main_object', 'name', 'name_slugified', 'order', 'order_by', 'page_last', 'pager', 'public', 'read', 'record', 'record_to_url', 'records', 'search', 'search_count', 'seo_name', 'url', 'view_id', 'website_published']

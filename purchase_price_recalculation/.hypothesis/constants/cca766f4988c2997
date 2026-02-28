@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/ir_actions_server.py
+# hypothesis_version: 6.131.14
+
+['%d', '%s/%s', '/website/action', 'External ID', 'Website Path', 'Website Url', '_compute_xml_id', '_get_website_url', 'code', 'ir.actions.server', 'json', 'request', 'response', 'state', 'website_path', 'website_published', 'xml_id']

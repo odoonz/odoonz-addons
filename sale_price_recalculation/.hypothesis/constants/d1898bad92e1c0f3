@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/xml_utils.py
+# hypothesis_version: 6.131.14
+
+['.xsd', '/', '=', 'XSD file not valid: ', '[^\t\n\r -\ud7ff\ue000-�𐀀-\U0010ffff]', 'cleanup_xml_node', 'datas', 'ir.attachment', 'name', 'public', 'raw']

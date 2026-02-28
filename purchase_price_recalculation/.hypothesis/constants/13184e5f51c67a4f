@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_skills/report/hr_employee_skill_report.py
+# hypothesis_version: 6.131.14
+
+['avg', 'employee_id.active', 'employee_id.name', 'hr.department', 'hr.skill', 'hr.skill.type', 'res.company']

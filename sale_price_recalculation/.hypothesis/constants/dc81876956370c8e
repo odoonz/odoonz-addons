@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/http_routing/models/ir_http.py
+# hypothesis_version: 6.131.14
+
+[301, 400, 403, 404, 418, 500, '#', '/', '//', '/static/', '/web/', '=', '?', '?%s', 'GET', 'HEAD', 'POST', '[]', '_', 'bundle_params', 'cache_hashes', 'code', 'error_message', 'frontend_lang', 'http', 'http_routing.%s', 'installed', 'ir.default', 'ir.http', 'ir.module.module', 'ir.ui.view', 'is_frontend', 'lang', 'multilang', 'name', 'path', 'query_args', 'res.lang', 'res.partner', 'routing.rewrites', 'state', 'translationURL', 'translations', 'type', 'view', 'web', 'website']

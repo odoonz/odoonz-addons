@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/account_daily_movement/models/account_daily_movement.py
+# hypothesis_version: 6.131.14
+
+[0.0, '!=', '=', 'Account', 'Branch', 'Change', 'Company', 'Date', 'account.account', 'account.journal', 'account.move.line', 'account_id', 'balance', 'balance:sum', 'balance_change', 'branch_id', 'company_id', 'create_date', 'create_date desc', 'date:day', 'in', 'journal_id', 'not in', 'parent_state', 'posted', 'posted_date', 'res.company', 'ril.branch']

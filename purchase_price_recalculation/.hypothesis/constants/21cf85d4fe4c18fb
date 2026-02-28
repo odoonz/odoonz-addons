@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/mail_activity_plan.py
+# hypothesis_version: 6.131.14
+
+[', ', 'cascade', 'coach', 'department_id', 'employee', 'hr.department', 'hr.employee', 'mail.activity.plan', 'manager', 'name', 'res_model']

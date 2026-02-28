@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_activity_mixin.py
+# hypothesis_version: 6.131.14
+
+['!=', '&', '=', 'Activities', 'Activity Mixin', 'Activity State', 'Activity Type Icon', 'Alert', 'Error', 'Icon', 'My Activity Deadline', 'Next Activity Type', 'Overdue', 'Planned', 'Responsible User', 'Today', 'UTC', 'active', 'activity_ids', 'activity_ids.icon', 'activity_ids.state', 'activity_ids.summary', 'activity_ids.user_id', 'activity_state', 'activity_type_id', 'any', 'automated', 'base.group_user', 'danger', 'date_deadline', 'id', 'in', 'ir.model', 'ir.model.data', 'ir.qweb', 'last_activity_state', 'mail.activity', 'mail.activity.mixin', 'mail.activity.type', 'mail.mt_comment', 'mail.template', 'not in', 'note', 'object', 'overdue', 'partner_id', 'planned', 'read', 'res.partner', 'res.users', 'res_id', 'res_model', 'res_model_id', 'state', 'summary', 'today', 'tz', 'uid', 'user_id', 'user_tz', 'warning']

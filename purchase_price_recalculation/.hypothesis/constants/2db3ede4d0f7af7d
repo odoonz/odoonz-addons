@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_account/models/stock_quant.py
+# hypothesis_version: 6.131.14
+
+[' [Accounted on %s]', 'Accounting Date', 'Value', '_compute_value', 'accounting_date', 'company_id', 'force_period_date', 'id:recordset', 'inventory_name', 'location_id', 'lot_id', 'name', 'owner_id', 'product_id', 'quantity', 'res.currency', 'stock.quant', 'value', 'value:sum']

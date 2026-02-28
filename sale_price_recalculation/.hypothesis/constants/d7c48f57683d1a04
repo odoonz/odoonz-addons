@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_automatic_workflow/models/dispatch_manifest.py
+# hypothesis_version: 6.131.14
+
+[100, 1000, '!=', '<=', '=', 'cancel', 'create_date', 'dispatch.manifest', 'done', 'draft', 'in_progress', 'picking_ids', 'scheduled_date', 'state', 'write_date', '|']

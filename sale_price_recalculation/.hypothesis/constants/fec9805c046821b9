@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_signup/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['!=', '%s', '/web', '/web/login?%s', '/web/reset_password', '/web/signup', '<br/>', '=', 'GET', 'Invalid signup token', 'No login provided.', 'POST', 'SAMEORIGIN', 'True', 'X-Frame-Options', 'account_created', 'auth_signup.signup', 'auth_signup_token', 'b2c', 'base.public_user', 'confirm_password', 'email', 'error', 'http', 'invalid_token', 'ir.config_parameter', 'ir.http', 'lang', 'list_db', 'login', 'message', 'name', 'new', 'password', 'password_reset', 'public', 'redirect', 'res.lang', 'res.partner', 'res.users', 'resend_invitation', 'signup', 'signup_email', 'signup_enabled', 'state', 'token', 'type']

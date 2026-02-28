@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/models/account_followup_report.py
+# hypothesis_version: 6.131.14
+
+['Due', 'Overdue', 'account.report', 'columns', 'date_maturity', 'general', 'hide_initial_balance', 'hide_partner_totals', 'id', 'journals', 'level', 'name', 'parent_id', 'partner_ids', 'pdf_export', 'pdf_export_main', 'report_id', 'res.partner', 'selected', 'type', 'unfolded', 'unfolded_lines', 'unreconciled']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/decimal_precision.py
+# hypothesis_version: 6.131.14
+
+['Decimal Precision', 'Digits', 'Usage', 'Warning for %s', 'application', 'decimal.precision', 'digits', 'message', 'name', 'name_uniq', 'title', 'unique (name)', 'warning']

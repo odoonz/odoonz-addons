@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_disallowed_expenses_fleet/models/bank_rec_widget_line.py
+# hypothesis_version: 6.131.14
+
+['account_id', 'bank.rec.widget.line']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_dropship_address/models/product_product.py
+# hypothesis_version: 6.131.14
+
+[0.0, '!=', '=', 'Default Supplier', 'Default Suppliers', 'Interbranch Pricing', 'company_id', 'customer_id', 'default.supplier.map', 'dest_supplier_id', 'force_buy', 'id', 'in', 'name asc', 'opportunity_id', 'partner_id', 'product.product', 'product_id', 'res.partner', 'sequence', 'src_supplier_id', 'stock.warehouse', 'use_default_partner', 'warehouse_id']

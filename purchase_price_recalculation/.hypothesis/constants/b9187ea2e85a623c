@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_dropship_address/hooks.py
+# hypothesis_version: 6.131.14
+
+['company_id', 'contact', 'ir.model.data', 'model', 'module', 'name', 'noupdate', 'res.partner', 'res_id', 'site_contact_one_off', 'type']

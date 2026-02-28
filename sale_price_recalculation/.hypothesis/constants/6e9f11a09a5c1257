@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'chart_template', 'generic_coa', 'parent_path', 'res.company']

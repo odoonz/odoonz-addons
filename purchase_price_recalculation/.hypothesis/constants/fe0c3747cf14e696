@@ -1,0 +1,4 @@
+# file: /usr/lib/python3/dist-packages/packaging/_structures.py
+# hypothesis_version: 6.131.14
+
+['-Infinity', 'Infinity', 'NegativeInfinityType']

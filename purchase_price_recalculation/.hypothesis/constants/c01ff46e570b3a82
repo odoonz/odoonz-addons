@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk_sms/models/helpdesk_stage.py
+# hypothesis_version: 6.131.14
+
+['=', 'SMS Template', 'helpdesk.stage', 'helpdesk.ticket', 'model', 'sms.template']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp_account/models/mrp_workcenter.py
+# hypothesis_version: 6.131.14
+
+[',', 'Expense Account', 'account.account', 'account.move.line', 'analytic.mixin', 'mrp.workcenter']

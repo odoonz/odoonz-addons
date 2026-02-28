@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_check_printing/models/res_company.py
+# hypothesis_version: 6.131.14
+
+[0.25, 'Check Layout', 'Check Left Margin', 'Check Top Margin', 'None', 'Print Date Label', 'Right Margin', 'disabled', 'res.company']

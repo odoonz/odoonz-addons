@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/bus/controllers/websocket.py
+# hypothesis_version: 6.131.14
+
+['*', '/websocket', '/websocket/health', '/websocket/on_closed', 'Cache-Control', 'Content-Type', 'application/json', 'assets', 'bus.bus', 'channels', 'http', 'ir.binary', 'ir.qweb', 'ir.websocket', 'is_websocket_session', 'json', 'last', 'missed_presences', 'no-store', 'none', 'notifications', 'pass', 'public', 'status']

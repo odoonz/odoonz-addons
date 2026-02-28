@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/price_change_notification/wizards/price_change_notification.py
+# hypothesis_version: 6.131.14
+
+['Company', 'active_ids', 'company_id', 'draft', 'future', 'id desc', 'in', 'invoice', 'partner_id', 'price.change.record', 'price_change_id', 'priced', 'product.price.change', 'res.company', 'res.partner', 'state', 'type', 'unpriced']

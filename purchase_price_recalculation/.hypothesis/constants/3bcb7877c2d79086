@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/product_barcodelookup/models/product_template.py
+# hypothesis_version: 6.131.14
+
+[1.0, ',', '<br>', '<li>%s: %s</li>', '<li>%s</li>', '<p>%s</p>', '=', '>', 'Attributes', 'Category', 'Dimension', 'Features', 'age group', 'asin', 'attribute_id', 'available_in_pos', 'barcode', 'base.group_system', 'brand', 'can_be_sold', 'category', 'cm', 'color', 'currency', 'description', 'ean13', 'ean8', 'features', 'gender', 'height', 'ilike', 'images', 'in', 'is_published', 'key', 'length', 'manufacturer', 'material', 'model', 'mpn', 'name', 'pattern', 'price', 'product.attribute', 'product.category', 'product.template', 'products', 'res.currency', 'sale_price', 'size', 'skip_barcode_check', 'stores', 'title', 'unit', 'uom.product_uom_cm', 'uom.product_uom_foot', 'uom.product_uom_inch', 'uom.product_uom_kgm', 'uom.product_uom_lb', 'uom_val', 'upca', 'value_ids', 'website_published', 'weight', 'width']

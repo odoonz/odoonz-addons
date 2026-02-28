@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_tag.py
+# hypothesis_version: 6.131.14
+
+['#3C3C3C', '%s (copy)', 'Color', 'Name', 'Product Tag', 'Product Templates', 'Product Variants', '_compute_product_ids', '_search_product_ids', 'name_uniq', 'product.product', 'product.tag', 'product.template', 'product_product_ids', 'product_template_id', 'product_template_ids', 'product_variant_id', 'sequence, id', 'unique (name)', '|']

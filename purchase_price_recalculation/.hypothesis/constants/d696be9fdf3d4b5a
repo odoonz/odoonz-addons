@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/wizard/bill_to_po_wizard.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'account.move.line', 'active_ids', 'bill.to.po.wizard', 'form', 'is_downpayment', 'lang', 'name', 'order_id', 'order_line', 'partner_id', 'price_unit', 'product_qty', 'product_uom', 'purchase.order', 'purchase.order.line', 'res.partner', 'res_id', 'res_model', 'taxes_id', 'type', 'view_mode']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/analytic/models/analytic_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, 100, ',', 'Amount', 'Analytic Account', 'Analytic Line', 'Analytic Plan Fields', 'Company', 'Currency', 'Date', 'Description', 'Other', 'Partner', 'Percentage Analytic', 'Project Account', 'Quantity', 'Unit of Measure', 'UoM Category', 'User', '_search_auto_account', 'amount', 'analytic.mixin', 'analytic_plan_id', 'applicability', 'child_of', 'column_name', 'context', 'date', 'date desc, id desc', 'date_from', 'decimal.precision', 'default_plan_id', 'domain', 'fiscal_start_year', 'form', 'mandatory', 'message', 'name', 'optional', 'other', 'plan_id', 'read', 'res.company', 'res.partner', 'res.users', 'restrict', 'search', 'show', 'simple_notification', 'string', 'studio', 'success', 'type', 'uom.uom', 'user_id']

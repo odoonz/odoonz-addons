@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_no_followup/models/account_followup_report.py
+# hypothesis_version: 6.131.14
+
+['=', 'AccountReportHeader', 'AccountReportLine', 'components', 'export_mode', 'forced_domain', 'no_followup', 'print', 'templates']

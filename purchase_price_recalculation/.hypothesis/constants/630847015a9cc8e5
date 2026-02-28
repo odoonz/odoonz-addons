@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web_tour/models/tour.py
+# hypothesis_version: 6.131.14
+
+[1000, '/odoo', '=', 'Custom', 'Sharing URL', 'Starting URL', "Tour's step", 'Tours', '_compute_sharing_url', 'cascade', 'content', 'custom', 'datas', 'id', 'ir.actions.act_url', 'ir.attachment', 'mimetype', 'name', 'not in', 'rainbowManMessage', 'res.users', 'res_id', 'res_model', 'run', 'sequence, id', 'sequence, name, id', 'steps', 'tour_id', 'trigger', 'type', 'uniq_name', 'unique(name)', 'url', 'user_consumed_ids', 'utf-8', 'web_tour.tour', 'web_tour.tour.step']

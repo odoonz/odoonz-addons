@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_ui_menu.py
+# hypothesis_version: 6.131.14
+
+['(%d)', '(1)', ',', '...', '.gif', '.ico', '.jfif', '.jpeg', '.jpg', '.png', '.svg', '.webp', '/', '=', 'Child IDs', 'Full Path', 'Groups', 'Menu', 'Parent Menu', 'Web Icon File', 'Web Icon Image', '\\(([0-9]+)\\)', 'action', 'active_test', 'all_menu_ids', 'app_id', 'base.group_no_one', 'child_of', 'children', 'datas', 'debug', 'gid', 'id', 'in', 'ir.actions.act_url', 'ir.actions.client', 'ir.actions.report', 'ir.actions.server', 'ir.attachment', 'ir.model.access', 'ir.model.data', 'ir.ui.menu', 'ir.ui.menu.full_list', 'ir_ui_menu_group_rel', 'lang', 'menu_id', 'mimetype', 'model', 'model_name', 'name', 'not in', 'parent_id', 'rb', 'read', 'res.groups', 'res_field', 'res_id', 'res_model', 'restrict', 'root', 'self', 'self._uid', 'sequence', 'sequence,id', 'web_icon', 'web_icon_data', 'xmlid']

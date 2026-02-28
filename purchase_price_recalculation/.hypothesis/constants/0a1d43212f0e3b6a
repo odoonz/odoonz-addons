@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_org_chart/models/hr_org_chart_mixin.py
+# hypothesis_version: 6.131.14
+
+['!', '!=', '=', 'Department Color', '_compute_child_count', 'child_ids', 'company', 'department_id.color', 'hr.employee.base', 'id', 'id:count', 'in', 'parent_id', 'uid']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mrp_account_enterprise/reports/mrp_report.py
+# hypothesis_version: 6.131.14
+
+['%s %s %s %s', 'Company', 'Cost / Unit', 'Currency', 'End Date', 'Manufacturing Order', 'Manufacturing Report', 'Product', 'Quantity Demanded', 'Quantity Produced', 'Total Component Cost', 'Total Cost', 'Total Operation Cost', 'Yield Percentage(%)', 'avg', 'date_finished desc', 'mrp.production', 'mrp.report', 'product', 'product.product', 'production_id', 'qty_demanded', 'qty_produced', 'res.company', 'res.currency', 'standard_price', 'unit_cost:avg', 'unit_duration:avg', 'yield_rate:sum']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/spreadsheet_edition/models/spreadsheet_cell_thread.py
+# hypothesis_version: 6.131.14
+
+['New Mention in %s', 'email_layout_xmlid', 'home', 'ir.actions.act_url', 'ir.actions.client', 'mail.thread', 'msg_vals', 'params', 'public', 'read', 'tag', 'target_type', 'thread_id', 'type', 'url']

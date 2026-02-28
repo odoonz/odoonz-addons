@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_replenishment_info.py
+# hypothesis_version: 6.131.14
+
+['%s days', '<=', '=', '>=', '_compute_free_qty', '_compute_lead_time', 'company_id', 'customer', 'date', 'date:month', 'decimal_precision', 'done', 'form', 'free_qty', 'ir.qweb.field.float', 'lead_days_date', 'location_id.usage', 'manual', 'month', 'name', 'new', 'orderpoint_id', 'procurement.group', 'product.product', 'product_id', 'product_id.uom_name', 'product_max_qty', 'product_min_qty', 'product_qty:sum', 'product_uom_name', 'qty_forecast', 'qty_to_order', 'quantity', 'res_id', 'res_model', 'route_id', 'route_ids', 'state', 'stock.location', 'stock.move', 'stock.route', 'stock.warehouse', 'target', 'template', 'today', 'total_delay', 'trigger', 'type', 'uom', 'uom_name', 'views', 'virtual', 'visibility_days', 'visibility_days_date', 'warehouse_id']

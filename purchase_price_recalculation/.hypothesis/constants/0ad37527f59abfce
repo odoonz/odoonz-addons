@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/_vendor/sessions.py
+# hypothesis_version: 6.131.14
+
+[420, '%s', '%s(.{5,})%s$', '*', '.__wz_sess', '<%s %s%s>', '^[a-f0-9]{40}$', 'ascii', 'modified', 'new', 'on_update', 'r', 'sid', 'utf-8', 'w', 'werkzeug_%s.sess']

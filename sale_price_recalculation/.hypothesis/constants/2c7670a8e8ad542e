@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/price_recalculation/wizards/price_recalculation_line.py
+# hypothesis_version: 6.131.14
+
+[1.0, 100.0, 'Account', 'Discount', 'Discount (%)', 'Product', 'Product Price', 'Total ex Tax', 'Total inc Tax', 'Unit Price', '_compute_price_total', 'decimal.precision', 'discount', 'price.recalculation', 'price_subtotal', 'price_total', 'price_unit', 'product.product', 'qty']

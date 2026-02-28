@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web_editor/models/ir_qweb.py
+# hypothesis_version: 6.131.14
+
+['ir.qweb']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/models/account_chart_template.py
+# hypothesis_version: 6.131.14
+
+['account.account', 'account.journal', 'account_type', 'asset_current', 'general', 'liability_current', 'res.company', 'template_data', 'type']

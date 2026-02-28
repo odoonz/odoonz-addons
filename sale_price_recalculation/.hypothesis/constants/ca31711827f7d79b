@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/controllers/product_document.py
+# hypothesis_version: 6.131.14
+
+['All files uploaded', 'POST', 'company_id', 'error', 'http', 'mimetype', 'name', 'product.document', 'product.product', 'product.template', 'raw', 'res_id', 'res_model', 'success', 'ufile', 'user', 'write']

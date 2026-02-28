@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/crm_enterprise/models/crm_lead.py
+# hypothesis_version: 6.131.14
+
+[100, 'Days To Convert', 'Is Won', 'Lost', 'Pending', 'Won', '_compute_won_status', 'active', 'create_date', 'crm.lead', 'date_closed', 'date_conversion', 'date_deadline', 'lost', 'pending', 'probability', 'won']

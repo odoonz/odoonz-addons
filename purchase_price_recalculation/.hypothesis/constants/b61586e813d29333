@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/crm_iap_enrich/__init__.py
+# hypothesis_version: 6.131.14
+
+['auto', 'ir.config_parameter']

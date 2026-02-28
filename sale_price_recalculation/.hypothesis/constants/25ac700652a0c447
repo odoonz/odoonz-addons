@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_mrp/models/sale_order_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'HALF-UP', 'bom_line_id.bom_id', 'cancel', 'consu', 'customer', 'done', 'draft', 'id', 'incoming_moves', 'mrp.bom', 'outgoing_moves', 'phantom', 'product.product', 'product_id', 'product_uom_qty', 'qty', 'qty_delivered', 'sale', 'sale.order.line', 'sent', 'state', 'stock_move', 'uom', 'uom.uom']

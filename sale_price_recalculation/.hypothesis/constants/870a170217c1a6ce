@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_sale_rule/models/partner_sale_rule.py
+# hypothesis_version: 6.131.14
+
+['=', 'Company', 'Customer', 'Sales Team', 'Salesperson', 'Warehouse', 'base.group_user', 'company_id', 'crm.team', 'groups_id', 'in', 'parent_id', 'partner.sale.rule', 'res.company', 'res.partner', 'res.users', 'stock.warehouse', 'warehouse_id']

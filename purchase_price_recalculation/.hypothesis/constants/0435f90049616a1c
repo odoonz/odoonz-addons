@@ -1,0 +1,4 @@
+# file: /odoo/src/reporting-engine/report_xlsx_helper/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[',', '.', '.xlsx', 'Content-Disposition', 'Content-Length', 'Content-Type', '_', 'active_model', 'context', 'export', 'http', 'ir.actions.report', 'options', 'report_file', 'report_name', 'user', 'xlsx']

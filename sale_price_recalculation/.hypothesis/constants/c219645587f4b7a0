@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/delivery/models/sale_order_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Is a Delivery', 'Product Qty', '_compute_product_qty', 'carrier_id', 'combo', 'is_delivery', 'product_id', 'product_uom', 'product_uom_qty', 'sale.order.line', 'service']

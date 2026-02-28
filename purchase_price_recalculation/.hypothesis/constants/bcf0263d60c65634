@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_setup/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['/base_setup/data', '=', 'Access Denied', 'action_pending_users', 'active_users', 'count', 'demo', 'ir.module.module', 'json', 'pending_count', 'pending_users', 'res.users', 'user']

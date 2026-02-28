@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/accountant/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'AU', 'Billing Manager', 'CA', 'US', 'account.menu_finance', 'category_id', 'implied_ids', 'in', 'ir.module.module', 'name', 'state', 'uninstalled', 'users']

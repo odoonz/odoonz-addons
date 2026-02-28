@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_edi_ubl_cii/models/account_edi_xml_ubl_a_nz.py
+# hypothesis_version: 6.131.14
+
+['0088', '0151', 'A-NZ BIS Billing 3.0', 'AU', 'GST', 'NZ', '_text', '_ubl_values', 'cac:PartyLegalEntity', 'cac:PartyTaxScheme', 'cac:TaxScheme', 'cac:TaxTotal', 'cbc:BaseAmount', 'cbc:CompanyID', 'cbc:CustomizationID', 'cbc:EndpointID', 'cbc:ID', 'company_id', 'company_id_attrs', 'credit_note', 'customization_id', 'endpoint_id', 'id', 'invoice', 'partner', 'schemeID', 'scheme_id', 'tax_scheme_vals', 'tax_totals_currency', 'ubl_a_nz', 'vals']

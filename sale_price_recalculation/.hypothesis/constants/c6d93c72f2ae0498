@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_asset/models/account_asset_group.py
+# hypothesis_version: 6.131.14
+
+['Asset Group', 'Company', 'Name', 'Related Assets', '__count', 'account.asset', 'account.asset.group', 'asset_group_id', 'domain', 'id', 'in', 'linked_asset_ids', 'list,form', 'name', 'res.company', 'res_model', 'trigram', 'type', 'view_mode']

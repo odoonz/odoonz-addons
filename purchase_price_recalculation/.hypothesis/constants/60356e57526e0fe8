@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['# Meetings', 'Meetings', 'attendee_id', 'calendar.event', 'calendar_event_id', 'child_of', 'context', 'default_partner_ids', 'domain', 'event_id', 'id', 'in', 'ir.actions.actions', 'is_alone', 'is_organizer', 'name', 'parent_id', 'partner_ids', 'res.partner', 'res.users', 'res_partner_id', 'status', 'uid', '|']

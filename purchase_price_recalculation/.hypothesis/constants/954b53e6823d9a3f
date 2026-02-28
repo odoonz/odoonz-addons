@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/wizard/base_language_install.py
+# hypothesis_version: 6.131.14
+
+['[lang]', 'params', 'url_return', 'website', 'website_id', 'website_ids']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/models/sms_tracker.py
+# hypothesis_version: 6.131.14
+
+['SMS uuid', 'bounce', 'canceled', 'cascade', 'error', 'exception', 'failure_reason', 'failure_type', 'mail.notification', 'notification_status', 'outgoing', 'pending', 'process', 'ready', 'sent', 'sms.sms', 'sms.tracker', 'sms_uuid_unique', 'unique(sms_uuid)', 'unknown']

@@ -1,19 +1,105 @@
 from odoo import fields
 from odoo.tests import tagged
+from odoo.tests.common import TransactionCase
 
-from odoo.addons.sale_stock.tests.test_anglo_saxon_valuation import (
-    TestAngloSaxonValuation,
+from odoo.addons.stock_account.tests import (
+    test_anglo_saxon_valuation_reconciliation_common,
+)
+
+ValuationReconciliationTestCommon = (
+    test_anglo_saxon_valuation_reconciliation_common.ValuationReconciliationTestCommon
 )
 
 
 @tagged("post_install", "-at_install")
-class TestAngloSaxonFinancial(TestAngloSaxonValuation):
+class TestAngloSaxonFinancial(TransactionCase):
+    """Minimal independent setup for anglo-saxon financial tests."""
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.product.categ_id.property_cost_method = "standard"
-        cls.product.invoice_policy = "order"
-        cls.product.standard_price = 10.0
+        cls.env = cls.env(su=True)
+        cls.company = cls.env.company
+
+        # Build company_data (receivable, revenue, expense, stock accounts, warehouse).
+        # Helper class with our env so the common's collect_company_accounting_data
+        # and its super() chain work correctly.
+        helper = type(
+            "_CollectHelper",
+            (ValuationReconciliationTestCommon,),
+            {"env": cls.env},
+        )
+        cls.company_data = helper.collect_company_accounting_data(cls.company)
+
+        cls.env.user.groups_id += cls.env.ref(
+            "stock_account.group_stock_accounting_automatic"
+        )
+
+        cls.stock_account_product_categ = cls.env["product.category"].create(
+            {
+                "name": "Test category",
+                "property_valuation": "real_time",
+                "property_cost_method": "standard",
+                "property_stock_valuation_account_id": cls.company_data[
+                    "default_account_stock_valuation"
+                ].id,
+                "property_stock_account_input_categ_id": cls.company_data[
+                    "default_account_stock_in"
+                ].id,
+                "property_stock_account_output_categ_id": cls.company_data[
+                    "default_account_stock_out"
+                ].id,
+            }
+        )
+
+        cls.company.anglo_saxon_accounting = True
+
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "product",
+                "is_storable": True,
+                "categ_id": cls.stock_account_product_categ.id,
+                "invoice_policy": "order",
+                "standard_price": 10.0,
+            }
+        )
+
+        cls.partner_a = cls.env["res.partner"].create(
+            {
+                "name": "partner_a",
+                "company_id": False,
+                "property_account_receivable_id": cls.company_data[
+                    "default_account_receivable"
+                ].id,
+                "property_account_payable_id": cls.company_data[
+                    "default_account_payable"
+                ].id,
+            }
+        )
+
+    def _so_and_confirm_two_units(self):
+        sale_order = self.env["sale.order"].create(
+            {
+                "partner_id": self.partner_a.id,
+                "order_line": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": self.product.name,
+                            "product_id": self.product.id,
+                            "product_uom_qty": 2.0,
+                            "product_uom": self.product.uom_id.id,
+                            "price_unit": 12,
+                            "tax_id": False,
+                        },
+                    )
+                ],
+            }
+        )
+        sale_order.flush_recordset()
+        sale_order.action_confirm()
+        return sale_order
 
     def test_financial_sale_invoice(self):
         sale_order = self._so_and_confirm_two_units()
@@ -141,6 +227,12 @@ class TestAngloSaxonFinancial(TestAngloSaxonValuation):
         reversal = move_reversal.refund_moves()
         credit_note = self.env["account.move"].browse(reversal["res_id"])
         credit_note.invoice_line_ids.quantity = 1.0
+        # Ensure product line keeps sale price so amounts match expectations
+        product_line = credit_note.invoice_line_ids.filtered(
+            lambda line: line.product_id == self.product
+        )
+        if product_line:
+            product_line.price_unit = 12.0
         credit_note.action_post()
 
         # Check sale quantities

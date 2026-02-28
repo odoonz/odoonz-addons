@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_gs1/models/product_product.py
+# hypothesis_version: 6.131.14
+
+['UNIQUE(barcode)', 'barcode', 'gs1.barcode.range', 'product.product']

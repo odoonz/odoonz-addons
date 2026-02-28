@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/hr_expense_extract/wizard/expense_sample_register.py
+# hypothesis_version: 6.131.14
+
+['Amount', 'Expense', 'Journal', 'Keep open', 'Mark as fully paid', 'Memo', 'Payment Date', 'Payment Difference', 'Payment Method', '_compute_journal', '_compute_partial', 'account.journal', 'active_id', 'amount', 'bank', 'cash', 'company_id', 'currency_id', 'hr.expense.sheet', 'in', 'manual', 'memo', 'open', 'paid', 'sheet_id', 'sheet_id.company_id', 'sheet_id.currency_id', 'type']

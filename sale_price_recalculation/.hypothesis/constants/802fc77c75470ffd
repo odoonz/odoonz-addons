@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_base/models/stock_rule.py
+# hypothesis_version: 6.131.14
+
+['!', '%', '=ilike', '=like', 'SO%', 'cutlist.line', 'move_dest_ids', 'origin', 'sale.order.line', 'sale_line_id', 'stock.rule', 'supplierinfo_name', 'user_id']

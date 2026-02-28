@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/models/analytic.py
+# hypothesis_version: 6.131.14
+
+['=', 'Sale Order', 'Sales Order Item', 'analytic', 'btree_not_null', 'cascade', 'qty_delivered_method', 'sale.order.line', 'sale_order']

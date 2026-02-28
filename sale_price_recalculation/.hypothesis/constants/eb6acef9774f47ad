@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/account_financial_risk_manager/models/sale_order_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'sale.order.line']

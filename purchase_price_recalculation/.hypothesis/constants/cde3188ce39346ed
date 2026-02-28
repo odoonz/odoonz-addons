@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/analytic/models/analytic_mixin.py
+# hypothesis_version: 6.131.14
+
+[100, '!=', '%s && %s', ',', '=', 'Analytic Mixin', 'Percentage Analytic', '__count', '__update__', 'account_asset', 'account_id', 'account_move_line', 'analytic.mixin', 'applicability', 'decimal.precision', 'display_name', 'distribution', 'distribution_ids', 'hr_expense', 'id', 'ilike', 'in', 'mandatory', 'move_id', 'not ilike', 'not in', 'order_id', 'purchase_order_line', 'validate_analytic']

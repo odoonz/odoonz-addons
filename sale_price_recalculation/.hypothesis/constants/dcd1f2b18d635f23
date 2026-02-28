@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_cohort/models/ir_action_act_window.py
+# hypothesis_version: 6.131.14
+
+['Cohort', 'cascade', 'cohort']

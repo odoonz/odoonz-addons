@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_base_import/wizard/account_move_line_import.py
+# hypothesis_version: 6.131.14
+
+['account.move.line', 'base_import.import', 'date', 'fields', 'id', 'journal_id', 'model_name', 'move_id', 'name', 'required', 'string', 'type']

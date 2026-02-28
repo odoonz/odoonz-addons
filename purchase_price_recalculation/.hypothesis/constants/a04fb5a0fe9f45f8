@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax/models/account_chart_template.py
+# hypothesis_version: 6.131.14
+
+['auto_apply', 'base.us', 'country_id', 'generic_coa', 'is_avatax', 'name']

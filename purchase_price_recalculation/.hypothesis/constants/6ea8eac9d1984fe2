@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_install_request/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'appointment', 'hr', 'in', 'ir.module.module', 'knowledge', 'mass_mailing', 'name', 'planning', 'project', 'sign', 'state', 'survey', 'uninstalled']

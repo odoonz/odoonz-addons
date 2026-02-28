@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/discuss/channel.py
+# hypothesis_version: 6.131.14
+
+['!=', '<', '=', 'POST', 'channel_id', 'channels_as_member', 'data', 'discuss.channel', 'id', 'id DESC', 'id desc', 'ilike', 'image_128', 'ir.attachment', 'is_self', 'json', 'mail.message', 'message_type', 'messages', 'model', 'name', 'parent_channel_id', 'pinned_at', 'public', 'res_id', 'res_model', 'sub_channel', 'user_notification']

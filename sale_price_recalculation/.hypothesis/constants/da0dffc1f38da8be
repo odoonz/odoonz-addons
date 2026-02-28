@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/agreement_rebate_ril/wizards/agreement_renew_wiz.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Renewed Agreement', 'Renewed Agreements', 'active_id', 'active_ids', 'agreement', 'agreement.renew.wiz', 'agreement_ids', 'current', 'domain', 'form', 'id', 'in', 'list,form', 'name', 'new_end_date', 'new_start_date', 'res_id', 'res_model', 'target', 'type', 'view_mode']

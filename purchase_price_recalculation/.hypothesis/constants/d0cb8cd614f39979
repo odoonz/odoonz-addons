@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/models/account_tax.py
+# hypothesis_version: 6.131.14
+
+['Companies', 'Country', 'Main Company', 'Members of this unit', 'Name', 'Tax ID', 'Tax Unit', 'account.tax', 'account.tax.unit', 'company_id', 'company_ids', 'country_id', 'domain', 'field_name', 'horizontal_group_ids', 'main_company_id', 'name', 'res.company', 'res.country', 'res.partner', 'rule_ids', 'tax unit [%s]', 'tax_ids', 'tax_src_id', 'values', 'vat', 'xml_id']

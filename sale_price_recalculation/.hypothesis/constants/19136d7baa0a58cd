@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_fleet/wizard/hr_departure_wizard.py
+# hypothesis_version: 6.131.14
+
+['Release Company Car', 'date_end', 'driver_employee_id', 'driver_id', 'fleet.vehicle', 'hr.departure.wizard', 'in']

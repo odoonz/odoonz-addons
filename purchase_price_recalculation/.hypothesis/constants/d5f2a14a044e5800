@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk_sale/models/helpdesk_ticket.py
+# hypothesis_version: 6.131.14
+
+['Ref. Sales Order', 'helpdesk.ticket', 'sale.order', 'sale_order_id', 'sale_order_id.state']

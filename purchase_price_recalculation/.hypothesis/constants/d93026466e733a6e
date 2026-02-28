@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/models/account_tax.py
+# hypothesis_version: 6.131.14
+
+['account.move.line', 'account.tax', 'deferred_end_date', 'deferred_start_date', 'record', 'tax_rep']

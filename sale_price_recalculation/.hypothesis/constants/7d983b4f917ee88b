@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/mrp_workorder/models/hr_employee.py
+# hypothesis_version: 6.131.14
+
+['&', '=', 'admin', 'all', 'company_id', 'connected', 'date_end:array_agg', 'date_start:array_agg', 'duration', 'duration:sum', 'employee_id', 'employee_ids.id', 'employees_connected', 'hr.employee', 'id', 'in', 'mrp.workorder', 'name', 'ongoing', 'operation_name', 'progress', 'session_owner', 'state', 'work_order_name', 'workorder', 'workorder_id', '|']

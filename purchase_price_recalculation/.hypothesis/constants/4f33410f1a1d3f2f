@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website_payment/controllers/portal.py
+# hypothesis_version: 6.131.14
+
+[25.0, '/donation/pay', 'Country is required.', 'Donate', 'Email is required.', 'GET', 'Name is required.', 'POST', '[]', 'access_token', 'amount', 'countries', 'country_id', 'currency_id', 'custom_create_values', 'donationAmounts', 'donation_amounts', 'donation_comment', 'donation_options', 'email', 'error', 'freeAmount', 'http', 'is_donation', 'json', 'minimumAmount', 'name', 'partner', 'partner_country_id', 'partner_details', 'partner_email', 'partner_id', 'partner_name', 'public', 'reference_prefix', 'res.country', 'submit_button_label', 'tokenize', 'transaction_route']

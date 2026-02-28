@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/delivery/controllers/location_selector.py
+# hypothesis_version: 6.131.14
+
+['=', 'code', 'json', 'res.country', 'sale.order', 'user']

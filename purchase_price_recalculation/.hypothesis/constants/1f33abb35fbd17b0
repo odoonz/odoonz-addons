@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_vat/models/account_fiscal_position.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'base.europe', 'code', 'country_group_id', 'country_id', 'fiscal position [%s]', 'foreign_vat', 'res.country', 'res.country.group', 'res.partner']

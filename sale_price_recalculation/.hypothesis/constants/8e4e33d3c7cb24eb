@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/snailmail/models/ir_actions_report.py
+# hypothesis_version: 6.131.14
+
+['ir.actions.report', 'snailmail_layout']

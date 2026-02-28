@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web_hierarchy/models/ir_ui_view.py
+# hypothesis_version: 6.131.14
+
+['Hierarchy', '__validate__', 'child_field', 'class', 'create', 'default_order', 'delete', 'draggable', 'edit', 'field', 'hierarchy', 'icon', 'ir.ui.view', 'js_class', 'parent_field', 'string', 'templates', 'validate']

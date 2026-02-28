@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk/report/helpdesk_ticket_analysis.py
+# hypothesis_version: 6.131.14
+
+['Active', 'Assigned To', 'Average Rating', 'Closing Date', 'Company', 'Customer', 'Customer Email', 'Customer Name', 'Customer Phone', 'Green', 'Grey', 'Helpdesk Team', 'Hours Open', 'Kanban State', 'Minimum Priority', 'Rating (1-5)', 'Red', 'SLA Status', 'SLA Status Success', 'SLAs', 'Stage', 'Subject', 'Tags', 'Ticket', 'Ticket Analysis', 'Ticket Creation Date', 'Ticket Deadline', 'Ticket IDs Sequence', 'avg', 'blocked', 'bool_or', 'create_date DESC', 'done', 'helpdesk.sla', 'helpdesk.sla.status', 'helpdesk.stage', 'helpdesk.tag', 'helpdesk.team', 'helpdesk.ticket', 'helpdesk_sla_status', 'helpdesk_tag_id', 'helpdesk_ticket_id', 'normal', 'res.company', 'res.partner', 'res.users', 'sla_id', 'ticket_id', 'ticket_id.sla_fail']

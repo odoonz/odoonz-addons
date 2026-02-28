@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/wizard/base_module_uninstall.py
+# hypothesis_version: 6.131.14
+
+['.', '=', 'Impacted data models', 'Impacted modules', 'Module', 'Module Uninstall', '_compute_model_ids', '_compute_module_ids', 'application', 'cascade', 'in', 'installed', 'ir.model', 'ir.module.module', 'module_id', 'module_ids', 'name', 'show_all', 'state', 'to install', 'to upgrade', 'transient']

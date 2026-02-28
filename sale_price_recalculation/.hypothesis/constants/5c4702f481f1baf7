@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/hr_expense_extract/wizard/expense_sample_receipt.py
+# hypothesis_version: 6.131.14
+
+[0.0, 1.0, 1995.6, 2024, 'Expenses', 'External training', 'SAMPLE_P', 'Sample Employee', 'Sample Journal', 'Sample Receipt: %s', 'Try Sample Receipts', 'account.journal', 'amount', 'binary', 'can_be_expensed', 'categ_id', 'code', 'company_id', 'datas', 'date', 'employee_id', 'form', 'hr.employee', 'hr.expense', 'hr.expense.sheet', 'ir.attachment', 'list_price', 'name', 'product.cat_expense', 'product.product', 'product_id', 'purchase', 'rb', 'res_id', 'res_model', 'sample', 'sample_receipt.jpeg', 'service', 'standard_price', 'tax_ids', 'type', 'view_mode', 'views']

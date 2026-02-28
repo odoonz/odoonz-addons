@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/models/ir_actions_server.py
+# hypothesis_version: 6.131.14
+
+['=', 'Note only', 'SMS (with note)', 'SMS (without note)', 'SMS Template', 'Send SMS', 'Send SMS As', '_compute_sms_method', 'cascade', 'comment', 'followers', 'ir.actions.server', 'ir.model', 'is_mail_thread', 'mass', 'model_id', 'note', 'record', 'records', 'set null', 'sms', 'sms.composer', 'sms.template', 'state', 'template_id', 'transient']

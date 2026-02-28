@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/models/stock_move.py
+# hypothesis_version: 6.131.14
+
+['cancel', 'done', 'location_id', 'make_to_order', 'move_line_ids', 'picking_id', 'product_id', 'product_uom_qty', 'quantity_done', 'reserved_uom_qty', 'stock.move']
