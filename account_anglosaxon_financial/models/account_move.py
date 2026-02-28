@@ -41,19 +41,12 @@ class AccountMove(models.Model):
 
     def _set_in_line_cogs_accounts(self):
         """When doing a financial supplier invoice we want to post the product
-        lines directly to their COGS account"""
+        lines directly to their expense account instead of stock valuation"""
         for line in self.invoice_line_ids:
             if line.product_id:
                 line._compute_account_id()
 
-    def _stock_account_prepare_anglo_saxon_in_lines_vals(self):
+    def _stock_account_prepare_realtime_out_lines_vals(self):
+        """Suppress COGS lines for financial-only invoices."""
         self = self.filtered(lambda s: not s.anglo_saxon_financial)
-        return super()._stock_account_prepare_anglo_saxon_in_lines_vals()
-
-    def _stock_account_prepare_anglo_saxon_out_lines_vals(self):
-        self = self.filtered(lambda s: not s.anglo_saxon_financial)
-        return super()._stock_account_prepare_anglo_saxon_out_lines_vals()
-
-    def _stock_account_anglo_saxon_reconcile_valuation(self, product=False):
-        self = self.filtered(lambda s: not s.anglo_saxon_financial)
-        return super()._stock_account_anglo_saxon_reconcile_valuation(product=product)
+        return super()._stock_account_prepare_realtime_out_lines_vals()

@@ -6,23 +6,23 @@ class AccountMoveLine(models.Model):
 
     def _compute_account_id(self):
         """When doing a financial supplier invoice we want to post the product
-        lines directly to their COGS account"""
+        lines directly to their expense account instead of stock valuation"""
         res = super()._compute_account_id()
-        input_lines = self._filter_purchase_stock_lines()
+        input_lines = self._filter_purchase_financial_lines()
         for line in input_lines:
             accounts = line.with_company(
                 line.company_id
             ).product_id.product_tmpl_id.get_product_accounts(
                 fiscal_pos=line.move_id.fiscal_position_id
             )
-            if accounts:
+            if accounts and accounts.get("expense"):
                 line.account_id = accounts["expense"]
         return res
 
-    def _filter_purchase_stock_lines(self):
+    def _filter_purchase_financial_lines(self):
         return self.filtered(
             lambda line: (
-                line.with_context(ignore_financial=True)._eligible_for_cogs()
+                line.with_context(ignore_financial=True)._eligible_for_stock_account()
                 and line.move_id.anglo_saxon_financial
                 and line.move_id.company_id.anglo_saxon_accounting
                 and line.move_id.is_purchase_document()
@@ -30,20 +30,16 @@ class AccountMoveLine(models.Model):
         )
 
     def _filter_financial_lines(self):
-        """In the cases where we want to exclude financial lines
-        filter them out"""
-        invoice_lines = self
+        """Exclude financial-only invoice lines when context requests it."""
         if self.env.context.get("exclude_financial"):
-            invoice_lines = invoice_lines.filtered(
-                lambda s: not s.move_id.anglo_saxon_financial
-            )
-        return invoice_lines
+            return self.filtered(lambda s: not s.move_id.anglo_saxon_financial)
+        return self
 
-    def _eligible_for_cogs(self):
+    def _eligible_for_stock_account(self):
         self.ensure_one()
         if (
             not self.env.context.get("ignore_financial")
             and self.move_id.anglo_saxon_financial
         ):
             return False
-        return super()._eligible_for_cogs()
+        return super()._eligible_for_stock_account()

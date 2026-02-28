@@ -62,13 +62,7 @@
     <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
         <field
             name="context"
-        >{'search_default_out_invoice': 1, 'default_move_type':'out_invoice', 'default_anglo_saxon_financial': True}</field>
-    </record>
-
-    <record id="account.action_move_out_receipt_type" model="ir.actions.act_window">
-        <field
-            name="context"
-        >{'default_move_type':'out_receipt', 'default_anglo_saxon_financial': True}</field>
+        >{'default_move_type':'out_invoice', 'default_anglo_saxon_financial': True}</field>
     </record>
 
 </odoo>
