@@ -25,7 +25,7 @@ class PurchasePriceRecalculation(models.TransientModel):
             if line.price_subtotal:
                 return (line.price_total - line.price_subtotal) / line.price_subtotal
             else:
-                taxes = line.taxes_id.compute_all(
+                taxes = line.tax_ids.compute_all(
                     1,
                     line.order_id.currency_id,
                     1.0,
