@@ -21,7 +21,7 @@ class AccountMove(models.Model):
     )
 
     @api.constrains("partner_id", "order_partner_id")
-    def _check_company(self):
+    def _check_self_billing(self):
         for record in self:
             if record.move_type != "entry" and record.company_id.partner_id.id in [
                 record.partner_id.id,
@@ -104,18 +104,25 @@ class AccountMove(models.Model):
         return {}
 
     @api.model
-    def _search(self, domain, offset=0, limit=None, order=None):
+    def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
         """override search so we find subsidiary invoices when looking at
         that partner.
         """
         iter_args = list(domain)
         domain = []
         for arg in iter_args:
-            if arg[0] == "partner_id" and arg[1] in ("=", "like", "ilike", "child_of"):
+            if (
+                isinstance(arg, list | tuple)
+                and len(arg) == 3
+                and arg[0] == "partner_id"
+                and arg[1] in ("=", "like", "ilike", "child_of")
+            ):
                 domain.extend(["|", arg, ("order_partner_id", arg[1], arg[2])])
             else:
                 domain.append(arg)
-        return super()._search(domain, offset=offset, limit=limit, order=order)
+        return super()._search(
+            domain, offset=offset, limit=limit, order=order, **kwargs
+        )
 
     def _get_invoice_company(self, vals):
         if "company_id" in vals:

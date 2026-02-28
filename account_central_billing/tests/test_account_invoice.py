@@ -12,22 +12,18 @@ partner_model = "odoo.addons.account_central_billing.models.res_partner.ResPartn
 
 @tagged("post_install", "-at_install")
 class TestAccountInvoice(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.company = self.env.ref("base.main_company")
-        self.invoice_account = (
-            self.env["account.account"]
-            .search(
-                [
-                    (
-                        "account_type",
-                        "=",
-                        "asset_receivable",
-                    )
-                ],
-                limit=1,
-            )
-            .id
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.company = cls.env.company
+        cls.partner_a = cls.env["res.partner"].create(
+            {"name": "CB Test Partner A", "is_company": True}
+        )
+        cls.partner_b = cls.env["res.partner"].create(
+            {"name": "CB Test Partner B", "is_company": True}
+        )
+        cls.partner_c = cls.env["res.partner"].create(
+            {"name": "CB Test Partner C", "is_company": True}
         )
 
     def test_get_invoice_partner(self):
@@ -47,40 +43,39 @@ class TestAccountInvoice(common.TransactionCase):
             )
 
     def test_invoice_create(self):
-        part2 = self.env.ref("base.res_partner_2")
-        part3 = self.env.ref("base.res_partner_3")
         with mock.patch(
             f"{partner_model}._get_billing_partner", autospec=True
         ) as mock_partner:
-            mock_partner.return_value = part3
+            mock_partner.return_value = self.partner_b
             invoice = self.env["account.move"].create(
                 {
-                    "partner_id": part2.id,
+                    "partner_id": self.partner_a.id,
                     "move_type": "out_invoice",
                 }
             )
-        self.assertEqual(invoice.partner_id.id, part3.id)
-        self.assertEqual(invoice.order_partner_id.id, part2.id)
-        self.assertEqual(invoice.order_invoice_id.id, part2.commercial_partner_id.id)
+        self.assertEqual(invoice.partner_id.id, self.partner_b.id)
+        self.assertEqual(invoice.order_partner_id.id, self.partner_a.id)
+        self.assertEqual(
+            invoice.order_invoice_id.id, self.partner_a.commercial_partner_id.id
+        )
 
     def test_invoice_write(self):
-        part2 = self.env.ref("base.res_partner_2")
-        part3 = self.env.ref("base.res_partner_3")
-        part4 = self.env.ref("base.res_partner_4")
         invoice = self.env["account.move"].create(
             {
-                "partner_id": part4.id,
+                "partner_id": self.partner_c.id,
                 "move_type": "out_invoice",
             }
         )
         with mock.patch(
             f"{partner_model}._get_billing_partner", autospec=True
         ) as mock_partner:
-            mock_partner.return_value = part3
-            invoice.write({"partner_id": part2.id})
-        self.assertEqual(invoice.partner_id.id, part3.id)
-        self.assertEqual(invoice.order_partner_id.id, part2.id)
-        self.assertEqual(invoice.order_invoice_id.id, part2.commercial_partner_id.id)
+            mock_partner.return_value = self.partner_b
+            invoice.write({"partner_id": self.partner_a.id})
+        self.assertEqual(invoice.partner_id.id, self.partner_b.id)
+        self.assertEqual(invoice.order_partner_id.id, self.partner_a.id)
+        self.assertEqual(
+            invoice.order_invoice_id.id, self.partner_a.commercial_partner_id.id
+        )
 
     def test_search(self):
         pass
@@ -88,12 +83,15 @@ class TestAccountInvoice(common.TransactionCase):
     def test_prepare_default_reversal(self):
         invoice = self.env["account.move"].create(
             {
-                "partner_id": self.env.ref("base.res_partner_2").id,
+                "partner_id": self.partner_a.id,
                 "move_type": "out_invoice",
                 "company_id": self.company.id,
+                "invoice_line_ids": [
+                    (0, 0, {"name": "Test line", "quantity": 1, "price_unit": 100.0}),
+                ],
             }
         )
-        invoice.state = "posted"
+        invoice.action_post()
         reversal = (
             self.env["account.move.reversal"]
             .with_context(active_model="account.move", active_ids=invoice.ids)
