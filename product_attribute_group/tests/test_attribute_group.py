@@ -1,21 +1,116 @@
 # Copyright 2017 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command
 from odoo.tests.common import TransactionCase
 
 
 class TestAttributeGroups(TransactionCase):
+    def setUp(self):
+        super().setUp()
+
+        self.attribute = self.env["product.attribute"].create(
+            {"name": "AG Test Memory"}
+        )
+        self.val_8gb = self.env["product.attribute.value"].create(
+            {"name": "8GB", "attribute_id": self.attribute.id}
+        )
+        self.val_16gb = self.env["product.attribute.value"].create(
+            {"name": "16GB", "attribute_id": self.attribute.id}
+        )
+        self.val_32gb = self.env["product.attribute.value"].create(
+            {"name": "32GB", "attribute_id": self.attribute.id}
+        )
+        self.val_64gb = self.env["product.attribute.value"].create(
+            {"name": "64GB", "attribute_id": self.attribute.id}
+        )
+
+        self.attr_group_1 = self.env["product.attribute.group"].create(
+            {
+                "name": "AG Test Group Small",
+                "attribute_id": self.attribute.id,
+                "value_ids": [
+                    Command.link(self.val_8gb.id),
+                    Command.link(self.val_16gb.id),
+                ],
+            }
+        )
+        self.attr_group_2 = self.env["product.attribute.group"].create(
+            {
+                "name": "AG Test Group Large",
+                "attribute_id": self.attribute.id,
+                "value_ids": [
+                    Command.link(self.val_32gb.id),
+                    Command.link(self.val_64gb.id),
+                ],
+            }
+        )
+
+        self.product_chair = self.env["product.template"].create(
+            {
+                "name": "AG Test Chair",
+                "attribute_line_ids": [
+                    Command.create(
+                        {
+                            "attribute_id": self.attribute.id,
+                            "value_ids": [
+                                Command.link(self.val_8gb.id),
+                                Command.link(self.val_16gb.id),
+                            ],
+                        }
+                    )
+                ],
+            }
+        )
+        self.chair_memory_line = self.product_chair.attribute_line_ids[0]
+
+        self.colour_attr = self.env["product.attribute"].create(
+            {"name": "AG Test Colour"}
+        )
+        self.val_red = self.env["product.attribute.value"].create(
+            {"name": "Red", "attribute_id": self.colour_attr.id}
+        )
+        self.val_blue = self.env["product.attribute.value"].create(
+            {"name": "Blue", "attribute_id": self.colour_attr.id}
+        )
+
+        self.product_desk = self.env["product.template"].create(
+            {
+                "name": "AG Test Desk",
+                "attribute_line_ids": [
+                    Command.create(
+                        {
+                            "attribute_id": self.attribute.id,
+                            "value_ids": [
+                                Command.link(self.val_8gb.id),
+                                Command.link(self.val_16gb.id),
+                            ],
+                        }
+                    ),
+                    Command.create(
+                        {
+                            "attribute_id": self.colour_attr.id,
+                            "value_ids": [
+                                Command.link(self.val_red.id),
+                                Command.link(self.val_blue.id),
+                            ],
+                        }
+                    ),
+                ],
+            }
+        )
+        self.desk_memory_line = self.product_desk.attribute_line_ids.filtered(
+            lambda line: line.attribute_id == self.attribute
+        )
+
     def test_replace_values_with_attr_group(self):
-        # First changing them
         attr_groups = self.chair_memory_line.attr_group_ids | self.attr_group_2
         self.chair_memory_line.attr_group_ids = attr_groups
-        # Need to trigger this as usually called on the product template write
         self.product_chair._create_variant_ids()
         self.assertTrue(
             self.product_chair.attribute_line_ids[0].value_ids
             == self.attr_group_2.value_ids
         )
-        # Then adding to them
         attr_groups |= self.attr_group_1
         self.chair_memory_line.attr_group_ids = attr_groups
         self.product_chair._create_variant_ids()
@@ -25,60 +120,35 @@ class TestAttributeGroups(TransactionCase):
         )
 
     def test_adding_values_to_attr_group(self):
-        """
-        Test by assigning the memory attribute group to 2 products and then
-        adding a value to check that the number of variants has increased
-        :return:
-        """
         self.chair_memory_line.attr_group_ids = self.attr_group_1
         self.desk_memory_line.attr_group_ids = self.attr_group_1
-        # The number of variants should be the product of attribute value_ids
         self.product_chair._create_variant_ids()
         self.product_desk._create_variant_ids()
         chair_len = len(self.product_chair.product_variant_ids) + 1
         desk_len = len(self.product_desk.product_variant_ids) + 2
         initial_length = len(self.attr_group_1.value_ids)
-        self.attr_group_1.value_ids += self.browse_ref(
-            "product_attribute_group.product_attribute_value_64gb"
-        )
+        self.attr_group_1.value_ids += self.val_32gb
         self.assertTrue(len(self.attr_group_1.value_ids) == initial_length + 1)
         self.assertTrue(len(self.product_chair.product_variant_ids) == chair_len)
         self.assertTrue(len(self.product_desk.product_variant_ids) == desk_len)
 
     def test_removing_values_from_attr_group(self):
-        """
-        Test by assigning the memory attribute group to 2 products and then
-        removing a value to check that the number of variants has decreased
-        :return:
-        """
         self.chair_memory_line.attr_group_ids = self.attr_group_1
         self.desk_memory_line.attr_group_ids = self.attr_group_1
-        # The number of variants should be the product of attribute value_ids
         self.product_chair._create_variant_ids()
         self.product_desk._create_variant_ids()
-        # chair_factor = len(self.product_chair.product_variant_ids) // len(
-        #    self.attr_group_1.value_ids
-        # )
         desk_factor = len(self.product_desk.product_variant_ids) // len(
             self.attr_group_1.value_ids
         )
         initial_length = len(self.attr_group_1.value_ids)
-        self.attr_group_1.value_ids -= self.browse_ref(
-            "product.product_attribute_value_1"
-        )
+        self.attr_group_1.value_ids -= self.val_8gb
         self.assertTrue(len(self.attr_group_1.value_ids) == initial_length - 1)
-        # Remove this assertion it seems that behaviour has been changed if
-        # only 1 variant left - unrelated to module
-        # self.assertTrue(
-        #     len(self.product_chair.product_variant_ids) ==
-        #     len(self.attr_group_1.value_ids) * chair_factor)
         self.assertTrue(
             len(self.product_desk.product_variant_ids)
             == len(self.attr_group_1.value_ids) * desk_factor
         )
 
     def test_creation(self):
-        # Test values belonging to group are added on create
         tmpl = self.env["product.template"].create(
             {
                 "name": "We have attr group",
@@ -97,7 +167,6 @@ class TestAttributeGroups(TransactionCase):
         self.assertEqual(
             len(tmpl.product_variant_ids), len(self.attr_group_1.value_ids)
         )
-        # Test manually added values (no attr groups) are created.
         tmpl2 = self.env["product.template"].create(
             {
                 "name": "We have only values",
@@ -116,10 +185,9 @@ class TestAttributeGroups(TransactionCase):
         self.assertEqual(
             len(tmpl2.product_variant_ids), len(self.attr_group_1.value_ids)
         )
-        # Test added values then removed group (no attr groups) are created.
         tmpl3 = self.env["product.template"].create(
             {
-                "name": "We have only values",
+                "name": "We have only values no group",
                 "attribute_line_ids": [
                     (
                         0,
@@ -146,27 +214,3 @@ class TestAttributeGroups(TransactionCase):
         attr_recordset = self.attr_group_1 | self.attr_group_2
         with self.assertRaises(ValueError):
             attr_recordset.button_copy()
-
-    def setUp(self):
-        super().setUp()
-
-        self.attr_group_1 = self.browse_ref(
-            "product_attribute_group.product_attribute_group_1"
-        )
-        self.attr_group_2 = self.browse_ref(
-            "product_attribute_group.product_attribute_group_2"
-        )
-
-        self.product_desk = self.browse_ref(
-            "product.product_product_4_product_template"
-        )
-        self.product_chair = self.browse_ref(
-            "product.product_product_11_product_template"
-        )
-
-        self.desk_memory_line = self.browse_ref(
-            "product.product_4_attribute_1_product_template_attribute_line"
-        )
-        self.chair_memory_line = self.browse_ref(
-            "product.product_11_attribute_1_product_template_attribute_line"
-        )
