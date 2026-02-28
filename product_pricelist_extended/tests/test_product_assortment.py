@@ -11,6 +11,17 @@ class TestProductAssortment(TransactionCase):
         super().setUp()
         self.filter_obj = self.env["ir.filters"]
         self.product_obj = self.env["product.product"]
+
+        self.product_service = self.product_obj.create(
+            {"name": "Assort Service", "type": "service"}
+        )
+        self.product_a = self.product_obj.create(
+            {"name": "Assort Product A", "type": "consu"}
+        )
+        self.product_b = self.product_obj.create(
+            {"name": "Assort Product B", "type": "consu"}
+        )
+
         self.assortment = self.filter_obj.with_context(is_assortment=True).create(
             {
                 "name": "Test Product Assortment",
@@ -42,7 +53,6 @@ class TestProductAssortment(TransactionCase):
         products_filtered = self.product_obj.search(domain)
         self.assertEqual(products.ids, products_filtered.ids)
 
-        # reduce assortment to services products
         domain = [("type", "=", "service")]
         self.assortment.domain = domain
 
@@ -51,22 +61,18 @@ class TestProductAssortment(TransactionCase):
         products_filtered = self.product_obj.search(domain)
         self.assertEqual(products.ids, products_filtered.ids)
 
-        # include one product not in initial filter
-        included_product = self.env.ref("product.product_product_7")
-        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        self.assortment.write({"whitelist_product_ids": [(4, self.product_a.id)]})
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
-        self.assertIn(included_product.id, products_filtered.ids)
+        self.assertIn(self.product_a.id, products_filtered.ids)
 
-        # exclude one product not in initial filter
-        excluded_product = self.env.ref("product.product_product_2")
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
-        self.assertIn(excluded_product.id, products_filtered.ids)
-        self.assortment.write({"blacklist_product_ids": [(4, excluded_product.id)]})
+        self.assertIn(self.product_service.id, products_filtered.ids)
+        self.assortment.write({"blacklist_product_ids": [(4, self.product_service.id)]})
         domain = self.assortment._get_eval_domain()
         products_filtered = self.product_obj.search(domain)
-        self.assertNotIn(excluded_product.id, products_filtered.ids)
+        self.assertNotIn(self.product_service.id, products_filtered.ids)
 
     def test_assortment_not_available_search_view(self):
         model = self.env.ref("product.model_product_product")
@@ -81,12 +87,11 @@ class TestProductAssortment(TransactionCase):
             )
 
     def test_product_assortment_view(self):
-        included_product = self.env.ref("product.product_product_7")
         self.assortment.model_id = "product.product"
-        self.assortment.write({"whitelist_product_ids": [(4, included_product.id)]})
+        self.assortment.write({"whitelist_product_ids": [(4, self.product_a.id)]})
         self.env.registry.clear_cache()
         res = self.assortment.show_products()
-        self.assertEqual(res["domain"], [("id", "in", [included_product.id])])
+        self.assertEqual(res["domain"], [("id", "in", [self.product_a.id])])
 
     def test_record_count(self):
         products = self.product_obj.search([])
