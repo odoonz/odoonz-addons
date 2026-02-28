@@ -6,8 +6,8 @@ from odoo import api, models
 from odoo.tools import OrderedSet
 
 
-class ProcurementGroup(models.Model):
-    _inherit = "procurement.group"
+class StockRule(models.Model):
+    _inherit = "stock.rule"
 
     @api.model
     def run(self, procurements, raise_user_error=True):
@@ -45,10 +45,7 @@ class ProcurementGroup(models.Model):
                 for bom_line, bom_line_data in bom_sub_lines:
                     bom_line_uom = bom_line.product_uom_id
                     quant_uom = bom_line.product_id.uom_id
-                    # Here we change to use the bom_line_data product,
-                    # rather than the bom_line.product_id
                     product = bom_line_data.get("product", bom_line.product_id)
-                    # recreate dict of values since each child has its own bom_line_id
                     values = dict(procurement.values, bom_line_id=bom_line.id)
                     (
                         component_qty,
@@ -57,7 +54,7 @@ class ProcurementGroup(models.Model):
                         bom_line_data["qty"], quant_uom
                     )
                     procurements_without_kit.append(
-                        self.env["procurement.group"].Procurement(
+                        self.env["stock.rule"].Procurement(
                             product,
                             component_qty,
                             procurement_uom,

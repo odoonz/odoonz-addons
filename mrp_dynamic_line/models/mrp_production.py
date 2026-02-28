@@ -110,13 +110,11 @@ class MrpProduction(models.Model):
                             bom_line,
                         )[1]
             else:
-                new_qty = float_round(
-                    old_qty * factor,
-                    precision_rounding=move.product_uom.rounding,
-                    rounding_method="UP",
-                )
+                new_qty = move.product_uom.round(old_qty * factor, rounding_method="UP")
 
             move.write({"product_uom_qty": new_qty})
+            if move.reference_ids != self.reference_ids:
+                move.reference_ids = self.reference_ids.ids
             update_info.append((move, old_qty, new_qty))
 
         # These should be the unprocessed ones
