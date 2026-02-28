@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_logging.py
+# hypothesis_version: 6.131.14
+
+['Client', 'Created by', 'Created on', 'Database Name', 'Function', 'Last Updated by', 'Last Updated on', 'Logging', 'Server', 'client', 'id DESC', 'ir.logging', 'server']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_edi_ubl_cii/tools/ubl_21_invoice.py
+# hypothesis_version: 6.131.14
+
+['Invoice', '_tag', 'cac:AllowanceCharge', 'cac:BillingReference', 'cac:Delivery', 'cac:InvoiceLine', 'cac:InvoicePeriod', 'cac:Item', 'cac:OrderReference', 'cac:PaymentMeans', 'cac:PaymentTerms', 'cac:PrepaidPayment', 'cac:Price', 'cac:PricingReference', 'cac:Signature', 'cac:TaxExchangeRate', 'cac:TaxTotal', 'cbc:BuyerReference', 'cbc:CopyIndicator', 'cbc:CustomizationID', 'cbc:DueDate', 'cbc:ID', 'cbc:InvoiceTypeCode', 'cbc:InvoicedQuantity', 'cbc:IssueDate', 'cbc:IssueTime', 'cbc:LineCountNumeric', 'cbc:Note', 'cbc:ProfileID', 'cbc:TaxCurrencyCode', 'cbc:UBLVersionID', 'cbc:UUID', 'ext:UBLExtensions']

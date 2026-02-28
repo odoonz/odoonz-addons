@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/release.py
+# hypothesis_version: 6.131.14
+
+['-', '.', 'LGPL-3', 'Odoo', 'Odoo Server', 'OpenERP S.A.', 'alpha', 'beta', 'candidate', 'final', 'https://www.odoo.com', 'info@odoo.com', 'odoo-server-', 'rc', '~']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/digest/models/res_users.py
+# hypothesis_version: 6.131.14
+
+['=', 'digest.digest', 'ir.config_parameter', 'res.users', 'share']

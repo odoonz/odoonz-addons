@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/wizard/payment_provider_onboarding_wizard.py
+# hypothesis_version: 6.131.14
+
+['Electronic signature', 'PayPal', 'digital_signature', 'manual', 'other', 'paypal', 'sale.sale_menu_root', 'stripe']

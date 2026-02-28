@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/__init__.py
+# hypothesis_version: 6.131.14
+
+['=', 'active_test', 'ir.model.data', 'like', 'model', 'module', 'res.company', 'stock', 'stock.picking.type']

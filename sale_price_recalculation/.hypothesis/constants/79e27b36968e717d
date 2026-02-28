@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_signup/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+[144, '/mail/view', '/mail/view?', '/odoo/', '/web/%s?%s', 'Signup Token Type', 'action', 'auth_login', 'auth_signup_token', 'b2c', 'create_user', 'db', 'email', 'ir.config_parameter', 'login', 'login_date', 'menu_id', 'model', 'name', 'redirect', 'relative_url', 'res.partner', 'res.users', 'res_id', 'reset', 'reset_password', 'signup', 'signup_email', 'signup_type', 'signup_valid', 'token', 'view_type', 'write']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/interbranch_stock_checker/wizard/interbranch_stock_check.py
+# hypothesis_version: 6.131.14
+
+[0.0, 1.5, ', ', '1', '<br>', 'Products', 'Quantity Required', 'active_ids', 'active_model', 'client', 'dbname', 'display_name', 'free_qty', 'func', 'info', 'ir.logging', 'level', 'line', 'message', 'name', 'path', 'product.product', 'product_ids', 'qty_required', 'stock.warehouse', 'type']

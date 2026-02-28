@@ -1,0 +1,4 @@
+# file: /odoo/src/account-financial-reporting/partner_statement/report/activity_statement.py
+# hypothesis_version: 6.131.14
+
+['Payment', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'account_type', 'amount', 'amount_field', 'company_id', 'context', 'is_detailed', 'lang', 'partner_id', 'receivable', 'res.partner', 'show_only_overdue', 'statement.common', 'utf-8']

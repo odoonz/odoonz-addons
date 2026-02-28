@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_binary.py
+# hypothesis_version: 6.131.14
+
+['.jpg', '.png', '=', '_', 'binary', 'data', 'datas', 'db_datas', 'download', 'image/', 'image/png', 'ir.attachment', 'ir.binary', 'name', 'path', 'raw', 'rb', 'read', 'res_field', 'res_id', 'res_model', 'url']

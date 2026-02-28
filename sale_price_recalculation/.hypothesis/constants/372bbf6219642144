@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/account_invoice_extract_ril/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['hard_tolerance', 'res.partner', 'soft_tolerance']

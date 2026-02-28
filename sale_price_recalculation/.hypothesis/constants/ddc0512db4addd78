@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/phone_validation/models/mail_thread_phone.py
+# hypothesis_version: 6.131.14
+
+[' AND ', ' OR ', ' gin_trgm_ops', '!=', '+', '00', '=', '=ilike', '=like', 'ILIKE', 'LIKE', 'Phone Blacklisted', 'Phone/Mobile', 'Sanitized Number', '[\\s\\\\./\\(\\)\\-]', '_compute_blacklisted', 'base.group_user', 'char', 'form', 'gin', 'id', 'in', 'mail.thread', 'mail.thread.phone', 'mobile', 'name', 'new', 'number', 'phone.blacklist', 'phone_sanitized', 'res_model', 'target', 'type', 'view_mode', 'write']

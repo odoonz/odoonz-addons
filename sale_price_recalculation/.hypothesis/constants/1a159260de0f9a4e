@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_account/models/stock_lot.py
+# hypothesis_version: 6.131.14
+
+[0.0, '<=', '=', 'Average Cost', 'Cost', 'Product Price', 'Total Value', 'Valuation Currency', '_compute_value_svl', 'average', 'base.group_user', 'company', 'company_currency_id', 'company_id', 'context', 'create_date', 'decimal.precision', 'description', 'disable_auto_svl', 'form', 'in', 'ir.actions.actions', 'lot_id', 'name', 'new', 'no_at_date', 'product_id', 'quantity', 'quantity:sum', 'read', 'real_time', 'res.currency', 'res_model', 'standard', 'standard_price', 'stock.lot', 'target', 'to_date', 'type', 'value', 'value:sum', 'view_id', 'view_mode']

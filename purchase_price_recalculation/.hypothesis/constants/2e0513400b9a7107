@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_combo.py
+# hypothesis_version: 6.131.14
+
+['Combo Price', 'Company', 'Name', 'Product Combo', 'Product Count', 'Product Price', '__count', '_compute_base_price', '_compute_currency_id', 'combo_id', 'combo_ids', 'combo_item_ids', 'company_id', 'in', 'product.combo', 'product.combo.item', 'product.template', 'product_id', 'res.company', 'res.currency', 'sequence, id']

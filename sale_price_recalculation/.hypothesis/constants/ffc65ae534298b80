@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/discuss/discuss_channel_rtc_session.py
+# hypothesis_version: 6.131.14
+
+['/v1/disconnect', '<', 'ADD', 'DELETE', 'Is microphone muted', 'Last Updated On', 'Mail RTC session', 'Partner', 'bus.listener.mixin', 'cascade', 'channel', 'channelId', 'channelMember', 'channel_member_id', 'data', 'discuss.channel', 'im_status', 'isCameraOn', 'isDeaf', 'isScreenSharingOn', 'isSelfMuted', 'is_camera_on', 'is_deaf', 'is_muted', 'is_screen_sharing_on', 'mail.guest', 'name', 'notifications', 'persona', 'res.partner', 'rtcSessions', 'sender', 'sessionId', 'sessionIdsByChannel', 'write_date']

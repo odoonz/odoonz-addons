@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_skills/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['#666666', ',', '.pdf', '/print/cv', 'Content-Disposition', 'Content-Length', 'Content-Type', 'Resume %s', 'Resumes', '[^0-9|,]', 'application/pdf', 'color_primary', 'color_secondary', 'hr.employee', 'hr.group_hr_user', 'http', 'ir.actions.report', 'show_contact', 'show_others', 'show_skills', 'skill_type_language', 'user']

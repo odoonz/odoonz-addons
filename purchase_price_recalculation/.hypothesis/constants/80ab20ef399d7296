@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_external_tax/wizard/payment_link_wizard.py
+# hypothesis_version: 6.131.14
+
+['active_id', 'active_model', 'payment.link.wizard']

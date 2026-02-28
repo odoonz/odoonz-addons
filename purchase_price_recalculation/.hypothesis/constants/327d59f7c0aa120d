@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/product_code_builder/models/product_attribute.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'attribute_id', 'code', 'manual_code', 'product.attribute', 'product.product', 'product_tmpl_id', 'reference_mask']

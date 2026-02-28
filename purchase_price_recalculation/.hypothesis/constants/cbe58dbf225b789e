@@ -1,0 +1,4 @@
+# file: /odoo/src/reporting-engine/report_xlsx/models/ir_report.py
+# hypothesis_version: 6.131.14
+
+['=', 'XLSX', 'binary', 'in', 'ir.actions.report', 'ir.attachment', 'name', 'object', 'raw', 'report_name', 'report_type', 'res.users', 'res_id', 'res_model', 'set default', 'time', 'type', 'xlsx']

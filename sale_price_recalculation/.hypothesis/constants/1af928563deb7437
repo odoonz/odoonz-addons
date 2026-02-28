@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/test_mail/models/mail_test_lead.py
+# hypothesis_version: 6.131.14
+
+['=', 'Customer', 'Customer Email', 'Lead-like model', 'email_from', 'email_normalized', 'lang', 'mail.activity.mixin', 'mail.test.lead', 'mail.thread.cc', 'mobile', 'name', 'nobody', 'partner_id', 'phone', 'res.company', 'res.lang', 'res.partner', 'res.users']

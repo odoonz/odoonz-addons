@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/delivery/models/delivery_price_rule.py
+# hypothesis_version: 6.131.14
+
+[0.0, '%.2f', '%s %s times %s', '%s fixed price %s', '<', '<=', '=', '==', '>', '>=', 'Carrier', 'Delivery Price Rules', 'Maximum Value', 'Price', 'Product Price', 'Quantity', 'Sale Base Price', 'Sale Price', 'Variable Factor', 'Volume', 'Weight', 'Weight * Volume', '_compute_name', 'cascade', 'currency_id', 'delivery.carrier', 'delivery.price.rule', 'if %s %s %.02f then', 'list_base_price', 'list_price', 'max_value', 'operator', 'price', 'quantity', 'variable', 'variable_factor', 'volume', 'weight', 'wv']

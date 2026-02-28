@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/utils.py
+# hypothesis_version: 6.131.14
+
+['-', 'DOWN', 'available', 'database.uuid', 'ir.config_parameter', 'payment.provider', 'payment_methods', 'providers', 'reason', 'supported_providers', 'tx', 'write', '|']

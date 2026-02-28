@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/bus/models/bus_presence.py
+# hypothesis_version: 6.131.14
+
+[1000, 1800, '<', '=', 'Away', 'IM Status', 'Last Poll', 'Last Presence', 'Offline', 'Online', 'User Presence', 'Users', 'away', 'bus.bus', 'bus.presence', 'cascade', 'im_status', 'last_poll', 'last_presence', 'odoo.sql_db', 'offline', 'online', 'partner_id', 'presence', 'presence_status', 'res.users', 'status', 'user_id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/purchase_priced_correctly/models/purchase_order.py
+# hypothesis_version: 6.131.14
+
+['Priced Correctly', '_compute_priced', 'dropship', 'invoice_user_id', 'order_line', 'picking_type_id', 'purchase.order']

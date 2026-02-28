@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/discuss/binary.py
+# hypothesis_version: 6.131.14
+
+['=', 'GET', 'discuss.channel', 'download', 'http', 'id', 'ir.attachment', 'ir.binary', 'public', 'res_id', 'res_model']

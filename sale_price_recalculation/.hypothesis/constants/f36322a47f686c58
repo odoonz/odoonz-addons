@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/wizard/website_robots.py
+# hypothesis_version: 6.131.14
+
+['Robots.txt Editor', 'type', 'website', 'website.robots']

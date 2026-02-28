@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/snailmail/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+[' // %(street2)s', '%(street)s', 'DE', 'canceled', 'city', 'country_id', 'in', 'not in', 'partner_id', 'res.partner', 'sent', 'snailmail.letter', 'snailmail_layout', 'state', 'state_id', 'street', 'street2', 'zip']

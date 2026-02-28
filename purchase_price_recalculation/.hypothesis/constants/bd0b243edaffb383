@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/osutil.py
+# hypothesis_version: 6.131.14
+
+['.-', '.DS_Store', '.pyc', '.pyo', '.swp', 'ProcessId', 'Untitled', '[^\\w_.()\\[\\] -]+', 'nt', 'w']

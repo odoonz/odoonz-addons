@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/query.py
+# hypothesis_version: 6.131.14
+
+[' AND ', ' FROM %s', ' GROUP BY %s', ' HAVING %s', ' LIMIT %s', ' OFFSET %s', ' ORDER BY %s', ' WHERE %s', '%s', '%s %s ON (%s)', '%s = %s', '%s AS %s', '%s IN %s', '%s%s%s%s%s%s%s%s', '(%s%s%s)', '(%s)', ', ', 'Alias %r not in %s', 'COUNT(*)', 'FALSE', 'JOIN', 'LEFT JOIN', 'SELECT %s', 'id', 'ids', 'ordinality', 'unnest']

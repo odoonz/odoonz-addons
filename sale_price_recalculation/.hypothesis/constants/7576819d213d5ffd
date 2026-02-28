@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/mail.py
+# hypothesis_version: 6.131.14
+
+['-', '.', '/mail', '/mail/unfollow', '/mail/view', '=', 'access_token', 'access_url', 'cids', 'highlight_message_id', 'http', 'id', 'ir.actions.act_url', 'ir.model', 'ir.ui.menu', 'm-', 'mail.message', 'mail.thread', 'menu_id', 'message_id', 'model', 'model_name', 'name', 'public', 'read', 'res.users', 'res_id', 'target_type', 'token', 'type', 'url', 'view', 'view_id']

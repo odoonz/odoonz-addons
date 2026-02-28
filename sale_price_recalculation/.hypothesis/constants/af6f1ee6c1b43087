@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/models/crm_team.py
+# hypothesis_version: 6.131.14
+
+[0.0, '!=', '# Sale Orders', '=', 'Invoiced This Month', 'Invoicing Target', 'SUM(price_subtotal)', 'Sales Analysis', 'Sales: Untaxed Total', 'TRUE', '__count', '_compute_invoiced', 'amount_total', 'cancel', 'count', 'crm.team', 'date', 'draft', 'in', 'in_sales_app', 'invoice_status', 'invoiced_target', 'ir.actions.actions', 'read', 'sale.order', 'sale.report', 'sent', 'state', "state = 'sale'", 'team_id', 'to invoice']

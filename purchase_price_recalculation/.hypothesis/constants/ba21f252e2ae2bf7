@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_loans/models/account_asset.py
+# hypothesis_version: 6.131.14
+
+['Linked loans', 'account.asset', 'account.loan', 'current', 'domain', 'id', 'in', 'linked_loans_ids', 'list,form', 'name', 'res_model', 'target', 'type', 'view_mode']

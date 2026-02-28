@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_secondary_unit/models/purchase_order.py
+# hypothesis_version: 6.131.14
+
+['Display on PO', 'order_line', 'product_id', 'purchase.order', 'purchase.order.line']

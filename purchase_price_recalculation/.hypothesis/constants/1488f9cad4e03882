@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch_account_asset/models/account_asset.py
+# hypothesis_version: 6.131.14
+
+[0.0, '01', 'Branch', 'IO', 'Investment Boost', '_compute_branch_id', 'account.asset', 'account.move', 'amount', 'asset_id', 'asset_number_days', 'company_id', 'date', 'model_id', 'none', 'open', 'original_value', 'posted', 'ril.branch', 'salvage_value']

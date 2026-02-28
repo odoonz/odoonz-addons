@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk/models/digest.py
+# hypothesis_version: 6.131.14
+
+['Tickets Closed', 'close_date', 'digest.digest', 'helpdesk.ticket']

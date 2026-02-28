@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/sale_external_tax/wizard/sale_make_invoice_advance.py
+# hypothesis_version: 6.131.14
+
+[100, 'account.account', 'percentage', 'price_unit', 'product.category']

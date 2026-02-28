@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports_cash_basis/models/account_report.py
+# hypothesis_version: 6.131.14
+
+['%s AS %s', ', ', '=', 'Cash Basis', 'aal', 'aal.partner_id', 'account.move.line', 'account.report', 'account_id', 'aml.%s AS %s', 'amount_currency', 'amount_residual', 'balance', 'cash_basis', 'cash_basis_aml.date', 'context', 'credit', 'date', 'debit', 'domain', 'filter_cash_basis', 'filters', 'journal_ids', 'partner_id', 'readonly_query', 'report_cash_basis', 'res_model', 'root_report_id', 'show_cash_basis']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_pdf_quote_builder/controllers/quotation_document.py
+# hypothesis_version: 6.131.14
+
+['All files uploaded', 'POST', 'allowed_company_ids', 'company_id', 'error', 'http', 'mimetype', 'name', 'quotation.document', 'raw', 'sale.order.template', 'success', 'ufile', 'user']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax_geolocalize/wizard/avatax_validate_address.py
+# hypothesis_version: 6.131.14
+
+['date_localization', 'is_avatax_valid']

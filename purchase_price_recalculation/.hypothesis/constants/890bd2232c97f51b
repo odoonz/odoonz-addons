@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/account_financial_risk_manager/wizards/partner_set_risk_wizard.py
+# hypothesis_version: 6.131.14
+
+['Overall Credit Limit', 'Set Credit Limits', 'active_ids', 'credit_limit', 'credit_policy', 'res.partner', 'type']

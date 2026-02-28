@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/__init__.py
+# hypothesis_version: 6.131.14
+
+['!=', 'ir.config_parameter', 'ir.default', 'product.category', 'template_data']

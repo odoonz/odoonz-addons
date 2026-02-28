@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/portal/controllers/mail.py
+# hypothesis_version: 6.131.14
+
+['!=', '/mail/chatter_fetch', '/mail/unfollow', '/my', '/portal/chatter_init', '=', 'active', 'attachment_ids', 'author_avatar', 'avatar_128', 'base.public_user', 'body', 'can_react', 'create', 'data', 'hasReadAccess', 'hash', 'http', 'ir.actions.act_url', 'ir.attachment', 'ir.binary', 'is_internal', 'is_user_publisher', 'json', 'mail.message', 'mail.mt_comment', 'messages', 'name', 'pid', 'portal.mixin', 'portal_partner', 'public', 'read', 'res.users', 'res_id', 'subtype_id', 'token', 'type', 'url', 'user', 'website_message_ids', '|']

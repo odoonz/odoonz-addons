@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/spreadsheet_dashboard_documents/models/spreadsheet_dashboard.py
+# hypothesis_version: 6.131.14
+
+['Untitled dashboard', 'dashboardGroupId', 'dashboard_group_id', 'documents.document', 'ir.actions.client', 'name', 'params', 'spreadsheet_id', 'spreadsheet_snapshot', 'tag', 'type']

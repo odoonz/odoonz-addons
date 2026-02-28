@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_inter_company_rules/models/account_move.py
+# hypothesis_version: 6.131.14
+
+[',', 'Source Invoice', 'account.move', 'account.move.line', 'account_prefix', 'auto_generated', 'auto_invoice_id', 'btree_not_null', 'company_id', 'currency_id', 'default_journal_id', 'delivery', 'discount', 'display_type', 'fiscal_position_id', 'in_invoice', 'in_refund', 'invoice_date', 'invoice_date_due', 'invoice_line_ids', 'invoice_origin', 'journal_id', 'line_ids', 'line_note', 'line_section', 'move_type', 'name', 'origin_invoice', 'out_invoice', 'out_refund', 'partner_category_id', 'partner_id', 'payment_reference', 'posted', 'price_unit', 'product_categ_id', 'product_id', 'product_uom_id', 'quantity', 'ref', 'res.company', 'res.partner', 'sequence']

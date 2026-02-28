@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_pdf_quote_builder/models/quotation_document.py
+# hypothesis_version: 6.131.14
+
+['=', 'Document Type', 'Footer', 'Form Fields', 'Form Fields Included', 'Header', 'Quotation Templates', 'Related attachment', 'cascade', 'context', 'current', 'datas', 'document_type', 'footer', 'header', 'ir.attachment', 'ir_attachment_id', 'list', 'name', 'pdf', 'quotation.document', 'quotation_document', 'res_id', 'res_model', 'sale.order.template', 'sale.pdf.form.field', 'target', 'type', 'view_mode']

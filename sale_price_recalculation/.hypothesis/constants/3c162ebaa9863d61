@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/l10n_us_1099/wizard/generate_1099_wizard.py
+# hypothesis_version: 6.131.14
+
+['!=', '%m_%d_%Y', '<=', '=', '>=', 'End Date', 'Generated file', 'Payee Address Line 1', 'Payee Address Line 2', 'Payee City', 'Payee Country', 'Payee Email', 'Payee Name', 'Payee State', 'Payee TIN', 'Payee Zip', 'Payer Address Line 1', 'Payer Address Line 2', 'Payer City', 'Payer Country', 'Payer Name', 'Payer Phone Number', 'Payer State', 'Payer TIN', 'Payer Zip', 'Start Date', 'account.move.line', 'asset', 'asset_cash', 'base.USD', 'company_id', 'currency_id', 'date', 'end_date', 'in', 'in_refund', 'ir.actions.act_url', 'l10n_us.1099_box', 'l10n_us_1099.wizard', 'move_id', 'move_type', 'name', 'parent_state', 'partner_id,date', 'posted', 'self', 'start_date', 'target', 'type', 'url']

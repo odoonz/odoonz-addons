@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/wizard/fiscal_year.py
+# hypothesis_version: 6.131.14
+
+['Journal', 'Periodicity in month', 'Reminder']

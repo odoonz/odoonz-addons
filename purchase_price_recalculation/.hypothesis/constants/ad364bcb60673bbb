@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_map/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+[200, 401, 403, 500, 'HTTP_REFERER', 'Token Map Box', 'access_token', 'geojson', 'geometries', 'ir.config_parameter', 'map_box_token', 'message', 'referer', 'res.config.settings', 'steps', 'true', 'warning']

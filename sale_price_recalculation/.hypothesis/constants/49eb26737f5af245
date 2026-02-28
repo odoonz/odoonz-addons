@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_stock/controllers/portal.py
+# hypothesis_version: 6.131.14
+
+['Content-Length', 'Content-Type', 'application/pdf', 'http', 'ir.actions.report', 'public', 'read', 'stock.picking']

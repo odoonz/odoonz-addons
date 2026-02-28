@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['Payment Token Count', 'Payment Tokens', '__count', 'in', 'partner_id', 'payment.token', 'payment_token_ids', 'res.partner']

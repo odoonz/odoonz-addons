@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/models.py
+# hypothesis_version: 6.131.14
+
+['From', 'base', 'employees', 'hr.employee', 'ilike', 'user_id.email', 'work_email']

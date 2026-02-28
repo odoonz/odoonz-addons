@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_followup/wizard/followup_missing_information.py
+# hypothesis_version: 6.131.14
+
+['Missing information', 'default_partner_ids', 'domain', 'id', 'in', 'list', 'name', 'res.partner', 'res_model', 'type', 'view_mode', 'views']

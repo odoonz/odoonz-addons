@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/cli/scaffold.py
+# hypothesis_version: 6.131.14
+
+[b'\n', ' \\1', '(?<=[^A-Z])\\B([A-Z])', ', ', '-', '--template', '-t', '.', '.csv', '.html', '.js', '.py', '.rst', '.template', '.xml', '?', 'WARNING:', '[_\\s]+', '_', 'base', 'code', 'default', 'dest', 'l10n_payroll', 'name', 'pascal', 'rb', 'snake', 'templates', 'utf-8', 'wb']

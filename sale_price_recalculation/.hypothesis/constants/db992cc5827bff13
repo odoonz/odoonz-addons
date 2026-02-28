@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_statement_run/models/statement_run.py
+# hypothesis_version: 6.131.14
+
+['Attachments', 'Company', 'Emailed', 'Failed', 'Partner', 'Print Partners', 'Print and Post', 'Printed', 'Printed statement', 'Sent', 'Statement Date End', 'Statement Run', 'Status', 'To send', '_compute_name', '_compute_qty', 'attachment_ids', 'cascade', 'company_id', 'datas', 'email', 'failed', 'ir.actions.report', 'ir.attachment', 'ir_attachment', 'mail.activity.mixin', 'mail.mail', 'name', 'notification_ids', 'partner_id', 'print', 'res.company', 'res.partner', 'res_id', 'res_model', 'send_method', 'sent', 'statement_run_id', 'store_fname', 'to_send']

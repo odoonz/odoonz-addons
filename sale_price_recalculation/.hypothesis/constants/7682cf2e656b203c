@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/sale_account_accountant/models/account_reconcile_model.py
+# hypothesis_version: 6.131.14
+
+['=', 'TRUE', 'account.move', 'account.move.line', 'allow_auto_reconcile', 'amls', 'company_id', 'gin', 'in', 'invoice_matching', 'invoice_status', 'invoiced', 'name', 'sale.order', 'sale.order.line', 'sale_order', 'sale_orders', 'sent', 'state', 'to invoice', '|']

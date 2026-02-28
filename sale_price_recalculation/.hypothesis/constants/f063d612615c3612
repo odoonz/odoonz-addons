@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/wizard/product_replenish.py
+# hypothesis_version: 6.131.14
+
+['>=', 'action', 'ir.config_parameter', 'label', 'manufacture', 'mrp.production', 'product.replenish', 'product_tmpl_id', 'route_id', 'url', 'write_date']

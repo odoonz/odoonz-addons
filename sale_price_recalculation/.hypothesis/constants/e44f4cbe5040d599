@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_hr_expense/models/documents_document.py
+# hypothesis_version: 6.131.14
+
+['attachment_id', 'binary', 'documents.document', 'domain', 'form', 'hr.expense', 'id', 'image', 'in', 'ir.actions.actions', 'name', 'pdf', 'product_id', 'res_id', 'res_model', 'view_mode', 'views']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_payment/models/account_journal.py
+# hypothesis_version: 6.131.14
+
+[', ', 'account.journal', 'disabled', 'payment.provider']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/wizard/stock_picking_return.py
+# hypothesis_version: 6.131.14
+
+['Move', 'Move Quantity', 'Moves', 'Product', 'Quantity', 'Return Picking', 'Return Picking Line', 'Returned Picking', 'Unit of Measure', 'Wizard', 'active_id', 'active_ids', 'active_model', 'cancel', 'company_id', 'context', 'date', 'date_planned', 'done', 'draft', 'form', 'group_id', 'incoming', 'location_dest_id', 'location_final_id', 'location_id', 'mail.mt_note', 'make_to_stock', 'move_dest_ids', 'move_id', 'move_id.quantity', 'move_ids', 'move_orig_ids', 'name', 'origin', 'outgoing', 'partner_id', 'picking_id', 'picking_type_id', 'procure_method', 'procurement.group', 'product.product', 'product_id', 'product_id.uom_id', 'product_uom', 'product_uom_qty', 'quantity', 'res_id', 'res_model', 'return_id', 'self', 'state', 'stock.move', 'stock.picking', 'stock.return.picking', 'type', 'uom.uom', 'uom_id', 'view_mode', 'warehouse_id', 'wizard_id']

@@ -1,0 +1,4 @@
+# file: /odoo/src/account-financial-reporting/partner_statement/wizard/detailed_activity_statement_wizard.py
+# hypothesis_version: 6.131.14
+
+['=', 'Show Balance column', 'ir.actions.report', 'is_detailed', 'partner_ids', 'report_name', 'report_type', 'res.partner', 'xlsx']

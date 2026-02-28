@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/account_central_billing/report/account_invoice_report.py
+# hypothesis_version: 6.131.14
+
+['Invoice Partner', 'Order Partner', 'res.partner']

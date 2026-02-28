@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_followup/wizard/followup_manual_reminder.py
+# hypothesis_version: 6.131.14
+
+['=', 'Attach Invoices', 'Extra Recipients', '_compute_sms_body', 'active_ids', 'active_model', 'attachment_ids', 'author_id', 'body', 'email', 'email_cc', 'email_from', 'email_recipient_ids', 'email_subject', 'email_to', 'ir.attachment', 'join_invoices', 'mail.composer.mixin', 'mail_template', 'manual_followup', 'model', 'partner_id', 'partner_ids', 'partner_to', 'print', 'res.partner', 'sms', 'sms.template', 'sms_body', 'sms_template', 'sms_template_id', 'template_id', 'type']

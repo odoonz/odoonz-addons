@@ -1,0 +1,4 @@
+# file: /odoo/src/credit-control/account_financial_risk/models/account_invoice.py
+# hypothesis_version: 6.131.14
+
+['Risk Amount Total', 'account.move', 'action_post', 'bypass_risk', 'company_currency_id', 'continue_method', 'exception_msg', 'line_ids.credit', 'line_ids.currency_id', 'line_ids.debit', 'origin_reference', 'out_invoice', 'partner_id', 'risk_currency_id', '{},{}']

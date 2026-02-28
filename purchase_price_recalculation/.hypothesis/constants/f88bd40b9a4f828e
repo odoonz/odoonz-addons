@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_base/models/purchase_order_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, '_compute_manual', '_compute_product_qty', 'ctl_type', 'cutlines', 'cutlines.subtotal', 'cutlist.line', 'flashing', 'flashing_shortcode', 'line_id', 'lngth', 'manual', 'move_dest_ids', 'name', 'none', 'price_unit', 'product_id', 'product_id.ctl_type', 'purchase.order.line', 'qty', 'sale.order.line', 'sale_line_id', 'stock.rule', 'supplier']

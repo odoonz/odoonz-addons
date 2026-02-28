@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_hr/models/hr_employee.py
+# hypothesis_version: 6.131.14
+
+['=', 'child_of', 'context', 'default_partner_id', 'default_res_id', 'default_res_model', 'documents.document', 'documents.mixin', 'domain', 'folder', 'folder_id', 'hr.employee', 'hr.group_hr_user', 'model', 'name', 'partner_id', 'res_id', 'type']

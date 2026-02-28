@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_mrp/models/mrp_production.py
+# hypothesis_version: 6.131.14
+
+['Count of Source SO', 'domain', 'form', 'group_id', 'id', 'in', 'list,form', 'mrp.production', 'name', 'res_id', 'res_model', 'sale.order', 'sale.order.line', 'type', 'view_mode']

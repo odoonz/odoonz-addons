@@ -1,0 +1,4 @@
+# file: /odoo/src/credit-control/account_financial_risk/wizards/parner_risk_exceeded.py
+# hypothesis_version: 6.131.14
+
+['Customer', 'Object', 'form', 'ir.model', 'name', 'new', 'res.partner', 'res_id', 'res_model', 'target', 'type', 'view_mode']

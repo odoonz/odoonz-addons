@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/agreement_rebate_ril/wizards/invoice_create.py
+# hypothesis_version: 6.131.14
+
+['41150', '51150', '=', '_compute_branch_id', 'account.journal', 'company_id', 'default_code', 'domain', 'in', 'in_refund', 'out_refund', 'product.product', 'purchase', 'res.company', 'ril.branch', 'sale', 'type']

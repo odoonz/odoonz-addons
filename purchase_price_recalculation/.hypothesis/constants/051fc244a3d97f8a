@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment_stripe/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[100, ',', '/payment/status', '0', '=', 'GET', 'POST', 'Stripe-Signature', 'amount', 'charge', 'charge.refunded', 'data', 'description', 'event_type', 'expand[]', 'has_more', 'http', 'id', 'limit', 'object', 'object_id', 'payment.transaction', 'payment_intent', 'payment_method', 'provider_reference', 'public', 'reference', 'refund', 'refunds', 'setup_intent', 'starting_after', 'stripe', 't', 'type', 'utf-8', 'v1', 'validation', 'werkzeug']

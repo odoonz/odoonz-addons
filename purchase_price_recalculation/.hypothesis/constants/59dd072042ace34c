@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/documents_sale/models/document.py
+# hypothesis_version: 6.131.14
+
+['=', 'branch_id', 'company_id', 'context', 'documents.document', 'domain', 'form', 'id', 'in', 'list', 'res_id', 'res_model', 'ril.branch', 'sale.order', 'sale.view_order_form', 'stock.warehouse', 'type', 'view_id', 'view_mode', 'views', 'warehouse_id']

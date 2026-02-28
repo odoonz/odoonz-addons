@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/wizard/stock_warn_insufficient_qty.py
+# hypothesis_version: 6.131.14
+
+['Unbuild', 'mrp.unbuild']

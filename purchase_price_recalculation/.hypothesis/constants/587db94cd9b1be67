@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/wizard/mail_compose_message.py
+# hypothesis_version: 6.131.14
+
+['mail.compose.message', 'mark_so_as_sent', 'sale.order']

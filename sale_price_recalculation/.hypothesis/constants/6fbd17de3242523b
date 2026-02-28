@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[200, '.pdf;', '=', 'Content-Disposition', 'Content-Type', 'Odoo Server Error', 'active_id', 'active_model', 'application/pdf', 'code', 'create_uid', 'data', 'http', 'message', 'pdf', 'stock_traceability', 'user']

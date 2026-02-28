@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/onboarding_onboarding_step.py
+# hypothesis_version: 6.131.14
+
+[99999999, '!=', 'Accounting Periods', 'Chart of Accounts', 'Create first invoice', 'Sales tax', 'account.account', 'account.journal', 'account.move', 'account_type', 'base.document.layout', 'company_id', 'context', 'default_move_type', 'dialog_size', 'domain', 'equity_unaffected', 'extra-large', 'form', 'journal_id', 'limit', 'list', 'medium', 'name', 'new', 'out_invoice', 'res.company', 'res_id', 'res_model', 'search_view_id', 'target', 'type', 'view_mode', 'views']

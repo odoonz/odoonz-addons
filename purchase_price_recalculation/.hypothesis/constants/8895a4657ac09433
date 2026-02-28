@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/models/purchase_bill_line_match.py
+# hypothesis_version: 6.131.14
+
+['%s UNION ALL %s', '_compute_reference', 'account.move', 'account.move.line', 'aml_id.price_unit', 'bill.to.po.wizard', 'context', 'currency_id', 'default_partner_id', 'dialog_size', 'form', 'has_products', 'in_invoice', 'medium', 'move_type', 'name', 'new', 'partner_id', 'pol_id.price_unit', 'product.product', 'product_id', 'product_id.uom_id', 'product_uom_price', 'product_uom_qty', 'purchase.order', 'purchase.order.line', 'res.company', 'res.currency', 'res.partner', 'res_id', 'res_model', 'target', 'type', 'uom.uom', 'view_mode', 'views']

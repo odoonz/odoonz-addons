@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/utm/models/utm_campaign.py
+# hypothesis_version: 6.131.14
+
+['Active', 'Campaign Identifier', 'Campaign Name', 'Color Index', 'Responsible', 'Stage', 'Tags', 'UNIQUE(name)', 'UTM Campaign', '_compute_name', 'campaign_id', 'name', 'res.users', 'restrict', 'tag_id', 'title', 'unique_name', 'utm.campaign', 'utm.mixin', 'utm.stage', 'utm.tag', 'utm_tag_rel']

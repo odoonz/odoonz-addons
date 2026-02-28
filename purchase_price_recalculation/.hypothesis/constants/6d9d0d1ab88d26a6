@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_geolocalize/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+[0.0, ', ', 'Geolocation Date', 'Warning', 'base.geocoder', 'city', 'country_id', 'danger', 'date_localization', 'display_name', 'en_US', 'force_geo_localize', 'import_file', 'init', 'latitude', 'longitude', 'message', 'partner_%s', 'partner_latitude', 'partner_longitude', 'res.partner', 'simple_notification', 'state_id', 'street', 'test_enable', 'test_file', 'title', 'type', 'update', 'zip']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/account_full_reconcile.py
+# hypothesis_version: 6.131.14
+
+[1000, 'Full Reconcile', 'Reconciliation Parts', 'Reversal of: %s', 'account.move', 'account.move.line', 'btree_not_null', 'date', 'full_reconcile_id', 'reconciled_line_ids', 'ref']

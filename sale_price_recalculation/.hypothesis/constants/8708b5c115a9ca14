@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale_pdf_quote_builder/models/ir_actions_report.py
+# hypothesis_version: 6.131.14
+
+[', ', '.', '/Annots', '/Ff', '/T', 'No', 'UTC', 'Yes', 'boolean', 'custom_form_fields', 'date', 'datetime', 'float', 'footer', 'header', 'integer', 'ir.actions.report', 'line', 'many2many', 'many2one', 'monetary', 'one2many', 'sale.order', 'selection', 'stream']

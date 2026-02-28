@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/vcard.py
+# hypothesis_version: 6.131.14
+
+[',', '/web/partner/vcard', 'Contacts.zip', 'Content-Disposition', 'Content-Length', 'Content-Type', 'application/zip', 'http', 'res.partner', 'text/vcard', 'user', 'vobject', 'w']

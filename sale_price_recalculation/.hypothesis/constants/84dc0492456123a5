@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/controllers/webclient.py
+# hypothesis_version: 6.131.14
+
+[100, '!=', '/mail/action', '/mail/data', '=', 'POST', 'activityCounter', 'activityGroups', 'any', 'author_id', 'bounce', 'bus.bus', 'canned_responses', 'channel_member_ids', 'channel_type', 'channel_types', 'context', 'create_uid', 'discuss.channel', 'exception', 'failures', 'fold_state', 'folded', 'group_ids', 'in', 'init_messaging', 'is_self', 'json', 'mail.canned.response', 'mail.guest', 'mail.notification', 'notification_status', 'open', 'public', 'res.users', 'total_count', 'user_notification', '|']

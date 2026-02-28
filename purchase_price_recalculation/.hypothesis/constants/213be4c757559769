@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/models/ir_attachment.py
+# hypothesis_version: 6.131.14
+
+['.pdf', '=', 'binary', 'datas', 'documents.document', 'documents.mixin', 'id', 'ir.attachment', 'name', 'new_pages', 'no_document', 'old_file_index', 'old_page_number', 'res_field', 'res_id', 'res_model']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/discuss/discuss_voice_metadata.py
+# hypothesis_version: 6.131.14
+
+['cascade', 'ir.attachment']

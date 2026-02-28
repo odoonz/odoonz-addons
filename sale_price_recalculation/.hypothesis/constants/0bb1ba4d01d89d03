@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_loans/lib/pyloan.py
+# hypothesis_version: 6.131.14
+
+[0.0001, 0.01, 100, 360, 365, 366, 367, 1461, 4800, 4900, 32075, '%Y-%m-%d', '30A/360', '30E/360', '30E/360 ISDA', '30U/360', 'A/360', 'A/365F', 'A/A AFB', 'A/A ISDA', 'Loan_Summary', 'Payment', 'Special_Payment', 'annual_payments', 'annuity', 'compounding_method', 'date', 'delta_dt', 'first_payment_date', 'interest-only', 'interest_amount', 'interest_only_period', 'interest_rate', 'linear', 'loan_amount', 'loan_balance_amount', 'loan_term', 'no_of_payments', 'payment_amount', 'payment_end_of_month', 'principal_amount', 'special_payment_term', 'special_payments', 'start_date', 'total_payment_amount']

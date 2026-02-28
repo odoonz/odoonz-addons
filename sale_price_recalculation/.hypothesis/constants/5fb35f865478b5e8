@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/utm/models/utm_source.py
+# hypothesis_version: 6.131.14
+
+['Name', 'Source', 'Source Name', 'UNIQUE(name)', 'UTM Source', 'UTM Source Mixin', 'default_name', 'ir.model', 'name', 'restrict', 'source_id', 'source_id.name', 'unique_name', 'utm.mixin', 'utm.source', 'utm.source.mixin']

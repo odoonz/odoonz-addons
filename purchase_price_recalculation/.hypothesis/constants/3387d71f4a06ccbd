@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_add_gln/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['GLN', 'res.partner']

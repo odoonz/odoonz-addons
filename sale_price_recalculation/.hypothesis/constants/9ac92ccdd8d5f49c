@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_reports/wizard/multicurrency_revaluation.py
+# hypothesis_version: 6.131.14
+
+['<', '=', 'Account', 'Credit', 'Debit', 'Expense Account', 'Income Account', 'Label', 'No adjustment needed', 'Reversal of: %s', 'account.account', 'account.journal', 'account.move', 'account.move.line', 'account.report.line', 'account_id', 'adjustment', 'amount_currency', 'class', 'columns', 'company_id', 'context', 'credit', 'currency_id', 'currency_rates', 'date', 'date desc', 'date_to', 'debit', 'expression_label', 'field', 'form', 'general', 'groups_vals', 'id', 'in', 'journal_id', 'label', 'line_ids', 'name', 'no_format', 'options', 'rate', 'ref', 'res.company', 'res.currency', 'res_id', 'res_model', 'revaluation_no_loop', 'reversal_date', 'text-end text-nowrap', 'type', 'unfold_all', 'view_id', 'view_mode', 'views']

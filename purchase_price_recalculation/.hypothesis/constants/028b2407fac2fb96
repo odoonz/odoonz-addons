@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/purchase_price_recalculation/wizards/purchase_price_recalculation.py
+# hypothesis_version: 6.131.14
+
+[1.0, '</ul><br/>', '<ul>', 'Lines', 'Purchase Order', 'done', 'effective_tax_rate', 'name', 'price.recalculation', 'price_subtotal', 'price_total', 'price_unit', 'product_id', 'purchase.order', 'qty', 'total_excluded', 'total_included', 'warehouse_id']

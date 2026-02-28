@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sms/wizard/sms_resend.py
+# hypothesis_version: 6.131.14
+
+['=', 'Error Message', 'Message', 'Partner', 'Phone Number', 'Recipient Name', 'Recipients', 'Resend Notification', 'SMS Resend', 'Try Again', '_compute_can_cancel', '_compute_can_resend', 'bounce', 'canceled', 'cascade', 'exception', 'failure_type', 'iap.account', 'in', 'ir.actions.act_url', 'mail.followers', 'mail.message', 'mail.notification', 'mail_message_id', 'notif', 'notification_id', 'notification_status', 'notification_type', 'partner_name', 'read', 'recipient_ids', 'recipient_ids.resend', 'res.partner', 'resend', 'sms', 'sms.resend', 'sms.resend.recipient', 'sms_acc', 'sms_credit', 'sms_number', 'sms_resend_id', 'type', 'url']

@@ -1,0 +1,4 @@
+# file: /odoo/src/reporting-engine/report_xlsx_helper/models/ir_actions_report.py
+# hypothesis_version: 6.131.14
+
+['ir.actions.report', 'report.{}', 'report_name']

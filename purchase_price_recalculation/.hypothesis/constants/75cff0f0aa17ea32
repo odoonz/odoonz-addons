@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/models/documents_tag.py
+# hypothesis_version: 6.131.14
+
+['Color', 'Sequence', 'Tag', 'Tooltip', '__count', 'color', 'document_tag_rel', 'documents.document', 'documents.tag', 'id', 'in', 'ir.actions.server', 'resource_ref', 'sequence', 'sequence, name', 'tag_name_unique', 'unique (name)']

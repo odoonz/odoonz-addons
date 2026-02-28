@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/http_routing/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[',', '/odoo', '/web/session/logout', 'http', 'ir.http', 'public']

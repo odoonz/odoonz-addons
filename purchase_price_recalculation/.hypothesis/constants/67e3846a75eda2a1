@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/delivery/models/delivery_zip_prefix.py
+# hypothesis_version: 6.131.14
+
+['Delivery Zip Prefix', 'Prefix', 'delivery.zip.prefix', 'name', 'name, id', 'name_uniq', 'unique (name)']

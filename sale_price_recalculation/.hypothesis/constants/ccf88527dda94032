@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_activity_plan.py
+# hypothesis_version: 6.131.14
+
+['%s (copy)', '&', '=', 'Activities', 'Activity Plan', 'Applies to', 'Model', 'Name', '_compute_steps_count', 'cascade', 'id DESC', 'ir.model', 'is_mail_thread', 'mail.activity.plan', 'name', 'on_demand', 'plan_id', 'res.company', 'res_model', 'template_ids', 'transient']

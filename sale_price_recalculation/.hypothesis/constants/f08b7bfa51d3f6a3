@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/partner_autocomplete/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['Insufficient credit', '_new', 'iap.account', 'ir.actions.act_url', 'partner_autocomplete', 'res.config.settings', 'target', 'type', 'url']

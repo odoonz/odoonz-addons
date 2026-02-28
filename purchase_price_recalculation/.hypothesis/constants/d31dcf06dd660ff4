@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/account_analytic_distribution_model.py
+# hypothesis_version: 6.131.14
+
+['60, 61, 62', '=', 'Accounts Prefix', 'Product', 'Product Category', '[;,]\\s*', 'account.account', 'account_prefix', 'account_type', 'analytic_precision', 'cascade', 'e.g. %(prefix)s', 'expense', 'product.category', 'product.product', 'product_categ_id', 'product_id']

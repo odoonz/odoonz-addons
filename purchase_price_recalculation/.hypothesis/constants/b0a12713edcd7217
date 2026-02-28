@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase/models/res_company.py
+# hypothesis_version: 6.131.14
+
+[0.0, 5000, 'Levels of Approvals', 'Purchase Lead Time', 'edit', 'lock', 'one_step', 'res.company', 'two_step']

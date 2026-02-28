@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/wizard/base_module_upgrade.py
+# hypothesis_version: 6.131.14
+
+['%s: %s', '=', 'Apps to Update', 'Upgrade Module', 'arch', 'base.module.upgrade', 'form', 'in', 'installed', 'ir.module.module', 'res.config', 'state', 'to install', 'to remove', 'to upgrade', 'type', 'uninstalled']

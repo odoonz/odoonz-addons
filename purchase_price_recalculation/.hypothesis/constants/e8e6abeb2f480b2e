@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/product_pricelist_extended/models/ir_filters.py
+# hypothesis_version: 6.131.14
+
+['=', 'Categories', 'Category', 'Pricelists', 'Product', 'Products', 'Template', 'assortment_filter_id', 'categ_id', 'context', 'current', 'domain', 'id', 'in', 'ir.filters', 'is_assortment', 'mail.activity.mixin', 'mail.thread', 'model_assortment', 'model_id', 'name', 'not in', 'product.category', 'product.pricelist', 'product.product', 'product.template', 'product_assortment', 'product_tmpl_id', 'target']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_edi_ubl_cii/models/account_edi_xml_ubl_nlcius.py
+# hypothesis_version: 6.131.14
+
+['Discount', 'SI-UBL 2.0 (NLCIUS)', '_text', '_ubl_values', 'cac:PaymentMeans', 'cac:TaxTotal', 'cbc:BaseAmount', 'cbc:CountrySubentity', 'cbc:CustomizationID', 'cbc:PaymentMeansCode', 'country_subentity', 'credit_note', 'customization_id', 'invoice', 'listID', 'name', 'nlcius', 'tax_totals_currency', 'vals']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/resource/models/utils.py
+# hypothesis_version: 6.131.14
+
+[24.0, 3600, 'start', 'stop', 'switch']

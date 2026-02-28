@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_account/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['=', 'Landed Costs', 'manual_periodic', 'product.category', 'property_valuation', 'real_time', 'res.config.settings']

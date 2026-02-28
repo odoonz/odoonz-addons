@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/analytic/models/ir_config_parameter.py
+# hypothesis_version: 6.131.14
+
+['ir.config_parameter', 'value']

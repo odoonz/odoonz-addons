@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/payment/models/payment_token.py
+# hypothesis_version: 6.131.14
+
+['%Y/%m/%d', '=', 'Active', 'Partner', 'Payment Details', 'Payment Method', 'Payment Method Code', 'Payment Token', 'Payment Transactions', 'Provider', 'Provider Code', 'Provider Reference', 'active', 'create_date', 'disabled', 'in', 'partner_id', 'partner_id, id desc', 'payment.method', 'payment.provider', 'payment.token', 'payment.transaction', 'payment_details', 'provider_id', 'provider_id.code', 'res.partner', 'token_id', '•']

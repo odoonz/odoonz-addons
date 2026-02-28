@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/home.py
+# hypothesis_version: 6.131.14
+
+[200, 303, 500, '/', '/odoo', '/odoo/<path:subpath>', '/robots.txt', '/web', '/web/become', '/web/health', '/web/login', 'Cache-Control', 'Content-Type', 'DENY', 'Disallow: /', 'GET', 'POST', 'SAMEORIGIN', 'Session expired', 'User-agent: *', 'Wrong login/password', 'X-Frame-Options', 'access', 'application/json', 'auth_login', 'city', 'confirm_password', 'country_id', 'databases', 'db', 'db_server_status', 'debug', 'email', 'error', 'fail', 'http', 'ir.http', 'ir.ui.menu', 'lang', 'list_db', 'login', 'login_success', 'message', 'mode', 'name', 'no-cache', 'no-store', 'none', 'partner_id', 'pass', 'password', 'postgres', 'public, max-age=', 'redirect', 'redirect_hostname', 'scope', 'signup_email', 'status', 'text/plain', 'token', 'type', 'uid', 'user', 'web.login', 'web.login_successful']

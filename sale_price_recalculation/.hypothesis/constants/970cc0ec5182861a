@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_edi_ubl_cii/__init__.py
+# hypothesis_version: 6.131.14
+
+['facturx', 'nlcius', 'res.partner', 'ubl_a_nz', 'ubl_bis3', 'ubl_sg', 'xrechnung']

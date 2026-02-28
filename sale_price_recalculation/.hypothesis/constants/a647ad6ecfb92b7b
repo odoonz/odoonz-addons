@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_payment/wizards/account_payment_register.py
+# hypothesis_version: 6.131.14
+
+['=', 'Saved payment token', 'can_edit_wizard', 'code', 'in', 'journal_id', 'lines', 'partner_id', 'payment.provider', 'payment.token', 'payment_token_id', 'provider_id']

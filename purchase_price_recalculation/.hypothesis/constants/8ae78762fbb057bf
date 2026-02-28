@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents_account/controllers/main.py
+# hypothesis_version: 6.131.14
+
+['Content-Disposition', 'Content-Length', 'Content-Type', 'application/pdf', 'nosniff']

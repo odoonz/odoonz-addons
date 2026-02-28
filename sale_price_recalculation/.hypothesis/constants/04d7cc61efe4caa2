@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr_expense/models/account_payment.py
+# hypothesis_version: 6.131.14
+
+['account.payment', 'amount', 'company_account', 'currency_id', 'date', 'expense_sheet_id', 'form', 'hr.expense.sheet', 'journal_idref', 'name', 'partner_bank_id', 'partner_id', 'partner_type', 'payment_reference', 'payment_type', 'res_id', 'res_model', 'type', 'view_mode', 'view_type', 'views']

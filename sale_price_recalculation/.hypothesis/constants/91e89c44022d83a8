@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/sale/wizard/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+[1.0, '=', 'Amazon Sync', 'Automatic Invoice', 'Commissions', 'Coupons & Loyalty', 'Delivery Methods', 'Discounts', 'Easypost Connector', 'FedEx Connector', 'Invoicing Policy', 'Lock Confirmed Sales', 'Margins', 'PDF Quote builder', 'Pro-Forma Invoice', 'Sale Order Warnings', 'Sales Grid Entry', 'Sendcloud Connector', 'Shiprocket Connector', 'Specific Email', 'Starshipit Connector', 'UPS Connector', 'USPS Connector', 'Warning', 'account.move', 'bpost Connector', 'delivery', 'ir.config_parameter', 'mail.template', 'message', 'model', 'order', 'prepayment_percent', 'product.template', 'res.company', 'res.config.settings', 'title', 'warning']

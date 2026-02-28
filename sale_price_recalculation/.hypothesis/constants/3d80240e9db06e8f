@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode_mrp/controllers/stock_barcode.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'True', 'action', 'active', 'barcode', 'byProduct', 'code', 'company_id', 'default_company_id', 'draft', 'group_mrp_byproducts', 'in', 'json', 'mrp.group_mrp_user', 'mrp.production', 'mrp_operation', 'name', 'rb', 'static/img', 'stock.picking.type', 'stock_barcode_mrp', 'user']

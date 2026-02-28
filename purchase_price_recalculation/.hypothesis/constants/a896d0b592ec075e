@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/wizards/reconcile_wizard.py
+# hypothesis_version: 6.131.14
+
+['Branch', '_compute_branch_id', 'account.move.line', 'active_ids', 'branch_id', 'company_id', 'move_line_ids', 'ril.branch']

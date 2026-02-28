@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/helpdesk_stock/models/stock_picking.py
+# hypothesis_version: 6.131.14
+
+['<br/>', '=', 'Return %(status)s', 'cancel', 'done', 'helpdesk.ticket', 'in', 'picking_ids', 'state', 'stock.picking', 'use_product_returns']

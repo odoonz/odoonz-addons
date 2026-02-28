@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/delay.py
+# hypothesis_version: 6.131.14
+
+[' → ', 'Expecting jobs', '__head', '__tail', '_delayables', '_generated_job', '_graph', '_job_args', '_job_kwargs', '_job_method', 'channel', 'delayable', 'description', 'eta', 'identity_key', 'max_retries', 'priority', 'recordset']

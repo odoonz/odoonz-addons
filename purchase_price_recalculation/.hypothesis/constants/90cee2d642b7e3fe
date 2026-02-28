@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/cli/genproxytoken.py
+# hypothesis_version: 6.131.14
+
+['-', '--config', '--token-length', '-c', 'Token Length', 'proxy_access_token']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/binary.py
+# hypothesis_version: 6.131.14
+
+['!=', '%', '*', '.', '.map', '.otf', '.png', '.svg', '.svg+xml', '.ttf', '.woff', '.woff2', '/', '/logo', '/logo.png', '/web/content', '/web/image', '/web/image/<int:id>', '/web/sign/get_fonts', '<', '=', '=like', 'NFD', 'access_token', 'any', 'as_attachment', 'company', 'create_uid', 'css', 'data_dir', 'debug', 'error', 'filename', 'http', 'id', 'image/png', 'immutable', 'ir.asset', 'ir.attachment', 'ir.binary', 'ir.qweb', 'ir.ui.view', 'js', 'json', 'logo', 'max_age', 'mimetype', 'name', 'none', 'public', 'raw', 'rb', 'res_id', 'res_model', 'safari', 'size', 'ufile', 'url', 'user', 'x_sendfile']

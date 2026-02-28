@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_statement_run/wizards/statement_run_wizard.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Attachments', 'Company', 'Pre send check', 'Print and Post', 'Statement Message', 'Statement Run Wizard', '_compute_message', '_inverse_message', 'allowed_company_ids', 'attachment_id', 'attachment_ids', 'company_id', 'date_end', 'email', 'ir.attachment', 'message', 'partner_ids', 'print', 'res.company', 'res.partner', 'sample_check', 'send_method', 'statement.run.wizard', 'type', 'wizard_id']

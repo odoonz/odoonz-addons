@@ -11,7 +11,7 @@ from . import hypothesis_params as hp
 _logger = logging.getLogger(__name__)
 
 try:
-    from hypothesis import assume, given, settings
+    from hypothesis import HealthCheck, assume, given, settings
     from hypothesis import strategies as st
 
     settings.register_profile("ci", database=None)
@@ -20,7 +20,7 @@ except ImportError as err:
     _logger.debug(err)
 
 
-@tagged("post-install", "-at-install")
+@tagged("post_install", "-at_install")
 class TestPriceRecalculationLine(common.TransactionCase):
     def setUp(self):
         super().setUp()
@@ -45,6 +45,7 @@ class TestPriceRecalculationLine(common.TransactionCase):
             }
         )
 
+    @settings(suppress_health_check=[HealthCheck.differing_executors])
     @given(st.data())
     def test_onchange_total(self, data):
         """This function is actually tested in sale_price_recalculation"""
@@ -64,7 +65,7 @@ class TestPriceRecalculationLine(common.TransactionCase):
         assume(float_round(tax_rate, 2) != -1.0)
         # impossible value which will give div / 0
 
-        line = self.env["price.recalculation.line"].new(
+        line = self.model.new(
             {
                 "product_id": self.datacard.id,
                 "qty": qty,

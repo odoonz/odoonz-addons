@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_enterprise/models/ir_http.py
+# hypothesis_version: 6.131.14
+
+['admin', 'base.group_system', 'color_scheme', 'expiration_date', 'expiration_reason', 'ir.config_parameter', 'ir.http', 'session_info', 'support_url', 'user', 'warning']

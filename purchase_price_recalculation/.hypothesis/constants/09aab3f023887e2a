@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website_crm/models/crm_lead.py
+# hypothesis_version: 6.131.14
+
+['# Page Views', '1', 'Web Visitors', 'context', 'crm.group_use_lead', 'crm.lead', 'crm.team', 'domain', 'in', 'ir.actions.actions', 'lead', 'lead_id', 'medium_id', 'opportunity', 'page_view_count', 'team_id', 'type', 'user_id', 'utm.medium', 'visitor_id', 'visitor_ids', 'visitor_ids.page_ids', 'website', 'website.track', 'website.visitor']

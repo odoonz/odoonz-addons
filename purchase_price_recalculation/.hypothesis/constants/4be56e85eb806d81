@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/product_list_price_change/wizards/product_price_change_wizard.py
+# hypothesis_version: 6.131.14
+
+[0.0, '\n - ', 'active_id', 'list_price', 'percent_change', 'price_change_id', 'product.price.change', 'product.template', 'product_tmpl_id', 'product_tmpl_id.name', 'type']

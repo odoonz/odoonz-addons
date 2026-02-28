@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_check_printing/models/account_journal.py
+# hypothesis_version: 6.131.14
+
+[2147483647, '=', 'Check Layout', 'Check Sequence', 'Checks to Print', 'Manual Numbering', 'Next Check Number', '^[0-9]+$', 'account.journal', 'account.payment', 'check_printing', 'company_id', 'context', 'disabled', 'implementation', 'in_process', 'ir.sequence', 'is_sent', 'list,form,graph', 'name', 'no_gap', 'num_checks_to_print', 'number_increment', 'outbound', 'padding', 'res_model', 'state', 'type', 'view_mode']

@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/tools/sql.py
+# hypothesis_version: 6.131.14
+
+[' WHERE %s', '%', '%s', '%s %s', "%s->>'en_US'", '%s::%s', '%s; %s', '(_|%|\\\\)', ',', ', ', '; ', 'BOOLEAN', 'CASCADE', 'CREATE TABLE %s (%s)', 'DEFAULT false', 'DROP VIEW %s CASCADE', 'Drop view %r', 'MATERIALIZED VIEW', 'NO ACTION', 'PRIMARY KEY(id)', 'RESTRICT', 'SET DEFAULT', 'SET NULL', 'SQL', 'Table %r: created', 'VARCHAR', 'VARCHAR(%d)', 'VIEW', '\\', '\\%', '\\1', '\\\\', '\\\\(.|$)', '\\\\\\1', '\\_', '_', '__code', '__params', '__to_flush', 'a', 'asc', 'bool', 'btree', 'c', 'column_name', 'create_index', 'create_unique_index', 'd', 'date', 'desc', 'drop_view_if_exists', 'escape_psql', 'f', 'float8', 'id SERIAL NOT NULL', 'index_exists', 'int4', 'integer', 'jsonb', 'm', 'make_identifier', 'make_index_name', 'n', 'numeric', 'odoo.schema', 'r', 'reverse_order', 't', 'text', 'timestamp', 'v', 'varchar']

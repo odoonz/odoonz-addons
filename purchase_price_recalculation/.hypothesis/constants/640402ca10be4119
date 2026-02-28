@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/models/product_document.py
+# hypothesis_version: 6.131.14
+
+['Bill of Materials', 'Hidden', 'MRP : Visible at', 'attached_on_bom', 'bom', 'hidden', 'product.document']

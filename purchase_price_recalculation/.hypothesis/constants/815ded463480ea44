@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_no_followup/models/account_partner_ledger.py
+# hypothesis_version: 6.131.14
+
+['account.move.line', 'account.report', 'asset_receivable', 'liability_payable', 'no_followup', 'updated_line_ids', 'updated_value']

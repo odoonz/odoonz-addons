@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/controllers/main.py
+# hypothesis_version: 6.131.14
+
+[0.0, '%s #%d', '%s done', '%s postponed', '%s started', '.', '/queue_job/runjob', 'Access Denied', 'Test job', '__module__', 'exc_info', 'exc_message', 'exc_name', 'http', 'none', 'queue.job', 'user']

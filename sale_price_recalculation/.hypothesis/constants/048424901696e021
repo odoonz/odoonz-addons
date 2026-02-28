@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_intercompany_rules/models/recharge_rule.py
+# hypothesis_version: 6.131.14
+
+[0.0, 100.0, 100, '=', 'Company', 'Customer Group', 'Levy', 'Recharge Precision', 'Supplier Discount', 'Vendor Group', 'discount', 'flashing', 'is_company', 'price_subtotal', 'price_unit', 'recharge.rule', 'res.company', 'res.partner']

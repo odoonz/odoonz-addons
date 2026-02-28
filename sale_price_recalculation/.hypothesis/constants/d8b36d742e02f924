@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_dispatch/models/stock_picking_type.py
+# hypothesis_version: 6.131.14
+
+['!=', '%Y-%m-%d 00:00:00', '<', '=', 'Disallow', 'assigned', 'confirmed', 'disallow', 'in', 'invoiced', 'manifest_id', 'partially_available', 'picking_type_id', 'set default', 'state', 'stock.picking', 'stock.picking.type', 'waiting']

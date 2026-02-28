@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/wizard/mrp_production_split.py
+# hypothesis_version: 6.131.14
+
+['Manufacturing Order', 'Productions To Split', 'Quantity To Produce', 'Responsible', 'Schedule Date', 'Split #', 'Split Details', 'Split Production', 'Split Productions', 'Valid', '_compute_counter', '_compute_details', 'cascade', 'counter', 'date', 'groups_id', 'in', 'ir.actions.actions', 'mrp.group_mrp_user', 'mrp.production', 'mrp.production.split', 'quantity', 'res.users', 'res_id', 'user_id']

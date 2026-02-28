@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_render_mixin.py
+# hypothesis_version: 6.131.14
+
+[' }}', ', ', '.', 'Language', 'Mail Render Mixin', 'Rendering Model', 'body', 'company', 'company_id', 'ctx', 'div', 'format_amount', 'format_date', 'format_datetime', 'format_duration', 'format_time', 'inline_template', 'ir.config_parameter', 'ir.http', 'ir.model', 'ir.qweb', 'is_html_empty', 'lang', 'mail.mail', 'mail.render.mixin', 'medium', 'model_description', 'object', 'post_process', 'preserve_comments', 'qweb', 'qweb_view', 'record', 'record_name', 'render_engine', 'render_options', 'slug', 't', 'user', 'web.base.url', '{{ object.']

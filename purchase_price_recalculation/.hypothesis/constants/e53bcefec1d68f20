@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/wizard/account_secure_entries_wizard.py
+# hypothesis_version: 6.131.14
+
+['<=', '=', '>=', 'Draft Entries', 'Hash All Entries', 'Journal Entries', 'MIN(date)', 'Max Hash Date', 'Review', 'The selected Date', '_compute_data', '_compute_hash_date', '_compute_warnings', 'account.journal', 'account.move', 'account_sequence_gap', 'action', 'action_text', 'child_of', 'company_id', 'danger', 'date', 'domain', 'draft', 'first_move_id', 'form', 'gap', 'hash_date', 'id', 'id:recordset', 'in', 'inalterable_hash', 'journal_id', 'last_move_hashed', 'last_move_id', 'level', 'list', 'max_hash_date', 'message', 'moves', 'name', 'posted', 'remaining_moves', 'res.company', 'res_model', 'search', 'search_view_id', 'sequence_number', 'sequence_prefix', 'state', 'type', 'unreconciled', 'view_mode', 'views', 'warnings']

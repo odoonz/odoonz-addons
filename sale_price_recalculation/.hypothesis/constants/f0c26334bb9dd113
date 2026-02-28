@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/portal/models/mail_message.py
+# hypothesis_version: 6.131.14
+
+['access_token', 'attachment_ids', 'author', 'author_avatar_url', 'author_guest_id', 'author_id', 'body', 'checksum', 'content', 'count', 'date', 'filename', 'guest', 'hash', 'id', 'ir.model.data', 'is_internal', 'mail.message', 'mail.mt_note', 'message', 'message_type', 'mimetype', 'model', 'name', 'partner', 'personas', 'pid', 'published_date_str', 'reactions', 'read', 'res_id', 'res_model', 'safari', 'starred', 'subtype_id', 'thread', 'token', 'type', 'video']

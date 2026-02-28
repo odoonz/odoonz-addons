@@ -1,0 +1,4 @@
+# file: /odoo/src/odoonz/account_entry_lock_policy/models/account_lock_policy.py
+# hypothesis_version: 6.131.14
+
+['Account Lock Policy', 'Global', 'Lock Date Target', 'Purchases', 'Sales', 'Tax', 'account.lock.policy', 'day', 'days', 'fiscalyear_lock_date', 'purchase_lock_date', 'res.company', 'sale_lock_date', 'tax_lock_date', 'tz', 'weekday', 'working days', 'write']

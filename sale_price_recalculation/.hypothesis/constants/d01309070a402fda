@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/wizard/account_validate_account_move.py
+# hypothesis_version: 6.131.14
+
+['=', 'Depending Action', 'Depending moves', 'Force', '_compute_is_entries', 'account.journal', 'account.move', 'active_id', 'active_ids', 'active_model', 'button_text', 'context', 'depending_action', 'dialog_size', 'draft', 'entry', 'id', 'in', 'ir.actions.client', 'journal_id', 'line_ids', 'medium', 'message', 'move_ids', 'move_type', 'name', 'new', 'no', 'params', 'res.partner', 'state', 'tag', 'target', 'type']

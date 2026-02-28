@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant/wizard/account_change_lock_date.py
+# hypothesis_version: 6.131.14
+
+[',', '15min', '1h', '24h', '5min', '<=', '=', 'Change Lock Date', 'Current Hard Lock', 'Draft Entries', 'Exception Duration', 'Exception Reason', 'Exception applies', 'Exception needed', 'Hard Lock', 'Lock Everything', 'Lock Purchases', 'Lock Sales', 'Lock Sales For Me', 'Lock Tax Return', 'account.move', 'child_of', 'company', 'company_id', 'date', 'domain', 'draft', 'end_datetime', 'everyone', 'fiscalyear_lock_date', 'for 1 hour', 'for 15 minutes', 'for 24 hours', 'for 5 minutes', 'for everyone', 'for me', 'forever', 'form', 'hard_lock_date', 'journal_id.type', 'list', 'me', 'name', 'new', 'purchase', 'purchase_lock_date', 'reason', 'res.company', 'res_id', 'res_model', 'sale', 'sale_lock_date', 'search', 'search_view_id', 'state', 'target', 'tax_lock_date', 'type', 'user', 'user_id', 'view_mode', 'views']

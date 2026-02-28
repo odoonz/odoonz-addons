@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/wizards/queue_jobs_to_cancelled.py
+# hypothesis_version: 6.131.14
+
+['enqueued', 'failed', 'pending', 'queue.requeue.job', 'type']

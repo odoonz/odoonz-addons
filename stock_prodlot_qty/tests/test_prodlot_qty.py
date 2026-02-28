@@ -5,7 +5,7 @@
 from odoo.tests import common, tagged
 
 
-@tagged("post-install", "-at-install")
+@tagged("post_install", "-at_install")
 class TestSaleOrder(common.TransactionCase):
     def test_prodlot_qty(self):
         lot = self.env.ref("stock.lot_product_cable_management")

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/web_gantt/models/models.py
+# hypothesis_version: 6.131.14
+
+['=', 'Invalid direction %r', '__count', '__domain', '__fold', '__record_ids', '_start_name', '_stop_name', 'backward', 'base', 'date_end', 'date_start', 'date_stop', 'end_date', 'errors', 'forward', 'groups', 'id', 'in', 'info', 'loop_error', 'message', 'old_vals_per_pill_id', 'past_error', 'progress_bars', 'records', 'start_date', 'stop_date', 'success', 'type', 'unavailabilities', 'warning', 'warnings', 'x_date_end', 'x_date_start', 'x_date_stop', 'x_end_date', 'x_start_date', 'x_stop_date']

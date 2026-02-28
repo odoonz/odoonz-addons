@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/models/product_packaging.py
+# hypothesis_version: 6.131.14
+
+['barcode', 'name', 'product.packaging', 'product.product', 'product_id', 'qty', 'uom.uom']

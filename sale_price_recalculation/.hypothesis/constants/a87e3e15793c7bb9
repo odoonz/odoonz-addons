@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/controllers/backend.py
+# hypothesis_version: 6.131.14
+
+['base.group_system', 'create', 'dashboards', 'groups', 'http', 'id', 'installed', 'json', 'name', 'nbInstalled', 'plausible_share_url', 'selected', 'system', 'total', 'user', 'website', 'website_designer', 'websites']

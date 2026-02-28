@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/base_sparse_field/models/models.py
+# hypothesis_version: 6.131.14
+
+['One', 'Serialization Field', 'Sparse fields Test', 'Two', 'base', 'cascade', 'data', 'ir.model.fields', 'name', 'one', 'res.partner', 'serialized', 'sparse', 'sparse_fields.test', 'two']

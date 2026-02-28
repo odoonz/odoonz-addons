@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/res_users_deletion.py
+# hypothesis_version: 6.131.14
+
+['=', 'Done', 'Failed', 'State', 'To Do', 'User', 'User Id', '_compute_user_id_int', 'done', 'fail', 'ir.cron', 'res.users', 'res.users.deletion', 'set null', 'state', 'testing', 'todo', 'user_id']

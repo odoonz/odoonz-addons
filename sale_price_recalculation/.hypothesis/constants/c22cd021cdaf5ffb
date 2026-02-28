@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/osv/expression.py
+# hypothesis_version: 6.131.14
+
+[' 00:00:00', ' 23:59:59', '!', '!=', '%', '%s', '%s %s %s', '%s -> %s', '%s ->> %s', '%s = %s', '%s IS NOT NULL', '%s.%s', '%s.%s IS NOT NULL', '&', '(%s %s %s)', '(%s (%s) %s (%s))', '(%s AND %s)', '(%s OR %s)', '((%s) %s (%s))', '(NOT (%s))', '({!r}, {!r}, {})', '.', '/', '<', '<=', '<>', '<@', '=', '=?', '=ilike', '=like', '>', '>=', '?', '@>', 'EXISTS', 'FALSE', 'ILIKE', 'IN', 'Invalid leaf %s', 'LEFT JOIN', 'LIKE', 'NOT', 'NOT EXISTS', 'NOT ILIKE', 'NOT IN', 'NOT LIKE', 'TRUE', '[{}]', 'any', 'binary', 'btree_not_null', 'child_of', 'date', 'datetime', 'day_of_week', 'display_name', 'id', 'ilike', 'in', 'indent', 'integer', 'ir.default', 'left_count', 'like', 'many2many', 'many2one', 'many2one_reference', 'not any', 'not ilike', 'not in', 'not like', 'one2many', 'parent_of', 'parent_path', 'properties', 'read', 'terms', 'trigram', 'tz', '|']

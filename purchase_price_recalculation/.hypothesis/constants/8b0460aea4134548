@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/cutlist_list_price_change/models/product_price_change_line.py
+# hypothesis_version: 6.131.14
+
+[100.0, 'Product Price', '_compute_fold_rate', 'flashing', 'percent_change', 'product.price.change', 'product_tmpl_id']

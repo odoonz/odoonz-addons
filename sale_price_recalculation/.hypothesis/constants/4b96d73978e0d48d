@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase_mrp/models/mrp_bom.py
+# hypothesis_version: 6.131.14
+
+[100, 'Cost Share (%)', 'bom_line_ids', 'byproduct_ids', 'cost_share', 'mrp.bom', 'mrp.bom.line', 'operation_ids', 'product_id', 'product_tmpl_id']

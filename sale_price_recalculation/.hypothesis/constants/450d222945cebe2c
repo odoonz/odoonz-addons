@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/hr/models/res_config_settings.py
+# hypothesis_version: 6.131.14
+
+['Employee Editing', 'Remote Work', 'Skills Management', 'install_mode', 'module_hr_presence', 'res.config.settings', 'resource.calendar', 'testing']

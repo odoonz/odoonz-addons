@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_inventory/models/stock_location.py
+# hypothesis_version: 6.131.14
+
+['stock.location']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_followup/models/account_followup.py
+# hypothesis_version: 6.131.14
+
+['<', '=', '>', 'Account Manager', 'Activity Type', 'Add followers', 'Attach Invoices', 'Automatic', 'Company', 'Description', 'Due Days', 'Follow-up Criteria', 'Note', 'Responsible', 'Salesperson', 'Schedule Activity', 'Send Email', 'Send SMS Message', 'Summary', 'account_manager', 'auto_execute', 'company_id', 'days_uniq', 'delay', 'delay asc', 'delay desc', 'delay:max', 'followup', 'in', 'mail.activity.type', 'mail.template', 'name', 'res.company', 'res.users', 'salesperson', 'sms.template', 'uniq_name']

@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/wizard/stock_request_count.py
+# hypothesis_version: 6.131.14
+
+['in', 'location_id', 'stock.quant', 'stock.request.count']

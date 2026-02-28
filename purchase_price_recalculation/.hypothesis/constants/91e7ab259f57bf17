@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/purchase_stock/models/stock_rule.py
+# hypothesis_version: 6.131.14
+
+[0.0, 365, '+ %d day(s)', '+ %s day(s)', ', ', '<=', '=', '>=', 'Buy', 'Days to Purchase', 'HALF-UP', 'No Vendor Found', 'Vendor Lead Time', 'account.tax', 'action', 'buy', 'cascade', 'company_id', 'currency_id', 'date_order', 'date_planned', 'dest_address_id', 'draft', 'fiscal_position_id', 'fixed', 'group_id', 'incoming', 'ir.config_parameter', 'move_dest_ids', 'orderpoint_id', 'origin', 'partner_id', 'payment_term_id', 'picking_type_id', 'price_unit', 'procurement.group', 'product_qty', 'propagate', 'propagate_cancel', 'purchase.order', 'purchase.order.line', 'purchase_delay', 'purchase_line_id', 'security_lead_days', 'state', 'stock.move', 'stock.rule', 'supplier', 'supplierinfo', 'supplierinfo_id', 'supplierinfo_name', 'total_delay', 'user_id']

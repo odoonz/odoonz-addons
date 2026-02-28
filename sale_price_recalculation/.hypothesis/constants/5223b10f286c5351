@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mail/models/mail_message_reaction.py
+# hypothesis_version: 6.131.14
+
+['Content', 'Message', 'Message Reaction', 'MessageReactions', 'Reacting Guest', 'Reacting Partner', 'avatar_128', 'cascade', 'content', 'count', 'id desc', 'mail.guest', 'mail.message', 'message', 'name', 'personas', 'res.partner', 'sequence']

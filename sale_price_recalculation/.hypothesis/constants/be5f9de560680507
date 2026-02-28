@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp/wizard/mrp_consumption_warning.py
+# hypothesis_version: 6.131.14
+
+['Allowed', 'Allowed with warning', 'Blocked', 'Consumed', 'Manufacturing Order', 'Parent Wizard', 'Product', 'To Consume', 'Unit of Measure', '_compute_consumption', 'additional', 'cascade', 'consumption', 'flexible', 'form', 'from_workorder', 'main', 'mrp.production', 'mrp_production_ids', 'name', 'picked', 'product.product', 'product_id', 'product_id.uom_id', 'product_uom', 'product_uom_qty', 'quantity', 'res_id', 'res_model', 'stock.move', 'strict', 'target', 'type', 'uom.uom', 'views', 'warning']

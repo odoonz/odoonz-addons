@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['Avalara Partner Code', 'CA', 'Contact', 'US', 'avatax.exemption', 'city', 'context', 'country_id', 'default_partner_id', 'form', 'name', 'new', 'res.partner', 'res_model', 'state_id', 'street', 'street2', 'target', 'type', 'view_mode', 'zip']

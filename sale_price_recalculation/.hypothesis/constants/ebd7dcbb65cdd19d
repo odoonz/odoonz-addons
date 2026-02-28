@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock/models/stock_package_type.py
+# hypothesis_version: 6.131.14
+
+['%s (copy)', 'Barcode', 'CHECK(height>=0.0)', 'CHECK(width>=0.0)', 'Company', 'Height', 'Length', 'Max Weight', 'Package Type', 'Packaging Height', 'Packaging Length', 'Packaging Width', 'Sequence', 'Stock package type', 'Weight', 'Width', 'barcode_uniq', 'package_type_id', 'positive_height', 'positive_length', 'positive_max_weight', 'positive_width', 'product.template', 'res.company', 'sequence, id', 'stock.package.type', 'unique(barcode)']

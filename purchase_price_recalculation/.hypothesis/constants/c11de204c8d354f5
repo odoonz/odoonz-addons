@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/spreadsheet_account/models/res_company.py
+# hypothesis_version: 6.131.14
+
+['company_id', 'date', 'end', 'fiscalyear_last_day', 'res.company', 'start']

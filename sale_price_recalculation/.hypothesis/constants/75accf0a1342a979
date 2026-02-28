@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_avatax/models/res_company.py
+# hypothesis_version: 6.131.14
+
+['*', '</ul>', '<ul>', '=', 'Avalara API ID', 'Avalara API KEY', 'Avalara Company Code', 'Avalara Environment', 'Commit in Avatax', 'Production', 'Sandbox', 'Test Result', 'Use AvaTax', 'Use UPC', 'authenticated', 'avatax.exemption', 'base.group_system', 'code', 'company_id', 'description', 'form', 'in', 'name', 'new', 'production', 'res.company', 'res.config.settings', 'res.country', 'res_id', 'res_model', 'sandbox', 'server_response', 'target', 'type', 'validCountries', 'valid_country_ids', 'value', 'views']

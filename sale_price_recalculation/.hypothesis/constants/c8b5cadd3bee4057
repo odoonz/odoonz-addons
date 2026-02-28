@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/models/ir_actions_server.py
+# hypothesis_version: 6.131.14
+
+['=', 'Server Actions', 'context', 'current', 'default_model_id', 'default_update_path', 'display_name', 'documents.document', 'domain', 'form', 'help', 'ir.actions.server', 'ir.model', 'list', 'list,form', 'model_name', 'read', 'res_model', 'tag_ids', 'target', 'type', 'view_mode', 'views']

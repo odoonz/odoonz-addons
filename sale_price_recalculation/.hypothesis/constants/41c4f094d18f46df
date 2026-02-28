@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_template_attribute_line.py
+# hypothesis_version: 6.131.14
+
+['=', 'Attribute', 'Product Template', 'Sequence', 'Values', '_compute_value_count', 'active', 'attribute_id', 'attribute_line_id', 'attribute_line_ids', 'cascade', 'context', 'domain', 'form', 'id', 'in', 'list', 'list,form', 'multi', 'name', 'no_variant', 'odoo.sql_db', 'price_extra', 'product.attribute', 'product.template', 'product_invisible', 'product_tmpl_id', 'ptav_active', 'res_model', 'restrict', 'type', 'value_ids', 'view_mode', 'views']

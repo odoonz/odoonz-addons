@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_accountant_batch_payment/models/account_reconcile_model.py
+# hypothesis_version: 6.131.14
+
+['!=', 'TRUE', 'account.move.line', 'allow_auto_reconcile', 'amls', 'in', 'invoice_matching', 'name', 'reconciled', 'state']

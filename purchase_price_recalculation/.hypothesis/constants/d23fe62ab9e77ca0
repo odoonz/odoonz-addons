@@ -1,0 +1,4 @@
+# file: /odoo/src/report-print-send/base_report_to_printer/models/printing_printer.py
+# hypothesis_version: 6.131.14
+
+[b'TEST', '/', '=', 'Available', 'Error', 'InputSlot', 'Jobs', 'Local Raw Printer', 'Paper Sources', 'Printer', 'Printing', 'Server', 'Server Error', 'True', 'URI', 'Unavailable', 'Unknown', 'available', 'choice', 'completed', 'default', 'device-uri', 'error', 'location', 'model', 'name', 'printer-info', 'printer-location', 'printer-state', 'printer_id', 'printing', 'printing.job', 'printing.printer', 'printing.server', 'printing.tray', 'raw', 'server-error', 'server_id', 'status', 'status_message', 'system_name', 'text', 'title', 'tray_ids', 'unavailable', 'unknown', 'uri']

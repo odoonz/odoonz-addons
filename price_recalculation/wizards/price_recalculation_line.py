@@ -52,6 +52,15 @@ class PriceRecalculationLine(models.AbstractModel):
         """
         self._compute_line(price_total=self.price_total)
 
+    @api.onchange("price_subtotal")
+    def _onchange_subtotal(self):
+        """Determine line components from subtotal
+
+        NB when triggered again by _compute_line() this is a no-op
+        as the subtotal was just determined and nothing else changed.
+        """
+        self._compute_line(price_subtotal=self.price_subtotal)
+
     def _compute_line(self, price_total=False, price_subtotal=False, price_unit=False):
         """Compute line components from each other
 

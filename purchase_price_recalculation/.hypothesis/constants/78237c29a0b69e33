@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/addons/base/models/ir_autovacuum.py
+# hypothesis_version: 6.131.14
+
+['Automatic Vacuum', 'Calling %s.%s()', 'Failed %s.%s()', '_autovacuum', 'ir.autovacuum']

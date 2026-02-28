@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/product/models/product_catalog_mixin.py
+# hypothesis_version: 6.131.14
+
+['!=', '=', 'Products', 'combo', 'company_id', 'context', 'domain', 'form', 'kanban', 'name', 'parent_of', 'product.product', 'productType', 'quantity', 'readOnly', 'res_model', 'search', 'search_view_id', 'type', 'views', '|']

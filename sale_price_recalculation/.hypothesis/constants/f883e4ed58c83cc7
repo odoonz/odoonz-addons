@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account/models/kpi_provider.py
+# hypothesis_version: 6.131.14
+
+['=', 'account.journal', 'account.move', 'bank', 'checked', 'draft', 'field_id.model', 'field_id.name', 'id', 'integer', 'journal_id', 'journal_id.type', 'journal_id:count', 'kpi.provider', 'name', 'posted', 'state', 'type', 'value']

@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/partner_architect/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+['=', '__count', 'active', 'child_of', 'crm.lead', 'domain', 'id', 'in', 'parent_id', 'partner_id', 'res.partner', 'specifier', '|']

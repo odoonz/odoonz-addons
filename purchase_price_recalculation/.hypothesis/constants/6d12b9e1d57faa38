@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/res_lang.py
+# hypothesis_version: 6.131.14
+
+['-', 'Add languages', '_', 'active', 'code', 'es', 'es_419', 'form', 'hreflang', 'in', 'is_frontend', 'language_ids', 'name', 'new', 'res.lang', 'res_model', 'target', 'type', 'view_mode', 'views', 'website', 'website_id']

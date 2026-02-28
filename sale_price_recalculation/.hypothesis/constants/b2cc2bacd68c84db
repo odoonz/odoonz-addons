@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/mrp_account/report/mrp_report_mo_overview.py
+# hypothesis_version: 6.131.14
+
+['quantity', 'value']

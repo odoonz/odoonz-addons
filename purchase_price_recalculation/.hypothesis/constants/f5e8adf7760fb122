@@ -1,0 +1,4 @@
+# file: /odoo/src/queue/queue_job/fields.py
+# hypothesis_version: 6.131.14
+
+['[]', '_type', 'base', 'context', 'date_isoformat', 'datetime_isoformat', 'env', 'etree_element', 'ids', 'job_serialized', 'jsonb', 'model', 'odoo_recordset', 'su', 'uid', 'value', '{}']

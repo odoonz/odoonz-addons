@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/account_payment/models/account_move.py
+# hypothesis_version: 6.131.14
+
+['Amount paid', 'Transaction Count', 'Transactions', '_compute_amount_paid', 'account.move', 'amount', 'amount_due', 'amount_max', 'authorized', 'currency_id', 'custom', 'date_maturity', 'discount_date', 'domain', 'done', 'epd', 'form', 'has_eligible_epd', 'id', 'in', 'in_payment', 'installment_state', 'invoice_id', 'ir.config_parameter', 'next', 'next_amount_to_pay', 'none', 'not_paid', 'number', 'open_installments', 'out_invoice', 'overdue', 'partial', 'partner_id', 'payment.transaction', 'pending', 'posted', 'res_id', 'transaction_id', 'transaction_ids', 'type', 'view_mode', 'views']

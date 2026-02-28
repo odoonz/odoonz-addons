@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/models/stock_location.py
+# hypothesis_version: 6.131.14
+
+['barcode', 'display_name', 'location', 'location_dest', 'name', 'parent_path', 'stock.location', 'usage']

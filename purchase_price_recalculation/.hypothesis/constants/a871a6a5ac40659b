@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/phone_validation/tools/phone_validation.py
+# hypothesis_version: 6.131.14
+
+['+', '00', 'E164', 'INTERNATIONAL', 'RFC3966', 'code', 'en_US', 'national_number', 'phone_code']

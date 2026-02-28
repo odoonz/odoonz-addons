@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/models/bank_rec_widget.py
+# hypothesis_version: 6.131.14
+
+['_compute_branch_id', 'aml', 'bank.rec.widget', 'bank.rec.widget.line', 'branch_id', 'exchange_diff', 'liquidity', 'new_aml', 'ril.branch', 'source_aml_id', 'wizard_id.company_id']

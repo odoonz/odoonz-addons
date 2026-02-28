@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/snailmail/wizard/snailmail_letter_format_error.py
+# hypothesis_version: 6.131.14
+
+['Add a Cover Page', 'cover', 'mail.message', 'message_id', 'snailmail_cover']

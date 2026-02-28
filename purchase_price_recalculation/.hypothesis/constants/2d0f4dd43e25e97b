@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/auth_totp_mail/models/res_users.py
+# hypothesis_version: 6.131.14
+
+[', ', 'Account Security', 'author_id', 'display_notification', 'email_from', 'form', 'info', 'ir.actions.client', 'message', 'name', 'params', 'res.users', 'res_id', 'res_model', 'sticky', 'suggest_2fa', 'tag', 'totp_secret', 'type', 'views']

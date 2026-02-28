@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website_crm/models/website.py
+# hypothesis_version: 6.131.14
+
+['=', 'Default Sales Teams', 'Default Salesperson', 'crm.group_use_lead', 'crm.team', 'res.users', 'share', 'use_leads', 'use_opportunities', 'website']

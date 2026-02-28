@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/documents/controllers/home.py
+# hypothesis_version: 6.131.14
+
+['/', '/odoo/documents', '/odoo/documents/', 'access_token', 'action', 'debug', 'documents', 'documents.document', 'documents.menu_root', 'documents.redirect', 'documents/', 'ir.http', 'menu_id', 'model', 'public', 'subpath']

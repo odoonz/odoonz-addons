@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/web/controllers/webclient.py
+# hypothesis_version: 6.131.14
+
+['*', ',', '/web/tests', '/web/tests/legacy', 'Cache-Control', 'GET', '_', 'bootstrap', 'data-src', 'debug', 'href', 'http', 'ir.http', 'ir.qweb', 'ir.ui.view', 'json', 'lang', 'lang_parameters', 'messages', 'modules', 'multi_lang', 'none', 'public', 'res.lang', 'session_info', 'src', 'type', 'user', 'view_info', 'web.qunit_suite', 'web.unit_tests_suite']

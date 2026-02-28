@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_no_followup/models/res_partner.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'account.move.line', 'account_type', 'amount_residual:sum', 'asset_receivable', 'followup_overdue', 'form', 'list', 'no_followup', 'partner_id', 'res.partner', 'view_mode', 'views']

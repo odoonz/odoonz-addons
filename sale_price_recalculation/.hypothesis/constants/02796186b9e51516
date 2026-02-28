@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/website/models/website_form.py
+# hypothesis_version: 6.131.14
+
+['=', 'Fields', 'Models', '_property', 'body', 'comodel', 'definition_record', 'domain', 'email_bcc', 'email_cc', 'email_from', 'email_to', 'field', 'id', 'ilike', 'ir.model', 'ir.model.fields', 'json', 'mail.mail', 'many2many', 'many2one', 'many2one_reference', 'model', 'model_id', 'name', 'properties', 'readonly', 'relation', 'reply_to', 'required', 'selection', 'separator', 'subject', 'tags', 'type', 'website', 'website_form_access', 'website_form_key', 'website_form_label']

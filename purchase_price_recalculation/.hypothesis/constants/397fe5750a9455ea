@@ -1,0 +1,4 @@
+# file: /usr/lib/python3/dist-packages/magic/__init__.py
+# hypothesis_version: 6.131.14
+
+[128, 256, 512, 524, 1024, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 16777216, 'MAGIC_MIME', '^[A-Z_]+$', 'backslashreplace', 'cookie', 'detect_from_content', 'detect_from_filename', 'detect_from_fobj', 'magic_getparam', 'magic_setparam', 'magic_version', 'open', 'replace', 'surrogateescape', 'utf-8']

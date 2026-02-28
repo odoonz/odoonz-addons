@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_barcode/models/stock_lot.py
+# hypothesis_version: 6.131.14
+
+['lot', 'name', 'product.product', 'product_id', 'ref', 'stock.lot', 'uom.uom']

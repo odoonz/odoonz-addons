@@ -9,7 +9,6 @@ exclude: |
   ^account_financial_risk_manager/|
   ^account_invoice_cutoff_policy/|
   ^account_supplier_tax_rounding/|
-  ^account_tax_total_included/|
   ^base_intracompany_user/|
   ^base_ir_rule_important/|
   ^discuss_email_send/|

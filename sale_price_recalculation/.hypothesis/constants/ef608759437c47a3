@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/sale_dropship_address/models/product_supplierinfo.py
+# hypothesis_version: 6.131.14
+
+['0', '1', '2', '3', '=', 'For these customers', 'Special Pricing', 'Supplier Reference', 'Warehouse', '_compute_sequence', '_compute_special', 'all', 'company', 'company_id', 'crm.lead', 'current', 'customer_id', 'customer_ids', 'date_end', 'ended', 'opportunity_id', 'opportunity_ids', 'parent_id', 'preferred_supplier', 'price', 'product.supplierinfo', 'res.partner', 'special', 'stock.warehouse', 'use_default_partner', 'warehouse', 'warehouse_id']

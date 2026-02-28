@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/crm/wizard/crm_lead_to_opportunity.py
+# hypothesis_version: 6.131.14
+
+[100, 'Associated Lead', 'Conversion Action', 'Customer', 'Force assignment', 'Opportunities', 'Related Customer', 'Sales Team', 'Salesperson', '_compute_action', '_compute_name', '_compute_partner_id', '_compute_team_id', '_compute_user_id', 'action', 'active_id', 'active_ids', 'active_test', 'convert', 'create', 'crm.lead', 'crm.team', 'duplicated_lead_ids', 'exist', 'lead', 'lead_id', 'merge', 'nothing', 'partner_id', 'res.partner', 'res.users', 'team_id', 'user_id']

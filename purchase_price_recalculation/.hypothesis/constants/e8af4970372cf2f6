@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/calendar/models/res_users.py
+# hypothesis_version: 6.131.14
+
+['!=', '&', '<=', '=', '>=', 'Only internal users', 'Private', 'Public', "Today's Meetings", 'allday', 'attendee_ids', 'base.default_user', 'calendar.attendee', 'calendar.event', 'calendar.filters', 'confidential', 'declined', 'icon', 'id', 'in', 'ir.model', 'meeting', 'meetings', 'model', 'name', 'partner_checked', 'partner_id', 'private', 'public', 'res.users', 'res.users.settings', 'start', 'start_date', 'state', 'stop', 'type', 'user_id', 'view_type', '|']

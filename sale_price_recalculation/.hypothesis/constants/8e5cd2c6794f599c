@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/ril_branch/wizards/account_payment_register.py
+# hypothesis_version: 6.131.14
+
+['_compute_branch_id', 'branch_id', 'company_id', 'journal_id', 'line_ids', 'payment_difference', 'ril.branch', 'write_off_line_vals']

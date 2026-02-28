@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/google_gmail/models/fetchmail_server.py
+# hypothesis_version: 6.131.14
+
+[993, 'INBOX', 'XOAUTH2', 'fetchmail.server', 'gmail', 'google.gmail.mixin', 'imap', 'imap.gmail.com', 'is_ssl', 'object_id', 'server_type', 'set default']

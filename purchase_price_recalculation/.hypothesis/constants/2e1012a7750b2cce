@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/stock_enterprise/report/stock_report.py
+# hypothesis_version: 6.131.14
+
+['Available', 'Cancelled', 'Company', 'Creation Date', 'Customers', 'Cycle Time (Days)', 'Delay (Days)', 'Done', 'Expected Date', 'Internal', 'Is Late', 'Is a Backorder', 'New', 'Operation Type', 'Partially Available', 'Partner', 'Picking Name', 'Product', 'Product Category', 'Product Quantity', 'Reference', 'Status', 'Stock Report', 'Transfer Date', 'Transfer Reference', 'Type', 'Vendors', 'Waiting Another Move', 'Waiting Availability', 'assigned', 'avg', 'cancel', 'confirmed', 'done', 'draft', 'id', 'incoming', 'internal', 'outgoing', 'partially_available', 'product.category', 'product.product', 'product_id.name', 'reference', 'res.company', 'res.partner', 'stock.picking', 'stock.picking.type', 'stock.report', 'waiting']

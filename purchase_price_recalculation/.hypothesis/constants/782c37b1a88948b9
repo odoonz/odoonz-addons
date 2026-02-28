@@ -1,0 +1,4 @@
+# file: /odoo/src/ril/agreement_rebate_ril/models/rebate_settlement_line.py
+# hypothesis_version: 6.131.14
+
+[0.0, 100.0, 100, '# of Invoices', '<=', '=', '>=', 'Agreement', 'Final Settlement', 'Period: %s - %s', 'Progress Settlement', 'Unknown', '_compute_name', 'account.move', 'account.move.line', 'account_id', 'agreement', 'amount', 'analytic.mixin', 'branch_id', 'cancel', 'company_id', 'context', 'create', 'credit', 'date', 'debit', 'default_branch_id', 'default_move_type', 'default_product_id', 'display_type', 'domain', 'exclude_from_rebate', 'final', 'form', 'general_account_id', 'id', 'in', 'in_refund', 'invoice_id', 'invoice_line_ids', 'is_rebate_invoice', 'is_washup', 'line_ids', 'move_id', 'name', 'out_refund', 'price_subtotal', 'price_unit', 'product', 'product_id', 'progress', 'rebate_line_id', 'rebate_section_id', 'res_id', 'res_model', 'ril.branch', 'settlement', 'to_invoice', 'type', 'views', 'washup_name']

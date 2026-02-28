@@ -1,0 +1,4 @@
+# file: /odoo/src/enterprise/account_asset/models/account.py
+# hypothesis_version: 6.131.14
+
+['=', 'Create and validate', 'Create in draft', 'No', 'account.account', 'account.asset', 'account_type', 'asset_fixed', 'asset_non_current', 'create_asset', 'draft', 'model', 'no', 'state', 'validate']

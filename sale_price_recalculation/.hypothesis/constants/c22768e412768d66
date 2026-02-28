@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/odoo/cli/shell.py
+# hypothesis_version: 6.131.14
+
+['%s: %s', '<console>', 'Shell error:', '__main__', '__name__', 'bpython', 'db_name', 'env', 'ipython', 'odoo', 'openerp', 'ptpython', 'python', 'res.users', 'self', 'shell_interface', 'tab: complete']

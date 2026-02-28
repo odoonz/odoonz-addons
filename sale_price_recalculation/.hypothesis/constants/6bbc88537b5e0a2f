@@ -1,0 +1,4 @@
+# file: /odoo/src/odoo/addons/stock_delivery/models/stock_move.py
+# hypothesis_version: 6.131.14
+
+[0.0, 'Stock Weight', '_cal_move_weight', '_compute_sale_price', 'carrier_id', 'hs_code', 'move_id.sale_line_id', 'numeric', 'product', 'product_id', 'product_uom', 'product_uom_id', 'product_uom_qty', 'quantity', 'stock.move', 'stock.move.line', 'stock.route', 'stock_move', 'weight']
