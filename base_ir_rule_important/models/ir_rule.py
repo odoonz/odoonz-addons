@@ -3,7 +3,6 @@
 
 from odoo import api, fields, models, tools
 from odoo.fields import Domain
-from odoo.osv import expression
 from odoo.tools import config
 from odoo.tools.safe_eval import safe_eval
 
@@ -75,7 +74,7 @@ class IrRule(models.Model):
             dom = (
                 safe_eval(rule.domain_force, eval_context) if rule.domain_force else []
             )
-            dom = expression.normalize_domain(dom)
+            dom = Domain(dom)
             if rule.groups & user_groups:
                 important_domains.append(dom)
 
