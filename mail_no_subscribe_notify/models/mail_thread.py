@@ -14,7 +14,7 @@ class MailThread(models.AbstractModel):
             updated_values, followers_existing_policy=followers_existing_policy
         )
 
-    def message_subscribe(self, partner_ids=None, subtype_ids=None, customer_ids=None):
+    def message_subscribe(self, partner_ids=None, subtype_ids=None):
         """Filter out automatically added partner_ids - only keep actual users"""
         if partner_ids:
             new_ids = []
@@ -23,5 +23,5 @@ class MailThread(models.AbstractModel):
                     new_ids.append(p.id)
             partner_ids = new_ids
         return super().message_subscribe(
-            partner_ids=partner_ids, subtype_ids=subtype_ids, customer_ids=customer_ids
+            partner_ids=partner_ids, subtype_ids=subtype_ids
         )
