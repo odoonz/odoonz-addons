@@ -38,13 +38,11 @@
                 <filter
                     string="Sale Order"
                     name="sale"
-                    domain="[]"
                     context="{'group_by':'sale_id'}"
                 />
                 <filter
                     string="Customer"
                     name="customer"
-                    domain="[]"
                     context="{'group_by':'partner_id'}"
                 />
             </xpath>
