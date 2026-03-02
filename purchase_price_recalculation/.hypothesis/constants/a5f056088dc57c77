@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mail_mobile/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Push Notifications', 'company_name', 'db', 'device_key', 'device_name', 'fcm_token_old', 'https://ocn.odoo.com', 'ir.config_parameter', 'ocn.uuid', 'ocn_uuid', 'ocnuuid', 'odoo_ocn.endpoint', 'odoo_ocn.project_id', 'res.config.settings', 'server_version', 'url', 'user_login', 'user_name', 'web.base.url']

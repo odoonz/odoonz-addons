@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/onboarding/models/onboarding_onboarding.py
-# hypothesis_version: 6.131.14
-
-['Closing action', 'Completion State', 'Onboarding', 'Onboarding Progress', 'Onboarding steps', 'One word name', 'UNIQUE (route_name)', 'Was panel closed?', 'close_method', 'close_model', 'company', 'company_id', 'is_per_company', 'not_done', 'onboarding.progress', 'onboarding_id', 'progress_ids', 'progress_step_ids', 'route_name_uniq', 'state', 'step_ids', 'steps', 'text_completed']

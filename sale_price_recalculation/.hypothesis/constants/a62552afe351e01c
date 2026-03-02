@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr/models/hr_department.py
-# hypothesis_version: 6.131.14
-
-['!=', '%s / %s', '/', '=', 'Active', 'Child Departments', 'Child departments', 'Color Index', 'Company', 'Complete Name', 'Department', 'Department Name', 'Employees', 'Jobs', 'Manager', 'Master Department', 'Members', 'Note', 'Parent Department', 'Total Employee', '__count', '_compute_plan_count', 'allowed_company_ids', 'child_of', 'children', 'company_id', 'complete_name', 'context', 'department_id', 'domain', 'employees', 'expand', 'form', 'hierarchical_naming', 'hr.department', 'hr.employee', 'hr.employee.public', 'hr.group_hr_user', 'hr.job', 'id', 'in', 'ir.actions.actions', 'kanban', 'list', 'list,kanban,form', 'mail.activity.mixin', 'mail.activity.plan', 'mail.thread', 'manager_id', 'name', 'parent', 'parent_id', 'parent_path', 'read', 'res.company', 'res_id', 'res_model', 'search', 'search_view_id', 'self', 'type', 'view_mode', 'views', '|']

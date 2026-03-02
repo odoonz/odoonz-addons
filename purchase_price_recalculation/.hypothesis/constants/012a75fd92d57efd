@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/cli/server.py
-# hypothesis_version: 6.131.14
-
-[500, 1024, 4096, ',', '.', 'Odoo version %s', 'PGHOST', 'PGPORT', 'PGUSER', 'addons paths: %s', 'all', 'base', 'database: %s@%s:%s', 'db_host', 'db_name', 'db_port', 'db_replica_host', 'db_replica_port', 'db_user', 'default', 'init', 'language', 'language %s', 'new language', 'odoo', 'pidfile', 'po', 'posix', 'postgres', 'pot', 'pre_upgrade_scripts', 'root', 'stop_after_init', 'translate_in', 'translate_modules', 'translate_out', 'upgrade path: %s', 'upgrade_path', 'w', 'wb']

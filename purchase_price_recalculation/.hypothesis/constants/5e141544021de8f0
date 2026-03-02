@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/decimal_precision.py
-# hypothesis_version: 6.131.14
-
-[100, 'Discount', 'decimal.precision']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_external_tax/models/account_external_tax_mixin.py
-# hypothesis_version: 6.131.14
-
-['INFO', 'dbname', 'fiscal_position_id', 'func', 'ir.config_parameter', 'ir.logging', 'level', 'line', 'message', 'name', 'path', 'server', 'type']

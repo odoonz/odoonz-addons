@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/calendar/models/res_users_settings.py
-# hypothesis_version: 6.131.14
-
-['Only internal users', 'Private', 'Public', 'confidential', 'private', 'public', 'res.users.settings']

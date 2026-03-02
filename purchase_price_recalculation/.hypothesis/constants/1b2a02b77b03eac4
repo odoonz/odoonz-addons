@@ -1,4 +1,0 @@
-# file: /usr/lib/python3/dist-packages/magic/compat.py
-# hypothesis_version: 6.131.14
-
-[128, 256, 512, 1024, 1040, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 1048576, 2097152, 4173824, '; ', 'FileMagic', 'charset=', 'encoding', 'magic', 'mime_type', 'name', 'utf-8']

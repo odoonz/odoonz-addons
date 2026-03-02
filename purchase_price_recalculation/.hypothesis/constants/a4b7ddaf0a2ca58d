@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_composer_mixin.py
-# hypothesis_version: 6.131.14
-
-['Can Edit Body', 'Contents', 'Is Editor', 'Mail Composer Mixin', 'Mail Template', 'Subject', '_compute_body', '_compute_lang', '_compute_subject', 'body', 'body_html', 'compute_lang', 'email_outgoing', 'mail.composer.mixin', 'mail.render.mixin', 'mail.template', 'output_method', 'post_process', 'qweb', 'sanitize_attributes', 'sanitize_form', 'sanitize_style', 'sanitize_tags', 'set_lang', 'silent', 'strip_classes', 'strip_style', 'template_id', 'uid', 'xml']

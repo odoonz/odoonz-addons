@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet/models/res_currency.py
-# hypothesis_version: 6.131.14
-
-['code', 'decimalPlaces', 'position', 'res.company', 'res.currency', 'symbol']

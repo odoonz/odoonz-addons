@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/controllers/dataset.py
-# hypothesis_version: 6.131.14
-
-['/web/dataset/call_kw', '_readonly', 'json', 'method', 'model', 'params', 'sequence', 'type', 'user']

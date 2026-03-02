@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/discuss/mail_message.py
-# hypothesis_version: 6.131.14
-
-['discuss.channel', 'mail.guest', 'mail.message', 'parentMessage']

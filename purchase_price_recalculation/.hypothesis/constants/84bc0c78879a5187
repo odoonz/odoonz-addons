@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/template_inheritance.py
-# hypothesis_version: 6.131.14
-
-[' %s="%s"', ',', ', ', ".//*[text()='$0']", '1', '<%s%s>', '\\n[ \\t]*$', 'add', 'after', 'and', 'attribute', 'attributes', 'base', 'before', 'column_invisible', 'data', 'data-oe-', 'data-oe-no-branding', 'data-oe-xpath', 'decoration-', 'expr', 'field', 'inner', 'inside', 'invisible', 'mode', 'move', 'name', 'or', 'outer', 'position', 'readonly', 'remove', 'replace', 'required', 'separator', 't-elif', 't-if', 't-name', 'unicode', 'xpath']

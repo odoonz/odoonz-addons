@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_fleet/models/fleet_vehicle_log_contract.py
-# hypothesis_version: 6.131.14
-
-['Driver (Employee)', 'Related Employee', 'form', 'hr.employee', 'name', 'res_id', 'res_model', 'type', 'view_mode']

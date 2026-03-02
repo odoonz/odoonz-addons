@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_fleet/models/fleet_vehicle.py
-# hypothesis_version: 6.131.14
-
-['!=', 'Bills Count', '_compute_move_ids', 'account.move', 'account.move.line', 'cancel', 'domain', 'fleet.vehicle', 'form', 'id', 'in', 'list', 'move_id.move_type', 'move_id:array_agg', 'parent_state', 'vehicle_id', 'views']

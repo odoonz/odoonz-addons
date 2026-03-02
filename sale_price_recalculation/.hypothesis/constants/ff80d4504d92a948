@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/product_pricelist_extended/models/product_pricelist_assortment_item.py
-# hypothesis_version: 6.131.14
-
-['0_product_variant', '1_product', '2_product_category', '=', 'Assortment', 'applied_on', 'assortment_filter_id', 'assortment_item_id', 'categ', 'categ_id', 'company_id', 'display_applied_on', 'in', 'ir.filters', 'is_assortment', 'pricelist_id', 'pricelist_item_ids', 'product', 'product.category', 'product.product', 'product.template', 'product_id', 'product_tmpl', 'product_tmpl_id', 'restrict']

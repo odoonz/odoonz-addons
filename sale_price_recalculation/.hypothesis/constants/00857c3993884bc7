@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/avatar_mixin.py
-# hypothesis_version: 6.131.14
-
-[255, 360, 'Avatar', 'Avatar 1024', 'Avatar 128', 'Avatar 256', 'Avatar 512', 'Avatar Mixin', '_compute_avatar_1024', '_compute_avatar_128', '_compute_avatar_1920', '_compute_avatar_256', '_compute_avatar_512', 'avatar.mixin', 'avatar_1024', 'avatar_128', 'avatar_1920', 'avatar_256', 'avatar_512', 'image.mixin', 'image_1024', 'image_128', 'image_1920', 'image_256', 'image_512', 'name', 'rb']

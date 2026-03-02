@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/crm_recurring_plan.py
-# hypothesis_version: 6.131.14
-
-['# Months', 'Active', 'Plan Name', 'Sequence', 'crm.recurring.plan', 'sequence']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_stock_bs_adjustment/models/stock_valuation_history.py
-# hypothesis_version: 6.131.14
-
-[0.0, 0.01, '<=', '=', 'account.account', 'account.journal', 'account.move', 'account.move.line', 'account_id', 'branch_id', 'company_id', 'credit', 'currency_id', 'date', 'debit', 'general', 'inventory', 'journal_id', 'line_ids', 'move_id.state', 'name', 'posted', 'ref', 'res.company', 'stock.location', 'stock.warehouse', 'type', 'usage', 'value', 'warehouse_id']

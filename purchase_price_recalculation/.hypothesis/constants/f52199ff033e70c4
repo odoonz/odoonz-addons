@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_editor/models/assets.py
-# hypothesis_version: 6.131.14
-
-[' override', '%s: replace %s', '/', '=', 'Assets Utils', 'Invalid operator', '\\', 'assets', 'binary', 'bundle', 'customized', 'datas', 'directive', 'in', 'ir.asset', 'ir.attachment', 'js', 'like', 'mimetype', 'module', 'name', 'path', 'rb', 'replace', 'resource_path', 'sequence', 'target', 'text/javascript', 'text/scss', 'type', 'url', 'utf-8', 'web_editor.assets']

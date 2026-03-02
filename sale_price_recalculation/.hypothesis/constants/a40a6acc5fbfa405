@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_followup/models/account_followup_report.py
-# hypothesis_version: 6.131.14
-
-[0.0, '-', '...', '/', 'Communication', 'Date', 'Due Date', 'Follow-up Report', 'Origin', 'Reference', 'Total Due', 'Total Overdue', 'account_move', 'allowed_company_ids', 'attachment_ids', 'author_id', 'body', 'child_of', 'class', 'color: red;', 'columns', 'context', 'date', 'doc', 'email_cc', 'email_from', 'email_recipient_ids', 'email_subject', 'email_to', 'followup_line', 'id', 'ir.actions.client', 'ir.model.data', 'ir.qweb', 'lang', 'level', 'mail.composer.mixin', 'mail.mt_note', 'mail_template', 'move_id', 'name', 'no_format', 'number color-red', 'number o_price_total', 'options', 'params', 'partner_id', 'partner_ids', 'partner_to', 'payment', 'payment reminder', 'post_process', 'qweb', 'res.partner', 'sms_body', 'sms_template', 'style', 'tag', 'template', 'total', 'type', 'unfoldable', 'unreconciled_aml', 'url']

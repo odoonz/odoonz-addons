@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/template_reset_mixin.py
-# hypothesis_version: 6.131.14
-
-['\n- ', '.', '/', 'Template Filename', 'Template Reset Mixin', 'True', 'context', 'en_US', 'init', 'install_filename', 'record', 'res.lang', 'reset_template', 'template.reset.mixin', 'template_fs']

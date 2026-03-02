@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_base_import/wizard/account_import_summary.py
-# hypothesis_version: 6.131.14
-
-['Import Summary', 'account.account', 'account.journal', 'account.move', 'account.tax', 'domain', 'form', 'id', 'import_summary_name', 'in', 'name', 'res.partner', 'res_id', 'res_model', 'type', 'view_mode']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['!=', ',', ', ', '=', 'Partner Profile', '\\n(\\s|\\n)*', 'active', 'avatar_128', 'base.partner_root', 'bot', 'code', 'contact_address', 'country', 'displayName', 'display_name', 'email', 'email_cc', 'email_normalized', 'email_to', 'force_email', 'form', 'id', 'ilike', 'im_status', 'in', 'ir.model.data', 'isAdmin', 'isInternalUser', 'is_company', 'is_read', 'mail.activity.mixin', 'mail.guest', 'mail.message', 'mail.notification', 'name', 'name, id', 'needaction_count', 'not in', 'notification_type', 'partner_id', 'partner_ids', 'partner_share', 'res.partner', 'res.users', 'res_partner_id', 'self', 'share', 'signature', 'user', 'userId', 'user_ids', 'user_ids.active', 'write_date']

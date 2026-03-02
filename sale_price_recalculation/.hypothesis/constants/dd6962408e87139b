@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_sms/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-['SMS', 'confirm.stock.sms', 'context', 'form', 'name', 'new', 'outgoing', 'pick_ids', 'res_id', 'res_model', 'skip_sms', 'stock.picking', 'target', 'testing', 'type', 'view_id', 'view_mode', 'views']

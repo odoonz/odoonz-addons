@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_import/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-[180, ', ', '-', '=', '=ilike', 'FR', 'Go to Apps', 'acc_number', 'account.journal', 'account_number', 'amount', 'balance_start', 'bank', 'cash', 'company_id', 'credit', 'default_journal_id', 'file_import', 'ilike', 'in', 'ir.attachment', 'journal_id', 'limit_time_real_cron', 'line_ids', 'message', 'name', 'notifications', 'partner_bank_id', 'partner_id', 'reference', 'res.currency', 'res.partner.bank', 'search_default_extra', 'search_default_name', 'statement_id', 'transactions', 'type', 'unique_import_id', 'warning']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant/models/account_reconcile_model_line.py
-# hypothesis_version: 6.131.14
-
-[0.0, 100.0, '.', '[^\\d', ']', 'account_id', 'amount_currency', 'currency_id', 'fixed', 'journal_id', 'name', 'partner_id', 'percentage', 'percentage_st_line', 'purchase', 'reconcile_model_id', 'regex', 'sale', 'tax_ids', 'writeoff_button']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-[100, ',', '=', 'Days', 'Hours', 'Leads', 'Manually', 'Minutes', 'Multi Teams', 'Recurring Revenues', 'Repeat every', 'Repeatedly', 'Stage', 'Weeks', '_compute_pls_fields', 'active', 'assignment_optout', 'auto', 'crm.group_use_lead', 'crm.lead', 'crm.pls_fields', 'crm.pls_start_date', 'crm.team', 'days', 'field_id', 'field_id.name', 'hours', 'in', 'interval_number', 'interval_type', 'ir.model.data', 'ir.model.fields', 'manual', 'minutes', 'model', 'name', 'nextcall', 'res.config.settings', 'use_opportunities', 'weeks']

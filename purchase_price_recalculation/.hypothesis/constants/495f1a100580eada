@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_crm/controllers/website_form.py
-# hypothesis_version: 6.131.14
-
-['=', 'INTERNATIONAL', 'code', 'company_id', 'country_id', 'country_id.code', 'crm.lead', 'email_from', 'ir.model', 'lang', 'lang_id', 'lead_ids', 'model', 'name', 'partner_id', 'phone', 'record', 'res.country', 'res.country.state', 'res.lang', 'state_id', 'website.visitor', 'website_form_access']

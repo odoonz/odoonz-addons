@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/account_move.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Invoice %s paid', 'Sale Order Count', 'Sales Team', '_compute_team_id', 'account.move', 'asset_receivable', 'campaign_id', 'crm.team', 'currency_id', 'date', 'domain', 'form', 'id', 'in', 'in_process', 'invoice_user_id', 'is_downpayment', 'liability_payable', 'line_ids', 'line_note', 'line_section', 'medium_id', 'price_total', 'res_id', 'sale.action_orders', 'sale.view_order_form', 'set null', 'source_id', 'tax_totals', 'type', 'utm.mixin', 'views']

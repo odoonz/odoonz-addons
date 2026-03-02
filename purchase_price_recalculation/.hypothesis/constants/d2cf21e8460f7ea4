@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/models/stock_traceability.py
-# hypothesis_version: 6.131.14
-
-['mrp.production', 'mrp.unbuild']

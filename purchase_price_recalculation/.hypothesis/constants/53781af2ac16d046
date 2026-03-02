@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_account/models/stock_location.py
-# hypothesis_version: 6.131.14
-
-['=', 'account.account', 'account_type', 'asset_cash', 'asset_receivable', 'deprecated', 'internal', 'liability_payable', 'not in', 'stock.location', 'transit']

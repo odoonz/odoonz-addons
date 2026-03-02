@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_import_csv/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-['.csv', '.xls', '.xlsx', 'CSV', 'XLS', 'XLSX', 'account.journal', 'base_import.import', 'context', 'default_journal_id', 'file', 'file_name', 'file_type', 'filename', 'import_bank_stmt', 'ir.actions.client', 'model', 'params', 'res_model', 'tag', 'type', 'wizard_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_mrp/models/purchase.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Count of MO Source', 'bom_line_id', 'cancel', 'domain', 'done', 'form', 'id', 'in', 'incoming_moves', 'list,form', 'mrp.bom', 'mrp.group_mrp_user', 'mrp.production', 'name', 'outgoing_moves', 'phantom', 'previous_product_qty', 'product.product', 'product_id', 'purchase.order', 'purchase.order.line', 'res_id', 'res_model', 'stock.move', 'stock_moves', 'type', 'view_mode']

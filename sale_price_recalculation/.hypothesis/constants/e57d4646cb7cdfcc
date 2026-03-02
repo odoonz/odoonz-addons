@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_delivery/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-[0.0, '%s%%', ',', '<br/>', '=', '=like', 'Carrier', 'Destination Country', 'Exception:', 'Package Details', 'Shipping Cost', 'Stock Weight', 'Tracking Reference', 'Tracking URL', '_cal_weight', 'base_on_rule', 'cancel', 'carrier_id', 'carrier_tracking_ref', 'context', 'delivery.carrier', 'exact_price', 'fixed', 'form', 'incoming', 'ir.actions.act_url', 'ir.actions.actions', 'ir.attachment', 'move_ids.weight', 'name', 'new', 'none', 'notification', 'price_unit', 'pricelist_to_company', 'product.template', 'rate_and_ship', 'real', 'res_id', 'res_model', 'stock.picking', 'target', 'tracking_number', 'type', 'url', 'view_id', 'view_mode', 'views']

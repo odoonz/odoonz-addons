@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_attribute.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', 'Attribute', 'Color', 'Dynamically', 'Instantly', 'Lines', 'Multi-checkbox', 'Never', 'Pills', 'Product Attribute', 'Products', 'Radio', 'Related Products', 'Select', 'Sequence', 'Template Values', 'True', 'Values', 'Variant Creation', '__count', '_compute_products', 'always', 'attribute_id', 'color', 'create_variant', 'display_name', 'display_type', 'domain', 'dynamic', 'in', 'list,form', 'multi', 'name', 'no_variant', 'pills', 'product.attribute', 'product.template', 'product_tmpl_ids', 'radio', 'res_model', 'select', 'sequence', 'sequence, id', 'type', 'view_mode']

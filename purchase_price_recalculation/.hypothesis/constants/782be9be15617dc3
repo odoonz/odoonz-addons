@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/account_invoice_extract_ril/vendors/ral.py
-# hypothesis_version: 6.131.14
-
-[1.0, '-', '/', '0', '=', 'CREDIT', 'Roofing Accessories ', 'account.move', 'amount_total', 'amount_untaxed', 'cancel', 'code', 'company_id', 'done', 'draft', 'error_status', 'flashing', 'in', 'in_refund', 'ir.sequence', 'like', 'not in', 'origin', 'product', 'purchase.order', 'purchase_order', 'sale.order', 'state']

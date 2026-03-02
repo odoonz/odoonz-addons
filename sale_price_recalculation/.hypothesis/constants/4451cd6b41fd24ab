@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/google_gmail/models/google_gmail_mixin.py
-# hypothesis_version: 6.131.14
-
-['Access Token', 'Authorization Code', 'Google Gmail Mixin', 'Refresh Token', 'URI', '_compute_gmail_uri', 'access_token', 'access_type', 'authorization_code', 'base.group_system', 'client_id', 'client_secret', 'code', 'consent', 'csrf_token', 'expires_in', 'google.gmail.mixin', 'google_gmail_oauth', 'grant_type', 'id', 'ir.actions.act_url', 'ir.config_parameter', 'model', 'offline', 'prompt', 'redirect_uri', 'refresh_token', 'response_type', 'scope', 'state', 'type', 'url']

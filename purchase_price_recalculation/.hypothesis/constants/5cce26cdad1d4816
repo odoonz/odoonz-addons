@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/controllers/download_docs.py
-# hypothesis_version: 6.131.14
-
-['.zip', 'Content-Disposition', 'Content-Length', 'Content-Type', 'account.move', 'all', 'content', 'filename', 'http', 'invoices', 'nosniff', 'read', 'res_id', 'user', 'w', 'zip']

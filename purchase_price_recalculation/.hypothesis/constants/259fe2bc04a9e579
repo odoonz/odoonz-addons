@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/res_users_settings_volumes.py
-# hypothesis_version: 6.131.14
-
-[0.5, 'cascade', 'guest', 'guest_id', 'id', 'name', 'partner', 'partner_id', 'persona', 'res.partner', 'res.users.settings', 'type', 'user_setting_id', 'volume']

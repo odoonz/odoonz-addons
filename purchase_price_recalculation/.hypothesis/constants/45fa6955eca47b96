@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/image.py
-# hypothesis_version: 6.131.14
-
-[b'/', b'<', b'P', b'R', b'RIFF', b'U', b'WEBPVP8', b'i', 0.5, 1000000.0, 50000000.0, 140, 175, 224, 255, 256, 274, 1024, '#', '1', 'BMP', 'GIF', 'ICO', 'JPEG', 'L', 'P', 'PNG', 'RGB', 'RGBA', '_', '_getexif', 'base', 'bottom', 'getexif', 'gif', 'height', 'image', 'image_process', 'jpg', 'optimize', 'output_format', 'png', 'quality', 'save_all', 'svg+xml', 'top', 'webp', 'width', 'x', 'x_']

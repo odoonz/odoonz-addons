@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_disallowed_expenses/models/account_disallowed_expenses.py
-# hypothesis_version: 6.131.14
-
-['!', '%g%%', '=ilike', 'Category', 'Code', 'Company', 'Current Rate', 'Disallowed %', 'Name', 'No Rate', 'Rate', 'Start Date', 'UNIQUE(code)', 'account.account', 'cascade', 'category_id', 'code', 'current_rate', 'date_from desc', 'form', 'ids', 'name', 'rate_ids', 'res.company', 'res_id', 'res_model', 'type', 'unique_code', 'view_mode', 'view_type', '|']

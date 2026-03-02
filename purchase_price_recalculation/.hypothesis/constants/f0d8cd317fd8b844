@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/google_recaptcha/models/ir_http.py
-# hypothesis_version: 6.131.14
-
-['action', 'bad-request', 'bad_request', 'error-codes', 'invalid-input-secret', 'ir.config_parameter', 'ir.http', 'is_bot', 'is_human', 'missing-input-secret', 'no_secret', 'recaptcha_min_score', 'recaptcha_public_key', 'remoteip', 'response', 'score', 'secret', 'success', 'timeout', 'timeout-or-duplicate', 'wrong_action', 'wrong_secret', 'wrong_token']

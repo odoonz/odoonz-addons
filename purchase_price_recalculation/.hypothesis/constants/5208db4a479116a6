@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_org_chart/controllers/hr_org_chart.py
-# hypothesis_version: 6.131.14
-
-['/hr/get_org_chart', '/hr/get_subordinates', 'allowed_company_ids', 'children', 'context', 'direct', 'hr.employee', 'hr.employee.public', 'indirect', 'json', 'managers', 'max_level', 'new_parent_id', 'read', 'user']

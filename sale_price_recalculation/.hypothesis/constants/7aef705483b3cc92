@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['=', 'Dropshipping', 'installed', 'ir.module.module', 'name', 'res.config.settings', 'sale', 'state']

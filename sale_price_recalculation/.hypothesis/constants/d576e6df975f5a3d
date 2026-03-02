@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/barcodes_gs1_nomenclature/models/barcode_nomenclature.py
-# hypothesis_version: 6.131.14
-
-[100, '!=', '%Y%m', '%Y%m%d', '(?:%s)?', '(Alt029|#|\\x1D)', '.', '0', '0*([0-9]+)$', '0+([0-9]+)$', '00', '=', '?', 'FNC1 Separator', 'Is GS1 Nomenclature', ']C1', ']J1', ']Q3', ']d2', ']e0', '^', 'ai', 'barcode', 'barcode.nomenclature', 'date', 'gs1-128', 'gs1_separator_fnc1', 'identifier', 'ilike', 'lot', 'measure', 'not ilike', 'rule', 'string_value', 'type', 'value']

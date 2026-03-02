@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/models/sms_template.py
-# hypothesis_version: 6.131.14
-
-['%s (copy)', '&', '=', 'Applies to', 'Body', 'Name', 'SMS Templates', 'Send SMS (%s)', 'Sidebar action', 'binding_model_id', 'cascade', 'context', 'form', 'ir.model', 'is_mail_thread_sms', 'mail.render.mixin', 'model', 'model_id', 'model_id.model', 'name', 'new', 'res_model', 'sidebar_action_id', 'sms.composer', 'sms.template', 'target', 'template.reset.mixin', 'transient', 'type', 'view_id', 'view_mode']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/controllers/json.py
-# hypothesis_version: 6.131.14
-
-['!=', '()[], \'"', ',', './field', '/json/<path:subpath>', '1', '<', '>=', 'Missing record id', '[]', '\\buid\\b', '__count', '__domain', 'activity', 'activity_', 'activity_ids', 'arch', 'base.module_base', 'bearer', 'calendar', 'cohort', 'col', 'date_start', 'default_group_by', 'domain', 'end_date', 'fields', 'form', 'gantt', 'graph', 'groupby', 'groups', 'http', 'id', 'invisible', 'ir.config_parameter', 'ir.filters', 'ir_actions_server', 'is_default', 'limit', 'measure', 'name', 'normal', 'offset', 'pivot', 'row', 'search', 'search_default_', 'start_date', 'true', 'type', 'user', 'view_type', 'web.json.enabled']

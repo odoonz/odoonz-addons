@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/fleet/wizard/fleet_vehicle_send_mail.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', 'Attachments', 'Author', 'Vehicles', 'attachment_id', 'body', 'body_html', 'comment', 'danger', 'display_notification', 'fleet.vehicle', 'form', 'ir.actions.client', 'ir.attachment', 'ir.model', 'mail.composer.mixin', 'mail.template', 'message', 'model_id', 'name', 'new', 'params', 'res.partner', 'res_id', 'res_model', 'subject', 'tag', 'target', 'template_id', 'type', 'use_default_to', 'view_mode', 'wizard_id']

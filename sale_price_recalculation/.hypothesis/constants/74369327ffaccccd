@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/stock_filter_prodlot_qty/models/stock_production_lot.py
-# hypothesis_version: 6.131.14
-
-['=', 'child_of', 'location_id', 'quantity', 'stock.lot']

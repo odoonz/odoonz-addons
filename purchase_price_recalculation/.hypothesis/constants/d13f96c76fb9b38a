@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_inter_company_rules/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['=', 'Automation', 'Create and validate', 'Create as', 'Create in draft', 'Purchase Journal', 'account.journal', 'active', 'chart_template', 'company_id', 'draft', 'id', 'id:recordset', 'parent_of', 'partner_id', 'posted', 'purchase', 'res.company', 'res.users', 'type', '|']

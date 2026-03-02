@@ -1,4 +1,0 @@
-# file: /odoo/src/sale-workflow/sale_stock_picking_note/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['cancel', 'partner_id', 'partner_shipping_id', 'sale', 'sale.order']

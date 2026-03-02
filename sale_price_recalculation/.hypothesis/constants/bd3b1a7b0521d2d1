@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/utm.py
-# hypothesis_version: 6.131.14
-
-['Use Leads', '__count', '_compute_use_leads', 'active_test', 'campaign_id', 'context', 'create', 'crm.group_use_lead', 'crm.lead', 'domain', 'in', 'utm.campaign', 'view_mode']

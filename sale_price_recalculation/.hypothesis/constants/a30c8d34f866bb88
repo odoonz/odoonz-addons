@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/func.py
-# hypothesis_version: 6.131.14
-
-['<builtin>', '<unknown>', 'T', '__', '_args', '_cached_value', '_func', '_kwargs', '_lock', 'classproperty', 'conditional', 'lazy', 'lazy_classproperty', 'lazy_property', 'synchronized']

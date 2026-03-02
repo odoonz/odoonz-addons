@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_skills/models/hr_employee_skill.py
-# hypothesis_version: 6.131.14
-
-['_compute_skill_id', '_unique_skill', 'cascade', 'default_level', 'department_id', 'employee_id', 'hr.employee', 'hr.employee.skill', 'hr.skill', 'hr.skill.level', 'hr.skill.type', 'in', 'skill_id', 'skill_level_id', 'skill_type_id', 'skill_type_id.color']

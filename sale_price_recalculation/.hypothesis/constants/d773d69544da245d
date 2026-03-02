@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_cash_rounding.py
-# hypothesis_version: 6.131.14
-
-[0.01, 'Add a rounding line', 'DOWN', 'Down', 'HALF-UP', 'Loss Account', 'Modify tax amount', 'Name', 'Nearest', 'Profit Account', 'Rounding Method', 'Rounding Precision', 'Rounding Strategy', 'UP', 'Up', 'account.account', 'add_invoice_line', 'biggest_tax', 'restrict', 'rounding']

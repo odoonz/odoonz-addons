@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/models/account_fiscal_position.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'account.move', 'date', 'draft', 'state']

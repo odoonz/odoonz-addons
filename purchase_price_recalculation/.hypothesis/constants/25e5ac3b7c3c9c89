@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/controllers/main.py
-# hypothesis_version: 6.131.14
-
-[200, '-', '/account_reports', 'Content-Disposition', 'Content-Length', 'Content-Type', 'Odoo Server Error', 'POST', 'account.report', 'arguments', 'attachments.zip', 'cids', 'code', 'csv', 'data', 'file_content', 'file_name', 'file_type', 'http', 'kvr', 'message', 'name', 'read', 'report_id', 'res.partner', 'txt', 'user', 'xaf', 'xlsx', 'xml', 'zip']

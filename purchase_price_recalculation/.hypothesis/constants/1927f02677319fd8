@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/cloc.py
-# hypothesis_version: 6.131.14
-
-[100000, '\nErrors\n\n', "'odoo/studio'", '(<!--.*?-->)', '-', '.css', '.js', '.py', '.scss', '.xml', '/', '/%s/views/%s.xml', '=', 'Code', 'Excluded', 'Line', 'Odoo cloc', 'Other', 'Syntax Error', '\\n', '\\s*\\n\\s*', '__cloc_exclude__', '__manifest__.py', '__openerp__.py', 'base', 'cloc_exclude', 'db_name', 'demo', 'demo_xml', 'imported', 'installed', 'ir.actions.server', 'ir.attachment', 'ir.model.fields', 'ir.module.module', 'ir.ui.view', 'latin1', 'lineno', 'migrations/**/*', 'min(m.name)', 'name', 'odoo/studio', 'rb', 'state', 'static/lib/**/*', 'static/tests/**/*', 'studio_customization', 'tests/**/*', 'theme_common', 'upgrades/**/*', 'web', 'web_enterprise', 'x_studio', '{}\n']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_import_camt/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-['\n- ', './/ns:TxDtls', 'Additional Info: %s', 'Address:\n%s', 'CAMT', 'Check Number: %s', 'DBIT', 'End to end ID: %s', 'Entry Info: %s', 'Instruction ID: %s', 'Mandate ID: %s', 'Transaction ID: %s', 'account.journal', 'account_number', 'amount', 'balance_end_real', 'balance_start', 'camt.053', 'date', 'id', 'name', 'namespace-uri(.)', 'narration', 'ns', 'ns:Amt', 'ns:BkTxCd', 'ns:CdtDbtInd', 'ns:Id/text()', 'ns:LglSeqNb/text()', 'ns:Ntry', 'ns:Stmt', 'partner_name', 'payment_ref', 'ref', 'res.currency', 'sequence', 'transactions', 'unique_import_id', '{}: {} statement(s)']

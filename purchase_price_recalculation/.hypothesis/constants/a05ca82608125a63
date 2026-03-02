@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-[0.0, '/my', '/my/invoices', '/my/invoices/', '/my/invoices/overdue', 'GET', 'access_token', 'account.move', 'amount', 'amount_custom', 'amount_residual', 'amount_total', 'availability_report', 'company', 'company_mismatch', 'currency', 'date', 'expected_company', 'http', 'invoice_id', 'invoice_name', 'landing_route', 'overdue_invoices', 'page_name', 'partner', 'partner_id', 'payment', 'payment.method', 'payment.provider', 'payment.token', 'payment_methods_sudo', 'payment_reference', 'providers_sudo', 'public', 'read', 'reference', 'show_epd', 'tokens_sudo', 'total_amount', 'transaction_route']

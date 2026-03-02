@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_auto_transfer/demo/account_demo.py
-# hypothesis_version: 6.131.14
-
-[22.5, 35.0, 65.0, 77.5, 1000, '%Y-01-01', 'IFRSA', 'account.journal', 'account_id', 'account_ids', 'code', 'current_liabilities', 'date_start', 'expense', 'expense_direct_cost', 'expense_rd', 'expense_rent', 'expense_sales', 'frequency', 'general', 'journal_id', 'liability_current', 'liability_payable', 'line_ids', 'month', 'monthly_model', 'name', 'payable', 'percent', 'sequence', 'show_on_dashboard', 'type', 'year', 'yearly_model']

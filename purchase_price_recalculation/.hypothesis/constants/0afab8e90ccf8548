@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/res_users_settings.py
-# hypothesis_version: 6.131.14
-
-[200, '<=', '=', 'ADD', 'All Messages', 'Nothing', 'all', 'guest_id', 'mute_until_dt', 'no_notif', 'partner_id', 'res.users.settings', 'user_setting_id', 'volume', 'volume_settings_ids', 'volumes']

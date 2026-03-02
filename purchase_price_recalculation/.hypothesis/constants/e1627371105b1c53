@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp_account/models/mrp_production.py
-# hypothesis_version: 6.131.14
-
-[0.0001, 100, '%s - Labour', 'Extra Unit Cost', '[WC] %s', 'account.account', 'account.move', 'account_id', 'account_move_line_id', 'average', 'balance', 'cancel', 'context', 'date', 'done', 'entry', 'expense', 'extra_cost', 'fifo', 'id', 'in', 'ir.actions.actions', 'journal_id', 'line_ids', 'move_type', 'mrp.production', 'mrp.workorder', 'name', 'no_at_date', 'real_time', 'ref', 'stock_journal', 'value']

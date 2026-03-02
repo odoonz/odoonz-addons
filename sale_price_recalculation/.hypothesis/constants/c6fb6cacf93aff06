@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_priced_correctly/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['Last Send Time', 'Priced Correctly', 'account.move', 'invoice_line_ids', 'order_id', 'priced', 'purchase_order_id', 'sale_line_ids']

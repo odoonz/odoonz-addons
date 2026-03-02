@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/wizard/mail_resend_message.py
-# hypothesis_version: 6.131.14
-
-['Email Address', 'Email resend wizard', 'Error message', 'Failure Reason', 'Message', 'Notification', 'Notifications', 'Partner', 'Partner Readonly', 'Recipient Name', 'Recipients', 'Resend wizard', 'Try Again', '_compute_can_cancel', '_compute_can_resend', 'bounce', 'canceled', 'cascade', 'comment', 'current', 'email', 'exception', 'form', 'mail.followers', 'mail.message', 'mail.notification', 'mail.resend.message', 'mail.resend.partner', 'mail.thread', 'mail_message_id', 'message', 'notif', 'notification_id', 'notification_ids', 'notification_status', 'partner_id', 'partner_id.email', 'partner_id.name', 'partner_ids', 'partner_ids.resend', 'partner_readonly', 'res.partner', 'res.users', 'res_id', 'res_model', 'resend', 'resend_wizard_id', 'target', 'type', 'view_ids', 'view_mode', 'write']

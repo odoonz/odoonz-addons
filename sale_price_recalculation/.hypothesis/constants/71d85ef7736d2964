@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/tools/link_preview.py
-# hypothesis_version: 6.131.14
-
-[b'</head>', -8196, 8192, './/title', ';', 'Content-Type', 'User-Agent', '^<\\?xml[^>]+\\?>\\s*', 'encoding', 'ignore', 'image/', 'image_mimetype', 'og_description', 'og_image', 'og_mimetype', 'og_site_name', 'og_title', 'og_type', 'source_url', 'text/html', 'utf-8']

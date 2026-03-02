@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_hr/models/res_users.py
-# hypothesis_version: 6.131.14
-
-['&', '=', 'Documents', '_compute_documents', 'context', 'default_partner_id', 'document_count', 'documents.document', 'domain', 'id:array_agg', 'in', 'owner_id', 'partner_id', 'res.users', '|']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/web_map/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-[',', ', ', 'city', 'country_id', 'id', 'latitude', 'longitude', 'partner_%s', 'partner_latitude', 'partner_longitude', 'res.partner', 'state_id', 'street', 'street2', 'zip']

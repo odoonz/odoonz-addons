@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_exports.py
-# hypothesis_version: 6.131.14
-
-['Export', 'Export ID', 'Export Name', 'Exports', 'Exports Line', 'Field Name', 'cascade', 'export_id', 'id', 'ir.exports', 'ir.exports.line', 'name']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm_iap_mine/models/crm_iap_lead_seniority.py
-# hypothesis_version: 6.131.14
-
-['Name', 'Name already exists!', 'People Seniority', '_', 'name', 'name_uniq', 'unique (name)']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/web_map/models/models.py
-# hypothesis_version: 6.131.14
-
-['base', 'partner_id', 'res_partner']

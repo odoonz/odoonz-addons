@@ -4,6 +4,7 @@ __pycache__/
 /.venv
 /.pytest_cache
 /.ruff_cache
+.hypothesis/
 
 # C extensions
 *.so

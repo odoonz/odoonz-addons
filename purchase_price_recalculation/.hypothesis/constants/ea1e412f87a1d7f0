@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/cli/db.py
-# hypothesis_version: 6.131.14
-
-[' done', '-', '--addons-path', '--config', '--data-dir', '--db_host', '--db_password', '--db_port', '--db_sslmode', '--db_user', '--force', '--neutralize', '--pg_path', '-D', '-c', '-f', '-n', '-r', '-w', '?', 'Load a dump file.', 'addons_path', 'config', 'data_dir', 'database', 'database to delete', 'database to dump', 'db', 'db_', 'drop', 'dump', 'dump_file', 'dump_path', 'duplicate', 'list_db', 'load', 'pg_', 'rename', 'source', 'store_const', 'target', 'wb']

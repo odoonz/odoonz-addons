@@ -1,4 +1,0 @@
-# file: /odoo/src/queue/queue_job/jobrunner/runner.py
-# hypothesis_version: 6.131.14
-
-[b'.', 8069, 2293787760715711918, ',', 'LISTEN queue_job', 'ODOO_QUEUE_JOB_HOST', 'ODOO_QUEUE_JOB_PORT', 'SELECT 1', 'channels', 'db_name', 'exception in GET %s', 'host', 'http', 'http_auth_password', 'http_auth_user', 'http_interface', 'http_port', 'installed', 'ir_module_module', 'jobrunner_db_', 'localhost', 'password', 'port', 'queue_job', 'queue_job_notify', 'root:1', 'scheme', 'select_jobs', 'starting', 'state in %s', 'stopped', 'user', 'uuid = %s']

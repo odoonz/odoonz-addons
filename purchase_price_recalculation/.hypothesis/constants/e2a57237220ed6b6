@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_account/models/account_move.py
-# hypothesis_version: 6.131.14
-
-[',', '=', 'Has Documents', 'account.move', 'add_new_amls', 'asset_receivable', 'attachment_id', 'attachment_ids', 'btree_not_null', 'company_id', 'context', 'default_journal_id', 'default_st_line_id', 'default_todo_command', 'documents.document', 'domain', 'entry', 'folder_id', 'in', 'journal_id', 'liability_payable', 'no_document', 'owner_id', 'partner_id', 'res_id', 'res_model', 'tag_ids', '|']

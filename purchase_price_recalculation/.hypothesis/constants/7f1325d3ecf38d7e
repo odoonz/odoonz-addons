@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/sale_purchase_stock_inter_company_rules/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['=', 'code', 'incoming', 'picking_type_id', 'purchase.order', 'res.company', 'sale.order', 'sale.order.line', 'stock.picking.type', 'warehouse_id']

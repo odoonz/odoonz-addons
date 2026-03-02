@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_avatax/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['Any', 'Avatax Date', 'Journal Entry', 'PurchaseInvoice', 'ReturnInvoice', 'SalesInvoice', 'account.move', 'entry', 'in_invoice', 'in_refund', 'out_invoice', 'out_refund']

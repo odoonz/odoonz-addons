@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/models/stock_orderpoint.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!=', '%s', '=', '>=', 'Bill of Materials', 'Show BoM column', '_compute_show_bom', 'action', 'bom_id', 'confirmed', 'display_notification', 'draft', 'id', 'ignore_mo_ids', 'in', 'ir.actions.client', 'label', 'links', 'manufacture', 'message', 'move_raw_ids', 'mrp.bom', 'mrp.production', 'next', 'normal', 'not in', 'orderpoint_id', 'original_qty', 'params', 'phantom', 'product_qty:sum', 'product_uom_id', 'qty', 'route_id', 'state', 'sticky', 'stock.rule', 'tag', 'title', 'type', 'url', 'write_date', 'written_after']

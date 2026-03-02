@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/_monkeypatches/codecs.py
-# hypothesis_version: 6.131.14
-
-['874', 'cp874', 'iso8859_8', 'nb', 'nb_NO', 'windows_874']

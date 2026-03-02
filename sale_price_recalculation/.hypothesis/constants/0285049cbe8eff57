@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/stock_warehouse.py
-# hypothesis_version: 6.131.14
-
-['/COL/', 'COL', 'Collect Orders', 'Collect Type', 'Sequence collect', 'code', 'collect_type_id', 'company_id', 'name', 'name asc', 'not in', 'out_type_id', 'outgoing', 'padding', 'prefix', 'print_label', 'sequence', 'sequence_code', 'stock.picking.type', 'stock.warehouse', 'use_create_lots', 'use_existing_lots']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/tools/web_push.py
-# hypothesis_version: 6.131.14
-
-[b'\x01', b'\x02', b'Content-Encoding: aes128gcm\x00', b'Content-Encoding: nonce\x00', b'WebPush: info\x00', 100, 201, 404, 410, 4096, '!16sLB', '60', 'Authorization', 'Content-Encoding', 'Device Unreachable', 'TTL', 'aes128gcm', 'aud', 'auth', 'big', 'endpoint', 'keys', 'p256dh', 'sub', 'vapid t={}, k={}', '{}://{}']

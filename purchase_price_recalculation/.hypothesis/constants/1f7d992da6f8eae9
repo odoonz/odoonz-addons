@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/resource/models/resource_mixin.py
-# hypothesis_version: 6.131.14
-
-[3600, 'Company', 'Resource', 'Resource Mixin', 'Timezone', 'Working Hours', 'calendar_id', 'company_id', 'compute_leaves', 'days', 'hours', 'name', 'res.company', 'resource.calendar', 'resource.mixin', 'resource.resource', 'resource_calendar_id', 'resource_id', 'resource_id.tz', 'restrict', 'tz']

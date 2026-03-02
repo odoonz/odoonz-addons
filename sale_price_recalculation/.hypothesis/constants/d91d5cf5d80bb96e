@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/models.py
-# hypothesis_version: 6.131.14
-
-[100, '!=', '&', ',', '.', '=', 'Return-Path', 'UTC', 'X-Odoo-Objects', '_primary_email', 'activity-box', 'alias_domain_id', 'alias_name', 'author_id', 'base', 'company_id', 'date_tz', 'email', 'email_cc', 'email_from', 'email_normalized', 'email_to', 'followers', 'hidden', 'in', 'mail.alias', 'mail.alias.domain', 'mail.message.subtype', 'mail.thread', 'mail.tracking.value', 'many2one', 'message_partner_ids', 'object.contact_name', 'object.name', 'object.partner_id', 'object.user_id', 'object.user_id.name', 'partner_email', 'partner_id', 'partner_ids', 'partners', 'res.company', 'res.partner', 'res_model', 'selection', 't-name', 'timezone', 'track_sequence', 'tracking', 'tz', '|']

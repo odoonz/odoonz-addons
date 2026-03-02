@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/crm_lead.py
-# hypothesis_version: 6.131.14
-
-['=', 'Invoices', 'Special Pricing', '_compute_invoiced', 'account.move', 'active', 'context', 'crm.lead', 'default_campaign_id', 'default_medium_id', 'default_quote', 'default_source_id', 'default_team_id', 'in', 'ir.sequence', 'move_type', 'opportunity_id', 'out_invoice', 'out_refund', 'posted', 'product.supplierinfo', 'search_default_sales', 'search_quote', 'special_pricing_ids', 'state']

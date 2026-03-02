@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_org_chart/models/hr_employee.py
-# hypothesis_version: 6.131.14
-
-['Subordinates', 'hr.employee', 'hr.employee.public']

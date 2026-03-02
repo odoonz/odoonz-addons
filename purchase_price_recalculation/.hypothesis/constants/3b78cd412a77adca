@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_edi_ubl/models/sale_edi_xml_ubl_bis3.py
-# hypothesis_version: 6.131.14
-
-['./{*}ID', './{*}IssueDate', './{*}Note', './{*}Quantity', 'BuyerCustomer', 'UBL BIS Ordering 3.0', 'client_order_ref', 'currency_id', 'date_order', 'delivered_qty', 'email', 'name', 'note', 'order_line', 'origin', 'partner_id', 'partner_shipping_id', 'payment_term_id', 'phone', 'sale', 'sale.edi.common']

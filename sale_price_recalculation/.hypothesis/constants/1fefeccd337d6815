@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_fleet/wizard/account_automatic_entry_wizard.py
-# hypothesis_version: 6.131.14
-
-['account_id', 'vehicle_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/wizard/hr_expense_approve_duplicate.py
-# hypothesis_version: 6.131.14
-
-['Duplicate Expense', 'default_expense_ids', 'default_sheet_ids', 'expense_ids', 'hr.expense', 'hr.expense.sheet', 'sheet_ids', 'type']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mail_mobile/models/ir_http.py
-# hypothesis_version: 6.131.14
-
-['ir.config_parameter', 'ir.http', 'mail.action_discuss', 'odoo_ocn.project_id']

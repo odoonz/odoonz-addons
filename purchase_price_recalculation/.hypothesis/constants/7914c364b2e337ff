@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_mrp/models/mrp_production.py
-# hypothesis_version: 6.131.14
-
-[',', 'btree_not_null', 'company_id', 'ir.sequence', 'mrp.production', 'name', 'note', 'product_id', 'ref', 'stock.lot.serial', 'with Coil(s): ']

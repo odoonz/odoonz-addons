@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_payment/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Configure %s', 'None', 'Other than Paypal', 'Paypal Only', 'code', 'disabled', 'form', 'id', 'name', 'none', 'other_than_paypal', 'payment.provider', 'paypal_only', 'res.config.settings', 'res_id', 'res_model', 'state', 'stripe', 'type', 'view_mode', 'views', 'website_id', '|']

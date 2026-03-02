@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/ir_ui_view.py
-# hypothesis_version: 6.131.14
-
-[' <%s>', ' [%s]', '!=', '&', '********', '-rule', '=', 'Public', 'Restricted Group', 'Signed In', 'Track', 'Website', 'Website Page', 'With Password', '^(%s)[.]', '_get_pwd', '_set_pwd', 'active', 'arch_updated', 'base.group_system', 'cascade', 'connected', 'country', 'data-bg-video-src', 'data-shape', 'data-visibility', 'data-visibility-id', 'display_key', 'display_website', 'hierarchy', 'id', 'in', 'inherit_children', 'inherit_id', 'ir.ui.view', 'is_published', 'key', 'lang', 'logged', 'main_object', 'name', 'no_cow', 'password', 'qweb', 'restricted_group', 'self.env.su', 'self.env.uid', 'self.id', 'sibling_views', 'templates', 'utm-campaign', 'utm-medium', 'utm-source', 'view_id', 'views_unlock', 'visibility_password', 'website', 'website.key_%s', 'website.page', 'website.seo.metadata', 'website_id', 'website_name', 'xml_id', '|']

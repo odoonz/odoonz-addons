@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_management/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['!=', 'Default Template', 'Quotation Templates', 'res.company', 'res.config.settings']

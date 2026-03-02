@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/report/product_pricelist_report.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Pricelist Report', 'active_ids', 'active_model', 'docs', 'html', 'id', 'ir.qweb', 'is_html_type', 'is_product_tmpl', 'name', 'pdf', 'price', 'pricelist', 'pricelist_id', 'product.pricelist', 'product.template', 'products', 'quantities', 'uom', 'variants']

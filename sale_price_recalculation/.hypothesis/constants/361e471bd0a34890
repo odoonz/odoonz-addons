@@ -1,4 +1,0 @@
-# file: /odoo/src/partner-contact/sale_partner_company_group/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['Warning', 'company_group', 'company_group_id', 'display_name', 'message', 'pricelist', 'res.partner', 'title', 'warning']

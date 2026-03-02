@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mail_enterprise/models/update.py
-# hypothesis_version: 6.131.14
-
-['cloc/error', 'errors', 'ir.config_parameter', 'maintenance', 'modules', 'modules_count', 'modules_excluded', 'version']

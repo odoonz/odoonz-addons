@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_payment_method.py
-# hypothesis_version: 6.131.14
-
-['=', 'Inbound', 'Outbound', 'Payment Method', 'Payment Methods', '_compute_name', 'account.account', 'account.journal', 'account.payment', 'asset_cash', 'bank', 'cash', 'country_id', 'credit', 'currency_id', 'currency_ids', 'in', 'inbound', 'journal_id', 'manual', 'mode', 'multi', 'name', 'name_code_unique', 'off_balance', 'outbound', 'payment_account_id', 'payment_method_id', 'restrict', 'sequence, id', 'type']

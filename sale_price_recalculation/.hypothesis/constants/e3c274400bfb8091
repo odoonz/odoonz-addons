@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_spreadsheet/controllers/documents.py
-# hypothesis_version: 6.131.14
-
-['0', 'application/json', 'dataUrl', 'display_thumbnail', 'downloadExcelUrl', 'excel_export', 'frozen_spreadsheet', 'http', 'immutable', 'ir.binary', 'ir.http', 'is_frozen', 'max_age', 'props', 'public', 'revisions', 'session_info', 'share', 'spreadsheet', 'spreadsheet_name']

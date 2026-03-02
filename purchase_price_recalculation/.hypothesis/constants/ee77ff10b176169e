@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/web_view_google_map/models/google_map_view_mixins.py
-# hypothesis_version: 6.131.14
-
-['=', 'act_window_id', 'context', 'domain', 'form', 'in', 'ir.actions.actions', 'ir.model.data', 'ir.model.fields', 'model', 'module', 'name', 'res_id', 'view_mode', '{model}.{key}']

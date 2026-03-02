@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-[100, 204, '%Y-%m-%d', '/my', '/my/purchase', '/my/rfq', '<=', '=', '>', 'All', 'Cancelled', 'Content-Disposition', 'Content-Length', 'Content-Type', 'Locked', 'Name', 'Newest', 'Purchase Order', 'Total', 'True', 'all', 'amount_total', 'cancel', 'confirm', 'confirmed_date', 'create_date', 'date', 'date_begin', 'date_end', 'decline', 'default_url', 'domain', 'done', 'download', 'filterby', 'html', 'http', 'in', 'ir.binary', 'json', 'label', 'my_purchases_history', 'my_rfqs_history', 'name', 'name asc, id asc', 'offset', 'order', 'orders', 'page_name', 'pager', 'pdf', 'public', 'purchase', 'purchase.order', 'purchase_count', 'read', 'reception', 'reminder', 'report_type', 'res_company', 'resize_to_48', 'rfq', 'rfq_count', 'rfqs', 'searchbar_filters', 'searchbar_sortings', 'sent', 'sortby', 'state', 'text', 'text/xml', 'update', 'user']

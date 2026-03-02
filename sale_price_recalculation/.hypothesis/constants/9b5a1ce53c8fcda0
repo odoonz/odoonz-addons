@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/assets.py
-# hypothesis_version: 6.131.14
-
-["'%s': %%s,\n", "'([^']+)': '?(\\d*)", '(', '( *)(.*hook.*)', ')', '-', '.+', '/', '=', '\\1%s\\1\\2', 'binary', 'color-palettes-name', 'copyright-gradient', 'danger', 'datas', 'footer-gradient', 'google-font', 'google-local-fonts', 'id', 'info', 'ir.attachment', 'like', 'menu-gradient', 'mimetype', 'name', 'null', 'original_id', 'public', 'scss', 'src: url\\(.+\\)', 'success', 'text/css', 'type', 'user-agent', 'utf-8', 'var(--#{', 'var\\(--([0-9]+)\\)', 'warning', 'web.assets_frontend', 'web_editor.assets', 'website', 'website_id', '{', '|', '}', '})']

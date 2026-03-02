@@ -1,4 +1,0 @@
-# file: /odoo/src/purchase-workflow/purchase_order_secondary_unit/models/purchase_order.py
-# hypothesis_version: 6.131.14
-
-[1.0, '_compute_product_qty', 'product_id', 'product_qty', 'product_uom', 'purchase.order.line', 'qty_field', 'secondary_uom_id', 'secondary_uom_qty', 'uom_field', 'uom_po_id']

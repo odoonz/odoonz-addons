@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_hourly_cost/models/hr_employee.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Hourly Cost', 'currency_id', 'hr.employee', 'hr.group_hr_user']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_intercompany_rules/report/purchase_bill_union.py
-# hypothesis_version: 6.131.14
-
-['billing_partner_id', 'child_of', 'in', 'partner_id', 'purchase.bill.union', 'res.partner']

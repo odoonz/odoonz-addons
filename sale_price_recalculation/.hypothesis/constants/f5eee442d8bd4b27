@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock/wizard/stock_label_type.py
-# hypothesis_version: 6.131.14
-
-['Choose Labels Layout', 'Labels to print', 'Lot/SN Labels', 'Product Labels', 'context', 'form', 'lot.label.layout', 'lots', 'name', 'new', 'picking.label.type', 'products', 'res_model', 'stock.picking', 'target', 'type', 'views']

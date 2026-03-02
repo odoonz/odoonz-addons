@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/digest/models/digest_tip.py
-# hypothesis_version: 6.131.14
-
-['Authorized Group', 'Digest Tips', 'Name', 'Recipients', 'Sequence', 'Tip description', 'base.group_user', 'digest.tip', 'res.groups', 'res.users', 'sequence']

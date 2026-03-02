@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_workorder/report/mrp_report_mo_overview.py
-# hypothesis_version: 6.131.14
-
-['bom_cost', 'currency', 'currency_id', 'details', 'duration', 'employee_cost', 'employee_id', 'index', 'level', 'mo_cost', 'name', 'quantity', 'real_cost', 'real_cost_decorator', 'summary', 'unit_cost', 'uom_name', 'uom_precision']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/mrp_dynamic_line/models/mrp_production.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'UP', 'cancel', 'done', 'move', 'mrp.production', 'product', 'product_id', 'product_uom_qty', 'qty', 'sequence', 'stock.move']

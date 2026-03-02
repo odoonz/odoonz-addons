@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/onboarding/models/onboarding_progress.py
-# hypothesis_version: 6.131.14
-
-['Done', 'Just done', 'Not done', 'Onboarding progress', 'Was panel closed?', 'cascade', 'closed', 'done', 'just_done', 'not_done', 'onboarding.progress', 'onboarding_id', 'onboarding_state', 'progress_step_ids', 'res.company']

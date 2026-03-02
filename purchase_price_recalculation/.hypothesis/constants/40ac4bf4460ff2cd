@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/models/ir_model.py
-# hypothesis_version: 6.131.14
-
-['.', 'aggregator', 'definition_record', 'description', 'display_name', 'fields', 'in', 'inherit', 'ir.model', 'many2one_reference', 'model', 'model_name_ref_fname', 'name', 'order', 'parent_name', 'read', 'readonly', 'rec_name', 'related', 'relation', 'required', 'searchable', 'selectable', 'selection', 'sortable', 'store', 'string', 'tracking', 'type']

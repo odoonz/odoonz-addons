@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_invoice_extract_purchase/models/account_invoice.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'VAT_Number', '\\d', '\\d{{{}}}', 'account.move', 'code', 'company_id', 'content', 'in', 'in_invoice', 'ir.sequence', 'purchase.order', 'purchase_order', 'purchase_order_regex', 'selected_values', 'supplier', 'total']

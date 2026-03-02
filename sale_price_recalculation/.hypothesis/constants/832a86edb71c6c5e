@@ -1,4 +1,0 @@
-# file: /usr/lib/python3/dist-packages/packaging/utils.py
-# hypothesis_version: 6.131.14
-
-['(\\.0)+$', '(\\d+)(.*)', '-', '.', '.tar.gz', '.whl', '.zip', 'NormalizedName', '[-_.]+', '^[\\w\\d._]*$', '__']

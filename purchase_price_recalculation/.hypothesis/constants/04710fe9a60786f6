@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', '>', 'Sale Order Count', 'Sales Order', 'Sales Warnings', '__count', 'amount_to_invoice', 'any', 'child_of', 'company_id', 'domain', 'id', 'in', 'no-message', 'order_line', 'parent_id', 'partner_id', 'partner_invoice_id', 'res.partner', 'sale', 'sale.order', 'sent', 'state']

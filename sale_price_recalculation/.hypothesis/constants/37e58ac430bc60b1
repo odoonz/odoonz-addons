@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/ir_actions_report.py
-# hypothesis_version: 6.131.14
-
-['Invoice report', 'account.move', 'account_invoices', 'attachment', 'entry', 'html', 'ir.actions.report', 'ir.config_parameter', 'pdf', 'proforma', 'proforma_invoice', 'stream']

@@ -1,4 +1,0 @@
-# file: /odoo/src/partner-contact/base_partner_company_group/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', 'child_of', 'company_group_id', 'domain', 'id', 'in', 'is_company', 'res.partner']

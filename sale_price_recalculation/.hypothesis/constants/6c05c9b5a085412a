@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_product/models/document.py
-# hypothesis_version: 6.131.14
-
-['!=', '/', '=', 'Invalid %s search', 'New product template', 'Product', 'Product Variant', '_compute_product', '_search_product_id', 'attachment_id', 'context', 'documents.document', 'form', 'id', 'ilike', 'image', 'image_1920', 'in', 'ir.model', 'ir_attachment_id', 'name', 'not ilike', 'not in', 'product.document', 'product.product', 'product.template', 'res_id', 'res_model', 'type', 'view_id', 'view_mode', 'views']

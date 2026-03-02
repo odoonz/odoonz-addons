@@ -1,4 +1,0 @@
-# file: /odoo/src/account-invoicing/account_invoice_pricelist/models/account_move.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 100, 'Pricelist', 'account.move', 'account.move.line', 'combo', 'company_id', 'currency_id', 'draft', 'force_check_currecy', 'partner_id', 'pricelist_id', 'product', 'product.pricelist', 'product_id', 'product_uom_id', 'quantity', 'test_enable']

@@ -1,4 +1,0 @@
-# file: /usr/lib/python3/dist-packages/magic/loader.py
-# hypothesis_version: 6.131.14
-
-['./%s.dll', '/opt/homebrew/lib', '/opt/local/lib', '/usr/local/lib', 'cygmagic-1', 'cygwin', 'darwin', 'libmagic', 'libmagic-1', 'libmagic.dylib', 'libmagic.so.1', 'linux', 'magic', 'magic1', 'msys-magic-1', 'win32']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr/models/hr_contract_type.py
-# hypothesis_version: 6.131.14
-
-['Contract Type', '_compute_code', 'hr.contract.type', 'name', 'res.country', 'sequence']

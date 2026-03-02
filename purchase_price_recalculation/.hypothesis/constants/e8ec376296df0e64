@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!=', '%s - %s', '=', 'Product Price', 'account.move', 'account.move.line', 'account_id', 'account_move_id', 'account_move_line_id', 'balance', 'cogs', 'company_id', 'currency_id', 'date', 'decimal.precision', 'description', 'display_type', 'done', 'expense', 'id', 'in_refund', 'ir.model.fields', 'model', 'move_id', 'name', 'out', 'partner_id', 'posted', 'price_diff_value', 'product_id', 'product_qty', 'product_uom_id', 'purchase_line_id', 'quantity', 'real_time', 'remaining_qty', 'remaining_value', 'standard', 'state', 'stock.move', 'unit_cost', 'value']

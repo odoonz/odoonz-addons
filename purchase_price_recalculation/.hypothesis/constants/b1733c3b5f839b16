@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/wizard/base_language_install.py
-# hypothesis_version: 6.131.14
-
-['=', 'Install Language', 'Languages', 'active_id', 'active_ids', 'active_model', 'active_test', 'code', 'context', 'display_notification', 'form', 'installed', 'ir.actions.client', 'ir.module.module', 'lang_id', 'lang_ids', 'language_wizard_id', 'message', 'new', 'next', 'params', 'reload', 'reload_context', 'res.lang', 'res_id', 'res_lang_install_rel', 'res_model', 'state', 'sticky', 'success', 'tag', 'target', 'type', 'view_mode', 'views']

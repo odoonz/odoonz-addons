@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk/models/helpdesk_sla.py
-# hypothesis_version: 6.131.14
-
-['%s (copy)', '0', '=', 'Active', 'Company', 'Customers', 'Excluding Stages', 'Helpdesk Team', 'Priority', 'Tags', 'Target Stage', 'Within', '__count', 'context', 'create', 'default_team_id', 'domain', 'helpdesk.sla', 'helpdesk.stage', 'helpdesk.tag', 'helpdesk.team', 'helpdesk.ticket', 'in', 'ir.actions.actions', 'name', 'res.company', 'res.partner', 'sla_ids', 'stage_id', 'stage_id.fold', 'team_id', 'team_id.company_id', 'with_team_name']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_batch_payment/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-['=', 'BATCH/IN/%(year)s/', 'BATCH/OUT/%(year)s/', 'Create Batch Payment', 'account.journal', 'batch_payment', 'code', 'company_id', 'context', 'default_journal_id', 'form', 'ir.sequence', 'journal_id', 'name', 'number_increment', 'number_next', 'padding', 'prefix', 'res_model', 'type', 'use_date_range', 'view_mode']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['!=', '12', '=', 'Journal', 'Periodicity', 'Reminder', 'Tax groups', 'account.report', 'account.tax.group', 'code', 'company_id', 'context', 'country_id', 'default_country_id', 'domain', 'fiscalyear_last_day', 'foreign_vat', 'id', 'in', 'list', 'monthly', 'name', 'res.config.settings', 'res_model', 'type', 'view_mode', 'views']

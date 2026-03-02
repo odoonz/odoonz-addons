@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_loans/__init__.py
-# hypothesis_version: 6.131.14
-
-['"', '%Y-%m-%d', ',', 'Date', 'base_import.import', 'context', 'date', 'date_format', 'has_headers', 'interest', 'options', 'params', 'principal', 'quoting', 'separator', 'text/csv', 'wizard_id']

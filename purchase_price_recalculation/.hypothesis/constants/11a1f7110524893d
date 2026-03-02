@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/wizard/hr_expense_split_wizard.py
-# hypothesis_version: 6.131.14
-
-['=', 'Expense', 'Expense Split Wizard', 'Split Expenses', 'Taxes', 'Total Amount', 'currency_id', 'current', 'domain', 'hr.expense', 'hr.expense.split', 'id', 'in', 'ir.attachment', 'list,form', 'name', 'res.currency', 'res_id', 'res_model', 'target', 'tax_amount_currency', 'type', 'view_mode', 'wizard_id']

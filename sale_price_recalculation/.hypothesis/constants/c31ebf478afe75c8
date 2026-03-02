@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/wizard/crm_lead_pls_update.py
-# hypothesis_version: 6.131.14
-
-[',', '=', 'crm.lead', 'crm.lead.pls.update', 'crm.pls_fields', 'crm.pls_start_date', 'field_id', 'field_id.name', 'in', 'ir.config_parameter', 'ir.model.fields', 'model', 'name']

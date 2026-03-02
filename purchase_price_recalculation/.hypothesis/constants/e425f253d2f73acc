@@ -1,4 +1,0 @@
-# file: /usr/lib/python3/dist-packages/packaging/specifiers.py
-# hypothesis_version: 6.131.14
-
-['!', '!=', ',', '.', '.*', '0', '<', '<=', '==', '===', '>', '>=', 'SpecifierSet', 'UnparsedVersionVar', '\\s*$', '^\\s*', 'a', 'arbitrary', 'b', 'compatible', 'dev', 'equal', 'greater_than', 'greater_than_equal', 'less_than', 'less_than_equal', 'not_equal', 'operator', 'post', 'prereleases', 'rc', 'version', '{}{}', '~=']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_hierarchy/models/models.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', '__child_ids__', 'base', 'id', 'id:array_agg', 'in', 'not in']

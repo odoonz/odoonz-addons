@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/documents_automation/models/document.py
-# hypothesis_version: 6.131.14
-
-['$', '.pdf', '/', '/tmp/files/', '0', '1', '5', '=', 'I', 'O', 'PDF Text', 'S', '\\[(.*?)\\]', '\\[(C.*?)\\]', 'access_ids', 'attachment_id', 'code', 'company_id', 'create_date', 'document_id', 'document_object', 'documents.access', 'documents.document', 'end_page', 'fields', 'folder_id', 'id', 'ir.actions.server', 'ir.attachment', 'ir.sequence', 'last_access_date', 'link_', 'mrp.production', 'name', 'new_pages', 'old_file_index', 'old_page_number', 'owner_id', 'partner_id', 'pdf_text', 'picking_id', 'production_order_id', 'rb', 'res_id', 'res_model', 'sale.order', 'sale_id.name', 'sale_order_name', 'start_page', 'stock.picking']

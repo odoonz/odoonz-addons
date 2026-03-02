@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/product_product.py
-# hypothesis_version: 6.131.14
-
-[0.0, 365, '!=', '=', '>=', 'Sales', 'Sales Order Line', 'Sold', 'Warning', '__count', '_compute_sales_count', 'active_id', 'active_model', 'cascade', 'context', 'date', 'domain', 'id', 'in', 'ir.actions.actions', 'message', 'order_id', 'pivot_measures', 'product.packaging', 'product.product', 'product_id', 'product_uom_qty', 'product_uom_qty:sum', 'sale.order.line', 'sale.report', 'sale.sale_menu_root', 'search_default_Sales', 'state', 'title', 'type', 'warning']

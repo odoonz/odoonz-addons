@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet_dashboard/models/spreadsheet_dashboard_share.py
-# hypothesis_version: 6.131.14
-
-['URL', '_compute_full_url', 'access_token', 'cascade', 'dashboard_id.name', 'excel_export', 'excel_files', 'read', 'spreadsheet.mixin']

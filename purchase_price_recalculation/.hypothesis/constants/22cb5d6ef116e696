@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/procurement_group.py
-# hypothesis_version: 6.131.14
-
-['customer_id', 'default.supplier.map', 'internal', 'move_dest_ids', 'opportunity_id', 'procurement.group', 'route_ids', 'sale.order.line', 'sale_line_id', 'supplierinfo_name', 'warehouse_id']

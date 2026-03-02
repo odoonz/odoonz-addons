@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_move_line_tax_details.py
-# hypothesis_version: 6.131.14
-
-['%s', ',', '=', 'account.move.line', 'account.tax', 'amount_type', 'group', 'read', 'tax.id']

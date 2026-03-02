@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/discuss/res_partner.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'ADD', 'Channels', 'active', 'channel', 'channel_id', 'channel_ids', 'count', 'data', 'discuss.channel', 'email', 'groups_id', 'id', 'ilike', 'in', 'name', 'not in', 'partner_id', 'partner_share', 'persona', 'res.partner', 'user_ids', 'user_ids.active', 'user_ids.groups_id', 'user_ids.share']

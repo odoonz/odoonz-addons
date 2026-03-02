@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant_batch_payment/models/account_batch_payment_rejection.py
-# hypothesis_version: 6.131.14
-
-['=', 'account.payment', 'batch_payment_id', 'id', 'in', 'infos', 'is_matched', 'not in', 'type', 'validate']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/bus/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['=', 'POST', 'base.autovacuum_job', 'bus.bus', 'http', 'id', 'ir.model', 'json', 'lastcall', 'nextcall', 'public', 'user']

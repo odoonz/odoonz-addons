@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/models/stock_scrap.py
-# hypothesis_version: 6.131.14
-
-['Kit', 'Manufacturing Order', 'Warning', 'Work Order', 'done', 'group_id', 'incoming_moves', 'lot_id', 'message', 'move_ids', 'mrp.bom', 'mrp.production', 'mrp.workorder', 'origin', 'outgoing_moves', 'phantom', 'product_id', 'product_id.is_kits', 'production_id', 'serial', 'stock.quant', 'stock.scrap', 'title', 'warning', 'workorder_id']

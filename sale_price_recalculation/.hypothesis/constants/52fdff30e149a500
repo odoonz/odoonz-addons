@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/digest.py
-# hypothesis_version: 6.131.14
-
-['100', '=', 'New Leads', 'Opportunities Won', 'crm.crm_menu_root', 'crm.group_use_lead', 'crm.lead', 'date_closed', 'digest.digest', 'kpi_crm_lead_created', 'opportunity', 'probability', 'type']

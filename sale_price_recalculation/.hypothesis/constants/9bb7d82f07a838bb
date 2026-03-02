@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/stock_warehouse_valuation/models/stock_valuation_history.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'Company', 'Costing Method', 'Currency', 'Location', 'Product', 'Product Category', 'Product Template', 'Reference', 'Total Value', 'Unit of Measure', 'Valuation Account', 'Valuation Date', 'Warehouse', '_compute_cost_price', '_compute_name', 'account.account', 'company_id', 'currency_id', 'date', 'date desc, id desc', 'in', 'internal', 'location_id', 'location_id.usage', 'product.category', 'product.product', 'product.template', 'product_id', 'product_id.categ_id', 'product_id.uom_id', 'quantity', 'res.company', 'res.currency', 'stock.location', 'stock.quant', 'stock.warehouse', 'uom.uom', 'valuation_account_id', 'value', 'warehouse_id']

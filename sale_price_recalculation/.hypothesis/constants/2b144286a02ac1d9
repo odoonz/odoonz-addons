@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_calendar/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['!=', '%H:%M', '00:00', 'UTC', 'company_id', 'daysOfWeek', 'endTime', 'hr.employee', 'id:recordset', 'in', 'res.partner', 'resource.calendar', 'resource.resource', 'startTime', 'work_contact_id']

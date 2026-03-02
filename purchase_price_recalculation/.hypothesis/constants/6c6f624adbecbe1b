@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_branch/report/ril_branch_reports.py
-# hypothesis_version: 6.131.14
-
-['%s, line.branch_id', 'account.move.line', 'branch_id', 'l.branch_id', 'ril.branch', 'sale.report']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_batch_payment/wizard/batch_error.py
-# hypothesis_version: 6.131.14
-
-['Description', 'Help', 'Payments', 'Payments in Error', 'account.payment', 'batch_payment_id', 'description', 'error_wizard_id', 'help', 'help_message', 'payment_ids', 'records', 'show_remove_options', 'title', 'warning_wizard_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/tools.py
-# hypothesis_version: 6.131.14
-
-[100000, '//script', '//style', '//svg', '/mockrequest', '/website/form/', '127.0.0.1', ':email_cc', '<MockResponse>', '<p>%s</p>', '\\s+', 'action', 'class', 'country', 'email_bcc', 'email_cc', 'email_to', 'en', 'en_US', 'form', 'hidden', 'http', 'input', 'ir.attachment', 'ir.http', 'iso_code', 'lang', 'localhost', 'multilang', 'name', 'public', 'res.lang', 'type', 'url', 'value', 'website', 'www.']

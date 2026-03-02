@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/bus/models/bus.py
-# hypothesis_version: 6.131.14
-
-[8000, ',', ':', '>', 'Channel', 'Communication Bus', 'Message', 'ODOO_NOTIFY_FUNCTION', 'bus.bus', 'bus.bus.channels', 'bus.bus.values', 'channel', 'create_date', 'id', 'id desc', 'in', 'ir.config_parameter', 'listen imbus', 'message', 'not in', 'payload', 'pg_notify', 'postgres', 'type']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk_stock_account/wizard/account_move_reversal.py
-# hypothesis_version: 6.131.14
-
-['=', 'consu', 'line_ids.product_id', 'product', 'product_id.tracking']

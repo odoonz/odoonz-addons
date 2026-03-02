@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/uom_uom.py
-# hypothesis_version: 6.131.14
-
-[1.0, 10.0, 'Warning!', 'decimal.precision', 'message', 'rounding', 'title', 'uom.uom', 'warning']

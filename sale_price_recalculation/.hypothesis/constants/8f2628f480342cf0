@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/product_barcodelookup/tools/barcode_lookup_service.py
-# hypothesis_version: 6.131.14
-
-[200, 404, 'authenticated', 'ir.config_parameter', 'status_code']

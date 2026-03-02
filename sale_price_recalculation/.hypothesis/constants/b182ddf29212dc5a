@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_import/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['POST', 'base_import.import', 'file', 'file_name', 'file_type', 'result', 'ufile']

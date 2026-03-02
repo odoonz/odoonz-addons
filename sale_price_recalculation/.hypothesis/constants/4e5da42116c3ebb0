@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/arabic_reshaper/__init__.py
-# hypothesis_version: 6.131.14
-
-['reshape', 'ﷲ', 'ﻵ', 'ﻶ', 'ﻷ', 'ﻸ', 'ﻹ', 'ﻺ', 'ﻻ', 'ﻼ']

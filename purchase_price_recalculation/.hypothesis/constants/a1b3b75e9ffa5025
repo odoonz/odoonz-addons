@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/wizard/crm_merge_opportunities.py
-# hypothesis_version: 6.131.14
-
-[100, '=', 'Leads/Opportunities', 'Merge Opportunities', 'Sales Team', 'Salesperson', '_compute_team_id', 'active_ids', 'crm.lead', 'crm.team', 'id', 'member_ids', 'merge_id', 'opportunity_id', 'opportunity_ids', 'res.users', 'user_id', '|']

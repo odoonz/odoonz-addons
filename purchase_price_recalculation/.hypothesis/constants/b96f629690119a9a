@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/product_list_price_change/models/product_product.py
-# hypothesis_version: 6.131.14
-
-[0.0, '1970-01-01', '=', 'Price Changes', 'Value at Creation', 'date', 'effective_date', 'future', 'in', 'list_price', 'live', 'lst_price', 'name', 'partner', 'partner_id', 'price_change_id', 'price_extra', 'product.price.change', 'product.product', 'product.template', 'product_tmpl_id', 'res.partner', 'state', 'uom', 'uom.uom', 'uom_already_computed']

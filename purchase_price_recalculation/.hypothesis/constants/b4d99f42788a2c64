@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_stock/report/sale_report.py
-# hypothesis_version: 6.131.14
-
-['Warehouse', 's.warehouse_id', 'sale.report', 'stock.warehouse', 'warehouse_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/onboarding/models/onboarding_progress_step.py
-# hypothesis_version: 6.131.14
-
-['=', 'Onboarding Step', 'cascade', 'done', 'just_done', 'not_done', 'onboarding.progress', 'res.company', 'step_id', 'step_state']

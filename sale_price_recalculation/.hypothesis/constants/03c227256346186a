@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/calendar_sms/models/calendar_event.py
-# hypothesis_version: 6.131.14
-
-['=', 'Send SMS', 'calendar.event', 'context', 'declined', 'default_res_ids', 'default_res_model', 'form', 'mass', 'name', 'new', 'res.partner', 'res_model', 'sms', 'sms.composer', 'state', 'target', 'type', 'view_mode']

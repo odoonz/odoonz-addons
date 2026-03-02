@@ -1,4 +1,0 @@
-# file: /odoo/src/reporting-engine/report_xlsx/report/report_abstract_xlsx.py
-# hypothesis_version: 6.131.14
-
-['Abstract XLSX Report', 'active_ids', 'active_model', 'after', 'before', 'context', 'xlsx', '~[0-9]{2}$']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_crm_sms/models/website_visitor.py
-# hypothesis_version: 6.131.14
-
-['crm.lead', 'default_res_id', 'default_res_model', 'mobile', 'number_field_name', 'phone', 'website.visitor']

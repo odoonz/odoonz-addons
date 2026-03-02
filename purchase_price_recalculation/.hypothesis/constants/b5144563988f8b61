@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_online_synchronization/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-['/my', 'MMM dd, YYYY', 'POST', 'account.journal', 'bank', 'bank_account', 'done', 'http', 'iframe_params', 'journal', 'latest_balance', 'latest_sync', 'public', 'status']

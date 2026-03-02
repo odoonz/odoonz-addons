@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/agreement_rebate_ril/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['=', 'HQ', 'account.journal', 'account.move', 'account.move.line', 'agreement', 'amount_currency', 'branch_id', 'code', 'company_id', 'credit', 'date', 'debit', 'entry', 'general', 'in', 'journal_id', 'line_ids', 'move_reverse_cancel', 'move_type', 'partner_id', 'plan_id', 'price_subtotal', 'price_unit', 'quantity', 'ref', 'ril.branch', 'type']

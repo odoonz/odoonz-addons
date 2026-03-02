@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_dispatch/models/fleet_vehicle.py
-# hypothesis_version: 6.131.14
-
-['Unit of Measure', 'fleet.vehicle', 'in', 'tag_ids']

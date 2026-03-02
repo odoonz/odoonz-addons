@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_loans/wizard/account_loan_close_wizard.py
-# hypothesis_version: 6.131.14
-
-['Close Date', 'Close Loan Wizard', 'Loan', 'account.loan', 'closed', 'draft', 'type']

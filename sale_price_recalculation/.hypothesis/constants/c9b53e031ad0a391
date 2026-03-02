@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/partner_statement_run/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['Statement Message', 'company_id', 'en_US', 'res.company']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_combo_item.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!=', 'Extra Price', 'Original Price', 'Product', 'Product Combo Item', 'Product Price', 'cascade', 'combo', 'combo_id.company_id', 'product.combo', 'product.combo.item', 'product.product', 'product_id', 'product_id.lst_price', 'res.currency', 'restrict', 'type']

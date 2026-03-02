@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/calendar.py
-# hypothesis_version: 6.131.14
-
-['Opportunity', 'active_id', 'active_model', 'calendar.event', 'crm.lead', 'crm.model_crm_lead', 'default_res_id', 'default_res_model', 'default_res_model_id', 'ir.model', 'opportunity_id', 'res_id', 'res_model', 'res_model_id', 'set null']

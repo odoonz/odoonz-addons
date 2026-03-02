@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_contact_management/models/ir_qweb_fields.py
-# hypothesis_version: 6.131.14
-
-[', ', '<br/>', 'Address', 'Direct to Site', 'Name', 'Phone', 'address', 'base.contact', 'city', 'country_id', 'default', 'field_name', 'fields', 'ir.qweb', 'ir.qweb.field.site', 'label', 'name', 'no_tag_br', 'object', 'options', 'params', 'phone', 'separator']

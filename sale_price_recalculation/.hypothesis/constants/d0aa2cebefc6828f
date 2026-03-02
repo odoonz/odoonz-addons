@@ -1,4 +1,0 @@
-# file: /odoo/src/account-financial-reporting/partner_statement/wizard/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Age by Days', 'Age by Months', 'Aging Method', 'Show Aging Buckets', 'days', 'default_', 'ir.default', 'many2one', 'months', 'res.config.settings']

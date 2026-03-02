@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_account/models/documents_account_folder_setting.py
-# hypothesis_version: 6.131.14
-
-['=', 'Tags', 'Workspace', 'account.journal', 'cascade', 'child_of', 'company_id', 'documents.document', 'documents.tag', 'folder', 'id', 'journal_unique', 'res.company', 'shortcut_document_id', 'type', 'unique (journal_id)', '|']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_unsplash/controllers/main.py
-# hypothesis_version: 6.131.14
-
-[1024, '- ', '/', 'Connection Error: ', 'POST', 'Timeout: ', '_', 'appId', 'client_id', 'data', 'description', 'download_url', 'error', 'ir.config_parameter', 'ir.ui.view', 'json', 'key', 'key_not_found', 'name', 'no_access', 'public', 'query', 'res_id', 'res_model', 'unsplash', 'unsplash.access_key', 'unsplash.app_id', 'url', 'user']

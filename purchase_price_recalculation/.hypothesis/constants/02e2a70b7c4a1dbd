@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_intercompany_rules/models/purchase_order.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', '^(SO/\\w\\d{6})', 'active', 'attribute_id', 'attribute_value_id', 'collect', 'commitment_date', 'company_id', 'customer_rank', 'cutlist.line', 'date_order', 'dispatch_method', 'flashing', 'is_company', 'is_site', 'name', 'note', 'origin', 'other', 'parent_id', 'partner_id', 'partner_shipping_id', 'price_unit', 'priced', 'purchase.order', 'ref', 'res.company', 'res.partner', 'res.partner.site', 'sale.order', 'site', 'site_address_id', 'site_contact_email', 'site_contact_id', 'site_contact_mobile', 'site_contact_name', 'stock.warehouse', 'substrate_id', 'team_id', 'type', 'user_id', 'warehouse_id', 'yard']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/cutlist_repack/models/mrp_production.py
-# hypothesis_version: 6.131.14
-
-['No order line found', '_compute_can_reset', 'cancel', 'cutlines', 'cutlist.line', 'done', 'draft', 'flashing', 'move_dest_ids', 'mrp.production', 'pack_cutlist', 'state']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_alias_mixin_optional.py
-# hypothesis_version: 6.131.14
-
-['Alias', 'Alias Domain', 'Alias Domain Name', 'Email Alias', '_compute_alias_email', '_search_alias_email', 'alias_contact', 'alias_defaults', 'alias_domain', 'alias_domain_id', 'alias_id', 'alias_id.alias_name', 'alias_name', 'ir.model', 'mail.alias', 'mail.alias.domain', 'res.company', 'restrict', 'write']

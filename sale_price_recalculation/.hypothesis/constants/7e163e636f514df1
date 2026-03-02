@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/rating/models/rating_parent_mixin.py
-# hypothesis_version: 6.131.14
-
-[100, '# Ratings', '=', '>=', 'Average Rating', 'Average Rating (%)', 'Rating Parent Mixin', 'Rating Satisfaction', 'Ratings', '__count', '_search_rating_avg', 'bad', 'base.group_user', 'consumed', 'great', 'id', 'in', 'okay', 'parent_res_id', 'parent_res_model', 'rating', 'rating.parent.mixin', 'rating.rating', 'rating:avg', 'rating_ids.consumed', 'rating_ids.rating', 'write_date']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_followup/models/ir_actions_report.py
-# hypothesis_version: 6.131.14
-
-['1.1', 'application/pdf', 'attachment_ids', 'ir.actions.report', 'ir.attachment', 'join_invoices', 'options', 'report_attachment_id', 'res.partner', 'stream']

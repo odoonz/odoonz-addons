@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/crm_stage.py
-# hypothesis_version: 6.131.14
-
-['0', '1', '2', '3', 'CRM Stages', 'Folded in Pipeline', 'High', 'Is Won Stage?', 'Low', 'Medium', 'Requirements', 'Sales Team', 'Sequence', 'Stage Name', 'Very High', '_compute_team_count', 'crm.stage', 'crm.team', 'default_team_id', 'name', 'sequence, name, id', 'set null', 'team_count', 'team_id']

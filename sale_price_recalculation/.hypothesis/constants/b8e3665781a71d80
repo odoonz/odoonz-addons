@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/snailmail/models/mail_notification.py
-# hypothesis_version: 6.131.14
-
-['Snailmail', 'Snailmail Letter', 'btree_not_null', 'cascade', 'mail.notification', 'sn_credit', 'sn_error', 'sn_fields', 'sn_format', 'sn_price', 'sn_trial', 'snail', 'snailmail.letter']

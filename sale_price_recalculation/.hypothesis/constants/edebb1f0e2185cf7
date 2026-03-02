@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/wizard/mail_template_preview.py
-# hypothesis_version: 6.131.14
-
-['Attachments', 'Body', 'Cc', 'Error Message', 'From', 'No Record', 'Recipients', 'Record', 'Reply-To', 'Scheduled Date', 'Sender address', 'Subject', 'Targeted model', 'To', '_compute_no_record', 'attachment_ids', 'body_html', 'email_cc', 'email_from', 'email_to', 'ir.attachment', 'ir.model', 'lang', 'mail.template', 'mail_template_id', 'model_id', 'partner_ids', 'partner_to', 'reply_to', 'report_template_ids', 'res.lang', 'res.partner', 'resource_ref', 'scheduled_date', 'subject']

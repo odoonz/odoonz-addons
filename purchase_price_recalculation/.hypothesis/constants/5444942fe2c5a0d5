@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/partner_sale_rule/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['=', 'company_id', 'partner.sale.rule', 'partner_id', 'sale.order', 'warehouse_id']

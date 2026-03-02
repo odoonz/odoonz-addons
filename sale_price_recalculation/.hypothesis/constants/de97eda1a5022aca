@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['*', 'Employee', 'Employees', 'Related Employees', 'city', 'company_id', 'contact_type', 'country', 'domain', 'employee', 'form', 'hr.employee', 'hr.group_hr_user', 'id', 'in', 'kanban', 'name', 'res.partner', 'res.partner.bank', 'res_id', 'res_model', 'street', 'type', 'view_mode', 'work_contact_id', 'zip']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet/utils/formatting.py
-# hypothesis_version: 6.131.14
-
-[' a', '%A', '%B', '%H', '%I', '%M', '%S', '%Y', '%a', '%b', '%d', '%m', '%p', '%y', '(%.)', '(/|-| )', '(:| )', '/', ':', 'dd', 'ddd', 'dddd', 'hh', 'mm', 'mmm', 'mmmm', 'ss', 'yy', 'yyyy']

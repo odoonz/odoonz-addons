@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/controllers/combo_configurator.py
-# hypothesis_version: 6.131.14
-
-['combo_items', 'combos', 'create_variant', 'currency_id', 'custom_ptavs', 'custom_value', 'display_name', 'extra_price', 'id', 'is_configurable', 'is_selected', 'json', 'name', 'no_variant', 'no_variant_ptav_ids', 'price', 'price_extra', 'product', 'product.pricelist', 'product.template', 'product_tmpl_id', 'ptals', 'quantity', 'res.currency', 'selected_ptavs', 'user', 'value']

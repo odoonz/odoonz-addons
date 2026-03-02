@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/iap/models/iap_enrich_api.py
-# hypothesis_version: 6.131.14
-
-[300, 'account_token', 'database.uuid', 'dbuuid', 'domains', 'enrich.endpoint', 'iap.account', 'iap.enrich.api', 'ir.config_parameter', 'reveal']

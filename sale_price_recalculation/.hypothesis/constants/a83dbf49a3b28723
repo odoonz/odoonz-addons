@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/wizard/sms_account_phone.py
-# hypothesis_version: 6.131.14
-
-['Register Account', 'context', 'default_account_id', 'form', 'iap.account', 'name', 'new', 'res_model', 'sms.account.code', 'sms.account.phone', 'state', 'success', 'target', 'type', 'unknown_error', 'view_mode']

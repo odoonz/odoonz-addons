@@ -1,4 +1,0 @@
-# file: /odoo/src/agreement/agreement/models/agreement_type.py
-# hypothesis_version: 6.131.14
-
-['Agreement Types', '_domain_selection', 'agreement', 'agreement.type', 'sale']

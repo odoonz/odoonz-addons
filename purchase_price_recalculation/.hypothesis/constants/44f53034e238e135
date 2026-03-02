@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_edi_ubl/models/sale_edi_common.py
-# hypothesis_version: 6.131.14
-
-[', Email: %(email)s', ', Phone: %(phone)s', '<li>%s</li>', '<strong>%s</strong>', '<ul>%s</ul>', '=', 'account.edi.common', 'account.payment.term', 'discount', 'ir.model', 'name', 'product_id', 'product_uom', 'product_uom_id', 'product_uom_qty', 'quantity', 'res.partner', 'sale', 'sale.edi.common', 'tax_id', 'xml_tree']

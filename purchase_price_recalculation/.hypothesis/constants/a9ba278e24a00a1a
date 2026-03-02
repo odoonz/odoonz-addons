@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/models/account_payment_method_line.py
-# hypothesis_version: 6.131.14
-
-[', ', 'Provider', 'current', 'electronic', 'enabled', 'form', 'inbound', 'manage_providers', 'mode', 'name', 'outbound', 'payment.provider', 'payment_method_id', 'providers_per_code', 'res_id', 'res_model', 'target', 'test', 'type', 'view_mode']

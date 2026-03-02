@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet_dashboard/models/spreadsheet_dashboard.py
-# hypothesis_version: 6.131.14
-
-['%s (copy)', 'base.group_user', 'default_currency', 'ir.model', 'is_sample', 'locale', 'model', 'name', 'res.company', 'res.currency', 'res.groups', 'res.lang', 'revisions', 'sequence', 'settings', 'snapshot', 'spreadsheet.mixin']

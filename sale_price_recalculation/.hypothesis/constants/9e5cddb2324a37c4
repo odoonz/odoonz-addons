@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/wizard/sale_order_cancel.py
-# hypothesis_version: 6.131.14
-
-['Author', 'Invoice Alert', 'Recipients', 'Sale Order', 'Sales Order Cancel', 'body_html', 'cascade', 'comment', 'draft', 'mail.composer.mixin', 'order_id', 'post_process', 'res.partner', 'sale.order', 'sale.order.cancel', 'set null', 'subject', 'template_id']

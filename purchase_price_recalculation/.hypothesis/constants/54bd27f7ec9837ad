@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/bus/models/ir_model.py
-# hypothesis_version: 6.131.14
-
-['definition_record', 'fields', 'ir.model', 'many2one_reference', 'model_field', 'model_name_ref_fname', 'name', 'readonly', 'relation', 'required', 'selection', 'string', 'type']

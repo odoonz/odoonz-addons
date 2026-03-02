@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/sql_db.py
-# hypothesis_version: 6.131.14
-
-[1000000.0, 100, 1000, 1231, 1700, '%r ', ',', 'ConnectionInfo', 'ODOO_PGAPPNAME', 'SAVEPOINT "%s"', 'SQL LOG %s:', 'SUM %s:%s/%d [%d]', 'T', '[%.3f ms] query: %s', '__init__', '_obj', 'application_name', 'commit', 'connection', 'create cursor to %r', 'database', 'db_', 'db_maxconn', 'db_maxconn_gevent', 'db_name', 'db_replica_', 'db_template', 'dbname', 'dsn', 'float', 'float[]', 'from', 'host', 'into', 'leaked', 'odoo-%d', 'other', 'password', 'port', 'postgres', 'postgres://', 'postgresql://', 'query_count', 'query_hooks', 'read-only', 'read/write', 'replace', 'rollback', 'sslmode', 'table: %s: %s/%s', 'template0', 'template1', 'to %r', 'user', '{pid}']

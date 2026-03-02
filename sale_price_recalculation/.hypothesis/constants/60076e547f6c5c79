@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_payment/models/account_payment.py
-# hypothesis_version: 6.131.14
-
-['Is Donation', 'account.payment']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents/wizard/documents_link_to_record_wizard.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Documents', 'Model', 'Models', 'Record', 'True', 'documents.document', 'in', 'ir.model', 'ir.model.access', 'is_mail_thread', 'is_readonly_model', 'model', 'res_id', 'res_model', 'uid', 'write']

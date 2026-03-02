@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'all_entries', 'allowed_company_ids', 'application/pdf', 'binary', 'child_of', 'current', 'file_content', 'forced_companies', 'form', 'hide_account', 'hide_debit_credit', 'id', 'ignore_session', 'invoice', 'ir.actions.actions', 'ir.attachment', 'is_company', 'mimetype', 'name', 'options', 'params', 'parent_id', 'partner_ids', 'raw', 'res.company', 'res.partner', 'res_id', 'res_model', 'target', 'type', 'unfold_all', 'unreconciled', 'vat', 'view_mode', 'views']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['Sales Opportunity', 'account.move', 'crm.lead', 'opportunity_id', 'partner.site.mixin', 'partner_shipping_id', 'purchase_id']

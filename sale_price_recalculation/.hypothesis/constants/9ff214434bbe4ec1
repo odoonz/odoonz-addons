@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/profiler.py
-# hypothesis_version: 6.131.14
-
-[0.001, 0.01, '%Y%m%d-%H%M%S', ',', '.py', '[^0-9a-zA-Z-]+', '_', '__profiler', 'arch', 'archs', 'att', 'attrib', 'call', 'collectors', 'create_date', 'data', 'dbname', 'delay', 'directive', 'duration', 'enter', 'entry_count', 'entry_count_limit', 'event', 'exec_context', 'foreach', 'frame', 'full_query', 'groups', 'init_stack_trace', 'inner-content', 'leave', 'line', 'name', 'options', 'parent_frame', 'profile', 'profile_hooks', 'profiler_params', 'profiling', 'query', 'query_hooks', 'qweb', 'qweb_hooks', 'ref', 'ref_xml', 'render', 'results', 'return', 'session', 'set', 'sql', 'sql_count', 'stack', 'start', 't-', 't-as', 't-att', 't-att-', 't-attf-', 't-groups', 't-options', 't-options-', 't-set', 't-set-', 't-setf-', 't-value', 't-valuef', 'tag-close', 'tag-open', 'time', 'traces_async', 'traces_sync', 'view_id', 'xpath']

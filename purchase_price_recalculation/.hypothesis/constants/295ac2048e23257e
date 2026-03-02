@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/discuss/mail_guest.py
-# hypothesis_version: 6.131.14
-
-[365, 512, 'Access Token', 'Channels', 'Country', 'Guest', 'IM Status', 'Language', 'Name', 'Timezone', '_compute_im_status', 'avatar.mixin', 'avatar_128', 'base.group_system', 'bus.listener.mixin', 'bus.presence', 'channel_id', 'dgid', 'discuss.channel', 'env', 'guest', 'guest_id', 'im_status', 'in', 'mail.guest', 'name', 'offline', 'res.country', 'res.lang', 'tz', 'write_date', '|']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['#000000', '#875A7B', 'Alias Domain Name', 'Bounce', 'Bounce Email', 'Catchall', 'Catchall Email', 'Default From', 'Email Button Color', 'Email Domain', 'Email Header Color', 'Formatted Email', '_compute_bounce', '_compute_catchall', 'alias_domain_id', 'alias_domain_id.name', 'catchall_formatted', 'mail.alias.domain', 'name', 'partner_id', 'primary_color', 'res.company', 'secondary_color']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_work_entry_contract/models/hr_contract.py
-# hypothesis_version: 6.131.14
-
-[100, '\n%s', '!=', '%s%s', '%s: %s', ': ', '<=', '=', '>=', 'Employee Contract', 'Generated From', 'Generated To', 'Last Generation Date', 'UTC', 'Working Schedule', 'calendar', 'calendar_id', 'cancel', 'close', 'company_id', 'contract_id', 'date_end', 'date_from', 'date_generated_from', 'date_generated_to', 'date_start', 'date_stop', 'date_to', 'draft', 'employee_id', 'employee_ids', 'hr.contract', 'hr.employee', 'hr.work.entry', 'hr.work.entry.type', 'in', 'last_generation_date', 'name', 'open', 'resource.resource', 'resource_calendar_id', 'resource_id', 'salary_simulation', 'state', 'validated', 'work_entry_source', 'work_entry_type_id']

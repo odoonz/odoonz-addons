@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/models/account_analytic_report.py
-# hypothesis_version: 6.131.14
-
-[995, '%s && %s', ', ', '-amount', '.', '=', 'Analytic Group By', 'account.move.line', 'account.report', 'account.report.line', 'account_id', 'account_move_line', 'analytic_accounts', 'analytic_plan_id', 'auto_account_id', 'balance', 'budgets', 'child_of', 'column_group_key', 'column_headers', 'company_id', 'credit', 'date', 'debit', 'display_type', 'domain', 'expression_label', 'forced_options', 'general_account_id', 'id', 'in', 'journal_id', 'many2many', 'move_line_id', 'name', 'one2many', 'parent_state', 'plan_id', 'posted', 'product', 'readonly_query', 'report_line_id', 'root_report_id', 'selected', 'store', 'type']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_import_module/models/base_import_module.py
-# hypothesis_version: 6.131.14
-
-['/odoo', 'Force init', 'Import Module', 'Module .ZIP file', 'Modules', 'Status', 'base.import.module', 'domain', 'done', 'in', 'init', 'ir.actions.act_url', 'ir.module.module', 'list,form', 'module_name', 'name', 'res_model', 'self', 'target', 'type', 'url', 'view_id', 'view_mode']

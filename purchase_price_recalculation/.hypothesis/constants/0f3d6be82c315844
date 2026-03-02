@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/wizard/hr_expense_split.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'Description', 'Employee', 'Expense', 'Expense Split', 'Product', 'Total In Currency', 'account.tax', 'account_id', 'analytic.mixin', 'can_be_expensed', 'company_id', 'currency_id', 'employee_id', 'expense', 'expense_id', 'hr.employee', 'hr.expense', 'hr.expense.split', 'name', 'product.product', 'product_id', 'product_uom_id', 'res.company', 'res.currency', 'standard_price', 'tax_ids', 'total_amount', 'total_excluded', 'total_included']

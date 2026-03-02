@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_account/models/account_move.py
-# hypothesis_version: 6.131.14
-
-[100, 'Product Price', 'Stock Move', 'account.move', 'account.move.line', 'account_id', 'account_move_id', 'account_move_line_id', 'amount_currency', 'balance', 'btree_not_null', 'cogs', 'cogs_origin_id', 'decimal.precision', 'display_type', 'draft', 'expense', 'in_refund', 'line_ids', 'move_id', 'move_reverse_cancel', 'name', 'out_refund', 'partner_id', 'posted', 'price_unit', 'product_id', 'product_uom_id', 'quantity', 'real_time', 'state', 'stock.move', 'stock_input', 'stock_output', 'tax_ids']

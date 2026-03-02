@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_credit_helpdesk/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', 'approved', 'done', 'helpdesk.ticket', 'in', 'name', 'picking_ids', 'request_type', 'stock', 'stock.picking', 'use_credit_notes']

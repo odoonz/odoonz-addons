@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_skills/models/hr_skill.py
-# hypothesis_version: 6.131.14
-
-['Skill', 'cascade', 'from_skill_dropdown', 'hr.skill', 'hr.skill.type', 'sequence, name', 'skill_type_id', 'skill_type_id.color']

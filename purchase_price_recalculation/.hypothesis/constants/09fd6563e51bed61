@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', 'Opportunities', 'Opportunity Count', '__count', 'active', 'child_of', 'context', 'crm.lead', 'domain', 'id', 'in', 'opportunity', 'parent_id', 'partner_id', 'res.partner', 'type']

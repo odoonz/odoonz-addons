@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_workorder/models/stock_move_line.py
-# hypothesis_version: 6.131.14
-
-['Check', 'lot_id', 'move_line_id', 'quality.check', 'stock.move.line']

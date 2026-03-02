@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/discuss/ir_websocket.py
-# hypothesis_version: 6.131.14
-
-['=', '_', 'bus.presence', 'channel_ids', 'discuss.channel', 'guest_id', 'id', 'in', 'ir.websocket', 'is_member', 'mail.guest', 'mail.guest_', 'members', 'offline', 'presence', 'res.partner', '|']

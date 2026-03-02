@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_supplierinfo.py
-# hypothesis_version: 6.131.14
-
-[0.0, 100, 'Company', 'Currency', 'Delivery Lead Time', 'Discount', 'Discount (%)', 'Discounted Price', 'End Date', 'Price', 'Product Price', 'Product Template', 'Product Variant', 'Quantity', 'Sequence', 'Start Date', 'Supplier Pricelist', 'Unit of Measure', 'Variant Count', 'Vendor', 'Vendor Product Code', 'Vendor Product Name', 'active_id', 'cascade', 'default_product_id', 'discount', 'label', 'model', 'partner_id', 'price', 'product.product', 'product.supplierinfo', 'product.template', 'product_id', 'product_tmpl_id', 'res.company', 'res.currency', 'res.partner', 'template', 'uom.uom']

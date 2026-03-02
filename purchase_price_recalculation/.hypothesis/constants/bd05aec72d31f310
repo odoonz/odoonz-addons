@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['Customer Care', 'alias_name', 'company_id', 'helpdesk.team', 'mail.alias', 'name', 'res.company', 'stage_cancelled', 'stage_ids', 'stage_in_progress', 'stage_new', 'stage_on_hold', 'stage_solved', 'use_sla']

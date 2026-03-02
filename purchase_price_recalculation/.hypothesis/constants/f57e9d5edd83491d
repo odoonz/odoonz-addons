@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_extract/models/account_bank_statement.py
-# hypothesis_version: 6.131.14
-
-[0.0, 100, 'account_token', 'amount', 'auto_send', 'balance_end', 'balance_start', 'bank_statement_lines', 'base.partner_root', 'date', 'description', 'extract.mixin', 'iap_extract_endpoint', 'ir.config_parameter', 'journal_id', 'journal_type', 'line_ids', 'no_send', 'payment_ref', 'version']

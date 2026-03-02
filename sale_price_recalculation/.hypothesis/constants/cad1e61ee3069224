@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/_vendor/useragents.py
-# hypothesis_version: 6.131.14
-
-['(sun|i86)os', '<%s %r/%s>', 'Baiduspider', 'HTTP_USER_AGENT', 'aix', 'amiga', 'android', 'aol', 'ask', 'ask jeeves', 'baidu', 'bing', 'bingbot', 'blackberry', 'blackberry|playbook', 'bsd', 'camino', 'chrome', 'chromeos', 'chrome|crios', 'cros', 'darwin|mac|os\\s*x', 'dragonfly', 'dragonflybsd', 'edge', 'firefox', 'freebsd', 'galeon', 'google', 'googlebot', 'hp-?ux', 'hpux', 'ipad', 'iphone', 'iphone|ios', 'irix', 'k-meleon', 'kmeleon', 'konqueror', 'links', 'linux', 'lynx', 'macos', 'mozilla', 'msie', 'msn', 'msnbot', 'netbsd', 'netscape', 'nintendo\\s+wii', 'openbsd', 'opera', 'safari', 'safari|version', 'sco', 'sco|unix_sv', 'seamonkey', 'solaris', 'symbian', 'webkit', 'wii', 'win', 'windows', 'x11|lin(\\b|ux)?', 'yahoo']

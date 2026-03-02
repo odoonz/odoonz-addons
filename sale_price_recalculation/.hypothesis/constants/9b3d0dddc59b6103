@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/account_central_billing/wizards/account_move_reversal.py
-# hypothesis_version: 6.131.14
-
-['order_invoice_id', 'order_partner_id']

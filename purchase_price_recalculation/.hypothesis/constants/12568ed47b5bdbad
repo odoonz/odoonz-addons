@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_stock/models/stock_warehouse.py
-# hypothesis_version: 6.131.14
-
-['crossdock_route_id', 'route_create_values', 'route_update_values', 'sale_selectable', 'stock.warehouse']

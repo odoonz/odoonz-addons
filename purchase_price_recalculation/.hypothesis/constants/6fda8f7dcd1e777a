@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode/models/stock_move_line.py
-# hypothesis_version: 6.131.14
-
-['0', '=', '>', 'No Barcode', 'Packaging Quantity', '_compute_dummy_id', '_compute_qty_done', '_inverse_dummy_id', '_inverse_qty_done', 'company_id', 'default_qty_done', 'display_name', 'dummy_id', 'id:recordset', 'in', 'internal', 'location_dest_id', 'location_id', 'location_id.usage', 'lot', 'lot_id', 'lot_name', 'move_id', 'owner_id', 'package_id', 'picked', 'picking_id', 'preserve_state', 'product_barcode', 'product_id', 'product_id.barcode', 'product_id.code', 'product_packaging_id', 'product_uom_id', 'qty_done', 'quantity', 'result_package_id', 'serial', 'stock.location', 'stock.move.line', 'stock.quant', 'tracking']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_sms/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['SMS Confirmation', 'SMS Template', 'res.company', 'sms.template']

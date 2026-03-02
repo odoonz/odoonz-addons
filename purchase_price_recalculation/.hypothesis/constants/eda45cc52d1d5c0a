@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/wizard/sale_order_discount.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 100, 999, ', ', 'Amount', 'Discount', 'Discount Wizard', 'Fixed Amount', 'Global Discount', 'On All Order Lines', 'Percentage', 'Taxes', 'account.tax', 'active_id', 'amount', 'company_id', 'create', 'decimal.precision', 'discount', 'discount_percentage', 'discount_type', 'fixed', 'invoice_policy', 'lang', 'list_price', 'name', 'order', 'order_id', 'price_unit', 'product.product', 'product_id', 'sale.order', 'sale.order.discount', 'sale.order.line', 'sequence', 'service', 'so_discount', 'sol_discount', 'tax_id', 'taxes_id', 'technical_price_unit', 'type', 'write']

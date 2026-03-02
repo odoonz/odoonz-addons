@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet/utils/validate_data.py
-# hypothesis_version: 6.131.14
-
-[':', 'ODOO', '__count', 'action', 'cells', 'chain', 'chart', 'colGroupBys', 'columns', 'computedBy', 'content', 'data', 'domain', 'field', 'fieldMatching', 'fieldName', 'figures', 'globalFilters', 'graphFields', 'groupBy', 'id', 'listFields', 'lists', 'measure', 'measures', 'metaData', 'model', 'modelName', 'name', 'odoo://view/', 'odooVersion', 'odoo_', 'orderBy', 'pivotFields', 'pivots', 'resModel', 'rowGroupBys', 'rows', 'searchParams', 'sheets', 'sortedColumn', 'tag', 'type']

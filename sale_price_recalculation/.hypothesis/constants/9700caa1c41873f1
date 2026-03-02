@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/models/payment_transaction.py
-# hypothesis_version: 6.131.14
-
-['Invoices', 'Invoices Count', 'Payment', 'account.move', 'account.payment', 'aml', 'amount', 'amount_currency', 'amount_due', 'balance', 'cancel', 'company_id', 'currency_id', 'current', 'customer', 'domain', 'done', 'draft', 'epd', 'epd_discount_amount', 'epd_line', 'form', 'id', 'in', 'in_invoice', 'in_refund', 'inbound', 'installment_state', 'invoice_id', 'invoice_ids', 'journal_id', 'list,form', 'memo', 'move_type', 'name', 'out_invoice', 'out_refund', 'outbound', 'partner_id', 'partner_type', 'payment.transaction', 'payment_term', 'payment_token_id', 'payment_type', 'posted', 'res_id', 'res_model', 'target', 'transaction_id', 'type', 'validation', 'view_mode', 'views', 'write_off_line_vals']

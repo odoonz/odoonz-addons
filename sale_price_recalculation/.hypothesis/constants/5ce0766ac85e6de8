@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/calendar/models/calendar_alarm_manager.py
-# hypothesis_version: 6.131.14
-
-[100, 3600, '<p>%s</p>', 'Event Alarm Manager', 'alarm_id', 'base.group_user', 'calendar.alarm', 'calendar.event', 'calendar.recurrence', 'declined', 'email', 'event_id', 'first_alarm', 'first_meeting', 'groups_id', 'in', 'ir.config_parameter', 'last_alarm', 'last_meeting', 'lastcall', 'max_duration', 'message', 'min_duration', 'notification', 'notify_at', 'partner_id', 'read', 'res.users', 'timer', 'title']

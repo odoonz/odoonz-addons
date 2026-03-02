@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_quote_format/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['Price Only', 'Quantities', 'Quote Format', 'Standard', 'lumpqty', 'lumpsum', 'rate', 'res.partner']

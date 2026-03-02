@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/service/common.py
-# hypothesis_version: 6.131.14
-
-['Method not found: %s', 'exp_', 'interactive', 'login', 'password', 'protocol_version', 'res.users', 'server_serie', 'server_version', 'server_version_info', 'type', 'uid']

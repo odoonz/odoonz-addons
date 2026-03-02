@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant_fleet/models/account_tax.py
-# hypothesis_version: 6.131.14
-
-['account.tax', 'fleet.vehicle', 'tax_rep', 'vehicle_id']

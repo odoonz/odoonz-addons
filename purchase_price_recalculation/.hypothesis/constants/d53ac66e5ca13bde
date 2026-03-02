@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-['Ordering Partner', 'partner.site.mixin', 'partner_id', 'res.partner', 'sale_id.partner_id', 'stock.picking']

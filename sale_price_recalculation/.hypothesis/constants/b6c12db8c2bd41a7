@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant/models/account_journal_dashboard.py
-# hypothesis_version: 6.131.14
-
-['=', 'account.journal', 'action_name', 'bank', 'cash', 'credit', 'default_journal_id', 'line_ids.account_id', 'statement_id']

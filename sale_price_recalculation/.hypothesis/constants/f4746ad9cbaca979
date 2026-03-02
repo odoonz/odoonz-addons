@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 100, '=', 'Sales Order Lines', 'account.move.line', 'cancel', 'decimal.precision', 'delivery', 'discount', 'draft', 'force_split_lines', 'invoice_line_id', 'is_downpayment', 'is_expense', 'move_line_id', 'name', 'no', 'order_id', 'order_line_id', 'price_unit', 'product_id', 'product_uom', 'product_uom_qty', 'sale.order.line', 'sale_line_ids', 'sales_price', 'sent', 'sequence', 'sequence desc', 'so_line', 'tax_id']

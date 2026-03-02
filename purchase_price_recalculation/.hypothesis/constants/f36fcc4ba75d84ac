@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_attribute_value.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', 'Add to all products', 'Attribute', 'Attribute Value', 'Color', 'Color Index', 'Free text', 'Image', 'Lines', 'Sequence', 'Used on Products', 'Value', 'active', 'add', 'any', 'attribute_id', 'cascade', 'context', 'default_extra_price', 'default_mode', 'dialog_size', 'display_name', 'form', 'in', 'is_used_on_products', 'medium', 'name', 'new', 'no_variant', 'price_extra', 'product.attribute', 'product.template', 'product_tmpl_id', 'res_model', 'sequence', 'show_attribute', 'target', 'type', 'update_extra_price', 'view_mode']

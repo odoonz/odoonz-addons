@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_dispatch/mixins/manifest_mixin.py
-# hypothesis_version: 6.131.14
-
-['=', 'Collections', 'Future date entered', 'Past date entered', 'Picking Batch Mixin', 'Primary Vehicle', 'Trailer', 'fleet.vehicle', 'in', 'message', 'partner_id', 'res.users', 'scheduled_date', 'tag_ids', 'title', 'vehicle_id', 'warning']

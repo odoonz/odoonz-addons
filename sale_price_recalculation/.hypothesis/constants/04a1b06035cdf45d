@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/ir_module.py
-# hypothesis_version: 6.131.14
-
-['.', '_', '_l10n_template', 'account', 'account.account.tag', 'account_templates', 'chart_template', 'country', 'country_code', 'country_id', 'generic_coa', 'in', 'installed', 'ir.module.module', 'module', 'name', 'parent', 'res.company', 'sequence', 'state', 'template_', 'template_data', 'to remove', 'to upgrade', 'visible']

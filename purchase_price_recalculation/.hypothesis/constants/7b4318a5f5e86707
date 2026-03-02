@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk/models/helpdesk_sla_status.py
-# hypothesis_version: 6.131.14
-
-['&', '<', '<=', '=', '>', 'Color Index', 'Deadline', 'Failed', 'Ongoing', 'Reached', 'Reached Date', 'Status', 'Ticket', 'Ticket SLA Status', '_compute_color', '_compute_deadline', '_compute_status', '_search_status', 'cascade', 'create_date', 'deadline', 'failed', 'helpdesk.sla', 'helpdesk.sla.status', 'helpdesk.stage', 'helpdesk.ticket', 'helpdesk_sla_status', 'hours', 'ir.model.fields', 'ongoing', 'reached', 'reached_datetime', 'sla_id', 'sla_id.stage_id', 'stage_id', 'status', 'ticket_id.stage_id', '|']

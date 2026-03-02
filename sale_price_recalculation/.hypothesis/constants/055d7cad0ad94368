@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_default.py
-# hypothesis_version: 6.131.14
-
-['.', '=', 'Company', 'Condition', 'Default Values', 'Field', 'User', 'cascade', 'company_id', 'condition', 'd.condition IS NULL', 'd.condition=%s', 'date', 'datetime', 'field_id', 'field_id.relation', 'field_id.ttype', 'field_name', 'in', 'integer', 'ir.default', 'ir.model.fields', 'json_value', 'many2one', 'model_name', 'res.company', 'res.users', 'self.env.company.id', 'self.env.uid', 'user_id', 'write']

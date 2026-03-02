@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_editor/models/html_field_history_mixin.py
-# hypothesis_version: 6.131.14
-
-[300, 'Field html History', 'History data', 'History metadata', '_compute_metadata', 'create_date', 'create_uid', 'create_user_name', 'html_field_history', 'patch', 'revision_id']

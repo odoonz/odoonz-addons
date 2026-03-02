@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-['=', 'Expense', 'account.move.line', 'account_id', 'btree_not_null', 'company_account', 'display_type', 'expense_id', 'hr.expense', 'res_id', 'res_model']

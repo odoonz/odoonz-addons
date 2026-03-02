@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/website_rewrite.py
-# hypothesis_version: 6.131.14
-
-['#', '/', '/<.*?>', '301', '302', '308', '404', '404 Not Found', 'Action', 'Add %d website.route', 'All Website Route', 'GET', 'Name', 'Route', 'URL from', 'URL to', 'Website', 'Website rewrite', 'cascade', 'in', 'ir.http', 'methods', 'path', 'redirect_type', 'route_id', 'routing', 'url_from', 'url_to', 'website', 'website.rewrite', 'website.route']

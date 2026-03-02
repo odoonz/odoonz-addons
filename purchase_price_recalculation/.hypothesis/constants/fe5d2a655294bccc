@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_document.py
-# hypothesis_version: 6.131.14
-
-['Product Document', 'Related attachment', 'cascade', 'ftp://', 'http://', 'https://', 'ir.attachment', 'ir_attachment_id', 'product.document', 'sequence, name', 'url']

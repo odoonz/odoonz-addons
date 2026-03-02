@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_tracking_duration_mixin.py
-# hypothesis_version: 6.131.14
-
-['=', 'Status time', 'create_date', 'field_id', 'id', 'ir.model.fields', 'mail.message', 'mail.tracking.value', 'many2one', 'model', 'model_name', 'name', 'old_value_integer', 'record_ids', 'res_id']

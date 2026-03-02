@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_inventory/models/density_coefficient.py
-# hypothesis_version: 6.131.14
-
-[300, 'Description', 'Inside Diameter (mm)', 'Max Thickness (mm)', 'Product Templates', 'Tolerance (%)', 'density.coefficient', 'density_id', 'product.template']

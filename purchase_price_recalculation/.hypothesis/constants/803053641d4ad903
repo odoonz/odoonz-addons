@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/res_company.py
-# hypothesis_version: 6.131.14
-
-[1.0, '=', 'Discount Product', 'Manual Payment', 'Online Payment', 'Online Signature', 'PayPal', 'Sign online', 'Stripe', 'digital_signature', 'invoice_policy', 'manual', 'order', 'other', 'paypal', 'prepayment_percent', 'product.product', 'res.company', 'service', 'stripe', 'type']

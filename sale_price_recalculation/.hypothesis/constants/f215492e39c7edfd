@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk/models/helpdesk_stage.py
-# hypothesis_version: 6.131.14
-
-['!=', 'Blocked', 'Delete Stage', 'Email Template', 'Folded in Kanban', 'Green Kanban Label', 'Grey Kanban Label', 'Helpdesk Stage', 'Helpdesk Teams', 'In Progress', 'Ready', 'Red Kanban Label', 'Unarchive Tickets', '__count', 'active', 'context', 'default_stage_id', 'default_team_id', 'domain', 'form', 'helpdesk.stage', 'helpdesk.team', 'helpdesk.ticket', 'in', 'ir.actions.actions', 'mail.template', 'name', 'new', 'res_id', 'res_model', 'sequence, id', 'stage_id', 'stage_ids', 'stage_view', 'target', 'team_id', 'team_ids', 'team_stage_rel', 'ticket_count', 'type', 'view_mode', 'views']

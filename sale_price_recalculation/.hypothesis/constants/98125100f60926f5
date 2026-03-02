@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode_mrp/models/stock_move_line.py
-# hypothesis_version: 6.131.14
-
-['assigned', 'company_id', 'description_bom_line', 'location_dest_id', 'location_id', 'lot', 'manual_consumption', 'move_byproduct_ids', 'move_id', 'move_raw_ids', 'newByProduct', 'picking_code', 'picking_type_id', 'production_id', 'serial', 'state', 'stock.move', 'stock.move.line']

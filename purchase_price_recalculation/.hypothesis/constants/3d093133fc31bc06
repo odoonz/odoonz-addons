@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_edi_ubl_cii/models/account_edi_xml_ubl_21.py
-# hypothesis_version: 6.131.14
-
-[2.1, 381, '2.1', 'AddressType_template', 'InvoiceType_template', 'OIOUBL-2.1', 'PartyType_template', 'UBL 2.1', '_text', 'base_line', 'base_lines', 'buyer_reference', 'cac:AllowanceCharge', 'cac:InvoicePeriod', 'cbc:BuyerReference', 'cbc:DueDate', 'cbc:EndDate', 'cbc:StartDate', 'cbc:UBLVersionID', 'credit_note', 'debit_note', 'deferred_end_date', 'deferred_start_date', 'document_type', 'invoice', 'nlcius', 'oioubl_21', 'pint_jp', 'pint_my', 'pint_sg', 'ubl_a_nz', 'ubl_bis3', 'ubl_sg', 'ubl_version_id', 'vals', 'xrechnung']

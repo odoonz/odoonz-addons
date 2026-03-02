@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/controllers/thread.py
-# hypothesis_version: 6.131.14
-
-['!=', '/mail/message/post', '/mail/thread/data', '=', 'POST', 'attachment_ids', 'attachment_tokens', 'body', 'canned_response_ids', 'create', 'data', 'default', 'email', 'followed', 'hasReadAccess', 'hasWriteAccess', 'id', 'ids', 'in', 'internal', 'ir.attachment', 'json', 'last_used', 'mail.followers', 'mail.guest', 'mail.message', 'message_type', 'messages', 'model', 'name', 'parent_model', 'partner_emails', 'partner_id', 'partner_ids', 'public', 'read', 'res.partner', 'res_id', 'res_model', 'sequence', 'user', 'user_notification', 'write']

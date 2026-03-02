@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/partner_autocomplete/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['---', '=', '=ilike', 'Additional info', 'Company database ID', 'Insufficient Credit', '^\\d.*', 'address', 'city', 'code', 'countryCode', 'country_code', 'country_id', 'country_name', 'credit_error', 'data', 'display_name', 'domain', 'duns', 'enrich_by_domain', 'enrich_by_duns', 'enrich_by_gst', 'error', 'error_message', 'form', 'gst', 'iap.autocomplete.api', 'id', 'ilike', 'in', 'industry_code', 'industry_id', 'installed', 'ir.module.module', 'iso_code', 'lang', 'name', 'preferred_language', 'product.unspsc.code', 'product_unspsc', 'query', 'query_country_code', 'res.country', 'res.country.state', 'res.lang', 'res.partner', 'res.partner.category', 'search_by_name', 'search_by_vat', 'state_code', 'state_id', 'state_name', 'street', 'street2', 'valid', 'vat', 'widget', 'zip']

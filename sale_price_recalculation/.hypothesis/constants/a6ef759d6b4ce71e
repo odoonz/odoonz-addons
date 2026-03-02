@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/uom_uom.py
-# hypothesis_version: 6.131.14
-
-[',', 'C62', 'CMT', 'DAY', 'DZN', 'FOT', 'FTK', 'FTQ', 'GLL', 'GRM', 'HUR', 'INH', 'INQ', 'KGM', 'KMT', 'LBR', 'LTR', 'MMT', 'MTK', 'MTQ', 'MTR', 'ONZ', 'OZA', 'QT', 'SMI', 'TNE', 'YRD', 'allowed_company_ids', 'uom.product_uom_cm', 'uom.product_uom_day', 'uom.product_uom_floz', 'uom.product_uom_foot', 'uom.product_uom_gal', 'uom.product_uom_gram', 'uom.product_uom_hour', 'uom.product_uom_inch', 'uom.product_uom_kgm', 'uom.product_uom_km', 'uom.product_uom_lb', 'uom.product_uom_mile', 'uom.product_uom_oz', 'uom.product_uom_qt', 'uom.product_uom_ton', 'uom.product_uom_unit', 'uom.product_uom_yard', 'uom.uom', 'uom.uom_square_foot', 'uom.uom_square_meter']

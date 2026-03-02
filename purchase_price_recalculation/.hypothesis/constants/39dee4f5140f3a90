@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/spreadsheet_account/models/account.py
-# hypothesis_version: 6.131.14
-
-['!=', '<=', '=', '=like', '>=', 'Cell Audit', 'account.account', 'account.move.line', 'account_id', 'account_type', 'amount_residual', 'amount_residual:sum', 'asset_receivable', 'balance', 'balance:sum', 'cancel', 'code', 'code:array_agg', 'codes', 'company_id', 'credit', 'credit:sum', 'current', 'date', 'date_range', 'day', 'debit', 'debit:sum', 'domain', 'in', 'include_unposted', 'liability_payable', 'list', 'month', 'move_id.state', 'name', 'partner_id', 'partner_ids', 'posted', 'quarter', 'range_type', 'res.company', 'res_model', 'target', 'type', 'view_mode', 'views', 'year']

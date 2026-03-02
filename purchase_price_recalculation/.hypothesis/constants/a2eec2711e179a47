@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_stock/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['=', '>', 'account.move', 'account.move.line', 'balance', 'cogs', 'consu', 'customer', 'delivery_date', 'display_type', 'done', 'draft', 'effective_date', 'entry', 'in', 'incoterm_location', 'internal', 'is_downpayment', 'lot_id', 'lot_name', 'move_id', 'move_is_downpayment', 'out_invoice', 'out_refund', 'posted', 'product', 'product_id', 'product_name', 'quantity', 'reversed', 'reversed_entry_id', 'uom_name']

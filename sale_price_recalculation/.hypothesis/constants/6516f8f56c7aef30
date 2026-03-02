@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/models/ir_attachment.py
-# hypothesis_version: 6.131.14
-
-['checksum', 'hr.expense', 'hr.expense.sheet', 'ir.attachment', 'res_id', 'res_model', 'sheet_id', 'sync_attachment']

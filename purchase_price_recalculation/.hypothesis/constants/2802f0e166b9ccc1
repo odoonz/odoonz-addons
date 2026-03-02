@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_install_request/models/ir_module_module.py
-# hypothesis_version: 6.131.14
-
-['context', 'default_module_id', 'form', 'ir.module.module', 'name', 'new', 'res_model', 'target', 'type', 'view_mode']

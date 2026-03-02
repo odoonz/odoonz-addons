@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/wizard/payment_link_wizard.py
-# hypothesis_version: 6.131.14
-
-['Already Paid', 'access_token', 'amount', 'draft', 'payment.link.wizard', 'sale.order', 'sale_order_id', 'sent']

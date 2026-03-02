@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/utm/models/utm_medium.py
-# hypothesis_version: 6.131.14
-
-['Direct', 'Email', 'Facebook', 'LinkedIn', 'Medium Name', 'UNIQUE(name)', 'UTM Medium', 'Website', 'X', 'ir.model.data', 'model', 'module', 'name', 'res_id', 'unique_name', 'utm', 'utm.medium', 'utm.mixin', 'utm.utm_medium_email']

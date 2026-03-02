@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/modules/registry.py
-# hypothesis_version: 6.131.14
-
-[512, 1024, 2048, 8192, ',', ',\n', ', ', '.', 'SELECT nextval(%s)', 'TriggerTree', '[Cache %s: %s]', '_children', '_field_triggers', '_inherit', '_inherits', 'assets', 'btree', 'btree_not_null', 'db_replica_host', 'default', 'f', 'gin', 'groups', 'ir.model', 'ir.model.constraint', 'ir.model.fields', 'ir.model.inherit', 'limit_memory_soft', 'many2one', 'models_to_check', 'module', 'odoo.schema', 'one2many', 'posix', 'registry', 'registry_lru_size', 'ro->rw', 'root', 'routing', 'routing.rewrites', 'select nextval(%s)', 'templates', 'test_enable', 'test_file', 'trigram', 'unaccent(%s)', 'unaccent({})']

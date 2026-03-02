@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/automatic_workflow_printing/wizard/mark_attachments_to_print.py
-# hypothesis_version: 6.131.14
-
-['=', 'Attachment', 'Attachments', 'Mark Attachments', 'active_id', 'active_model', 'attachment_id', 'ir.attachment', 'mark_attachment_id', 'res_id', 'res_model', 'to_print', 'type']

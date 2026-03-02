@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/facade.py
-# hypothesis_version: 6.131.14
-
-['__repr__', '__str__', '_wrapped__']

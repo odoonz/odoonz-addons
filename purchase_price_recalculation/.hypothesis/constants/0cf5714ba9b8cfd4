@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_activity_type.py
-# hypothesis_version: 6.131.14
-
-['%s %s', '&', ', ', '=', 'Action', 'Activity Type', 'Alert', 'Chaining Type', 'Decoration Type', 'Default Note', 'Default Summary', 'Default User', 'Delay Type', 'Delay units', 'Email templates', 'Error', 'Icon', 'Initial model', 'Keep Done', 'Model', 'Model has change', 'Name', 'None', 'Phonecall', 'Preceding Activities', 'Schedule', 'Sequence', 'Suggest', 'Trigger', 'Type of delay', 'Unit of delay', 'Upload Document', '_compute_delay_label', 'activity_id', 'activity_type_id', 'chaining_type', 'current_date', 'danger', 'days', 'default', 'delay_count', 'delay_unit', 'in', 'ir.model', 'is_mail_thread', 'mail.activity.type', 'mail.template', 'mail_activity_rel', 'months', 'name', 'phonecall', 'previous_activity', 'recommended_id', 'res.users', 'res_model', 'restrict', 'sequence, id', 'suggest', 'transient', 'trigger', 'unlink', 'upload_file', 'warning', 'weeks']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/website_snippet_filter.py
-# hypothesis_version: 6.131.14
-
-[10.0, 100, 10000, ',', '.', '/web/image', ':', '<root>%s</root>', '=', 'Filter', 'Model name', 'Sample %s', 'Server Action', 'Website', '_', '_compute_model_name', '_record', 'action_server_id', 'binary', 'call_to_action_url', 'cascade', 'company_id', 'currency_id', 'field_names', 'filter_id', 'float', 'html', 'image', 'in', 'integer', 'ir.actions.server', 'ir.filters', 'ir.qweb', 'is_published', 'limit', 'monetary', 'name ASC', 'price', 'text', 'unicode', 'utf8', 'website', 'website_id', 'website_url']

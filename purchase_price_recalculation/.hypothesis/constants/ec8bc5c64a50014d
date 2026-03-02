@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/fleet/models/fleet_vehicle_model_brand.py
-# hypothesis_version: 6.131.14
-
-[128, '=', 'Brand of the vehicle', 'Logo', 'Models', 'Name', '__count', '_compute_model_count', 'active', 'brand_id', 'context', 'default_brand_id', 'fleet.vehicle.model', 'in', 'list,form', 'model_ids.active', 'name', 'name asc', 'res_model', 'true', 'type', 'view_mode']

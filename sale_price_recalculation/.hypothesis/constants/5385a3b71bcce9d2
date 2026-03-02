@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_expense/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-['account.move', 'account.move.line', 'cost', 'expense_id', 'force_split_lines', 'name', 'product_uom_qty', 'sales_price']

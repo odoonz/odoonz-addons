@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/spreadsheet_dashboard_edition/models/spreadsheet_dashboard.py
-# hypothesis_version: 6.131.14
-
-['Dashboards', 'UPDATE_LOCALE', 'allow_create', 'data', 'default_currency', 'display_name', 'ir.actions.client', 'is_sample', 'locale', 'model', 'params', 'read', 'res.lang', 'revisions', 'sequence', 'snapshot', 'spreadsheet.mixin', 'spreadsheet_id', 'tag', 'type']

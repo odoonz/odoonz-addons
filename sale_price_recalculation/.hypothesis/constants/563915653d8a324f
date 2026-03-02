@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/contacts_google_map/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-[500, '!=', '&', '=', 'Marker Color', 'country_id', 'partner_latitude', 'partner_longitude', 'res.partner', '|']

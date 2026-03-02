@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/account_invoice_extract_ril/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-['account.move', 'done', 'draft', 'stock.picking']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_mail/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['/website_mail/follow', '=', '@', 'email', 'in', 'ir.http', 'is_user', 'json', 'mail.followers', 'mail.thread', 'name', 'on', 'partner_id', 'public', 'read', 'res.partner', 'res_id', 'res_model', 'website_mail_follow']

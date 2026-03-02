@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode/models/stock_warehouse.py
-# hypothesis_version: 6.131.14
-
-['active', 'mandatory', 'no', 'optional', 'out_type_id', 'pick_type_id', 'stock.warehouse']

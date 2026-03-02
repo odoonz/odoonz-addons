@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/product_template_attribute_value.py
-# hypothesis_version: 6.131.14
-
-[0.0, ',', ', ', 'Active', 'Attribute Value', 'Color', 'Exclude for', 'Extra Price', 'HTML Color Index', 'Product Price', 'Related Variants', 'Value', 'attribute_id', 'attribute_line_id', 'cascade', 'exclude_for', 'no_variant', 'odoo.sql_db', 'product.product', 'product_tmpl_id', 'ptav_active']

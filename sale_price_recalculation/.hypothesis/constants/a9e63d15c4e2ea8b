@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/payment/wizards/payment_onboarding_wizard.py
-# hypothesis_version: 6.131.14
-
-['=', 'Account', 'Account Number', 'Bank', 'Bank Name', 'Email', 'Method', 'PayPal', 'Payment Instructions', 'Payment Method', 'True', 'acc_number', 'account_payment', 'code', 'company_id', 'enabled', 'in', 'installed', 'ir.module.module', 'is_published', 'journal_name', 'manual', 'manual_name', 'manual_post_msg', 'module_id', 'name', 'payment.provider', 'payment_method', 'payment_paypal', 'payment_stripe', 'paypal', 'paypal_email_account', 'pending_msg', 'state', 'stripe', 'type']

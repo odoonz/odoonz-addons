@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/wizard/base_document_layout.py
-# hypothesis_version: 6.131.14
-
-['acc_number', 'account.move', 'account_number', 'active_id', 'active_model', 'base.document.layout', 'company_id.qr_code', 'company_id.vat', 'context', 'dialog_size', 'large', 'o', 'partner_id', 'qr_code']

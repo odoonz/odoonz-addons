@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/hr_expense_extract/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['Do not digitize', 'auto_send', 'manual_send', 'no_send', 'res.company']

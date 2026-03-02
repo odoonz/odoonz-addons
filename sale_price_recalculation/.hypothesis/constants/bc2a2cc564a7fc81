@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_account/models/documents_document.py
-# hypothesis_version: 6.131.14
-
-[b'%PDF-', './/{*}Attachment', '.xml', '/xml', '=', '====', 'Attachment', 'Has Embedded PDF', 'Invoices', 'account.journal', 'account.move', 'active_model', 'bank', 'checksum', 'client_generated', 'completed', 'context', 'default_currency_id', 'default_move_type', 'documents.document', 'documents_active_ids', 'domain', 'entry', 'folder', 'form', 'has_embedded_pdf', 'id', 'in', 'in_invoice', 'in_refund', 'list', 'move_type', 'name', 'res_id', 'res_model', 'statement', 'text/plain', 'type', 'view_id', 'view_mode', 'views']

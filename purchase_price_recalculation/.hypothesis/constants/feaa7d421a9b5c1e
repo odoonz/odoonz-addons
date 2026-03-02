@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_skills/report/hr_employee_cv_report.py
-# hypothesis_version: 6.131.14
-
-['Employee Resume', 'Other', 'doc_ids', 'doc_model', 'docs', 'hr.employee', 'hr.resume.line', 'resume_lines', 'show_others']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/i18n.py
-# hypothesis_version: 6.131.14
-
-['-', '@Cyrl', '@latin', 'Cyrl', 'Latn', '_', 'or', 'or-short', 'standard', 'standard-short', 'unit', 'unit-narrow', 'unit-short']

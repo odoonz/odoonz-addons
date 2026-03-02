@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/modules/module.py
-# hypothesis_version: 6.131.14
-
-[100, '%s.%s', ',', ', ', '.', '.zip', '/', '1.0', 'LGPL-3', 'Odoo S.A.', 'README.md', 'README.rst', 'README.txt', 'Uncategorized', '[\\/\\\\]', '[\\w\\-]+', '__manifest__.py', '__openerp__.py', 'addons', 'addons_path', 'application', 'assets', 'author', 'auto_install', 'base', 'bin', 'bootstrap', 'called', 'category', 'cloc_exclude', 'countries', 'data', 'demo', 'demo_xml', 'depends', 'description', 'field_class', 'field_name', 'field_type', 'icon', 'images', 'images_preview_theme', 'init_xml', 'installable', 'license', 'live_test_url', 'maintenance', 'migrations', 'new_page_templates', 'odoo.upgrade', 'post_init_hook', 'post_load', 'pre_init_hook', 'python', 'r', 'sequence', 'summary', 'test', 'type_param', 'uninstall_hook', 'update_xml', 'upgrade_path', 'version', 'web', 'website']

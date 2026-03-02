@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_expense/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['# of Expenses', '&', '=', 'Expenses', '__count', 'company_id', 'done', 'expense_ids', 'hr.expense', 'id', 'in', 'not in', 'sale', 'sale.order', 'sale_order_id', 'state']

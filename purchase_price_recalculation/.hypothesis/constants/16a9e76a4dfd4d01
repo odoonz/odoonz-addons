@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/account_central_billing/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', 'Billing Supplier', 'Invoicing Customer', 'Store Code', 'Stores', 'billing_partner_id', 'invoicing_partner_id', 'is_company', 'parent_id', 'res.partner', 'store_ref']

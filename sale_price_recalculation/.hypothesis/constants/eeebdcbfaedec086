@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/wizards/payment_refund_wizard.py
-# hypothesis_version: 6.131.14
-
-['=', 'Currency', 'Full Only', 'Has a pending refund', 'Partial', 'Payment', 'Payment Amount', 'Payment Transaction', 'Refund', 'Refund Amount', 'Refunded Amount', 'Unsupported', 'account.payment', 'active_id', 'amount_to_refund', 'authorized', 'draft', 'full_only', 'in', 'none', 'operation', 'partial', 'payment.transaction', 'payment_id', 'payment_id.amount', 'pending', 'refund', 'state']

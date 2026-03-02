@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/ir_model_fields.py
-# hypothesis_version: 6.131.14
-
-[100, 'desc', 'field_id', 'field_info', 'in', 'ir.model.fields', 'mail.tracking.value', 'name', 'sequence', 'tracking', 'type']

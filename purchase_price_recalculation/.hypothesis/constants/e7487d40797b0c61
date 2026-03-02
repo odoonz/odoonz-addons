@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents/models/documents_mixin.py
-# hypothesis_version: 6.131.14
-
-['access_ids', 'access_internal', 'access_via_link', 'attachment_id', 'base.user_root', 'company_id', 'documents.document', 'documents.mixin', 'documents.tag', 'expiration_date', 'folder_id', 'id', 'name', 'none', 'owner_id', 'partner_id', 'res.partner', 'res_id', 'role', 'tag_ids']

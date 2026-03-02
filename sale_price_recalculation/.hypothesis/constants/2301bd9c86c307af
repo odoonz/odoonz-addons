@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/web_cohort/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['#E0E0E0', '%', '%.1f', '%s%s', '+', '-', '.xlsx', '/web/cohort/export', 'Average', 'Content-Disposition', 'Content-Type', 'align', 'avg', 'avg_value', 'backward', 'bg_color', 'bold', 'center', 'columns', 'columns_avg', 'comparisonReport', 'count', 'date', 'date_start_string', 'date_stop_string', 'http', 'in_memory', 'interval_string', 'measure_string', 'model', 'pattern', 'percentage', 'report', 'rows', 'timeline', 'title', 'user', 'value']

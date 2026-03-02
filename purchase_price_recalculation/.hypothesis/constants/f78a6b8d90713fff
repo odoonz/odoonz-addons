@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_link_preview.py
-# hypothesis_version: 6.131.14
-
-[1000, '<', '=', '>=', 'DELETE', 'Description', 'Image', 'Image MIME type', 'MIME type', 'Message', 'Site name', 'Title', 'Type', 'URL', 'bus.listener.mixin', 'cascade', 'create_date', 'create_date ASC', 'create_date DESC', 'image_mimetype', 'ir.config_parameter', 'linkPreviews', 'mail.link.preview', 'mail.message', 'message', 'message_id', 'og_description', 'og_image', 'og_mimetype', 'og_site_name', 'og_title', 'og_type', 'source_url']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/models/stock_move.py
-# hypothesis_version: 6.131.14
-
-[100, 'HALF-UP', 'Product Price', 'Purchase Order Line', 'account_id', 'amount_currency', 'balance', 'btree_not_null', 'cancel', 'credit_line_vals', 'currency_id', 'debit_line_vals', 'debit_line_vals_curr', 'decimal.precision', 'done', 'draft', 'expense', 'in', 'invoice_date', 'ir.config_parameter', 'make_to_order', 'move_directions', 'move_id', 'name', 'out', 'partner_id', 'picking_ids', 'posted', 'procure_method', 'product_id', 'product_uom_id', 'purchase', 'purchase.order', 'purchase.order.line', 'purchase_line_id', 'quantity', 'round_globally', 'set null', 'stock.lot', 'stock.move', 'stock_input', 'stock_journal', 'supplier', 'total_void', 'value']

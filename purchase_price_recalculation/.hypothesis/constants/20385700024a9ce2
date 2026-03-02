@@ -1,4 +1,0 @@
-# file: /odoo/src/sale-workflow/sale_force_invoiced/model/sale_order.py
-# hypothesis_version: 6.131.14
-
-['force_invoiced', 'invoice_status', 'invoiced', 'sale', 'sale.order', 'sale.order.line']

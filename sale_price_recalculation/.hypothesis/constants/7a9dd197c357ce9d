@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/web_widget_google_map/models/res_country.py
-# hypothesis_version: 6.131.14
-
-['++', ',', ', ', '=', 'City', 'Country', 'State', 'Street', 'Street2', 'Zip/Postal Code', '[\\|\\ \\,]', 'city', 'code', 'country', 'country_id', 'longText', 'long_name', 'name', 'postal_code', 'res.country', 'res.country.state', 'route street_number', 'shortText', 'short_name', 'state_id', 'street', 'street2', 'types', 'zip', '|']

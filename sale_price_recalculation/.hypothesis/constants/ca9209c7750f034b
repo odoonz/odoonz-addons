@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_filters.py
-# hypothesis_version: 6.131.14
-
-['%s (copy)', '=', 'Action', 'COALESCE(user_id,-1)', 'Default Filter', 'Filter Name', 'Filters', 'Model', 'User', '[]', '_list_all_models', 'action_id', 'cascade', 'check_sort_json', 'context', 'context_today', 'datetime', 'domain', 'embedded_action_id', 'en_US', 'id', 'in', 'ir.actions.actions', 'ir.embedded.actions', 'ir.filters', 'is_default', 'lower(name)', 'model_id', 'name', 'res.users', 'self', 'sort', 'user_id', 'write', '{}']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_pdf_quote_builder/models/product_document.py
-# hypothesis_version: 6.131.14
-
-['=', 'Form Fields', 'Form Fields Included', 'Inside quote pdf', 'attached_on_sale', 'binary', 'context', 'current', 'datas', 'document_type', 'inside', 'list', 'name', 'pdf', 'product.document', 'product_document', 'res_model', 'sale.pdf.form.field', 'set default', 'target', 'type', 'view_mode']

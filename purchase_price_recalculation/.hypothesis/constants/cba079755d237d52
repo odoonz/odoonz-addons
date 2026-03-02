@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['/', '=', 'Add Website', 'Default language', 'Favicon', 'Google Analytics', 'Google Analytics Key', 'Multi-website', 'Number of languages', 'Plausible Analytics', 'Plausible auth Key', 'Robots.txt', 'Website Company', 'Website Domain', 'Website Name', 'auth', 'b2b', 'cascade', 'company_id', 'form', 'http', 'language_ids', 'name', 'new', 'plausible_shared_key', 'res.config.settings', 'res_id', 'res_model', 'target', 'type', 'view_id', 'view_mode', 'views', 'website', 'website.robots', 'website_id', 'website_id.cdn_url', 'website_id.domain', 'website_id.favicon', 'website_id.logo', 'website_id.name']

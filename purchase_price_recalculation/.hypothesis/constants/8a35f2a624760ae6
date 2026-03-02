@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/controllers/discuss/rtc.py
-# hypothesis_version: 6.131.14
-
-['=', 'ADD', 'Cache-Control', 'Content-Type', 'DELETE', 'GET', 'POST', 'channel_id', 'channel_member_id', 'discuss.channel', 'http', 'id', 'is_self', 'json', 'mail.guest', 'public', 'rb', 'rtcSessions', 'user']

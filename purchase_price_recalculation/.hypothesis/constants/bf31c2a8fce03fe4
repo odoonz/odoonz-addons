@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/purchase_order_line.py
-# hypothesis_version: 6.131.14
-
-['\nSPECIAL', 'crm.lead', 'customer_id', 'group_id', 'name', 'opportunity_id', 'purchase.order.line', 'res.partner', 'sale.order.line', 'sale_line_id', 'supplierinfo_name']

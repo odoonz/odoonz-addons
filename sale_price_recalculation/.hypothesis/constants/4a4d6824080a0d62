@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_install_request/wizard/base_module_install_request.py
-# hypothesis_version: 6.131.14
-
-['=', 'Body', 'Depending Apps', 'Module', 'No module selected.', 'Send to:', '_compute_user_ids', 'apps', 'base.group_system', 'base.menu_apps', 'cascade', 'display_notification', 'home', 'installed', 'ir.actions.client', 'ir.module.module', 'ir.qweb', 'message', 'module_id', 'next', 'params', 'res.users', 'state', 'success', 'tag', 'type', 'uninstalled']

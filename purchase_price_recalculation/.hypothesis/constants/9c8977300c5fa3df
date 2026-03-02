@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_accountant/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Production Account', 'WIP Account', 'WIP Overhead Account', 'account.account', 'res.config.settings']

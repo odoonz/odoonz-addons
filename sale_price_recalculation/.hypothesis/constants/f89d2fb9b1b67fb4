@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/product_category.py
-# hypothesis_version: 6.131.14
-
-['=', 'Downpayment Account', 'account.account', 'account_type', 'asset_cash', 'asset_receivable', 'deprecated', 'liability_payable', 'not in', 'off_balance', 'product.category']

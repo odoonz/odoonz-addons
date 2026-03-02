@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_branch/models/business_models.py
-# hypothesis_version: 6.131.14
-
-['\n -', '=', 'Branch', 'True', '_compute_branch_id', '_inverse_branch_id', 'account.move', 'account.move.line', 'account_id', 'branch_id', 'bypass_branch_check', 'company_id', 'done', 'expense', 'group_id', 'hr.expense', 'income', 'internal', 'line_ids', 'line_ids.branch_id', 'location_dest_id', 'location_id', 'location_src_id', 'move_id', 'move_id.branch_id', 'mrp.production', 'name', 'order_id.branch_id', 'overwrite_branch', 'parent_state', 'partner_id', 'picking_id', 'picking_type_id', 'posted', 'production_id', 'purchase', 'purchase.order', 'purchase.order.line', 'purchase_id', 'res.company', 'ril.branch', 'sale.order', 'sale.order.line', 'sale_id', 'sale_id.branch_id', 'state', 'stock.location', 'stock.move', 'stock.picking', 'stock.picking.type', 'stock.quant', 'stock.rule', 'stock.warehouse', 'warehouse_id']

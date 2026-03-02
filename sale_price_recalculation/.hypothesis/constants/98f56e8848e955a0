@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp_account/models/analytic_account.py
-# hypothesis_version: 6.131.14
-
-['Analytic Account', 'Bills of Materials', 'BoM Count', 'Manufacturing Order', 'Manufacturing Orders', 'Work Order Count', 'Work Orders', '_compute_bom_count', 'bom_ids', 'cascade', 'context', 'create', 'domain', 'form', 'id', 'in', 'list', 'list,form', 'manufacturing_order', 'mrp.bom', 'mrp.production', 'mrp.workcenter', 'mrp.workorder', 'name', 'production_ids', 'res_id', 'res_model', 'type', 'view_mode']

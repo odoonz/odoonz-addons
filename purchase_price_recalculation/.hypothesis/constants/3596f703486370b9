@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/spreadsheet_dashboard_documents/wizard/documents_to_dashboard.py
-# hypothesis_version: 6.131.14
-
-['=', 'Access Groups', 'Dashboard Name', 'Dashboard Section', '_compute_name', 'dashboard_group_id', 'dashboard_id', 'document_id', 'document_id.name', 'documents.document', 'group_ids', 'handler', 'ir.actions.client', 'name', 'params', 'res.groups', 'spreadsheet', 'spreadsheet_data', 'tag', 'type']

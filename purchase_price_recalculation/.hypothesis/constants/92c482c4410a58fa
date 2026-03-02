@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_fleet/models/fleet_vehicle_log_services.py
-# hypothesis_version: 6.131.14
-
-['Bill', 'Cost', 'Vehicle', '_compute_amount', '_compute_vehicle_id', '_inverse_amount', 'account.move', 'account.move.line', 'current', 'fleet.vehicle', 'form', 'name', 'res_id', 'res_model', 'target', 'type', 'view_mode']

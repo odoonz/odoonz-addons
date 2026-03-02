@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail_bot/models/discuss_channel.py
-# hypothesis_version: 6.131.14
-
-['discuss.channel', 'help', 'mail.bot']

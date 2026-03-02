@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_asset.py
-# hypothesis_version: 6.131.14
-
-[' > ', '*', '.', '.rtl', '/', '/web/content', '=', '?', 'After', 'Append', 'Asset', 'Before', 'Bundle name', 'Directive', 'Include', 'Name', 'Prepend', 'Remove', 'Replace', 'Sequence', 'Target', 'Unexpected directive', '[', ']', 'active', 'addons_path', 'addons_tuple', 'after', 'append', 'application', 'assets', 'base', 'before', 'bundle', 'css', 'depends', 'dev_mode', 'include', 'ir.asset', 'ir.module.module', 'js', 'min', 'name', 'prepend', 'remove', 'replace', 'sequence', 'sequence, id', 'static', 'xml']

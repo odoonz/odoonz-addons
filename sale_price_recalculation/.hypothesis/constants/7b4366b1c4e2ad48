@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_edi_ubl_cii/tools/ubl_21_debit_note.py
-# hypothesis_version: 6.131.14
-
-['DebitNote', '_tag', 'cac:AllowanceCharge', 'cac:BillingReference', 'cac:DebitNoteLine', 'cac:Delivery', 'cac:InvoicePeriod', 'cac:Item', 'cac:OrderReference', 'cac:PaymentMeans', 'cac:PaymentTerms', 'cac:PrepaidPayment', 'cac:Price', 'cac:PricingReference', 'cac:Signature', 'cac:TaxExchangeRate', 'cac:TaxTotal', 'cbc:CopyIndicator', 'cbc:CustomizationID', 'cbc:DebitedQuantity', 'cbc:ID', 'cbc:IssueDate', 'cbc:IssueTime', 'cbc:LineCountNumeric', 'cbc:Note', 'cbc:ProfileID', 'cbc:TaxCurrencyCode', 'cbc:UBLVersionID', 'cbc:UUID', 'ext:UBLExtensions']

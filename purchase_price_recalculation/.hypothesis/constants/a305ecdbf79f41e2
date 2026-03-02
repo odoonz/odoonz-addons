@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant/models/account_reconcile_model.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 100.0, 180, ' ASC', ' DESC', ' UNION ALL ', '%s%s%s', '%s_%s', ', ', '<', '=', '>', '>=', 'TRUE', '[0-9a-zA-Z\\s]', '_param', 'account.move', 'account.move.line', 'account_move_line', 'account_move_line.', 'allow_auto_reconcile', 'allow_write_off', 'aml', 'amls', 'amount_currency', 'amount_paid', 'amount_received', 'amount_residual', 'auto_reconcile', 'balance', 'between', 'contains', 'currency_id', 'date', 'date_maturity', 'fixed_amount', 'greater', 'id', 'invoice_matching', 'label', 'limit_time_real_cron', 'lower', 'match_', 'match_regex', 'model', 'name', 'narration', 'new_first', 'not_contains', 'note', 'partial', 'partner_id', 'payment_ref', 'percentage', 'perfect', 'ref', 'rejected', 'res.partner', 'status', 'sub.', 'transaction_type', 'write_off', 'writeoff_button', 'writeoff_suggestion']

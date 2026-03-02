@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_avatax_sale/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['Sales Order', 'SalesOrder', 'partner_shipping_id', 'sale.order']

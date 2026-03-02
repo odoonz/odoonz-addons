@@ -1,4 +1,0 @@
-# file: /odoo/src/product-attribute/product_secondary_unit/models/product_second_unit.py
-# hypothesis_version: 6.131.14
-
-[1.0, 'Dependent', 'Independent', 'Product Template', 'Product Variant', 'cascade', 'code', 'dependent', 'factor', 'independent', 'name', 'product.product', 'product.template', 'uom.uom']

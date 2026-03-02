@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/res_config.py
-# hypothesis_version: 6.131.14
-
-[0.0, ',', '.', ':', '=', 'Config', 'Config Settings', 'False', 'Warning!', 'base.group_user', 'base.view_users_form', 'boolean', 'char', 'config', 'config_parameter', 'datetime', 'default', 'default_', 'default_model', 'field', 'float', 'form', 'group', 'group_', 'implied_group', 'installed', 'integer', 'ir.actions.actions', 'ir.actions.client', 'ir.config_parameter', 'ir.default', 'ir.model.data', 'ir.module.module', 'many2one', 'menu', 'message', 'module', 'module_', 'other', 'reload', 'res.config', 'res.config.settings', 'res.groups', 'res.users', 'res_id', 'res_model', 'selection', 'shortdesc', 'string', 'tag', 'title', 'to install', 'to upgrade', 'type', 'uninstalled', 'views', 'warning']

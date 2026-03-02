@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/wizards/product_set_default_supplier_wizard.py
-# hypothesis_version: 6.131.14
-
-['=', 'Products', 'Set Supplier', 'Supplier', 'Warehouse', 'active_ids', 'in', 'is_default', 'partner_id', 'product.template', 'product_tmpl_id', 'res.partner', 'stock.warehouse', 'supplier_id', 'type', 'warehouse_id']

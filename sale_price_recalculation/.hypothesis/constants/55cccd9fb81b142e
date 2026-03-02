@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/uom/models/uom_uom.py
-# hypothesis_version: 6.131.14
-
-[0.0, 0.01, 1.0, ', ', '=', 'Active', 'Bigger Ratio', 'CHECK (factor!=0)', 'CHECK (rounding>0)', 'Category', 'Color', 'Combined Ratio', 'Ratio', 'Reference UoM', 'Rounding Precision', 'Type', 'UP', 'Unit of Measure', 'Warning for %s', '__count', '_compute_color', '_compute_factor_inv', '_compute_ratio', '_set_ratio', 'bigger', 'category_id', 'default_category_id', 'factor', 'factor DESC, id', 'factor_gt_zero', 'factor_inv', 'in', 'ir.model.data', 'message', 'model', 'module', 'name', 'not in', 'product_uom_dozen', 'product_uom_hour', 'reference', 'res_id', 'restrict', 'rounding', 'rounding_gt_zero', 'smaller', 'title', 'uom', 'uom.category', 'uom.uom', 'uom_ids', 'uom_type', 'warning']

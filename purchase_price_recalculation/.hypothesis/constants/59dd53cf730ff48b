@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_automatic_workflow/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['!=', '<=', '=', 'cancel', 'date_delivered', 'deduct_down_payments', 'delivery_status', 'done', 'draft', 'full', 'id', 'in', 'invoice_status', 'manifest_id', 'not in', 'priced', 'sale', 'sale.order', 'state', 'to invoice']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/wizard/report_export_wizard.py
-# hypothesis_version: 6.131.14
-
-['.', 'Documents Name', 'Export to', 'Function Parameter', 'Function to Call', 'Generated Documents', 'Name', 'Parent Report Id', 'Parent Wizard', 'account.report', 'action', 'action_param', 'buttons', 'cascade', 'company_id', 'data', 'datas', 'description', 'domain', 'export_wizard_id', 'field', 'file_content', 'file_export_type', 'file_generator', 'file_type', 'filename_field', 'fun_param', 'fun_to_call', 'id', 'in', 'ir.actions.act_url', 'ir.attachment', 'kanban,form', 'mimetype', 'model', 'name', 'options', 'res_model', 'type', 'url', 'view_mode']

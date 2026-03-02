@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_activity_plan_template.py
-# hypothesis_version: 6.131.14
-
-['-', 'Activity Type', 'After Plan Date', 'Ask at launch', 'Assigned to', 'Assignment', 'Before Plan Date', 'Default user', 'Delay units', 'Icon', 'Interval', 'Note', 'Plan', 'Summary', 'Trigger', 'Unit of delay', '_compute_note', '_compute_summary', 'activity_type_id', 'after_plan_date', 'before_plan_date', 'cascade', 'days', 'error', 'mail.activity.plan', 'mail.activity.type', 'months', 'on_demand', 'other', 'plan_id', 'plan_id.company_id', 'plan_id.res_model', 'res.users', 'responsible', 'responsible_id', 'responsible_type', 'restrict', 'sequence,id', 'summary', 'weeks']

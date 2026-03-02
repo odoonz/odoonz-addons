@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/snailmail_account_followup/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['followup_line', 'partner_id', 'res.partner', 'snailmail', 'snailmail.letter']

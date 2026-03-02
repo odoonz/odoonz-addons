@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock/wizard/product_replenish.py
-# hypothesis_version: 6.131.14
-
-['%s', '=', '>=', 'Forecasted Quantity', 'HALF-UP', 'Has variants', 'Manual Replenishment', 'Product', 'Product Replenish', 'Product Template', 'Quantity', 'Scheduled Date', 'Unity of measure', 'Warehouse', 'company_id', 'date_planned', 'default_product_id', 'default_quantity', 'display_notification', 'done', 'group_id', 'id', 'infos', 'ir.actions.client', 'label', 'links', 'location_id', 'message', 'next', 'not in', 'params', 'procurement.group', 'product.product', 'product.replenish', 'product.template', 'product_has_variants', 'product_id', 'product_id.uom_id', 'product_ids', 'product_tmpl_id', 'product_uom_id', 'qty_to_order', 'res.company', 'route_id', 'route_ids', 'sticky', 'stock.move', 'stock.route', 'stock.warehouse', 'tag', 'title', 'type', 'uom.category', 'uom.uom', 'url', 'warehouse_id', 'write_date']

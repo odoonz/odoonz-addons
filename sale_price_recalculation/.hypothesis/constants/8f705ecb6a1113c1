@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_fiscal_year/models/account_report.py
-# hypothesis_version: 6.131.14
-
-['account.report', 'date', 'date_from', 'date_to', 'filter', 'fiscalyear', 'period_type', 'range', 'single']

@@ -1,4 +1,0 @@
-# file: /odoo/src/product-attribute/product_secondary_unit/models/product_secondary_unit_mixin.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 'Second unit', 'Secondary Qty', 'independent', 'product.template', 'qty_field', 'restrict', 'secondary_uom_qty', 'uom_field', 'uom_id']

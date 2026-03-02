@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/default_supplier_map.py
-# hypothesis_version: 6.131.14
-
-['=', '>', 'Company', 'Destination Supplier', 'Source Supplier', 'Warehouse', 'default.supplier.map', 'res.company', 'res.partner', 'src_supplier_id', 'stock.warehouse', 'supplier_rank', 'warehouse_id']

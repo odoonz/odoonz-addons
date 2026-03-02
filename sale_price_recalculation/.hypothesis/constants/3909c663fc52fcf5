@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/mrp_sale_fields/models/mrp_production.py
-# hypothesis_version: 6.131.14
-
-['Customer', 'Sale Order', '_compute_sale_order', 'mrp.production', 'procurement_group_id', 'sale.order', 'sale_id.partner_id', 'sale_line_id']

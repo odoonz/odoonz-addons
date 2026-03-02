@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/sale_external_tax/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-['Taxes', 'base_amount_currency', 'discount', 'draft', 'group_name', 'id', 'is_downpayment', 'is_refund', 'model_name', 'price_subtotal', 'price_tax', 'price_total', 'price_unit', 'product_id', 'qty', 'sale', 'sale.order', 'sale.order.line', 'same_tax_base', 'sent', 'subtotals', 'tax_amount', 'tax_amount_currency', 'tax_groups', 'tax_ids', 'total']

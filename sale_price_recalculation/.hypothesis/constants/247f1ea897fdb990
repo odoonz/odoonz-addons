@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/which.py
-# hypothesis_version: 6.131.14
-
-['%s not found', '.', 'PATH', 'PATHEXT', '__main__', 'command', 'file', 'restructuredtext en', 'win']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/modules/db.py
-# hypothesis_version: 6.131.14
-
-['&', '/', '_', 'and', 'application', 'author', 'auto_install', 'base', 'category', 'depends', 'description', 'en_US', 'i', 'icon', 'installable', 'ir.module.category', 'ir.module.module', 'ir_module_module', 'license', 'module_', 'module_category_', 'name', 'sequence', 'skip_auto_install', 'summary', 'uninstallable', 'uninstalled', 'web', 'website']

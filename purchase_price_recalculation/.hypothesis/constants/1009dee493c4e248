@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/hr_expense_predict_product/models/hr_expense.py
-# hypothesis_version: 6.131.14
-
-[' | ', '10000', '=', 'Accommodation', 'EXP_GEN', 'Food', 'Gasoline', 'Miscellaneous', 'Parking', 'Predicted Category', 'Toll', 'Transport', "[*&()|!':<]+", 'accommodation', 'can_be_expensed', 'category', 'company_id', 'description', 'english', 'food', 'fr', 'french', 'gasoline', 'hr.expense', 'ir.config_parameter', 'lang', 'limit_parameter', 'miscellaneous', 'name', 'parking', 'product.product', 'toll', 'transport']

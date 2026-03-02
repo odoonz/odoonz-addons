@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_dispatch/wizards/stock_picking_to_manifest.py
-# hypothesis_version: 6.131.14
-
-['Dispatch Manifest', 'Draft', 'Driver', 'a new batch transfer', 'active_ids', 'an existing manifest', 'dispatch.manifest', 'existing', 'manifest_id', 'manifest_suffix', 'mode', 'new', 'partner_id', 'res.users', 'stock.picking', 'stock.picking.type', 'validate_picking']

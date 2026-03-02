@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/hr_expense_extract/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['=', 'OK', 'draft', 'extract_not_ready', 'extract_state', 'hr.expense', 'http', 'in', 'public', 'state', 'waiting_extraction']

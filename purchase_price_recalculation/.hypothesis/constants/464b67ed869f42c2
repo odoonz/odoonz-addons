@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/models/payment_provider.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Payment Journal', '_compute_journal_id', '_inverse_journal_id', 'account.journal', 'account.payment', 'bank', 'code', 'company_id', 'custom', 'enabled', 'inbound', 'journal_id', 'name', 'none', 'payment.provider', 'payment_account_id', 'payment_method_id', 'payment_provider_id', 'payment_type', 'state', 'test', 'type']

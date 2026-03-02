@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_management/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-[0.0, ', ', 'Quotation Template', 'company_id', 'display_name', 'draft', 'order_id', 'partner_id', 'product_id', 'quantity', 'sale.order', 'sale.order.option', 'sale.order.template', 'send_email', 'sent', 'sequence', 'uom_id', 'website_id']

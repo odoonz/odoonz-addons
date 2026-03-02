@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_loans/models/account_loan_line.py
-# hypothesis_version: 6.131.14
-
-['#', 'Date', 'Generated Entries', 'Interest', 'Loan', 'Loan Line', 'Long-Term', 'Outstanding Balance', 'Payment', 'Principal', 'Short-Term', '_compute_payment', '_compute_sequence', 'account.loan', 'account.loan.line', 'account.move', 'cascade', 'date', 'date, id', 'interest', 'loan_id.active', 'loan_id.company_id', 'loan_id.date', 'loan_id.line_ids', 'loan_id.name', 'loan_id.state', 'posted', 'principal']

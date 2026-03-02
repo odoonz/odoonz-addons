@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_import_ofx/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-[b'<ofx>', b'OFXHEADER', b'encoding="(.*?)"', 0.0, '%Y%m%d', '%Y%m%d%H%M%S', ',', '-', '.', '0.', '00000000', ': ', 'NFKD', 'OFX', 'account.journal', 'account_number', 'amount', 'ascii', 'availbal', 'balamt', 'balance_end_real', 'balance_start', 'contents', 'date', 'ignore', 'in', 'ledgerbal', 'partner_id', 'partner_id.name', 'payment_ref', 'ref', 'res.partner.bank', 'sequence', 'transactions', 'trnamt', 'unique_import_id', 'unitprice', 'units', 'utf-8']

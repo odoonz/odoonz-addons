@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode/models/stock_quant_package.py
-# hypothesis_version: 6.131.14
-
-['=', 'create_date desc', 'in', 'ir.config_parameter', 'location_id', 'name', 'pack_locs', 'package', 'package_type_id', 'package_use', 'quant_ids', 'reusable', 'stock.quant.package', '|']

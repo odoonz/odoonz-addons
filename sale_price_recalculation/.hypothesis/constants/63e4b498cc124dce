@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_setup/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-[' - ', '%s', '%s\n', '%s %s', ': ', '=', 'Cloudflare Turnstile', 'Company', 'Company Country Code', 'Company Name', 'Custom Report Footer', 'GeoLocalize', 'LDAP Authentication', 'Manage Inter Company', 'Multi-Currencies', 'My Company', 'Number of Companies', 'Number of Languages', 'Partner Autocomplete', 'SMS', 'Show Effect', 'VAT', 'VoIP', 'base.default_user', 'base.view_users_form', 'company_id', 'current', 'form', 'ir.actions.actions', 'ir.ui.view', 'name', 'reCAPTCHA', 'res.company', 'res.config.settings', 'res.lang', 'res.users', 'res_id', 'res_model', 'share', 'target', 'type', 'view_mode', 'views']

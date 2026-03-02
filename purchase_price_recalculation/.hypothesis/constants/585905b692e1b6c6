@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_management/models/digest.py
-# hypothesis_version: 6.131.14
-
-['All Sales', 'cancel', 'date', 'digest.digest', 'draft', 'kpi_all_sale_total', 'not in', 'price_total', 'sale.report', 'sale.sale_menu_root', 'sent', 'state']

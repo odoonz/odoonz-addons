@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_workorder/wizard/additional_workorder.py
-# hypothesis_version: 6.131.14
-
-[100, 'Additional Workorder', 'Date Start', 'Employee', 'Expected Duration', 'Title', 'Work Center', 'active_id', 'date_start', 'duration_expected', 'employee_id', 'hr.employee', 'mrp.production', 'mrp.workcenter', 'mrp.workorder', 'name', 'product_uom_id', 'production_id', 'sequence', 'workcenter_id']

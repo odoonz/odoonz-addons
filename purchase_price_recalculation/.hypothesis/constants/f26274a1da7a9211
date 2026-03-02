@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/controllers/product_configurator.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'POST', 'description_sale', 'display_name', 'display_type', 'exclusions', 'html_color', 'id', 'image', 'is_custom', 'json', 'multi', 'name', 'parent_exclusions', 'pricelist_rule_id', 'product.pricelist', 'product.template', 'res.currency', 'uom.uom', 'user']

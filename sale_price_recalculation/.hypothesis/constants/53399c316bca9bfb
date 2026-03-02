@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/models/stock_replenish_mixin.py
-# hypothesis_version: 6.131.14
-
-['Vendor', '_compute_show_vendor', 'buy', 'product.supplierinfo', 'route_id']

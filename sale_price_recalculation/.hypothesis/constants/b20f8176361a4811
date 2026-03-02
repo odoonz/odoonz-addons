@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/controllers/view.py
-# hypothesis_version: 6.131.14
-
-['arch', 'ir.ui.view.custom', 'json', 'result', 'user']

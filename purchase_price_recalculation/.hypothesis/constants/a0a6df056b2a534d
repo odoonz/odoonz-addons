@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_product/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Product', 'Product Tags', 'documents.document', 'documents.tag', 'res.config.settings']

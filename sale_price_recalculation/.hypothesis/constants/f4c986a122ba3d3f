@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_skills/wizard/hr_employee_cv_wizard.py
-# hypothesis_version: 6.131.14
-
-['#666666', ',', '/print/cv?', 'Contact Information', 'Others', 'Primary Color', 'Print Resume', 'Secondary Color', 'Skills', 'color_primary', 'color_secondary', 'employee_ids', 'hr.employee', 'ir.actions.act_url', 'name', 'show_contact', 'show_others', 'show_skills', 'type', 'url']

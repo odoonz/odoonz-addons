@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sales_team/models/crm_tag.py
-# hypothesis_version: 6.131.14
-
-['CRM Tag', 'Color', 'Tag Name', 'crm.tag', 'name_uniq', 'unique (name)']

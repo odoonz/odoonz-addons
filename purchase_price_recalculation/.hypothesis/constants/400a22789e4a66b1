@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-['document_count', 'documents.document']

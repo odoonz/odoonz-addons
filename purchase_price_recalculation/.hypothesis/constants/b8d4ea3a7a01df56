@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/account_invoice_extract_ril/vendors/nzspcc.py
-# hypothesis_version: 6.131.14
-
-[0.0, 0.835, 1000, '!=', '%', ';', '=', '=like', 'A', 'Coil Invoice Resale', 'SF', '_', 'account.move', 'activity_type_id', 'amount_charges', 'amount_levies', 'code', 'company_id', 'daveg@roof.co.nz', 'default_code', 'description', 'done', 'invoice_date', 'invoice_date_due', 'ir.model', 'ir.sequence', 'lines', 'login', 'mail.activity', 'note', 'nzs', 'nzs_old', 'pcc', 'prefix', 'price', 'price_unit', 'product.product', 'product_id', 'purchase.order', 'purchase_order', 'quantity', 'ref', 'res.partner', 'res.users', 'res_id', 'res_model_id', 'summary', 'user_id']

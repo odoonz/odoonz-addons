@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/master_data_security/models/product_security_mixin.py
-# hypothesis_version: 6.131.14
-
-[',', 'delivery.carrier', 'density.coefficient', 'last_inventory_date', 'product.attribute', 'product.category', 'product.pricelist', 'product.product', 'product.template', 'seller_ids', 'standard_price', 'stock.location', 'stock.picking.type', 'stock.route', 'stock.rule', 'stock.warehouse', 'unlink', 'uom.category', 'uom.uom']

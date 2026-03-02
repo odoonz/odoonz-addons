@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_management/models/sale_order_line.py
-# hypothesis_version: 6.131.14
-
-['Sales Order Line', 'line_id', 'pricelist_update', 'product_id', 'sale.order.line', 'sale.order.option']

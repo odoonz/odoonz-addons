@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/wizard/account_resequence.py
-# hypothesis_version: 6.131.14
-
-['%s-%s', '%s-%s/%s', '...', 'First New Sequence', 'Keep current order', '_compute_first_name', '_compute_new_values', 'account.move', 'active_ids', 'active_model', 'changeLines', 'current_name', 'date', 'default', 'first_name', 'id', 'in_refund', 'keep', 'month', 'move_ids', 'move_type', 'name', 'new_by_date', 'new_by_name', 'new_values', 'ordering', 'other_', 'out_refund', 'seq', 'server-date', 'state', 'year', 'year_end', 'year_end_length', 'year_length', 'year_range', 'year_range_month', '{}']

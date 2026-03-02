@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr/wizard/hr_departure_wizard.py
-# hypothesis_version: 6.131.14
-
-['Departure Date', 'Departure Wizard', 'Employee', 'active_id', 'hr.departure.reason', 'hr.departure.wizard', 'hr.employee', 'toggle_active']

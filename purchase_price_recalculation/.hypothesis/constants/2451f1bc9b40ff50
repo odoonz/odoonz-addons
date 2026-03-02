@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_extract/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Bank Statements', 'res.config.settings']

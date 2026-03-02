@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_hr/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['=', 'documents.document', 'documents_hr_folder', 'folder', 'hr Workspace', 'in', 'res.company', 'shortcut_document_id', 'type']

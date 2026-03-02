@@ -1,4 +1,0 @@
-# file: /odoo/src/queue/queue_job/models/queue_job_function.py
-# hypothesis_version: 6.131.14
-
-['=', 'Channel', 'Job Functions', 'JobConfig', 'Model', 'Model {} not found', 'Related Action', 'Retry Pattern', '_compute_name', '_inverse_name', 'cascade', 'enable', 'func_name', 'install_mode', 'ir.model', 'kwargs', 'method', 'model', 'model_id.model', 'name', 'noupdate', 'queue.job.channel', 'queue.job.function', 'related_action', 'retry_pattern', 'root']

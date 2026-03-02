@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/models/ir_ui_view.py
-# hypothesis_version: 6.131.14
-
-['calendar', 'display_name', 'fa fa-address-card', 'fa fa-area-chart', 'fa fa-calendar', 'form', 'graph', 'icon', 'ir.ui.view', 'kanban', 'list', 'multi_record', 'oi oi-search', 'oi oi-view-kanban', 'oi oi-view-list', 'oi oi-view-pivot', 'pivot', 'qweb', 'search', 'selection', 'type']

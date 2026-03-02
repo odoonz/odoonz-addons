@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_pdf_quote_builder/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-[' > ', '.pdf', 'Footer', 'Header', 'Headers/Footers', 'Product', 'custom_form_fields', 'files', 'footer', 'footers', 'header', 'headers', 'id', 'is_selected', 'line', 'lines', 'name', 'order_line', 'product.document', 'quotation.document', 'sale.order', 'sequence', 'value']

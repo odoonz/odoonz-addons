@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/res_country_group.py
-# hypothesis_version: 6.131.14
-
-['Pricelists', 'pricelist_id', 'product.pricelist', 'res.country.group', 'res_country_group_id']

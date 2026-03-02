@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_config_parameter.py
-# hypothesis_version: 6.131.14
-
-[', ', '=', 'Key must be unique.', 'System Parameter', 'database.create_date', 'database.secret', 'database.uuid', 'http://localhost:%s', 'http_port', 'ir.config_parameter', 'key', 'key_uniq', 'read', 'unique (key)', 'value', 'web.base.url']

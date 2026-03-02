@@ -1,4 +1,0 @@
-# file: /odoo/src/account-financial-reporting/partner_statement/report/detailed_activity_statement.py
-# hypothesis_version: 6.131.14
-
-['account_type', 'context', 'ending_lines', 'lang', 'line_type', 'prior_lines', 'receivable']

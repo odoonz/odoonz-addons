@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/analytic/models/analytic_account.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!', '%s (copy)', ':', '<', '<=', '>=', 'Active', 'Analytic Account', 'Analytic Lines', 'Balance', 'Color Index', 'Company', 'Credit', 'Currency', 'Customer', 'Debit', 'Plan', 'Reference', 'Root Plan', 'See them', 'amount', 'amount:sum', 'auto_account_id', 'balance:sum', 'btree', 'child_of', 'code', 'company_id', 'credit:sum', 'currency_id', 'date', 'debit:sum', 'domain', 'from_date', 'id:recordset', 'in', 'line_ids.amount', 'list', 'mail.thread', 'name', 'new', 'not in', 'partner_id', 'plan_id', 'plan_id, name asc', 'plan_id.color', 'plan_id.root_id', 'res.company', 'res.partner', 'res_model', 'target', 'to_date', 'trigram', 'type', 'views']

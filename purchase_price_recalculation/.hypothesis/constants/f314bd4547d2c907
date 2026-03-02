@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_account/models/account_report.py
-# hypothesis_version: 6.131.14
-
-[100, 'Copy to Documents', 'Export', 'account.report', 'action', 'buttons', 'context', 'default_report_id', 'form', 'name', 'new', 'report_id', 'res_id', 'res_model', 'sequence', 'target', 'type', 'view_mode', 'views']

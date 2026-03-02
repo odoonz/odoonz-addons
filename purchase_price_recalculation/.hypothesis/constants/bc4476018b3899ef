@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/res_device.py
-# hypothesis_version: 6.131.14
-
-[100000, '%s %s %s', ', ', '<', '=', 'Browser', 'City', 'Computer', 'Country', 'Current Device', 'Device Log', 'Device Type', 'Devices', 'First Activity', 'IP Address', 'Last Activity', 'Linked IP address', 'Mobile', 'Platform', 'Revoked', 'SELECT D.*', 'Session Identifier', 'Unknown', '_compute_is_current', 'android', 'blackberry', 'browser', 'btree', 'city', 'computer', 'country_name', 'first_activity', 'id', 'in', 'ip_address', 'ip_address:array_agg', 'ipad', 'iphone', 'ipod', 'is_current', 'last_activity', 'last_activity desc', 'mobile', 'platform', 'res.device', 'res.device.log', 'res.users', 'revoked', 'session_identifier', 'webos', 'windows phone']

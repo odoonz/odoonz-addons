@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase/report/purchase_report.py
-# hypothesis_version: 6.131.14
-
-['# of Lines', '%s %s %s %s', 'Average Cost', 'Buyer', 'Cancelled', 'Commercial Entity', 'Company', 'Confirmation Date', 'Currency', 'Days to Confirm', 'Days to Receive', 'Done', 'Draft RFQ', 'Fiscal Position', 'Gross Weight', 'Order', 'Order Date', 'Partner Country', 'Product', 'Product Category', 'Product Template', 'Purchase Order', 'Purchase Report', 'Qty Billed', 'Qty Ordered', 'Qty Received', 'Qty to be Billed', 'RFQ Sent', 'Status', 'To Approve', 'Total', 'Untaxed Total', 'Vendor', 'Volume', 'avg', 'cancel', 'done', 'draft', 'price_average', 'price_average:avg', 'product.category', 'product.product', 'product.template', 'purchase', 'purchase.order', 'purchase.report', 'qty_ordered', 'res.company', 'res.country', 'res.currency', 'res.partner', 'res.users', 'sent', 'to approve', 'uom.uom']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/price_change_notification/models/price_change_record.py
-# hypothesis_version: 6.131.14
-
-['Price Change Record', 'date_sent desc', 'mail.thread', 'price.change.record', 'price_change_id', 'product.price.change', 'res.company', 'res.partner', 'unpriced']

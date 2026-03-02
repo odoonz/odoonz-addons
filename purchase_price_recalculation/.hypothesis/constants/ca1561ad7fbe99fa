@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_account_tag.py
-# hypothesis_version: 6.131.14
-
-['%', '&', '=', '=like', 'AND tag.id IN %s', 'Account Tag', 'Accounts', 'Color Index', 'Country', 'Negate Tax Balance', 'Products', 'Tag Name', 'Taxes', '\\', '\\%', '\\\\', '\\_', '_', 'account.account.tag', 'accounts', 'applicability', 'company', 'country_id', 'en_US', 'engine', 'formula', 'lang', 'name', 'name_uniq', 'products', 'res.country', 'res.lang', 'tax_tags', 'taxes']

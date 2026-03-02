@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/document_email_upload/models/sale_order.py
-# hypothesis_version: 6.131.14
-
-[1000, '-', '...', '//*', '<(\\w+)[^>]*>', '<\\1>', '=', 'Email', 'Message not found', 'New', 'Sale order not found', 'Unknown', '_', 'application/pdf', 'author', 'b', 'binary', 'body', 'br', 'client_order_ref', 'company_id', 'datas', 'date', 'div', 'em', 'email', 'email_from', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'html', 'i', 'ilike', 'in', 'ir.actions.report', 'ir.attachment', 'li', 'mail.message', 'mail.thread', 'message', 'message/rfc822', 'message_id', 'mimetype', 'name', 'ol', 'p', 'partner_id', 'res.partner', 'res_id', 'res_model', 'sale.order', 'span', 'strong', 'subject', 'success', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'tr', 'type', 'ul', 'unicode']

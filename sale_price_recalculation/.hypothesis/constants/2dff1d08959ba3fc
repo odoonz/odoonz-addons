@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/report/crm_activity_report.py
-# hypothesis_version: 6.131.14
-
-['Active', 'Activity Description', 'Activity Type', 'Assigned To', 'Closed Date', 'Company', 'Completion Date', 'Conversion Date', 'Country', 'Creation Date', 'Customer', 'Expected Closing', 'Lead', 'Opportunity', 'Sales Team', 'Salesperson', 'Stage', 'Subtype', 'Type', 'crm.activity.report', 'crm.lead', 'crm.stage', 'crm.team', 'id', 'lead', 'lead_id.tag_ids', 'mail.activity.type', 'mail.message.subtype', 'opportunity', 'res.company', 'res.country', 'res.partner', 'res.users']

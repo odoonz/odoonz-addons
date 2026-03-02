@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web/models/ir_ui_menu.py
-# hypothesis_version: 6.131.14
-
-[',', '\\s/g', 'action', 'actionID', 'actionModel', 'actionPath', 'appID', 'app_id', 'backgroundImage', 'children', 'data:%s;base64,%s', 'id', 'ir.ui.menu', 'name', 'root', 'webIcon', 'webIconData', 'webIconDataMimetype', 'web_icon', 'web_icon_data', 'xmlid']

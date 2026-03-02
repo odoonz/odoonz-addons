@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/wizard/mail_template_reset.py
-# hypothesis_version: 6.131.14
-
-['Mail Template Reset', 'display_notification', 'ir.actions.client', 'list', 'mail.template', 'mail.template.reset', 'message', 'next', 'params', 'reload', 'success', 'tag', 'type', 'view_type']

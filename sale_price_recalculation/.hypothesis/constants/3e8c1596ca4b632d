@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/resource/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['=', 'Working Hours', 'company_id', 'name', 'res.company', 'resource.calendar', 'resource_calendar_id', 'restrict']

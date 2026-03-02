@@ -1,4 +1,0 @@
-# file: /odoo/src/agreement/agreement_rebate/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-[' - ', 'Period: %s - %s', 'Settlement lines', 'account.move.line', 'invoice_line_id', 'settlement_line_id']

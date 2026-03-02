@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/purchase_order.py
-# hypothesis_version: 6.131.14
-
-['customer', 'dest_address_id', 'partner.site.mixin', 'purchase.order', 'site_address_id']

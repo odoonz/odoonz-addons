@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/res_users.py
-# hypothesis_version: 6.131.14
-
-['=', 'base.group_user', 'company_id', 'company_ids', 'groups_id', 'login', 'login_key', 'partner_id', 'res.users', 'uid', 'website', 'website.visitor', 'website_id', 'website_id, ']

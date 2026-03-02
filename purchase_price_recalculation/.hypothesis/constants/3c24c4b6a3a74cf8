@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/wizard/mail_wizard_invite.py
-# hypothesis_version: 6.131.14
-
-['Invite wizard', 'Message', 'Notify Recipients', 'Recipients', 'Related Document ID', 'body', 'email_add_signature', 'email_from', 'email_layout_xmlid', 'ir.model', 'mail.wizard.invite', 'model', 'partner_ids', 'record_name', 'reply_to', 'reply_to_force_new', 'res.partner', 'subject', 'type']

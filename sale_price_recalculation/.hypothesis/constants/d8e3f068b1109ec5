@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_dispatch/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['Main Partner Email', 'No POD', 'Order Contact', 'POD Policy', 'Pod Parents', 'Specified Contact', 'Specified Partners', 'main', 'main_specify', 'none', 'order', 'order_specify', 'pod_parent_id', 'pod_partner_id', 'res.partner', 'res_partner_pod_rel', 'specify']

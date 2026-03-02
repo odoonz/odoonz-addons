@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/attachment_indexation/models/ir_attachment.py
-# hypothesis_version: 6.131.14
-
-[b'%PDF-', '\x00', '_index_%s', 'a:t', 'content.xml', 'docx', 'ir.attachment', 'opendoc', 'pdf', 'pdfminer', 'ppt/slides/slide', 'pptx', 't', 'text:h', 'text:list', 'text:p', 'w:h', 'w:p', 'word/document.xml', 'xl/sharedStrings.xml', 'xlsx']

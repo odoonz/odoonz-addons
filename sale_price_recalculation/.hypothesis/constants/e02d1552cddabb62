@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/base_geolocalize/models/base_geocoder.py
-# hypothesis_version: 6.131.14
-
-[200, ' of', ' of the', '%s %s', ',', ', ', 'Geo Coder', 'Geo Provider', 'OK', 'Technical Name', 'User-Agent', 'ZERO_RESULTS', '_call_', '_geo_query_address_', 'address', 'base.geo_provider', 'base.geocoder', 'components', 'country:%s', 'error_message', 'false', 'force_country', 'format', 'geometry', 'ir.config_parameter', 'json', 'key', 'lat', 'lng', 'location', 'lon', 'q', 'results', 'sensor', 'status', '{1} {0}']

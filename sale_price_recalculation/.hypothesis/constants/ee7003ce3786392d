@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm_iap_enrich/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['auto', 'lead_enrich_auto', 'manual', 'res.config.settings']

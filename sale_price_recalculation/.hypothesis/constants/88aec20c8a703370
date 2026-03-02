@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/cli/start.py
-# hypothesis_version: 6.131.14
-
-['*/%s', '--addons-path', '--addons-path=%s', '--database', '--db-filter', '--db-filter=^%s$', '--path', '-d', '-p', '.', 'VIRTUAL_ENV', 'base', 'db_name', 'init']

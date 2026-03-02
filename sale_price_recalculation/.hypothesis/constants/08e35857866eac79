@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/product_list_price_change/models/product_price_change.py
-# hypothesis_version: 6.131.14
-
-['<=', 'Cancel', 'Draft', 'Future', 'Live', 'Product Price Change', 'Products', 'Variants', 'cancel', 'draft', 'effective_date', 'future', 'live', 'partner_id', 'price_change_id', 'product.price.change', 'res.partner']

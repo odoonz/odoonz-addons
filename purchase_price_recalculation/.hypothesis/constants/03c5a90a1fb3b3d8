@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_amendment/models/sale.py
-# hypothesis_version: 6.131.14
-
-['activity_type_id', 'assigned', 'cancel', 'commitment_date', 'confirmed', 'customer_note', 'date_planned', 'dispatch_method', 'draft', 'exceptions_handled', 'in', 'invoice_ids', 'ir.model', 'ir.qweb', 'mail.activity', 'mrp.production', 'note', 'order', 'order_id', 'partner_id', 'partner_invoice_id', 'partner_shipping_id', 'picking_ids', 'picking_note', 'purchase_lines', 'purchase_orders', 'purchased_qty', 'res_id', 'res_model_id', 'sale', 'sale.order', 'sale_id', 'scheduled_date', 'site_address_id', 'site_contact_email', 'site_contact_id', 'site_contact_mobile', 'site_contact_name', 'stock.rule', 'summary', 'user_id', 'value', 'waiting', 'warning']

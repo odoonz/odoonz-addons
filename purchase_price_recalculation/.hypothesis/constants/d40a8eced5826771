@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_online_synchronization/models/account_journal.py
-# hypothesis_version: 6.131.14
-
-[120, '!=', '&', '/', '<', '=', 'Connection Requests', 'LIMIT 1', 'ORDER BY ids', 'Report Issue', 'UNION', 'account.journal', 'account.online.link', 'action', 'action_name', 'bank', 'connected', 'country', 'credit', 'date', 'error_message', 'error_type', 'fetching', 'form', 'in', 'ir.actions.client', 'ir.config_parameter', 'journal_id', 'limit', 'limit_time_real', 'limit_time_real_cron', 'main', 'name', 'new', 'online_sync', 'picture', 'planned', 'processing', 'redirect_warning', 'res_id', 'res_model', 'result', 'set null', 'show_sync_actions', 'soft_reload', 'status', 'tag', 'target', 'type', 'updateCredentials', 'view_mode', 'views', 'waiting', '|']

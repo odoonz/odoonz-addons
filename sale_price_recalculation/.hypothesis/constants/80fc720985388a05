@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode_mrp/models/stock_move.py
-# hypothesis_version: 6.131.14
-
-['HALF-UP', 'decimal.precision', 'done', 'mrp_operation', 'picked', 'product_uom', 'stock.move', 'stock.move.line']

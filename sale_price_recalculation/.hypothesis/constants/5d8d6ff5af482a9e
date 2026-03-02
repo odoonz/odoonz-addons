@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['=', 'Default', 'company_id', 'currency_id', 'in', 'item_ids', 'name', 'product.pricelist', 'res.company', 'sequence']

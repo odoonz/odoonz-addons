@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/auth_totp/wizard/auth_totp_wizard.py
-# hypothesis_version: 6.131.14
-
-[':', 'PNG', 'Verification Code', '\\s', '_compute_qrcode', 'algorithm', 'auth_totp.wizard', 'digits', 'display_notification', 'ir.actions.client', 'issuer', 'message', 'next', 'otpauth', 'params', 'period', 'res.users', 'secret', 'success', 'tag', 'totp', 'type', 'user_id.login']

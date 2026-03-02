@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_fleet/models/fleet_vehicle.py
-# hypothesis_version: 6.131.14
-
-['=', 'Driver (Employee)', 'Related Employee', 'company_id', 'driver_employee_id', 'driver_id', 'fleet.vehicle', 'form', 'future_driver_id', 'hr.employee', 'id:recordset', 'in', 'list', 'name', 'res_id', 'res_model', 'type', 'user_id.partner_id', 'view_mode', 'views', 'work_contact_id']

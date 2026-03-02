@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/report/report_stock_reception.py
-# hypothesis_version: 6.131.14
-
-['!=', 'cancel', 'id', 'in', 'mrp.production', 'not in', 'state']

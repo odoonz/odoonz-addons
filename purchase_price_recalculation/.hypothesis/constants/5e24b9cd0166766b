@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/wizard/account_move_send_batch_wizard.py
-# hypothesis_version: 6.131.14
-
-['Manually', 'Sending invoices', '_compute_alerts', 'account.move', 'account.move.send', 'active_ids', 'author_partner_id', 'author_user_id', 'base.group_system', 'by %s', 'count', 'current', 'display_notification', 'form', 'info', 'ir.actions.client', 'ir.cron', 'label', 'manual', 'message', 'move_ids', 'next', 'params', 'res.partner', 'res_id', 'res_model', 'sending_methods', 'summary_data', 'tag', 'target', 'title', 'type', 'views']

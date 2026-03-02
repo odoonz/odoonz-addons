@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/mrp_dynamic_line/models/procurement_group.py
-# hypothesis_version: 6.131.14
-
-['mrp.bom', 'phantom', 'procurement.group', 'product', 'product.product', 'qty']

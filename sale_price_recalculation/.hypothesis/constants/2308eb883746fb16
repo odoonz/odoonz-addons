@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/web_view_google_map/models/ir_actions.py
-# hypothesis_version: 6.131.14
-
-['Google Maps', 'cascade', 'google_map']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_workorder/wizard/propose_change.py
-# hypothesis_version: 6.131.14
-
-['(<img .*?">)', '/web/image/%s/%s/%s', '<b>%s</b>', '<br/>%s', '<br/><b>%s %s</b>', '<br/><b>%s</b> %s', '<br/><b>%s</b>%s', '<br>', '<p>%s</p>', 'Comment', 'Instruction:', 'New Instruction', 'New Title suggested:', 'Picture', 'Reason:', 'Remove Current Step', 'Set Picture', 'Step to change', 'Title', 'Type of Change', 'Update Current Step', 'Workorder', 'cascade', 'mrp.workorder', 'next', 'picture', 'propose.change', 'quality.check', 'register_', 'remove_step', 'set_picture', 'step', 'step_id', 'title', 'update_step']

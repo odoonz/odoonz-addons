@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/appdirs.py
-# hypothesis_version: 6.131.14
-
-[255, 1024, '%s: %s', '.', '/etc/xdg', '/usr/local/share', '/usr/share', '1.0', 'AppData', 'CSIDL_APPDATA', 'CSIDL_COMMON_APPDATA', 'CSIDL_LOCAL_APPDATA', 'Cache', 'Common AppData', 'Local AppData', 'Logs', 'MyApp', 'MyCompany', 'XDG_CACHE_HOME', 'XDG_CONFIG_DIRS', 'XDG_CONFIG_HOME', 'XDG_DATA_DIRS', 'XDG_DATA_HOME', '__main__', 'darwin', 'log', 'site_config_dir', 'site_data_dir', 'user_cache_dir', 'user_config_dir', 'user_data_dir', 'user_log_dir', 'win32', '~/.cache', '~/.config', '~/.local/share', '~/Library/Caches', '~/Library/Logs']

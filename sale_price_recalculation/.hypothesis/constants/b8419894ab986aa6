@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_work_entry_contract/models/hr_work_entry.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Contract', 'HR Work Entry Type', 'Time Off', 'cancelled', 'close', 'conflict', 'contract_id', 'contract_ids.state', 'date_start', 'date_stop', 'duration', 'employee_id', 'hours', 'hr.contract', 'hr.employee', 'hr.work.entry', 'hr.work.entry.type', 'in', 'open', 'pending', 'state', 'validated']

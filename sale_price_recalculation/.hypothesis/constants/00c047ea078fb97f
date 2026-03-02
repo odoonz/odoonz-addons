@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website_sms/models/website_visitor.py
-# hypothesis_version: 6.131.14
-
-['Send SMS', 'comment', 'context', 'default_res_id', 'default_res_model', 'form', 'mobile', 'name', 'new', 'phone', 'res.partner', 'res_model', 'sms.composer', 'target', 'type', 'view_mode', 'website.visitor']

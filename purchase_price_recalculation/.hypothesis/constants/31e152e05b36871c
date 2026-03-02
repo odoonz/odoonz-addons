@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/res_users_settings.py
-# hypothesis_version: 6.131.14
-
-['=', 'UNIQUE(user_id)', 'User', 'User Settings', 'cascade', 'id', 'res.users', 'res.users.settings', 'unique_user_id', 'user_id']

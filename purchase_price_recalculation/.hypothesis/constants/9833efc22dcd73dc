@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/sale_price_recalculation/wizards/sale_price_recalculation.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 100.0, '</ul><br/>', '<ul>', 'Copy Quote', 'Lines', 'Pricelist', 'as_at_date', 'copy_quote_id', 'date', 'discount', 'draft', 'effective_tax_rate', 'name', 'name.currency_id', 'partner_id', 'price.recalculation', 'price_subtotal', 'price_total', 'price_unit', 'pricelist_id', 'product.pricelist', 'product_id', 'qty', 'res.currency', 'sale', 'sale.order', 'sent', 'total_excluded', 'total_included', 'warehouse_id']

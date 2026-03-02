@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/wizard/crm_lead_to_opportunity_mass.py
-# hypothesis_version: 6.131.14
-
-['Active Leads', 'Apply deduplication', 'Related Customer', 'Salespersons', 'action', 'active_ids', 'active_test', 'convert', 'create', 'crm.lead', 'crm.team', 'duplicated_lead_ids', 'each_exist_or_create', 'exist', 'lead_tomerge_ids', 'res.users', 'user_ids']

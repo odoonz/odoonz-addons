@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/models/mail_notification.py
-# hypothesis_version: 6.131.14
-
-['!=', 'Expired', 'Insufficient Credit', 'Invalid Destination', 'Missing Number', 'Not Allowed', 'Not Delivered', 'Rejected', 'SMS', 'SMS ID', 'SMS Number', 'SMS Trackers', 'Server Error', 'Unregistered Account', 'Wrong Number Format', '_compute_sms_id', 'base.group_user', 'btree_not_null', 'cascade', 'id', 'in', 'mail.notification', 'mail_notification_id', 'notification_type', 'sms', 'sms.sms', 'sms.tracker', 'sms_acc', 'sms_credit', 'sms_expired', 'sms_id_int', 'sms_not_allowed', 'sms_not_delivered', 'sms_number_format', 'sms_number_missing', 'sms_rejected', 'sms_server', 'to_delete']

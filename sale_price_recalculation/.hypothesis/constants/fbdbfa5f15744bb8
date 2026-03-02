@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_editor/tools.py
-# hypothesis_version: 6.131.14
-
-[',', 'autopause', 'autoplay', 'bus.bus', 'controls', 'dailymotion', 'dnt', 'editor_collaboration', 'embed_url', 'enablejsapi', 'error', 'field_name', 'fs', 'h', 'hash', 'hide_controls', 'hide_dm_logo', 'hide_dm_share', 'hide_fullscreen', 'html_field_write', 'id', 'instagram', 'install_module', 'last_step_id', 'loop', 'message', 'model_name', 'mute', 'muted', 'notificationName', 'notificationPayload', 'params', 'platform', 'playlist', 'rel', 'res_id', 'sharing-enable', 'thumbnail_url', 'ui-logo', 'video_id', 'vimeo', 'vimeo_player', 'youtube']

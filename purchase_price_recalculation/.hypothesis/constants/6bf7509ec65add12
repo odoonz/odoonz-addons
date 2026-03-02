@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_analytic_account.py
-# hypothesis_version: 6.131.14
-
-['=', 'Customer Invoices', 'Invoice Count', 'Vendor Bill Count', 'Vendor Bills', '__count', 'account.move', 'account.move.line', 'context', 'create', 'default_move_type', 'domain', 'id', 'in', 'in_invoice', 'line_ids', 'list,form', 'move_id', 'move_id.move_type', 'name', 'out_invoice', 'parent_state', 'posted', 'res_model', 'type', 'view_mode']

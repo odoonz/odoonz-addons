@@ -1,4 +1,0 @@
-# file: /odoo/src/credit-control/sale_financial_risk/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Include Sales Orders', 'Limit Sales Orders', 'company_id', 'in', 'res.partner', 'risk_amount:sum', 'risk_currency_id', 'risk_partner_id', 'risk_sale_order', 'sale.order', 'sale.order.line', 'state']

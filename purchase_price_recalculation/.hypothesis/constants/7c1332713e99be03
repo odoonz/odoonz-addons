@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_gs1/models/gs1_barcode_range.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'GS1 Barcode Range', 'Notes', 'active', 'barcode', 'end_barcode', 'gs1.barcode.range', 'id', 'product.packaging', 'product.product', 'sequence, id', 'start_barcode']

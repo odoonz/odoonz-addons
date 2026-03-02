@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/wizard/sms_account_sender.py
-# hypothesis_version: 6.131.14
-
-['[a-zA-Z0-9\\- ]{3,11}', 'iap.account', 'sender_name', 'sms.account.sender', 'state', 'success', 'unknown_error']

@@ -1,4 +1,0 @@
-# file: /odoo/src/report-print-send/base_report_to_printer/wizards/printing_printer_update_wizard.py
-# hypothesis_version: 6.131.14
-
-['Printers', 'current', 'list,form', 'name', 'printing.printer', 'printing.server', 'res_model', 'target', 'type', 'view_mode']

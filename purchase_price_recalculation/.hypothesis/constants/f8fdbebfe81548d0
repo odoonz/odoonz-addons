@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/sale_order_line.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Collect', 'Direct', 'Interbranch Pricing', 'Supplier', 'Yard', '_get_direct_route', 'collect', 'company_id', 'direct', 'dropship', 'id', 'ilike', 'in', 'internal', 'location_dest_id', 'make_to_order', 'make_to_stock', 'manufacture', 'name', 'none', 'order', 'order_id', 'partner_id', 'picking_type_id.name', 'procure_method', 'procurement.group', 'product_id', 'product_uom', 'product_uom_qty', 'res.partner', 'route_id', 'route_ids', 'sale.order', 'sale.order.line', 'sale_selectable', 'site', 'stock.route', 'stock.warehouse', 'supplier_id', 'warehouse_id', 'yard']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock_dropshipping/models/sale.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'Dropship Count', 'HALF-UP', '_compute_picking_ids', 'cancel', 'company_id', 'customer', 'dest_address_id', 'picking_type_id', 'purchase_line_count', 'rule_ids', 'sale.order', 'sale.order.line', 'sequence', 'stock.picking.type', 'supplier']

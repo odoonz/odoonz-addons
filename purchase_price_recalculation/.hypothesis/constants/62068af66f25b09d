@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_thread_blacklist.py
-# hypothesis_version: 6.131.14
-
-['!=', '(%s)', '=', 'Blacklist', 'Bounce', 'Mail Blacklist mixin', 'Normalized Email', '_primary_email', 'active', 'base.group_user', 'char', 'email', 'email_normalized', 'form', 'id', 'in', 'mail.blacklist', 'mail.thread', 'message_bounce', 'name', 'new', 'res_model', 'target', 'type', 'view_mode', 'write']

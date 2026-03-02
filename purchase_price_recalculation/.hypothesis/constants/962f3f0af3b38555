@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_avatax/wizard/avatax_validate_address.py
-# hypothesis_version: 6.131.14
-
-['=', 'CA', 'City', 'Country', 'Geo Latitude', 'Geo Longitude', 'Is Already Valid', 'Mixed', 'State', 'Street', 'US', 'Validated City', 'Validated Country', 'Validated State', 'Validated Street', 'Validated Zip Code', 'Zip Code', 'city', 'code', 'country', 'country_id', 'details', 'latitude', 'line1', 'line2', 'longitude', 'messages', 'partner_id', 'partner_id.city', 'partner_id.state_id', 'partner_id.street', 'partner_id.street2', 'partner_id.zip', 'partner_latitude', 'partner_longitude', 'postalCode', 'region', 'res.country', 'res.country.state', 'res.partner', 'state_id', 'street', 'street2', 'textCase', 'validatedAddresses', 'zip']

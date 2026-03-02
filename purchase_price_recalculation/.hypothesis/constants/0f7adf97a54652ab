@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/models/product.py
-# hypothesis_version: 6.131.14
-
-['&', '=', 'Last Purchase', 'PO Lines', 'Replenish', 'account.account', 'action', 'buy', 'child_of', 'date_order desc', 'done', 'draft', 'form', 'id', 'in', 'location_final_id', 'move_dest_ids', 'move_ids', 'name', 'new', 'order_id', 'orderpoint_id', 'partner_id', 'product.category', 'product.product', 'product.replenish', 'product.supplierinfo', 'product.template', 'product_id', 'product_qty:sum', 'product_uom', 'purchase', 'purchase.order', 'purchase.order.line', 'replenish_id', 'res_id', 'res_model', 'restrict', 'sent', 'state', 'stock.route', 'stock.rule', 'target', 'to approve', 'type', 'view_mode', '|']

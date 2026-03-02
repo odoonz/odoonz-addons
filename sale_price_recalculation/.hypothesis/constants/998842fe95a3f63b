@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/barcodes/models/barcode_events_mixin.py
-# hypothesis_version: 6.131.14
-
-['Barcode Event Mixin', 'Barcode Scanned', '_barcode_scanned']

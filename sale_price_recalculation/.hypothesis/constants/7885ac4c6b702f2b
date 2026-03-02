@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/hr_expense_extract/models/hr_expense.py
-# hypothesis_version: 6.131.14
-
-[0.0, 133, '.', '=ilike', 'account_token', 'action_id', 'active_id', 'approval_date', 'approval_state', 'approve', 'approved', 'auto_send', 'base.group_user', 'company_account', 'content', 'context', 'currency', 'currency_id', 'currency_unit_label', 'date', 'description', 'done', 'draft', 'employee_id', 'extract.mixin', 'extract_state', 'extract_txt', 'hr.expense', 'hr.expense.sheet', 'hr_expense_extract', 'iap_extract_endpoint', 'ilike', 'in', 'ir.actions.actions', 'ir.config_parameter', 'isMobile', 'name', 'no_send', 'price_unit', 'product.product', 'product_id', 'quantity', 'refused', 'reported', 'res.currency', 'state', 'submit', 'symbol', 'total', 'total_amount', 'try a sample receipt', 'user_id', 'version', 'waiting_extraction', 'waiting_validation', '|']

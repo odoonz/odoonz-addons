@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/agreement_rebate_ril/models/account_move_line.py
-# hypothesis_version: 6.131.14
-
-['Stock Weight', '_compute_weight', 'account.move.line', 'agreement', 'cutlist.line', 'display_type', 'flashing', 'in_invoice', 'in_refund', 'product', 'product_id', 'purchase_line_id', 'quantity', 'sale_line_ids']

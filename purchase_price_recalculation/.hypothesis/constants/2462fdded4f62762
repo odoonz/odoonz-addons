@@ -1,4 +1,0 @@
-# file: /odoo/src/server-tools/base_view_inheritance_extension/models/ir_ui_view.py
-# hypothesis_version: 6.131.14
-
-['AND', 'OR', '\\1', 'attributes', 'condition', 'data', 'eval', 'ir.ui.view', 'join_operator', 'name', 'operation', 'parent\\.(\\b\\w+\\b)', 'position', '{}']

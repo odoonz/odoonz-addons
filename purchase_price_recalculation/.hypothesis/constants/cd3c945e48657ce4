@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/account_analytic_line.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Analytic Line', 'Customer Invoice', 'Entries: %(account)s', 'Financial Account', 'Financial Journal', 'Journal Item', 'Product', 'Ref.', 'Vendor Bill', '_compute_partner_id', 'account.account', 'account.journal', 'account.move.line', 'account_id', 'amount', 'cascade', 'currency_id', 'expense', 'general_account_id', 'invoice', 'move_line_id', 'product.product', 'product_id', 'product_uom_id', 'restrict', 'standard_price', 'unit_amount', 'vendor_bill']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents/wizard/documents_request_wizard.py
-# hypothesis_version: 6.131.14
-
-['Activity type', 'Contact', 'Days', 'Document Request', 'Due Date In', 'Due type', 'Folder', 'Message', 'Months', 'Owner', 'Resource ID', 'Resource Model', 'Tags', 'Weeks', 'activity_type_id', 'date_deadline', 'days', 'documents.document', 'documents.tag', 'edit', 'folder_id', 'mail.activity.type', 'months', 'name', 'none', 'note', 'owner_id', 'partner_id', 'requestee_partner_id', 'res.partner', 'res_id', 'res_model', 'summary', 'tag_ids', 'user_id', 'weeks']

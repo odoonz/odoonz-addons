@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/website/models/ir_ui_menu.py
-# hypothesis_version: 6.131.14
-
-['action', 'actionID', 'actionModel', 'children', 'force_action', 'id', 'ir.ui.menu', 'lang', 'self._uid']

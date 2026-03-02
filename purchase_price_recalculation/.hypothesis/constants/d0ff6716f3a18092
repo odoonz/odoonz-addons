@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_hr/controllers/main.py
-# hypothesis_version: 6.131.14
-
-['=', 'base_url_download', 'child_of', 'documents', 'documents.document', 'hr.employee', 'http', 'id', 'ir.binary', 'partner_id', 'public']

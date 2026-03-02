@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/decimal_precision.py
-# hypothesis_version: 6.131.14
-
-[1.0, 10.0, '<', 'Account', 'Warning!', 'decimal.precision', 'digits', 'message', 'rounding', 'title', 'uom.uom', 'warning']

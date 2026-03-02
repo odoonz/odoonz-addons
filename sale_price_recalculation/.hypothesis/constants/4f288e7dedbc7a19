@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/models/crm_team_member.py
-# hypothesis_version: 6.131.14
-
-[30.0, '>=', 'Assignment Domain', 'HALF-UP', 'Leads (30 days)', 'Leads (last 24h)', 'Skip auto assignment', '[]', '__count', 'assignment_domain', 'crm.lead', 'crm.team.member', 'crm_team_id', 'date_open', 'in', 'team_id', 'user_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/models/ir_model.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Mail Thread SMS', 'id', 'in', 'ir.model', 'is_mail_thread', 'not in']

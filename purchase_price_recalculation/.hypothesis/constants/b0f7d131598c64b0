@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/account_central_billing/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['=', 'Commercial Partner', 'Invoice Partner', 'account.journal', 'account.move', 'child_of', 'company_id', 'entry', 'ilike', 'in_invoice', 'in_refund', 'journal_id', 'like', 'move_type', 'order_invoice_id', 'order_partner_id', 'out_invoice', 'out_refund', 'partner_id', 'res.company', 'res.partner', '|']

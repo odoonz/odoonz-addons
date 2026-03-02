@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/payment/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-[0.0, ', ', '/my/home', '/my/payment_method', '/payment/pay', '/payment/transaction', '=', 'GET', 'V', 'access_token', 'allow_token_deletion', 'amount', 'availability_report', 'company_mismatch', 'csrf_token', 'currency', 'currency_id', 'direct', 'expected_company', 'flow', 'http', 'id', 'in', 'is_validation', 'json', 'landing_route', 'mode', 'operation', 'partner_id', 'partner_is_different', 'payment.confirm', 'payment.method', 'payment.pay', 'payment.provider', 'payment.token', 'payment.transaction', 'payment_method_id', 'payment_methods_sudo', 'provider_id', 'providers_sudo', 'public', 'redirect', 'reference', 'reference_prefix', 'res.company', 'res.currency', 'res.partner', 'res_company', 'token', 'token_id', 'tokenize', 'tokens_sudo', 'transaction_route', 'tx', 'user', 'validation']

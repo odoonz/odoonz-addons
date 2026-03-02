@@ -1,4 +1,0 @@
-# file: /odoo/src/credit-control/sale_financial_risk/hooks.py
-# hypothesis_version: 6.131.14
-
-['int4', 'risk_partner_id', 'sale_order_line']

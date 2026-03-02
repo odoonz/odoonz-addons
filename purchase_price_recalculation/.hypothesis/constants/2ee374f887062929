@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/wizard/hr_expense_refuse_reason.py
-# hypothesis_version: 6.131.14
-
-['Reason', 'active_ids', 'hr.expense.sheet', 'sheet_ids', 'type']

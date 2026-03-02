@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'By-Products', 'MRP Work Orders', 'Quality', 'Quality Worksheet', 'Subcontracting', 'active', 'cancel', 'done', 'id', 'is_locked', 'mrp.bom', 'mrp.production', 'not in', 'res.config.settings', 'state', 'write_date']

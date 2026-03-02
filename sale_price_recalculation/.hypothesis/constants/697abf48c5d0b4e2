@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/wizard/account_report_file_download_error_wizard.py
-# hypothesis_version: 6.131.14
-
-['close', 'ir.actions.act_url', 'type', 'url']

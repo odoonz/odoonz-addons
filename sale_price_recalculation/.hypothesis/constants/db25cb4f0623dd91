@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_workorder_hr_account/report/mrp_report.py
-# hypothesis_version: 6.131.14
-
-[' + op_cost.total_emp', 'Total Employee Cost', 'avg', 'mrp.report']

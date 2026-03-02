@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk_stock/models/helpdesk_ticket.py
-# hypothesis_version: 6.131.14
-
-['!=', '=', 'Lot/Serial Number', 'Product', 'Return Orders', 'Return Orders Count', 'context', 'domain', 'done', 'form', 'helpdesk.ticket', 'id', 'id:array_agg', 'in', 'list,form', 'name', 'order_partner_id', 'outgoing', 'partner_id', 'picking_code', 'picking_id', 'picking_ids', 'picking_type_code', 'product.product', 'product_id', 'product_id.tracking', 'product_id:array_agg', 'res.partner', 'res_id', 'res_model', 'sale', 'sale.order.line', 'state', 'stock.lot', 'stock.move.line', 'stock.picking', 'suitable_product_ids', 'team_id', 'type', 'view_mode']

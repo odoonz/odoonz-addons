@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_stock/wizard/stock_replenishment_info.py
-# hypothesis_version: 6.131.14
-
-['Replenish', 'form', 'name', 'new', 'orderpoint_id', 'product.replenish', 'product.supplierinfo', 'replenish_id', 'res_id', 'res_model', 'target', 'type', 'view_mode']

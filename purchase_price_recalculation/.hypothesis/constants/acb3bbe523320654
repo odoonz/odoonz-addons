@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/wizard/change_production_qty.py
-# hypothesis_version: 6.131.14
-
-[0.0, 1.0, 'Manufacturing Order', 'Quantity To Produce', 'UP', 'active_id', 'active_model', 'cancel', 'cascade', 'confirmed', 'decimal.precision', 'done', 'mo_id', 'move_line_ids', 'mrp.production', 'product_qty', 'product_uom_qty', 'progress', 'serial', 'stock.move', 'stock.picking', 'workorder_id']

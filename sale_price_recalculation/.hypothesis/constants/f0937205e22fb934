@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/utm/models/utm_mixin.py
-# hypothesis_version: 6.131.14
-
-['(.*)\\s+\\[([0-9]+)\\]', '1', '=ilike', 'Campaign', 'Medium', 'Source', 'UTM Mixin', 'btree_not_null', 'campaign_id', 'id', 'ilike', 'is_auto_campaign', 'many2one', 'medium_id', 'name', 'not in', 'odoo_utm_campaign', 'odoo_utm_medium', 'odoo_utm_source', 'source_id', 'utm.campaign', 'utm.medium', 'utm.mixin', 'utm.source', 'utm_campaign', 'utm_medium', 'utm_source']

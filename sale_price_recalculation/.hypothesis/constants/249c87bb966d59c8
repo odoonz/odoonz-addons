@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/phone_validation/lib/phonenumbers_patch/__init__.py
-# hypothesis_version: 6.131.14
-
-['1', '1(?:33|5[56]|81)', '7.6.1', '8.12.13', '8.12.29', '8.12.32', '8.12.39', '8.12.43', '8.13.31', '8.13.32', '8.13.37', '8.13.39', '8.13.40', 'BR', 'CI', 'CO', 'IL', 'KE', 'MA', 'MU', 'MX', 'PA', 'PHONE_METADATA_%s', 'SN', '\\1 9\\2-\\3', '\\2 \\3 \\4', 'region_%s']

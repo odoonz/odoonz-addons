@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/payment_stripe/controllers/onboarding.py
-# hypothesis_version: 6.131.14
-
-['GET', 'http', 'payment.provider', 'user']

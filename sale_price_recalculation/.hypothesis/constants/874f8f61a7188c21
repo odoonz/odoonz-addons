@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/fleet/models/fleet_vehicle_log_services.py
-# hypothesis_version: 6.131.14
-
-['Cancelled', 'Company', 'Cost', 'Description', 'Done', 'Driver', 'Fleet Manager', 'New', 'Odometer', 'Odometer Value', 'Running', 'Service Type', 'Stage', 'Unit', 'Vehicle', 'Vendor', 'Vendor Reference', '_get_odometer', '_set_odometer', 'cancelled', 'date', 'done', 'fleet.service.type', 'fleet.vehicle', 'mail.activity.mixin', 'mail.thread', 'new', 'odometer', 'res.company', 'res.currency', 'res.partner', 'res.users', 'running', 'service_type_id', 'value', 'vehicle_id']

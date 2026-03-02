@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm/wizard/crm_lead_lost.py
-# hypothesis_version: 6.131.14
-
-['Closing Note', 'Get Lost Reason', 'Leads', 'Lost Comment', 'Lost Reason', 'crm.lead', 'crm.lead.lost', 'crm.lost.reason']

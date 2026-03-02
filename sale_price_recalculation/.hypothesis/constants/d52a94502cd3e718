@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/wizard/product_label_layout.py
-# hypothesis_version: 6.131.14
-
-['2 x 7 with price', '2x7xprice', '4 x 12', '4 x 12 with price', '4 x 7 with price', '4x12', '4x12xprice', '4x7xprice', 'Dymo', 'Extra Content', 'Format', 'Pricelist', 'Quantity', '_compute_dimensions', '_noprice', 'active_model', 'dymo', 'layout_wizard', 'price_included', 'print_format', 'product.label.layout', 'product.pricelist', 'product.product', 'product.template', 'quantity_by_product', 'x', 'xprice']

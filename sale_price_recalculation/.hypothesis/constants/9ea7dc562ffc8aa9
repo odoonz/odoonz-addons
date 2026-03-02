@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_crm/models/crm_lead.py
-# hypothesis_version: 6.131.14
-
-['=', 'Number of Quotations', 'Orders', 'Sum of Orders', '_compute_sale_data', 'cancel', 'company_currency', 'context', 'crm.lead', 'default_campaign_id', 'default_company_id', 'default_medium_id', 'default_origin', 'default_partner_id', 'default_source_id', 'default_tag_ids', 'default_team_id', 'default_user_id', 'domain', 'draft', 'form', 'in', 'ir.actions.actions', 'not in', 'opportunity_id', 'order_ids', 'order_ids.company_id', 'order_ids.date_order', 'order_ids.state', 'res_id', 'sale.action_orders', 'sale.order', 'sale.view_order_form', 'search_default_draft', 'sent', 'state', 'views']

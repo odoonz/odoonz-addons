@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/res_currency.py
-# hypothesis_version: 6.131.14
-
-[' UNION ALL ', '(%s)', ',', ', ', '=', 'account.move.line', 'average', 'company_currency_id', 'currency_id', 'current', 'historical', 'period', 'res.currency', 'rounding', 'year', '|']

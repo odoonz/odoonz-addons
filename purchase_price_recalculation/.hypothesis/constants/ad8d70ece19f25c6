@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_base_import/models/account_account.py
-# hypothesis_version: 6.131.14
-
-['.id', 'account.account', 'code', 'id', 'import_file']

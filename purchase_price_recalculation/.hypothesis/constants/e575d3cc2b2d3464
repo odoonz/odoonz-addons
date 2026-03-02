@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_payment/models/account_payment.py
-# hypothesis_version: 6.131.14
-
-['=', 'Payment Transaction', 'Refund', 'Refunds Count', 'Saved Payment Token', 'Source Payment', '__count', 'account.move', 'account.move.line', 'account.payment', 'active_ids', 'active_model', 'amount', 'btree_not_null', 'code', 'currency_id', 'domain', 'done', 'form', 'in', 'invoice_ids', 'journal_id', 'line_ids', 'list,form', 'name', 'new', 'none', 'offline', 'operation', 'partner_id', 'payment.provider', 'payment.token', 'payment.transaction', 'payment_amount', 'payment_id', 'payment_method_id', 'provider_id', 'reference', 'refund', 'res_id', 'res_model', 'source_payment_id', 'target', 'token_id', 'transaction_id', 'type', 'view_mode']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/partner_statement_run/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', '_', 'context', 'domain', 'invoice', 'partner_id', 'res.partner']

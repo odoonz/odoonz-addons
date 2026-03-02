@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr/models/hr_job.py
-# hypothesis_version: 6.131.14
-
-['%s (copy)', 'Company', 'Department', 'Employees', 'Employment Type', 'Job Description', 'Job Position', 'Requirements', 'Target', '__count', '_compute_employees', 'base.group_user', 'description', 'employee_ids.active', 'employee_ids.job_id', 'hr.contract.type', 'hr.department', 'hr.employee', 'hr.job', 'in', 'job_id', 'mail.thread', 'name_company_uniq', 'no_of_recruitment', 'res.company', 'sequence', 'trigram']

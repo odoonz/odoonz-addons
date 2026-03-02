@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/bus/controllers/home.py
-# hypothesis_version: 6.131.14
-
-['=', 'admin', 'base.partner_admin', 'danger', 'demo', 'ir.module.module', 'login_success', 'message', 'password', 'res.users', 'simple_notification', 'sticky', 'type']

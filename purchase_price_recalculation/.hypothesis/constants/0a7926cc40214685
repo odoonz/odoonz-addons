@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_reports/models/mail_activity.py
-# hypothesis_version: 6.131.14
-
-['account.journal', 'account.move', 'account.report', 'fpos_id', 'ignore_session', 'ir.actions.actions', 'mail.activity', 'options', 'params', 'report_id', 'tax_closing_end_date']

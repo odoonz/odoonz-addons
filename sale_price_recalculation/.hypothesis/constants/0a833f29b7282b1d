@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_check_printing/wizard/print_prenumbered_checks.py
-# hypothesis_version: 6.131.14
-
-['%0{}d', 'Next Check Number', '^[0-9]+$', 'account.payment', 'draft', 'in_process', 'is_sent', 'next_check_number', 'payment_ids']

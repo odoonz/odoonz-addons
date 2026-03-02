@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_fields.py
-# hypothesis_version: 6.131.14
-
-['%', '%%', '%(field)s', '%(field)s/', '%s.%s', ',', '.', '.id', '/', '0', '1', '2012-12-31', '2012-12-31 23:59:59', '=', 'Fields Converter', 'Possible Values', "Use the format '%s'", '_%s_to_%s', 'base', 'boolean', 'comodel', 'context', 'create', 'database id', 'domain', 'en_US', 'error_message', 'external id', 'false', 'field_path', 'field_type', 'float', 'form', 'help', 'id', 'import_cache', 'import_file', 'import_flush', 'import_skip_records', 'integer', 'ir.fields.converter', 'ir.model.data', 'label_property', 'list', 'list,form', 'many2many', 'many2one', 'model', 'moreinfo', 'name', 'new', 'no', 'res.lang', 'res_model', 'selection', 'string', 'tags', 'target', 'true', 'type', 'tz', 'update_many2many', 'value', 'view_mode', 'views', 'yes']

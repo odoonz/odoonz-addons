@@ -1,4 +1,0 @@
-# file: /odoo/src/account-financial-reporting/partner_statement/wizard/outstanding_statement_wizard.py
-# hypothesis_version: 6.131.14
-
-['=', 'ir.actions.report', 'is_outstanding', 'partner_ids', 'report_name', 'report_type', 'res.partner', 'xlsx']

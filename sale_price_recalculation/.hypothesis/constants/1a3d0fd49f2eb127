@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_skills/models/hr_employee_public.py
-# hypothesis_version: 6.131.14
-
-['=', 'Resume lines', 'Skills', 'employee_id', 'hr.employee.public', 'hr.employee.skill', 'hr.resume.line', 'skill_type_id.active']

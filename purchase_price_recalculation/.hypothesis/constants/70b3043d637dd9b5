@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_edi_ubl_cii/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['./{*}Description', './{*}MimeCode', '2.0', '2.1', '2.2', '2.3', 'AttachedDocument', 'Attachment', 'UBL/CII File', 'XML UBL', 'account.edi.xml.cii', 'account.move', 'account.move.line', 'account.tax', 'application/xml', 'content', 'description', 'download', 'download_ubl', 'filename', 'filetype', 'ir.actions.act_url', 'ir.attachment', 'key', 'mimeCode', 'name', 'price_unit', 'quantity', 'res.partner', 'sequence', 'target', 'tax_ids', 'text/xml', 'type', 'ubl', 'ubl_cii_xml_file', 'ubl_cii_xml_id', 'url', 'utf-8', 'xml', 'xml_tree', 'xrechnung', '{*}Attachment', '{*}CustomizationID', '{*}UBLVersionID']

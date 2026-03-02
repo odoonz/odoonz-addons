@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk_account/wizard/account_move_reversal.py
-# hypothesis_version: 6.131.14
-
-['=', 'Helpdesk Ticket #%s', 'Refund created', 'Sales Order', '_compute_move_ids', 'account.move', 'child_of', 'created_record', 'date_order desc', 'helpdesk.ticket', 'helpdesk_ticket_id', 'id', 'in', 'in_payment', 'invoice_ids.state', 'ir.model.data', 'message', 'move_id', 'move_ids', 'move_type', 'out_invoice', 'paid', 'partner_id', 'posted', 'reason', 'reversal_id', 'reversal_move_ids', 'sale', 'sale.order', 'self', 'state', 'ticket']

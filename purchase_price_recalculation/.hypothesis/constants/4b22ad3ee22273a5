@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_eom_process/wizards/ril_eom_process_wizard.py
-# hypothesis_version: 6.131.14
-
-['!=', '11250', '<=', '=', 'account.account', 'account.move.line', 'account_id', 'amount_residual', 'branch_id', 'code', 'date', 'done', 'expense', 'label', 'move_line_ids', 'parent_state', 'posted', 'product_id', 'type']

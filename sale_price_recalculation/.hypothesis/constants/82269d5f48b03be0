@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/web_grid/tools/grid_view_validation.py
-# hypothesis_version: 6.131.14
-
-['%s', 'col', 'field', 'grid', 'grid.rng', 'measure', 'readonly', 'row', 'type', 'views', 'web_grid']

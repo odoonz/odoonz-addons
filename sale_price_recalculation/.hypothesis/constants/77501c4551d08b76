@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['!=', 'SLA Policies', 'Tickets', '__count', 'child_of', 'company_id', 'context', 'display_name', 'domain', 'form', 'helpdesk.sla', 'helpdesk.ticket', 'helpdesk_sla_id', 'id', 'in', 'ir.actions.actions', 'ir.model.data', 'list', 'partner_id', 'res.partner', 'res_id', 'res_partner_id', 'views']

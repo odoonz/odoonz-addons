@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/agreement_rebate_ril/models/agreement_rebate_line.py
-# hypothesis_version: 6.131.14
-
-[0.0, 100.0, 200, 30000000, ', ', '...', 'Advisory', 'Agreement Line Mixin', 'Custom domain', 'Domain', 'None', 'Product Price', 'Selection', 'Strict', 'Waste %', '_compute_description', 'advisory', 'agreement', 'agreement.line.mixin', 'agreement_id', 'amount_from', 'amount_to', 'category', 'complete_name', 'condition', 'cutlist.line', 'display_name', 'domain', 'flashing', 'invoice', 'is_locked', 'material', 'none', 'price_subtotal', 'product', 'product_tmpl', 'rebate_category_ids', 'rebate_condition_id', 'rebate_discount', 'rebate_domain', 'rebate_product_ids', 'rebate_target', 'stock_input', 'strict']

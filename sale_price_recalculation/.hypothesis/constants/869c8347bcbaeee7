@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/snailmail_account_followup/models/account_followup_report.py
-# hypothesis_version: 6.131.14
-
-['company_id', 'model', 'partner_id', 'pending', 'report_template', 'res.partner', 'res_id', 'snailmail.letter', 'state', 'user_id']

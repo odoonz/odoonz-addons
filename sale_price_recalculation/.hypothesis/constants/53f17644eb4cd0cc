@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/agreement_rebate_ril/models/purchase_order_line.py
-# hypothesis_version: 6.131.14
-
-['agreement', 'price_unit', 'purchase.order.line']

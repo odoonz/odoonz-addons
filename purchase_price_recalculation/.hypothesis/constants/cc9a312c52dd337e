@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/partner_statement_run/report/outstanding_statement_attached.py
-# hypothesis_version: 6.131.14
-
-['doc_ids', 'doc_model', 'docs']

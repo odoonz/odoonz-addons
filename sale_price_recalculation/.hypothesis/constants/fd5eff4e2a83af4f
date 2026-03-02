@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/agreement_rebate_ril_portal/models/agreement.py
-# hypothesis_version: 6.131.14
-
-['Signed on', 'agreement', 'portal.mixin']

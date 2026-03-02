@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase_mrp/report/mrp_report_mo_overview.py
-# hypothesis_version: 6.131.14
-
-['=', '_name', 'buy', 'cancel', 'cost', 'currency', 'date_planned, id', 'delay', 'done', 'draft', 'estimated', 'expected', 'id', 'in', 'product_id', 'production_id', 'purchase', 'purchase.order', 'purchase.order.line', 'quantity', 'round_globally', 'scheduled_date', 'sent', 'state', 'stock.move', 'stock.warehouse', 'to approve', 'total_void', 'uom']

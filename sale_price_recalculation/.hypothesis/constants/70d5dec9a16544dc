@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/hr_expense/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['account.move', 'account_id', 'amount_currency', 'balance', 'btree_not_null', 'company_account', 'company_id', 'date_maturity', 'expense_sheet_id', 'form', 'hr.expense.sheet', 'in_invoice', 'move_id', 'name', 'own_account', 'partner_id', 'payment_term', 'ref', 'res_id', 'res_model', 'set null', 'special_mode', 'total_included', 'type', 'view_mode', 'views']

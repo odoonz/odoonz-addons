@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/fleet/models/fleet_vehicle_log_contract.py
-# hypothesis_version: 6.131.14
-
-['!=', '<', '<=', '=', '>', '>=', 'Cancelled', 'Company', 'Contract Start Date', 'Cost', 'Daily', 'Driver', 'Expired', 'Included Services', 'Monthly', 'Name', 'New', 'No', 'Recurring Cost', 'Reference', 'Responsible', 'Running', 'Status', 'Terms and Conditions', 'Type', 'Vehicle', 'Vehicle Contract', 'Vendor', 'Warning Date', 'Weekly', 'Yearly', '_compute_days_left', 'active_id', 'category', 'closed', 'contract', 'cost_subtype_id', 'daily', 'expiration_date', 'expired', 'fleet.service.type', 'fleet.vehicle', 'futur', 'in', 'ir.config_parameter', 'mail.activity.mixin', 'mail.thread', 'monthly', 'no', 'not in', 'open', 'res.company', 'res.currency', 'res.partner', 'res.users', 'start_date', 'state', 'user_id', 'vehicle_id', 'vehicle_id.driver_id', 'vehicle_id.name', 'weekly', 'yearly']

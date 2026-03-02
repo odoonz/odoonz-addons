@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/wizard/base_export_language.py
-# hypothesis_version: 6.131.14
-
-['%s.%s', '.', '=', 'Apps To Export', 'CSV File', 'Export Type', 'File', 'File Format', 'File Name', 'Language', 'Language Export', 'Model', 'Model Domain', 'Model Name', 'Model to Export', 'Module', 'PO File', 'TGZ Archive', '[]', '_', '__new__', 'all', 'base.language.export', 'choose', 'csv', 'data', 'form', 'get', 'installed', 'ir.model', 'ir.module.module', 'model', 'model_id.model', 'module', 'module_id', 'modules.name', 'name', 'new', 'po', 'pot', 'res.lang', 'res_id', 'res_model', 'state', 'target', 'tgz', 'transient', 'type', 'view_mode', 'views', 'wiz_id']

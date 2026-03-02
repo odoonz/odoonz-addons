@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/product/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-['=', 'Pricelist', 'company', 'company_id', 'country_code', 'country_id', 'in', 'product.pricelist', 'res.partner']

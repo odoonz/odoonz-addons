@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/models/mail_thread.py
-# hypothesis_version: 6.131.14
-
-['&', '=', 'SMS Delivery error', 'author_id', 'body', 'default_body', 'default_res_ids', 'default_res_model', 'default_template_id', 'error', 'exception', 'failure_type', 'id', 'in', 'ir.model.data', 'is_read', 'mail.message', 'mail.mt_note', 'mail.notification', 'mail.thread', 'mail_message_id', 'mass', 'mass_force_send', 'mass_keep_log', 'model_name', 'notif', 'notification', 'notification_status', 'notification_type', 'number', 'outgoing', 'partner', 'put_in_queue', 'ready', 'res.partner', 'res_ids', 'res_partner_id', 'sanitized', 'scheduled_date', 'sms', 'sms.composer', 'sms.sms', 'sms.template', 'sms_content', 'sms_id_int', 'sms_number', 'sms_number_missing', 'sms_numbers', 'sms_pid_to_number', 'sms_tracker_ids', 'sms_uuid', 'state', '|']

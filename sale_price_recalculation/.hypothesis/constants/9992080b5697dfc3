@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_coil_split/models/stock_move.py
-# hypothesis_version: 6.131.14
-
-['Slitter Order', 'ril.coil.slit', 'stock.move', 'stock.move.line']

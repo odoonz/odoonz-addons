@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant_batch_payment/models/bank_rec_widget.py
-# hypothesis_version: 6.131.14
-
-[0.0, '=', 'TRUE', 'account.move.line', 'account_id', 'amount_currency', 'amount_residual', 'balance', 'bank.rec.widget', 'batch_payments', 'company_id', 'context', 'currency_id', 'date', 'description', 'domain', 'dynamic_filters', 'exchange_diff', 'flag', 'in_process', 'inbound', 'journal_id', 'list_view_ref', 'name', 'new_aml', 'new_batch', 'outbound', 'payment_ids.move_id', 'payment_term', 'reconcile_model_id', 'same_journal', 'search_view_ref', 'source_balance']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/barcodes_gs1_nomenclature/models/barcode_rule.py
-# hypothesis_version: 6.131.14
-
-['Alpha-Numeric Name', 'Best before Date', 'Date', 'Decimal', 'Destination location', 'Expiration Date', 'GS1 Content Type', 'GS1-128', 'Location', 'Lot number', 'Measure', 'Numeric Identifier', 'Pack Date', 'Package', 'Package Type', 'Quantity', '\\([^)]*\\)', 'alpha', 'any', 'barcode.rule', 'date', 'expiration_date', 'gs1-128', 'identifier', 'is_gs1', 'location', 'location_dest', 'lot', 'measure', 'pack_date', 'package', 'package_type', 'pattern', 'quantity', 'set default', 'uom.uom', 'use_date']

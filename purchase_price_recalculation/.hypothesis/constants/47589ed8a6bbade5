@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/price_recalculation/wizards/price_recalculation.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Account', 'Balance To', 'Partner', 'Recalculate Price', 'Reprice as at', 'Sale Order', 'Unit Price Precision', 'active_ids', 'active_model', 'as_at_date', 'decimal.precision', 'inf', 'line_ids', 'name', 'partner_id', 'price.recalculation', 'price_subtotal', 'price_total', 'res.partner', 'sale.order', 'tax_incl', 'total']

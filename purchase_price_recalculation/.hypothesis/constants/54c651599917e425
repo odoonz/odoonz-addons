@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/tax_from_account/models/tax_from_account.py
-# hypothesis_version: 6.131.14
-
-['account.move.line', 'account_sale_tax_id', 'company_id', 'expense', 'in_invoice', 'income', 'order_id', 'out_', 'out_invoice', 'product_id', 'purchase.order.line', 'sale.order', 'sale.order.line', 'supplier_taxes_id', 'tax.from.account', 'taxes_id']

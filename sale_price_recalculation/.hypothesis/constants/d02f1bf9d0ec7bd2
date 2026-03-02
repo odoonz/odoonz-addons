@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/web_view_google_map/models/ir_ui_view.py
-# hypothesis_version: 6.131.14
-
-['1', 'Google Maps', 'True', 'calendar', 'children', 'context', 'domain', 'drawing', 'editable', 'fa fa-map-o', 'field', 'form', 'google_map', 'graph', 'icon', 'id', 'invisible', 'ir.ui.view', 'js_class', 'kanban', 'lat', 'list', 'lng', 'many2many', 'many2one', 'model_access_rights', 'model_groups', 'name', 'one2many', 'properties', 'res.groups', 'search', 'select', 'sidebar_title', 'validate', 'view_type', 'widget']

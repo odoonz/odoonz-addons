@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale_mrp/models/mrp_bom.py
-# hypothesis_version: 6.131.14
-
-['!=', ', ', '=', 'cancel', 'display_name', 'in', 'invoice_status', 'move_ids.state', 'mrp.bom', 'no', 'phantom', 'product_id', 'sale', 'sale.order.line', 'state', 'to invoice', 'type']

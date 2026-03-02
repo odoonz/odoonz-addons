@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_check_printing/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Check Layout', 'Check Left Margin', 'Check Right Margin', 'Check Top Margin', 'Print Date Label', 'res.config.settings']

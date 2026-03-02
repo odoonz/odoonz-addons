@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/_monkeypatches/werkzeug_urls.py
-# hypothesis_version: 6.131.14
-
-[b' ', b'%', b'&', b'+', b':', b'@', b'[', b']', 256, 65535, '#', '&', "'make_chunk_iter", "'werkzeug", '+', '.', '..', '/', "/%+$!*'(),", '//', '/:', '/:%', '/:%@', '/?#', '0123456789', '127.0.0.1', ':', ":&%=+$!*'(),", ':/', '::1', '=', '?', '@', 'Invalid IPv6 URL', '[', '\\', ']', '^[a-zA-Z0-9+-.]+$', '_get_func_code', 'ascii', 'encode', 'file', 'file://', 'idna', 'ignore', 'latin1', 'localhost', 'nt', 'posix', 'replace', 'strict', 'url_join', 'utf-8', 'windows', '|/', '|:']

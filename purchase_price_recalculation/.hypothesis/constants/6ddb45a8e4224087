@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/stock/report/report_stock_reception.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!=', '=', '>', 'HALF-UP', 'assigned', 'cancel', 'child_of', 'confirmed', 'data', 'decimal.precision', 'default_picking_ids', 'display_name', 'display_state', 'doc_ids', 'doc_model', 'docs', 'done', 'draft', 'id', 'in', 'index', 'is_assigned', 'is_qty_assignable', 'location_id', 'make_to_order', 'make_to_stock', 'model', 'move_dest_ids', 'move_ins', 'move_orig_ids', 'move_out', 'move_out_id', 'name', 'not in', 'outgoing', 'partially_available', 'partner_id', 'partner_name', 'picking_id', 'picking_type_code', 'pickings', 'precision', 'priority', 'procure_method', 'product', 'product_id', 'product_qty', 'quantity', 'reason', 'reservation_date', 'show_uom', 'source', 'sources_info', 'sources_to_lines', 'state', 'stock.location', 'stock.move', 'stock.picking', 'supplier', 'transfers', 'uom', 'uom.group_uom', 'usage', 'waiting']

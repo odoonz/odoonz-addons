@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/controllers/attachment.py
-# hypothesis_version: 6.131.14
-
-[',', '/mail/attachment/zip', 'BadZipfile exception', 'Content-Disposition', 'Content-Length', 'Content-Type', 'POST', 'access_token', 'attachment_ids', 'create', 'data', 'discuss.channel', 'error', 'false', 'http', 'id', 'in', 'ir.attachment', 'ir.attachment/delete', 'ir.binary', 'json', 'mail.compose.message', 'mail.message', 'name', 'nosniff', 'public', 'raw', 'res_id', 'res_model', 'w', 'zip']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/tools/cache.py
-# hypothesis_version: 6.131.14
-
-[100.0, '(context or {})', ', ', '<no_db>', 'Caches stats:', 'cache', 'cache_name', 'context', 'default', 'err', 'gen_time', 'hit', 'keys', 'lambda %s: (%s, %s)', 'lambda %s: (%s,)', 'lambda %s: ()', 'miss', 'self._context', 'skiparg', '~']

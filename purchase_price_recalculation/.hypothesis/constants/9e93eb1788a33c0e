@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/calendar/models/calendar_alarm.py
-# hypothesis_version: 6.131.14
-
-['%s - %s %s', '&', '=', 'Additional Message', 'Days', 'Duration in minutes', 'Email', 'Email Template', 'Event Alarm', 'Hours', 'Minutes', 'Name', 'Notification', 'Remind Before', 'Type', 'Unit', 'alarm_type', 'calendar.alarm', 'calendar.attendee', 'days', 'duration', 'email', 'hours', 'in', 'interval', 'ir.model.data', 'mail.template', 'mail_template_id', 'minutes', 'model', 'notification', '|']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents/models/kpi_provider.py
-# hypothesis_version: 6.131.14
-
-['=', 'Inbox', 'documents.document', 'documents.inbox', 'folder_id', 'id', 'integer', 'kpi.provider', 'name', 'type', 'value']

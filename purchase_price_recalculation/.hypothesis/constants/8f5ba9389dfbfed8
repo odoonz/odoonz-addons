@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/ir_mail_server.py
-# hypothesis_version: 6.131.14
-
-['%s (Email Template)', ',', '@', 'ir.mail_server', 'mail.alias.domain', 'mail.template', 'mail_server_id', 'mail_template_ids']

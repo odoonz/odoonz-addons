@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_inventory/wizards/end_coil.py
-# hypothesis_version: 6.131.14
-
-['End Coil', 'Warehouse', 'active', 'active_ids', 'end.coil', 'end_coil', 'in', 'lot_id', 'product.product', 'stock.lot', 'stock.quant', 'stock.warehouse', 'warehouse_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/web_unsplash/models/res_config_settings.py
-# hypothesis_version: 6.131.14
-
-['Access Key', 'Application ID', 'res.config.settings', 'unsplash.access_key', 'unsplash.app_id']

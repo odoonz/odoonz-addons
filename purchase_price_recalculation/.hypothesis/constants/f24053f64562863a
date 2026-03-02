@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/portal_rating/models/rating_rating.py
-# hypothesis_version: 6.131.14
-
-['Commented by', 'Commented on', 'Publisher comment', 'btree_not_null', 'ir.model.data', 'publisher_comment', 'publisher_datetime', 'publisher_id', 'rating.rating', 'record_ids', 'res.partner', 'set null', 'write']

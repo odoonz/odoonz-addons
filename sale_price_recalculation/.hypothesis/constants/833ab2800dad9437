@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/purchase_price_recalculation/wizards/purchase_price_recalculation_line.py
-# hypothesis_version: 6.131.14
-
-['Price Recalculation', 'purchase.order.line']

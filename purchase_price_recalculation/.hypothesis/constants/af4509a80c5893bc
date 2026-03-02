@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/wizard/account_move_reversal.py
-# hypothesis_version: 6.131.14
-
-['=', 'Journal', 'Reversal date', 'Reversal of: %s', 'Reverse Moves', '_compute_from_moves', '_compute_journal_id', 'account.journal', 'account.move', 'active_ids', 'active_model', 'at_date', 'auto_post', 'company_id', 'context', 'date', 'default_move_type', 'display_type', 'domain', 'entry', 'form', 'id', 'in', 'in_invoice', 'invoice_date', 'invoice_date_due', 'invoice_user_id', 'journal_id', 'line_ids', 'line_note', 'line_section', 'list,form', 'mixed', 'move_id', 'move_ids', 'move_type', 'name', 'new_move_id', 'no', 'out_invoice', 'partner_bank_id', 'partner_id', 'posted', 'product', 'ref', 'res.company', 'res.currency', 'res.partner.bank', 'res_id', 'res_model', 'reversal_id', 'reversed', 'sequence DESC', 'some_invoice', 'state', 'type', 'view_mode']

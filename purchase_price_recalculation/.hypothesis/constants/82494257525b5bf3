@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk_stock/wizard/stock_picking_return.py
-# hypothesis_version: 6.131.14
-
-['=', 'Customer', 'Sales Order', '_compute_picking_id', 'child_of', 'done', 'helpdesk.ticket', 'id', 'id desc', 'in', 'mail.mt_note', 'partner_id', 'picking_id', 'picking_ids', 'res.partner', 'res_id', 'sale', 'sale.order', 'sale_order_id', 'self', 'state', 'stock.picking', 'stock.return.picking', 'ticket', 'ticket_id.partner_id', '|']

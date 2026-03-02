@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/wizard/mrp_batch_produce.py
-# hypothesis_version: 6.131.14
-
-['(.+)%s(.+)', ',', ';', '=', 'Batch Production', 'Component separator', 'First Lot/SN', 'Lot separator', 'Number of SN', 'Production', '_compute_lot_name', '_compute_lot_qty', 'company_id', 'component_separator', 'context', 'do_multi_print', 'in', 'ir.actions.actions', 'ir.actions.client', 'lot_id', 'lot_name', 'mrp.batch.produce', 'mrp.production', 'name', 'none', 'params', 'product_id', 'production_id', 'reports', 'res_id', 'serial', 'stock.lot', 'stock.move.line', 'tag', 'type', '|']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_accountant/demo/account_accountant_demo.py
-# hypothesis_version: 6.131.14
-
-[120, 1200, '%Y-01-01', '%Y-12-31', 'Insurance 12 months', 'account.move', 'base.res_partner_1', 'base.user_demo', 'deferred_end_date', 'deferred_start_date', 'demo_bill_deferred', 'in_invoice', 'invoice_date', 'invoice_line_ids', 'invoice_user_id', 'move_type', 'name', 'out_invoice', 'partner_id', 'price_unit', 'quantity', 'res.company']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode/models/stock_quant.py
-# hypothesis_version: 6.131.14
-
-['<=', '=', '=?', '_compute_dummy_id', '_inverse_dummy_id', 'company_id', 'dummy_id', 'id', 'in', 'internal', 'inventory_date', 'inventory_quantity', 'ir.actions.actions', 'line_view_id', 'location_id', 'lot_id', 'lot_name', 'name', 'nomenclature_id', 'owner_id', 'package_id', 'product.packaging', 'product.product', 'product_id', 'product_id.code', 'product_uom_id', 'quantity', 'records', 'res.company', 'res.partner', 'show_quantity_count', 'stock.location', 'stock.lot', 'stock.package.type', 'stock.quant', 'stock.quant.package', 'stock.warehouse', 'transit', 'uom.group_uom', 'uom.uom', 'usage', 'user_id']

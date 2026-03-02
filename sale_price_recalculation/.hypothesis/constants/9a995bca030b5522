@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_embedded_actions.py
-# hypothesis_version: 6.131.14
-
-['=', 'Action', 'Active Parent Id', 'Active Parent Model', 'Default View', 'Embedded Actions', 'Embedded visibility', 'Parent Action', 'User', '[]', '__custom__', '__export__', '_compute_is_visible', 'action_id', 'active_id', 'cascade', 'context', 'default_view_mode', 'domain', 'embedded_action_id', 'filter_ids', 'groups_ids', 'id', 'ir.actions.actions', 'ir.embedded.actions', 'ir.filters', 'is_deletable', 'name', 'parent_action_id', 'parent_res_id', 'parent_res_model', 'python_method', 'res.groups', 'res.users', 'sequence, id', 'user_id', '{}']

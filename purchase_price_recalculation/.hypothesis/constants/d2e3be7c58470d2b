@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/ril_dispatch/models/dispatch_manifest.py
-# hypothesis_version: 6.131.14
-
-[0.0, '%d/%m/%y', '/', '=', 'Batch Transfer', 'Cancelled', 'Company', 'Dispatch Manifest', 'Done', 'Draft', 'Driver', 'In progress', 'New', 'Operation Type', 'Transfers', 'Unit of Measure', '_compute_longest', '_compute_max_length', '_compute_max_weight', 'assigned', 'automatic_workflow', 'cancel', 'company_id', 'confirmed', 'dispatch.manifest', 'done', 'draft', 'in', 'in_progress', 'ir.sequence', 'longest', 'mail.activity.mixin', 'mail.thread', 'manifest_id', 'name', 'picking_type_id', 'picking_type_id.code', 'res.company', 'res.users', 'state', 'stock.picking', 'stock.picking.type', 'waiting', 'weight']

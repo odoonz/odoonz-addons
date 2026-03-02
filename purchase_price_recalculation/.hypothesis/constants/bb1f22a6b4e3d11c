@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode_mrp/models/stock_picking_type.py
-# hypothesis_version: 6.131.14
-
-['=', 'assigned', 'confirmed', 'domain', 'in', 'mrp.production', 'mrp_operation', 'picking_type_id', 'progress', 'reservation_state', 'state', 'stock.picking.type']

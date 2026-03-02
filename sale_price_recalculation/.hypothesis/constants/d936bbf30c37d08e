@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_fleet/models/account_move.py
-# hypothesis_version: 6.131.14
-
-['Vehicle', 'account.move', 'account.move.line', 'account_move_line_id', 'btree_not_null', 'description', 'fleet.vehicle', 'in_invoice', 'product', 'service_type_id', 'vehicle_id', 'vendor_id']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/ir_qweb.py
-# hypothesis_version: 6.131.14
-
-['att', 'inner-content', 'ir.qweb', 'out', 't-inner-content', 't-out', 't-tag-close', 't-tag-open', 'tag-close', 'tag-open']

@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_financial_risk_activity/wizards/partner_risk_exceeded_wiz.py
-# hypothesis_version: 6.131.14
-
-['(draft)', '=', 'Finance: Risk Review', 'Sale order: %(name)s', 'action_confirm', 'active', 'activity_schedule', 'activity_type_id', 'amount_untaxed', 'branch_id', 'company_id', 'credit_manager_id', 'currency_id', 'groups_id', 'in', 'mail.activity', 'name', 'partner_id', 'res.users', 'res_id', 'res_model', 'sale.order', 'type', '–']

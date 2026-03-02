@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/portal_rating/models/mail_thread.py
-# hypothesis_version: 6.131.14
-
-['mail.thread', 'rating_value']

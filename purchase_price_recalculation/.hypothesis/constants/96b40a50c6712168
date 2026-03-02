@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/crm_iap_enrich/models/crm_lead.py
-# hypothesis_version: 6.131.14
-
-[100, 1000, '<', '=', '>', '@', 'Allow manual enrich', 'Enrichment done', 'auto', 'city', 'clearbit_id', 'code', 'country_code', 'country_id', 'create_date', 'crm.lead', 'email_from', 'flavor_text', 'iap.account', 'iap.enrich.api', 'iap_enrich_done', 'id', 'in', 'incorrect', 'ir.config_parameter', 'lead_ids', 'location', 'mail.mt_note', 'mobile', 'name', 'partner_name', 'phone', 'phone_numbers', 'postal_code', 'probability', 'res.country', 'res.country.state', 'reveal', 'reveal_id', 'state_code', 'state_id', 'street', 'zip', '|']

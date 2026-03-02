@@ -1,4 +1,0 @@
-# file: /odoo/src/ril/sale_dropship_address/models/res_partner.py
-# hypothesis_version: 6.131.14
-
-[100, 'Interbranch Pricing', 'Special Pricing', 'active', 'display_name', 'id', 'ilike', 'in', 'partner_id', 'product.supplierinfo', 'res.partner', 'site_contact_id', 'stock.warehouse']

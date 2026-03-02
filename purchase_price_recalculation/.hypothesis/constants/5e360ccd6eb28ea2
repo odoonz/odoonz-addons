@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/models/mail_canned_response.py
-# hypothesis_version: 6.131.14
-
-['Authorized Groups', 'Canned Response', 'Description', 'Last Used', 'Shortcut', 'Substitution', '_compute_is_editable', '_compute_is_shared', 'create', 'create_uid', 'group_ids', 'id desc', 'mail.canned.response', 'res.groups', 'source', 'substitution', 'trigram', 'uid', 'write']

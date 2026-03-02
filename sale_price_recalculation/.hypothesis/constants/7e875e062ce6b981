@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/template_generic_coa.py
-# hypothesis_version: 6.131.14
-
-['1014', '1015', '1017', 'base.us', 'cash_diff_expense', 'cash_diff_income', 'cash_discount_gain', 'cash_discount_loss', 'cost_of_production', 'country', 'expense', 'generic_coa', 'income', 'name', 'payable', 'pos_receivable', 'receivable', 'res.company', 'stock_in', 'stock_out', 'stock_valuation']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/mrp_account_enterprise/reports/mrp_cost_structure.py
-# hypothesis_version: 6.131.14
-
-[0.0, 0.0001, 60.0, 100, '=', 'HALF-UP', 'byproduct_moves', 'cancel', 'cost', 'cost_share', 'currency', 'done', 'in', 'lines', 'mo_qty', 'mo_uom', 'mocount', 'mrp.production', 'mrp.workorder', 'operations', 'product', 'product.product', 'product_id', 'production_id', 'qty', 'qty_by_byproduct', 'raw_material_moves', 'res.currency', 'scrapped', 'scraps', 'state', 'stock.move', 'total_cost', '|']

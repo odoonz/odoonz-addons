@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/odoo/addons/base/models/ir_profile.py
-# hypothesis_version: 6.131.14
-
-['1 Day', '1 Hour', '1 Month', '5 Minutes', '<', 'Creation Date', 'Description', 'Duration', 'Enable profiling for', 'Entry count', 'Initial stack trace', 'Open', 'Profiling results', 'Queries Count', 'Qweb', 'Session', 'Speedscope', 'Sql', 'Traces Async', 'Traces Sync', '_', '_compute_expiration', '_compute_speedscope', 'collectors', 'create_date', 'days_0', 'days_1', 'duration', 'form', 'frames', 'hours_1', 'ir.config_parameter', 'ir.profile', 'minutes_5', 'months_1', 'new', 'params', 'res_model', 'session', 'settrace', 'sql', 'target', 'type', 'utf-8', 'view_mode', 'views']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/fleet/models/fleet_service_type.py
-# hypothesis_version: 6.131.14
-
-['Category', 'Contract', 'Fleet Service Type', 'Service', 'contract', 'fleet.service.type', 'name', 'service']

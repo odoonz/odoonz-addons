@@ -1,4 +1,0 @@
-# file: /odoo/src/odoonz/product_list_price_change/models/product_price_change_line.py
-# hypothesis_version: 6.131.14
-
-[100.0, '% Change', 'Price Change', 'Product', 'Product Price', 'Sales Price', 'cascade', 'list_price', 'percent_change', 'product.price.change', 'product.template', 'product_tmpl_id']

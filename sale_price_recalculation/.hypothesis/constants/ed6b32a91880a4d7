@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sale/models/product_document.py
-# hypothesis_version: 6.131.14
-
-['Hidden', 'On confirmed order', 'On quote', 'Sale : Visible at', 'hidden', 'product.document', 'quotation', 'sale_order']

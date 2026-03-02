@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mail/controllers/link_preview.py
-# hypothesis_version: 6.131.14
-
-['/mail/link_preview', '=', 'POST', 'id', 'in', 'json', 'mail.guest', 'mail.link.preview', 'mail.message', 'public']

@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/stock_barcode_mrp/models/stock_picking.py
-# hypothesis_version: 6.131.14
-
-['id', 'phantom', 'product.packaging', 'product.product', 'records', 'stock.picking']

@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/purchase/models/product.py
-# hypothesis_version: 6.131.14
-
-[0.0, '!=', '&', '=', '>=', 'Control Policy', 'Purchase', 'Purchased', '__count', 'display_name', 'domain', 'done', 'id', 'in', 'ir.actions.actions', 'label', 'no-message', 'order_id', 'order_id.state', 'partner_id', 'product.packaging', 'product.product', 'product.supplierinfo', 'product.template', 'product_id', 'product_uom_qty:sum', 'purchase', 'purchase.order.line', 'purchase_method', 'receive', 'service', 'state', 'template', 'type']

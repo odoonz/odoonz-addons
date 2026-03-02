@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/html_editor/models/ir_attachment.py
-# hypothesis_version: 6.131.14
-
-['%s%sunique=%s', '&', '.gif', '.jpe', '.jpeg', '.jpg', '.png', '.svg', '.webp', '/', '/web/image/%s-%s/%s', ';', '?', 'Attachment URL', '_compute_image_size', '_compute_image_src', '_compute_local_url', 'access_token', 'btree_not_null', 'checksum', 'datas', 'description', 'id', 'image/gif', 'image/jpe', 'image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml', 'image/webp', 'image_height', 'image_src', 'image_width', 'ir.attachment', 'mimetype', 'name', 'original_id', 'public', 'res_id', 'res_model', 'type', 'url']

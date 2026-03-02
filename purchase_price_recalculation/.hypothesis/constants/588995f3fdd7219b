@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account_edi_ubl_cii/wizard/account_move_send_wizard.py
-# hypothesis_version: 6.131.14
-
-['invoice_edi_format']

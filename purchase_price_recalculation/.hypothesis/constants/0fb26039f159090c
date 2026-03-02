@@ -1,4 +1,0 @@
-# file: /odoo/src/google-maps/base_google_map/controllers/controllers.py
-# hypothesis_version: 6.131.14
-
-[',', 'False', 'api_key', 'color_scheme', 'geometry', 'ir.config_parameter', 'json', 'language', 'libraries', 'map_id', 'quarterly', 'region', 'restrict_language', 'user', 'version']

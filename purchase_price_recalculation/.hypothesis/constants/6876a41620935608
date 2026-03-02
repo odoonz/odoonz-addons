@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/account/models/product.py
-# hypothesis_version: 6.131.14
-
-[0.0, 10000, '!', '!=', ',', '=', 'Account Tags', 'Expense Account', 'Income Account', 'Purchase Taxes', 'Sales Taxes', '_compute_tax_string', 'account.account', 'account.account.tag', 'account.tax', 'account_sale_tax_id', 'allowed_company_ids', 'barcode', 'child_of', 'combo', 'company', 'company_id', 'default_code', 'expense', 'id', 'ilike', 'income', 'list_price', 'lst_price', 'name', 'prod_id', 'product.category', 'product.product', 'product.template', 'product_taxes_rel', 'product_tmpl_id', 'purchase', 'res.company', 'res.partner', 'restrict', 'sale', 'stock_input', 'stock_output', 'supplier_taxes_id', 'tax_id', 'taxes_id', 'total_excluded', 'total_included', 'type', 'type_tax_use', 'uom_id']

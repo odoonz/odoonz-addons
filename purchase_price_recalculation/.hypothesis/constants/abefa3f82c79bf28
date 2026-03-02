@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/documents_spreadsheet/models/spreadsheet_template.py
-# hypothesis_version: 6.131.14
-
-[100, '%s (copy)', 'Spreadsheet Template', 'UPDATE_LOCALE', '_compute_file_name', 'action_open_template', 'documents.document', 'handler', 'ir.actions.client', 'locale', 'mimetype', 'name', 'params', 'res.lang', 'sequence', 'spreadsheet', 'spreadsheet.mixin', 'spreadsheet.template', 'spreadsheet_data', 'spreadsheet_id', 'tag', 'type']

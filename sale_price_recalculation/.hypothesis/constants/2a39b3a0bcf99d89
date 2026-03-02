@@ -1,4 +1,0 @@
-# file: /odoo/src/coverage_workaround.py
-# hypothesis_version: 6.131.14
-
-['__main__']

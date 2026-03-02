@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/sms/wizard/sms_account_code.py
-# hypothesis_version: 6.131.14
-
-['account_id', 'form', 'iap.account', 'name', 'new', 'registered', 'res_id', 'res_model', 'sms.account.code', 'sms.account.sender', 'state', 'success', 'target', 'type', 'unknown_error', 'view_mode']

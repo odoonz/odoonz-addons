@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/mrp/models/stock_lot.py
-# hypothesis_version: 6.131.14
-
-['active_mo_id', 'lot_product_ids', 'mrp.production', 'stock.lot']

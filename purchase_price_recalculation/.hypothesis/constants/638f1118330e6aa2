@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/helpdesk_account/controllers/portal.py
-# hypothesis_version: 6.131.14
-
-[100, '=', 'Credit Note', 'Credit Notes', 'access_url', 'helpdesk.ticket', 'http', 'id', 'in', 'invoice', 'invoices', 'my_invoices_history', 'offset', 'pager', 'read', 'sequence', 'ticket_link_section', 'title', 'user']

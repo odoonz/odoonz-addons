@@ -1,4 +1,0 @@
-# file: /odoo/src/enterprise/account_bank_statement_import_csv/wizard/account_bank_statement_import_csv.py
-# hypothesis_version: 6.131.14
-
-[0.0, 'Credit', 'Cumulative Balance', 'Debit', 'amount', 'balance', 'balance_end_real', 'balance_start', 'bank_stmt_import', 'base_import.import', 'credit', 'date', 'debit', 'default_journal_id', 'fields', 'id', 'ids', 'line_ids', 'model_name', 'monetary', 'name', 'reference', 'required', 'sequence', 'statement_id', 'statement_vals', 'string', 'type']

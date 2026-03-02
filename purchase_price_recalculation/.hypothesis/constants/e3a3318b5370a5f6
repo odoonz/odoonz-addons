@@ -1,4 +1,0 @@
-# file: /odoo/src/odoo/addons/barcodes/models/res_company.py
-# hypothesis_version: 6.131.14
-
-['Nomenclature', 'barcode.nomenclature', 'res.company']
