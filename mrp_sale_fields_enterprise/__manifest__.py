@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
-    "depends": ["mrp_workorder"],
+    "depends": ["mrp_workorder", "mrp_sale_fields"],
     "data": ["views/mrp_workorder.xml"],
     "installable": True,
 }
