@@ -13,8 +13,9 @@
                 <field name="anglo_saxon_financial" invisible="1" />
                 <button
                     name="toggle_financial"
+                    string="Toggle Financial"
                     type="object"
-                    invisible="state != 'draft'"
+                    invisible="state != 'draft' or move_type == 'entry'"
                     help="Use Financial when stock entries should not be created. A classic example is when providing a customer a price credit"
                 >
                     <div>
@@ -22,7 +23,7 @@
                             invisible="not anglo_saxon_accounting or not anglo_saxon_financial"
                         >Change to Stock</span>
                         <span
-                            invisible="not anglo_saxon_accounting or anglo_saxon_financial or move_type == 'entry'"
+                            invisible="not anglo_saxon_accounting or anglo_saxon_financial"
                         >Change to Financial</span>
                     </div>
                 </button>
