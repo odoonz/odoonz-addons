@@ -53,7 +53,7 @@ class IrHttp(models.AbstractModel):
             "user_agent": request.httprequest.environ.get("HTTP_USER_AGENT"),
             # Odoo things
             "db": None,
-            "uid": request.uid,
+            "uid": request.env.uid,
             "login": None,
             "server_environment": config.get("running_env"),
             "model": None,
