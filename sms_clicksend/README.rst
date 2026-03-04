@@ -5,7 +5,7 @@ SMS ClickSend
 Implementation of **ClickSend API** for sending SMS.
 
 This module depends on
-https://github.com/OCA/server-tools/tree/18.0/iap_alternative_provider
+https://github.com/OCA/server-tools/tree/19.0/iap_alternative_provider
 and provides a new SMS provider ClickSend to replace the one from Odoo SA.
 
 You will also need to install the official ClickSend Python client:
