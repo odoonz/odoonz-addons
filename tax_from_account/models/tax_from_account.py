@@ -73,12 +73,32 @@ class PurchaseOrderLine(models.Model):
     _name = "purchase.order.line"
     _inherit = ["purchase.order.line", "tax.from.account"]
 
-    @api.onchange("product_id")
-    def onchange_product_id(self):
-        res = super().onchange_product_id()
+    def _compute_tax_id(self):
+        super()._compute_tax_id()
         for line in self:
             if not line.tax_ids:
                 line.tax_ids = line._get_default_taxes("in_invoice")
+
+    @api.model
+    def _prepare_purchase_order_line(
+        self, product_id, product_qty, product_uom, company_id, partner_id, po
+    ):
+        res = super()._prepare_purchase_order_line(
+            product_id, product_qty, product_uom, company_id, partner_id, po
+        )
+        if not res.get("tax_ids") or res["tax_ids"] == [(6, 0, [])]:
+            fpos = po.fiscal_position_id
+            account = product_id.product_tmpl_id.get_product_accounts(
+                fiscal_pos=fpos
+            ).get("expense")
+            taxes = (
+                account.tax_ids._filter_taxes_by_company(company_id)
+                if account
+                else self.env["account.tax"]
+            ) or company_id.account_purchase_tax_id
+            if fpos:
+                taxes = fpos.map_tax(taxes)
+            res["tax_ids"] = [(6, 0, taxes.ids)]
         return res
 
 
