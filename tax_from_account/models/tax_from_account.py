@@ -53,7 +53,7 @@ class SaleOrder(models.Model):
 
     def _create_delivery_line(self, carrier, price_unit):
         sol = super()._create_delivery_line(carrier, price_unit)
-        sol._compute_tax_id()
+        sol._compute_tax_ids()
         return sol
 
 
@@ -74,10 +74,11 @@ class PurchaseOrderLine(models.Model):
     _inherit = ["purchase.order.line", "tax.from.account"]
 
     def _compute_tax_id(self):
-        super()._compute_tax_id()
+        res = super()._compute_tax_id()
         for line in self:
             if not line.tax_ids:
                 line.tax_ids = line._get_default_taxes("in_invoice")
+        return res
 
     @api.model
     def _prepare_purchase_order_line(
