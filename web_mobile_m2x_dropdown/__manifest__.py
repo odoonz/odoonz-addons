@@ -13,6 +13,7 @@
     "assets": {
         "web.assets_backend": [
             "web_mobile_m2x_dropdown/static/src/**/*.xml",
+            "web_mobile_m2x_dropdown/static/src/**/*.scss",
         ],
     },
     "installable": True,

@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    // Keep product dropdown anchored in viewport on mobile.
+    .o_field_many2one[name="product_id"] .o-autocomplete--dropdown-menu,
+    div[name="product_id"] .o-autocomplete--dropdown-menu {
+        width: calc(100vw - 1rem);
+        max-width: calc(100vw - 1rem);
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    // Ensure leading product code/name stays visible.
+    .o_field_many2one[name="product_id"]
+        .o-autocomplete--dropdown-item.o_m2o_dropdown_option
+        > a,
+    div[name="product_id"] .o-autocomplete--dropdown-item.o_m2o_dropdown_option > a {
+        text-indent: 0 !important;
+        padding-left: 0.5rem;
+    }
+}
