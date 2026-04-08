@@ -15,27 +15,20 @@
                 expr="//field[@name='allow_overrisk_invoice_validation']/../.."
                 position="inside"
             >
-                    <div class="o_setting_left_pane">
-
-                        <field name="enforce_limit_sale" />
-                    </div>
-                    <div class="o_setting_right_pane">
-                        <label
-                        string="All customers must have limit."
-                        for="enforce_limit_sale"
-                    />
-                        <div class="text-muted">
-                            Check customer has credit limit before confirming sale orders
-                        </div>
-                    </div>
-                    <div class="o_setting_left_pane" />
-                    <div class="o_setting_right_pane">
-                        <label string="Allowed amount." for="allowed_min_sale" />
-                        <field name="allowed_min_sale" />
-                        <div class="text-muted">
-                            Minimum risk value before enforcing
-                        </div>
-                    </div>
+                <setting
+                    id="enforce_limit_sale"
+                    string="All customers must have limit"
+                    help="Check customer has credit limit before confirming sale orders"
+                >
+                    <field name="enforce_limit_sale" />
+                </setting>
+                <setting
+                    id="allowed_min_sale"
+                    string="Allowed amount"
+                    help="Minimum risk value before enforcing"
+                >
+                    <field name="allowed_min_sale" />
+                </setting>
             </xpath>
         </field>
     </record>
