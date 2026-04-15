@@ -17,10 +17,8 @@ class StockProductionLot(models.Model):
                 )
                 lot.product_qty = sum(quants.mapped("quantity"))
         else:
-            return super(
-                StockProductionLot,
-                self.with_context(skip_in_progress=True),
-            )._product_qty()
+            self = self.with_context(skip_in_progress=True)
+            return super()._product_qty()
 
     def _search(self, domain, offset=0, limit=None, order=None, **kwargs):
         if location := self.env.context.get("location_id"):

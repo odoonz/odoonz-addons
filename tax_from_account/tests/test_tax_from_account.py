@@ -218,6 +218,8 @@ class TestTaxFromAccount(TransactionCase):
     def test_product_tax_in_multi_companies(self):
         self.test_sale_order.company_id.account_sale_tax_id = self.test_default_sale_tax
         so = Form(self.test_sale_order)
+        if not so.client_order_ref:
+            so.client_order_ref = "TEST-MULTI-CO"
         with so.order_line.new() as line_a:
             line_a.name = "In company A"
             line_a.product_id = self.test_product
@@ -233,6 +235,7 @@ class TestTaxFromAccount(TransactionCase):
         so_new_vals = {
             "partner_id": self.partner_b.id,
             "company_id": self.test_company.id,
+            "client_order_ref": "TEST-MULTI-CO-B",
             "order_line": [
                 Command.create(
                     {

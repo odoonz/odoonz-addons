@@ -21,6 +21,12 @@ class TestStockFilterLotQty(_BaseLotSerial):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        # v19 _product_qty uses _get_domain_locations which restricts to
+        # warehouse child locations.  Parent the test locations so core
+        # aggregation includes them.
+        cls.locationA.location_id = cls.stock_location
+        cls.locationB.location_id = cls.stock_location
+        cls.locationC.location_id = cls.stock_location
         cls.StockQuantObj.create(
             {
                 "product_id": cls.productA.id,
