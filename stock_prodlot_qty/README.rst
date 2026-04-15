@@ -29,9 +29,9 @@ Known issues / Roadmap
 ======================
 
 * action_show_details was replaced by an injected js button in v18, therefore we made
-decision to always display as setting context is too difficult.
+  decision to always display as setting context is too difficult.
 * on initial view if a lot or quant is set, it won't display qty as it seems to get this
-without view context.
+  without view context.
 
 Bug Tracker
 ===========
