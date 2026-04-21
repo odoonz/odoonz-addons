@@ -55,7 +55,7 @@ class StockValuationHistory(models.Model):
     warehouse_id = fields.Many2one(
         "stock.warehouse", string="Warehouse", readonly=True, index=True
     )
-    quantity = fields.Float(readonly=True, digits="Product Unit of Measure")
+    quantity = fields.Float(readonly=True, digits="Product Unit")
     uom_id = fields.Many2one(
         "uom.uom",
         string="Unit of Measure",

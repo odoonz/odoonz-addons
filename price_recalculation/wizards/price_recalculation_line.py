@@ -11,7 +11,7 @@ class PriceRecalculationLine(models.AbstractModel):
 
     price_calculation_id = fields.Many2one("price.recalculation")
     product_id = fields.Many2one("product.product", "Product", readonly=True)
-    qty = fields.Float(digits="Product Unit of Measure", readonly=True)
+    qty = fields.Float(digits="Product Unit", readonly=True)
     price_unit = fields.Float("Unit Price", required=True, digits="Product Price")
     discount = fields.Float("Discount (%)", digits="Discount")
     price_subtotal = fields.Float(
