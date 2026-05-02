@@ -10,5 +10,10 @@ class SaleOrderLine(models.Model):
         self = self.with_context(exclude_financial=True)
         return super()._compute_qty_invoiced()
 
+    def _compute_qty_invoiced_at_date(self):
+        """Exclude price credits from backdated accrual calculations."""
+        self = self.with_context(exclude_financial=True)
+        return super()._compute_qty_invoiced_at_date()
+
     def _get_invoice_lines(self):
         return super()._get_invoice_lines()._filter_financial_lines()

@@ -348,3 +348,42 @@ class TestAngloSaxonFinancial(TransactionCase):
         )
         self.assertEqual(income_aml.debit, 24)
         self.assertEqual(income_aml.credit, 0)
+
+    def test_price_credit_excluded_from_qty_invoiced_at_date(self):
+        """Price credit (anglo_saxon_financial) must not reduce qty_invoiced_at_date."""
+        sale_order = self._so_and_confirm_two_units()
+        invoice = sale_order._create_invoices()
+        invoice.action_post()
+        ol = sale_order.order_line
+
+        # Baseline: 2 units invoiced
+        self.assertEqual(ol.qty_invoiced, 2)
+
+        # Create a price credit (financial-only credit note) dated today
+        today = fields.Date.context_today(invoice)
+        move_reversal = (
+            self.env["account.move.reversal"]
+            .with_context(active_model="account.move", active_ids=invoice.ids)
+            .create(
+                {
+                    "date": today,
+                    "reason": "price adjustment",
+                    "journal_id": invoice.journal_id.id,
+                }
+            )
+        )
+        reversal = move_reversal.refund_moves()
+        credit_note = self.env["account.move"].browse(reversal["res_id"])
+        credit_note.anglo_saxon_financial = True
+        credit_note.invoice_line_ids.price_unit = 2.0
+        credit_note.action_post()
+
+        # qty_invoiced should still be 2 (price credit excluded)
+        ol.invalidate_recordset()
+        self.assertEqual(ol.qty_invoiced, 2)
+
+        # qty_invoiced_at_date with a date including the credit should also be 2
+        ol_with_date = ol.with_context(accrual_entry_date=str(today))
+        ol_with_date.invalidate_recordset()
+        ol_with_date._compute_qty_invoiced_at_date()
+        self.assertEqual(ol_with_date.qty_invoiced_at_date, 2)
