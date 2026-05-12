@@ -59,7 +59,7 @@ class ProductProduct(models.Model):
 
     def _set_list_price_from_bom(self, boms_to_recompute=False):
         self.ensure_one()
-        bom = self.env["mrp.bom"]._bom_find(product=self)
+        bom = self.env["mrp.bom"]._bom_find(self).get(self)
         if bom:
             self.bom_list_price = self._compute_bom_list_price(bom)
         else:
