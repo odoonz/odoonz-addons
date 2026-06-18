@@ -38,19 +38,6 @@ class TestRpcEndpoints(HttpCase):
         )
         self.assertEqual(resp.status_code, 404)
 
-    def test_version_info_does_not_fingerprint(self):
-        resp = self.url_open(
-            "/web/webclient/version_info",
-            data='{"jsonrpc":"2.0","method":"call","params":{},"id":1}',
-            headers={"Content-Type": "application/json"},
-        )
-        self.assertEqual(resp.status_code, 200)
-        result = resp.json()["result"]
-        self.assertNotIn("server_version", result)
-        self.assertNotIn("server_version_info", result)
-        self.assertNotIn("server_serie", result)
-        self.assertEqual(result.get("protocol_version"), 1)
-
     def test_db_management_endpoints_disabled(self):
         # Management/mutating routes return 404 ...
         for path in (

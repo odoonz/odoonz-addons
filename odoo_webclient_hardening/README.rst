@@ -111,11 +111,13 @@ capability.
 Version fingerprinting
 ----------------------
 
-**Purpose:** ``/web/webclient/version_info`` is ``auth="none"`` and returns the
-exact Odoo version, version tuple and serie (including the ``+e`` Enterprise
-marker), which is prime CVE-targeting data. The web client only uses this route
-as a connectivity ping and reads the real version from ``session_info``, so we
-return a minimal ``{"protocol_version": 1}`` payload and drop the fingerprint.
+**Not hardened.** ``/web/webclient/version_info`` is ``auth="none"`` and
+returns the exact Odoo version, version tuple and serie (including the ``e``
+Enterprise marker), which is prime CVE-targeting data. The browser web client
+only uses this route as a connectivity ping and reads the real version from
+``session_info``, so stripping the payload looked safe — but the Odoo mobile
+apps (Android and iOS) call it on first connect to verify server compatibility
+and require ``server_version_info``. We therefore leave the stock response.
 
 Exception detail leakage
 ------------------------
