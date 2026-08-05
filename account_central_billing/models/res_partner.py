@@ -43,11 +43,13 @@ class ResPartner(models.Model):
 
     def _get_out_billing_partner(self, company):
         self.ensure_one()
-        return self._get_billing_partner("invoicing_partner_id", company)
+        partner = self._get_billing_partner("invoicing_partner_id", company)
+        return partner._get_invoice_contact()
 
     def _get_in_billing_partner(self, company):
         self.ensure_one()
-        return self._get_billing_partner("billing_partner_id", company)
+        partner = self._get_billing_partner("billing_partner_id", company)
+        return partner._get_invoice_contact()
 
     def _get_billing_partner(self, fieldname, company):
         self.ensure_one()
@@ -58,6 +60,23 @@ class ResPartner(models.Model):
                 break
             partner = partner[fieldname]
         return partner
+
+    def _get_invoice_contact(self):
+        """Resolve the actual contact/address invoices should be sent to.
+
+        `_get_billing_partner` only walks the central-billing chain to the
+        right *account* (e.g. a customer's head office, or - absent any
+        central billing setup - the customer's own commercial partner). It
+        never looks at that account's designated Invoice Address, so
+        invoices generated from it (e.g. via the recharge/onbehalf flows in
+        `ril_intercompany_rules`) end up addressed to the bare company
+        record instead of its invoice contact. `address_get` falls back to
+        the partner itself when no dedicated invoice contact exists, so this
+        is a no-op for accounts without one.
+        """
+        self.ensure_one()
+        invoice_partner_id = self.address_get(["invoice"])["invoice"]
+        return self.browse(invoice_partner_id)
 
     @api.model
     def _commercial_fields(self):

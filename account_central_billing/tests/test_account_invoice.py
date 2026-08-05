@@ -77,6 +77,34 @@ class TestAccountInvoice(common.TransactionCase):
             invoice.order_invoice_id.id, self.partner_a.commercial_partner_id.id
         )
 
+    def test_invoice_create_with_own_invoice_contact_is_not_redirected(self):
+        """A partner with a dedicated Invoice Address contact but no
+        `invoicing_partner_id` configured has NOT opted into central
+        billing - creating an invoice for it must not be treated as a
+        redirect (regression: this used to wrongly overwrite
+        `order_partner_id`/`order_invoice_id`, e.g. clobbering an
+        intercompany mirror invoice's real customer with the vendor's own
+        bare partner - see `ril_intercompany_rules`)."""
+        partner_with_contact = self.env["res.partner"].create(
+            {"name": "CB Test Partner With Own Invoice Contact", "is_company": True}
+        )
+        self.env["res.partner"].create(
+            {
+                "name": "CB Test Partner With Own Invoice Contact - AP",
+                "parent_id": partner_with_contact.id,
+                "type": "invoice",
+            }
+        )
+        invoice = self.env["account.move"].create(
+            {
+                "partner_id": partner_with_contact.id,
+                "move_type": "out_invoice",
+            }
+        )
+        self.assertEqual(invoice.partner_id, partner_with_contact)
+        self.assertFalse(invoice.order_partner_id)
+        self.assertFalse(invoice.order_invoice_id)
+
     def test_search(self):
         pass
 

@@ -270,3 +270,98 @@ class TestResPartnerInvoicing(common.TransactionCase):
         comm_fields = self.env["res.partner"]._commercial_fields()
         self.assertIn("invoicing_partner_id", comm_fields)
         self.assertIn("billing_partner_id", comm_fields)
+
+
+@tagged("post_install", "-at_install")
+class TestGetInvoiceContact(common.TransactionCase):
+    """`_get_out_billing_partner` / `_get_in_billing_partner` must return the
+    resolved account's actual Invoice Address contact, not the bare
+    company/commercial partner record - both with and without an
+    `invoicing_partner_id`/`billing_partner_id` central-billing redirect."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.company = cls.env.company
+
+        cls.no_redirect_hq = cls.env["res.partner"].create(
+            {"name": "Central Billing Test - No Redirect HQ", "is_company": True}
+        )
+        cls.no_redirect_invoice_contact = cls.env["res.partner"].create(
+            {
+                "name": "Central Billing Test - No Redirect HQ AP",
+                "parent_id": cls.no_redirect_hq.id,
+                "type": "invoice",
+            }
+        )
+
+        cls.no_contact_partner = cls.env["res.partner"].create(
+            {"name": "Central Billing Test - No Invoice Contact", "is_company": True}
+        )
+
+        cls.customer_hq = cls.env["res.partner"].create(
+            {"name": "Central Billing Test - Customer HQ", "is_company": True}
+        )
+        cls.customer_invoice_contact = cls.env["res.partner"].create(
+            {
+                "name": "Central Billing Test - Customer HQ AP",
+                "parent_id": cls.customer_hq.id,
+                "type": "invoice",
+            }
+        )
+        cls.customer_site = cls.env["res.partner"].create(
+            {
+                "name": "Central Billing Test - Customer Site",
+                "is_company": True,
+                "invoicing_partner_id": cls.customer_hq.id,
+            }
+        )
+
+        cls.vendor_hq = cls.env["res.partner"].create(
+            {"name": "Central Billing Test - Vendor HQ", "is_company": True}
+        )
+        cls.vendor_invoice_contact = cls.env["res.partner"].create(
+            {
+                "name": "Central Billing Test - Vendor HQ AP",
+                "parent_id": cls.vendor_hq.id,
+                "type": "invoice",
+            }
+        )
+        cls.vendor_branch = cls.env["res.partner"].create(
+            {
+                "name": "Central Billing Test - Vendor Branch",
+                "is_company": True,
+                "billing_partner_id": cls.vendor_hq.id,
+            }
+        )
+
+    def test_out_billing_partner_uses_invoice_contact_without_redirect(self):
+        """Even with no central-billing redirect configured, if the
+        partner itself has a dedicated Invoice Address it must be used."""
+        self.assertEqual(
+            self.no_redirect_hq._get_out_billing_partner(self.company),
+            self.no_redirect_invoice_contact,
+        )
+
+    def test_out_billing_partner_falls_back_without_invoice_contact(self):
+        """Without any dedicated Invoice Address, behaviour is unchanged:
+        the resolved partner itself is returned."""
+        self.assertEqual(
+            self.no_contact_partner._get_out_billing_partner(self.company),
+            self.no_contact_partner,
+        )
+
+    def test_out_billing_partner_uses_hq_invoice_contact_after_redirect(self):
+        """After a central-billing redirect to the customer's HQ, the HQ's
+        own Invoice Address contact must be used, not the bare HQ record."""
+        self.assertEqual(
+            self.customer_site._get_out_billing_partner(self.company),
+            self.customer_invoice_contact,
+        )
+
+    def test_in_billing_partner_uses_hq_invoice_contact_after_redirect(self):
+        """Same behaviour for the vendor/payable side (billing_partner_id)."""
+        self.assertEqual(
+            self.vendor_branch._get_in_billing_partner(self.company),
+            self.vendor_invoice_contact,
+        )

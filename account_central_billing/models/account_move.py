@@ -76,7 +76,13 @@ class AccountMove(models.Model):
         if not partner_id:
             return vals
         partner = self.env["res.partner"].browse(partner_id).commercial_partner_id
-        invoice_partner = partner._get_out_billing_partner(company)
+        # Raw chain walk here (not `_get_out_billing_partner`): whether a
+        # central-billing redirect happened at all must be decided before
+        # any invoice-contact substitution, otherwise a partner that simply
+        # has its own dedicated Invoice Address (but no `invoicing_partner_id`
+        # configured) would look redirected and wrongly clobber
+        # `order_partner_id`/`order_invoice_id` below.
+        invoice_partner = partner._get_billing_partner("invoicing_partner_id", company)
         vals.update(
             self._prepare_billing_partner_vals(partner_id, partner, invoice_partner)
         )
@@ -87,7 +93,7 @@ class AccountMove(models.Model):
         if not partner_id:
             return vals
         partner = self.env["res.partner"].browse(partner_id).commercial_partner_id
-        invoice_partner = partner._get_in_billing_partner(company)
+        invoice_partner = partner._get_billing_partner("billing_partner_id", company)
         vals.update(
             self._prepare_billing_partner_vals(partner_id, partner, invoice_partner)
         )
@@ -97,7 +103,7 @@ class AccountMove(models.Model):
     def _prepare_billing_partner_vals(partner_id, commercial_partner, invoice_partner):
         if invoice_partner != commercial_partner:
             return {
-                "partner_id": invoice_partner.id,
+                "partner_id": invoice_partner._get_invoice_contact().id,
                 "order_partner_id": commercial_partner.id,
                 "order_invoice_id": partner_id,
             }
