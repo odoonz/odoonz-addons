@@ -71,7 +71,7 @@
                 <filter
                     name="last_valuation"
                     string="Last Valuation"
-                    domain="[('date', '&gt;', (context_today() - relativedelta(days=30)).strftime('%Y-%m-%d'))]"
+                    domain="[('date', '=', (context_today() + relativedelta(day=1, days=-1)).strftime('%Y-%m-%d'))]"
                 />
                 <group>
                     <filter
