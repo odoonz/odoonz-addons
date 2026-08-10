@@ -61,6 +61,12 @@ class ProductPriceChange(models.Model):
                 )
             record.state = "draft"
 
+    @api.depends(
+        "effective_date",
+        "impl_delay_ids.effective_date",
+        "impl_delay_ids.included_categories",
+    )
+    @api.depends_context("partner_id")
     def _compute_partner_effective_date(self):
         partner_id = self.env.context.get("partner_id")
         if partner_id:
