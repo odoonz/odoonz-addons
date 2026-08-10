@@ -89,6 +89,7 @@ class ProductProduct(models.Model):
         )
 
     @api.depends("product_template_attribute_value_ids.price_extra")
+    @api.depends_context("uom", "date", "partner_id")
     def _compute_product_price_extra(self):
         to_uom = None
         if "uom" in self.env.context:
@@ -130,7 +131,7 @@ class ProductProduct(models.Model):
             product.price_extra = price_extra
 
     @api.depends("list_price", "price_extra")
-    @api.depends_context("date")
+    @api.depends_context("date", "partner_id", "partner")
     def _compute_product_lst_price(self):
         to_uom = None
         if (
