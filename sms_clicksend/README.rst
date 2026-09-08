@@ -22,7 +22,27 @@ To configure this module, you need to:
     * Company: specify or keep blank for all
     * API Username: your ClickSend username
     * API Key: your ClickSend API key
+    * Sender ID: optional, see below
 * SMS are now sent with your ClickSend account.
+
+Sender ID
+~~~~~~~~~
+
+The Sender ID is what the recipient sees the message coming from, and
+what they reply to. It can be a dedicated number you have purchased
+from ClickSend (in E.164 format, or a shortcode), or an alpha tag.
+Note that recipients cannot reply to an alpha tag.
+
+Leave it blank and ClickSend decides the sender for you. On an account
+with no dedicated number that means a number picked from ClickSend's
+shared pool, so a different number for every message. Set it
+explicitly if you have a dedicated number, both so recipients always
+see the same sender and because ClickSend do not document which sender
+they fall back to in that case.
+
+This is distinct from the reply email address provided by the
+``_get_from_email()`` hook, which controls where ClickSend emails
+inbound replies to.
 
 Which SMS account will be used?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -48,6 +48,9 @@ class ClicksendSmsApi(SmsApi):
         from_email = sms_sms._get_from_email()
         if from_email:
             sms_args["from_email"] = from_email
+        if self.clicksend_account.sms_clicksend_from:
+            # Serialised as "from"; the client underscores the Python keyword
+            sms_args["_from"] = self.clicksend_account.sms_clicksend_from
         sms_message = SmsMessage(**sms_args)
         _logger.info(f"Sending SMS: {sms_message}")
         try:

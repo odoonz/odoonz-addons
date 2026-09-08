@@ -13,6 +13,7 @@ class IapAccount(models.Model):
     )
     sms_clicksend_username = fields.Char(string="API Username")
     sms_clicksend_password = fields.Char(string="API Key")
+    sms_clicksend_from = fields.Char(string="Sender ID")
 
     @api.onchange("provider")
     def _onchange_provider(self):

@@ -13,6 +13,7 @@
                     <field name="service_id" readonly="1" />
                     <field name="sms_clicksend_username" />
                     <field name="sms_clicksend_password" />
+                    <field name="sms_clicksend_from" />
                 </group>
             </xpath>
         </field>
