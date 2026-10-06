@@ -74,3 +74,11 @@ class TestResPartner(TransactionCase):
         """Test updating unlocked fields for locked partner"""
         self.locked_partner.with_user(self.test_user).write({"customer_rank": 5})
         self.assertEqual(self.locked_partner.customer_rank, 5)
+
+    def test_write_locked_partner_login_fields(self):
+        """Login may set tz/lang on the user's partner even when locked."""
+        self.locked_partner.with_user(self.test_user).write(
+            {"tz": "Pacific/Auckland", "lang": "en_NZ"}
+        )
+        self.assertEqual(self.locked_partner.tz, "Pacific/Auckland")
+        self.assertEqual(self.locked_partner.lang, "en_NZ")

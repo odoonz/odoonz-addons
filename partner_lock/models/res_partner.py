@@ -27,6 +27,10 @@ class ResPartner(models.Model):
             "is_locked",
             "receipt_reminder_email",
             "reminder_date_before_receipt",
+            # Set by Odoo on login / signup (res.users inherits res.partner).
+            "tz",
+            "lang",
+            "signup_type",
         ]
 
     def write(self, vals):
