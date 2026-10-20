@@ -1,0 +1,6 @@
+.o_barcode_client_action .o_count_lot_picker {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: var(--o-view-background-color, #fff);
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="stock_barcode_lot_prompt.CountLotPicker">
+        <div
+            class="o_count_lot_picker o_barcode_line list-group-item d-flex flex-column gap-2 border-bottom"
+            t-on-click.stop=""
+        >
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fs-2 font-monospace" t-if="product.default_code">
+                        <t t-esc="product.default_code" />
+                    </div>
+                    <div class="small" t-esc="product.display_name" />
+                </div>
+                <button
+                    class="btn btn-secondary o_count_lot_cancel"
+                    t-on-click="cancel"
+                    title="Cancel"
+                >
+                    <i class="fa fa-times" />
+                </button>
+            </div>
+            <div class="o_field_widget w-100">
+                <Many2XAutocomplete
+                    value="''"
+                    resModel="'stock.lot'"
+                    fieldString="lotLabel"
+                    activeActions="activeActions"
+                    getDomain.bind="getDomain"
+                    quickCreate.bind="quickCreate"
+                    update.bind="onLotSelected"
+                    specification="specification"
+                    placeholder="lotLabel"
+                />
+            </div>
+        </div>
+    </t>
+</templates>

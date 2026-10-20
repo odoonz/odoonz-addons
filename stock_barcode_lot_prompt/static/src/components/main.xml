@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t
+        t-inherit="stock_barcode.MainComponent"
+        t-inherit-mode="extension"
+        t-name="stock_barcode_lot_prompt.MainComponent"
+    >
+        <xpath
+            expr="//div[hasclass('o_barcode_lines')]/t[@t-foreach='env.model.groupedLinesByLocation']"
+            position="before"
+        >
+            <CountLotPicker
+                t-if="env.model.resModel == 'stock.quant' and env.model.pendingLotSelection"
+                t-key="env.model.pendingLotSelection.product.id"
+            />
+        </xpath>
+    </t>
+</templates>
