@@ -3,4 +3,20 @@
     top: 0;
     z-index: 3;
     background-color: var(--o-view-background-color, #fff);
+
+    // The lot menu is position:fixed and sized to its text, so a long lot
+    // name runs off a phone-width screen (and a short one is a tiny tap target).
+    .o-autocomplete--dropdown-menu {
+        left: 16px !important;
+        width: calc(100vw - 32px) !important;
+        max-width: calc(100vw - 32px) !important;
+        min-width: 0 !important;
+        max-height: 40vh;
+        box-sizing: border-box;
+
+        .dropdown-item {
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+    }
 }
