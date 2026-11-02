@@ -4,8 +4,8 @@
 {
     "name": "Barcode App Usability",
     "summary": """
-        Mark counted lines awaiting review from Inventory Count""",
-    "version": "19.0.1.0.0",
+        Count review, and open the next transfer by scanning the prior one""",
+    "version": "19.0.1.1.0",
     "license": "LGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
