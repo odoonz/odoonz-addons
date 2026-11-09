@@ -68,6 +68,28 @@ class TestPriorTransferScan(TransactionCase):
             result["action"]["context"]["search_default_name"], self.later.name
         )
 
+    def test_operation_scan_ignores_caps_lock_on_own_name(self):
+        flipped = self.later.name.swapcase()
+        self.assertNotEqual(flipped, self.later.name)
+        result = (
+            self.env["stock.picking"]
+            .with_context(active_id=self.out_type.id)
+            .filter_on_barcode(flipped)
+        )
+        self.assertEqual(
+            result["action"]["context"]["search_default_name"], self.later.name
+        )
+
+    def test_prior_transfer_scan_ignores_caps_lock(self):
+        flipped = self.prior.name.swapcase()
+        self.assertNotEqual(flipped, self.prior.name)
+        result = (
+            self.env["stock.picking"]
+            .with_context(active_id=self.out_type.id)
+            .filter_on_barcode(flipped)
+        )
+        self.assertEqual(result["action"]["context"]["active_id"], self.later.id)
+
     def test_unknown_barcode_still_warns(self):
         result = (
             self.env["stock.picking"]

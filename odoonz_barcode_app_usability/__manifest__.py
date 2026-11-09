@@ -5,7 +5,7 @@
     "name": "Barcode App Usability",
     "summary": """
         Count review, and open the next transfer by scanning the prior one""",
-    "version": "19.0.1.1.0",
+    "version": "19.0.1.2.0",
     "license": "LGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",

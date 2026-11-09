@@ -35,8 +35,18 @@ Scanning the previous transfer
    pick number. The open pack opens. An in-progress pick still opens
    itself.
 
+Transfer name matching ignores letter case, so a USB keyboard-wedge
+scanner with Caps Lock on still opens the pick or the pack that follows
+it.
+
 Changelog
 =========
+
+19.0.1.2.0 (2026-11-10)
+-----------------------
+
+* Match transfer names case-insensitively when scanning a pick document
+  or the prior transfer (Caps Lock on a USB scanner).
 
 19.0.1.1.0 (2026-11-03)
 -----------------------
