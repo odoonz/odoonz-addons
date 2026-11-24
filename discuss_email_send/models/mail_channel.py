@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class MailChannel(models.Model):
-    _inherit = "mail.channel"
+class DiscussChannel(models.Model):
+    _inherit = "discuss.channel"
 
     email_send = fields.Boolean()
 

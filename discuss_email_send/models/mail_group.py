@@ -18,7 +18,7 @@ class MailGroup(models.Model):
         except UserError:
             self.image_128 = base64.b64.decode(self.image_128)
 
-        self.env["mail.channel"].create(
+        self.env["discuss.channel"].create(
             {
                 "name": self.name,
                 "email_send": True,
