@@ -6,8 +6,9 @@
 Reordering Rule Quantity Multiple
 =================================
 
-Round a reordering rule's quantity to order up to an integer multiple,
-without creating a packaging.
+Round a reordering rule's quantity to order to an integer multiple,
+without creating a packaging, and optionally keep that order within the
+rule's maximum quantity.
 
 Odoo 19 replaced the old ``qty_multiple`` float with a replenishment
 unit. This module adds **Quantity Multiple** back as an integer. When
@@ -25,6 +26,20 @@ The module depends on Purchase and Manufacturing so this fallback is
 applied ahead of those modules. They replace the same method and do not
 call ``super`` when their route matches.
 
+The module also offers **maximum quantity protection**. Rounding up to
+a whole multiple can order past **Max Quantity**. Take a rule with a
+maximum of 30, 8 units on hand and a multiple of 20, say a pallet:
+
+* The rule needs 22 to reach the maximum.
+* 22 rounds up to two pallets, so 40 is ordered.
+* Stock ends at 48, which is 18 over the maximum.
+
+Odoo 18 rounded down whenever a maximum was set, precisely to avoid
+this. Enabling the ``stock.orderpoint_not_to_exceed_max`` system
+parameter restores that behaviour: one pallet is ordered, stock ends at
+28 and the maximum is never exceeded. It is off by default and applies
+to every reordering rule at once.
+
 Installation
 ============
 
@@ -34,7 +49,11 @@ Manufacturing are installed with it.
 Configuration
 =============
 
-No configuration is required.
+No configuration is required to round up to a multiple.
+
+For maximum quantity protection, set ``stock.orderpoint_not_to_exceed_max``
+to ``True`` under Settings → Technical → System Parameters. Leaving the
+parameter unset keeps Odoo's standard rounding up.
 
 Usage
 =====
@@ -47,6 +66,11 @@ set **Quantity Multiple**.
   the vendor unit or the bill of materials unit.
 * A replenishment unit on the same rule is used instead of the multiple.
 
+With ``stock.orderpoint_not_to_exceed_max`` enabled, a need of 15.5
+with a multiple of 10 orders 10 rather than 20. A need smaller than one
+whole multiple orders nothing at all, so a rule whose maximum it cannot
+reach in whole multiples stops ordering.
+
 The **Multiple** column shows the number in grey while the replenishment
 unit is empty, because that column's placeholder is the name of the
 in-memory unit.
@@ -56,9 +80,8 @@ Known issues / Roadmap
 
 * The multiple is a whole number. Fractional multiples, such as 2.5,
   are not supported.
-* Rounding is always up, including when a maximum quantity is set.
-  Odoo 18 rounded down in that case so the order stayed within the
-  maximum.
+* Rounding down applies to every reordering rule at once. It cannot be
+  enabled for a single rule.
 
 Bug Tracker
 ===========

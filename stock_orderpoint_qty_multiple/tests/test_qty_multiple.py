@@ -105,3 +105,81 @@ class TestOrderpointQtyMultiple(TransactionCase):
         with self.assertRaises(IntegrityError), self.env.cr.savepoint():
             self.orderpoint.qty_multiple = -1
             self.orderpoint.flush_recordset(["qty_multiple"])
+
+
+class TestOrderpointNotToExceedMax(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.env["ir.config_parameter"].sudo().set_param(
+            "stock.orderpoint_not_to_exceed_max", "True"
+        )
+        cls.warehouse = cls.env["stock.warehouse"].search(
+            [("company_id", "=", cls.env.company.id)], limit=1
+        )
+        cls.stock_location = cls.warehouse.lot_stock_id
+        cls.product = cls.env["product.product"].create(
+            {
+                "name": "Not To Exceed Max Product",
+                "is_storable": True,
+            }
+        )
+        cls.env["stock.quant"].with_context(inventory_mode=True).create(
+            {
+                "product_id": cls.product.id,
+                "location_id": cls.stock_location.id,
+                "inventory_quantity": 14.5,
+            }
+        ).action_apply_inventory()
+        cls.orderpoint = cls.env["stock.warehouse.orderpoint"].create(
+            {
+                "name": "Not To Exceed Max Rule",
+                "product_id": cls.product.id,
+                "warehouse_id": cls.warehouse.id,
+                "location_id": cls.stock_location.id,
+                "product_min_qty": 15.0,
+                "product_max_qty": 30.0,
+            }
+        )
+
+    def test_multiple_rounds_quantity_down(self):
+        self.orderpoint.qty_multiple = 10
+        # 30 - 14.5 = 15.5. Rounding up to 20 would stock 34.5, over the max.
+        self.assertEqual(self.orderpoint.qty_to_order, 10.0)
+
+    def test_exact_multiple_is_not_stepped_down(self):
+        self.orderpoint.write({"qty_multiple": 10, "product_max_qty": 34.5})
+        # 34.5 - 14.5 = 20.0, already a whole multiple.
+        self.assertEqual(self.orderpoint.qty_to_order, 20.0)
+
+    def test_need_below_one_multiple_orders_nothing(self):
+        self.orderpoint.qty_multiple = 20
+        # 15.5 is less than one multiple, so nothing can be ordered.
+        self.assertEqual(self.orderpoint.qty_to_order, 0.0)
+
+    def test_zero_multiple_does_not_round(self):
+        self.orderpoint.qty_multiple = 0
+        self.assertEqual(self.orderpoint.qty_to_order, 15.5)
+
+    def test_replenishment_uom_also_rounds_down(self):
+        pack_of_6 = self.env["uom.uom"].create(
+            {
+                "name": "pack of 6",
+                "relative_factor": 6.0,
+                "relative_uom_id": self.product.uom_id.id,
+            }
+        )
+        self.orderpoint.write(
+            {"qty_multiple": 10, "replenishment_uom_id": pack_of_6.id}
+        )
+        # 15.5 rounded down to whole packs of 6, ignoring the multiple of 10.
+        self.assertEqual(self.orderpoint.qty_to_order, 12.0)
+
+    def test_parameter_off_rounds_up(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "stock.orderpoint_not_to_exceed_max", "False"
+        )
+        self.orderpoint.qty_multiple = 10
+        self.orderpoint.invalidate_recordset(["qty_to_order_computed"])
+        self.assertEqual(self.orderpoint.qty_to_order, 20.0)

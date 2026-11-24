@@ -3,8 +3,9 @@
 
 {
     "name": "Reordering Rule Quantity Multiple",
-    "summary": "Round reordering-rule quantities up to an integer multiple",
-    "version": "19.0.1.0.0",
+    "summary": "Round reordering-rule quantities to an integer multiple, "
+    "optionally without exceeding the maximum quantity",
+    "version": "19.0.1.1.0",
     "license": "AGPL-3",
     "author": "Graeme Gellatly",
     "website": "https://github.com/odoonz/odoonz-addons",
